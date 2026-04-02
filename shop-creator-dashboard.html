@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Shop Dashboard - Taboost</title>
+    <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Expose for logout
+        window.logout = async () => {
+            await auth.signOut();
+            window.location.href = 'firebase-login.html';
+        };
+
+        // Check Firebase Auth state
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                // Bypass auth for preview
+                user = { uid: 'preview', email: 'preview@taboost.me', displayName: 'Preview User' };
+            }
+
+            // Get user data from Firestore
+            let userData = null;
+            try {
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                userData = userDoc.data();
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+
+            // Determine role
+            let role = userData?.role || 'creator';
+            if (user.email?.toLowerCase() === 'marco@taboost.me') {
+                role = 'admin';
+            }
+
+            // Admins should use admin dashboard
+            if (role === 'admin') {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            // Build user object for dashboard
+            const username = userData?.username || user.displayName || user.email?.split('@')[0] || 'Creator';
+            window.currentUser = {
+                uid: user.uid,
+                email: user.email,
+                role: role,
+                name: userData?.name || user.displayName || username,
+                username: username
+            };
+
+            // Update UI with user info
+            const nameEl = document.getElementById('creatorName');
+            if (nameEl) nameEl.textContent = window.currentUser.name || window.currentUser.username;
+
+            // Rotating greetings
+            const greetings = [
+                "What's good! Ready to crush it? 🔥",
+                "Back at it! Let's see those numbers 📊",
+                "Yo! Another day, another bag 💰",
+                "Hey legend! Time to check your glow-up ✨",
+                "In the building! Let's goooo 🚀",
+                "Show me the money! 💎",
+                "Another day closer to that bag 💪",
+                "Rise and grind time! ☕",
+                "Ready to make it happen? 🎯",
+                "Let's check that progress! 📈",
+                "Back to secure the bag! 🛍️",
+                "Time to see those gains! 💵",
+                "Hustle mode: activated ⚡",
+                "Main character energy today! 🌟",
+                "Stacking diamonds daily! 💎"
+            ];
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            const welcomeMsg = document.getElementById('welcomeMessage');
+            if (welcomeMsg) welcomeMsg.textContent = randomGreeting;
+
+            // Initialize dashboard
+            if (typeof initCreatorDashboard === 'function') {
+                initCreatorDashboard(window.currentUser);
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="css/styles.css?v=202503092112">
+    <link rel="stylesheet" href="css/shop-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* FORCE REMOVE RED BAR - OVERRIDE ALL */
+        .stat-card::before,
+        .stat-card::after {
+            display: none !important;
+            content: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* PRO BONUS SECTION - Glow Effect */
+        .pro-bonus-section {
+            margin-top: 24px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 140, 0, 0.1) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            animation: proBonusGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes proBonusGlow {
+            from {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1);
+                border-color: rgba(255, 215, 0, 0.3);
+            }
+
+            to {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 140, 0, 0.2);
+                border-color: rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .pro-bonus-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .pro-bonus-glow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            border-radius: 50px;
+            color: #000;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            animation: proBadgePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes proBadgePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pro-bonus-glow i {
+            font-size: 18px;
+        }
+
+        .pro-bonus-details {
+            display: grid;
+            gap: 12px;
+        }
+
+        .pro-bonus-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .pro-bonus-total {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 140, 0, 0.2) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .pro-label {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .pro-value {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .pro-bonus-total .pro-value {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .pro-bonus-formula {
+            text-align: center;
+            color: #666;
+            font-size: 11px;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Halo effect for score section when Pro Bonus is active */
+        .score-section.pro-active {
+            animation: scoreHalo 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes scoreHalo {
+            from {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.2), inset 0 0 30px rgba(255, 215, 0, 0.05);
+            }
+
+            to {
+                box-shadow: 0 0 50px rgba(255, 215, 0, 0.4), inset 0 0 50px rgba(255, 215, 0, 0.1);
+            }
+        }
+
+        /* Small Pro Bonus Badge - inline with header */
+        .score-header-with-badge {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .score-header-with-badge h2 {
+            flex-shrink: 0;
+        }
+
+        .pro-bonus-badge-inline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 auto;
+        }
+
+        .pro-bonus-badge-inline i {
+            font-size: 10px;
+        }
+
+        /* Pro Bonus revenue item highlight */
+        .revenue-item.pro-revenue-active {
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 140, 0, 0.05) 100%);
+            animation: proRevenuePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes proRevenuePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        /* Mobile layout for Score section */
+        @media (max-width: 768px) {
+            .score-header-with-badge {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .score-header-with-badge h2 {
+                grid-column: 1;
+                grid-row: 1;
+                font-size: 16px;
+                margin: 0;
+            }
+
+            .score-header-with-badge .score-badge {
+                grid-column: 2;
+                grid-row: 1;
+                font-size: 14px;
+            }
+
+            .score-header-with-badge .pro-bonus-badge-inline {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: center;
+                margin: 4px 0;
+                font-size: 10px;
+                padding: 3px 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- BUILD: 2025-03-09-09:04 -->
+    <div class="creator-layout">
+        <!-- Sidebar Logo for Mobile -->
+        <div class="mobile-logo">
+            <img src="images/taboost-logo.jpg?v=20250305" alt="TABOOST">
+        </div>
+
+        <!-- Header -->
+        <header class="creator-header">
+            <div class="creator-profile">
+                <img src="images/creator-avatar.jpg" alt="Creator" class="creator-avatar-img" id="creatorAvatar">
+                <div class="creator-info">
+                    <h1 id="creatorName">Loading...</h1>
+                    <p><i class="fas fa-clock"></i> <span id="joinDate">--</span></p>
+                    <div class="creator-badges" id="creatorBadges">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a class="manager-pill" id="managerPill" href="#" target="_blank" title="Contact manager">
+                    <i class="fas fa-user-tie"></i>
+                    <span id="managerName">--</span>
+                </a>
+                <button class="settings-btn" onclick="openSettings()">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- 1. Welcome Message -->
+        <div class="welcome-banner" id="welcomeBanner">
+            <div class="welcome-content">
+                <i class="fas fa-rocket"></i>
+                <div>
+                    <h3 id="welcomeTitle">Welcome back!</h3>
+                    <p id="welcomeMessage">Check out your latest sales and commissions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Current Diamonds / Rank / Rewards -->
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <div class="stat-header">
+                    <span class="stat-label">This Month's Total GMV</span>
+                </div>
+                <div class="stat-value" id="currentGMV">--</div>
+                <div class="stat-usd" id="currentUSD" style="display: none;">--</div>
+                <div class="stat-trend" id="gmvTrend">
+                    <span class="trend-indicator">
+                        <i class="fas fa-chart-line"></i> --% vs last month
+                    </span>
+                </div>
+                <div class="stat-footer">
+                    <small class="last-updated">Last updated: <span id="lastUpdatedTime">--</span></small>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">My Rank</span>
+                </div>
+                <div class="rank-display">
+                    <span class="rank-number" id="currentRank">--</span>
+                    <span class="rank-total">of <span id="totalCreators">--</span></span>
+                </div>
+                <div class="rank-progress">
+                    <div class="rank-bar" id="rankBar"></div>
+                </div>
+                <p class="rank-goal" id="rankGoal">-- more to rank up</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Current Points Available</span>
+                </div>
+                <div class="stat-value" id="totalPoints" style="color: var(--taboost-success);">--</div>
+                <div class="stat-breakdown" id="rewardsBreakdown">
+                    <span>Total Points Earned: --</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. My Creator Score -->
+        <div class="section-card score-section">
+            <div class="section-header score-header-with-badge">
+                <h2><i class="fas fa-star" style="color: #ffd700;"></i> My Shop Score</h2>
+                <!-- Pro Bonus Badge - inline with header -->
+                <div id="proBonusBadge" class="pro-bonus-badge-inline" style="display: none;">
+                    <i class="fas fa-crown"></i>
+                    <span>PRO BONUS UNLOCKED</span>
+                </div>
+                <span class="score-badge" id="scoreBadge">Score: --</span>
+            </div>
+
+            <!-- Score Progress Bar -->
+            <div class="score-progress-container">
+                <div class="score-chart-wrapper">
+                    <div class="score-scale-line">
+                        <div class="scale-item" style="left: 0%">
+                            <span class="scale-num">0</span>
+                        </div>
+                        <div class="scale-item" style="left: 10%">
+                            <span class="scale-num">10</span>
+                            <span class="scale-tier tier-starters">STARTERS</span>
+                        </div>
+                        <div class="scale-item" style="left: 30%">
+                            <span class="scale-num">30</span>
+                            <span class="scale-tier tier-nextups">NEXT-UPS</span>
+                        </div>
+                        <div class="scale-item" style="left: 50%">
+                            <span class="scale-num">50</span>
+                            <span class="scale-tier tier-stars">STARS</span>
+                        </div>
+                        <div class="scale-item" style="left: 70%">
+                            <span class="scale-num">70</span>
+                            <span class="scale-tier tier-pros">PROS</span>
+                        </div>
+                        <div class="scale-item" style="left: 90%">
+                            <span class="scale-num">90</span>
+                            <span class="scale-tier tier-masters">MASTERS</span>
+                        </div>
+                        <div class="scale-item" style="left: 100%">
+                            <span class="scale-num">100</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="score-segmented-bar">
+                    <div class="score-segments" id="scoreSegments"></div>
+                    <!-- Tick marks at tier boundaries -->
+                    <div class="tier-ticks">
+                        <div class="tier-tick" style="left: 0%"></div>
+                        <div class="tier-tick" style="left: 10%"></div>
+                        <div class="tier-tick" style="left: 30%"></div>
+                        <div class="tier-tick" style="left: 50%"></div>
+                        <div class="tier-tick" style="left: 70%"></div>
+                        <div class="tier-tick" style="left: 90%"></div>
+                        <div class="tier-tick" style="left: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Score Breakdown -->
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Items Sold</span>
+                    <strong id="scoreSold">--</strong>
+                </div>
+                <div class="breakdown-item">
+                    <i class="fas fa-gem"></i>
+                    <span>3-Month GMV</span>
+                    <strong id="scoreGMV">--</strong>
+                </div>
+                <div class="breakdown-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Rank Change</span>
+                    <strong id="rankChange">--</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. My Revenue Streams -->
+        <div class="section-card revenue-section">
+            <div class="section-header">
+                <h2><i class="fas fa-coins" style="color: var(--taboost-success);"></i> My Commission Streams</h2>
+            </div>
+            <div class="revenue-grid">
+                <div class="revenue-item">
+                    <div class="revenue-icon" style="background: rgba(0,212,255,0.1); color: #00d4ff;">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <span class="revenue-name">Estimated Commissions</span>
+                        <span class="revenue-value" id="commissionRevenueUSD">--</span>
+                    </div>
+                    <span class="revenue-note" id="commissionRevenue">--</span>
+                </div>
+                <div class="revenue-item highlight" id="proBonusRevenueItem">
+                    <div class="revenue-icon" style="background: rgba(255,215,0,0.1); color: #ffd700;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <span class="revenue-name">Agency Cash Bonus</span>
+                        <span class="revenue-value" id="proBonusRevenueValue">Score 70+ to Unlock</span>
+                    </div>
+                    <span class="revenue-note" id="proBonusRevenueNote">Pro Level Benefit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. My Monthly Goals -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-bullseye" style="color: var(--taboost-red);"></i> My Monthly Goals</h2>
+                <span class="days-remaining" id="daysRemaining">-- days left</span>
+            </div>
+            <div class="goals-grid" id="goalsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- 6. Sales Level -->
+        <div class="section-card sales-level-section" id="salesLevelSection">
+            <div class="section-header">
+                <h2><i class="fas fa-layer-group" style="color: var(--taboost-red);"></i> Sales Level</h2>
+                <span class="level-badge" id="salesLevelBadge">Level --</span>
+            </div>
+
+            <!-- Level Progress -->
+            <div id="salesLevelTracker" class="level-tracker">
+                <!-- Level 0 -->
+                <div class="level-step" data-level="0">
+                    <div class="level-icon">0</div>
+                    <div class="level-req">7 Days<br>15 Hours</div>
+                </div>
+                <!-- Connector 0-1 -->
+                <div class="level-connector"></div>
+                <div class="level-connector-vertical"></div>
+                <!-- Level 1 -->
+                <div class="level-step" data-level="1">
+                    <div class="level-icon">1</div>
+                    <div class="level-req">8 Days<br>20 Hours</div>
+                </div>
+                <!-- Connector 1-2 -->
+                <div class="level-connector"></div>
+                <div class="level-connector-vertical"></div>
+                <!-- Level 2 -->
+                <div class="level-step" data-level="2">
+                    <div class="level-icon">2</div>
+                    <div class="level-req">11 Days<br>30 Hours</div>
+                </div>
+                <!-- Connector 2-3 -->
+                <div class="level-connector"></div>
+                <div class="level-connector-vertical"></div>
+                <!-- Level 3 -->
+                <div class="level-step" data-level="3">
+                    <div class="level-icon">3</div>
+                    <div class="level-req">15 Days<br>40 Hours</div>
+                </div>
+                <!-- Connector 3-4 -->
+                <div class="level-connector"></div>
+                <div class="level-connector-vertical"></div>
+                <!-- Level 4 -->
+                <div class="level-step" data-level="4">
+                    <div class="level-icon">4</div>
+                    <div class="level-req">18 Days<br>60 Hours</div>
+                </div>
+                <!-- Connector 4-5 -->
+                <div class="level-connector"></div>
+                <div class="level-connector-vertical"></div>
+                <!-- Level 5 -->
+                <div class="level-step" data-level="5">
+                    <div class="level-icon">5</div>
+                    <div class="level-req">22 Days<br>80 Hours</div>
+                </div>
+            </div>
+
+            <!-- Current Progress -->
+            <div class="current-progress">
+                <div class="progress-stat">
+                    <span class="progress-label">Short Videos (SV)</span>
+                    <span class="progress-value" id="shortVideos">-- / --</span>
+                    <div class="mini-bar">
+                        <div class="mini-fill" id="svFill"></div>
+                    </div>
+                </div>
+                <div class="progress-stat">
+                    <span class="progress-label">Live Streams (L-T)</span>
+                    <span class="progress-value" id="livesTotalLevel">-- / --</span>
+                    <div class="mini-bar">
+                        <div class="mini-fill" id="livesTotalFill"></div>
+                    </div>
+                </div>
+                <div class="progress-stat">
+                    <span class="progress-label">Live Hours (L-H)</span>
+                    <span class="progress-value" id="liveHoursLevel">-- / --</span>
+                    <div class="mini-bar">
+                        <div class="mini-fill" id="liveHoursFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 6 Month Chart -->
+
+        <!-- 6. 6 Month Chart -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line" style="color: var(--taboost-red);"></i> History Chart</h2>
+                <div class="chart-tabs">
+                    <button class="chart-tab active" data-period="history">6 Month History</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="chart-insights" id="chartInsights">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- 7. Recent Rewards -->
+        <div class="section-card awards-card">
+            <div class="section-header">
+                <h2><i class="fas fa-gift" style="color: #ffd700;"></i> Recent Rewards</h2>
+            </div>
+            <div class="awards-list" id="awardsList">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- 8. My Achievements -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-medal" style="color: #ffd700;"></i> My Achievements</h2>
+                <span class="achievement-count" id="achievementCount">-- unlocked</span>
+            </div>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- 9. 3x3 Rolling Calendar -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-alt" style="color: var(--taboost-red);"></i> Live Calendar</h2>
+                <span class="calendar-week" id="calendarWeek">--</span>
+            </div>
+
+            <!-- TABOOST Campaign Banner -->
+            <div class="campaign-banner" id="taboostCampaignBanner">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Weekly Schedule Grid -->
+            <div class="weekly-calendar" id="weeklyCalendar">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- TikTok Campaigns -->
+            <div class="tiktok-campaigns">
+                <h4><i class="fab fa-tiktok"></i> TikTok Campaigns</h4>
+                <div id="tiktokCampaignsList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Earnings History -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-history" style="color: var(--taboost-red);"></i> Earnings History</h2>
+            </div>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Total GMV</th>
+                        <th>Commissions</th>
+                        <th>Points</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Export Section -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2>Export My Data</h2>
+            </div>
+            <p class="export-desc">Download your earnings reports for tax purposes or personal records.</p>
+            <div class="export-buttons">
+                <button class="export-btn" onclick="exportData('csv')">
+                    <i class="fas fa-file-csv"></i>
+                    <span>Download CSV</span>
+                </button>
+                <button class="export-btn" onclick="exportData('pdf')">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Download PDF</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="creator-footer">
+            <p>Questions? Contact <span id="footerManager">your manager</span>, <a
+                    href="mailto:info@taboost.me">info@taboost.me</a>, or <a href="https://discord.gg/Akfwz536BW"
+                    target="_blank"><i class="fab fa-discord"></i> Discord</a></p>
+            <p>© 2026 Taboost Agency. All rights reserved.</p>
+            <p style="font-size: 11px; color: var(--text-secondary); margin-top: 10px; opacity: 0.7;">All diamond
+                revenue calculations are estimates based on standard TikTok Live conversion, exact amounts will vary per
+                creator</p>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-overlay" onclick="closeSettings()"></div>
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button class="settings-close" onclick="closeSettings()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="settings-content">
+                <!-- Profile Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-user"></i> Profile Settings</h3>
+                    <div class="settings-field">
+                        <label>Display Name</label>
+                        <input type="text" id="settingDisplayName" placeholder="Your display name">
+                    </div>
+                    <div class="settings-field">
+                        <label>Email</label>
+                        <input type="email" id="settingEmail" placeholder="your@email.com">
+                    </div>
+                    <div class="settings-field">
+                        <label>Role</label>
+                        <input type="text" id="settingRole" value="Creator" readonly>
+                    </div>
+                    <button class="settings-save-btn" onclick="saveProfileSettings()">Save Changes</button>
+                </div>
+
+                <!-- Security -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                    <div class="settings-field">
+                        <label>Current Password</label>
+                        <input type="password" id="settingCurrentPassword" placeholder="••••••••">
+                    </div>
+                    <div class="settings-field">
+                        <label>New Password</label>
+                        <input type="password" id="settingNewPassword" placeholder="Enter new password">
+                    </div>
+                    <div class="settings-field">
+                        <label>Confirm Password</label>
+                        <input type="password" id="settingConfirmPassword" placeholder="Confirm new password">
+                    </div>
+                    <button class="settings-save-btn" onclick="updatePassword()">Update Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js?v=1774027606323"></script>
+    <script src="js/rewards-data.js?v=1774027606323"></script>
+    <script src="js/events-data.js?v=1774027606323"></script>
+    <script src="js/weekly-calendar-data.js?v=1774027606323"></script>
+    <script src="js/sheets-data.js?v=1774027606323"></script>
+    <script src="js/shop-dashboard.js?v=202504021132"></script>
+    <!-- Dashboard initialized in main auth flow module at top -->
+    <script>
+        function exportData(format) {
+            const creatorName = document.getElementById('creatorName').textContent;
+            alert(`Exporting ${format.toUpperCase()} report for ${creatorName}...`);
+        }
+    </script>
+
+    <!-- ANTI-UBAKERY SAFEGUARD: Clear any malicious redirects -->
+    <script>
+        // Clear all redirect-related storage on page load
+        (function () {
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && (key.includes('redirect') || key.includes('ubakery') || key.includes('bakery'))) {
+                    keysToRemove.push(key);
+                }
+            }
+            keysToRemove.forEach(key => {
+                console.log('Removing stored key:', key);
+                localStorage.removeItem(key);
+            });
+
+            // Also check sessionStorage
+            const sessionKeysToRemove = [];
+            for (let i = 0; i < sessionStorage.length; i++) {
+                const key = sessionStorage.key(i);
+                if (key && (key.includes('redirect') || key.includes('ubakery') || key.includes('bakery'))) {
+                    sessionKeysToRemove.push(key);
+                }
+            }
+            sessionKeysToRemove.forEach(key => {
+                console.log('Removing session key:', key);
+                sessionStorage.removeItem(key);
+            });
+
+            console.log('Anti-redirect safeguard active - cleared', keysToRemove.length + sessionKeysToRemove.length, 'keys');
+        })();
+    </script>
+</body>
+
+</html>
