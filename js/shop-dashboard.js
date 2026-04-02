@@ -434,9 +434,9 @@ function updateSalesStats() {
     const GOAL_3 = 1000000;  
     
     // Update badge with current TAP YTD value
-    const levelBadge = document.getElementById('salesLevelBadge');
-    if (levelBadge) {
-        levelBadge.textContent = '$' + Math.round(tapYTD).toLocaleString();
+    const tapYTDDisplay = document.getElementById('tapYTDDisplay');
+    if (tapYTDDisplay) {
+        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
     }
     
     // Single Goal bar: tapYTD / $1M, clamped to 100%
