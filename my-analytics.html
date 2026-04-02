@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Analytics - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/command-center.css">
+    <link rel="stylesheet" href="css/creator-analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-magic"></i></div>
+                <div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">My Space</div>
+                    <a href="my-analytics.html" class="nav-item active"><i class="fas fa-chart-pie"></i><span>My Analytics</span></a>
+                    <a href="my-goals.html" class="nav-item"><i class="fas fa-bullseye"></i><span>My Goals</span></a>
+                    <a href="my-rewards.html" class="nav-item"><i class="fas fa-gift"></i><span>My Rewards</span></a>
+                    <a href="my-history.html" class="nav-item"><i class="fas fa-history"></i><span>My History</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Agency</div>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>All Creators</span></a>
+                    <a href="compare.html" class="nav-item"><i class="fas fa-code-branch"></i><span>Compare</span></a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="welcome-message">
+                    <span id="greeting">Welcome back</span>, <strong id="headerName">Creator</strong>! 👋
+                </div>
+                <div class="header-actions">
+                    <div class="streak-badge" id="streakBadge">
+                        <i class="fas fa-fire"></i>
+                        <span id="streakCount">0</span> day streak
+                    </div>
+                    <button class="header-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <div class="dashboard-content fade-in">
+                <!-- Personal Hero -->
+                <div class="personal-hero">
+                    <div class="profile-section">
+                        <div class="profile-avatar-large" id="profileAvatar">?</div>
+                        <div class="profile-info">
+                            <h1 id="profileName">Loading...</h1>
+                            <div class="profile-meta">
+                                <span class="meta-badge level" id="levelBadge">Level --</span>
+                                <span class="meta-badge manager" id="managerBadge">--</span>
+                                <span class="meta-badge rank" id="rankBadge">Rank #--</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <div class="quick-stat">
+                            <i class="fas fa-gem"></i>
+                            <div>
+                                <span class="quick-value" id="quickDiamonds">--</span>
+                                <span class="quick-label">Diamonds</span>
+                            </div>
+                        </div>
+                        <div class="quick-stat">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="quick-value" id="quickHours">--</span>
+                                <span class="quick-label">Hours</span>
+                            </div>
+                        </div>
+                        <div class="quick-stat">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <span class="quick-value" id="quickRewards">--</span>
+                                <span class="quick-label">Earned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <!-- Performance Overview -->
+                    <div class="analytics-card main-chart">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line" style="color: var(--taboost-red);"></i> My Performance</h3>
+                            <select class="mini-select" id="chartPeriod">
+                                <option value="3m">Last 3 Months</option>
+                                <option value="6m">Last 6 Months</option>
+                                <option value="1y">Last Year</option>
+                            </select>
+                        </div>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                        <div class="performance-insights" id="performanceInsights">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Goal Progress -->
+                    <div class="analytics-card goal-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bullseye" style="color: var(--taboost-success);"></i> Monthly Goals</h3>
+                            <span class="days-left" id="daysLeft">-- days left</span>
+                        </div>
+                        <div class="goal-progress-list" id="goalProgressList">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="goal-summary" id="goalSummary">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Rank Progression -->
+                    <div class="analytics-card rank-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-trophy" style="color: #ffd700;"></i> Rank Progression</h3>
+                        </div>
+                        <div class="rank-display">
+                            <div class="current-rank">
+                                <span class="rank-number" id="currentRank">--</span>
+                                <span class="rank-label">Current Rank</span>
+                            </div>
+                            <div class="rank-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="next-rank">
+                                <span class="rank-number" id="nextRank">--</span>
+                                <span class="rank-label">Next Milestone</span>
+                            </div>
+                        </div>
+                        <div class="rank-progress-bar">
+                            <div class="rank-fill" id="rankFill" style="width: 0%;"></div>
+                        </div>
+                        <p class="rank-message" id="rankMessage">Keep pushing to climb higher!</p>
+                    </div>
+                    
+                    <!-- How I Compare -->
+                    <div class="analytics-card compare-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-balance-scale" style="color: var(--taboost-blue);"></i> How I Compare</h3>
+                        </div>
+                        <div class="comparison-list" id="comparisonList">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="comparison-chart-container">
+                            <canvas id="comparisonRadar"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="analytics-card activity-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bolt" style="color: #ffd700;"></i> My Recent Activity</h3>
+                        </div>
+                        <div class="activity-timeline" id="activityTimeline">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Achievements -->
+                    <div class="analytics-card achievements-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-medal" style="color: #ffd700;"></i> My Achievements</h3>
+                        </div>
+                        <div class="achievements-grid" id="achievementsGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Rewards Breakdown -->
+                    <div class="analytics-card rewards-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-coins" style="color: var(--taboost-success);"></i> Rewards Breakdown</h3>
+                        </div>
+                        <div class="rewards-chart-container">
+                            <canvas id="rewardsChart"></canvas>
+                        </div>
+                        <div class="rewards-list" id="rewardsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Insights & Tips -->
+                    <div class="analytics-card insights-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-lightbulb" style="color: #ffd700;"></i> Insights & Tips</h3>
+                        </div>
+                        <div class="insights-list" id="insightsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/sheets-data.js"></script>
+    <script>
+        // Auth check
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) {
+            window.location.href = 'index.html';
+        }
+        
+        let myData = null;
+        let allCreators = [];
+        
+        function formatNumber(num) {
+            if (!num) return '0';
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toLocaleString();
+        }
+        
+        async function init() {
+            await taboostData.loadFromCSV();
+            allCreators = taboostData.getAllCreators();
+            
+            // Find my data - for demo, we'll use the logged in user name
+            // In production, this would match by username from auth
+            const myUsername = user.name.toLowerCase().replace(' ', '');
+            myData = allCreators.find(c => 
+                c.username.toLowerCase().includes(myUsername) || 
+                c.username === 'singleonthemove' // fallback for demo
+            ) || allCreators[0];
+            
+            updateProfile();
+            updatePerformanceChart();
+            updateGoals();
+            updateRankProgression();
+            updateComparisons();
+            updateActivityTimeline();
+            updateAchievements();
+            updateRewardsBreakdown();
+            updateInsights();
+        }
+        
+        function updateProfile() {
+            document.getElementById('headerName').textContent = myData.username;
+            document.getElementById('profileName').textContent = myData.username;
+            document.getElementById('profileAvatar').textContent = myData.username.charAt(0).toUpperCase();
+            
+            // Set greeting based on time
+            const hour = new Date().getHours();
+            let greeting = 'Good morning';
+            if (hour >= 12) greeting = 'Good afternoon';
+            if (hour >= 18) greeting = 'Good evening';
+            document.getElementById('greeting').textContent = greeting;
+            
+            // Badges
+            document.getElementById('levelBadge').textContent = `Level ${myData.level || '--'}`;
+            document.getElementById('managerBadge').textContent = myData.manager || 'Unassigned';
+            
+            // Calculate rank
+            const sorted = [...allCreators].sort((a, b) => (b.diamonds || 0) - (a.diamonds || 0));
+            const myRank = sorted.findIndex(c => c.username === myData.username) + 1;
+            document.getElementById('rankBadge').textContent = `Rank #${myRank}`;
+            
+            // Quick stats
+            document.getElementById('quickDiamonds').textContent = formatNumber(myData.diamonds);
+            document.getElementById('quickHours').textContent = (myData.hours || 0).toFixed(1);
+            document.getElementById('quickRewards').textContent = formatNumber(myData.rewards?.earned);
+            
+            // Streak (simulated based on activity)
+            const streak = Math.floor(Math.random() * 14) + 1;
+            document.getElementById('streakCount').textContent = streak;
+        }
+        
+        function updatePerformanceChart() {
+            const ctx = document.getElementById('performanceChart');
+            const historical = [
+                myData.diamondsTwoMonthsAgo || 0,
+                myData.diamondsLastMonth || 0,
+                myData.diamonds || 0
+            ];
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2 Months Ago', 'Last Month', 'This Month'],
+                    datasets: [{
+                        label: 'My Diamonds',
+                        data: historical,
+                        borderColor: '#ff0044',
+                        backgroundColor: 'rgba(255, 0, 68, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Agency Average',
+                        data: [
+                            allCreators.reduce((a, c) => a + (c.diamondsTwoMonthsAgo || 0), 0) / allCreators.length,
+                            allCreators.reduce((a, c) => a + (c.diamondsLastMonth || 0), 0) / allCreators.length,
+                            allCreators.reduce((a, c) => a + (c.diamonds || 0), 0) / allCreators.length
+                        ],
+                        borderColor: '#888',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#888' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#888', callback: v => formatNumber(v) }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#888' }
+                        }
+                    }
+                }
+            });
+            
+            // Insights
+            const growth = historical[2] - historical[1];
+            const growthPct = historical[1] > 0 ? (growth / historical[1] * 100) : 0;
+            
+            document.getElementById('performanceInsights').innerHTML = `
+                <div class="insight-item ${growth >= 0 ? 'positive' : 'negative'}">
+                    <i class="fas fa-${growth >= 0 ? 'arrow-up' : 'arrow-down'}"></i>
+                    <span>${growth >= 0 ? 'Up' : 'Down'} ${Math.abs(growthPct).toFixed(1)}% from last month</span>
+                </div>
+                <div class="insight-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Averaging ${formatNumber((myData.diamonds || 0) / (myData.liveStreams || 1))} diamonds per stream</span>
+                </div>
+            `;
+        }
+        
+        function updateGoals() {
+            // DEBUG: Log goal data
+            console.log('DEBUG Goals for', myData.username, ':', 
+                'daysGoal=' + myData.daysGoal, 
+                'hoursGoal=' + myData.hoursGoal, 
+                'tierGoal=' + myData.tierGoal, 
+                'diamondsGoal=' + myData.diamondsGoal,
+                'liveStreams=' + myData.liveStreams
+            );
+            
+            const goals = [
+                { name: 'Hours Goal', current: myData.hours || 0, target: myData.hoursGoal || 15, unit: 'h' },
+                { name: 'Diamonds Target', current: myData.diamonds || 0, target: myData.tierGoal || myData.diamondsGoal || 0, unit: '' },
+                { name: 'Streaming Days', current: myData.liveStreams || 0, target: myData.daysGoal || 7, unit: ' days' }
+            ];
+            
+            document.getElementById('goalProgressList').innerHTML = goals.map(g => {
+                const pct = Math.min(100, (g.current / g.target) * 100);
+                const status = pct >= 100 ? 'completed' : pct >= 75 ? 'on-track' : pct >= 50 ? 'behind' : 'at-risk';
+                
+                return `
+                    <div class="goal-item">
+                        <div class="goal-info">
+                            <span class="goal-name">${g.name}</span>
+                            <span class="goal-values">${formatNumber(g.current)}${g.unit} / ${formatNumber(g.target)}${g.unit}</span>
+                        </div>
+                        <div class="goal-bar-container">
+                            <div class="goal-progress-fill ${status}" style="width: ${pct}%"></div>
+                        </div>
+                        <span class="goal-percentage">${pct.toFixed(0)}%</span>
+                    </div>
+                `;
+            }).join('');
+            
+            // Days left in month
+            const today = new Date();
+            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            const daysLeft = daysInMonth - today.getDate();
+            document.getElementById('daysLeft').textContent = `${daysLeft} days left`;
+            
+            // Summary
+            const completed = goals.filter(g => (g.current / g.target) >= 1).length;
+            document.getElementById('goalSummary').innerHTML = `
+                <span class="summary-highlight">${completed}/${goals.length}</span> goals on track
+            `;
+        }
+        
+        function updateRankProgression() {
+            const sorted = [...allCreators].sort((a, b) => (b.diamonds || 0) - (a.diamonds || 0));
+            const myIndex = sorted.findIndex(c => c.username === myData.username);
+            const myRank = myIndex + 1;
+            
+            document.getElementById('currentRank').textContent = `#${myRank}`;
+            
+            if (myIndex > 0) {
+                const nextCreator = sorted[myIndex - 1];
+                document.getElementById('nextRank').textContent = `#${myRank - 1}`;
+                
+                const myDiamonds = myData.diamonds || 0;
+                const nextDiamonds = nextCreator.diamonds || 0;
+                const gap = nextDiamonds - myDiamonds;
+                const progress = (myDiamonds / nextDiamonds) * 100;
+                
+                document.getElementById('rankFill').style.width = `${progress}%`;
+                document.getElementById('rankMessage').textContent = 
+                    `${formatNumber(gap)} more diamonds to pass ${nextCreator.username}!`;
+            } else {
+                document.getElementById('nextRank').textContent = '#1';
+                document.getElementById('rankFill').style.width = '100%';
+                document.getElementById('rankMessage').textContent = "You're #1! Keep crushing it! 🔥";
+            }
+        }
+        
+        function updateComparisons() {
+            const avgDiamonds = allCreators.reduce((a, c) => a + (c.diamonds || 0), 0) / allCreators.length;
+            const avgHours = allCreators.reduce((a, c) => a + (c.hours || 0), 0) / allCreators.length;
+            const avgStreams = allCreators.reduce((a, c) => a + (c.liveStreams || 0), 0) / allCreators.length;
+            
+            const comparisons = [
+                { label: 'Diamonds', mine: myData.diamonds || 0, avg: avgDiamonds },
+                { label: 'Hours', mine: myData.hours || 0, avg: avgHours },
+                { label: 'Streams', mine: myData.liveStreams || 0, avg: avgStreams },
+                { label: 'Rewards', mine: myData.rewards?.earned || 0, avg: allCreators.reduce((a, c) => a + (c.rewards?.earned || 0), 0) / allCreators.length }
+            ];
+            
+            document.getElementById('comparisonList').innerHTML = comparisons.map(c => {
+                const diff = ((c.mine - c.avg) / c.avg * 100);
+                return `
+                    <div class="comparison-item">
+                        <span class="comp-label">${c.label}</span>
+                        <div class="comp-bar-container">
+                            <div class="comp-bar me" style="width: ${Math.min(100, (c.mine / Math.max(c.mine, c.avg)) * 100)}%"></div>
+                            <div class="comp-bar avg" style="width: ${Math.min(100, (c.avg / Math.max(c.mine, c.avg)) * 100)}%"></div>
+                        </div>
+                        <span class="comp-diff ${diff >= 0 ? 'positive' : 'negative'}">
+                            ${diff >= 0 ? '+' : ''}${diff.toFixed(0)}%
+                        </span>
+                    </div>
+                `;
+            }).join('');
+            
+            // Radar chart
+            const ctx = document.getElementById('comparisonRadar');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Diamonds', 'Hours', 'Streams', 'Rewards', 'Score'],
+                    datasets: [{
+                        label: 'Me',
+                        data: [
+                            normalize(myData.diamonds, 5000000),
+                            normalize(myData.hours, 200),
+                            normalize(myData.liveStreams, 100),
+                            normalize(myData.rewards?.earned, 5000000),
+                            normalize(myData.score, 100)
+                        ],
+                        backgroundColor: 'rgba(255, 0, 68, 0.2)',
+                        borderColor: '#ff0044'
+                    }, {
+                        label: 'Agency Avg',
+                        data: [
+                            normalize(avgDiamonds, 5000000),
+                            normalize(avgHours, 200),
+                            normalize(avgStreams, 100),
+                            normalize(allCreators.reduce((a, c) => a + (c.rewards?.earned || 0), 0) / allCreators.length, 5000000),
+                            normalize(allCreators.reduce((a, c) => a + (c.score || 0), 0) / allCreators.length, 100)
+                        ],
+                        backgroundColor: 'rgba(136, 136, 136, 0.2)',
+                        borderColor: '#888'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            grid: { color: 'rgba(255,255,255,0.1)' },
+                            angleLines: { color: 'rgba(255,255,255,0.1)' },
+                            pointLabels: { color: '#888' },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function normalize(value, max) {
+            return Math.min(100, ((value || 0) / max) * 100);
+        }
+        
+        function updateActivityTimeline() {
+            const activities = [
+                { icon: 'fa-trophy', text: myData.lastLabel || 'Monthly Award earned', time: 'Recent', color: '#ffd700' },
+                { icon: 'fa-broadcast-tower', text: `Streamed for ${myData.hours?.toFixed(1)} hours`, time: 'This month', color: '#00d4ff' },
+                { icon: 'fa-gem', text: `Earned ${formatNumber(myData.diamonds)} diamonds`, time: 'This month', color: '#ff0044' },
+                { icon: 'fa-coins', text: `Received ${formatNumber(myData.rewards?.earned)} in rewards`, time: 'This month', color: '#00ff88' }
+            ];
+            
+            document.getElementById('activityTimeline').innerHTML = activities.map(a => `
+                <div class="timeline-item">
+                    <div class="timeline-icon" style="background: ${a.color}20; color: ${a.color};">
+                        <i class="fas ${a.icon}"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <p>${a.text}</p>
+                        <span>${a.time}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function updateAchievements() {
+            const achievements = [
+                { name: 'Diamond Hoarder', icon: '💎', unlocked: (myData.diamonds || 0) > 1000000, desc: '1M+ diamonds' },
+                { name: 'Stream Master', icon: '📺', unlocked: (myData.liveStreams || 0) > 50, desc: '50+ streams' },
+                { name: 'Reward Earner', icon: '💰', unlocked: (myData.rewards?.earned || 0) > 1000000, desc: '1M+ earned' },
+                { name: 'Hour Crusher', icon: '⏰', unlocked: (myData.hours || 0) > 100, desc: '100+ hours' },
+                { name: 'Growth Star', icon: '🚀', unlocked: parseFloat(myData.growthPercent) > 20, desc: '20%+ growth' },
+                { name: 'Top Performer', icon: '👑', unlocked: myData.rank <= 10, desc: 'Top 10 rank' }
+            ];
+            
+            document.getElementById('achievementsGrid').innerHTML = achievements.map(a => `
+                <div class="achievement-item ${a.unlocked ? 'unlocked' : 'locked'}">
+                    <div class="achievement-icon">${a.icon}</div>
+                    <div class="achievement-name">${a.name}</div>
+                    <div class="achievement-desc">${a.desc}</div>
+                    ${a.unlocked ? '<div class="achievement-badge"><i class="fas fa-check"></i></div>' : '<div class="achievement-lock"><i class="fas fa-lock"></i></div>'}
+                </div>
+            `).join('');
+        }
+        
+        function updateRewardsBreakdown() {
+            const rewards = [
+                { label: 'Earned', value: myData.rewards?.earned || 0, color: '#00ff88' },
+                { label: 'Bonus', value: myData.rewards?.bonus || 0, color: '#ffd700' },
+                { label: 'Gifted', value: myData.rewards?.gifted || 0, color: '#ff0044' },
+                { label: 'Unlocked', value: myData.rewards?.unlocked || 0, color: '#00d4ff' }
+            ];
+            
+            // Doughnut chart
+            const ctx = document.getElementById('rewardsChart');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: rewards.map(r => r.label),
+                    datasets: [{
+                        data: rewards.map(r => r.value),
+                        backgroundColor: rewards.map(r => r.color),
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#888', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+            
+            // List
+            document.getElementById('rewardsList').innerHTML = rewards.map(r => `
+                <div class="reward-breakdown-item">
+                    <span class="reward-dot" style="background: ${r.color};"></span>
+                    <span class="reward-label">${r.label}</span>
+                    <span class="reward-value">${formatNumber(r.value)}</span>
+                </div>
+            `).join('');
+        }
+        
+        function updateInsights() {
+            const insights = [];
+            
+            if ((myData.hours || 0) < 40) {
+                insights.push({
+                    icon: 'fa-clock',
+                    text: "You're behind on hours. Try streaming 2+ hours daily to catch up!",
+                    type: 'warning'
+                });
+            }
+            
+            if (parseFloat(myData.growthPercent) < 0) {
+                insights.push({
+                    icon: 'fa-chart-line',
+                    text: "Your growth is down this month. Check your streaming consistency.",
+                    type: 'alert'
+                });
+            } else if (parseFloat(myData.growthPercent) > 20) {
+                insights.push({
+                    icon: 'fa-rocket',
+                    text: "Amazing growth! You're outpacing most of the agency. Keep it up!",
+                    type: 'success'
+                });
+            }
+            
+            insights.push({
+                icon: 'fa-lightbulb',
+                text: `Top earners stream ${(allCreators.reduce((a, c) => a + (c.hours || 0), 0) / allCreators.length * 1.5).toFixed(0)}+ hours on average.`,
+                type: 'tip'
+            });
+            
+            if ((myData.score || 0) > 80) {
+                insights.push({
+                    icon: 'fa-trophy',
+                    text: "Your score is excellent! You're in the top tier of creators.",
+                    type: 'success'
+                });
+            }
+            
+            document.getElementById('insightsList').innerHTML = insights.map(i => `
+                <div class="insight-tip ${i.type}">
+                    <i class="fas ${i.icon}"></i>
+                    <span>${i.text}</span>
+                </div>
+            `).join('');
+        }
+        
+        function logout() {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+        }
+        
+        // Init
+        init();
+    </script>
+</body>
+</html>

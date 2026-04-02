@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Firebase Real-time Test</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Inter', system-ui, sans-serif;
+            padding: 40px;
+        }
+        h1 { color: #ff0044; }
+        .status {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.05);
+        }
+        .status.connected { border-left: 4px solid #00ff88; }
+        .status.error { border-left: 4px solid #ff0044; }
+        .status.loading { border-left: 4px solid #ffaa00; }
+        pre {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .metric {
+            display: inline-block;
+            background: rgba(255,0,68,0.1);
+            border: 1px solid rgba(255,0,68,0.3);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 10px 10px 10px 0;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff0044;
+        }
+        .metric-label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        button {
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px;
+        }
+        button:hover { opacity: 0.9; }
+        #creators-list {
+            max-height: 400px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .creator-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        .creator-item:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <h1>🔥 TABOOST Firebase Real-time Test</h1>
+    
+    <div id="status" class="status loading">
+        <strong>Status:</strong> <span id="status-text">Initializing...</span>
+    </div>
+    
+    <div>
+        <button onclick="connectFirebase()">Connect to Firebase</button>
+        <button onclick="loadTestData()">Load Test Data</button>
+        <button onclick="clearData()">Clear Data</button>
+    </div>
+    
+    <h2>Live Metrics</h2>
+    <div id="metrics">
+        <div class="metric">
+            <div class="metric-value" id="total-creators">-</div>
+            <div class="metric-label">Total Creators</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value" id="total-diamonds">-</div>
+            <div class="metric-label">Total Diamonds</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value" id="total-rewards">-</div>
+            <div class="metric-label">Total Rewards</div>
+        </div>
+    </div>
+    
+    <h2>Top Creators (Real-time)</h2>
+    <div id="creators-list">
+        <p style="color: #666;">Click "Connect to Firebase" to load data...</p>
+    </div>
+    
+    <h2>Console Output</h2>
+    <pre id="console-output"></pre>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <script>
+        // PLACEHOLDER CONFIG - REPLACE WITH YOUR ACTUAL CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-project.firebaseapp.com",
+            projectId: "your-project",
+            storageBucket: "your-project.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abcdef"
+        };
+        
+        let db = null;
+        let unsubscribe = null;
+        
+        function log(message) {
+            const output = document.getElementById('console-output');
+            const time = new Date().toLocaleTimeString();
+            output.textContent += `[${time}] ${message}\n`;
+            console.log(message);
+        }
+        
+        function updateStatus(status, text) {
+            const el = document.getElementById('status');
+            const textEl = document.getElementById('status-text');
+            el.className = 'status ' + status;
+            textEl.textContent = text;
+        }
+        
+        function connectFirebase() {
+            try {
+                if (firebaseConfig.apiKey === 'YOUR_API_KEY') {
+                    alert('Please update firebaseConfig in the HTML with your actual Firebase config!');
+                    return;
+                }
+                
+                log('Connecting to Firebase...');
+                updateStatus('loading', 'Connecting...');
+                
+                firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+                
+                log('Firebase connected!');
+                updateStatus('connected', 'Connected to Firebase');
+                
+                startRealtimeListener();
+            } catch (e) {
+                log('Error: ' + e.message);
+                updateStatus('error', 'Connection failed: ' + e.message);
+            }
+        }
+        
+        function startRealtimeListener() {
+            if (!db) {
+                log('Firebase not initialized');
+                return;
+            }
+            
+            if (unsubscribe) {
+                unsubscribe();
+            }
+            
+            log('Starting real-time listener...');
+            
+            unsubscribe = db.collection('creators')
+                .orderBy('diamonds', 'desc')
+                .limit(20)
+                .onSnapshot((snapshot) => {
+                    const creators = [];
+                    snapshot.forEach((doc) => {
+                        creators.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    log(`Received ${creators.length} creators`);
+                    updateDisplay(creators);
+                }, (error) => {
+                    log('Listener error: ' + error.message);
+                    updateStatus('error', error.message);
+                });
+        }
+        
+        function updateDisplay(creators) {
+            // Update metrics
+            const totalDiamonds = creators.reduce((sum, c) => sum + (c.diamonds || 0), 0);
+            const totalRewards = creators.reduce((sum, c) => sum + (c.rewards || 0), 0);
+            
+            document.getElementById('total-creators').textContent = creators.length;
+            document.getElementById('total-diamonds').textContent = formatNumber(totalDiamonds);
+            document.getElementById('total-rewards').textContent = formatNumber(totalRewards);
+            
+            // Update list
+            const listEl = document.getElementById('creators-list');
+            if (creators.length === 0) {
+                listEl.innerHTML = '<p style="color: #666;">No data found. Run the Google Apps Script sync first.</p>';
+                return;
+            }
+            
+            listEl.innerHTML = creators.map((c, i) => `
+                <div class="creator-item">
+                    <span>#${i+1} ${c.username || 'Unknown'}</span>
+                    <span>${formatNumber(c.diamonds)} 💎 | ${formatNumber(c.rewards)} 🎁</span>
+                </div>
+            `).join('');
+        }
+        
+        function formatNumber(num) {
+            if (!num) return '0';
+            if (num >= 1000000) return (num/1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num/1000).toFixed(1) + 'K';
+            return num.toLocaleString();
+        }
+        
+        function loadTestData() {
+            if (!db) {
+                alert('Connect to Firebase first!');
+                return;
+            }
+            
+            log('Loading test data...');
+            
+            const testCreators = [
+                { creatorId: 'test1', username: 'test_creator_1', diamonds: 1500000, rewards: 3200000, hours: 45, tier: 5, agent: 'Test Agent' },
+                { creatorId: 'test2', username: 'test_creator_2', diamonds: 980000, rewards: 2100000, hours: 38, tier: 4, agent: 'Test Agent' },
+                { creatorId: 'test3', username: 'test_creator_3', diamonds: 750000, rewards: 1600000, hours: 42, tier: 4, agent: 'Test Agent' }
+            ];
+            
+            testCreators.forEach(c => {
+                db.collection('creators').doc(c.creatorId).set(c);
+            });
+            
+            log('Test data loaded!');
+        }
+        
+        function clearData() {
+            if (!db) {
+                alert('Connect to Firebase first!');
+                return;
+            }
+            
+            if (!confirm('Clear all creator data?')) return;
+            
+            log('Clearing data...');
+            
+            db.collection('creators').get().then(snapshot => {
+                const batch = db.batch();
+                snapshot.docs.forEach(doc => {
+                    batch.delete(doc.ref);
+                });
+                return batch.commit();
+            }).then(() => {
+                log('Data cleared!');
+            });
+        }
+        
+        // Auto-connect if config is set
+        if (firebaseConfig.apiKey !== 'YOUR_API_KEY') {
+            connectFirebase();
+        }
+    </script>
+</body>
+</html>

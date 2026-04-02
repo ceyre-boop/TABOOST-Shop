@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TABOOST Shop</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/shop-dashboard.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff0050;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(255, 0, 80, 0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #ff0050;
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #ff2d6d;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 80, 0.3);
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 16px;
+            display: none;
+            padding: 12px;
+            background: rgba(255, 77, 77, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 77, 77, 0.2);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="images/taboost-logo.jpg" alt="TABOOST" class="logo">
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Access your creator dashboard</p>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username (Name or Email)</label>
+                <input type="text" id="username" placeholder="Enter your name or email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit">Log In</button>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+
+        <div class="footer">
+            &copy; 2025 TABOOST Agency. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Essential Scripts -->
+    <script src="js/shop-data.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Check if already logged in
+        authService.checkLoggedIn();
+
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            errorMessage.style.display = 'none';
+
+            const user = authService.login(username, password);
+
+            if (user) {
+                window.location.href = `profile.html?id=${user.creatorId || user.id}`;
+            } else {
+                errorMessage.textContent = 'Invalid identifier or password. Please try again.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

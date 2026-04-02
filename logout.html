@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Sign Out</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .message {
+            color: #888;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #444;
+        }
+    </style>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        // Sign out immediately
+        signOut(auth).then(() => {
+            console.log('Signed out');
+            document.getElementById('status').textContent = 'You have been signed out.';
+        }).catch((error) => {
+            console.error('Error signing out:', error);
+            document.getElementById('status').textContent = 'Error signing out. Please clear browser cookies.';
+        });
+        
+        // Also clear any legacy storage
+        localStorage.removeItem('taboost_user');
+        localStorage.removeItem('taboost_current_user');
+        sessionStorage.clear();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <p class="message" id="status">Signing you out...</p>
+        <a href="firebase-login.html" class="btn">Go to Login</a>
+        <a href="signup.html" class="btn btn-secondary">Create Account</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-magic"></i></div>
+                <div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span><span class="nav-badge" id="creatorCount">831</span></a>
+                    <a href="diamonds.html" class="nav-item"><i class="fas fa-gem"></i><span>Diamonds</span></a>
+                    <a href="live-streams.html" class="nav-item"><i class="fas fa-video"></i><span>Live Streams</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Management</div>
+                    <a href="managers.html" class="nav-item"><i class="fas fa-user-tie"></i><span>Managers</span></a>
+                    <a href="rookies.html" class="nav-item"><i class="fas fa-seedling"></i><span>Rookies</span></a>
+                    <a href="leaderboard.html" class="nav-item active"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Reports</div>
+                    <a href="reports.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+                    <a href="alerts.html" class="nav-item"><i class="fas fa-bell"></i><span>Alerts</span><span class="nav-badge">3</span></a>
+                    <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search rankings..."></div>
+                <div class="header-actions">
+                    <button class="header-btn" id="refreshBtn" title="Refresh Data"><i class="fas fa-sync-alt"></i></button>
+                    <button class="header-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <div class="user-profile" onclick="logout()">
+                        <div class="user-avatar" id="userAvatar">M</div>
+                        <div class="user-info">
+                            <div class="user-name" id="userName">Marco</div>
+                            <div class="user-role" id="userRole">Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content fade-in">
+                <!-- Header with Filters -->
+                <div class="lb-header">
+                    <div>
+                        <h1 class="lb-title">Creator Leaderboard</h1>
+                        <p class="lb-subtitle">Top performers ranked by diamonds earned • Live from Google Sheets</p>
+                    </div>
+                    <div class="lb-controls">
+                        <select class="form-control" id="managerFilter">
+                            <option value="">All Managers</option>
+                        </select>
+                        <select class="form-control" id="sortBy">
+                            <option value="diamonds">By Diamonds</option>
+                            <option value="earned">By Rewards Earned</option>
+                            <option value="hours">By Hours</option>
+                            <option value="growth">By Growth %</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-gem"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalDiamonds">--</div>
+                            <div class="stat-label">Total Diamonds</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 255, 136, 0.1); color: var(--taboost-success);"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalRewards">--</div>
+                            <div class="stat-label">Total Rewards</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(255, 170, 0, 0.1); color: var(--taboost-warning);"><i class="fas fa-clock"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalHours">--</div>
+                            <div class="stat-label">Total Hours</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 150, 255, 0.1); color: #0096ff;"><i class="fas fa-user-tie"></i></div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalCreators">--</div>
+                            <div class="stat-label">Creators</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Table -->
+                <div class="content-card lb-card">
+                    <div class="lb-table-header">
+                        <div class="lb-view-toggle">
+                            <button class="lb-view-btn active" data-view="diamonds"><i class="fas fa-gem"></i> Diamonds</button>
+                            <button class="lb-view-btn" data-view="rewards"><i class="fas fa-gift"></i> Rewards</button>
+                        </div>
+                        <div class="last-updated" id="lastUpdated">Last updated: --</div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="data-table lb-table" id="leaderboardTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 70px;">Rank</th>
+                                    <th>Creator</th>
+                                    <th style="width: 120px;">Manager</th>
+                                    <th style="width: 100px;">Group</th>
+                                    <th style="width: 140px;" class="diamonds-col">Diamonds</th>
+                                    <th style="width: 100px;" class="rewards-col hidden">Earned</th>
+                                    <th style="width: 100px;" class="rewards-col hidden">Bonus</th>
+                                    <th style="width: 80px;">Hours</th>
+                                    <th style="width: 80px;">Streams</th>
+                                    <th style="width: 100px;">Growth</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody">
+                                <tr><td colspan="10" style="text-align: center; padding: 40px; color: #888;">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                                    Loading creator data...
+                                </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="lb-pagination" id="pagination">
+                    <button class="lb-page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                    <span class="lb-page-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                    <button class="lb-page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/sheets-data.js"></script>
+    <script>
+        // Auth check
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) window.location.href = 'index.html';
+        else { 
+            document.getElementById('userName').textContent = user.name; 
+            document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator'; 
+            document.getElementById('userAvatar').textContent = user.avatar; 
+        }
+        function logout() { 
+            localStorage.removeItem('taboost_user'); 
+            window.location.href = 'index.html'; 
+        }
+
+        // Leaderboard State
+        let currentView = 'diamonds';
+        let currentPage = 1;
+        const itemsPerPage = 25;
+        let filteredCreators = [];
+
+        // Initialize
+        async function init() {
+            // Load data from CSV
+            await taboostData.loadFromCSV();
+            
+            // Populate manager filter
+            populateManagerFilter();
+            
+            // Update stats
+            updateStats();
+            
+            // Render leaderboard
+            renderLeaderboard();
+            
+            // Update timestamp
+            if (taboostData.lastFetch) {
+                document.getElementById('lastUpdated').textContent = 
+                    `Last updated: ${taboostData.lastFetch.toLocaleTimeString()}`;
+            }
+        }
+
+        // Populate manager filter dropdown
+        function populateManagerFilter() {
+            const managers = taboostData.getUniqueManagers();
+            const select = document.getElementById('managerFilter');
+            managers.forEach(manager => {
+                const option = document.createElement('option');
+                option.value = manager;
+                option.textContent = manager;
+                select.appendChild(option);
+            });
+        }
+
+        // Update stats cards
+        function updateStats() {
+            const totals = taboostData.calculateTotals();
+            
+            document.getElementById('totalDiamonds').textContent = 
+                (totals.totalDiamonds / 1000000).toFixed(1) + 'M';
+            document.getElementById('totalRewards').textContent = 
+                (totals.totalEarned / 1000000).toFixed(1) + 'M';
+            document.getElementById('totalHours').textContent = 
+                Math.round(totals.totalHours).toLocaleString();
+            document.getElementById('totalCreators').textContent = 
+                totals.totalCreators.toLocaleString();
+            document.getElementById('creatorCount').textContent = 
+                totals.totalCreators.toLocaleString();
+        }
+
+        // Format number with commas
+        function formatNumber(num) {
+            return num.toLocaleString();
+        }
+
+        // Get rank medal or number
+        function getRankDisplay(rank) {
+            if (rank === 1) return '<span style="font-size: 28px;">🥇</span>';
+            if (rank === 2) return '<span style="font-size: 28px;">🥈</span>';
+            if (rank === 3) return '<span style="font-size: 28px;">🥉</span>';
+            return `<span style="font-size: 18px; font-weight: 700; color: #888;">${rank}</span>`;
+        }
+
+        // Get avatar color based on rank
+        function getAvatarStyle(rank) {
+            if (rank === 1) return 'background: linear-gradient(135deg, #ffd700, #ffaa00);';
+            if (rank === 2) return 'background: linear-gradient(135deg, #c0c0c0, #999);';
+            if (rank === 3) return 'background: linear-gradient(135deg, #cd7f32, #996);';
+            return '';
+        }
+
+        // Get manager badge color
+        function getManagerColor(manager) {
+            if (!manager) return '#888';
+            const m = manager.toLowerCase();
+            if (m.includes('carrington')) return '#ff0044';
+            if (m.includes('bryton')) return '#00ff88';
+            if (m.includes('sven')) return '#0096ff';
+            return '#888';
+        }
+
+        // Render leaderboard table
+        function renderLeaderboard() {
+            const sortBy = document.getElementById('sortBy').value;
+            const managerFilter = document.getElementById('managerFilter').value;
+            
+            // Get and sort creators
+            let creators = [...taboostData.getAllCreators()];
+            
+            // Apply manager filter
+            if (managerFilter) {
+                creators = creators.filter(c => 
+                    c.manager && c.manager.toLowerCase().includes(managerFilter.toLowerCase())
+                );
+            }
+            
+            // Apply sorting
+            creators.sort((a, b) => {
+                switch(sortBy) {
+                    case 'earned':
+                        return (b.rewards?.earned || 0) - (a.rewards?.earned || 0);
+                    case 'hours':
+                        return (b.hours || 0) - (a.hours || 0);
+                    case 'growth':
+                        const growthA = parseFloat(a.growthPercent) || 0;
+                        const growthB = parseFloat(b.growthPercent) || 0;
+                        return growthB - growthA;
+                    case 'diamonds':
+                    default:
+                        return (b.diamonds || 0) - (a.diamonds || 0);
+                }
+            });
+            
+            // Re-assign ranks based on sort
+            creators = creators.map((c, idx) => ({...c, displayRank: idx + 1}));
+            
+            filteredCreators = creators;
+            
+            // Pagination
+            const totalPages = Math.ceil(creators.length / itemsPerPage);
+            document.getElementById('totalPages').textContent = totalPages;
+            document.getElementById('currentPage').textContent = currentPage;
+            
+            const start = (currentPage - 1) * itemsPerPage;
+            const pageCreators = creators.slice(start, start + itemsPerPage);
+            
+            // Render rows
+            const tbody = document.getElementById('leaderboardBody');
+            tbody.innerHTML = pageCreators.map(creator => {
+                const avgPerHour = creator.hours > 0 
+                    ? Math.round((creator.diamonds || 0) / creator.hours).toLocaleString() 
+                    : 0;
+                const growthClass = creator.growthPercent && creator.growthPercent.includes('-') 
+                    ? 'text-danger' 
+                    : 'text-success';
+                const growthIcon = creator.growthPercent && creator.growthPercent.includes('-')
+                    ? 'fa-arrow-down'
+                    : 'fa-arrow-up';
+                
+                return `
+                    <tr class="${creator.displayRank <= 3 ? 'top-rank' : ''}" data-username="${creator.username}">
+                        <td>${getRankDisplay(creator.displayRank)}</td>
+                        <td>
+                            <div class="user-cell">
+                                <div class="user-avatar-sm" style="${getAvatarStyle(creator.displayRank)}">
+                                    ${creator.username.charAt(0).toUpperCase()}
+                                </div>
+                                <div class="user-details">
+                                    <h4>${creator.username}</h4>
+                                    <span>Level ${creator.level} • ${creator.discord || '@' + creator.username}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="manager-badge" style="color: ${getManagerColor(creator.manager)};">
+                                ${creator.manager || 'Unassigned'}
+                            </span>
+                        </td>
+                        <td>${creator.group || 'Staff'}</td>
+                        <td class="diamonds-col">
+                            <strong class="diamond-value">${formatNumber(creator.diamonds || 0)}</strong>
+                            <small style="color: #888; display: block;">${avgPerHour}/hr</small>
+                        </td>
+                        <td class="rewards-col hidden">
+                            <strong class="reward-value">${formatNumber(creator.rewards?.earned || 0)}</strong>
+                        </td>
+                        <td class="rewards-col hidden">
+                            <strong class="bonus-value">${formatNumber(creator.rewards?.bonus || 0)}</strong>
+                        </td>
+                        <td>${(creator.hours || 0).toFixed(1)}h</td>
+                        <td>${creator.liveStreams || 0}</td>
+                        <td>
+                            <span class="${growthClass}">
+                                <i class="fas ${growthIcon}"></i> ${creator.growthPercent || '0%'}
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            // Add click handlers
+            tbody.querySelectorAll('tr').forEach(row => {
+                row.addEventListener('click', () => {
+                    const username = row.dataset.username;
+                    if (username) window.location.href = `creator-detail.html?user=${username}`;
+                });
+                row.style.cursor = 'pointer';
+            });
+        }
+
+        // Toggle view (Diamonds vs Rewards)
+        document.querySelectorAll('.lb-view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lb-view-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                currentView = btn.dataset.view;
+                
+                if (currentView === 'rewards') {
+                    document.querySelectorAll('.diamonds-col').forEach(el => el.classList.add('hidden'));
+                    document.querySelectorAll('.rewards-col').forEach(el => el.classList.remove('hidden'));
+                    document.getElementById('sortBy').value = 'earned';
+                } else {
+                    document.querySelectorAll('.rewards-col').forEach(el => el.classList.add('hidden'));
+                    document.querySelectorAll('.diamonds-col').forEach(el => el.classList.remove('hidden'));
+                    document.getElementById('sortBy').value = 'diamonds';
+                }
+                
+                currentPage = 1;
+                renderLeaderboard();
+            });
+        });
+
+        // Filter change handlers
+        document.getElementById('managerFilter').addEventListener('change', () => {
+            currentPage = 1;
+            renderLeaderboard();
+        });
+
+        document.getElementById('sortBy').addEventListener('change', () => {
+            renderLeaderboard();
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) {
+                renderLeaderboard();
+                return;
+            }
+            
+            const creators = taboostData.getAllCreators().filter(c => 
+                c.username.toLowerCase().includes(query) ||
+                (c.discord && c.discord.toLowerCase().includes(query)) ||
+                (c.manager && c.manager.toLowerCase().includes(query))
+            );
+            
+            filteredCreators = creators;
+            currentPage = 1;
+            
+            // Temporarily override data and render
+            const originalData = taboostData.creators;
+            taboostData.creators = creators;
+            renderLeaderboard();
+            taboostData.creators = originalData;
+        });
+
+        // Pagination
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderLeaderboard();
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredCreators.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderLeaderboard();
+            }
+        });
+
+        // Refresh button
+        document.getElementById('refreshBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('refreshBtn');
+            btn.classList.add('spinning');
+            await taboostData.loadFromCSV();
+            updateStats();
+            renderLeaderboard();
+            document.getElementById('lastUpdated').textContent = 
+                `Last updated: ${new Date().toLocaleTimeString()}`;
+            setTimeout(() => btn.classList.remove('spinning'), 500);
+        });
+
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>

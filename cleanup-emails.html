@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - Cleanup Fake Emails</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .status {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .status.visible { display: block; }
+        .success { color: #22c55e; }
+        .error { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <p style="color:#888; margin-bottom:30px;">Remove Fake Emails from Firestore</p>
+        
+        <p style="color:#aaa; margin-bottom:20px;">
+            This will remove the fake @taboost.me emails from creatorRoster so login stops showing them.
+        </p>
+        
+        <button class="btn" id="cleanupBtn" onclick="cleanup()">🧹 Remove Fake Emails</button>
+        
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        function log(msg, type) {
+            const status = document.getElementById('status');
+            status.classList.add('visible');
+            const div = document.createElement('div');
+            div.className = type || '';
+            div.textContent = msg;
+            status.appendChild(div);
+            status.scrollTop = status.scrollHeight;
+        }
+
+        async function cleanup() {
+            const btn = document.getElementById('cleanupBtn');
+            btn.disabled = true;
+            
+            log('🧹 Starting cleanup...');
+            
+            try {
+                // Get all creatorRoster documents
+                const snapshot = await db.collection('creatorRoster').get();
+                log(`Found ${snapshot.size} creators`);
+                
+                let removed = 0;
+                for (const doc of snapshot.docs) {
+                    const data = doc.data();
+                    // Check if email is fake (@taboost.me)
+                    if (data.email && data.email.includes('@taboost.me')) {
+                        await doc.ref.update({ email: firebase.firestore.FieldValue.delete() });
+                        removed++;
+                        if (removed % 50 === 0) {
+                            log(`Removed ${removed} fake emails...`);
+                        }
+                    }
+                }
+                
+                log(`✅ Removed ${removed} fake emails!`, 'success');
+                log('🎉 Login will no longer show fake emails.', 'success');
+                
+            } catch (error) {
+                log('❌ Error: ' + error.message, 'error');
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

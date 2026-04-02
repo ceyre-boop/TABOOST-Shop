@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - Bulk Import All 802 Creators</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .log {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry { margin: 2px 0; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        .warning {
+            background: #451a03;
+            border: 1px solid #92400e;
+            color: #fbbf24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #feca57;
+        }
+        .stat-label { color: #888; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TABOOST Bulk Import</h1>
+        <p class="subtitle">Import All 802 Creators to Firebase</p>
+
+        <div class="warning">
+            ⚠️ <strong>IMPORTANT:</strong> Deploy these TEMPORARY rules first (removes auth requirement):<br>
+            <code style="background:#000;padding:5px 10px;border-radius:4px;display:block;margin:10px 0;font-size:11px;">
+            rules_version = '2';<br>
+            service cloud.firestore {<br>
+            &nbsp;&nbsp;match /databases/{database}/documents {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;match /{document=**} {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow read, write: if true;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br>
+            }
+            </code>
+            <a href="https://console.firebase.google.com/project/taboost-platform/firestore/rules" target="_blank" style="color:#fbbf24;">Open Firebase Rules →</a>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number" id="totalCreators">802</div>
+                <div class="stat-label">Total Creators</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="importedCount">0</div>
+                <div class="stat-label">Imported</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="remainingCount">802</div>
+                <div class="stat-label">Remaining</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            <button class="btn" id="importBtn" onclick="startImport()">
+                🚀 START BULK IMPORT
+            </button>
+            <button class="btn" id="pauseBtn" onclick="pauseImport()" style="display:none; background: #666;">
+                ⏸️ PAUSE
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>📋 Import Log</h3>
+            <div class="log" id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // ALL 802 TABOOST CREATORS - COMPLETE ROSTER
+        // ============================================
+        const ALL_CREATORS = [
+            {cid:"7359135084659736581",username:"samanthasingsit",manager:"carrington"},
+            {cid:"7359135097779519493",username:"bryton.39",manager:"marco"},
+            {cid:"7359135105165656069",username:"freekbass",manager:"carrington"},
+            {cid:"7359135264167428102",username:"coloreomusic",manager:"carrington"},
+            {cid:"7359134585688522757",username:"singleonthemove",manager:"carrington"},
+            {cid:"7527933905626988561",username:"shanellenikolee",manager:"carrington"},
+            {cid:"7359134572702957574",username:"jayden_egg",manager:"carrington"},
+            {cid:"7368626525710794769",username:"daisy_dew4",manager:"carrington"},
+            {cid:"7359135727810052101",username:"hotterjakepaul",manager:"carrington"},
+            {cid:"7359134909191159814",username:"skylerclarkk",manager:"carrington",claimed:true},
+            {cid:"7359134960558571525",username:"smity194",manager:"carrington"},
+            {cid:"7513787055730638849",username:"cwdetroit",manager:"carrington"},
+            {cid:"7359135814745391109",username:"tha_dripp_phamily",manager:"carrington"},
+            {cid:"7417960855335354369",username:"pcdrums76",manager:"carrington"},
+            {cid:"7359136208586637317",username:"thebellaflora__",manager:"carrington"},
+            {cid:"7391438796933546001",username:"mirsowavy",manager:"carrington"},
+            {cid:"7576723590549389326",username:"gaywhonotme",manager:"sven"},
+            {cid:"7359136272692117509",username:"koryskitchen",manager:"carrington"},
+            {cid:"7359136287120719877",username:"redrumstudios",manager:"bryton"},
+            {cid:"7409743090665242641",username:"theviolution",manager:"carrington"},
+            {cid:"7433607263870517264",username:"alexaraeemusic",manager:"carrington"},
+            {cid:"7359135283092226053",username:"oregonstargirl",manager:"carrington"},
+            {cid:"7359135407352610822",username:"burnt.tatertot",manager:"carrington"},
+            {cid:"7359137631822708741",username:"sam_g_89",manager:"bryton"},
+            {cid:"7497777597393190929",username:"stefanielauryn415",manager:"carrington"},
+            {cid:"7359135268521246726",username:"thetrapviolinist",manager:"carrington"},
+            {cid:"7558760842850746382",username:"sarahegant",manager:"carrington"},
+            {cid:"7451090481020321808",username:"growandglowasmr",manager:"bryton"},
+            {cid:"7581605738645078071",username:"jordan.borges",manager:"dylan"},
+            {cid:"7554552006812188727",username:"imjustnicob",manager:"bryton"},
+            {cid:"7359135408745447429",username:"b.herbz",manager:"carrington"},
+            {cid:"7387268256991657985",username:"titancosplays",manager:"carrington"},
+            {cid:"7359138280010645509",username:"ageofangel",manager:"carrington"},
+            {cid:"7359135698651217926",username:"mystiquedejello",manager:"carrington"},
+            {cid:"7595776572192243726",username:"muthafknsid",manager:"bryton"},
+            {cid:"7359134875733000198",username:"maiazakay",manager:"marco"},
+            {cid:"7359134984718024709",username:"cpayne_04",manager:"carrington"},
+            {cid:"7359135322615185413",username:"aaronhunt30575",manager:"carrington"},
+            {cid:"7359136363951816710",username:"rockylanemusic",manager:"carrington"},
+            {cid:"7359134961959632902",username:"thecyrilia",manager:"carrington"},
+            {cid:"7359134527924666373",username:"basswizrd",manager:"carrington"},
+            {cid:"7359134698641293317",username:"bobbyjwil",manager:"carrington"},
+            {cid:"7608338554233602062",username:"deearnnap",manager:"levi"},
+            {cid:"7359134981857280006",username:"averynoelles",manager:"carrington"},
+            {cid:"7601674566645202999",username:"threehundredseventytwo",manager:"levi"},
+            {cid:"7359134813120659461",username:"jeremiahboutross",manager:"carrington"},
+            {cid:"7517471096153718800",username:"imamberleybriana",manager:"sven"},
+            {cid:"7359134456151867397",username:"luke.h.reynoldsmusic",manager:"carrington"},
+            {cid:"7359137668212490245",username:"sebbythecatdad",manager:"levi"},
+            {cid:"7359136672245809158",username:"natalianope",manager:"carrington"},
+            {cid:"7359135281678712838",username:"blakeslifeline",manager:"carrington"},
+            {cid:"7359135857971920902",username:"musicalnugget",manager:"carrington"},
+            {cid:"7359137269107916806",username:"metalkitten2",manager:"carrington"},
+            {cid:"7359135762769608710",username:"mistresswednesday13",manager:"carrington"},
+            {cid:"7359135589712560133",username:"silvershadowmark",manager:"carrington"},
+            {cid:"7539009437726720013",username:"damoyee",manager:"carrington"},
+            {cid:"7538007038555897911",username:"celia.silva072",manager:"carrington"},
+            {cid:"7546017169939709965",username:"ardy.afshar",manager:"carrington"},
+            {cid:"7359139156565622790",username:"naseem0815",manager:"carrington"},
+            {cid:"7359134517946417157",username:"ashleymatute_",manager:"carrington"},
+            {cid:"7550884206759559223",username:"uriquarlesceodfm",manager:"carrington"},
+            {cid:"7555294248464039991",username:"follow_the_breeze",manager:"carrington"},
+            {cid:"7563762554611417101",username:"thatbrokeguy2024",manager:"carrington"},
+            {cid:"7359134574070398981",username:"sierralandmagic",manager:"carrington"},
+            {cid:"7359135998355472389",username:"brayden.pantel",manager:"carrington"},
+            {cid:"7359135185687904261",username:"ashtingles",manager:"carrington"},
+            {cid:"7359135264155107334",username:"danielsbrowning",manager:"carrington"},
+            {cid:"7444838821734268929",username:"fishon053",manager:"carrington"},
+            {cid:"7573460772341334029",username:"gorgeousgoddessart",manager:"carrington"},
+            {cid:"7527045326104985617",username:"jordananthonymusic",manager:"carrington"},
+            {cid:"7566313243967471630",username:"davidwilliamwatts",manager:"carrington"},
+            {cid:"7548650142132584461",username:"allltimesam",manager:"carrington"},
+            {cid:"7556036936314470414",username:"laketimemamaw",manager:"carrington"},
+            {cid:"7474398331670626321",username:"_alycen",manager:"carrington"},
+            {cid:"7454359110578864145",username:"alliemsx",manager:"carrington"},
+            {cid:"7498149470513889297",username:"sierralevesquemusic",manager:"carrington"},
+            {cid:"7359139881689448454",username:"dontaskhowmany",manager:"carrington"},
+            {cid:"7359134682556170245",username:"smilinjacks69",manager:"carrington"},
+            {cid:"7359135361911652357",username:"shelbyjo89",manager:"carrington"},
+            {cid:"7535336479992889358",username:"whitn084",manager:"carrington"},
+            {cid:"7359137468693872645",username:"shed0fficial",manager:"carrington"},
+            {cid:"7433657413758304273",username:"a.marie.911",manager:"carrington"},
+            {cid:"7359135184236642309",username:"voyce89",manager:"carrington"},
+            {cid:"7359134701724041221",username:"yourfavderek",manager:"carrington"},
+            {cid:"7467472515904831489",username:"backwoodscaiden",manager:"carrington"},
+            {cid:"7364134731081924609",username:"modern_ragnar_1.0",manager:"carrington"},
+            {cid:"7577837917884858382",username:"whoistatumbittick",manager:"carrington"},
+            {cid:"7359135172404740102",username:"steven_dean",manager:"carrington"},
+            {cid:"7570175504641474574",username:"foolishondemkeyz",manager:"carrington"},
+            {cid:"7549665746826281015",username:"official.kim20",manager:"carrington"},
+            {cid:"7612102618529185806",username:"ajsrantroom",manager:"carrington"},
+            {cid:"7359135632007921670",username:"24widmar",manager:"carrington"},
+            {cid:"7359134698641162245",username:"roostersworld4",manager:"carrington"},
+            {cid:"7359139572674232325",username:"moji.music",manager:"carrington"},
+            {cid:"7537793382597410829",username:"svendranoel",manager:"carrington"},
+            {cid:"7587257848577441847",username:"im.just.a.girly39",manager:"carrington"},
+            {cid:"7359138475368513541",username:"scarlettjlopez",manager:"carrington"},
+            {cid:"7589643748636868663",username:"miss__kimmy",manager:"carrington"},
+            {cid:"7359137106595217413",username:"catarina.cordle",manager:"carrington"},
+            {cid:"7581641735269302327",username:"battyfog",manager:"carrington"},
+            {cid:"7359139118909095942",username:"sparksboi97",manager:"carrington"},
+            {cid:"7359136328962801669",username:"dougielifts",manager:"carrington"},
+            {cid:"7368835057600970768",username:"badgirlbritt2",manager:"carrington"},
+            {cid:"7405584046161412113",username:"tbone_ga",manager:"carrington"},
+            {cid:"7359134530801958917",username:"relaxwithrissa",manager:"carrington"},
+            {cid:"7572411477894643767",username:"cecelove320120",manager:"carrington"},
+            {cid:"7546388294167216142",username:"zordoth",manager:"carrington"},
+            {cid:"7592009074502451213",username:"clovonet02",manager:"carrington"},
+            {cid:"7574878703558180919",username:"southerncharm0726",manager:"carrington"},
+            {cid:"7571250938317651982",username:"therealhambino",manager:"carrington"},
+            {cid:"7574516554717675575",username:"fabtiff75",manager:"carrington"},
+            {cid:"7591706464859734029",username:"cherylplanb",manager:"carrington"},
+            {cid:"7601657541499666487",username:"princesscults",manager:"carrington"},
+            {cid:"7359138931742474246",username:"brandonthebabe",manager:"carrington"},
+            {cid:"7359135264155140102",username:"umparker",manager:"carrington"},
+            {cid:"7594348083929006094",username:"caroleens",manager:"carrington"},
+            {cid:"7415856990070751233",username:"zezecod",manager:"carrington"},
+            {cid:"7460375701229912080",username:"azyatk",manager:"carrington"},
+            {cid:"7454734552142118928",username:"thewhisperfaerieasmr",manager:"carrington"},
+            {cid:"7546060436458979383",username:"raven4life79",manager:"carrington"},
+            {cid:"7591301261329285175",username:"queen_maddy_1202",manager:"carrington"},
+            {cid:"7359139280323182598",username:"t1dfighter03_24_12",manager:"carrington"},
+            {cid:"7451027162578255889",username:"skullznbowlz",manager:"carrington"},
+            {cid:"7359138377117106181",username:"drewcasta",manager:"carrington"},
+            {cid:"7571891553636073485",username:"rawhn3y",manager:"carrington"},
+            {cid:"7473189073168121873",username:"bridgetryan",manager:"carrington"},
+            {cid:"7568976409566298126",username:"lowrainnn1",manager:"carrington"},
+            {cid:"7359137865995091974",username:"siren_ofthe_stars",manager:"carrington"},
+            {cid:"7507054085481431056",username:"_mrs.robinson_",manager:"carrington"},
+            {cid:"7592049908509818894",username:"ash_bittickkk",manager:"carrington"},
+            {cid:"7359134578394529797",username:"fathernewman",manager:"carrington"},
+            {cid:"7359136385644658693",username:"joelerdmann_",manager:"carrington"},
+            {cid:"7491102902766043137",username:"turkcotton",manager:"carrington"},
+            {cid:"7449907460980310033",username:"tattedandspicy",manager:"carrington"},
+            {cid:"7524495263340298257",username:"suaskiiii",manager:"carrington"},
+            {cid:"7359139297569832965",username:"jadelvega",manager:"carrington"},
+            {cid:"7481449047811964929",username:"thecluelessbunny",manager:"carrington"},
+            {cid:"7359135084660129797",username:"jordan_shier",manager:"carrington"},
+            {cid:"7359134710397763589",username:"swug_asmr",manager:"carrington"},
+            {cid:"7359138297592938501",username:"sonnybrightside",manager:"carrington"},
+            {cid:"7460667880711995408",username:"aquarius5518",manager:"carrington"},
+            {cid:"7410415784117436432",username:"popcultkillers",manager:"carrington"},
+            {cid:"7578672537446694925",username:"cottonsnivy",manager:"carrington"},
+            {cid:"7435830178007449617",username:"its_gigi_babi",manager:"carrington"},
+            {cid:"7561842881749893134",username:"cybersecurityitguy",manager:"carrington"},
+            {cid:"7595842605108445239",username:"tarotbymoonbeam",manager:"carrington"},
+            {cid:"7554981574454919223",username:"stephintechnicolor",manager:"carrington"},
+            {cid:"7573015023421997111",username:"shemandigans",manager:"carrington"},
+            {cid:"7370643117634224145",username:"beautiful_soul_25",manager:"carrington"},
+            {cid:"7577930487646306318",username:"lancektyree",manager:"carrington"},
+            {cid:"7386895531936727041",username:"foreveryapping",manager:"carrington"},
+            {cid:"7359138345219293189",username:"happilyengaged2011",manager:"carrington"},
+            {cid:"7392861575922827280",username:"risingwithcristina",manager:"carrington"},
+            {cid:"7402976045227556880",username:"lyvidyka",manager:"carrington"},
+            {cid:"7426157075610468368",username:"yaticasimagination",manager:"carrington"},
+            {cid:"7359139692660588549",username:"invictaxilexx",manager:"carrington"},
+            {cid:"7359135347281985541",username:"first.lady.jay2.0",manager:"carrington"},
+            {cid:"7556036369030823991",username:"perfectaimm",manager:"carrington"},
+            {cid:"7459183456464044048",username:"girldaddy20",manager:"carrington"},
+            {cid:"7603144665814122510",username:"slaydrigaming",manager:"carrington"},
+            {cid:"7598661055547654158",username:"kinggemini285",manager:"carrington"},
+            {cid:"7359139443036389382",username:"hotsenorita2",manager:"carrington"},
+            {cid:"7603413642771447822",username:"lilashiesty",manager:"carrington"},
+            {cid:"7535567490525675533",username:"nita_b1068",manager:"carrington"},
+            {cid:"7507826762513154064",username:"natures_kill",manager:"carrington"},
+            {cid:"7398369743926804497",username:"ryanrevard",manager:"carrington"},
+            {cid:"7391102885259690001",username:"riahx2x",manager:"carrington"},
+            {cid:"7433137488866164753",username:"iluvgg_",manager:"carrington"},
+            {cid:"7579814318795997197",username:"gudinoashley",manager:"carrington"},
+            {cid:"7375048727318446081",username:"jameagledavinci",manager:"carrington"},
+            {cid:"7454734609608146945",username:"fdgaming19",manager:"carrington"},
+            {cid:"7519300322448310289",username:"barrywhit3",manager:"carrington"},
+            {cid:"7524533007961751553",username:"bananasuperwoman",manager:"carrington"},
+            {cid:"7537116061758636045",username:"kes_014",manager:"carrington"},
+            {cid:"7556036722329698317",username:"blessxblessx",manager:"carrington"},
+            {cid:"7359136220175237125",username:"samuelciafaloni",manager:"carrington"},
+            {cid:"7359135732201488390",username:"toxic_luigi69",manager:"carrington"},
+            {cid:"7466992762915667985",username:"mulletdevotional",manager:"carrington"},
+            {cid:"7510768475086897168",username:"frimzayy",manager:"carrington"},
+            {cid:"7612028316274475022",username:"tyrellgreenlee",manager:"carrington"},
+            {cid:"7551954482628673591",username:"kenziehuggg",manager:"carrington"},
+            {cid:"7455857931691507713",username:"sebastianadamick",manager:"carrington"},
+            {cid:"7426443199394185233",username:"jarajj1",manager:"carrington"},
+            {cid:"7359135813340266502",username:"itsjimmay",manager:"carrington"},
+            {cid:"7494442891004280833",username:"fizzle_station",manager:"carrington"},
+            {cid:"7562263750460456974",username:"bluubanddchef",manager:"carrington"},
+            {cid:"7542994340252008462",username:"destany717",manager:"carrington"},
+            {cid:"7541082464794722317",username:"monkabutt1",manager:"carrington"},
+            {cid:"7510767609743343632",username:"arivassallo914",manager:"carrington"},
+            {cid:"7359138535707967493",username:"jenni_from_the_block0",manager:"carrington"},
+            {cid:"7359138374126665733",username:"1gator90",manager:"carrington"},
+            {cid:"7611963157363572750",username:"gentryblue",manager:"carrington"},
+            {cid:"7359134498598158342",username:"caleb_caldwell1",manager:"carrington"},
+            {cid:"7418793145070043137",username:"x_deej_x",manager:"carrington"},
+            {cid:"7585352066416132151",username:"danny.buth",manager:"carrington"},
+            {cid:"7445169513122971665",username:"melina_cajunroyaltea",manager:"carrington"},
+            {cid:"7463636777518088193",username:"itsbriannablake",manager:"carrington"},
+            {cid:"7359139194351976453",username:"mattdd1984",manager:"carrington"},
+            {cid:"7582956443989524535",username:"johnstonecountry",manager:"carrington"},
+            {cid:"7504020275906740240",username:"thecontroversialblonde",manager:"carrington"},
+            {cid:"7399857919480840209",username:"inside_the_autistic_mind",manager:"carrington"},
+            {cid:"7359135591147274246",username:"yourfriendm00nmusic",manager:"carrington"},
+            {cid:"7534478942514855949",username:"caymanmjohn",manager:"carrington"},
+            {cid:"7359135442542952454",username:"lil.ginga5",manager:"carrington"},
+            {cid:"7505245178995884033",username:"alaskanbassgal",manager:"carrington"},
+            {cid:"7597968965910183950",username:"anaylanaee",manager:"carrington"},
+            {cid:"7523616145459527681",username:"midnightxreign",manager:"carrington"},
+            {cid:"7602394582281764878",username:"humblekeshhh",manager:"carrington"},
+            {cid:"7504376226061123585",username:"juustjewel237",manager:"carrington"},
+            {cid:"7359135160358699014",username:"kayy.jayy26",manager:"carrington"},
+            {cid:"7554063085410172941",username:"madysen_luebke",manager:"carrington"},
+            {cid:"7513023387602829313",username:"wildstr8",manager:"carrington"},
+            {cid:"7359139856754376709",username:"mf.josh",manager:"carrington"},
+            {cid:"7495246070599909392",username:"commakaze",manager:"carrington"},
+            {cid:"7359135689868443654",username:"carringtonchronicles",manager:"carrington"},
+            {cid:"7444829624510529537",username:"monanightmare",manager:"carrington"},
+            {cid:"7490726688108724241",username:"jjreefs",manager:"carrington"},
+            {cid:"7585682806014132279",username:"alexshopsfar3",manager:"carrington"},
+            {cid:"7575262176085164045",username:"genxjamz",manager:"carrington"},
+            {cid:"7359136395657019397",username:"jordan.o1son",manager:"carrington"},
+            {cid:"7359136568071979013",username:"adubthewarriorprincess",manager:"carrington"},
+            {cid:"7359139426389262342",username:"poecelain",manager:"carrington"},
+            {cid:"7390068722897174529",username:"softglamasmr",manager:"carrington"},
+            {cid:"7359135918558576646",username:"amyluwho982",manager:"carrington"},
+            {cid:"7359137468723200006",username:"niatravelstome",manager:"carrington"},
+            {cid:"7379128586931929104",username:"kingeloteroman",manager:"carrington"},
+            {cid:"7597517130489151502",username:"lmrese",manager:"carrington"},
+            {cid:"7537809549294878775",username:"stonagalbuzz420",manager:"carrington"},
+            {cid:"7522981364623441936",username:"keepingupwithfridahoeft_",manager:"carrington"},
+            {cid:"7359134725187207174",username:"g_money0805",manager:"carrington"},
+            {cid:"7359135444145274886",username:"srt.berner420",manager:"carrington"},
+            {cid:"7359137386623893509",username:"stitchfamily626",manager:"carrington"},
+            {cid:"7359135442551209989",username:"rcvry_w._uncle_louie",manager:"carrington"},
+            {cid:"7425644891335819265",username:"amberlmccrea",manager:"carrington"},
+            {cid:"7585925369484656654",username:"zerixkbm",manager:"carrington"},
+            {cid:"7359139437110067205",username:"chadly886",manager:"carrington"},
+            {cid:"7605576578982035470",username:"lady_cabernet",manager:"carrington"},
+            {cid:"7359138563587506181",username:"howlingattheearth",manager:"carrington"},
+            {cid:"7359136208573792261",username:"mikaylaa.10",manager:"carrington"},
+            {cid:"7359135484905553925",username:"nicolefarahh",manager:"carrington"},
+            {cid:"7503687878057295873",username:"brick2424",manager:"carrington"},
+            {cid:"7507053838655078417",username:"mrsbryan27",manager:"carrington"},
+            {cid:"7443598415260401680",username:"1250dream",manager:"carrington"},
+            {cid:"7504826782965760017",username:"katelyn.mitchell23",manager:"carrington"},
+            {cid:"7408815219029508113",username:"gtrose",manager:"carrington"},
+            {cid:"7359135416206950406",username:"tripsevenofficial1",manager:"carrington"},
+            {cid:"7495549920183648257",username:"accountnot.found.32",manager:"carrington"},
+            {cid:"7598360367479439415",username:"mariithonner",manager:"carrington"},
+            {cid:"7478580508411084801",username:"auesomemoma",manager:"carrington"},
+            {cid:"7359138654733926405",username:"01cumminspassenger",manager:"carrington"},
+            {cid:"7602836437343420429",username:"its.sheemahhh",manager:"carrington"},
+            {cid:"7580253432372576270",username:"the_ss_lifestyle",manager:"carrington"},
+            {cid:"7464045881944326160",username:"lexiliynn",manager:"carrington"},
+            {cid:"7590547285004566542",username:"imjustsaiyanbro",manager:"carrington"},
+            {cid:"7532341639478558775",username:"zakiyahnadir01",manager:"carrington"},
+            {cid:"7401303186457444368",username:"codenamekodi",manager:"carrington"},
+            {cid:"7535212687584903181",username:"dannybartok",manager:"carrington"},
+            {cid:"7467455099565178896",username:"medusawhispers",manager:"carrington"},
+            {cid:"7423567910435635217",username:"xx_destmarie",manager:"carrington"},
+            {cid:"7548574120376647694",username:"sosefinaaah",manager:"carrington"},
+            {cid:"7359136236633718790",username:"willowshaze420",manager:"carrington"},
+            {cid:"7359686639905718273",username:"khrisskontours",manager:"carrington"},
+            {cid:"7359137874656165893",username:"djfiretechnodjnyc",manager:"carrington"},
+            {cid:"7368773659420344337",username:"justhelpone",manager:"carrington"},
+            {cid:"7608666330618871821",username:"n00lanttv",manager:"carrington"},
+            {cid:"7563794153663119373",username:"taylorstimeline",manager:"carrington"},
+            {cid:"7496706793574481936",username:"carlaaglamss",manager:"carrington"},
+            {cid:"7452134090184278017",username:"jae_moe97",manager:"carrington"},
+            {cid:"7601640864120881207",username:"dankinson420",manager:"carrington"},
+            {cid:"7597607545938690061",username:"ironshellbeadedcreations",manager:"carrington"},
+            {cid:"7359138718567137285",username:"quantumhaze",manager:"carrington"},
+            {cid:"7359135286036561926",username:"lsxcrew",manager:"carrington"},
+            {cid:"7475913456957308945",username:"homiequest",manager:"carrington"},
+            {cid:"7424945523473514497",username:"v3lueta",manager:"carrington"},
+            {cid:"7474398304470597633",username:"kirstenswasey",manager:"carrington"},
+            {cid:"7359139490306195461",username:"queenb_597",manager:"carrington"},
+            {cid:"7497079059470549009",username:"audracovey24",manager:"carrington"},
+            {cid:"7359138961387683846",username:"xander5klive",manager:"carrington"},
+            {cid:"7545275004133523470",username:"1codybentley",manager:"carrington"},
+            {cid:"7363316839583268881",username:"darland.jason",manager:"carrington"},
+            {cid:"7359138375443709957",username:"yaboiidomo27",manager:"carrington"},
+            {cid:"7480335399009746960",username:"paulschofield_bass",manager:"carrington"},
+            {cid:"7589643760687104055",username:"ellen_leanne",manager:"carrington"},
+            {cid:"7596188620743000119",username:"rootofrestoration",manager:"carrington"},
+            {cid:"7543362555650195511",username:"glowymariia",manager:"carrington"},
+            {cid:"7601660558693285902",username:"stubbsx88",manager:"carrington"},
+            {cid:"7543135486290935863",username:"callsign_keegan25",manager:"carrington"},
+            {cid:"7456983483978858513",username:"mattlongmusic",manager:"carrington"},
+            {cid:"7579785876688093239",username:"tatted_golfer_",manager:"carrington"},
+            {cid:"7427641988100554768",username:"jazcatraz",manager:"carrington"},
+            {cid:"7402863261353312273",username:"fatalparadox11877",manager:"carrington"},
+            {cid:"7488407886146830337",username:"mecheware1959",manager:"carrington"},
+            {cid:"7515218343071088657",username:"ailipsbeauty0",manager:"carrington"},
+            {cid:"7554608530725126157",username:"queen_ortiz__",manager:"carrington"},
+            {cid:"7532520627404849166",username:"888_fai_fai",manager:"carrington"},
+            {cid:"7435985741508870145",username:"geeky_feyn",manager:"carrington"},
+            {cid:"7359139288946245637",username:"lisamarieshippy",manager:"carrington"},
+            {cid:"7539619059638452237",username:"bmoneyslife",manager:"carrington"},
+            {cid:"7359135499635884038",username:"the.camjohnson",manager:"carrington"},
+            {cid:"7423558659491381249",username:"amysalcedo5",manager:"carrington"},
+            {cid:"7596161558443671565",username:"biiig46",manager:"carrington"},
+            {cid:"7537739361362919437",username:"backporch.crew",manager:"carrington"},
+            {cid:"7579054541350486030",username:"tarotwithchris",manager:"carrington"},
+            {cid:"7363729312689963025",username:"julianpalacios2001",manager:"carrington"},
+            {cid:"7547872614069518349",username:"primed.plat",manager:"carrington"},
+            {cid:"7556036556927090702",username:"th3onef3ar",manager:"carrington"},
+            {cid:"7359134507833982981",username:"loisa_asmr",manager:"carrington"},
+            {cid:"7595741738505879565",username:"jamjamish",manager:"carrington"},
+            {cid:"7603559048310505485",username:"jeffrey8bp",manager:"carrington"},
+            {cid:"7553020731857322039",username:"depttv",manager:"carrington"},
+            {cid:"7561178434211332109",username:"damon.ey",manager:"carrington"},
+            {cid:"7598710170574733326",username:"heathen_ikyoto",manager:"carrington"},
+            {cid:"7534212614495191095",username:"mergemadam",manager:"carrington"},
+            {cid:"7359137032024752133",username:"djbowiejane",manager:"carrington"},
+            {cid:"7467718585595723793",username:"a_aronfish",manager:"carrington"},
+            {cid:"7601722710653288503",username:"birdiesforeus",manager:"carrington"},
+            {cid:"7597658582695526455",username:"ijaneeg",manager:"carrington"},
+            {cid:"7605650147527213069",username:"mauricethemusic",manager:"carrington"},
+            {cid:"7550850474841456654",username:"eyekonicswiftie",manager:"carrington"},
+            {cid:"7605716528268591117",username:"michelleistheboss1978",manager:"carrington"},
+            {cid:"7359135501099761669",username:"itskbearr",manager:"carrington"},
+            {cid:"7471151790571126785",username:"retrozombiegaming",manager:"carrington"},
+            {cid:"7484330241842987025",username:"heavenrnybaribaddie",manager:"carrington"},
+            {cid:"7595395796338720781",username:"walmart.grey",manager:"carrington"},
+            {cid:"7409457835299356689",username:"boundmanlove",manager:"carrington"},
+            {cid:"7376338046494720016",username:"trinity.blair",manager:"carrington"},
+            {cid:"7359139453274947589",username:"angeleyez39",manager:"carrington"},
+            {cid:"7567822393935380494",username:"the_greekbeast",manager:"carrington"},
+            {cid:"7541597194860838926",username:"x.xiii.x",manager:"carrington"},
+            {cid:"7371646533651005456",username:"sayeh2002",manager:"carrington"},
+            {cid:"7359135736874467333",username:"jovanijara99",manager:"carrington"},
+            {cid:"7359134964962623494",username:".dianaaa__",manager:"carrington"},
+            {cid:"7589643758640185358",username:"fit4ever91",manager:"carrington"},
+            {cid:"7538283212296962103",username:"by.nicolel",manager:"carrington"},
+            {cid:"7359135410272239622",username:"lolthatsrichie",manager:"carrington"},
+            {cid:"7516667825638064129",username:"just_kymie",manager:"carrington"},
+            {cid:"7582802583895523341",username:"leahhmelia",manager:"carrington"},
+            {cid:"7517444538256850945",username:"trippedz2xx",manager:"carrington"},
+            {cid:"7581270140747137079",username:"swiggitymann",manager:"carrington"},
+            {cid:"7451019704396906497",username:"likeromeo",manager:"carrington"},
+            {cid:"7457401443486826512",username:"_kristie032",manager:"carrington"},
+            {cid:"7571250824484175885",username:"davispack6",manager:"carrington"},
+            {cid:"7537733986077065230",username:".zmynt",manager:"carrington"},
+            {cid:"7359135762769739782",username:"real209er",manager:"carrington"},
+            {cid:"7605059443780337678",username:"kristenkittymeow",manager:"carrington"},
+            {cid:"7359136478452088837",username:"davehowardshow",manager:"carrington"},
+            {cid:"7359135112296071173",username:"thomasetv3000",manager:"carrington"},
+            {cid:"7538299940934828046",username:"dovahkiinsdaydream",manager:"carrington"},
+            {cid:"7498425395025330192",username:"jonathan.mcclaine",manager:"carrington"},
+            {cid:"7433142229734293521",username:"brookeventre",manager:"carrington"},
+            {cid:"7531014993601609741",username:"asiaechols",manager:"carrington"},
+            {cid:"7359135099172159494",username:"mayhem.meadows.farm",manager:"carrington"},
+            {cid:"7455479714787147792",username:"devabby1",manager:"carrington"},
+            {cid:"7471057955509682177",username:"kinkyykenzzz",manager:"carrington"},
+            {cid:"7564865117108682765",username:"freida.martha",manager:"carrington"},
+            {cid:"7359135070302535686",username:"iamjacobsavage",manager:"carrington"}
+        ];
+
+        // ============================================
+        // FIREBASE CONFIG - TABOOST PLATFORM
+        // ============================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+
+        // State
+        let isPaused = false;
+        let currentIndex = 0;
+        let importedCount = 0;
+        let errorCount = 0;
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function updateStats() {
+            document.getElementById('importedCount').textContent = importedCount;
+            document.getElementById('remainingCount').textContent = ALL_CREATORS.length - currentIndex;
+            
+            const percent = Math.round((currentIndex / ALL_CREATORS.length) * 100);
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            document.getElementById('progressBar').textContent = `${percent}%`;
+        }
+
+        async function importBatch(startIndex, batchSize) {
+            const batch = db.batch();
+            const endIndex = Math.min(startIndex + batchSize, ALL_CREATORS.length);
+            
+            for (let i = startIndex; i < endIndex; i++) {
+                if (isPaused) break;
+                
+                const creator = ALL_CREATORS[i];
+                const docRef = db.collection('creatorRoster').doc(creator.username.toLowerCase());
+                
+                batch.set(docRef, {
+                    cid: creator.cid,
+                    tiktokUsername: creator.username.toLowerCase(),
+                    claimed: creator.claimed || false,
+                    manager: creator.manager.toUpperCase(),
+                    importedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            }
+            
+            await batch.commit();
+            return endIndex - startIndex;
+        }
+
+        async function startImport() {
+            // No auth needed - using temporary open rules
+            log('🚀 Starting import (using temporary open rules)...', 'info');
+
+            document.getElementById('importBtn').style.display = 'none';
+            document.getElementById('pauseBtn').style.display = 'block';
+            isPaused = false;
+
+            log(`🚀 Starting import of ${ALL_CREATORS.length} creators...`, 'info');
+
+            const BATCH_SIZE = 400; // Firestore batch limit is 500
+
+            while (currentIndex < ALL_CREATORS.length && !isPaused) {
+                try {
+                    const imported = await importBatch(currentIndex, BATCH_SIZE);
+                    importedCount += imported;
+                    currentIndex += imported;
+                    
+                    log(`✅ Imported batch: ${imported} creators (${currentIndex}/${ALL_CREATORS.length})`, 'success');
+                    updateStats();
+                    
+                    // Small delay to prevent rate limiting
+                    await new Promise(r => setTimeout(r, 500));
+                    
+                } catch (error) {
+                    errorCount++;
+                    log(`❌ Batch error: ${error.message}`, 'error');
+                    
+                    // Continue with next batch
+                    currentIndex += BATCH_SIZE;
+                    await new Promise(r => setTimeout(r, 1000));
+                }
+            }
+
+            finishImport();
+        }
+
+        function pauseImport() {
+            isPaused = true;
+            document.getElementById('pauseBtn').textContent = '▶️ RESUME';
+            document.getElementById('pauseBtn').onclick = resumeImport;
+            log('⏸️ Import paused', 'warning');
+        }
+
+        function resumeImport() {
+            isPaused = false;
+            document.getElementById('pauseBtn').textContent = '⏸️ PAUSE';
+            document.getElementById('pauseBtn').onclick = pauseImport;
+            log('▶️ Import resumed', 'info');
+            startImport();
+        }
+
+        function finishImport() {
+            document.getElementById('importBtn').style.display = 'block';
+            document.getElementById('importBtn').textContent = '🔄 RESTART IMPORT';
+            document.getElementById('pauseBtn').style.display = 'none';
+            
+            if (importedCount === ALL_CREATORS.length) {
+                log(`🎉 COMPLETE! All ${importedCount} creators imported!`, 'success');
+            } else if (isPaused) {
+                log(`⏸️ Paused at ${currentIndex}/${ALL_CREATORS.length}`, 'warning');
+            } else {
+                log(`⚠️ Import finished with ${errorCount} errors`, 'warning');
+            }
+        }
+
+        // Initialize
+        log('📋 Ready to import. Make sure temporary Firestore rules are deployed!', 'info');
+        log(`📊 Total creators to import: ${ALL_CREATORS.length}`, 'info');
+    </script>
+</body>
+</html>

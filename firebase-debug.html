@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase Debug - TABOOST</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; background: #0a0a0a; color: #fff; }
+        .log { background: #1a1a1a; padding: 10px; margin: 10px 0; border-radius: 5px; font-family: monospace; font-size: 12px; }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .info { color: #4488ff; }
+        button { background: #ff0044; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        pre { overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔥 Firebase Debug Page</h1>
+    <div id="status">Click buttons to test...</div>
+    <div id="logs"></div>
+    
+    <div>
+        <button onclick="testFirebase()">1. Test Firebase Connection</button>
+        <button onclick="checkFirestore()">2. Check Firestore Data</button>
+        <button onclick="addTestData()">3. Add Test Creator</button>
+        <button onclick="clearLogs()">Clear Logs</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        let db = null;
+        
+        function log(msg, type = 'info') {
+            const div = document.createElement('div');
+            div.className = 'log ' + type;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            document.getElementById('logs').appendChild(div);
+            console.log(msg);
+        }
+        
+        function testFirebase() {
+            try {
+                log('Initializing Firebase...', 'info');
+                firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+                log('✅ Firebase initialized successfully!', 'success');
+                document.getElementById('status').textContent = 'Firebase Connected';
+            } catch (e) {
+                log('❌ Firebase error: ' + e.message, 'error');
+            }
+        }
+        
+        function checkFirestore() {
+            if (!db) {
+                log('❌ Connect to Firebase first!', 'error');
+                return;
+            }
+            
+            log('Checking Firestore for creators...', 'info');
+            
+            db.collection('creators').limit(5).get()
+                .then(snapshot => {
+                    log(`Found ${snapshot.size} creators in Firestore`, 'success');
+                    
+                    if (snapshot.size === 0) {
+                        log('⚠️ No creators found! Run the Google Apps Script sync.', 'error');
+                    } else {
+                        snapshot.forEach(doc => {
+                            const data = doc.data();
+                            log(`Creator: ${data.username || 'unknown'} - ${data.diamonds || 0} diamonds`, 'success');
+                        });
+                    }
+                })
+                .catch(err => {
+                    log('❌ Firestore error: ' + err.message, 'error');
+                    if (err.message.includes('permission')) {
+                        log('💡 This is a permissions issue. Check Firestore rules.', 'info');
+                    }
+                });
+        }
+        
+        function addTestData() {
+            if (!db) {
+                log('❌ Connect to Firebase first!', 'error');
+                return;
+            }
+            
+            const testCreator = {
+                creatorId: 'test_' + Date.now(),
+                username: 'Test Creator',
+                agent: 'Test Agent',
+                tier: 5,
+                diamonds: 1234567,
+                rewards: 2345678,
+                hours: 45,
+                score: 85,
+                updatedAt: new Date().toISOString()
+            };
+            
+            log('Adding test creator...', 'info');
+            
+            db.collection('creators').doc(testCreator.creatorId).set(testCreator)
+                .then(() => {
+                    log('✅ Test creator added! Refresh dashboard to see it.', 'success');
+                })
+                .catch(err => {
+                    log('❌ Error adding test: ' + err.message, 'error');
+                });
+        }
+        
+        function clearLogs() {
+            document.getElementById('logs').innerHTML = '';
+        }
+        
+        // Auto-test on load
+        window.onload = () => {
+            log('Page loaded. Click "Test Firebase Connection" to start.', 'info');
+        };
+    </script>
+</body>
+</html>

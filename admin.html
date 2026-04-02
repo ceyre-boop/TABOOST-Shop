@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>TABOOST Admin - Loading...</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  background: #000; 
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+.loading {
+  text-align: center;
+}
+.spinner {
+  width: 50px; height: 50px; border: 3px solid #333;
+  border-top-color: #ff0044; border-radius: 50%;
+  animation: spin 1s linear infinite; margin: 0 auto 20px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+<script>
+// Clear all storage to prevent cached redirects
+localStorage.clear();
+sessionStorage.clear();
+
+// Redirect to dashboard with cache-busting timestamp
+const timestamp = Date.now();
+window.location.replace('dashboard.html?_=' + timestamp);
+</script>
+</head>
+<body>
+<div class="loading">
+  <div class="spinner"></div>
+  <div>Loading Admin Dashboard...</div>
+</div>
+</body>
+</html>

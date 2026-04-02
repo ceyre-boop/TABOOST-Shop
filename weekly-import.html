@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Weekly Creator Import</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle { 
+            color: #888; 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .card h2 {
+            color: #feca57;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff0044;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: #333;
+            color: white;
+        }
+        
+        .creator-list {
+            max-height: 400px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .creator-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .creator-item:last-child {
+            border-bottom: none;
+        }
+        
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .creator-name {
+            font-weight: 600;
+        }
+        
+        .creator-cid {
+            color: #666;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+        
+        .creator-manager {
+            background: rgba(255,0,68,0.2);
+            color: #ff6b6b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-new {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        
+        .status-imported {
+            background: rgba(102,102,102,0.2);
+            color: #888;
+        }
+        
+        .log {
+            background: rgba(0,0,0,0.5);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px 0;
+        }
+        
+        .success { color: #00ff88; }
+        .error { color: #ff0044; }
+        .info { color: #feca57; }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333;
+            border-top-color: #ff0044;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #ff0044;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+    </style>
+    
+    <!-- Load TABOOST Data -->
+    <script src="js/data.js"></script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFirestore, collection, doc, getDoc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // State
+        let allCreators = [];
+        let existingCreators = new Set();
+        let newCreators = [];
+        let isAdmin = false;
+        
+        // Elements
+        const totalEl = document.getElementById('totalCreators');
+        const importedEl = document.getElementById('importedCreators');
+        const newEl = document.getElementById('newCreators');
+        const creatorListEl = document.getElementById('creatorList');
+        const logEl = document.getElementById('log');
+        const scanBtn = document.getElementById('scanBtn');
+        const importBtn = document.getElementById('importBtn');
+        
+        function log(msg, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `log-entry ${type}`;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logEl.appendChild(div);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+        
+        // Check auth
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                log('❌ Please log in first', 'error');
+                creatorListEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔒</div>
+                        <h3>Login Required</h3>
+                        <p>You must be logged in as an admin to use this tool.</p>
+                        <button class="btn" onclick="window.location.href='firebase-login.html'" style="margin-top: 20px;">
+                            🔑 Log In
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Check if admin
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
+            const userData = userDoc.data();
+            
+            if (user.email?.toLowerCase() === 'marco@taboost.me' || userData?.role === 'admin') {
+                isAdmin = true;
+                log('✅ Admin authenticated: ' + user.email, 'success');
+                scanBtn.disabled = false;
+            } else {
+                log('❌ Admin access required. Current user: ' + user.email, 'error');
+                creatorListEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🚫</div>
+                        <h3>Admin Access Required</h3>
+                        <p>Logged in as: ${user.email}</p>
+                        <p style="margin-top: 10px;">Only administrators can import creators.</p>
+                        <button class="btn" onclick="window.logout()" style="margin-top: 20px;">
+                            🚪 Log Out
+                        </button>
+                    </div>
+                `;
+            }
+        });
+        
+        // Load all creators from data.js
+        async function loadCreatorsFromData() {
+            log('Loading creators from data.js...');
+            
+            try {
+                // Load data.js
+                await taboostData.loadFromCSV();
+                allCreators = taboostData.getAllCreators();
+                
+                log(`✅ Loaded ${allCreators.length} creators from data.js`, 'success');
+                totalEl.textContent = allCreators.length;
+                
+                return allCreators;
+            } catch (e) {
+                log(`❌ Error loading data: ${e.message}`, 'error');
+                return [];
+            }
+        }
+        
+        // Check which creators are already in Firebase
+        async function scanExistingCreators() {
+            log('Scanning Firebase for existing creators...');
+            
+            try {
+                const snapshot = await getDocs(collection(db, 'creatorRoster'));
+                existingCreators.clear();
+                
+                snapshot.forEach(doc => {
+                    existingCreators.add(doc.id.toLowerCase());
+                });
+                
+                log(`✅ Found ${existingCreators.size} creators already in Firebase`, 'info');
+                importedEl.textContent = existingCreators.size;
+                
+                return existingCreators;
+            } catch (e) {
+                log(`❌ Error scanning Firebase: ${e.message}`, 'error');
+                return new Set();
+            }
+        }
+        
+        // Find new creators to import
+        function findNewCreators() {
+            newCreators = allCreators.filter(c => {
+                const username = c.username.toLowerCase();
+                return !existingCreators.has(username);
+            });
+            
+            log(`📊 Found ${newCreators.length} new creators to import`, 'info');
+            newEl.textContent = newCreators.length;
+            
+            return newCreators;
+        }
+        
+        // Render creator list
+        function renderCreatorList() {
+            if (newCreators.length === 0) {
+                creatorListEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🎉</div>
+                        <h3>All caught up!</h3>
+                        <p>All ${allCreators.length} creators are already in Firebase.</p>
+                    </div>
+                `;
+                importBtn.style.display = 'none';
+                return;
+            }
+            
+            const html = newCreators.map((c, i) => `
+                <div class="creator-item">
+                    <div class="creator-info">
+                        <div>
+                            <div class="creator-name">@${c.username}</div>
+                            <div class="creator-cid">CID: ${c.creatorId}</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span class="creator-manager">${c.manager}</span>
+                        <span class="status-badge status-new">NEW</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            creatorListEl.innerHTML = html;
+            importBtn.style.display = 'inline-flex';
+            importBtn.textContent = `🚀 Import ${newCreators.length} New Creators`;
+        }
+        
+        // Scan button handler
+        scanBtn.addEventListener('click', async () => {
+            scanBtn.disabled = true;
+            scanBtn.innerHTML = '<span class="loading"></span> Scanning...';
+            
+            logEl.innerHTML = '';
+            
+            // Step 1: Load from data.js
+            await loadCreatorsFromData();
+            
+            // Step 2: Scan Firebase
+            await scanExistingCreators();
+            
+            // Step 3: Find new creators
+            findNewCreators();
+            
+            // Step 4: Render list
+            renderCreatorList();
+            
+            scanBtn.disabled = false;
+            scanBtn.innerHTML = '🔄 Re-scan';
+        });
+        
+        // Import button handler
+        importBtn.addEventListener('click', async () => {
+            if (newCreators.length === 0) return;
+            
+            const confirmImport = confirm(`Import ${newCreators.length} new creators to Firebase?`);
+            if (!confirmImport) return;
+            
+            importBtn.disabled = true;
+            importBtn.innerHTML = '<span class="loading"></span> Importing...';
+            
+            log(`Starting import of ${newCreators.length} creators...`);
+            
+            let successCount = 0;
+            let errorCount = 0;
+            
+            for (let i = 0; i < newCreators.length; i++) {
+                const c = newCreators[i];
+                
+                try {
+                    const username = c.username.toLowerCase();
+                    
+                    await setDoc(doc(db, 'creatorRoster', username), {
+                        cid: c.creatorId,
+                        tiktokUsername: username,
+                        claimed: c.claimed || false,
+                        manager: (c.manager || 'carrington').toUpperCase(),
+                        importedAt: new Date(),
+                        source: 'weekly-import'
+                    });
+                    
+                    successCount++;
+                    log(`✅ Imported: @${c.username}`, 'success');
+                    
+                } catch (e) {
+                    errorCount++;
+                    log(`❌ Failed: @${c.username} - ${e.message}`, 'error');
+                }
+                
+                // Update button text with progress
+                importBtn.innerHTML = `<span class="loading"></span> Importing... ${i + 1}/${newCreators.length}`;
+            }
+            
+            log(`\n📊 Import complete: ${successCount} success, ${errorCount} failed`, successCount > 0 ? 'success' : 'error');
+            
+            importBtn.disabled = false;
+            importBtn.style.display = 'none';
+            
+            // Refresh stats
+            await scanExistingCreators();
+            findNewCreators();
+            renderCreatorList();
+        });
+        
+        // Initial log
+        log('Ready! Click "Scan for New Creators" to begin.');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <div class="subtitle">Weekly Creator Import Tool</div>
+        
+        <div class="card">
+            <h2>📊 Import Status</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="totalCreators">-</div>
+                    <div class="stat-label">Total in Data</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="importedCreators">-</div>
+                    <div class="stat-label">Already in Firebase</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="newCreators" style="color: #00ff88;">-</div>
+                    <div class="stat-label">New to Import</div>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn" id="scanBtn" disabled>
+                    🔍 Scan for New Creators
+                </button>
+                <button class="btn btn-secondary" id="importBtn" style="display: none;">
+                    🚀 Import New Creators
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>👥 New Creators to Import</h2>
+            <div id="creatorList" class="creator-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔍</div>
+                    <h3>Scan Required</h3>
+                    <p>Click "Scan for New Creators" to find creators that need to be imported.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📝 Import Log</h2>
+            <div id="log" class="log">
+                <div class="log-entry info">Ready! Click "Scan for New Creators" to begin.</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>ℹ️ How It Works</h2>
+            <ol style="color: #888; line-height: 1.8; padding-left: 20px;">
+                <li><strong>Scan</strong> - Compares data.js (all creators) with Firebase (imported creators)</li>
+                <li><strong>Preview</strong> - Shows only new creators that need importing</li>
+                <li><strong>Import</strong> - Bulk imports new creators to Firebase creatorRoster</li>
+                <li><strong>Done!</strong> - New creators can now sign up and claim their accounts</li>
+            </ol>
+            <p style="color: #666; margin-top: 20px;">
+                💡 <strong>Tip:</strong> Run this every Wednesday morning after updating the creator data.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

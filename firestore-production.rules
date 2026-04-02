@@ -1,0 +1,116 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+    
+    function isCreator() {
+      return isAuthenticated() && getUserRole() == 'creator';
+    }
+    
+    // Users collection - personal account data
+    match /users/{userId} {
+      // Users can read their own data
+      allow read: if isAuthenticated() && isOwner(userId);
+      
+      // Users can update their own data (but not role)
+      allow update: if isAuthenticated() 
+        && isOwner(userId)
+        && request.resource.data.role == resource.data.role;
+      
+      // Users can create their own document during signup
+      // Must have role: "creator" and match their auth uid
+      allow create: if isAuthenticated() 
+        && isOwner(userId)
+        && request.resource.data.role == 'creator';
+      
+      // Admins can read all users
+      allow read: if isAdmin();
+      
+      // Admins can create users
+      allow create: if isAdmin();
+    }
+    
+    // Creator roster - pre-approved creators
+    match /creatorRoster/{username} {
+      // ANYONE can read roster (to check if username exists before signup)
+      // This is safe because roster only contains: cid, username, claimed status
+      allow read: if true;
+      
+      // Only admins can create roster entries
+      allow create: if isAdmin();
+      
+      // Allow users to update their own entry to mark as claimed
+      // They can only set claimed: true and add their uid
+      allow update: if isAuthenticated()
+        && resource.data.claimed == false
+        && request.resource.data.claimed == true
+        && request.resource.data.uid == request.auth.uid;
+      
+      // Admins can do anything
+      allow delete: if isAdmin();
+    }
+    
+    // Creator data - performance metrics
+    match /creators/{cid} {
+      // Creator can read their own data (matched by UID in document)
+      allow read: if isAuthenticated() 
+        && resource.data.uid == request.auth.uid;
+      
+      // Admin can read all creator data
+      allow read: if isAdmin();
+      
+      // Admin can write creator data
+      allow write: if isAdmin();
+    }
+    
+    // Admin collection - isolated admin data
+    match /admins/{adminId} {
+      // Only the specific admin can read their data
+      allow read: if isAuthenticated() && request.auth.uid == adminId;
+      
+      // Only admins can read other admin data
+      allow read: if isAdmin();
+    }
+    
+    // Signup audit log
+    match /signups/{docId} {
+      // Anyone can create (for logging)
+      allow create: if isAuthenticated();
+      
+      // Only admins can read
+      allow read: if isAdmin();
+    }
+    
+    // Analytics data
+    match /analytics/{docId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+    
+    // Payouts
+    match /payouts/{docId} {
+      // Creator can read their own payouts
+      allow read: if isAuthenticated() 
+        && resource.data.uid == request.auth.uid;
+      
+      // Admin can manage all payouts
+      allow read, write: if isAdmin();
+    }
+  }
+}

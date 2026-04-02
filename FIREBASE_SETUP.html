@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Firebase Setup</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .logo {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        h1 { text-align: center; margin-bottom: 30px; color: #fff; }
+        .step {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid #ff0044;
+        }
+        .step h3 { margin-top: 0; color: #ff0044; }
+        .step p { color: #aaa; line-height: 1.6; }
+        code {
+            background: rgba(0,0,0,0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+        }
+        pre {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { opacity: 0.9; }
+        .warning {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid #ffaa00;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffaa00;
+        }
+        .success {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <h1>Firebase Authentication Setup</h1>
+        
+        <div class="success">
+            <strong>✅ Firebase Project Created!</strong><br>
+            Your Firebase project is ready. Now complete these steps to enable bulletproof authentication.
+        </div>
+
+        <div class="step">
+            <h3>Step 1: Get Your Firebase Config</h3>
+            <p>Go to your <a href="https://console.firebase.google.com" target="_blank" style="color: #ff0044;">Firebase Console</a> and find your project settings:</p>
+            <ol style="color: #aaa;">
+                <li>Click the gear icon (⚙️) next to "Project Overview"</li>
+                <li>Select "Project settings"</li>
+                <li>Scroll down to "Your apps" section</li>
+                <li>Click the web app (</> icon) or "Add app" to create one</li>
+                <li>Copy the firebaseConfig object</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Update Firebase Config</h3>
+            <p>Open <code>js/firebase-auth.js</code> and replace the config:</p>
+            <pre>const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};</pre>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Enable Authentication Methods</h3>
+            <p>In Firebase Console:</p>
+            <ol style="color: #aaa;">
+                <li>Go to "Authentication" in left sidebar</li>
+                <li>Click "Get started"</li>
+                <li>Enable "Email/Password" provider</li>
+                <li>Save</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Create Firestore Database</h3>
+            <p>In Firebase Console:</p>
+            <ol style="color: #aaa;">
+                <li>Go to "Firestore Database" in left sidebar</li>
+                <li>Click "Create database"</li>
+                <li>Choose "Start in test mode" (for development)</li>
+                <li>Select location (us-central recommended)</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Set Up Security Rules</h3>
+            <p>In Firestore Database > Rules tab, paste these rules:</p>
+            <pre>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can read their own data
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if false; // Only admin can write
+    }
+    
+    // Admin can read all users
+    match /users/{userId} {
+      allow read: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Roster is readable by authenticated users
+    match /roster/{username} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Signups log - admin only
+    match /signups/{docId} {
+      allow read: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      allow create: if request.auth != null;
+    }
+  }
+}</pre>
+        </div>
+
+        <div class="step">
+            <h3>Step 6: Add Scripts to Login Pages</h3>
+            <p>Add these scripts to your login pages (index.html, login.html, simple-login.html) in the <code>&lt;head&gt;</code> section:</p>
+            <pre>&lt;!-- Firebase SDK --&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"&gt;&lt;/script&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"&gt;&lt;/script&gt;
+&lt;script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"&gt;&lt;/script&gt;
+&lt;script src="js/firebase-auth.js"&gt;&lt;/script&gt;</pre>
+        </div>
+
+        <div class="step">
+            <h3>Step 7: Create First Admin User</h3>
+            <p>Go to Firebase Console > Authentication > Add user:</p>
+            <ul style="color: #aaa;">
+                <li>Email: marco@taboost.me</li>
+                <li>Password: (generate a strong password)</li>
+            </ul>
+            <p>Then in Firestore Database, create document:</p>
+            <ul style="color: #aaa;">
+                <li>Collection: <code>users</code></li>
+                <li>Document ID: (copy the UID from Authentication)</li>
+                <li>Fields:
+                    <ul>
+                        <li><code>email</code>: "marco@taboost.me"</li>
+                        <li><code>role</code>: "admin"</li>
+                        <li><code>name</code>: "Marco"</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Important:</strong> After setup, update all login pages to use Firebase Auth instead of localStorage auth. See <code>FIREBASE_MIGRATION.md</code> for details.
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn">Go to Login</a>
+            <a href="https://console.firebase.google.com" target="_blank" class="btn" style="margin-left: 10px; background: #444;">Firebase Console</a>
+        </div>
+    </div>
+</body>
+</html>

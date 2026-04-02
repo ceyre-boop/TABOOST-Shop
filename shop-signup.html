@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST Shop - Claim Your Account</title>
+    <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .logo {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .step-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+        }
+        .step-dot.active {
+            background: #ff0044;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ff0044;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #444;
+        }
+        .error {
+            background: rgba(255,0,68,0.1);
+            border: 1px solid #ff0044;
+            color: #ff0044;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .success {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            color: #888;
+            margin-top: 10px;
+        }
+        .roster-status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .roster-status.found {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+        .roster-status.not-found {
+            background: rgba(255,0,68,0.1);
+            border: 1px solid #ff0044;
+            color: #ff0044;
+        }
+        .cid-display {
+            font-family: monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .toggle a {
+            color: #ff0044;
+            text-decoration: none;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST Shop</div>
+        <p class="subtitle">Claim your shop creator account</p>
+        
+        <div class="step-indicator">
+            <div class="step-dot active" id="step1-dot"></div>
+            <div class="step-dot" id="step2-dot"></div>
+            <div class="step-dot" id="step3-dot"></div>
+        </div>
+        
+        <div class="error" id="error"></div>
+        <div class="success" id="success"></div>
+        <div class="roster-status" id="rosterStatus"></div>
+        
+        <!-- STEP 1: VERIFY EMAIL -->
+        <div id="step1">
+            <div class="form-group">
+                <label>Your Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+                <p style="color: #666; font-size: 0.8rem; margin-top: 5px;">Enter the email associated with your Shop account</p>
+            </div>
+            
+            <button class="btn" id="verifyBtn" onclick="verifyEmail()">Find My Account</button>
+            <div class="loading" id="verifyLoading">Checking roster...</div>
+        </div>
+        
+        <!-- STEP 2: SET UP PASSWORD -->
+        <div id="step2" class="hidden">
+            <div style="background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+                <p style="color: #00ff88; margin: 0;">✅ Account found in roster!</p>
+                <p style="color: #888; margin: 5px 0 0 0; font-size: 0.85rem;">Email: <span id="foundEmail" class="cid-display"></span></p>
+            </div>
+            
+            <div class="form-group">
+                <label>Create Password</label>
+                <input type="password" id="password" placeholder="Min 8 characters" required minlength="8">
+            </div>
+            
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+            </div>
+            
+            <button class="btn" id="createBtn" onclick="createAccount()">Create My Account</button>
+            <div class="loading" id="createLoading">Creating account...</div>
+            
+            <button class="btn btn-secondary" onclick="goBack()" style="margin-top: 10px;">Back</button>
+        </div>
+        
+        <!-- STEP 3: SUCCESS -->
+        <div id="step3" class="hidden">
+            <div style="text-align: center; padding: 20px 0;">
+                <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
+                <h2 style="color: #00ff88; margin-bottom: 10px;">Account Created!</h2>
+                <p style="color: #888; margin-bottom: 30px;">Your shop creator account is now active.</p>
+                
+                <button class="btn" onclick="goToLogin()">Go to Login</button>
+            </div>
+        </div>
+        
+        <div class="toggle">
+            Already have an account? <a href="shop-login.html">Sign in</a>
+        </div>
+    </div>
+
+    <!-- Load Shop Data -->
+    <script src="js/shop-data.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            databaseURL: "https://taboost-platform-default-rtdb.firebaseio.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        let verifiedEmail = null;
+        let verifiedCid = null;
+        
+        window.verifyEmail = async () => {
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const btn = document.getElementById('verifyBtn');
+            const loading = document.getElementById('verifyLoading');
+            const statusDiv = document.getElementById('rosterStatus');
+            
+            if (!email) {
+                showError('Please enter your email address');
+                return;
+            }
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            hideMessages();
+            
+            try {
+                // Step 1: Check in allShopData (Local records)
+                const shopUser = typeof allShopData !== 'undefined' ? allShopData.find(c => 
+                    (c.email && c.email.toLowerCase() === email) || 
+                    (c.username && c.username.toLowerCase() === email)
+                ) : null;
+                
+                // Step 2: Check creatorRoster (Public Firestore collection)
+                // We use a query because the doc ID might be a random string or tiktok handle 
+                // instead of the email address.
+                let rosterData = null;
+                try {
+                    const q = query(collection(db, 'creatorRoster'), where('email', '==', email));
+                    const querySnapshot = await getDocs(q);
+                    
+                    if (!querySnapshot.empty) {
+                        const docSnap = querySnapshot.docs[0];
+                        rosterData = docSnap.data();
+                        rosterData.id = docSnap.id; // Store Doc ID for later update
+                    }
+                } catch (rosterError) {
+                    console.log('Public roster query warning:', rosterError);
+                    // If even public query fails, we fallback to local data
+                }
+                
+                // VALIDATE: Found in either local data OR firestore roster
+                if (!shopUser && !rosterData) {
+                    statusDiv.className = 'roster-status not-found';
+                    statusDiv.innerHTML = `
+                        <strong>❌ Email not found in our records</strong>
+                        <p style="margin-top: 5px; font-size: 0.85rem;">We couldn't find an approved Shop creator with this email. Please ensure you're using the exact email we have on file for TABOOST Shop.</p>
+                    `;
+                    statusDiv.style.display = 'block';
+                    btn.disabled = false;
+                    loading.style.display = 'none';
+                    return;
+                }
+                
+                // CHECK CLAIMED STATUS
+                if (rosterData && rosterData.claimed) {
+                    showError('This account has already been claimed. Please sign in instead.');
+                    btn.disabled = false;
+                    loading.style.display = 'none';
+                    return;
+                }
+                
+                // Success - Move to Step 2
+                verifiedEmail = email;
+                if (rosterData) {
+                    verifiedCid = rosterData.cid || null;
+                    // Tag for updating the correct doc ID later
+                    window.verifiedDocId = rosterData.id;
+                }
+                
+                document.getElementById('foundEmail').textContent = verifiedEmail;
+                
+                document.getElementById('step1').classList.add('hidden');
+                document.getElementById('step2').classList.remove('hidden');
+                document.getElementById('step1-dot').classList.remove('active');
+                document.getElementById('step2-dot').classList.add('active');
+                
+            } catch (error) {
+                console.error('Verify error:', error);
+                showError('Verification error. Please contact support.');
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        };
+        
+        window.createAccount = async () => {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const btn = document.getElementById('createBtn');
+            const loading = document.getElementById('createLoading');
+            
+            if (!password || !confirmPassword) {
+                showError('Password fields are required');
+                return;
+            }
+            
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('Passwords do not match');
+                return;
+            }
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            hideMessages();
+            
+            try {
+                // 1. Create Firebase Auth User Using Verified Email
+                const userCredential = await createUserWithEmailAndPassword(auth, verifiedEmail, password);
+                const user = userCredential.user;
+                
+                // 2. Set Profile Name Default (Using Email Prefix)
+                const defaultDisplayName = verifiedEmail.split('@')[0];
+                await updateProfile(user, {
+                    displayName: defaultDisplayName
+                });
+                
+                // 3. Create User Document in Firestore
+                const userData = {
+                    uid: user.uid,
+                    email: verifiedEmail,
+                    username: verifiedEmail, // Shop data maps username to email
+                    role: 'creator',
+                    createdAt: serverTimestamp(),
+                    onboarded: true
+                };
+                if (verifiedCid) userData.cid = verifiedCid; // Include CID if it exists for them
+                await setDoc(doc(db, 'users', user.uid), userData);
+                
+                // 4. Mark Roster Entry as Claimed (Use Doc ID from query)
+                try {
+                    const docId = window.verifiedDocId || verifiedEmail;
+                    const rosterRef = doc(db, 'creatorRoster', docId);
+                    const rosterDoc = await getDoc(rosterRef);
+                    if (rosterDoc.exists()) {
+                        await updateDoc(rosterRef, {
+                            claimed: true,
+                            uid: user.uid, // Add UID for rules compliance
+                            claimedBy: user.uid,
+                            claimedAt: serverTimestamp()
+                        });
+                        console.log('Marked roster doc as claimed:', docId);
+                    }
+                } catch (e) {
+                    console.log('Optional roster claim update skipped:', e.message);
+                }
+                
+                // Show success
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step3').classList.remove('hidden');
+                document.getElementById('step2-dot').classList.remove('active');
+                document.getElementById('step3-dot').classList.add('active');
+                
+            } catch (error) {
+                showError(getErrorMessage(error));
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        };
+        
+        window.goBack = () => {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('step2-dot').classList.remove('active');
+            document.getElementById('step1-dot').classList.add('active');
+        };
+        
+        window.goToLogin = () => {
+            window.location.href = 'shop-login.html';
+        };
+        
+        function showError(msg) {
+            const el = document.getElementById('error');
+            el.textContent = msg;
+            el.style.display = 'block';
+            document.getElementById('success').style.display = 'none';
+        }
+        
+        function hideMessages() {
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('success').style.display = 'none';
+        }
+        
+        function getErrorMessage(error) {
+            const codes = {
+                'auth/email-already-in-use': 'An account already exists with this email',
+                'auth/invalid-email': 'Invalid email address',
+                'auth/weak-password': 'Password should be at least 6 characters',
+                'auth/network-request-failed': 'Network error. Check your connection'
+            };
+            return codes[error.code] || error.message || 'An error occurred';
+        }
+    </script>
+</body>
+</html>
