@@ -152,21 +152,31 @@ async function initCreatorDashboard(user) {
 async function updateLastUpdated() {
     try {
         const response = await fetch('data/current.csv?v=' + Date.now());
-        if (!response.ok) throw new Error('File not found');
-        const text = await response.text();
-        const headers = text.split('\n')[0].split(',');
-        const dateStr = headers[2] ? headers[2].replace(/"/g, '').trim() : '';
-        
-        if (dateStr && dateStr.length > 2 && dateStr.toLowerCase() !== 'tier' && dateStr.toLowerCase() !== 'month') {
-            document.getElementById('lastUpdatedTime').textContent = `${dateStr} at 5:00 PM PT`;
-        } else {
-            // Fallback
-            document.getElementById('lastUpdatedTime').textContent = 'Recently Updated';
+        if (response.ok) {
+            const text = await response.text();
+            const firstLine = text.split('\n')[0];
+            const cols = firstLine.split(',');
+            // The date is in column index 2 (third column)
+            if (cols.length > 2 && cols[2]) {
+                const dateStr = cols[2].trim();
+                document.getElementById('lastUpdatedTime').textContent = `${dateStr} at 5:00 PM PT`;
+                return;
+            }
         }
     } catch (e) {
-        console.error('Failed to fetch last updated date:', e);
-        document.getElementById('lastUpdatedTime').textContent = 'Recently Updated';
+        console.error('Failed to load date from current.csv', e);
     }
+    
+    // Fallback if fetch fails
+    const now = new Date();
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const dateStr = yesterday.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric',
+        timeZone: 'America/Los_Angeles'
+    });
+    document.getElementById('lastUpdatedTime').textContent = `${dateStr} at 5:00 PM PT`;
 }
 
 // Load real month data from CSV (column F - Month)
@@ -194,9 +204,8 @@ async function loadCreatorBadges() {
 
 function formatNumber(num) {
     if (!num) return '0';
-    // Always round DOWN — never show a tier/milestone the creator hasn't actually hit
-    if (num >= 1000000) return (Math.floor(num / 100000) / 10) + 'M';
-    if (num >= 1000) return (Math.floor(num / 100) / 10) + 'K';
+    if (num >= 1000000) return (Math.floor(num / 100000) / 10).toFixed(1) + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
     return num.toLocaleString();
 }
 
@@ -461,7 +470,7 @@ function updateGoals() {
             name: 'Streaming Days',
             icon: 'fa-calendar',
             current: myData.validLiveDays || 0,
-            target: myData.daysGoal || 22,
+            target: myData.daysMonth || myData.daysGoal || 22,
             unit: ' days'
         },
         {
@@ -552,7 +561,15 @@ let creatorTrends = {};
 // CSV format: CID,TikTok,Type,Date,Plus,Minus
 async function loadDetailedRewards() {
     try {
-        const response = await fetch('data/rewards-history.csv?v=202603200452');
+        // Try rewards-history.csv FIRST (regularly updated), then fallback
+        const cacheBuster = Date.now() + Math.random();
+        
+        let response = await fetch('data/rewards-history.csv?v=' + cacheBuster);
+        if (!response.ok) {
+            console.log('DEBUG - rewards-history.csv not found, trying rewards.csv...');
+            response = await fetch('data/rewards.csv?v=' + cacheBuster);
+        }
+        
         if (!response.ok) throw new Error('Failed to load rewards file');
         
         const csvText = await response.text();
@@ -590,11 +607,11 @@ async function loadDetailedRewards() {
             // Column D (index 3) = Date
             // Column E (index 4) = Plus (rewards earned)
             // Column F (index 5) = Minus (gifted/cashed in)
-            const username = values[1]?.toLowerCase().trim();
-            const type = values[2]?.trim() || '';
-            const date = values[3]?.trim() || '';
-            const plus = values[4]?.trim() || ''; // Rewards earned
-            const minus = values[5]?.trim() || ''; // Gifted/cashed in
+            const username = values[1]?.toLowerCase().trim().replace(/^"|"$/g, '');
+            const type = values[2]?.trim().replace(/^"|"$/g, '') || '';
+            const date = values[3]?.trim().replace(/^"|"$/g, '') || '';
+            const plus = values[4]?.trim().replace(/^"|"$/g, '').replace(/,/g, '') || ''; // Remove quotes and commas
+            const minus = values[5]?.trim().replace(/^"|"$/g, '').replace(/,/g, '') || ''; // Remove quotes and commas
             
             if (!username) continue;
             
@@ -639,16 +656,31 @@ function getRewardIcon(type) {
     return '🏆';
 }
 
+let creatorTrendsMeta = { labels: [], historyLabels: [], currentLabel: 'Current' };
+
 async function loadCreatorTrends() {
     try {
-        const response = await fetch('data/creator_trends.json?v=2');
+        const response = await fetch('data/creator_trends.json?v=' + Date.now());
         if (!response.ok) throw new Error('Failed to load trends file');
-        const trends = await response.json();
+        const data = await response.json();
+        
         creatorTrends = {};
-        trends.forEach(t => {
-            creatorTrends[t.username] = t;
-        });
-        console.log('DEBUG - Loaded trends for', Object.keys(creatorTrends).length, 'creators');
+        
+        // Handle new dynamic structure { meta, creators } or fallback to old array structure
+        if (data.meta && data.creators) {
+            creatorTrendsMeta = data.meta;
+            data.creators.forEach(t => {
+                creatorTrends[t.username] = t;
+            });
+            console.log('DEBUG - Loaded dynamic trends with labels:', creatorTrendsMeta.labels);
+        } else if (Array.isArray(data)) {
+            // Fallback for legacy format
+            data.forEach(t => {
+                creatorTrends[t.username] = t;
+            });
+        }
+        
+        console.log('DEBUG - Total trends loaded:', Object.keys(creatorTrends).length);
     } catch (e) {
         console.error('Failed to load trends:', e);
         creatorTrends = {};
@@ -688,64 +720,76 @@ function initPerformanceChart() {
         console.log('DEBUG - Available usernames count:', Object.keys(creatorTrends).length);
         console.log('DEBUG - Chart trends found:', trends ? 'YES' : 'NO');
         
-        // Use month labels from HISTORY data (Oct-Feb + Current)
-        // HISTORY.csv: Oct, Nov, Dec, Jan, Feb
-        // Current month comes from LIVE data (daily CSV column T)
-        const labels = ['October', 'November', 'December', 'January', 'February', 'Current'];
+        // Build dynamic labels and data points from meta
+        let labels = ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Current'];
+        let dataPoints = [0, 0, 0, 0, 0, 0];
         
-        // Get current month live data from myData (daily CSV - column T for diamonds, V for tier)
+        // historyLabels already includes currentLabel from the refresh_all_data.py script
+        // We clean them to ensure "Oct 2025" -> "Oct"
+        const rawFullLabels = creatorTrendsMeta.historyLabels && creatorTrendsMeta.historyLabels.length > 0
+            ? creatorTrendsMeta.historyLabels 
+            : ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
+        
+        const fullLabels = rawFullLabels.map(l => {
+            const parts = l.split(' '); // Handle "Oct 2025"
+            return parts[0];
+        });
+        
+        // Get current month live data 
         const currentDiamonds = myData.diamonds || 0;
         const currentTier = myData.tier || 0;
         
-        // Check if we have real history data
-        const hasRealData = trends && trends.diamondsHistory && trends.diamondsHistory.length >= 5;
+        // Check if we have real history data (JSON now has meta and creators)
+        const hasRealData = trends && trends.diamondsHistory && trends.diamondsHistory.length > 0;
         
-        // Build dataPoints: Past months from history JSON, Current from live data
-        let dataPoints;
         if (hasRealData) {
-            // diamondsHistory is [Sep, Oct, Nov, Dec, Jan, Feb]
-            // Use indices 1-5 for Oct-Feb, current from live data
-            dataPoints = [
-                trends.diamondsHistory[1], // October (index 1)
-                trends.diamondsHistory[2], // November (index 2)
-                trends.diamondsHistory[3], // December (index 3)
-                trends.diamondsHistory[4], // January (index 4)
-                trends.diamondsHistory[5], // February (index 5)
-                currentDiamonds            // Current (live from daily CSV)
-            ];
-            console.log('DEBUG - Using merged data (history Oct-Feb + live Current):', dataPoints);
+            const fullData = [...trends.diamondsHistory];
+            // Sync current month if needed
+            if (fullData[fullData.length - 1] === 0 && currentDiamonds > 0) {
+                fullData[fullData.length - 1] = currentDiamonds;
+            }
+            
+            // Take the last 6 months for the chart (Oct -> Mar)
+            labels = fullLabels.slice(-6);
+            dataPoints = fullData.slice(-6);
+            
+            // DEDUPLICATE: If last two labels are same, replace second to last with previous month name
+            // (Safety against logic errors in data files)
+            if (labels.length >= 2 && labels[labels.length - 1] === labels[labels.length - 2]) {
+                console.warn('⚠️ Chart: Duplicate labels detected, shifting previous label.');
+                // We know if last is 'Mar', prev should be 'Feb'
+                const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const lastIdx = monthOrder.indexOf(labels[labels.length - 1]);
+                if (lastIdx > 0) {
+                    labels[labels.length - 2] = monthOrder[lastIdx - 1];
+                }
+            }
+            
+            console.log('DEBUG - Dynamic chart labels:', labels);
         } else {
             // Fallback: use available data
             const lastMonth = myData.diamondsLastMonth || currentDiamonds;
-            const twoMonthsAgo = myData.diamondsTwoMonthsAgo || lastMonth;
+            labels = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
             dataPoints = [
-                twoMonthsAgo * 0.85 || currentDiamonds * 0.7,
-                twoMonthsAgo * 0.92 || currentDiamonds * 0.8,
-                twoMonthsAgo || currentDiamonds * 0.85,
+                currentDiamonds * 0.65,
+                currentDiamonds * 0.7,
+                currentDiamonds * 0.8,
+                currentDiamonds * 0.85,
                 lastMonth * 0.95 || currentDiamonds * 0.9,
-                lastMonth || currentDiamonds * 0.95,
                 currentDiamonds
             ];
-            console.log('DEBUG - Using fallback data:', dataPoints);
         }
         
-        // Tier data: Past months from history, Current from live data (column V)
-        // tierHistory is [Sep, Oct, Nov, Dec, Jan, Feb]
-        // Convert -1 to null so chart doesn't display invalid tiers
+        // Tier data: Last 6 from tierHistory
         let tierData = [null, null, null, null, null, currentTier];
-        if (trends && trends.tierHistory && trends.tierHistory.length >= 6) {
-            tierData = [
-                trends.tierHistory[1] > 0 ? trends.tierHistory[1] : null, // October (index 1)
-                trends.tierHistory[2] > 0 ? trends.tierHistory[2] : null, // November (index 2)
-                trends.tierHistory[3] > 0 ? trends.tierHistory[3] : null, // December (index 3)
-                trends.tierHistory[4] > 0 ? trends.tierHistory[4] : null, // January (index 4)
-                trends.tierHistory[5] > 0 ? trends.tierHistory[5] : null, // February (index 5)
-                currentTier            // Current (live from daily CSV column V)
-            ];
+        if (hasRealData && trends.tierHistory && trends.tierHistory.length > 0) {
+            const fullTier = [...trends.tierHistory];
+            // Sync current tier
+            if ((fullTier[fullTier.length - 1] === 0 || fullTier[fullTier.length - 1] === null) && currentTier > 0) {
+                fullTier[fullTier.length - 1] = currentTier;
+            }
+            tierData = fullTier.slice(-6).map(t => (t > 0 ? t : null));
         }
-        
-        console.log('DEBUG - Chart labels:', labels);
-        console.log('DEBUG - Chart dataPoints:', dataPoints);
     
     const data = {
         labels: labels,
@@ -773,7 +817,8 @@ function initPerformanceChart() {
             tension: 0.4,
             pointRadius: 4,
             pointBackgroundColor: '#00ff88',
-            yAxisID: 'y1'
+            yAxisID: 'y1',
+            spanGaps: true // Ensures the dashed line connects even if some months are missing
         }]
     };
     
@@ -867,24 +912,19 @@ function initPerformanceChart() {
             // Always show real 6-month historical data with month names
             performanceChart.data.labels = labels;
             if (hasRealData) {
-                performanceChart.data.datasets[0].data = [
-                    trends.diamondsHistory[1], // October
-                    trends.diamondsHistory[2], // November
-                    trends.diamondsHistory[3], // December
-                    trends.diamondsHistory[4], // January
-                    trends.diamondsHistory[5], // February
-                    myData.diamonds || 0       // Current
-                ];
+                const fullData = [...trends.diamondsHistory];
+                if (fullData[fullData.length - 1] === 0 && currentDiamonds > 0) {
+                    fullData[fullData.length - 1] = currentDiamonds;
+                }
+                performanceChart.data.datasets[0].data = fullData.slice(-6);
+                
                 // Also update tier data
-                if (trends.tierHistory && trends.tierHistory.length >= 6) {
-                    performanceChart.data.datasets[1].data = [
-                        trends.tierHistory[1] > 0 ? trends.tierHistory[1] : null,
-                        trends.tierHistory[2] > 0 ? trends.tierHistory[2] : null,
-                        trends.tierHistory[3] > 0 ? trends.tierHistory[3] : null,
-                        trends.tierHistory[4] > 0 ? trends.tierHistory[4] : null,
-                        trends.tierHistory[5] > 0 ? trends.tierHistory[5] : null,
-                        myData.tier || 0
-                    ];
+                if (trends.tierHistory && trends.tierHistory.length > 0) {
+                    const fullTier = trends.tierHistory.slice(-6).map(t => (t > 0 ? t : null));
+                    if (fullTier[5] === null && currentTier > 0) {
+                        fullTier[5] = currentTier;
+                    }
+                    performanceChart.data.datasets[1].data = fullTier;
                 }
             } else {
                 // Fallback: use CSV data columns
@@ -940,9 +980,9 @@ function updateAchievements() {
     const achievements = [
         { name: 'Million Diamond Club', icon: '💎', unlocked: (myData.diamonds || 0) >= 1000000, desc: '1M+ diamonds' },
         { name: 'Stream Master', icon: '📺', unlocked: (myData.validLiveDays || 0) >= 22, desc: '22+ days streamed' },
-        { name: 'Reward King', icon: '💰', unlocked: !!(myData.cashBonus || myData.bonusMTD || (myData.rewardsMonth && parseFloat((myData.rewardsMonth || '').toString().replace(/[$,]/g, '')) > 0)), desc: 'Earned a Bonus this month' },
+        { name: 'Reward King', icon: '💰', unlocked: (myData.rewardsMonth && parseInt(myData.rewardsMonth.toString().replace(/,/g, '')) > 0) || (myData.bonus && parseFloat(myData.bonus.toString().replace(/[$,]/g, '')) > 0), desc: 'Earned a Bonus' },
         { name: 'Hour Crusher', icon: '⏰', unlocked: (myData.hours || 0) >= 80, desc: '80+ hours' },
-        { name: 'Growth Star', icon: '🚀', unlocked: (myData.tierStatus || '').toLowerCase().includes('up'), desc: 'Leveled up this month' },
+        { name: 'Growth Star', icon: '🌟', unlocked: (myData.tierStatus || '').toLowerCase().includes('up'), desc: 'Ranked up tier' },
         { name: 'Top 10', icon: '👑', unlocked: false, desc: 'Reach top 10' } // Will update based on rank
     ];
     
@@ -964,93 +1004,77 @@ function updateAchievements() {
 }
 
 function updateHistory() {
-    // Use month names from HISTORY data (Sep-Feb only) - 6 months of past data
-    const periods = [
-        'September 2025',
-        'October 2025',
-        'November 2025',
-        'December 2025',
-        'January 2026',
-        'February 2026'
-    ];
+    // Current dynamic window from CSV meta
+    const periods = creatorTrendsMeta.historyLabels && creatorTrendsMeta.historyLabels.length > 0
+        ? [...creatorTrendsMeta.historyLabels] 
+        : ['October 2025', 'November 2025', 'December 2025', 'January 2026', 'February 2026', 'March 2026'];
     
-    // Use real earnings history from historical CSV (Revenue columns AJ-AO)
     let earningsData = [];
     
-    if (myData.earningsHistory && myData.earningsHistory.length >= 6) {
-        // Use real earnings from CSV - reverse to match chronological order (Sep→Feb)
-        earningsData = [...myData.earningsHistory].reverse();
+    // Attempt to get trends data first (most accurate for history)
+    let trends = creatorTrends[myData.username];
+    if (!trends) {
+        const usernameLower = myData.username.toLowerCase();
+        const matchingKey = Object.keys(creatorTrends).find(key => 
+            key.toLowerCase() === usernameLower
+        );
+        if (matchingKey) trends = creatorTrends[matchingKey];
+    }
+
+    if (trends && trends.diamondsHistory) {
+        // Our array is chronologically [Sep, Oct, Nov, Dec, Jan, Feb, Current]
+        earningsData = periods.map((period, idx) => {
+            const diamonds = trends.diamondsHistory[idx] || 0;
+            const bonus = trends.bonusHistory ? (trends.bonusHistory[idx] || 0) : 0;
+            
+            // Use real revenue from CSV (revenueHistory) if available and > 0, otherwise fallback to calculation
+            let revenueVal = (trends.revenueHistory && trends.revenueHistory[idx]) ? trends.revenueHistory[idx] : 0;
+            if (revenueVal === 0 && diamonds > 0) {
+                revenueVal = Math.round(diamonds * 0.0045);
+            }
+            
+            const revenueStr = '$' + revenueVal.toLocaleString();
+            
+            // Check if data feels 'empty' (0 diamonds and 0 bonus) - may indicate a placeholder/gap month
+            const isMissing = (diamonds === 0 && bonus === 0 && revenueVal === 0);
+            
+            return {
+                diamonds: diamonds,
+                revenue: revenueStr,
+                bonus: bonus,
+                totalValue: revenueVal + bonus,
+                isMissing: isMissing
+            };
+        });
     } else {
-        // Fallback to trends data or calculated estimates
-        let trends = creatorTrends[myData.username];
-        
-        // Case-insensitive lookup
-        if (!trends) {
-            const usernameLower = myData.username.toLowerCase();
-            const matchingKey = Object.keys(creatorTrends).find(key => 
-                key.toLowerCase() === usernameLower
-            );
-            if (matchingKey) trends = creatorTrends[matchingKey];
-        }
-        
-        if (trends && trends.diamondsHistory && trends.diamondsHistory.length >= 6) {
-            // FIX: Convert trends data to earningsData format
-            const rewardsHist = trends.rewardsHistory || [];
-            const revenueHist = trends.revenueHistory || [];
-            earningsData = trends.diamondsHistory.slice(0, 6).map((diamonds, idx) => {
-                // Use actual revenue from revenueHistory if available, otherwise calculate
-                let revenue = revenueHist[idx];
-                if (!revenue || revenue === 0) {
-                    revenue = Math.round(diamonds * 0.005);
-                }
-                return {
-                    diamonds: diamonds,
-                    revenue: '$' + revenue.toLocaleString(),
-                    rewards: parseInt(rewardsHist[idx]?.toString().replace(/,/g, '')) || 0
-                };
-            });
-        } else {
-            // Fallback: build from available data (6 months) with estimated revenue
-            const current = myData.diamonds || 0;
-            const lastMonth = myData.diamondsLastMonth || current;
-            const twoMonthsAgo = myData.diamondsTwoMonthsAgo || lastMonth;
-            earningsData = [
-                { diamonds: Math.round(twoMonthsAgo * 0.8 || current * 0.65), revenue: '$0.00', rewards: 0 },
-                { diamonds: Math.round(twoMonthsAgo * 0.85 || current * 0.7), revenue: '$0.00', rewards: 0 },
-                { diamonds: Math.round(twoMonthsAgo * 0.92 || current * 0.8), revenue: '$0.00', rewards: 0 },
-                { diamonds: Math.round(twoMonthsAgo || current * 0.85), revenue: '$0.00', rewards: 0 },
-                { diamonds: Math.round(lastMonth * 0.95 || current * 0.9), revenue: '$0.00', rewards: 0 },
-                { diamonds: Math.round(lastMonth || current * 0.95), revenue: '$0.00', rewards: 0 }
-            ];
-        }
+        // Fallback: zeros
+        earningsData = periods.map(() => ({ diamonds: 0, revenue: '$0', bonus: 0, totalValue: 0 }));
     }
     
-    // Build rows with calculated changes using Revenue from CSV
+    // Build rows with calculated changes using TOTAL VALUE (Diamonds USD + Bonus)
     const rows = periods.map((period, index) => {
-        const data = earningsData[index] || { diamonds: 0, revenue: '$0.00', rewards: 0 };
-        const diamonds = parseInt(data.diamonds) || 0;
+        const data = earningsData[index];
+        const totalValue = data.totalValue || 0;
+        
         const prevData = index > 0 ? earningsData[index - 1] : null;
-        const prevDiamonds = prevData ? (parseInt(prevData.diamonds) || 0) : 0;
+        const prevTotal = prevData ? (prevData.totalValue || 0) : 0;
+        
         let change = '--';
-        if (index > 0 && prevDiamonds > 0) {
-            const changeVal = ((diamonds - prevDiamonds) / prevDiamonds * 100);
+        if (index > 0 && prevTotal > 0 && !data.isMissing && !prevData.isMissing) {
+            const changeVal = ((totalValue - prevTotal) / prevTotal * 100);
             change = (changeVal >= 0 ? '↑ ' : '↓ ') + Math.abs(changeVal).toFixed(1) + '%';
         }
         
-        // Revenue from CSV - strip cents and add ≈ prefix (no space to prevent line break)
-        let revenueRaw = data.revenue || '$0.00';
-        // Remove cents (everything after decimal point)
-        revenueRaw = revenueRaw.replace(/\.\d{2}$/, '');
-        const revenue = revenueRaw.startsWith('≈') ? revenueRaw : '≈' + revenueRaw;
-        
-        // Rewards from CSV
-        const rewards = data.rewards > 0 ? formatNumber(data.rewards) + ' 💎' : '--';
+        // Format Bonus display
+        const bonusDisplay = data.isMissing ? '--' : (data.bonus > 0 ? '$' + Math.round(data.bonus).toLocaleString() : '--');
+        const diamondDisplay = data.isMissing ? '--' : (formatNumber(data.diamonds) + ' 💎');
+        const revenueDisplay = data.isMissing ? '--' : (data.revenue.startsWith('≈') ? data.revenue : '≈' + data.revenue);
         
         return {
             period: period,
-            diamonds: diamonds,
-            usd: revenue, // Use actual Revenue from CSV, not calculated
-            rewards: rewards,
+            diamondsHtml: diamondDisplay,
+            usd: revenueDisplay,
+            bonus: bonusDisplay,
             change: change
         };
     });
@@ -1064,9 +1088,9 @@ function updateHistory() {
         return `
             <tr>
                 <td><strong>${r.period}</strong></td>
-                <td>${formatNumber(r.diamonds)} 💎</td>
+                <td>${r.diamondsHtml}</td>
                 <td style="color: var(--success);">${r.usd}</td>
-                <td>${r.rewards}</td>
+                <td style="color: #ffd700;">${r.bonus}</td>
                 <td>
                     ${isChange ? `
                         <span class="trend-indicator ${changeClass}">
@@ -1081,8 +1105,12 @@ function updateHistory() {
 
 function updateScoreAndLevels() {
     // Score from Google Sheets column AG (0-100)
-    const score = myData.score || 0;
-    console.log('DEBUG - Creator ID:', myData.creatorId, 'Score:', score, 'from myData.score');
+    // Try multiple sources: myData.score, parseInt fallback, creatorBadges
+    let score = parseInt(myData.score) || 0;
+    if (score === 0 && myData._scoreRaw) {
+        score = parseInt(myData._scoreRaw) || 0;
+    }
+    console.log('DEBUG - Creator ID:', myData.creatorId, 'Score:', score, 'from myData.score:', myData.score);
     
     // Update Score Badge
     document.getElementById('scoreBadge').textContent = `Score: ${score}`;
@@ -1110,6 +1138,30 @@ function updateScoreAndLevels() {
                 seg.classList.remove('filled');
             }
         });
+    }
+    
+    // Dynamic tier badge logic — only show ONE fancy badge at a time
+    const prosItem = document.getElementById('prosScaleItem');
+    const mastersItem = document.getElementById('mastersScaleItem');
+    
+    if (prosItem) {
+        if (score > 70 && score <= 90) {
+            // Show gold PROS badge
+            prosItem.innerHTML = `<div class="tier-badge badge-pros"><span class="badge-num">70</span><span class="badge-label">PROS</span></div>`;
+        } else {
+            // Normal text
+            prosItem.innerHTML = `<span class="scale-num">70</span><span class="scale-tier tier-pros">PROS</span>`;
+        }
+    }
+    
+    if (mastersItem) {
+        if (score > 90) {
+            // Show red MASTERS badge
+            mastersItem.innerHTML = `<div class="tier-badge badge-masters"><span class="badge-num">90</span><span class="badge-label">MASTERS</span></div>`;
+        } else {
+            // Normal text
+            mastersItem.innerHTML = `<span class="scale-num">90</span><span class="scale-tier tier-masters">MASTERS</span>`;
+        }
     }
     
     console.log(`DEBUG - Score: ${score}, Segments filled: ${Math.round(score)}`);
@@ -1220,11 +1272,18 @@ function updateScoreAndLevels() {
     const daysGoal = myData.activityDaysGoal || myData.daysGoal || 0;
     const hoursGoal = myData.activityHoursGoal || myData.hoursGoal || 0;
     
-    if (currentLevelNum >= 5) {
+    // Check if at max level (Level 5) - remove "/0" display
+    const isMaxLevel = myData.level === '5' || myData.level === 5;
+    
+    if (isMaxLevel && daysGoal === 0) {
         document.getElementById('daysStreamed').textContent = `${currentDays} days`;
-        document.getElementById('hoursStreamedLevel').textContent = `${currentHours.toFixed(0)} hrs`;
     } else {
         document.getElementById('daysStreamed').textContent = `${currentDays} / ${daysGoal} days`;
+    }
+    
+    if (isMaxLevel && hoursGoal === 0) {
+        document.getElementById('hoursStreamedLevel').textContent = `${currentHours.toFixed(0)} hrs`;
+    } else {
         document.getElementById('hoursStreamedLevel').textContent = `${currentHours.toFixed(0)} / ${hoursGoal} hrs`;
     }
     
@@ -1237,6 +1296,7 @@ function updateScoreAndLevels() {
     const diamondRevenueUSDEl = document.getElementById('diamondRevenueUSD');
     if (diamondRevenueUSDEl) {
         const estRev = myData.estRev || 0;
+        console.log('DEBUG - estRev value:', estRev, 'from myData:', myData.username);
         diamondRevenueUSDEl.textContent = '≈ $' + Math.round(estRev).toLocaleString('en-US');
     }
     
@@ -1386,10 +1446,24 @@ function updateAwards() {
             const eventKey = `${r.type}|${r.date}`;
             
             if (!eventMap.has(eventKey)) {
+                // Parse M/D/YYYY format properly
+                let parsedDate;
+                if (r.date.includes('/')) {
+                    const parts = r.date.split('/');
+                    if (parts.length === 3) {
+                        // M/D/YYYY -> YYYY-MM-DD for reliable parsing
+                        parsedDate = new Date(`${parts[2]}-${parts[0].padStart(2,'0')}-${parts[1].padStart(2,'0')}`);
+                    } else {
+                        parsedDate = new Date(r.date);
+                    }
+                } else {
+                    parsedDate = new Date(r.date);
+                }
+                console.log('DEBUG - Parsing date:', r.date, '->', parsedDate, 'Valid:', !isNaN(parsedDate));
                 eventMap.set(eventKey, {
                     type: r.type,
                     date: r.date,
-                    dateObj: new Date(r.date),
+                    dateObj: parsedDate,
                     icon: r.icon || '🏆',
                     totalPlus: 0,
                     totalMinus: 0
@@ -1407,9 +1481,13 @@ function updateAwards() {
             event.totalMinus += minusVal;
         });
         
-        // Convert to array and sort by date (newest first)
-        const events = Array.from(eventMap.values());
+        // Convert to array and filter out invalid dates
+        const events = Array.from(eventMap.values()).filter(e => !isNaN(e.dateObj));
+        console.log('DEBUG - Valid events count:', events.length);
+        
+        // Sort by date (newest first)
         events.sort((a, b) => b.dateObj - a.dateObj);
+        console.log('DEBUG - Sorted events:', events.slice(0, 5).map(e => ({type: e.type, date: e.date, dateObj: e.dateObj})));
         
         // Take last 5 unique events
         const recentEvents = events.slice(0, 5);
@@ -1448,6 +1526,9 @@ function updateAwards() {
         ledgerRows.sort((a, b) => b.dateObj - a.dateObj);
     }
     
+    console.log('DEBUG - ledgerRows count:', ledgerRows.length);
+    console.log('DEBUG - ledgerRows sample:', ledgerRows.slice(0, 3));
+    
     // Default message if no rewards
     if (ledgerRows.length === 0) {
         document.getElementById('awardsList').innerHTML = `
@@ -1460,6 +1541,11 @@ function updateAwards() {
         `;
         return;
     }
+    
+    // DEBUG: Check what's about to be displayed
+    console.log('DEBUG - About to display', ledgerRows.length, 'rows');
+    console.log('DEBUG - First row to display:', ledgerRows[0]);
+    console.log('DEBUG - awardsList element:', document.getElementById('awardsList'));
     
     // Display all rows
     document.getElementById('awardsList').innerHTML = ledgerRows.map(row => `
