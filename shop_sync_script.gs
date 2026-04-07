@@ -164,6 +164,10 @@ function pushToGitHub_(content, config, path, sheetName) {
 // ── REGENERATE shop-data.js ─────────────────────────────────────────────────
 // This reads the freshly-pushed CSVs from GitHub and builds the merged JS file
 // so the dashboard always has up-to-date data without needing to run Python locally.
+//
+// DYNAMIC HISTORY: Reads CSV headers to find section boundaries (GMV, TAP,
+// COMM, BONUS) instead of hardcoding column indices. When the spreadsheet
+// rolls to a new month, the columns shift — this function adapts automatically.
 function regenerateShopDataJS_(config) {
   // Fetch the fresh CSVs directly from GitHub raw content
   var baseUrl = 'https://raw.githubusercontent.com/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO + '/main/';
@@ -175,7 +179,6 @@ function regenerateShopDataJS_(config) {
   // Parse CSVs
   var totalsRows = parseCsv_(totalsCsv);
   var currentRows = parseCsv_(currentCsv);
-  var historyRows = parseCsv_(historyCsv);
   
   var creatorsMap = {};
   
@@ -283,67 +286,173 @@ function regenerateShopDataJS_(config) {
     }
   }
   
-  // 3. Process history.csv
-  for (var h = 0; h < historyRows.length; h++) {
-    // History is index-based, skip header processing (already done by parseCsv_)
-    // We'll handle this with raw CSV parsing instead
-  }
-  // For history, use raw row parsing since it's index-based
+  // 3. Process history.csv — DYNAMIC COLUMN DETECTION
+  // The history CSV has sections separated by empty columns:
+  //   User, Handle, GMV, [month1], [month2], ..., [monthN], , TAP, [month1], ..., [monthN], , COMM, ..., , BONUS, ...
+  // We detect section boundaries by scanning the header for empty cells and section labels.
   var histLines = historyCsv.split('\n');
   if (histLines.length > 1) {
     var histHeaders = parseCSVLine_(histLines[0]);
+    
+    // ── Dynamically detect section boundaries ──
+    // The history CSV layout:
+    //   User, [current-month label e.g. "March 19"], GMV, Feb 2026, Jan 2026, ..., , TAP, Feb 2026, ..., , COMM, ..., , BONUS, ...
+    // 
+    // Key insight: Col 0 = email, Col 1 = handle (header is current month label like "March 19"),
+    // Col 2 = current month GMV (header "GMV"), Cols 3+ = past month GMV values.
+    // Then an empty column separates each section (TAP, COMM, BONUS).
+    // Only TAP/COMM/BONUS appearing AFTER a separator are true section labels.
+    
+    var sections = [];       // Array of { start, end, label, isSeparated, monthCols: [{index, header}] }
+    var currentSection = null;
+    var justSawSeparator = false;
+    
+    for (var si = 0; si < histHeaders.length; si++) {
+      var hdr = histHeaders[si].trim();
+      
+      if (hdr === '') {
+        // Empty column = section separator
+        if (currentSection) {
+          currentSection.end = si - 1;
+          sections.push(currentSection);
+          currentSection = null;
+        }
+        justSawSeparator = true;
+        continue;
+      }
+      
+      if (!currentSection) {
+        currentSection = { start: si, end: si, label: hdr, isSeparated: justSawSeparator, monthCols: [] };
+        justSawSeparator = false;
+      }
+      
+      // Determine if this column is a data column or an identifier/label
+      var hdrLower = hdr.toLowerCase();
+      var isIdentifier = (si === 0 || si === 1); // Col 0=User (email), Col 1=Handle
+      
+      // Only treat TAP/COMM/BONUS as section labels when they're the first col after a separator
+      var isSectionLabel = currentSection.isSeparated && (si === currentSection.start) &&
+                           (hdrLower === 'tap' || hdrLower === 'comm' || hdrLower === 'bonus');
+      
+      if (!isIdentifier && !isSectionLabel) {
+        // This is a data column — use the header as the month label
+        // Special case: col 2 header "GMV" → use col 1's header (e.g. "March 19") as its label
+        var monthLabel = hdr;
+        if (si === 2 && hdrLower === 'gmv') {
+          monthLabel = histHeaders[1].trim(); // Use "March 19", "April 7", etc.
+        }
+        currentSection.monthCols.push({ index: si, header: monthLabel });
+      }
+    }
+    // Push the last section if it has content
+    if (currentSection) {
+      currentSection.end = histHeaders.length - 1;
+      sections.push(currentSection);
+    }
+    
+    // Assign sections: first = GMV, then TAP, COMM, BONUS by label
+    var gmvSection = null;
+    var tapSection = null;
+    var commSection = null;
+    var bonusSection = null;
+    
+    for (var si = 0; si < sections.length; si++) {
+      var sec = sections[si];
+      var lbl = sec.label.toLowerCase();
+      
+      if (!sec.isSeparated && sec.monthCols.length > 0) {
+        // First section (not after separator) with month data = GMV
+        if (!gmvSection) gmvSection = sec;
+      } else if (sec.isSeparated) {
+        // Sections after separators are identified by their label
+        if (lbl === 'tap' && !tapSection) tapSection = sec;
+        else if (lbl === 'comm' && !commSection) commSection = sec;
+        else if (lbl === 'bonus' && !bonusSection) bonusSection = sec;
+      }
+    }
+    
+    // Extract the month labels from the GMV section (used for chart + history table)
+    // These are in newest-first order from the CSV; we reverse to chronological for the chart
+    var gmvMonthLabels = gmvSection ? gmvSection.monthCols.map(function(mc) { return mc.header; }) : [];
+    var gmvMonthIndices = gmvSection ? gmvSection.monthCols.map(function(mc) { return mc.index; }) : [];
+    // Reverse from newest-first (CSV order) to oldest-first (chronological for charts)
+    var chronLabels = gmvMonthLabels.slice().reverse();
+    var chronGmvIndices = gmvMonthIndices.slice().reverse();
+    
+    var tapMonthIndices = tapSection ? tapSection.monthCols.map(function(mc) { return mc.index; }) : [];
+    var chronTapIndices = tapMonthIndices.slice().reverse();
+    
+    var commMonthIndices = commSection ? commSection.monthCols.map(function(mc) { return mc.index; }) : [];
+    var chronCommIndices = commMonthIndices.slice().reverse();
+    
+    var bonusMonthIndices = bonusSection ? bonusSection.monthCols.map(function(mc) { return mc.index; }) : [];
+    var chronBonusIndices = bonusMonthIndices.slice().reverse();
+    
+    Logger.log('📊 Dynamic History sections detected:');
+    Logger.log('  GMV months: ' + chronLabels.join(', ') + ' (indices: ' + chronGmvIndices.join(',') + ')');
+    Logger.log('  TAP months: ' + (tapSection ? tapSection.monthCols.length : 0) + ' cols');
+    Logger.log('  COMM months: ' + (commSection ? commSection.monthCols.length : 0) + ' cols');
+    Logger.log('  BONUS months: ' + (bonusSection ? bonusSection.monthCols.length : 0) + ' cols');
+    
+    // Now process each data row
     for (var h = 1; h < histLines.length; h++) {
       if (!histLines[h].trim()) continue;
       var cols = parseCSVLine_(histLines[h]);
-      if (cols.length < 9) continue;
+      if (cols.length < 3) continue;
       var email = cols[0].toLowerCase().trim();
-      if (!creatorsMap[email]) continue;
+      if (!email || !creatorsMap[email]) continue;
       
       var cr = creatorsMap[email];
-      var handle = cols[1];
+      var handle = cols[1] || '';
       
-      // GMV: cols D-I (indices 3-8, reversed for chronological order)
+      // GMV: read from detected chronological indices
       var gmvArr = [];
-      for (var i = 8; i >= 3; i--) { gmvArr.push(toNum_(cols[i] || '0')); }
+      for (var gi = 0; gi < chronGmvIndices.length; gi++) {
+        gmvArr.push(toNum_(cols[chronGmvIndices[gi]] || '0'));
+      }
       cr.accountsHistory.push({ handle: handle, gmv: gmvArr });
       
-      // History months (store once)
+      // Store the dynamic month labels once per creator
       if (!cr.historyMonths) {
-        var rawLabels = [];
-        for (var i = 8; i >= 3; i--) { rawLabels.push(histHeaders[i] || ''); }
-        cr.historyMonths = rawLabels;
+        cr.historyMonths = chronLabels;
       }
       
-      // TAP: indices 11-16 (Feb thru Sep TAP data; index 10 is the "TAP" label)
-      if (cols.length > 16) {
+      // TAP: read from detected chronological indices
+      if (chronTapIndices.length > 0) {
         var tapArr = [];
-        for (var i = 16; i >= 11; i--) { tapArr.push(toNum_(cols[i] || '0')); }
+        for (var ti = 0; ti < chronTapIndices.length; ti++) {
+          tapArr.push(toNum_(cols[chronTapIndices[ti]] || '0'));
+        }
         if (!cr.tapHistory || cr.tapHistory.length === 0) {
           cr.tapHistory = tapArr;
         } else {
-          for (var i = 0; i < tapArr.length; i++) { cr.tapHistory[i] = (cr.tapHistory[i] || 0) + tapArr[i]; }
+          for (var ti = 0; ti < tapArr.length; ti++) { cr.tapHistory[ti] = (cr.tapHistory[ti] || 0) + tapArr[ti]; }
         }
       }
       
-      // COMM: cols T-Y (indices 19-24)
-      if (cols.length > 24) {
+      // COMM: read from detected chronological indices
+      if (chronCommIndices.length > 0) {
         var commArr = [];
-        for (var i = 24; i >= 19; i--) { commArr.push(toNum_(cols[i] || '0')); }
+        for (var ci = 0; ci < chronCommIndices.length; ci++) {
+          commArr.push(toNum_(cols[chronCommIndices[ci]] || '0'));
+        }
         if (!cr.commHistory) {
           cr.commHistory = commArr;
         } else {
-          for (var i = 0; i < commArr.length; i++) { cr.commHistory[i] = (cr.commHistory[i] || 0) + commArr[i]; }
+          for (var ci = 0; ci < commArr.length; ci++) { cr.commHistory[ci] = (cr.commHistory[ci] || 0) + commArr[ci]; }
         }
       }
       
-      // BONUS: cols AB-AG (indices 27-32)
-      if (cols.length > 32) {
+      // BONUS: read from detected chronological indices
+      if (chronBonusIndices.length > 0) {
         var bonusArr = [];
-        for (var i = 32; i >= 27; i--) { bonusArr.push(toNum_(cols[i] || '0')); }
+        for (var bi = 0; bi < chronBonusIndices.length; bi++) {
+          bonusArr.push(toNum_(cols[chronBonusIndices[bi]] || '0'));
+        }
         if (!cr.bonusHistory) {
           cr.bonusHistory = bonusArr;
         } else {
-          for (var i = 0; i < bonusArr.length; i++) { cr.bonusHistory[i] = (cr.bonusHistory[i] || 0) + bonusArr[i]; }
+          for (var bi = 0; bi < bonusArr.length; bi++) { cr.bonusHistory[bi] = (cr.bonusHistory[bi] || 0) + bonusArr[bi]; }
         }
       }
     }
@@ -356,12 +465,22 @@ function regenerateShopDataJS_(config) {
   }
   allCreators.sort(function(a, b) { return (b.points || 0) - (a.points || 0); });
   
+  // Generate the "last updated" date from the first GMV month header (the current/newest month)
+  var lastUpdatedStr = '';
+  if (gmvMonthLabels && gmvMonthLabels.length > 0) {
+    lastUpdatedStr = gmvMonthLabels[0]; // e.g. "April 7" or "March 19"
+  }
+  
   // Generate JS content
   var now = new Date().toISOString();
   var jsContent = '// Taboost Agency - Multi-Sheet Merged Shop Data\n';
   jsContent += '// Generated: ' + now + '\n';
-  jsContent += '// Total Mapped: ' + allCreators.length + ' unique shop creators\n\n';
+  jsContent += '// Total Mapped: ' + allCreators.length + ' unique shop creators\n';
+  jsContent += '// History months detected dynamically from CSV headers\n\n';
   jsContent += 'const allShopData = ' + JSON.stringify(allCreators, null, 2) + ';\n\n';
+  if (lastUpdatedStr) {
+    jsContent += 'window.SHOP_LAST_UPDATED = ' + JSON.stringify(lastUpdatedStr + ' at 11:59 PM PT') + ';\n';
+  }
   jsContent += 'if (typeof window !== "undefined") {\n';
   jsContent += '    window.TABOOST_SHOP_DATA = allShopData;\n';
   jsContent += '}\n';
