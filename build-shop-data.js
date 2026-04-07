@@ -317,8 +317,20 @@ console.log(`✓ Processed ${histLoaded} history rows`);
 // ── BUILD OUTPUT ─────────────────────────────────────────────────────────────
 const allCreators = Object.values(creatorsMap).sort((a, b) => (b.points || 0) - (a.points || 0));
 
-// Current month label from the GMV header (col 1 of history = newest month)
-const currentMonthLabel = gmvLabels.length > 0 ? gmvLabels[0] : '';
+// Current date label: in Apps Script this reads from Current sheet C1 directly.
+// Locally, the CSV header exports "TikTok" (the column name), not the date value.
+// So for local builds, fall back to today's date formatted to match the sheet style.
+const currentHeaders = parseCSVLine(currentRaw.replace(/\r/g, '').split('\n')[0]);
+const rawC1 = (currentHeaders[2] || '').trim();
+// If C1 looks like a date (contains a number), use it; otherwise use today
+const looksLikeDate = /\d/.test(rawC1);
+const todayLabel = (() => {
+    const d = new Date();
+    return d.toLocaleString('en-US', { month: 'long', day: 'numeric' }); // e.g. "April 7"
+})();
+const lastUpdatedStr = looksLikeDate ? rawC1 : todayLabel;
+
+console.log(`✓ C1 raw value: "${rawC1}" → using label: "${lastUpdatedStr}"`);
 
 const now = new Date().toISOString();
 let js = `// Taboost Agency - Multi-Sheet Merged Shop Data\n`;
@@ -326,8 +338,8 @@ js += `// Generated: ${now}\n`;
 js += `// Total Mapped: ${allCreators.length} unique shop creators\n`;
 js += `// History months detected dynamically from CSV headers\n\n`;
 js += `const allShopData = ${JSON.stringify(allCreators, null, 2)};\n\n`;
-if (currentMonthLabel) {
-    js += `window.SHOP_LAST_UPDATED = ${JSON.stringify(currentMonthLabel + ' at 11:59 PM PT')};\n`;
+if (lastUpdatedStr) {
+    js += `window.SHOP_LAST_UPDATED = ${JSON.stringify(lastUpdatedStr + ' at 11:59 PM PT')};\n`;
 }
 js += `if (typeof window !== "undefined") {\n`;
 js += `    window.TABOOST_SHOP_DATA = allShopData;\n`;
@@ -341,5 +353,5 @@ fs.writeFileSync(outPath, js, 'utf8');
 
 const sizeKB = (Buffer.byteLength(js, 'utf8') / 1024).toFixed(1);
 console.log(`\n✅ js/shop-data.js written — ${allCreators.length} creators, ${sizeKB} KB`);
-console.log(`   Current month: ${currentMonthLabel}`);
+console.log(`   Current month label: ${lastUpdatedStr}`);
 console.log(`   History months (chronological): ${chronLabels.join(' → ')}`);

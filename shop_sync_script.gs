@@ -20,6 +20,20 @@ function syncShopSheetsToGitHub() {
   var results = [];
   var csvCache = {}; // ← Store CSV content in memory to avoid re-fetching
 
+  // Read current date label directly from Current sheet cell C1
+  // e.g. "April 7" — no code change needed when month rolls over
+  var currentDateLabel = '';
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var currentSheet = ss.getSheetByName('Current');
+    if (currentSheet) {
+      currentDateLabel = String(currentSheet.getRange('C1').getValue()).trim();
+      Logger.log('📅 Current date label from C1: "' + currentDateLabel + '"');
+    }
+  } catch (e) {
+    Logger.log('⚠️ Could not read C1 from Current sheet: ' + e.message);
+  }
+
   Logger.log('🚀 Starting Shop sync at ' + startTime.toISOString());
 
   for (var s = 0; s < SHEET_CONFIG.length; s++) {
@@ -75,7 +89,7 @@ function syncShopSheetsToGitHub() {
   if (csvCache['Totals'] && csvCache['Current']) {
     try {
       Logger.log('🔄 Regenerating shop-data.js from in-memory CSVs...');
-      regenerateShopDataJS_(config, csvCache);
+      regenerateShopDataJS_(config, csvCache, currentDateLabel);
       Logger.log('✅ shop-data.js pushed to GitHub successfully');
     } catch (e) {
       Logger.log('❌ shop-data.js regeneration FAILED: ' + e.message + '\nStack: ' + e.stack);
@@ -175,7 +189,7 @@ function pushToGitHub_(content, config, path, sheetName) {
 // DYNAMIC HISTORY: Reads CSV headers to find section boundaries (GMV, TAP,
 // COMM, BONUS) instead of hardcoding column indices. When the spreadsheet
 // rolls to a new month, the columns shift — this function adapts automatically.
-function regenerateShopDataJS_(config, csvMap) {
+function regenerateShopDataJS_(config, csvMap, currentDateLabel) {
   // Use in-memory CSVs passed from the sync function (fresh, no CDN delay)
   var totalsCsv  = (csvMap && csvMap['Totals'])  || '';
   var currentCsv = (csvMap && csvMap['Current']) || '';
@@ -185,7 +199,10 @@ function regenerateShopDataJS_(config, csvMap) {
     throw new Error('Missing required CSV data — Totals or Current is empty');
   }
   
+  // currentDateLabel comes from Current sheet cell C1 (e.g. "April 7")
+  // Falls back to GMV history header if not provided
   Logger.log('📦 CSV sizes — Totals: ' + totalsCsv.length + ', Current: ' + currentCsv.length + ', History: ' + historyCsv.length);
+  Logger.log('📅 Date label for SHOP_LAST_UPDATED: "' + (currentDateLabel || '(will read from history)') + '"');
   
   // Parse CSVs
   var totalsRows = parseCsv_(totalsCsv);
@@ -476,11 +493,11 @@ function regenerateShopDataJS_(config, csvMap) {
   }
   allCreators.sort(function(a, b) { return (b.points || 0) - (a.points || 0); });
   
-  // Generate the "last updated" date from the first GMV month header (the current/newest month)
-  var lastUpdatedStr = '';
-  if (gmvMonthLabels && gmvMonthLabels.length > 0) {
-    lastUpdatedStr = gmvMonthLabels[0]; // e.g. "April 7" or "March 19"
-  }
+  // Use the date label read directly from Current sheet C1 (passed in)
+  // Fall back to the GMV history header only if C1 was empty
+  var lastUpdatedStr = (currentDateLabel && currentDateLabel.trim()) ? currentDateLabel.trim()
+                     : (gmvMonthLabels && gmvMonthLabels.length > 0 ? gmvMonthLabels[0] : '');
+  Logger.log('✅ SHOP_LAST_UPDATED will be set to: "' + lastUpdatedStr + '"');
   
   // Generate JS content
   var now = new Date().toISOString();
