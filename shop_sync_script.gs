@@ -530,11 +530,16 @@ function getGidForSheet_(sheetName) {
 
 function loadConfig_() {
   var props = PropertiesService.getScriptProperties();
+  var activeSheetId = null;
+  try {
+    activeSheetId = SpreadsheetApp.getActiveSpreadsheet().getId();
+  } catch(e) {}
+  
   return {
     GITHUB_TOKEN: props.getProperty('GITHUB_TOKEN'),
     GITHUB_OWNER: props.getProperty('GITHUB_OWNER') || 'ceyre-boop',
     GITHUB_REPO: props.getProperty('GITHUB_REPO') || 'TABOOST-Shop',
-    SHEET_ID: props.getProperty('SHEET_ID')
+    SHEET_ID: activeSheetId || props.getProperty('SHEET_ID')
   };
 }
 
