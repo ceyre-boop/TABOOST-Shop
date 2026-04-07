@@ -18,6 +18,7 @@ function syncShopSheetsToGitHub() {
   var config = loadConfig_();
   var startTime = new Date();
   var results = [];
+  var csvCache = {}; // ← Store CSV content in memory to avoid re-fetching
 
   Logger.log('🚀 Starting Shop sync at ' + startTime.toISOString());
 
@@ -35,6 +36,9 @@ function syncShopSheetsToGitHub() {
       // Export raw CSV directly from Google
       var csvContent = exportSheetAsCSV_(config.SHEET_ID, gid);
       Logger.log('✅ Exported ' + csvContent.length + ' chars from ' + sheet.tabName);
+
+      // Cache it in memory (keyed by tab name)
+      csvCache[sheet.tabName] = csvContent;
 
       // Push to GitHub
       var result = pushToGitHub_(csvContent, config, sheet.outputPath, sheet.tabName);
@@ -66,15 +70,18 @@ function syncShopSheetsToGitHub() {
   Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's');
   logResults_(results, duration);
 
-  // After CSV push succeeds, regenerate shop-data.js from the new CSVs
-  if (successCount >= 2) { // At minimum need Totals + Current
+  // Regenerate shop-data.js using the IN-MEMORY CSV content (no GitHub re-fetch)
+  // This avoids GitHub CDN cache delays (up to 5 min) that caused stale data.
+  if (csvCache['Totals'] && csvCache['Current']) {
     try {
-      Logger.log('🔄 Regenerating shop-data.js from fresh CSVs...');
-      regenerateShopDataJS_(config);
-      Logger.log('✅ shop-data.js pushed to GitHub');
+      Logger.log('🔄 Regenerating shop-data.js from in-memory CSVs...');
+      regenerateShopDataJS_(config, csvCache);
+      Logger.log('✅ shop-data.js pushed to GitHub successfully');
     } catch (e) {
-      Logger.log('⚠️ shop-data.js regeneration failed: ' + e.message);
+      Logger.log('❌ shop-data.js regeneration FAILED: ' + e.message + '\nStack: ' + e.stack);
     }
+  } else {
+    Logger.log('⚠️ Skipping shop-data.js — Totals or Current CSV missing from cache');
   }
 
   return {
@@ -162,19 +169,23 @@ function pushToGitHub_(content, config, path, sheetName) {
 }
 
 // ── REGENERATE shop-data.js ─────────────────────────────────────────────────
-// This reads the freshly-pushed CSVs from GitHub and builds the merged JS file
-// so the dashboard always has up-to-date data without needing to run Python locally.
+// Accepts csvMap = { Totals: '...', Current: '...', History: '...' } from
+// syncShopSheetsToGitHub() so we NEVER re-fetch from GitHub (avoids CDN cache).
 //
 // DYNAMIC HISTORY: Reads CSV headers to find section boundaries (GMV, TAP,
 // COMM, BONUS) instead of hardcoding column indices. When the spreadsheet
 // rolls to a new month, the columns shift — this function adapts automatically.
-function regenerateShopDataJS_(config) {
-  // Fetch the fresh CSVs directly from GitHub raw content
-  var baseUrl = 'https://raw.githubusercontent.com/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO + '/main/';
+function regenerateShopDataJS_(config, csvMap) {
+  // Use in-memory CSVs passed from the sync function (fresh, no CDN delay)
+  var totalsCsv  = (csvMap && csvMap['Totals'])  || '';
+  var currentCsv = (csvMap && csvMap['Current']) || '';
+  var historyCsv = (csvMap && csvMap['History']) || '';
   
-  var totalsCsv = fetchRawFile_(baseUrl + 'data/shop/totals.csv');
-  var currentCsv = fetchRawFile_(baseUrl + 'data/shop/current.csv');
-  var historyCsv = fetchRawFile_(baseUrl + 'data/shop/history.csv');
+  if (!totalsCsv || !currentCsv) {
+    throw new Error('Missing required CSV data — Totals or Current is empty');
+  }
+  
+  Logger.log('📦 CSV sizes — Totals: ' + totalsCsv.length + ', Current: ' + currentCsv.length + ', History: ' + historyCsv.length);
   
   // Parse CSVs
   var totalsRows = parseCsv_(totalsCsv);
