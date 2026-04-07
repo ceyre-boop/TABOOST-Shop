@@ -533,6 +533,10 @@ function loadConfig_() {
   var activeSheetId = null;
   try {
     activeSheetId = SpreadsheetApp.getActiveSpreadsheet().getId();
+    // Auto-update the stored property so background triggers use the newest sheet
+    if (activeSheetId) {
+      props.setProperty('SHEET_ID', activeSheetId);
+    }
   } catch(e) {}
   
   return {
