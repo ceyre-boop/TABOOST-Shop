@@ -906,60 +906,7 @@
             </div>
         </div>
         
-        <section class="stats">
-            <div class="stat">
-                <div class="stat-value">800+</div>
-                <div class="stat-label">Creators</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">12M+</div>
-                <div class="stat-label">Diamonds</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">37M+</div>
-                <div class="stat-label">Rewards</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">2K+</div>
-                <div class="stat-label">Hours Streamed</div>
-            </div>
-        </section>
-        
-        <section class="features" id="features">
-            <h2>Everything You Need to Succeed</h2>
-            <div class="feature-grid">
-                <div class="feature">
-                    <div class="feature-icon">📊</div>
-                    <h3>Track What Actually Makes You Money</h3>
-                    <p>Real-time analytics built for creators. See exactly which campaigns are driving revenue so you can double down on winners.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💎</div>
-                    <h3>Unlock Higher Commission Rates</h3>
-                    <p>Stop settling for standard rates. Climb our creator tiers and gain exclusive access to private commission opportunities.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Scale Your Creator Revenue</h3>
-                    <p>Set precise monthly revenue goals. Automatically track your progress and clearly identify what actions hit the target.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Top Creator Leaderboards</h3>
-                    <p>See exactly what top-converting creators are pushing. Learn from the best and optimize your strategy for maximum payout.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">👥</div>
-                    <h3>Direct Brand Strategy</h3>
-                    <p>Get assigned a dedicated strategy manager. We negotiate the rates and handle the brands so you can focus on creating.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Accelerated Campaign Launch</h3>
-                    <p>Identify a high-converting product and push it to your campaign in seconds. Forget browsing—start monetizing instantly.</p>
-                </div>
-            </div>
-        </section>
+
         
         <footer>
             <p>© 2025 TABOOST. All rights reserved.</p>
@@ -1137,7 +1084,6 @@
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
             suggestedSection.style.display = 'none';
-            document.getElementById('features').style.display = 'none';
         }
 
         function loadMoreResults() {
@@ -1156,7 +1102,6 @@
             document.getElementById('search-results-container').style.display = 'none';
             document.getElementById('featured-section').style.display = 'block';
             document.getElementById('suggested-section').style.display = 'block';
-            document.getElementById('features').style.display = 'block';
             document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
             currentSearchResults = [];
             displayedCount = 0;
