@@ -27,6 +27,15 @@ function generateRollingCalendar() {
     const events = [
         {
             id: 1,
+            title: "medicube Spotlight",
+            type: "campaign",
+            time: "Promo",
+            startDate: new Date(2026, 3, 9), // April 9
+            endDate: new Date(2026, 3, 15),  // April 15
+            color: "#ff0050"
+        },
+        {
+            id: 2,
             title: "TABOOST x Coachella",
             type: "special",
             time: "All Day",
@@ -35,7 +44,7 @@ function generateRollingCalendar() {
             color: "#ffd700"
         },
         {
-            id: 2,
+            id: 3,
             title: "CIDER SBD",
             type: "campaign",
             time: "Launch",

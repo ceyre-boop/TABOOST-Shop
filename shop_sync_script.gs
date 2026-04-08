@@ -361,13 +361,15 @@ function regenerateShopDataJS_(config, csvMap, currentDateLabel) {
       // Only treat TAP/COMM/BONUS as section labels when they're the first col after a separator
       var isSectionLabel = currentSection.isSeparated && (si === currentSection.start) &&
                            (hdrLower === 'tap' || hdrLower === 'comm' || hdrLower === 'bonus');
-      
-      if (!isIdentifier && !isSectionLabel) {
+
+      if (!isIdentifier) {
         // This is a data column — use the header as the month label
-        // Special case: col 2 header "GMV" → use col 1's header (e.g. "March 19") as its label
+        // Special case: col 2 header "GMV" is actually the current month data, so use col 1's header as its label.
         var monthLabel = hdr;
         if (si === 2 && hdrLower === 'gmv') {
-          monthLabel = histHeaders[1].trim(); // Use "March 19", "April 7", etc.
+          monthLabel = histHeaders[1] ? histHeaders[1].trim() : "Current";
+        } else if (isSectionLabel) {
+          monthLabel = histHeaders[1] ? histHeaders[1].trim() : "Current";
         }
         currentSection.monthCols.push({ index: si, header: monthLabel });
       }

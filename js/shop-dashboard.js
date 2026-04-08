@@ -517,7 +517,7 @@ async function loadAndRenderAccounts(grid, lbl) {
         const gm = '$' + (acc.tapGMV || 0).toLocaleString();
         const sv = (acc.sv || 0).toLocaleString();
         const sold = (acc.sold || 0).toLocaleString();
-        const commAmt = '$' + (acc.commAmt || 0).toLocaleString();
+        const commAmt = '$' + (acc.commDollars || 0).toLocaleString();
         
         return `
             <div class="account-card" style="margin-bottom: 20px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
@@ -664,8 +664,12 @@ function initPerformanceChart() {
         const ctx = document.getElementById('performanceChart');
         if (!ctx) return;
         
+        // Chart data limited strictly to the last 6 months
         const rawLabels = myData.historyMonths || ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar 19'];
-        const labels = rawLabels.map(l => l.split(' ')[0]); // Strip year
+        const labels = rawLabels.slice(-6).map((l, idx, arr) => {
+            if (idx === arr.length - 1) return 'Current';
+            return l.split(' ')[0];
+        });
         
         // Stacked Account GMV Series
         const acctHistories = myData.accountsHistory || [];
@@ -685,7 +689,7 @@ function initPerformanceChart() {
             // Change 9: Remove "GMV:" prefix from legend labels
             datasets.push({
                 label: `@${acc.handle}`,
-                data: acc.gmv,
+                data: (acc.gmv || []).slice(-6),
                 borderColor: '#ff0000',
                 backgroundColor: `rgba(255, 0, 0, ${opacity})`,
                 fill: true,
@@ -697,7 +701,7 @@ function initPerformanceChart() {
         });
 
         // Add consolidated TAP Green Line
-        const tapData = myData.tapHistory || labels.map(() => 0);
+        const tapData = (myData.tapHistory || []).slice(-6);
         datasets.push({
             label: 'Total TAP',
             data: tapData,

@@ -212,17 +212,23 @@ for (let si = 0; si < histHeaders.length; si++) {
         justSawSep = false;
     }
 
-    const hdrL = hdr.toLowerCase();
+    const hdrLower = hdr.toLowerCase();
     const isIdentifier = (si === 0 || si === 1);
-    // Only TAP/COMM/BONUS after a separator are section labels — not GMV at col 2
-    const isSectionLabel = curSection.isSeparated && (si === curSection.start) &&
-                           (hdrL === 'tap' || hdrL === 'comm' || hdrL === 'bonus');
-
-    if (!isIdentifier && !isSectionLabel) {
-        // Col 2 header is "GMV" but data is current month → use col 1 header as label
-        const monthLabel = (si === 2 && hdrL === 'gmv') ? histHeaders[1].trim() : hdr;
+    let isSectionLabel = curSection.isSeparated && (si === curSection.start) &&
+                        (hdrLower === 'tap' || hdrLower === 'comm' || hdrLower === 'bonus');
+      
+      if (!isIdentifier) {
+        // This is a data column — use the header as the month label
+        // Special case: col 2 header "GMV" is actually the current month data, so use col 1's header as its label.
+        // Similarly, "TAP", "COMM", "BONUS" headers physically contain the current month data.
+        let monthLabel = hdr;
+        if (si === 2 && hdrLower === 'gmv') {
+          monthLabel = histHeaders[1] ? histHeaders[1].trim() : 'Current';
+        } else if (isSectionLabel) {
+          monthLabel = histHeaders[1] ? histHeaders[1].trim() : 'Current';
+        }
         curSection.monthCols.push({ index: si, header: monthLabel });
-    }
+      }
 }
 if (curSection) { curSection.end = histHeaders.length - 1; sections.push(curSection); }
 
