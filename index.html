@@ -389,24 +389,34 @@
         }
 
         .tap-link-btn {
-            width: 100%;
-            margin-top: 8px;
-            padding: 8px 12px;
-            background: linear-gradient(135deg, #00ff88, #00cc66);
-            border: none;
-            border-radius: 8px;
-            color: #000;
-            font-size: 11px;
-            font-weight: 800;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
+            display: none;
         }
 
-        .tap-link-btn:hover {
+        .product-card.selected {
+            border-color: #00ff88;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
             transform: scale(1.02);
-            box-shadow: 0 4px 15px rgba(0,255,136,0.3);
+            z-index: 1001;
+        }
+        
+        /* Full Screen Overlay when product is selected */
+        .selection-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .selection-overlay.visible {
+            display: block;
+            opacity: 1;
         }
 
         .rank-badge {
@@ -437,27 +447,21 @@
             color: #fff;
         }
 
-        .tap-link-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            text-decoration: none;
+        .product-card.selected::after {
+            content: '✓ Selected';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff88;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 30px;
             font-size: 13px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .tap-link-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: #ff0044;
-            color: #ff0044;
-            transform: translateY(-2px);
+            font-weight: 900;
+            z-index: 1002;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-transform: uppercase;
         }
 
         .product-card {
@@ -779,11 +783,17 @@
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 255, 136, 0.4);
         }
+
+        /* Prevent background scroll when overlay is active */
+        body.overlay-active {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
+    <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
     
     <div class="container">
         <header>
@@ -981,7 +991,7 @@
                 : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">${catIcon}</div>`;
 
             return `
-                <div class="product-card" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}')">
+                <div class="product-card" id="card-${item.id}" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}', '${item.link}')">
                     ${getBadgeHtml(item.rank)}
                     <div class="product-image">
                         ${imgHtml}
@@ -1002,8 +1012,6 @@
                         <div class="product-bottom">
                             <div class="product-price">${item.price}</div>
                         </div>
-                        
-                        <button class="tap-link-btn" onclick="event.stopPropagation(); window.open('${item.link}', '_blank')">TABOOST Affiliate Link</button>
                     </div>
                 </div>
             `;
@@ -1161,23 +1169,42 @@
         // Load More button
         document.getElementById('load-more-btn')?.addEventListener('click', loadMoreResults);
 
-        // Multi-Select Logic
-        let selectedProducts = new Set();
+        // Single-Select Logic
+        let selectedProductId = null;
+        let selectedProductLink = null;
         let estCommissionTotal = 0;
 
-        window.toggleProductSelection = function(id, element, commPct, priceStr) {
-            const price = parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
-            const estComm = price * (commPct / 100);
+        window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
+            const isAlreadySelected = selectedProductId === id;
+            
+            // Clear previous selection if any
+            clearProductSelection();
 
-            if (selectedProducts.has(id)) {
-                selectedProducts.delete(id);
-                element.classList.remove('selected');
-                estCommissionTotal -= estComm;
-            } else {
-                selectedProducts.add(id);
+            if (!isAlreadySelected) {
+                // New Selection
+                const price = parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
+                estCommissionTotal = price * (commPct / 100);
+                selectedProductId = id;
+                selectedProductLink = link;
+
+                // Add classes
                 element.classList.add('selected');
-                estCommissionTotal += estComm;
+                document.getElementById('selection-overlay').classList.add('visible');
+                document.body.classList.add('overlay-active');
+                
+                updateStickyBar();
             }
+        };
+
+        window.clearProductSelection = function() {
+            selectedProductId = null;
+            selectedProductLink = null;
+            estCommissionTotal = 0;
+            
+            document.querySelectorAll('.product-card.selected').forEach(el => el.classList.remove('selected'));
+            document.getElementById('selection-overlay').classList.remove('visible');
+            document.body.classList.remove('overlay-active');
+            
             updateStickyBar();
         };
 
@@ -1186,13 +1213,12 @@
             const countEl = document.getElementById('action-count');
             const estEl = document.getElementById('action-est');
             
-            if (selectedProducts.size > 0) {
-                countEl.textContent = `${selectedProducts.size} Product${selectedProducts.size > 1 ? 's' : ''} Selected`;
-                // If it's 0 or tiny, say Potential is High. Or show strict $ math based on 10 estimated sales.
+            if (selectedProductId) {
+                countEl.textContent = `Product Ready for Launch`;
                 const projectedSales = 10;
                 const totalProj = estCommissionTotal * projectedSales;
                 if (totalProj > 0) {
-                    estEl.textContent = `Est. Comm Potential: $${totalProj.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} (at 10 sales/ea)`;
+                    estEl.textContent = `Est. Comm Potential: $${totalProj.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} (at 10 sales)`;
                 } else {
                     estEl.textContent = `Est. Comm Potential: High`;
                 }
@@ -1200,16 +1226,14 @@
                 bar.classList.add('visible');
             } else {
                 bar.classList.remove('visible');
-                estCommissionTotal = 0;
             }
         }
 
         window.launchCampaign = function() {
-            alert(`Launching Campaign with ${selectedProducts.size} extremely high-converting products!`);
-            selectedProducts.clear();
-            estCommissionTotal = 0;
-            document.querySelectorAll('.product-card.selected').forEach(el => el.classList.remove('selected'));
-            updateStickyBar();
+            if (selectedProductLink) {
+                window.open(selectedProductLink, '_blank');
+            }
+            clearProductSelection();
         };
 
         // Initialize
@@ -1218,10 +1242,10 @@
     
     <div id="action-bar" class="sticky-action-bar">
         <div class="action-stats">
-            <span class="action-count" id="action-count">1 Product Selected</span>
+            <span class="action-count" id="action-count">Product Ready for Launch</span>
             <span class="action-est" id="action-est">Est. Comm Potential: High</span>
         </div>
-        <button class="launch-btn" onclick="launchCampaign()">Launch Campaign</button>
+        <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
     </div>
 </body>
 </html>
