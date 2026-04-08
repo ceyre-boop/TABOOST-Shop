@@ -2906,26 +2906,41 @@
     margin-left: auto;
 }
 
-/* Mobile Layout: Stack to prevent overlap */
+/* Mobile Layout: ALL ON ONE LINE */
 @media (max-width: 768px) {
     .tap-goals-header {
-        flex-direction: column !important;
+        flex-direction: row !important;
+        justify-content: center !important;
         align-items: center !important;
-        gap: 12px !important;
-        padding-bottom: 5px !important;
+        gap: 8px !important; /* Smaller gap to fit */
+        padding: 5px 0 !important;
+        flex-wrap: nowrap !important;
     }
     
     .tap-goals-center, .tap-goals-right {
         position: static !important;
         transform: none !important;
         margin: 0 !important;
+        width: auto !important;
     }
 
-    /* Keep same size as original on mobile (11px, 4px/12px) */
+    .tap-goals-title i {
+        display: none !important; /* Hide icon on mobile to save space */
+    }
+
+    .tap-goals-title {
+        font-size: 13px !important;
+        white-space: nowrap !important;
+    }
+
     .tap-value-badge, .tap-search-badge {
-        font-size: 12px !important;
-        padding: 4px 12px !important;
+        font-size: 11px !important;
+        padding: 4px 8px !important; /* Tighter padding */
         font-weight: 700 !important;
+    }
+    
+    .tap-search-badge i {
+        display: none !important; /* Save more space */
     }
 }
 /* UI Refresh Trigger: 2026-04-07 23:21:21 */
