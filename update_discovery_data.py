@@ -223,7 +223,9 @@ for row in products_rows:
     
     # Price
     price = row.get('Sale Price', '').strip()
-    if price and not price.startswith('$'):
+    if not price:
+        price = '-'
+    elif not price.startswith('$'):
         price = '$' + price
     
     # Sold
