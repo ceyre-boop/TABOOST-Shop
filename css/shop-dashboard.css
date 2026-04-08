@@ -2804,22 +2804,65 @@
     color: #eee;
 }
 
-/* Final Mobile Layout Overrides - TAP Goals & Sales Level */
+/* Account Breakdown Vertical Spacing - Fix */
+.account-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 12px !important; /* Reduced vertical space per marco request */
+}
+
+/* 2026 Mobile Layout Fixes: Talent, Sales Level, Goals */
 @media (max-width: 768px) {
-    .sales-level-section .section-header {
-        flex-direction: row !important;
-        justify-content: space-between !important;
+    /* TALENT: Center everything in the profile header */
+    .creator-header {
+        flex-direction: column !important;
         align-items: center !important;
-        gap: 10px !important;
-        flex-wrap: nowrap !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+    .creator-profile {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 12px !important;
+    }
+    .creator-info h1 {
+        text-align: center !important;
+        font-size: 24px !important;
+    }
+    .creator-badges {
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    /* SALES LEVEL: Center the label and badge together (no space-between) */
+    .sales-level-section .section-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 12px !important;
         width: 100% !important;
+        text-align: center !important;
     }
     .sales-level-section .section-header h2 {
         font-size: 15px !important;
-        white-space: nowrap !important;
+        margin: 0 !important;
     }
     .level-badge {
-        white-space: nowrap !important;
         flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    /* TAP GOALS: Left aligned title following 'same here' request */
+    .tap-goals-section .section-header {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
     }
 }
