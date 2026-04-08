@@ -6,8 +6,8 @@ import re
 import hashlib
 from datetime import datetime
 
-# Accept data directory as argument, default to data/
-csv_dir = sys.argv[1] if len(sys.argv) > 1 else 'data'
+# Accept data directory as argument, default to data/shop/ (where Google Sheets sync writes)
+csv_dir = sys.argv[1] if len(sys.argv) > 1 else 'data/shop'
 OUTPUT_FILE = 'js/product-data.js'
 
 print(f"Scanning CSVs in directory: {csv_dir}")
@@ -157,11 +157,17 @@ def generate_image_search_url(product_name, category):
 
 
 # ─── 1. Load Campaign Links Map ───
+# TAP-Links columns: CAMPAIGN ID (A), Name (B), Link (C), PRIORITY (D), ...
+# Column C = clean affiliate URL (e.g. https://affiliate-us.tiktok.com/...)
 links_map = {}
 links_rows = read_csv('tap-links.csv')
 for row in links_rows:
     cid = row.get('CAMPAIGN ID', '').strip()
+    # Column C header is 'Link' — this is the clean affiliate URL
     link = row.get('Link', '').strip()
+    # Strip any malformed prefix (some rows have https://www.tiktok.com/@ prepended)
+    if link.startswith('https://www.tiktok.com/@https://'):
+        link = 'https://' + link.split('https://www.tiktok.com/@https://')[1]
     priority = row.get('PRIORITY', '').strip()
     if cid and link:
         links_map[cid] = {
