@@ -1010,8 +1010,8 @@ function updateScoreAndLevels() {
     const diamonds = myData.diamonds || 0;
     const commissionRevenueUSDEl = document.getElementById('commissionRevenueUSD');
     if (commissionRevenueUSDEl) {
-        const comm = myData.commissions || 0;
-        commissionRevenueUSDEl.textContent = '≈ $' + Math.round(comm).toLocaleString('en-US');
+        const comm = myData.totalComm || 0;
+        commissionRevenueUSDEl.textContent = '$' + Math.round(comm).toLocaleString('en-US');
     }
     
     const commissionRevenueEl = document.getElementById('commissionRevenue');
