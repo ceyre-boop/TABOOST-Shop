@@ -636,7 +636,8 @@
 
         onAuthStateChanged(auth, async (user) => {
             if (!user && !testEmail) {
-                user = { uid: 'preview', email: 'preview@taboost.me', displayName: 'Preview User' };
+                window.location.replace('shop-login.html');
+                return;
             } else if (testEmail) {
                 user = { uid: 'test_user', email: testEmail, displayName: testEmail.split('@')[0], isTest: true };
             }

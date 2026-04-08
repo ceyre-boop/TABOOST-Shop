@@ -37,8 +37,8 @@
         // Check Firebase Auth state
         onAuthStateChanged(auth, async (user) => {
             if (!user) {
-                // Bypass auth for preview
-                user = { uid: 'preview', email: 'preview@taboost.me', displayName: 'Preview User' };
+                window.location.replace('shop-login.html');
+                return;
             }
 
             // Get user data from Firestore
