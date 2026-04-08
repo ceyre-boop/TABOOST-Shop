@@ -379,19 +379,20 @@
 
     <!-- 6. TAP Goals -->
     <div class="section-card tap-goals-section">
-        <div class="section-header" style="justify-content: space-between; position: relative;">
-            <h2><i class="fas fa-bullseye" style="color: #00ff88;"></i> TAP Goals</h2>
+        <div class="section-header tap-goals-header">
+            <h2 class="tap-goals-title"><i class="fas fa-bullseye" style="color: #00ff88;"></i> TAP Goals</h2>
             
-            <!-- Centered Badge Container -->
-            <div style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px;">
-                <span class="level-badge" id="tapYTDDisplay" style="background: rgba(0,255,136,0.15); color: #00ff88; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800;">$0</span>
-                <a href="https://shop.taboost.me" target="_blank" class="level-badge" style="background: rgba(255,0,68,0.1); color: #ff0044; border: 1px solid rgba(255,0,68,0.2); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; text-decoration: none; transition: transform 0.2s;">
-                    <i class="fas fa-search" style="font-size: 10px; margin-right: 4px;"></i> TAP Search
-                </a>
+            <!-- Centered GMV Value -->
+            <div class="tap-goals-center">
+                <span class="level-badge tap-value-badge" id="tapYTDDisplay">$0</span>
             </div>
 
-            <!-- Empty div for flex balance if needed or actions -->
-            <div></div>
+            <!-- Right-aligned Search Link -->
+            <div class="tap-goals-right">
+                <a href="https://shop.taboost.me" target="_blank" class="level-badge tap-search-badge">
+                    <i class="fas fa-search"></i> TAP Search
+                </a>
+            </div>
         </div>
         <div style="padding: 0 16px 24px;">
             <!-- Single TAP Goal Bar (0 to $1M) -->

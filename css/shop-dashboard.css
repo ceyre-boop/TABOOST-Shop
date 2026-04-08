@@ -2856,27 +2856,76 @@
         flex-shrink: 0 !important;
         white-space: nowrap !important;
     }
+}
 
-    /* TAP GOALS: Left aligned title with centered badges */
-    .tap-goals-section .section-header {
-        display: flex !important;
-        justify-content: space-between !important;
+/* --- TAP Goals Layout Enhancements --- */
+.tap-goals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+/* 50% Larger Badges on Desktop */
+.tap-value-badge {
+    background: rgba(0,255,136,0.15); 
+    color: #00ff88; 
+    padding: 8px 18px; 
+    border-radius: 20px; 
+    font-size: 16px; 
+    font-weight: 800;
+}
+
+.tap-search-badge {
+    background: rgba(255,0,68,0.1); 
+    color: #ff0044; 
+    border: 1px solid rgba(255,0,68,0.2); 
+    padding: 8px 18px; 
+    border-radius: 20px; 
+    font-size: 16px; 
+    font-weight: 800; 
+    text-decoration: none; 
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tap-search-badge:hover {
+    transform: scale(1.05);
+}
+
+.tap-goals-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tap-goals-right {
+    margin-left: auto;
+}
+
+/* Mobile Layout: Stack to prevent overlap */
+@media (max-width: 768px) {
+    .tap-goals-header {
+        flex-direction: column !important;
         align-items: center !important;
-        position: relative !important;
-        width: 100% !important;
-        flex-wrap: nowrap !important;
+        gap: 12px !important;
+        padding-bottom: 5px !important;
+    }
+    
+    .tap-goals-center, .tap-goals-right {
+        position: static !important;
+        transform: none !important;
+        margin: 0 !important;
     }
 
-    .tap-goals-section .section-header div:nth-child(2) {
-        /* Centered Badge Grouping - Ensure it stays in middle even on mobile */
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 6px !important;
-        width: auto !important;
-        white-space: nowrap !important;
+    /* Keep same size as original on mobile (11px, 4px/12px) */
+    .tap-value-badge, .tap-search-badge {
+        font-size: 12px !important;
+        padding: 4px 12px !important;
+        font-weight: 700 !important;
     }
 }
 /* UI Refresh Trigger: 2026-04-07 23:21:21 */
