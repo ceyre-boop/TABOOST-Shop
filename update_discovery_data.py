@@ -221,9 +221,12 @@ for row in products_rows:
     except:
         ranknum = 99
     
-    # Price
+    # Price (Col E in Sheets = 'Sale Price' in CSV)
     price = row.get('Sale Price', '').strip()
-    if price and not price.startswith('$'):
+    if not price:
+        # Check if it was misaligned or empty
+        price = '$0'
+    elif not price.startswith('$'):
         price = '$' + price
     
     # Sold
