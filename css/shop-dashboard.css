@@ -2811,7 +2811,7 @@
     border-radius: 12px;
     padding: 20px;
     width: 100%;
-    margin-bottom: 12px !important; /* Reduced vertical space per marco request */
+    margin-bottom: 8px !important; /* Reduced vertical space per marco request */
 }
 
 /* 2026 Mobile Layout Fixes: Talent, Sales Level, Goals */

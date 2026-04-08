@@ -520,7 +520,7 @@ async function loadAndRenderAccounts(grid, lbl) {
         const commAmt = '$' + (acc.commDollars || 0).toLocaleString();
         
         return `
-            <div class="account-card" style="margin-bottom: 12px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+            <div class="account-card" style="margin-bottom: 8px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                 <div class="account-header" style="margin-bottom: 15px;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
                         <span style="font-size: 1.1rem; font-weight: 700; color: #fff;">@${handle}</span>
