@@ -2857,13 +2857,26 @@
         white-space: nowrap !important;
     }
 
-    /* TAP GOALS: Left aligned title following 'same here' request */
+    /* TAP GOALS: Left aligned title with centered badges */
     .tap-goals-section .section-header {
         display: flex !important;
-        justify-content: flex-start !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        gap: 12px !important;
+        position: relative !important;
         width: 100% !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .tap-goals-section .section-header div:nth-child(2) {
+        /* Centered Badge Grouping - Ensure it stays in middle even on mobile */
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 6px !important;
+        width: auto !important;
+        white-space: nowrap !important;
     }
 }
 /* UI Refresh Trigger: 2026-04-07 23:21:21 */
