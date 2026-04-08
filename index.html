@@ -1106,6 +1106,7 @@
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
             suggestedSection.style.display = 'none';
+            document.getElementById('features').style.display = 'none';
         }
 
         function loadMoreResults() {
@@ -1124,6 +1125,7 @@
             document.getElementById('search-results-container').style.display = 'none';
             document.getElementById('featured-section').style.display = 'block';
             document.getElementById('suggested-section').style.display = 'block';
+            document.getElementById('features').style.display = 'block';
             document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
             currentSearchResults = [];
             displayedCount = 0;
