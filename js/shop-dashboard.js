@@ -797,7 +797,6 @@ function updateAchievements() {
 }
 
 function updateHistory() {
-    // Change 10: Renamed to "Earnings History" with GMV, Commission, Bonus, % Change
     // We remove the last entry (Current partial month) so the Earnings History only displays full completed months
     const fullLabels = myData.historyMonths || ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar 2026', 'Current'];
     const labels = fullLabels.slice(0, -1);
@@ -806,25 +805,45 @@ function updateHistory() {
     const acctHistories = myData.accountsHistory || [];
     const gmvData = labels.map((_, i) => {
         let total = 0;
-        acctHistories.forEach(acc => { total += (acc.gmv && acc.gmv[i]) || 0; });
+        acctHistories.forEach(acc => { 
+            if (acc.gmv && acc.gmv[i] !== undefined) total += acc.gmv[i]; 
+        });
         return total;
     });
     
-    const commData = (myData.commHistory || labels.map(() => 0)).slice(0, -1);
-    const bonusData = (myData.bonusHistory || labels.map(() => 0)).slice(0, -1);
+    // Ensure history arrays are prepared correctly
+    // Fallback creates a zero-filled array of the same length as labels
+    const getHistoryData = (arr) => {
+        if (arr && Array.isArray(arr)) {
+            // If the array includes current month, slice it to match labels
+            if (arr.length > labels.length) return arr.slice(0, labels.length);
+            return arr;
+        }
+        return labels.map(() => 0);
+    };
+
+    const commData  = getHistoryData(myData.commHistory);
+    const bonusData = getHistoryData(myData.bonusHistory);
     
-    document.getElementById('historyTableBody').innerHTML = labels.map((month, i) => {
+    const tableBody = document.getElementById('historyTableBody');
+    if (!tableBody) return;
+
+    tableBody.innerHTML = labels.map((month, i) => {
         const prevGmv = i > 0 ? gmvData[i - 1] : 0;
         const currGmv = gmvData[i] || 0;
         const pctChange = prevGmv > 0 ? (((currGmv - prevGmv) / prevGmv) * 100).toFixed(1) : '--';
         const isUp = prevGmv > 0 && currGmv >= prevGmv;
         
+        // Use 0 as default to avoid NaN in the UI
+        const currComm = commData[i] || 0;
+        const currBonus = bonusData[i] || 0;
+        
         return `
             <tr>
                 <td><strong>${month}</strong></td>
                 <td>$${Math.round(currGmv).toLocaleString()}</td>
-                <td style="color: var(--success);">$${Math.round(commData[i] || 0).toLocaleString()}</td>
-                <td style="color: #ffd700;">$${Math.round(bonusData[i] || 0).toLocaleString()}</td>
+                <td style="color: var(--success);">$${Math.round(currComm).toLocaleString()}</td>
+                <td style="color: #ffd700;">$${Math.round(currBonus).toLocaleString()}</td>
                 <td>
                     <span class="trend-indicator ${isUp ? 'up' : 'down'}">
                         <i class="fas fa-arrow-${isUp ? 'up' : 'down'}"></i>
