@@ -798,7 +798,9 @@ function updateAchievements() {
 
 function updateHistory() {
     // Change 10: Renamed to "Earnings History" with GMV, Commission, Bonus, % Change
-    const labels = myData.historyMonths || ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Current'];
+    // We remove the last entry (Current partial month) so the Earnings History only displays full completed months
+    const fullLabels = myData.historyMonths || ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar 2026', 'Current'];
+    const labels = fullLabels.slice(0, -1);
     
     // Sum GMV across all account histories for each month
     const acctHistories = myData.accountsHistory || [];
@@ -807,8 +809,9 @@ function updateHistory() {
         acctHistories.forEach(acc => { total += (acc.gmv && acc.gmv[i]) || 0; });
         return total;
     });
-    const commData = myData.commHistory || labels.map(() => 0);
-    const bonusData = myData.bonusHistory || labels.map(() => 0);
+    
+    const commData = (myData.commHistory || labels.map(() => 0)).slice(0, -1);
+    const bonusData = (myData.bonusHistory || labels.map(() => 0)).slice(0, -1);
     
     document.getElementById('historyTableBody').innerHTML = labels.map((month, i) => {
         const prevGmv = i > 0 ? gmvData[i - 1] : 0;
