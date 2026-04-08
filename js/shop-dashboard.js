@@ -514,7 +514,7 @@ async function loadAndRenderAccounts(grid, lbl) {
         let rawHandle = handleFromHistory || acc.handle || 'Unknown';
         const handle = (rawHandle.toLowerCase() !== 'unknown') ? rawHandle.replace(/^@/, '') : 'Unknown';
         
-        const gm = '$' + (acc.tapGMV || 0).toLocaleString();
+        const gm = '$' + (acc.gmv || 0).toLocaleString();
         const sv = (acc.sv || 0).toLocaleString();
         const sold = (acc.sold || 0).toLocaleString();
         const commAmt = '$' + (acc.commDollars || 0).toLocaleString();
