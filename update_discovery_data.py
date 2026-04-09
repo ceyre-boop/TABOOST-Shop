@@ -221,11 +221,12 @@ for row in products_rows:
     except:
         ranknum = 99
     
-    # Price
+    # Price (Col E) - Support ranges like "$19.98-$24.98"
     price = row.get('Sale Price', '').strip()
     if not price:
         price = '-'
     elif not price.startswith('$'):
+        # Only prepend $ if it doesn't already have one
         price = '$' + price
     
     # Sold
