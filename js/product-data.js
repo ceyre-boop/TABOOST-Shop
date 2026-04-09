@@ -1,5 +1,5 @@
 // TABOOST Discovery Platform - Product & Campaign Data Pipeline
-// Generated: 2026-04-08T22:12:04.559862
+// Generated: 2026-04-09T11:50:06.374795
 // Total Products: 3451 | Active Campaigns: 3451
 // Unique de-duped names: 3451
 
@@ -1650,7 +1650,7 @@ window.PRODUCT_DATA = [
     "commission": "25%\nvs. open collab 15%",
     "category": "Beauty & Personal Care",
     "type": "campaign",
-    "image": "",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8rw7Ts3qpDtgTKvXVb9Kyzl6R5y4arV89DmZ9pQiMMwz5aun72_Tlj4GPhJM&s",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJHficPsHkH3",
     "rank": 1,
     "sold": "162",
@@ -49967,7 +49967,7 @@ window.CAMPAIGN_DATA = [
     "commission": "25%\nvs. open collab 15%",
     "category": "Beauty & Personal Care",
     "type": "campaign",
-    "image": "",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8rw7Ts3qpDtgTKvXVb9Kyzl6R5y4arV89DmZ9pQiMMwz5aun72_Tlj4GPhJM&s",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJHficPsHkH3",
     "rank": 1,
     "sold": "162",
