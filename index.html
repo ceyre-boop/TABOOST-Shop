@@ -757,26 +757,30 @@
 
         .sticky-action-bar {
             position: fixed;
-            bottom: -100px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            background: rgba(20, 20, 30, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 50px;
-            padding: 15px 30px;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: rgba(20, 20, 30, 0.98);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            border-radius: 30px;
+            padding: 25px 35px;
             display: flex;
             align-items: center;
             gap: 30px;
-            z-index: 1000;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0, 255, 136, 0.1);
-            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 136, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 90%;
-            max-width: 600px;
+            max-width: 500px;
         }
 
         .sticky-action-bar.visible {
-            bottom: 30px;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .action-stats {
@@ -1193,11 +1197,11 @@
             const estEl = document.getElementById('action-est');
             
             if (selectedProductId) {
-                countEl.textContent = `Product Ready for Launch`;
+                countEl.textContent = `Add Product to Showcase`;
                 const projectedSales = 10;
                 const totalProj = estCommissionTotal * projectedSales;
                 if (totalProj > 0) {
-                    estEl.textContent = `Est. Comm Potential: $${totalProj.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} (at 10 sales)`;
+                    estEl.textContent = `Est. Comm Potential: $${totalProj.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
                 } else {
                     estEl.textContent = `Est. Comm Potential: High`;
                 }
@@ -1221,7 +1225,7 @@
     
     <div id="action-bar" class="sticky-action-bar">
         <div class="action-stats">
-            <span class="action-count" id="action-count">Product Ready for Launch</span>
+            <span class="action-count" id="action-count">Add Product to Showcase</span>
             <span class="action-est" id="action-est">Est. Comm Potential: High</span>
         </div>
         <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
