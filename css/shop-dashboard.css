@@ -1783,7 +1783,7 @@
     
     .sales-level-section .section-header {
         margin-bottom: 15px;
-        justify-content: center;
+        justify-content: space-between !important;
         gap: 15px;
     }
     
@@ -2023,7 +2023,7 @@
     }
     
     .sales-level-section .section-header {
-        justify-content: center;
+        justify-content: space-between !important;
         gap: 12px;
     }
     
@@ -2838,15 +2838,14 @@
         gap: 8px !important;
     }
 
-    /* SALES LEVEL: Center the label and badge together (no space-between) */
+    /* SALES LEVEL: Move Title to far left and Level to far right */
     .sales-level-section .section-header {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
         align-items: center !important;
         gap: 12px !important;
         width: 100% !important;
-        text-align: center !important;
     }
     .sales-level-section .section-header h2 {
         font-size: 15px !important;
