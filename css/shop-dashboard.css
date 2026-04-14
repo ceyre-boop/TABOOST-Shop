@@ -2968,4 +2968,39 @@
         font-size: 11px !important;
     }
 }
-/* UI Refresh Trigger: 2026-04-07 23:21:21 */
+/* --- Account Metrics Grid: Mobile Fix --- */
+@media (max-width: 768px) {
+    /* Force all 4 stats onto one horizontal line */
+    .linked-metrics-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 4px !important;
+        width: 100% !important;
+    }
+
+    .linked-metrics-grid > div {
+        text-align: center !important;
+        padding: 0 !important;
+        min-width: 0 !important; /* Allow cells to shrink */
+        overflow: hidden !important;
+    }
+
+    /* Shrink labels */
+    .linked-metrics-grid > div > div:first-child {
+        font-size: 8px !important;
+        margin-bottom: 2px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* Shrink values so they fit without wrapping */
+    .linked-metrics-grid > div > div:last-child {
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+/* UI Refresh Trigger: 2026-04-13 */
