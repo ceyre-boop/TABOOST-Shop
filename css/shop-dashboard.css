@@ -2918,41 +2918,54 @@
     margin-left: auto;
 }
 
-/* Mobile Layout: ALL ON ONE LINE */
+/* Mobile Layout: TAP Goals left | $ center | TAP Search right */
 @media (max-width: 768px) {
     .tap-goals-header {
         flex-direction: row !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        gap: 8px !important; /* Smaller gap to fit */
         padding: 5px 0 !important;
         flex-wrap: nowrap !important;
+        position: relative !important;
     }
-    
-    .tap-goals-center, .tap-goals-right {
-        position: static !important;
-        transform: none !important;
+
+    .tap-goals-center {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         margin: 0 !important;
         width: auto !important;
     }
 
+    .tap-goals-right {
+        margin-left: 0 !important;
+    }
+
     .tap-goals-title i {
-        display: none !important; /* Hide icon on mobile to save space */
+        display: inline !important; /* Show bullseye icon on mobile */
+        font-size: 12px !important;
     }
 
     .tap-goals-title {
-        font-size: 13px !important;
+        font-size: 12px !important;
         white-space: nowrap !important;
     }
 
-    .tap-value-badge, .tap-search-badge {
+    .tap-value-badge {
         font-size: 11px !important;
-        padding: 4px 8px !important; /* Tighter padding */
+        padding: 4px 8px !important;
         font-weight: 700 !important;
     }
-    
+
+    .tap-search-badge {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        font-weight: 700 !important;
+    }
+
     .tap-search-badge i {
-        display: none !important; /* Save more space */
+        display: inline !important; /* Show search icon on mobile */
+        font-size: 11px !important;
     }
 }
 /* UI Refresh Trigger: 2026-04-07 23:21:21 */
