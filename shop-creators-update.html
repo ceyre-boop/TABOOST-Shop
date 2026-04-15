@@ -6,6 +6,7 @@
     <title>TABOOST Shop — Bulk Creator Update</title>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -173,10 +174,89 @@
         .l-error   { color: #f06060; }
 
         .hidden { display: none !important; }
+
+        /* Auth gate */
+        .auth-gate {
+            max-width: 380px;
+            margin: 100px auto;
+            background: #141414;
+            border: 1px solid #242424;
+            border-radius: 14px;
+            padding: 36px 32px;
+            text-align: center;
+        }
+        .auth-gate h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+        .auth-gate p  { color: #555; font-size: 13px; margin-bottom: 28px; }
+        .auth-input {
+            width: 100%;
+            padding: 12px 14px;
+            background: #0d0d0d;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 12px;
+            outline: none;
+        }
+        .auth-input:focus { border-color: #ff0055; }
+        .btn-signin {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #ff0055, #cc0044);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+        .btn-signin:disabled { opacity: 0.4; cursor: not-allowed; }
+        .auth-err { color: #f06060; font-size: 12px; margin-top: 10px; min-height: 16px; }
+        .signed-in-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #141414;
+            border: 1px solid #242424;
+            border-radius: 10px;
+            padding: 10px 16px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: #888;
+        }
+        .signed-in-bar span { color: #00c96b; font-weight: 600; }
+        .btn-signout {
+            background: none;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #888;
+            padding: 4px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div class="container">
+
+    <!-- Auth gate — shown when signed out -->
+    <div id="authGate" class="auth-gate">
+        <h2>Admin Sign In</h2>
+        <p>Sign in with your TABOOST admin account to access the bulk update tool.</p>
+        <input class="auth-input" type="email"    id="authEmail"    placeholder="Email" onkeydown="if(event.key==='Enter')signIn()">
+        <input class="auth-input" type="password" id="authPassword" placeholder="Password" onkeydown="if(event.key==='Enter')signIn()">
+        <button class="btn-signin" id="signInBtn" onclick="signIn()">Sign In</button>
+        <div class="auth-err" id="authErr"></div>
+    </div>
+
+    <!-- Main tool — shown when signed in -->
+    <div id="mainApp" class="hidden">
+
+    <div class="signed-in-bar">
+        <div>Signed in as <span id="signedInEmail"></span></div>
+        <button class="btn-signout" onclick="signOut()">Sign out</button>
+    </div>
 
     <h1>Shop Creator Bulk Update</h1>
     <p class="subtitle">Upload the <strong>Totals</strong> CSV · Only adds creators not yet in <strong>users/admin/shop</strong> · Never touches creatorRoster or creators</p>
@@ -247,6 +327,7 @@
         <div class="log" id="log"></div>
     </div>
 
+    </div><!-- /mainApp -->
 </div>
 <script>
     // ── Firebase ───────────────────────────────────────────────────────────
@@ -259,7 +340,41 @@
         appId: "1:379293685859:web:d89592adbf67360b574056"
     };
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    const db   = firebase.firestore();
+    const auth = firebase.auth();
+
+    // ── Auth gate ──────────────────────────────────────────────────────────
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            document.getElementById('authGate').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+            document.getElementById('signedInEmail').textContent = user.email;
+        } else {
+            document.getElementById('authGate').classList.remove('hidden');
+            document.getElementById('mainApp').classList.add('hidden');
+        }
+    });
+
+    async function signIn() {
+        const email = document.getElementById('authEmail').value.trim();
+        const pass  = document.getElementById('authPassword').value;
+        const btn   = document.getElementById('signInBtn');
+        const err   = document.getElementById('authErr');
+        err.textContent = '';
+        btn.disabled = true;
+        btn.textContent = 'Signing in...';
+        try {
+            await auth.signInWithEmailAndPassword(email, pass);
+        } catch (e) {
+            err.textContent = e.message;
+            btn.disabled = false;
+            btn.textContent = 'Sign In';
+        }
+    }
+
+    function signOut() {
+        auth.signOut();
+    }
 
     // Shop unclaimed accounts: users/{ADMIN_UID}/shop/{email}
     // This is completely separate from creatorRoster (live platform) and creators.
