@@ -2943,29 +2943,29 @@
 
     .tap-goals-title i {
         display: inline !important; /* Show bullseye icon on mobile */
-        font-size: 12px !important;
+        font-size: 16px !important;
     }
 
     .tap-goals-title {
-        font-size: 12px !important;
+        font-size: 16px !important;
         white-space: nowrap !important;
     }
 
     .tap-value-badge {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
+        font-size: 14px !important;
+        padding: 6px 12px !important;
         font-weight: 700 !important;
     }
 
     .tap-search-badge {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
+        font-size: 14px !important;
+        padding: 6px 12px !important;
         font-weight: 700 !important;
     }
 
     .tap-search-badge i {
         display: inline !important; /* Show search icon on mobile */
-        font-size: 11px !important;
+        font-size: 14px !important;
     }
 }
 /* --- Account Metrics Grid: Mobile Fix --- */

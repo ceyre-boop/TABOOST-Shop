@@ -840,7 +840,7 @@ function updateHistory() {
         
         return `
             <tr>
-                <td><strong>${month}</strong></td>
+                <td><strong>${month.replace(/\s+\d{4}$/, '')}</strong></td>
                 <td>$${Math.round(currGmv).toLocaleString()}</td>
                 <td style="color: var(--success);">$${Math.round(currComm).toLocaleString()}</td>
                 <td style="color: #ffd700;">$${Math.round(currBonus).toLocaleString()}</td>
