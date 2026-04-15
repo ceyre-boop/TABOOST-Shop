@@ -378,23 +378,53 @@
 
         log('Parsed ' + csvRows.length + ' valid rows (' + noEmailCount + ' skipped — no email)', 'l-info');
 
-        // ── Check users/{ADMIN_UID}/shop for existing entries ─────────────
-        // This is the ONLY collection we touch — no creatorRoster, no creators.
-        log('Checking shop subcollection for existing creators...', 'l-info');
+        // ── Check all possible shop locations ─────────────────────────────
+        log('Scanning Firebase for existing shop creators...', 'l-info');
 
         const existingEmails = new Set();
+
+        // Path 1: users/{ADMIN_UID}/shop (subcollection under admin user doc)
         try {
-            const snap = await shopCol().get();
-            snap.forEach(doc => {
-                // Doc ID is the email
+            const snap1 = await shopCol().get();
+            log('users/' + ADMIN_UID + '/shop → ' + snap1.size + ' docs', snap1.size > 0 ? 'l-success' : 'l-warn');
+            snap1.forEach(doc => {
                 existingEmails.add(doc.id.toLowerCase().trim());
-                // Also check email field as belt-and-suspenders
                 if (doc.data().email) existingEmails.add(doc.data().email.toLowerCase().trim());
             });
-            log('Shop has ' + snap.size + ' existing entries (' + existingEmails.size + ' emails)', 'l-info');
         } catch (err) {
-            log('Firebase error: ' + err.message, 'l-error');
+            log('users/admin/shop error: ' + err.message, 'l-error');
         }
+
+        // Path 2: top-level "shop" collection
+        try {
+            const snap2 = await db.collection('shop').get();
+            log('shop (top-level) → ' + snap2.size + ' docs', snap2.size > 0 ? 'l-success' : 'l-warn');
+            snap2.forEach(doc => {
+                existingEmails.add(doc.id.toLowerCase().trim());
+                if (doc.data().email) existingEmails.add(doc.data().email.toLowerCase().trim());
+            });
+        } catch (err) {
+            log('shop (top-level) error: ' + err.message, 'l-error');
+        }
+
+        // Path 3: creatorRoster docs that have an email field matching CSV
+        // (read-only check — we never write here)
+        try {
+            const snap3 = await db.collection('creatorRoster').get();
+            let rosterEmailCount = 0;
+            snap3.forEach(doc => {
+                const d = doc.data();
+                if (d.email && d.email.includes('@') && !d.email.includes('@taboost.me')) {
+                    existingEmails.add(d.email.toLowerCase().trim());
+                    rosterEmailCount++;
+                }
+            });
+            log('creatorRoster (real emails only) → ' + rosterEmailCount + ' real emails found', rosterEmailCount > 0 ? 'l-success' : 'l-warn');
+        } catch (err) {
+            log('creatorRoster check error: ' + err.message, 'l-error');
+        }
+
+        log('Total known emails across all paths: ' + existingEmails.size, 'l-info');
 
         // ── Split: new vs already exists ─────────────────────────────────
         for (const row of csvRows) {
