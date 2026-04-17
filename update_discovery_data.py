@@ -156,13 +156,43 @@ def generate_image_search_url(product_name, category):
     return ''
 
 
+def parse_sheet_date(raw_value):
+    """Parse common sheet date formats and return a date object or None."""
+    value = (raw_value or '').strip()
+    if not value:
+        return None
+
+    def try_formats(date_value):
+        for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
+            try:
+                return datetime.strptime(date_value, fmt).date()
+            except ValueError:
+                continue
+        return None
+
+    parsed = try_formats(value)
+    if parsed:
+        return parsed
+
+    # Handle values with time fragments
+    date_only = re.split(r'[ T]', value)[0]
+    return try_formats(date_only)
+
+
 # ─── 1. Load Campaign Links Map ───
 # TAP-Links columns: CAMPAIGN ID (A), Name (B), Link (C), PRIORITY (D), ...
 # Column C = clean affiliate URL (e.g. https://affiliate-us.tiktok.com/...)
 links_map = {}
+today = datetime.now().date()
+expired_links_skipped = 0
 links_rows = read_csv('tap-links.csv')
 for row in links_rows:
     cid = row.get('CAMPAIGN ID', '').strip()
+    end_date = parse_sheet_date(row.get('End Date', ''))
+    if end_date and end_date < today:
+        expired_links_skipped += 1
+        continue
+
     # Column C header is 'Link' — this is the clean affiliate URL
     link = row.get('Link', '').strip()
     # Strip any malformed prefix (some rows have https://www.tiktok.com/@ prepended)
@@ -174,6 +204,8 @@ for row in links_rows:
             'link': link,
             'priority': priority
         }
+
+print(f"🔗 Active campaign links loaded: {len(links_map)} (expired filtered: {expired_links_skipped})")
 
 # ─── 1b. Load Image Cache (from fetch_product_images.py) ───
 IMAGE_CACHE_FILE = os.path.join(csv_dir, 'product-images.json')
@@ -205,10 +237,12 @@ for row in products_rows:
     # De-duplicate: keep the version with the best (lowest) rank
     cid = row.get('Campaign ID', '').strip()
     
-    # Resolve Link
+    # Resolve Link — skip products whose campaign has no active affiliate link
     link_info = links_map.get(cid, {})
     product_link = link_info.get('link', '#')
-    is_priority = (product_link != '#')
+    if product_link == '#':
+        continue
+    is_priority = True  # All retained products have an active affiliate link
     
     # Resolve Commission
     comm = row.get('Total Commission Rate', '').strip()

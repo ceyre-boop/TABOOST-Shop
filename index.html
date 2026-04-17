@@ -1161,6 +1161,8 @@
         let selectedProductId = null;
         let selectedProductLink = null;
         let estCommissionTotal = 0;
+        const HIGH_POTENTIAL_THRESHOLD = 75;
+        const MEDIUM_POTENTIAL_THRESHOLD = 25;
 
         window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
             const isAlreadySelected = selectedProductId === id;
@@ -1205,11 +1207,13 @@
                 countEl.textContent = `Add Product to Showcase`;
                 const projectedSales = 10;
                 const totalProj = estCommissionTotal * projectedSales;
-                if (totalProj > 0) {
-                    estEl.textContent = `Est. Comm Potential: $${totalProj.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-                } else {
-                    estEl.textContent = `Est. Comm Potential: High`;
+                let potentialLevel = 'Base';
+                if (totalProj >= HIGH_POTENTIAL_THRESHOLD) {
+                    potentialLevel = 'High';
+                } else if (totalProj >= MEDIUM_POTENTIAL_THRESHOLD) {
+                    potentialLevel = 'Medium';
                 }
+                estEl.textContent = `Commission Potential: ${potentialLevel}`;
                 
                 bar.classList.add('visible');
             } else {
@@ -1231,7 +1235,7 @@
     <div id="action-bar" class="sticky-action-bar">
         <div class="action-stats">
             <span class="action-count" id="action-count">Add Product to Showcase</span>
-            <span class="action-est" id="action-est">Est. Comm Potential: High</span>
+            <span class="action-est" id="action-est">Commission Potential: High</span>
         </div>
         <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
     </div>
