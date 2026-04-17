@@ -157,25 +157,26 @@ def generate_image_search_url(product_name, category):
 
 
 def parse_sheet_date(raw_value):
+    """Parse common sheet date formats and return a date object or None."""
     value = (raw_value or '').strip()
     if not value:
         return None
 
-    for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
-        try:
-            return datetime.strptime(value, fmt).date()
-        except ValueError:
-            continue
+    def try_formats(date_value):
+        for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
+            try:
+                return datetime.strptime(date_value, fmt).date()
+            except ValueError:
+                continue
+        return None
+
+    parsed = try_formats(value)
+    if parsed:
+        return parsed
 
     # Handle values with time fragments
     date_only = re.split(r'[ T]', value)[0]
-    for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
-        try:
-            return datetime.strptime(date_only, fmt).date()
-        except ValueError:
-            continue
-
-    return None
+    return try_formats(date_only)
 
 
 # ─── 1. Load Campaign Links Map ───

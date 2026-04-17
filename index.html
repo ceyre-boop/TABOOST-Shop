@@ -1161,6 +1161,8 @@
         let selectedProductId = null;
         let selectedProductLink = null;
         let estCommissionTotal = 0;
+        const HIGH_POTENTIAL_THRESHOLD = 75;
+        const MEDIUM_POTENTIAL_THRESHOLD = 25;
 
         window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
             const isAlreadySelected = selectedProductId === id;
@@ -1206,9 +1208,9 @@
                 const projectedSales = 10;
                 const totalProj = estCommissionTotal * projectedSales;
                 let potentialLevel = 'Base';
-                if (totalProj >= 75) {
+                if (totalProj >= HIGH_POTENTIAL_THRESHOLD) {
                     potentialLevel = 'High';
-                } else if (totalProj >= 25) {
+                } else if (totalProj >= MEDIUM_POTENTIAL_THRESHOLD) {
                     potentialLevel = 'Medium';
                 }
                 estEl.textContent = `Commission Potential: ${potentialLevel}`;
