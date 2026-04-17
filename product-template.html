@@ -13,7 +13,7 @@
             color: #fff;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             min-height: 100vh;
-            padding: 30px 20px;
+            padding: 30px 20px 60px;
         }
         .logo {
             font-size: 1.8rem;
@@ -23,11 +23,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 4px;
         }
-        .subtitle {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 28px;
-        }
+        .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 28px; }
         .notice {
             background: rgba(255,200,0,0.08);
             border: 1px solid rgba(255,200,0,0.3);
@@ -45,13 +41,11 @@
         }
         .layout {
             display: grid;
-            grid-template-columns: 1fr 380px;
+            grid-template-columns: 1fr 400px;
             gap: 24px;
-            max-width: 1200px;
+            max-width: 1280px;
         }
-        @media (max-width: 900px) {
-            .layout { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
         .card {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
@@ -66,6 +60,9 @@
             letter-spacing: 0.08em;
             color: #888;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         label {
             display: block;
@@ -73,7 +70,7 @@
             color: #aaa;
             font-weight: 600;
             margin-bottom: 4px;
-            margin-top: 12px;
+            margin-top: 14px;
         }
         label:first-of-type { margin-top: 0; }
         input, select, textarea {
@@ -88,9 +85,10 @@
             outline: none;
             transition: border-color 0.2s;
         }
-        input:focus, select:focus, textarea:focus {
-            border-color: rgba(255,0,68,0.5);
-        }
+        input:focus, select:focus, textarea:focus { border-color: rgba(255,0,68,0.5); }
+        input.invalid { border-color: rgba(255,60,60,0.7) !important; }
+        .field-error { font-size: 0.73rem; color: #ff6060; margin-top: 4px; display: none; }
+        .field-error.visible { display: block; }
         select option { background: #1a1a2e; color: #fff; }
         .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
@@ -99,7 +97,7 @@
             color: #fff;
             border: none;
             border-radius: 10px;
-            padding: 12px 22px;
+            padding: 13px 22px;
             font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
@@ -113,28 +111,102 @@
             color: #ccc;
         }
         .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+        .btn-reset {
+            background: rgba(255,100,0,0.12);
+            color: #ff8040;
+            border: 1px solid rgba(255,100,0,0.25);
+        }
+        .btn-reset:hover { background: rgba(255,100,0,0.22); }
 
-        /* ── Image Preview ── */
-        .img-preview {
+        /* ── Campaign search ── */
+        .campaign-search {
+            margin-bottom: 8px;
+        }
+        .campaign-search input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ── Live product card preview ── */
+        .preview-wrap {
+            display: flex;
+            justify-content: center;
+        }
+        .product-card-preview {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .product-card-preview .pc-image {
             width: 100%;
             aspect-ratio: 1;
             background: #151520;
-            border-radius: 12px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
-            border: 1px solid rgba(255,255,255,0.06);
-            margin-bottom: 12px;
+            font-size: 50px;
         }
-        .img-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .product-card-preview .pc-image img {
+            width: 100%; height: 100%; object-fit: cover;
         }
+        .product-card-preview .pc-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .product-card-preview .pc-name {
+            font-size: 12px;
+            line-height: 1.3;
+            margin-bottom: 7px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #fff;
+        }
+        .product-card-preview .pc-comm {
+            font-size: 20px;
+            font-weight: 800;
+            color: #00ff88;
+            line-height: 1;
+        }
+        .product-card-preview .pc-stats {
+            font-size: 10px;
+            color: #888;
+            margin: 5px 0;
+        }
+        .product-card-preview .pc-bottom {
+            margin-top: auto;
+            padding-top: 7px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .rank-badge-preview {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        .rp-1 { background: linear-gradient(135deg,#ff0044,#ff6b6b); color:#fff; }
+        .rp-2 { background: linear-gradient(135deg,#feca57,#ff9f43); color:#000; }
+        .rp-3 { background: linear-gradient(135deg,#4834d4,#686de0); color:#fff; }
 
-        /* ── Duplicate Checker ── */
+        /* ── Duplicate / fuzzy ── */
         .dup-result {
             background: rgba(0,0,0,0.35);
             border-radius: 10px;
@@ -142,14 +214,10 @@
             font-size: 0.82rem;
         }
         .dup-none { color: #888; }
-        .dup-found {
-            border-left: 3px solid #00ff88;
-            padding-left: 12px;
-        }
-        .dup-found .dup-tag {
+        .dup-found { border-left: 3px solid #00ff88; padding-left: 12px; }
+        .dup-near { border-left: 3px solid #ffd700; padding-left: 12px; margin-top: 10px; }
+        .dup-tag {
             display: inline-block;
-            background: rgba(0,255,136,0.15);
-            color: #00ff88;
             border-radius: 5px;
             padding: 2px 8px;
             font-size: 0.72rem;
@@ -158,8 +226,22 @@
             letter-spacing: 0.05em;
             margin-bottom: 6px;
         }
-        .dup-found .dup-name { color: #fff; font-weight: 600; margin-bottom: 4px; }
-        .dup-found .dup-meta { color: #888; }
+        .dup-tag-exact { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .dup-tag-near  { background: rgba(255,215,0,0.15); color: #ffd700; }
+        .dup-name { color: #fff; font-weight: 600; margin-bottom: 4px; }
+        .dup-meta { color: #888; }
+        .dup-use-btn {
+            background: rgba(0,255,136,0.1);
+            color: #00ff88;
+            border: 1px solid rgba(0,255,136,0.3);
+            border-radius: 6px;
+            padding: 5px 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 7px;
+        }
+        .dup-use-btn:hover { background: rgba(0,255,136,0.2); }
 
         /* ── CSV Output ── */
         .csv-output {
@@ -174,6 +256,7 @@
             min-height: 56px;
             margin-bottom: 10px;
             line-height: 1.6;
+            user-select: text;
         }
         .copy-btn {
             background: rgba(0,212,255,0.12);
@@ -190,6 +273,106 @@
         .copy-btn:hover { background: rgba(0,212,255,0.2); }
         .copy-btn.copied { color: #00ff88; border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.1); }
 
+        /* ── Session Queue ── */
+        .queue-section {
+            max-width: 1280px;
+            margin-top: 32px;
+        }
+        .queue-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .queue-header h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ccc;
+        }
+        .queue-count {
+            background: rgba(255,0,68,0.15);
+            color: #ff0044;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+        .queue-empty { color: #555; font-size: 0.85rem; padding: 20px 0; }
+        .queue-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .queue-item-num {
+            background: rgba(255,0,68,0.15);
+            color: #ff0044;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .queue-item-text {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #00d4ff;
+            word-break: break-all;
+            flex: 1;
+            line-height: 1.5;
+        }
+        .queue-item-name {
+            font-size: 0.8rem;
+            color: #ccc;
+            margin-bottom: 3px;
+            font-family: inherit;
+        }
+        .queue-remove {
+            background: none;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 4px;
+            flex-shrink: 0;
+        }
+        .queue-remove:hover { color: #ff4444; }
+        .queue-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .copy-all-btn {
+            background: linear-gradient(135deg, #00d4ff22, #0099cc22);
+            color: #00d4ff;
+            border: 1px solid rgba(0,212,255,0.35);
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .copy-all-btn:hover { background: rgba(0,212,255,0.18); }
+        .copy-all-btn.copied { color: #00ff88; border-color: rgba(0,255,136,0.4); }
+        .clear-queue-btn {
+            background: rgba(255,80,0,0.1);
+            color: #ff8040;
+            border: 1px solid rgba(255,80,0,0.25);
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .clear-queue-btn:hover { background: rgba(255,80,0,0.2); }
+
+        /* ── Misc ── */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -201,20 +384,12 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
-        .badge-new { background: rgba(255,200,0,0.15); color: #ffd700; }
-        .badge-reuse { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .badge-new     { background: rgba(255,200,0,0.15); color: #ffd700; }
+        .badge-reuse   { background: rgba(0,255,136,0.15); color: #00ff88; }
         .badge-loading { background: rgba(136,136,136,0.15); color: #888; }
-
-        .hint {
-            font-size: 0.75rem;
-            color: #666;
-            margin-top: 4px;
-        }
-        .section-divider {
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            margin: 20px 0;
-        }
+        .hint { font-size: 0.75rem; color: #666; margin-top: 4px; }
+        .hint a { color: #00d4ff; }
+        .section-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 20px 0; }
         .step-number {
             display: inline-flex;
             align-items: center;
@@ -226,14 +401,9 @@
             font-size: 0.72rem;
             font-weight: 800;
             color: #ff0044;
-            margin-right: 7px;
             flex-shrink: 0;
         }
-        .instructions {
-            color: #aaa;
-            font-size: 0.83rem;
-            line-height: 1.6;
-        }
+        .instructions { color: #aaa; font-size: 0.83rem; line-height: 1.6; }
         .instructions li { padding: 3px 0; }
         .tag-pill {
             display: inline-block;
@@ -244,15 +414,30 @@
             color: #bbb;
             margin: 2px;
         }
+        .kbd {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: #ccc;
+        }
+        .success-flash {
+            background: rgba(0,255,136,0.08);
+            border-color: rgba(0,255,136,0.25) !important;
+            transition: border-color 0.3s, background 0.3s;
+        }
     </style>
 </head>
 <body>
 
 <div class="logo">TABOOST</div>
-<div class="subtitle">Product Listing Template — Build tap-products.csv rows</div>
+<div class="subtitle">Product Listing Template — Build tap-products.csv rows · <span class="kbd">Ctrl/⌘+Enter</span> to generate</div>
 
 <div class="notice">
-    ⚠️ This tool must be served over HTTP, not opened as a file. Run:
+    ⚠️ Serve this page over HTTP — do not open as a file. Run:
     <code>python3 -m http.server 8080</code> then visit
     <code>http://localhost:8080/product-template.html</code>
 </div>
@@ -263,11 +448,15 @@
         <!-- STEP 1: Campaign Selection -->
         <div class="card">
             <div class="card-title"><span class="step-number">1</span> Select Active Campaign</div>
-            <label for="campaign-select">Campaign (TAP-Links — active only)</label>
-            <select id="campaign-select" onchange="onCampaignChange()">
+            <div class="campaign-search">
+                <input id="campaign-search" type="text" placeholder="🔍 Filter campaigns by name…"
+                       oninput="filterCampaigns()" autocomplete="off">
+            </div>
+            <label for="campaign-select">Campaign (active only)</label>
+            <select id="campaign-select" size="1" onchange="onCampaignChange()">
                 <option value="">— Loading campaigns… —</option>
             </select>
-            <div id="campaign-link-preview" class="hint"></div>
+            <div id="campaign-link-preview" class="hint" style="margin-top:6px;"></div>
         </div>
 
         <!-- STEP 2: Product Identifiers -->
@@ -276,11 +465,13 @@
             <label for="product-id">Product ID <span style="color:#ff0044;">*</span></label>
             <input id="product-id" type="text" placeholder="TikTok numeric Product ID (e.g. 1729397279735780001)"
                    oninput="onProductIdChange()">
-            <div class="hint">Paste the TikTok Shop product ID from the product URL or TikTok Seller Center.</div>
+            <div class="field-error" id="err-pid">Product ID is required.</div>
+            <div class="hint">Found in the TikTok Shop product URL or Seller Center.</div>
 
             <label for="product-name">Product Name <span style="color:#ff0044;">*</span></label>
             <input id="product-name" type="text" placeholder="Full product title as shown on TikTok"
                    oninput="onNameChange()">
+            <div class="field-error" id="err-name">Product Name is required.</div>
         </div>
 
         <!-- STEP 3: Product Details -->
@@ -289,23 +480,26 @@
 
             <div class="row2">
                 <div>
-                    <label for="shop-name">Shop Name</label>
-                    <input id="shop-name" type="text" placeholder="Brand or seller name">
+                    <label for="shop-name">Shop / Brand Name</label>
+                    <input id="shop-name" type="text" placeholder="e.g. JLab, Anker">
                 </div>
                 <div>
                     <label for="sale-price">Sale Price</label>
-                    <input id="sale-price" type="text" placeholder="$19.99 or $12.00-$24.00">
+                    <input id="sale-price" type="text" placeholder="19.99 or 12.00-24.00"
+                           onblur="autoFormatPrice()">
                 </div>
             </div>
 
             <div class="row2">
                 <div>
-                    <label for="commission-rate">Commission Rate (Total)</label>
-                    <input id="commission-rate" type="text" placeholder="e.g. 18%">
+                    <label for="commission-rate">Commission Rate</label>
+                    <input id="commission-rate" type="text" placeholder="e.g. 18"
+                           onblur="autoFormatCommission('commission-rate')">
                 </div>
                 <div>
                     <label for="ad-pct">Ad %</label>
-                    <input id="ad-pct" type="text" placeholder="Same as commission usually">
+                    <input id="ad-pct" type="text" placeholder="Same as commission"
+                           onblur="autoFormatCommission('ad-pct')">
                 </div>
             </div>
 
@@ -315,114 +509,144 @@
                     <input id="items-sold" type="text" placeholder="e.g. 65,669">
                 </div>
                 <div>
-                    <label for="rank">Rank</label>
-                    <select id="rank">
+                    <label for="rank">Rank / Badge</label>
+                    <select id="rank" onchange="updatePreview()">
                         <option value="1">1 — 🏆 Top Pick</option>
                         <option value="2">2 — ⭐ Creator Pick</option>
                         <option value="3">3 — 💎 Best Overall</option>
-                        <option value="4" selected>4</option>
+                        <option value="4" selected>4 — No badge</option>
                         <option value="5">5</option>
                     </select>
                 </div>
                 <div>
-                    <label for="rating">Rating</label>
+                    <label for="rating">Rating (out of 5)</label>
                     <input id="rating" type="text" placeholder="e.g. 5">
                 </div>
             </div>
 
             <label for="category">Category</label>
-            <select id="category">
+            <select id="category" onchange="onCategoryChange()">
                 <option value="">— Auto-detect from name —</option>
-                <option>Automotive & Motorcycle</option>
-                <option>Beauty & Personal Care</option>
-                <option>Books, Magazines & Audio</option>
-                <option>Computers & Office Equipment</option>
+                <option>Automotive &amp; Motorcycle</option>
+                <option>Beauty &amp; Personal Care</option>
+                <option>Books, Magazines &amp; Audio</option>
+                <option>Computers &amp; Office Equipment</option>
                 <option>Fashion Accessories</option>
-                <option>Food & Beverages</option>
+                <option>Food &amp; Beverages</option>
                 <option>Furniture</option>
                 <option>Health</option>
                 <option>Home Improvement</option>
                 <option>Home Supplies</option>
                 <option>Household Appliances</option>
-                <option>Jewelry Accessories & Derivatives</option>
+                <option>Jewelry Accessories &amp; Derivatives</option>
                 <option>Kids' Fashion</option>
                 <option>Kitchenware</option>
-                <option>Luggage & Bags</option>
-                <option>Menswear & Underwear</option>
+                <option>Luggage &amp; Bags</option>
+                <option>Menswear &amp; Underwear</option>
                 <option>Pet Supplies</option>
-                <option>Phones & Electronics</option>
+                <option>Phones &amp; Electronics</option>
                 <option>Shoes</option>
-                <option>Sports & Outdoor</option>
-                <option>Textiles & Soft Furnishings</option>
-                <option>Tools & Hardware</option>
-                <option>Toys & Hobbies</option>
-                <option>Womenswear & Underwear</option>
-                <option>~~~</option>
+                <option>Sports &amp; Outdoor</option>
+                <option>Textiles &amp; Soft Furnishings</option>
+                <option>Tools &amp; Hardware</option>
+                <option>Toys &amp; Hobbies</option>
+                <option>Womenswear &amp; Underwear</option>
+                <option value="~~~">~~~</option>
             </select>
             <div id="category-suggestion" class="hint"></div>
 
             <label for="available-samples">Available Samples</label>
             <input id="available-samples" type="text" placeholder="e.g. 35 (leave blank if unknown)">
 
-            <button class="btn" onclick="generateRow()">⬇️ Generate CSV Row</button>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <button class="btn" onclick="generateRow()" style="margin-top:16px;">
+                    ⬇️ Generate Row
+                </button>
+                <button class="btn btn-reset" onclick="resetForm()" style="margin-top:16px;">
+                    🔄 Reset / New Product
+                </button>
+            </div>
+            <div class="hint" style="text-align:center;margin-top:8px;">
+                Or press <span class="kbd">Ctrl/⌘+Enter</span> anywhere on this page
+            </div>
         </div>
 
-        <!-- STEP 4: Instructions -->
+        <!-- STEP 4: How to use -->
         <div class="card">
             <div class="card-title">📋 How to use this tool</div>
             <ol class="instructions" style="padding-left: 18px;">
-                <li>Select the active campaign this product belongs to.</li>
-                <li>Paste the TikTok Product ID — the tool checks for an existing image in the cache.</li>
-                <li>Enter the product name — the tool checks for an exact match in current live data. If one is found, you can reuse its details.</li>
-                <li>Fill in remaining details. Category auto-suggests from the product name keywords.</li>
-                <li>Click <strong>Generate CSV Row</strong> and copy the output.</li>
-                <li>Paste the row into <code>data/shop/tap-products.csv</code> (open in Excel/Google Sheets and paste as a new row).</li>
-                <li>After adding all new products, run <code>python3 update_discovery_data.py</code> to regenerate <code>js/product-data.js</code>.</li>
+                <li>Filter and select the active campaign this product belongs to.</li>
+                <li>Paste the TikTok Product ID — image auto-loads from the cache.</li>
+                <li>Enter the product name — exact &amp; near matches in live data are shown instantly.</li>
+                <li>Fill in details. Commission/Price auto-format on blur. Category auto-suggests.</li>
+                <li>Click <strong>Generate Row</strong> (or <span class="kbd">Ctrl/⌘+Enter</span>) and add it to the queue.</li>
+                <li>Repeat for each product. Then use <strong>Copy All Rows</strong> to copy everything at once.</li>
+                <li>Paste rows into <code>data/shop/tap-products.csv</code> and run <code>python3 update_discovery_data.py</code>.</li>
             </ol>
             <hr class="section-divider">
             <div class="card-title">🔁 Reusing an existing listing</div>
-            <p class="instructions">If the Duplicate Checker finds an exact match (same product name), the existing data will be pre-filled. Update only the Campaign ID field (select a new campaign above) and regenerate the row. The product's original image, category, rank, and sales data will be preserved.</p>
+            <p class="instructions">If the checker finds an exact match the form is pre-filled automatically — just change the campaign. Near-matches are shown too so you can pick the closest one and adjust. <strong>Only use near-matches if the product is truly identical.</strong></p>
         </div>
     </div>
 
-    <!-- ────────────── RIGHT COLUMN: PREVIEW + OUTPUT ────────────── -->
+    <!-- ────────────── RIGHT COLUMN: PREVIEW + CHECKER + OUTPUT ────────────── -->
     <div>
-        <!-- Image Preview -->
+        <!-- Live Card Preview -->
+        <div class="card">
+            <div class="card-title">👁️ Live Shop Preview</div>
+            <div class="preview-wrap">
+                <div class="product-card-preview" id="live-card">
+                    <div class="pc-image" id="pc-image">📦</div>
+                    <div class="pc-info">
+                        <div class="pc-name" id="pc-name" style="color:#555;">Fill in product details…</div>
+                        <div class="pc-comm" id="pc-comm" style="color:#333;">—%</div>
+                        <div class="pc-stats" id="pc-stats">🔥 — sold · —</div>
+                        <div class="pc-bottom" id="pc-price" style="color:#555;">—</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hint" style="text-align:center;margin-top:10px;">This is exactly how the card will look in the shop.</div>
+        </div>
+
+        <!-- Image + Image URL -->
         <div class="card">
             <div class="card-title">🖼️ Product Image</div>
-            <div class="img-preview" id="img-preview">📦</div>
-            <label for="image-url">Image URL (override)</label>
+            <label for="image-url">Image URL (optional override)</label>
             <input id="image-url" type="text" placeholder="Paste TikTok CDN image URL to override"
                    oninput="onImageUrlChange()">
-            <div class="hint">Leave blank to use cached image (auto-loaded by Product ID). The pipeline auto-fetches TikTok CDN images by product ID.</div>
-            <button class="btn btn-secondary" onclick="lookupCachedImage()" style="margin-top: 10px;">
-                🔍 Look up image by Product ID
-            </button>
+            <div class="hint">Leave blank — the pipeline auto-fetches images by Product ID. Paste a URL here to preview a specific image or override the cached one.</div>
             <div id="image-status" class="hint" style="margin-top:6px;"></div>
         </div>
 
-        <!-- Duplicate / Reuse Checker -->
+        <!-- Duplicate / Near-match checker -->
         <div class="card">
             <div class="card-title">
                 🔍 Duplicate Checker
-                <span id="entry-badge" class="status-badge badge-loading" style="margin-left:8px;">Loading…</span>
+                <span id="entry-badge" class="status-badge badge-loading">Loading…</span>
             </div>
             <div class="dup-result">
                 <div class="dup-none" id="dup-result-content">Enter a product name above to check for existing listings.</div>
             </div>
         </div>
 
-        <!-- CSV Output -->
+        <!-- CSV Output for current row -->
         <div class="card">
-            <div class="card-title">📄 CSV Row Output</div>
-            <div style="font-family:monospace; font-size:0.7rem; color:#555; margin-bottom:6px;">
-                Product ID, Name, Shop, Category, Price, Samples, Sold, Commission, Campaign ID, Campaign Name, %, Rank, Ad%, Rating, Link
+            <div class="card-title">📄 Current Row Output</div>
+            <div style="font-family:monospace; font-size:0.68rem; color:#444; margin-bottom:6px; line-height:1.8;">
+                Product ID · Name · Shop · Category · Price · Samples · Sold · Commission<br>
+                Campaign ID · Campaign Name · % · Rank · Ad% · Rating · Link
             </div>
-            <div class="csv-output" id="csv-output">— click Generate CSV Row —</div>
-            <button class="copy-btn" id="copy-btn" onclick="copyCSV()">📋 Copy to Clipboard</button>
+            <div class="csv-output" id="csv-output">— click Generate Row —</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <button class="copy-btn" id="copy-btn" onclick="copyCSV()">📋 Copy Row</button>
+                <button class="copy-btn" id="add-queue-btn" onclick="addToQueue()"
+                        style="background:rgba(0,255,136,0.08);color:#00ff88;border-color:rgba(0,255,136,0.25);">
+                    ➕ Add to Queue
+                </button>
+            </div>
         </div>
 
-        <!-- Active Campaign Tags (reference) -->
+        <!-- Active Campaign reference tags -->
         <div class="card">
             <div class="card-title">🔗 Active Campaigns Loaded</div>
             <div id="campaign-tags"></div>
@@ -430,11 +654,28 @@
     </div>
 </div>
 
+<!-- ─────── Session Queue (full width below) ─────── -->
+<div class="queue-section">
+    <div class="queue-header">
+        <h2>📦 Session Queue</h2>
+        <span class="queue-count" id="queue-count">0 rows</span>
+    </div>
+    <div id="queue-list">
+        <div class="queue-empty" id="queue-empty">No rows added yet. Generate a row and click "Add to Queue".</div>
+    </div>
+    <div class="queue-actions" id="queue-actions" style="display:none;">
+        <button class="copy-all-btn" id="copy-all-btn" onclick="copyAllRows()">📋 Copy All Rows</button>
+        <button class="clear-queue-btn" onclick="clearQueue()">🗑️ Clear Queue</button>
+    </div>
+</div>
+
 <script>
 // ─── Data State ───
-let activeCampaigns = [];   // [{id, name, link, priority}]
-let imageCache = {};         // {productId: imageUrl}
-let existingProducts = [];  // from window.PRODUCT_DATA
+let activeCampaigns = [];    // [{id, name, link, priority}]
+let filteredCampaigns = [];  // current filtered view
+let imageCache = {};
+let existingProducts = [];
+let sessionQueue = [];       // [{name, csv}]
 
 // ─── Category Keywords (mirrors update_discovery_data.py) ───
 const CATEGORY_KEYWORDS = {
@@ -455,6 +696,8 @@ const CATEGORY_KEYWORDS = {
     'Luggage & Bags': ['suitcase','luggage','carry on','travel bag','duffel','weekender','toiletry bag','packing cube','backpack','travel case','garment bag']
 };
 
+const CAT_ICONS = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
+
 function inferCategory(name) {
     const text = name.toLowerCase();
     let bestCat = 'Other';
@@ -469,32 +712,51 @@ function inferCategory(name) {
     return bestCat;
 }
 
+// ─── Fuzzy similarity (0–1) ───
+function similarityScore(a, b) {
+    a = a.toLowerCase().trim();
+    b = b.toLowerCase().trim();
+    if (a === b) return 1;
+    // Compute word overlap as a fast proxy for similarity
+    const wordsA = new Set(a.split(/\s+/).filter(w => w.length > 2));
+    const wordsB = new Set(b.split(/\s+/).filter(w => w.length > 2));
+    let shared = 0;
+    for (const w of wordsA) { if (wordsB.has(w)) shared++; }
+    const union = new Set([...wordsA, ...wordsB]).size;
+    if (union === 0) return 0;
+    return shared / union;
+}
+
 // ─── Init ───
 async function init() {
-    // Load existing products for duplicate checking
     existingProducts = (window.PRODUCT_DATA || []);
     updateEntryBadge();
 
-    // Load active campaigns from CSV
     try {
         const resp = await fetch('data/shop/tap-links.csv');
         const text = await resp.text();
         activeCampaigns = parseActiveCampaigns(text);
-        populateCampaignDropdown();
+        filteredCampaigns = activeCampaigns;
+        populateCampaignDropdown(filteredCampaigns);
         renderCampaignTags();
     } catch (e) {
         document.getElementById('campaign-select').innerHTML =
-            '<option value="">⚠️ Could not load tap-links.csv — serve this page over HTTP</option>';
+            '<option value="">⚠️ Could not load — serve this page over HTTP</option>';
         document.getElementById('campaign-tags').textContent = 'No campaign data loaded.';
     }
 
-    // Load image cache
     try {
         const resp = await fetch('data/shop/product-images.json');
         imageCache = await resp.json();
-    } catch (e) {
-        // Image cache optional
-    }
+    } catch (e) { /* optional */ }
+
+    // Keyboard shortcut: Ctrl/Cmd+Enter → generate row
+    document.addEventListener('keydown', e => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            e.preventDefault();
+            generateRow();
+        }
+    });
 }
 
 function parseActiveCampaigns(csvText) {
@@ -517,8 +779,7 @@ function parseActiveCampaigns(csvText) {
             const endDate = new Date(endRaw);
             if (!isNaN(endDate) && endDate < today) continue;
         }
-        const rawLink = (cols[idxLink] || '').trim();
-        let link = rawLink;
+        let link = (cols[idxLink] || '').trim();
         if (link.startsWith('https://www.tiktok.com/@https://')) {
             link = 'https://' + link.split('https://www.tiktok.com/@https://')[1];
         }
@@ -547,11 +808,21 @@ function splitCSVLine(line) {
     return result;
 }
 
-function populateCampaignDropdown() {
+// ─── Campaign filter ───
+function filterCampaigns() {
+    const q = document.getElementById('campaign-search').value.trim().toLowerCase();
+    filteredCampaigns = q
+        ? activeCampaigns.filter(c => c.name.toLowerCase().includes(q) || c.id.toLowerCase().includes(q))
+        : activeCampaigns;
+    populateCampaignDropdown(filteredCampaigns);
+}
+
+function populateCampaignDropdown(list) {
     const sel = document.getElementById('campaign-select');
+    const currentVal = sel.value;
     sel.innerHTML = '<option value="">— Select a campaign —</option>' +
-        activeCampaigns.map(c =>
-            `<option value="${c.id}">[${c.id}] ${c.name}${c.priority && c.priority !== 'Other' ? ' ★' : ''}</option>`
+        list.map(c =>
+            `<option value="${c.id}"${c.id === currentVal ? ' selected' : ''}>[${c.id}] ${c.name}${c.priority && c.priority !== 'Other' ? ' ★' : ''}</option>`
         ).join('');
 }
 
@@ -559,113 +830,175 @@ function renderCampaignTags() {
     const el = document.getElementById('campaign-tags');
     if (!activeCampaigns.length) { el.textContent = 'None loaded.'; return; }
     el.innerHTML = activeCampaigns.map(c => {
-        const color = (c.priority && c.priority !== 'Other') ? 'rgba(255,215,0,0.15)' : '';
-        const style = color ? `style="background:${color};color:#ffd700;"` : '';
+        const isPriority = c.priority && c.priority !== 'Other';
+        const style = isPriority ? 'style="background:rgba(255,215,0,0.15);color:#ffd700;"' : '';
         return `<span class="tag-pill" ${style}>${c.name}</span>`;
     }).join('');
 }
 
 // ─── Campaign Selection ───
 function onCampaignChange() {
-    const sel = document.getElementById('campaign-select');
-    const cid = sel.value;
+    const cid = document.getElementById('campaign-select').value;
     const campaign = activeCampaigns.find(c => c.id === cid);
     const preview = document.getElementById('campaign-link-preview');
     if (campaign) {
-        preview.innerHTML = `✅ Link: <a href="${campaign.link}" target="_blank" style="color:#00d4ff;word-break:break-all;">${campaign.link}</a>`;
+        preview.innerHTML = `✅ <a href="${campaign.link}" target="_blank">${campaign.link}</a>`;
     } else {
         preview.textContent = '';
     }
 }
 
-// ─── Product ID Change ───
+// ─── Product ID change ───
 function onProductIdChange() {
     const pid = document.getElementById('product-id').value.trim();
-    lookupCachedImage(pid);
-}
-
-function lookupCachedImage(pid) {
-    if (!pid) pid = document.getElementById('product-id').value.trim();
+    clearFieldError('product-id', 'err-pid');
     const statusEl = document.getElementById('image-status');
-    if (!pid) { statusEl.textContent = ''; return; }
+    if (!pid) { statusEl.textContent = ''; updatePreview(); return; }
     const url = imageCache[pid];
     if (url) {
-        setImagePreview(url);
-        statusEl.innerHTML = `✅ Cached image found for product ID <code>${pid}</code>`;
+        // Only set image-url if it's not already manually overridden
+        if (!document.getElementById('image-url').value.trim()) {
+            document.getElementById('image-url').value = url;
+        }
+        statusEl.innerHTML = `✅ Cached image found — will be included automatically.`;
     } else {
-        setImagePreview('');
-        statusEl.textContent = '⚠️ No cached image for this product ID. Paste a URL below, or run fetch_product_images.py to populate the cache.';
+        statusEl.textContent = '⚠️ No cached image. Paste a URL below, or the pipeline will fetch it when you run update_discovery_data.py.';
     }
+    updatePreview();
 }
 
 function onImageUrlChange() {
-    const url = document.getElementById('image-url').value.trim();
-    setImagePreview(url);
+    updatePreview();
 }
 
-function setImagePreview(url) {
-    const el = document.getElementById('img-preview');
-    if (url && url.startsWith('http')) {
-        el.innerHTML = `<img src="${url}" alt="product" onerror="this.parentElement.innerHTML='❌'">`;
-    } else {
-        const cat = document.getElementById('category').value || 'Other';
-        const icons = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟'};
-        el.innerHTML = icons[cat] || '📦';
-    }
-}
-
-// ─── Product Name Change ───
+// ─── Product Name change ───
 function onNameChange() {
     const name = document.getElementById('product-name').value.trim();
+    clearFieldError('product-name', 'err-name');
+
     // Category suggestion
     if (name.length > 3) {
         const suggested = inferCategory(name);
         const catSel = document.getElementById('category');
         const suggEl = document.getElementById('category-suggestion');
         if (!catSel.value) {
-            suggEl.textContent = `💡 Suggested: ${suggested}`;
+            suggEl.innerHTML = `💡 Suggested: <strong style="color:#ccc;">${suggested}</strong>
+                <button onclick="applySuggestedCategory('${suggested.replace(/'/g, "\\'")}')"
+                    style="background:rgba(255,255,255,0.08);border:none;color:#aaa;border-radius:5px;padding:2px 8px;font-size:0.72rem;cursor:pointer;margin-left:6px;">Apply</button>`;
         } else {
             suggEl.textContent = '';
         }
     }
-    // Duplicate check
+
     checkDuplicate(name);
+    updatePreview();
 }
 
+function applySuggestedCategory(cat) {
+    const catSel = document.getElementById('category');
+    for (let i = 0; i < catSel.options.length; i++) {
+        if (catSel.options[i].text === cat || catSel.options[i].value === cat) {
+            catSel.selectedIndex = i;
+            document.getElementById('category-suggestion').textContent = '';
+            updatePreview();
+            break;
+        }
+    }
+}
+
+function onCategoryChange() {
+    document.getElementById('category-suggestion').textContent = '';
+    updatePreview();
+}
+
+// ─── Auto-format helpers ───
+function autoFormatCommission(id) {
+    const el = document.getElementById(id);
+    let val = el.value.trim();
+    if (!val) return;
+    // Strip any existing % then re-add
+    val = val.replace(/%/g, '').trim();
+    if (val) { el.value = val + '%'; updatePreview(); }
+}
+
+function autoFormatPrice() {
+    const el = document.getElementById('sale-price');
+    let val = el.value.trim();
+    if (!val) return;
+    // If it looks like a number/range without $, add $
+    if (/^\d/.test(val)) {
+        el.value = '$' + val;
+        updatePreview();
+    }
+}
+
+// ─── Duplicate / near-match checker ───
 function checkDuplicate(name) {
     const key = name.toLowerCase().trim();
     const badge = document.getElementById('entry-badge');
     const resultEl = document.getElementById('dup-result-content');
-    if (!key) {
-        badge.textContent = 'Enter name';
+    if (!key || key.length < 4) {
+        badge.textContent = existingProducts.length ? `${existingProducts.length} products` : 'No data';
         badge.className = 'status-badge badge-loading';
         resultEl.className = 'dup-none';
         resultEl.textContent = 'Enter a product name above to check for existing listings.';
         return;
     }
-    const match = existingProducts.find(p => p.name.toLowerCase().trim() === key);
-    if (match) {
-        badge.textContent = '↩ Reuse Available';
+
+    // Exact match first
+    const exact = existingProducts.find(p => p.name.toLowerCase().trim() === key);
+    if (exact) {
+        badge.textContent = '↩ Exact Match';
         badge.className = 'status-badge badge-reuse';
-        resultEl.innerHTML = `
-            <div class="dup-tag">Existing Product Found</div>
-            <div class="dup-name">${match.name}</div>
-            <div class="dup-meta">Category: ${match.category} · Price: ${match.price} · Commission: ${match.commission.split('\n')[0]} · Rank: ${match.rank}</div>
-            <div class="dup-meta" style="margin-top:4px;">Old link: <span style="color:#ff8888;word-break:break-all;">${match.link}</span></div>
-            <div style="margin-top:8px;font-size:0.8rem;color:#ffd700;">✅ Use this product — just select a new campaign above. Original category, rank, and image will be preserved.</div>`;
+        resultEl.innerHTML = buildExactMatchHTML(exact);
         resultEl.className = 'dup-found';
-        // Pre-fill form fields from existing entry
-        prefillFromExisting(match);
-    } else {
-        badge.textContent = '✨ New Product';
+        prefillFromExisting(exact);
+        return;
+    }
+
+    // Near-matches (score > 0.45, top 3)
+    const scored = existingProducts
+        .map(p => ({ p, score: similarityScore(name, p.name) }))
+        .filter(x => x.score >= 0.45)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3);
+
+    if (scored.length) {
+        badge.textContent = '⚠️ Near Match';
         badge.className = 'status-badge badge-new';
         resultEl.className = 'dup-none';
-        resultEl.textContent = 'No exact match found — this will be a new product entry.';
+        resultEl.innerHTML = `<div style="color:#ffd700;margin-bottom:10px;font-size:0.8rem;">No exact match, but similar products found — use only if identical:</div>` +
+            scored.map(({p, score}) => buildNearMatchHTML(p, score)).join('');
+        return;
     }
+
+    badge.textContent = '✨ New Product';
+    badge.className = 'status-badge badge-new';
+    resultEl.className = 'dup-none';
+    resultEl.textContent = 'No match found — this will be a new product entry.';
+}
+
+function buildExactMatchHTML(p) {
+    return `<div class="dup-tag dup-tag-exact">Exact Match Found</div>
+        <div class="dup-name">${p.name}</div>
+        <div class="dup-meta">Category: ${p.category} · Price: ${p.price} · Commission: ${p.commission.split('\n')[0]} · Rank: ${p.rank}</div>
+        <div class="dup-meta" style="margin-top:4px;">Old link: <span style="color:#ff8888;word-break:break-all;">${p.link}</span></div>
+        <div style="margin-top:8px;font-size:0.8rem;color:#ffd700;">✅ Form pre-filled — just select a new campaign and generate.</div>`;
+}
+
+function buildNearMatchHTML(p, score) {
+    const pct = Math.round(score * 100);
+    return `<div class="dup-near">
+        <div class="dup-tag dup-tag-near">~${pct}% Similar</div>
+        <div class="dup-name" style="font-size:0.8rem;">${p.name}</div>
+        <div class="dup-meta">${p.category} · ${p.price} · ${p.commission.split('\n')[0]}</div>
+        <button class="dup-use-btn" onclick="prefillFromExisting(existingProducts.find(x=>x.id==='${p.id}'))">↩ Use this listing</button>
+    </div>`;
 }
 
 function prefillFromExisting(product) {
-    const safeSet = (id, val) => { if (val) document.getElementById(id).value = val; };
+    if (!product) return;
+    const safeSet = (id, val) => { if (val !== undefined && val !== null) document.getElementById(id).value = val; };
     safeSet('shop-name', product.creator);
     safeSet('sale-price', product.price);
     const commVal = product.commission.split('\n')[0].trim();
@@ -676,64 +1009,111 @@ function prefillFromExisting(product) {
     if (product.category) {
         const catSel = document.getElementById('category');
         for (let i = 0; i < catSel.options.length; i++) {
-            if (catSel.options[i].value === product.category) {
+            if (catSel.options[i].value === product.category || catSel.options[i].text === product.category) {
                 catSel.selectedIndex = i;
                 break;
             }
         }
     }
-    if (product.image && product.image.startsWith('http')) {
-        document.getElementById('image-url').value = product.image;
-        setImagePreview(product.image);
-    } else {
-        lookupCachedImage(document.getElementById('product-id').value.trim());
-    }
+    // Set image: prefer existing image URL
+    const imgUrl = product.image && product.image.startsWith('http') ? product.image
+                 : (imageCache[document.getElementById('product-id').value.trim()] || '');
+    document.getElementById('image-url').value = imgUrl;
+    updatePreview();
 }
 
 function updateEntryBadge() {
     const badge = document.getElementById('entry-badge');
-    if (existingProducts.length > 0) {
-        badge.textContent = `${existingProducts.length} products loaded`;
-        badge.className = 'status-badge badge-reuse';
+    badge.textContent = existingProducts.length > 0 ? `${existingProducts.length} products` : 'No product data';
+    badge.className = `status-badge ${existingProducts.length > 0 ? 'badge-reuse' : 'badge-loading'}`;
+}
+
+// ─── Live Card Preview ───
+function updatePreview() {
+    const name     = document.getElementById('product-name').value.trim() || '';
+    const price    = document.getElementById('sale-price').value.trim() || '—';
+    const comm     = document.getElementById('commission-rate').value.trim() || '—';
+    const sold     = document.getElementById('items-sold').value.trim() || '—';
+    const rankVal  = parseInt(document.getElementById('rank').value) || 4;
+    const imgUrl   = document.getElementById('image-url').value.trim();
+    const catSel   = document.getElementById('category');
+    let category   = catSel.value || (name.length > 3 ? inferCategory(name) : 'Other');
+    const pid      = document.getElementById('product-id').value.trim();
+
+    // Resolve image: manual URL > cache
+    const resolvedImg = imgUrl || imageCache[pid] || '';
+
+    // Image element
+    const imgEl = document.getElementById('pc-image');
+    if (resolvedImg && resolvedImg.startsWith('http')) {
+        imgEl.innerHTML = `<img src="${resolvedImg}" alt="${name}" onerror="this.parentElement.innerHTML='${CAT_ICONS[category] || '📦'}'">`;
     } else {
-        badge.textContent = 'No product data';
-        badge.className = 'status-badge badge-loading';
+        imgEl.textContent = CAT_ICONS[category] || '📦';
     }
+
+    // Rank badge
+    const card = document.getElementById('live-card');
+    const oldBadge = card.querySelector('.rank-badge-preview');
+    if (oldBadge) oldBadge.remove();
+    if (rankVal === 1) card.insertAdjacentHTML('afterbegin', '<div class="rank-badge-preview rp-1">🏆 Top Pick</div>');
+    else if (rankVal === 2) card.insertAdjacentHTML('afterbegin', '<div class="rank-badge-preview rp-2">⭐ Creator Pick</div>');
+    else if (rankVal === 3) card.insertAdjacentHTML('afterbegin', '<div class="rank-badge-preview rp-3">💎 Best Overall</div>');
+
+    const commDisplay = comm.includes('%') ? comm : (comm !== '—' ? comm + '%' : '—%');
+    document.getElementById('pc-name').textContent = name || 'Product name…';
+    document.getElementById('pc-name').style.color = name ? '#fff' : '#555';
+    document.getElementById('pc-comm').textContent = commDisplay;
+    document.getElementById('pc-comm').style.color = comm !== '—' ? '#00ff88' : '#333';
+    document.getElementById('pc-stats').textContent = `🔥 ${sold} sold · ${category}`;
+    document.getElementById('pc-price').textContent = price;
+    document.getElementById('pc-price').style.color = price !== '—' ? '#fff' : '#555';
+}
+
+// ─── Validation helpers ───
+function setFieldError(inputId, errId, msg) {
+    const inp = document.getElementById(inputId);
+    const err = document.getElementById(errId);
+    inp.classList.add('invalid');
+    err.textContent = msg;
+    err.classList.add('visible');
+}
+function clearFieldError(inputId, errId) {
+    document.getElementById(inputId).classList.remove('invalid');
+    document.getElementById(errId).classList.remove('visible');
 }
 
 // ─── CSV Row Generation ───
 function generateRow() {
-    const sel = document.getElementById('campaign-select');
-    const cid = sel.value.trim();
+    const cid = document.getElementById('campaign-select').value.trim();
     const campaign = activeCampaigns.find(c => c.id === cid);
-
     const pid = document.getElementById('product-id').value.trim();
     const name = document.getElementById('product-name').value.trim();
-    const shop = document.getElementById('shop-name').value.trim();
-    const price = document.getElementById('sale-price').value.trim();
-    const samples = document.getElementById('available-samples').value.trim();
-    const sold = document.getElementById('items-sold').value.trim();
-    const commission = document.getElementById('commission-rate').value.trim();
-    const adPct = document.getElementById('ad-pct').value.trim();
-    const rank = document.getElementById('rank').value.trim();
-    const rating = document.getElementById('rating').value.trim();
-    const imageOverride = document.getElementById('image-url').value.trim();
 
-    // Category: use selection, or auto-infer from name
+    // Inline validation
+    let valid = true;
+    if (!pid) { setFieldError('product-id', 'err-pid', 'Product ID is required.'); valid = false; }
+    else clearFieldError('product-id', 'err-pid');
+    if (!name) { setFieldError('product-name', 'err-name', 'Product Name is required.'); valid = false; }
+    else clearFieldError('product-name', 'err-name');
+    if (!campaign) {
+        document.getElementById('campaign-select').classList.add('invalid');
+        valid = false;
+    } else {
+        document.getElementById('campaign-select').classList.remove('invalid');
+    }
+    if (!valid) return;
+
+    const shop     = document.getElementById('shop-name').value.trim();
+    const price    = document.getElementById('sale-price').value.trim();
+    const samples  = document.getElementById('available-samples').value.trim();
+    const sold     = document.getElementById('items-sold').value.trim();
+    const comm     = document.getElementById('commission-rate').value.trim();
+    const adPct    = document.getElementById('ad-pct').value.trim();
+    const rank     = document.getElementById('rank').value.trim();
+    const rating   = document.getElementById('rating').value.trim();
+
     let category = document.getElementById('category').value;
     if (!category && name) category = inferCategory(name);
-
-    // Image URL for reference (not in CSV, but useful to note)
-    const pid_img = imageCache[pid] || imageOverride || '';
-
-    if (!pid || !name) {
-        alert('Product ID and Product Name are required.');
-        return;
-    }
-    if (!campaign) {
-        alert('Please select a campaign.');
-        return;
-    }
 
     // CSV columns: Product ID,Product Name,Shop Name,Category,Sale Price,Available Samples,
     //              Items Sold,Total Commission Rate,Campaign ID,Campaign Name,%,Rank,Ad %,Rating,Link
@@ -745,29 +1125,29 @@ function generateRow() {
         csvEscape(price),
         samples,
         csvEscape(sold),
-        csvEscape(commission),
+        csvEscape(comm),
         campaign.id,
         csvEscape(campaign.name),
-        csvEscape(commission),
+        csvEscape(comm),
         rank,
-        csvEscape(adPct || commission),
+        csvEscape(adPct || comm),
         rating,
         csvEscape(campaign.link)
     ];
 
     const rowText = cols.join(',');
-    document.getElementById('csv-output').textContent = rowText;
+    const outputEl = document.getElementById('csv-output');
+    outputEl.textContent = rowText;
 
-    // Reset copy button
-    const btn = document.getElementById('copy-btn');
-    btn.textContent = '📋 Copy to Clipboard';
-    btn.className = 'copy-btn';
+    // Flash the output card green
+    const card = outputEl.closest('.card');
+    card.classList.add('success-flash');
+    setTimeout(() => card.classList.remove('success-flash'), 800);
 
-    // Note image in status if available
-    const imgStatus = document.getElementById('image-status');
-    if (pid_img) {
-        imgStatus.innerHTML = `🖼️ Image cached for this product ID — pipeline will auto-include it.`;
-    }
+    // Reset copy buttons
+    document.getElementById('copy-btn').textContent = '📋 Copy Row';
+    document.getElementById('copy-btn').className = 'copy-btn';
+    document.getElementById('add-queue-btn').textContent = '➕ Add to Queue';
 }
 
 function csvEscape(val) {
@@ -780,22 +1160,106 @@ function csvEscape(val) {
 
 async function copyCSV() {
     const text = document.getElementById('csv-output').textContent;
-    if (!text || text.startsWith('—')) { alert('Generate a row first.'); return; }
+    if (!text || text.startsWith('—')) { return; }
     try {
         await navigator.clipboard.writeText(text);
         const btn = document.getElementById('copy-btn');
         btn.textContent = '✅ Copied!';
         btn.className = 'copy-btn copied';
-        setTimeout(() => {
-            btn.textContent = '📋 Copy to Clipboard';
-            btn.className = 'copy-btn';
-        }, 2500);
+        setTimeout(() => { btn.textContent = '📋 Copy Row'; btn.className = 'copy-btn'; }, 2500);
     } catch (e) {
-        const output = document.getElementById('csv-output');
-        output.focus();
-        window.getSelection()?.selectAllChildren(output);
-        alert('Could not auto-copy — text selected, press Ctrl+C / Cmd+C.');
+        window.getSelection()?.selectAllChildren(document.getElementById('csv-output'));
     }
+}
+
+// ─── Session Queue ───
+function addToQueue() {
+    const text = document.getElementById('csv-output').textContent;
+    if (!text || text.startsWith('—')) { return; }
+    const name = document.getElementById('product-name').value.trim() || 'Unnamed product';
+    sessionQueue.push({ name, csv: text });
+    renderQueue();
+
+    const btn = document.getElementById('add-queue-btn');
+    btn.textContent = '✅ Added!';
+    setTimeout(() => { btn.textContent = '➕ Add to Queue'; }, 1800);
+}
+
+function removeFromQueue(idx) {
+    sessionQueue.splice(idx, 1);
+    renderQueue();
+}
+
+function clearQueue() {
+    if (sessionQueue.length && !confirm('Clear all queued rows?')) return;
+    sessionQueue = [];
+    renderQueue();
+}
+
+function renderQueue() {
+    const list = document.getElementById('queue-list');
+    const countEl = document.getElementById('queue-count');
+    const actionsEl = document.getElementById('queue-actions');
+    const emptyEl = document.getElementById('queue-empty');
+
+    countEl.textContent = `${sessionQueue.length} row${sessionQueue.length !== 1 ? 's' : ''}`;
+
+    if (!sessionQueue.length) {
+        list.innerHTML = '';
+        list.appendChild(emptyEl);
+        emptyEl.style.display = 'block';
+        actionsEl.style.display = 'none';
+        return;
+    }
+
+    emptyEl.style.display = 'none';
+    actionsEl.style.display = 'flex';
+    list.innerHTML = sessionQueue.map((item, i) => `
+        <div class="queue-item">
+            <div class="queue-item-num">#${i + 1}</div>
+            <div style="flex:1">
+                <div class="queue-item-name">${item.name}</div>
+                <div class="queue-item-text">${item.csv}</div>
+            </div>
+            <button class="queue-remove" onclick="removeFromQueue(${i})" title="Remove">✕</button>
+        </div>
+    `).join('');
+}
+
+async function copyAllRows() {
+    if (!sessionQueue.length) return;
+    const text = sessionQueue.map(item => item.csv).join('\n');
+    try {
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('copy-all-btn');
+        btn.textContent = '✅ Copied All!';
+        btn.className = 'copy-all-btn copied';
+        setTimeout(() => { btn.textContent = '📋 Copy All Rows'; btn.className = 'copy-all-btn'; }, 2500);
+    } catch (e) {
+        alert('Could not auto-copy. Select the rows manually and press Ctrl+C.');
+    }
+}
+
+// ─── Reset form ───
+function resetForm() {
+    const fields = ['product-id','product-name','shop-name','sale-price','commission-rate','ad-pct','items-sold','rating','available-samples','image-url','campaign-search'];
+    fields.forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('rank').value = '4';
+    document.getElementById('category').value = '';
+    document.getElementById('campaign-select').value = '';
+    document.getElementById('campaign-link-preview').textContent = '';
+    document.getElementById('category-suggestion').textContent = '';
+    document.getElementById('image-status').textContent = '';
+    document.getElementById('csv-output').textContent = '— click Generate Row —';
+    document.getElementById('dup-result-content').textContent = 'Enter a product name above to check for existing listings.';
+    document.getElementById('dup-result-content').className = 'dup-none';
+    ['product-id','product-name','campaign-select'].forEach(id => document.getElementById(id).classList.remove('invalid'));
+    ['err-pid','err-name'].forEach(id => document.getElementById(id).classList.remove('visible'));
+    filteredCampaigns = activeCampaigns;
+    populateCampaignDropdown(filteredCampaigns);
+    updateEntryBadge();
+    updatePreview();
+    document.getElementById('product-id').focus();
 }
 
 init();
