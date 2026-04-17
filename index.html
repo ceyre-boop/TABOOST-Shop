@@ -164,12 +164,12 @@
             isolation: isolate;
         }
 
-        .hero > *:not(.hero-bg-layer):not(.hero-motion-lines):not(.hero-noise):not(.hero-boot-line):not(.hero-bg-video):not(.hero-shimmer) {
+        .hero > *:not(.hero-bg-layer):not(.hero-motion-lines):not(.hero-noise):not(.hero-boot-line):not(.hero-ambient-layer):not(.hero-shimmer) {
             position: relative;
             z-index: 3;
         }
 
-        .hero-bg-video,
+        .hero-ambient-layer,
         .hero-bg-layer,
         .hero-motion-lines,
         .hero-noise,
@@ -180,7 +180,7 @@
             pointer-events: none;
         }
 
-        .hero-bg-video {
+        .hero-ambient-layer {
             opacity: 0.12;
             filter: blur(10px) saturate(85%);
             background:
@@ -1311,7 +1311,7 @@
         </header>
 
         <section class="hero" id="hero-section">
-            <div class="hero-bg-video"></div>
+            <div class="hero-ambient-layer"></div>
             <div class="hero-bg-layer depth-1"></div>
             <div class="hero-bg-layer depth-2"></div>
             <div class="hero-motion-lines" aria-hidden="true">
@@ -1417,6 +1417,14 @@
         ];
         let heroTaglineIndex = 0;
         let heroPlaceholderIndex = 0;
+        const EPC_MULTIPLIER = 0.065;
+        const CVR_BASE = 8; // Base conversion rate percentage.
+        const CVR_COMMISSION_CAP = 25; // Max commission value that contributes to CVR boost.
+        const CVR_DIVISOR = 2; // Scales commission impact into a realistic CVR range.
+        const TAGLINE_ROTATION_INTERVAL = 2800;
+        const PLACEHOLDER_ROTATION_INTERVAL = 3400;
+        const HERO_SCROLL_THRESHOLD = 240;
+        const STICKY_TAGS_THRESHOLD = 0.45;
 
         function parseCommissionValue(rawCommission) {
             const firstLine = String(rawCommission || "0%").split('\n')[0];
@@ -1427,6 +1435,10 @@
         function parseSoldValue(rawSold) {
             const val = parseFloat(String(rawSold || "0").replace(/[^\d.]/g, ''));
             return Number.isFinite(val) ? val : 0;
+        }
+
+        function calculateEPC(rawCommission) {
+            return parseCommissionValue(rawCommission) * EPC_MULTIPLIER;
         }
 
         function getCategoryTheme(categoryName = '') {
@@ -1547,12 +1559,12 @@
             const trending = [...source].sort((a, b) => (a.rank || 99) - (b.rank || 99))[0] || source[0];
             const cards = [
                 { label: "Top Earning Campaign Today", item: topEarning, metric: `Sold: ${parseSoldValue(topEarning.sold).toLocaleString()}` },
-                { label: "Highest Commission Right Now", item: highestCommission, metric: `EPC: $${(parseCommissionValue(highestCommission.commission) * 0.07).toFixed(2)}` },
-                { label: "Trending Among Creators", item: trending, metric: `CVR: ${(8 + Math.min(parseCommissionValue(trending.commission), 25) / 2).toFixed(1)}%` }
+                { label: "Highest Commission Right Now", item: highestCommission, metric: `EPC: $${calculateEPC(highestCommission.commission).toFixed(2)}` },
+                { label: "Trending Among Creators", item: trending, metric: `CVR: ${(CVR_BASE + Math.min(parseCommissionValue(trending.commission), CVR_COMMISSION_CAP) / CVR_DIVISOR).toFixed(1)}%` }
             ];
 
             carousel.innerHTML = cards.map(card => `
-                <article class="hero-carousel-card">
+                <article class="hero-carousel-card" aria-label="${card.label}: ${card.item.name || 'Campaign'}">
                     <div class="hero-carousel-title">${card.label}</div>
                     <div class="hero-carousel-name">${card.item.name || 'Campaign'}</div>
                     <div class="hero-carousel-metric">
@@ -1570,7 +1582,7 @@
             const topComm = Math.max(...source.map(item => parseCommissionValue(item.commission)));
             const newCampaigns = source.filter(item => (item.rank || 999) <= 12).length;
 
-            const epc = (avgComm * 0.06).toFixed(2);
+            const epc = calculateEPC(avgComm).toFixed(2);
             const epcEl = document.getElementById('hud-epc');
             const topEl = document.getElementById('hud-top-commission');
             const newEl = document.getElementById('hud-new-campaigns');
@@ -1605,14 +1617,14 @@
                     heroTagline.textContent = HERO_TAGLINES[heroTaglineIndex];
                     heroTagline.classList.remove('swapping');
                 }, 180);
-            }, 2800);
+            }, TAGLINE_ROTATION_INTERVAL);
 
             setInterval(() => {
                 heroPlaceholderIndex = (heroPlaceholderIndex + 1) % HERO_PLACEHOLDERS.length;
                 if (document.activeElement !== searchInput && !searchInput.value.trim()) {
                     searchInput.setAttribute('placeholder', HERO_PLACEHOLDERS[heroPlaceholderIndex]);
                 }
-            }, 3400);
+            }, PLACEHOLDER_ROTATION_INTERVAL);
 
             let sparkleTimeout;
             searchInput.addEventListener('input', () => {
@@ -1622,24 +1634,35 @@
                 sparkleTimeout = setTimeout(() => searchWrapper.classList.remove('typing'), 320);
             });
 
+            let heroRect = hero.getBoundingClientRect();
+            const updateHeroRect = () => {
+                heroRect = hero.getBoundingClientRect();
+            };
+            window.addEventListener('resize', updateHeroRect, { passive: true });
+
             hero.addEventListener('mousemove', (e) => {
-                const rect = hero.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
+                const x = e.clientX - heroRect.left - heroRect.width / 2;
+                const y = e.clientY - heroRect.top - heroRect.height / 2;
                 hero.style.setProperty('--hero-mouse-x', `${x}px`);
                 hero.style.setProperty('--hero-mouse-y', `${y}px`);
-                hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / rect.width + Math.abs(y) / rect.height)}`);
+                hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
             });
 
             tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
+                let tagRect = null;
+                const updateTagRect = () => {
+                    tagRect = tag.getBoundingClientRect();
+                };
+                tag.addEventListener('mouseenter', updateTagRect);
                 tag.addEventListener('mousemove', (e) => {
-                    const r = tag.getBoundingClientRect();
-                    const mx = (e.clientX - r.left - r.width / 2) * 0.12;
-                    const my = (e.clientY - r.top - r.height / 2) * 0.15;
+                    if (!tagRect) updateTagRect();
+                    const mx = (e.clientX - tagRect.left - tagRect.width / 2) * 0.12;
+                    const my = (e.clientY - tagRect.top - tagRect.height / 2) * 0.15;
                     tag.style.transform = `translate(${mx}px, ${my}px)`;
                 });
                 tag.addEventListener('mouseleave', () => {
                     tag.style.transform = '';
+                    tagRect = null;
                 });
                 tag.addEventListener('click', (e) => {
                     tag.classList.add('clicked', 'ripple');
@@ -1650,12 +1673,18 @@
                 });
             });
 
+            let scrollTicking = false;
             const onScroll = () => {
-                const progress = Math.min(1, window.scrollY / 240);
-                if (heroTitle) heroTitle.style.transform = `scale(${1 - progress * 0.06})`;
-                if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
-                document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
-                tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * 0.45));
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    const progress = Math.min(1, window.scrollY / HERO_SCROLL_THRESHOLD);
+                    if (heroTitle) heroTitle.style.transform = `scale(${1 - progress * 0.06})`;
+                    if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
+                    document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
+                    tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
+                    scrollTicking = false;
+                });
             };
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
