@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST — Product Listing Template</title>
+    <!-- Load current product data for duplicate detection -->
+    <script src="js/product-data.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0f;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+        .notice {
+            background: rgba(255,200,0,0.08);
+            border: 1px solid rgba(255,200,0,0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+        .notice code {
+            background: rgba(0,0,0,0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            max-width: 1200px;
+        }
+        @media (max-width: 900px) {
+            .layout { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+        .card-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 0.78rem;
+            color: #aaa;
+            font-weight: 600;
+            margin-bottom: 4px;
+            margin-top: 12px;
+        }
+        label:first-of-type { margin-top: 0; }
+        input, select, textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: rgba(255,0,68,0.5);
+        }
+        select option { background: #1a1a2e; color: #fff; }
+        .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 22px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.15s;
+            width: 100%;
+            margin-top: 16px;
+        }
+        .btn:hover { opacity: 0.85; }
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            color: #ccc;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+        /* ── Image Preview ── */
+        .img-preview {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #151520;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            border: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 12px;
+        }
+        .img-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ── Duplicate Checker ── */
+        .dup-result {
+            background: rgba(0,0,0,0.35);
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 0.82rem;
+        }
+        .dup-none { color: #888; }
+        .dup-found {
+            border-left: 3px solid #00ff88;
+            padding-left: 12px;
+        }
+        .dup-found .dup-tag {
+            display: inline-block;
+            background: rgba(0,255,136,0.15);
+            color: #00ff88;
+            border-radius: 5px;
+            padding: 2px 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        .dup-found .dup-name { color: #fff; font-weight: 600; margin-bottom: 4px; }
+        .dup-found .dup-meta { color: #888; }
+
+        /* ── CSV Output ── */
+        .csv-output {
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.76rem;
+            color: #00d4ff;
+            word-break: break-all;
+            white-space: pre-wrap;
+            min-height: 56px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .copy-btn {
+            background: rgba(0,212,255,0.12);
+            color: #00d4ff;
+            border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 8px;
+            padding: 9px 18px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.15s;
+        }
+        .copy-btn:hover { background: rgba(0,212,255,0.2); }
+        .copy-btn.copied { color: #00ff88; border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.1); }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .badge-new { background: rgba(255,200,0,0.15); color: #ffd700; }
+        .badge-reuse { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .badge-loading { background: rgba(136,136,136,0.15); color: #888; }
+
+        .hint {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 4px;
+        }
+        .section-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin: 20px 0;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: rgba(255,0,68,0.2);
+            border-radius: 50%;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #ff0044;
+            margin-right: 7px;
+            flex-shrink: 0;
+        }
+        .instructions {
+            color: #aaa;
+            font-size: 0.83rem;
+            line-height: 1.6;
+        }
+        .instructions li { padding: 3px 0; }
+        .tag-pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.07);
+            border-radius: 5px;
+            padding: 2px 7px;
+            font-size: 0.72rem;
+            color: #bbb;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo">TABOOST</div>
+<div class="subtitle">Product Listing Template — Build tap-products.csv rows</div>
+
+<div class="notice">
+    ⚠️ This tool must be served over HTTP, not opened as a file. Run:
+    <code>python3 -m http.server 8080</code> then visit
+    <code>http://localhost:8080/product-template.html</code>
+</div>
+
+<div class="layout">
+    <!-- ────────────── LEFT COLUMN: FORM ────────────── -->
+    <div>
+        <!-- STEP 1: Campaign Selection -->
+        <div class="card">
+            <div class="card-title"><span class="step-number">1</span> Select Active Campaign</div>
+            <label for="campaign-select">Campaign (TAP-Links — active only)</label>
+            <select id="campaign-select" onchange="onCampaignChange()">
+                <option value="">— Loading campaigns… —</option>
+            </select>
+            <div id="campaign-link-preview" class="hint"></div>
+        </div>
+
+        <!-- STEP 2: Product Identifiers -->
+        <div class="card">
+            <div class="card-title"><span class="step-number">2</span> Product Identifiers</div>
+            <label for="product-id">Product ID <span style="color:#ff0044;">*</span></label>
+            <input id="product-id" type="text" placeholder="TikTok numeric Product ID (e.g. 1729397279735780001)"
+                   oninput="onProductIdChange()">
+            <div class="hint">Paste the TikTok Shop product ID from the product URL or TikTok Seller Center.</div>
+
+            <label for="product-name">Product Name <span style="color:#ff0044;">*</span></label>
+            <input id="product-name" type="text" placeholder="Full product title as shown on TikTok"
+                   oninput="onNameChange()">
+        </div>
+
+        <!-- STEP 3: Product Details -->
+        <div class="card">
+            <div class="card-title"><span class="step-number">3</span> Product Details</div>
+
+            <div class="row2">
+                <div>
+                    <label for="shop-name">Shop Name</label>
+                    <input id="shop-name" type="text" placeholder="Brand or seller name">
+                </div>
+                <div>
+                    <label for="sale-price">Sale Price</label>
+                    <input id="sale-price" type="text" placeholder="$19.99 or $12.00-$24.00">
+                </div>
+            </div>
+
+            <div class="row2">
+                <div>
+                    <label for="commission-rate">Commission Rate (Total)</label>
+                    <input id="commission-rate" type="text" placeholder="e.g. 18%">
+                </div>
+                <div>
+                    <label for="ad-pct">Ad %</label>
+                    <input id="ad-pct" type="text" placeholder="Same as commission usually">
+                </div>
+            </div>
+
+            <div class="row3">
+                <div>
+                    <label for="items-sold">Items Sold</label>
+                    <input id="items-sold" type="text" placeholder="e.g. 65,669">
+                </div>
+                <div>
+                    <label for="rank">Rank</label>
+                    <select id="rank">
+                        <option value="1">1 — 🏆 Top Pick</option>
+                        <option value="2">2 — ⭐ Creator Pick</option>
+                        <option value="3">3 — 💎 Best Overall</option>
+                        <option value="4" selected>4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="rating">Rating</label>
+                    <input id="rating" type="text" placeholder="e.g. 5">
+                </div>
+            </div>
+
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="">— Auto-detect from name —</option>
+                <option>Automotive & Motorcycle</option>
+                <option>Beauty & Personal Care</option>
+                <option>Books, Magazines & Audio</option>
+                <option>Computers & Office Equipment</option>
+                <option>Fashion Accessories</option>
+                <option>Food & Beverages</option>
+                <option>Furniture</option>
+                <option>Health</option>
+                <option>Home Improvement</option>
+                <option>Home Supplies</option>
+                <option>Household Appliances</option>
+                <option>Jewelry Accessories & Derivatives</option>
+                <option>Kids' Fashion</option>
+                <option>Kitchenware</option>
+                <option>Luggage & Bags</option>
+                <option>Menswear & Underwear</option>
+                <option>Pet Supplies</option>
+                <option>Phones & Electronics</option>
+                <option>Shoes</option>
+                <option>Sports & Outdoor</option>
+                <option>Textiles & Soft Furnishings</option>
+                <option>Tools & Hardware</option>
+                <option>Toys & Hobbies</option>
+                <option>Womenswear & Underwear</option>
+                <option>~~~</option>
+            </select>
+            <div id="category-suggestion" class="hint"></div>
+
+            <label for="available-samples">Available Samples</label>
+            <input id="available-samples" type="text" placeholder="e.g. 35 (leave blank if unknown)">
+
+            <button class="btn" onclick="generateRow()">⬇️ Generate CSV Row</button>
+        </div>
+
+        <!-- STEP 4: Instructions -->
+        <div class="card">
+            <div class="card-title">📋 How to use this tool</div>
+            <ol class="instructions" style="padding-left: 18px;">
+                <li>Select the active campaign this product belongs to.</li>
+                <li>Paste the TikTok Product ID — the tool checks for an existing image in the cache.</li>
+                <li>Enter the product name — the tool checks for an exact match in current live data. If one is found, you can reuse its details.</li>
+                <li>Fill in remaining details. Category auto-suggests from the product name keywords.</li>
+                <li>Click <strong>Generate CSV Row</strong> and copy the output.</li>
+                <li>Paste the row into <code>data/shop/tap-products.csv</code> (open in Excel/Google Sheets and paste as a new row).</li>
+                <li>After adding all new products, run <code>python3 update_discovery_data.py</code> to regenerate <code>js/product-data.js</code>.</li>
+            </ol>
+            <hr class="section-divider">
+            <div class="card-title">🔁 Reusing an existing listing</div>
+            <p class="instructions">If the Duplicate Checker finds an exact match (same product name), the existing data will be pre-filled. Update only the Campaign ID field (select a new campaign above) and regenerate the row. The product's original image, category, rank, and sales data will be preserved.</p>
+        </div>
+    </div>
+
+    <!-- ────────────── RIGHT COLUMN: PREVIEW + OUTPUT ────────────── -->
+    <div>
+        <!-- Image Preview -->
+        <div class="card">
+            <div class="card-title">🖼️ Product Image</div>
+            <div class="img-preview" id="img-preview">📦</div>
+            <label for="image-url">Image URL (override)</label>
+            <input id="image-url" type="text" placeholder="Paste TikTok CDN image URL to override"
+                   oninput="onImageUrlChange()">
+            <div class="hint">Leave blank to use cached image (auto-loaded by Product ID). The pipeline auto-fetches TikTok CDN images by product ID.</div>
+            <button class="btn btn-secondary" onclick="lookupCachedImage()" style="margin-top: 10px;">
+                🔍 Look up image by Product ID
+            </button>
+            <div id="image-status" class="hint" style="margin-top:6px;"></div>
+        </div>
+
+        <!-- Duplicate / Reuse Checker -->
+        <div class="card">
+            <div class="card-title">
+                🔍 Duplicate Checker
+                <span id="entry-badge" class="status-badge badge-loading" style="margin-left:8px;">Loading…</span>
+            </div>
+            <div class="dup-result">
+                <div class="dup-none" id="dup-result-content">Enter a product name above to check for existing listings.</div>
+            </div>
+        </div>
+
+        <!-- CSV Output -->
+        <div class="card">
+            <div class="card-title">📄 CSV Row Output</div>
+            <div style="font-family:monospace; font-size:0.7rem; color:#555; margin-bottom:6px;">
+                Product ID, Name, Shop, Category, Price, Samples, Sold, Commission, Campaign ID, Campaign Name, %, Rank, Ad%, Rating, Link
+            </div>
+            <div class="csv-output" id="csv-output">— click Generate CSV Row —</div>
+            <button class="copy-btn" id="copy-btn" onclick="copyCSV()">📋 Copy to Clipboard</button>
+        </div>
+
+        <!-- Active Campaign Tags (reference) -->
+        <div class="card">
+            <div class="card-title">🔗 Active Campaigns Loaded</div>
+            <div id="campaign-tags"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ─── Data State ───
+let activeCampaigns = [];   // [{id, name, link, priority}]
+let imageCache = {};         // {productId: imageUrl}
+let existingProducts = [];  // from window.PRODUCT_DATA
+
+// ─── Category Keywords (mirrors update_discovery_data.py) ───
+const CATEGORY_KEYWORDS = {
+    'Beauty & Personal Care': ['mascara','lipstick','lip','foundation','concealer','blush','serum','moisturizer','cream','cleanser','sunscreen','skincare','makeup','beauty','eyeshadow','bronzer','primer','toner','face wash','lotion','scrub','retinol','vitamin c','hyaluronic','collagen','niacinamide','spf','eyeliner','brow','lash','nail','perfume','fragrance','cologne','shampoo','conditioner','hair oil','hair mask','derma','dermaplaning','razor','wax','peel','facial','face mask','eye cream','body wash','deodorant','toothpaste','whitening','self tan','acne','skin','cosmetic','powder','contour','highlighter','setting spray','too faced','tarte','nyx','maybelline','olay','cerave','neutrogena','drunk elephant'],
+    'Health': ['supplement','vitamin','probiotic','protein','collagen peptide','gummy','gummies','capsule','omega','magnesium','zinc','iron','melatonin','sleep','energy','immunity','digest','gut','detox','wellness','health','cbd','hemp','ashwagandha','turmeric','elderberry','electrolyte','hydration','fiber','weight loss','fat burner','biotin','prenatal','postnatal','fertility','blood pressure','cholesterol','chill gummies','unwind','curb'],
+    'Phones & Electronics': ['earbuds','headphone','headset','speaker','charger','cable','usb','bluetooth','wireless','phone case','screen protector','power bank','webcam','camera','microphone','ring light','tripod','drone','smartwatch','watch','fitbit','airpods','tablet','ipad','keyboard','mouse','monitor','hub','adapter','hdmi','gaming','controller','console','vr','jlab','epic','go air','jbuds','anker','belkin','audio','sound','noise cancelling','led','light strip'],
+    'Womenswear & Underwear': ['dress','blouse','skirt','top','legging','jumpsuit','romper','cardigan','sweater','jacket',"women's",'bra','panties','lingerie','shapewear','bodysuit','tank top','cami','maxi','midi','mini','crop top','hoodie','sweatshirt','jogger','pant','jean','shorts','kimono','wrap','tunic','blazer','coat','vest','scrunchie','bikini','swimsuit','swimwear','cover up','pajama','robe','nightgown'],
+    'Sports & Outdoor': ['yoga','fitness','gym','workout','exercise','resistance band','dumbbell','kettlebell','mat','foam roller','jump rope','pull up','camping','tent','sleeping bag','hiking','backpack','water bottle','cooler','grill','fishing','bicycle','bike','scooter','skateboard','surfboard','kayak','paddle','golf','tennis','basketball','football','soccer','baseball','running','sneaker','athletic','sport'],
+    'Home Supplies': ['trash can','organizer','storage','bin','basket','hook','hanger','shelf','rack','holder','dispenser','soap','sponge','cleaner','cleaning','mop','broom','vacuum','duster','air freshener','candle','diffuser','rug','mat','towel','shower','bath','laundry','iron','steamer','dryer','hamper','mirror','clock','decor','vase','frame','pillow','blanket','throw','curtain'],
+    'Kitchenware': ['pot','pan','spatula','knife','cutting board','blender','mixer','toaster','oven','microwave','air fryer','instant pot','slow cooker','coffee','tea','mug','cup','plate','bowl','fork','spoon','tupperware','container','lunch box','bento','straw','utensil','kitchen','baking','whisk','colander','grater','peeler','can opener'],
+    'Furniture': ['chair','table','desk','sofa','couch','bed','mattress','nightstand','dresser','bookshelf','cabinet','ottoman','bench','stool','futon','recliner','loveseat','sectional','folding','patio','outdoor furniture','picnic','camping chair','lounge'],
+    'Fashion Accessories': ['necklace','bracelet','earring','ring','watch band','sunglasses','hat','cap','beanie','scarf','gloves','belt','wallet','purse','handbag','clutch','tote','crossbody','chain','pendant','charm','hair clip','headband','barrette','pin','brooch','anklet','evry jewels','statement'],
+    'Food & Beverages': ['snack','candy','chocolate','cookie','chips','popcorn','jerky','protein bar','granola','cereal','oatmeal','smoothie','juice','soda','drink','water','sparkling','kombucha','matcha','seasoning','spice','sauce','honey','syrup','jam','spread','bundle'],
+    'Automotive & Motorcycle': ['car','vehicle','auto','steering','seat cover','car mount','dash cam','gps','tire','oil','wiper','car wash','detailing','motorcycle','helmet','visor','cup holder','armrest','trunk'],
+    'Household Appliances': ['vacuum cleaner','robot vacuum','humidifier','dehumidifier','air purifier','fan','heater','ac','washer','dryer machine','dishwasher','garbage disposal','water filter','purifier','steam mop','carpet cleaner','electric','appliance','nuderma'],
+    'Toys & Hobbies': ['toy','puzzle','lego','game','board game','card game','figure','doll','plush','stuffed','rc','remote control','craft','art','paint','draw','color','sticker','stamp'],
+    'Pet Supplies': ['dog','cat','pet','leash','collar','harness','bed','bowl','feeder','treat','chew','toy','crate','kennel','litter','fish','aquarium','bird','hamster','rabbit'],
+    'Luggage & Bags': ['suitcase','luggage','carry on','travel bag','duffel','weekender','toiletry bag','packing cube','backpack','travel case','garment bag']
+};
+
+function inferCategory(name) {
+    const text = name.toLowerCase();
+    let bestCat = 'Other';
+    let bestScore = 0;
+    for (const [cat, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
+        let score = 0;
+        for (const kw of keywords) {
+            if (text.includes(kw)) score += kw.length;
+        }
+        if (score > bestScore) { bestScore = score; bestCat = cat; }
+    }
+    return bestCat;
+}
+
+// ─── Init ───
+async function init() {
+    // Load existing products for duplicate checking
+    existingProducts = (window.PRODUCT_DATA || []);
+    updateEntryBadge();
+
+    // Load active campaigns from CSV
+    try {
+        const resp = await fetch('data/shop/tap-links.csv');
+        const text = await resp.text();
+        activeCampaigns = parseActiveCampaigns(text);
+        populateCampaignDropdown();
+        renderCampaignTags();
+    } catch (e) {
+        document.getElementById('campaign-select').innerHTML =
+            '<option value="">⚠️ Could not load tap-links.csv — serve this page over HTTP</option>';
+        document.getElementById('campaign-tags').textContent = 'No campaign data loaded.';
+    }
+
+    // Load image cache
+    try {
+        const resp = await fetch('data/shop/product-images.json');
+        imageCache = await resp.json();
+    } catch (e) {
+        // Image cache optional
+    }
+}
+
+function parseActiveCampaigns(csvText) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const lines = csvText.split('\n');
+    if (lines.length < 2) return [];
+    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    const idxID = headers.indexOf('CAMPAIGN ID');
+    const idxName = headers.indexOf('Name');
+    const idxLink = headers.indexOf('Link');
+    const idxPriority = headers.indexOf('PRIORITY');
+    const idxEnd = headers.indexOf('End Date');
+    const campaigns = [];
+    for (let i = 1; i < lines.length; i++) {
+        const cols = splitCSVLine(lines[i]);
+        if (!cols.length || !cols[idxID]) continue;
+        const endRaw = (cols[idxEnd] || '').trim();
+        if (endRaw) {
+            const endDate = new Date(endRaw);
+            if (!isNaN(endDate) && endDate < today) continue;
+        }
+        const rawLink = (cols[idxLink] || '').trim();
+        let link = rawLink;
+        if (link.startsWith('https://www.tiktok.com/@https://')) {
+            link = 'https://' + link.split('https://www.tiktok.com/@https://')[1];
+        }
+        if (!link || !link.startsWith('http')) continue;
+        campaigns.push({
+            id: (cols[idxID] || '').trim(),
+            name: (cols[idxName] || '').trim(),
+            link,
+            priority: (cols[idxPriority] || '').trim(),
+        });
+    }
+    return campaigns;
+}
+
+function splitCSVLine(line) {
+    const result = [];
+    let cur = '';
+    let inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') { inQuote = !inQuote; }
+        else if (ch === ',' && !inQuote) { result.push(cur); cur = ''; }
+        else { cur += ch; }
+    }
+    result.push(cur);
+    return result;
+}
+
+function populateCampaignDropdown() {
+    const sel = document.getElementById('campaign-select');
+    sel.innerHTML = '<option value="">— Select a campaign —</option>' +
+        activeCampaigns.map(c =>
+            `<option value="${c.id}">[${c.id}] ${c.name}${c.priority && c.priority !== 'Other' ? ' ★' : ''}</option>`
+        ).join('');
+}
+
+function renderCampaignTags() {
+    const el = document.getElementById('campaign-tags');
+    if (!activeCampaigns.length) { el.textContent = 'None loaded.'; return; }
+    el.innerHTML = activeCampaigns.map(c => {
+        const color = (c.priority && c.priority !== 'Other') ? 'rgba(255,215,0,0.15)' : '';
+        const style = color ? `style="background:${color};color:#ffd700;"` : '';
+        return `<span class="tag-pill" ${style}>${c.name}</span>`;
+    }).join('');
+}
+
+// ─── Campaign Selection ───
+function onCampaignChange() {
+    const sel = document.getElementById('campaign-select');
+    const cid = sel.value;
+    const campaign = activeCampaigns.find(c => c.id === cid);
+    const preview = document.getElementById('campaign-link-preview');
+    if (campaign) {
+        preview.innerHTML = `✅ Link: <a href="${campaign.link}" target="_blank" style="color:#00d4ff;word-break:break-all;">${campaign.link}</a>`;
+    } else {
+        preview.textContent = '';
+    }
+}
+
+// ─── Product ID Change ───
+function onProductIdChange() {
+    const pid = document.getElementById('product-id').value.trim();
+    lookupCachedImage(pid);
+}
+
+function lookupCachedImage(pid) {
+    if (!pid) pid = document.getElementById('product-id').value.trim();
+    const statusEl = document.getElementById('image-status');
+    if (!pid) { statusEl.textContent = ''; return; }
+    const url = imageCache[pid];
+    if (url) {
+        setImagePreview(url);
+        statusEl.innerHTML = `✅ Cached image found for product ID <code>${pid}</code>`;
+    } else {
+        setImagePreview('');
+        statusEl.textContent = '⚠️ No cached image for this product ID. Paste a URL below, or run fetch_product_images.py to populate the cache.';
+    }
+}
+
+function onImageUrlChange() {
+    const url = document.getElementById('image-url').value.trim();
+    setImagePreview(url);
+}
+
+function setImagePreview(url) {
+    const el = document.getElementById('img-preview');
+    if (url && url.startsWith('http')) {
+        el.innerHTML = `<img src="${url}" alt="product" onerror="this.parentElement.innerHTML='❌'">`;
+    } else {
+        const cat = document.getElementById('category').value || 'Other';
+        const icons = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟'};
+        el.innerHTML = icons[cat] || '📦';
+    }
+}
+
+// ─── Product Name Change ───
+function onNameChange() {
+    const name = document.getElementById('product-name').value.trim();
+    // Category suggestion
+    if (name.length > 3) {
+        const suggested = inferCategory(name);
+        const catSel = document.getElementById('category');
+        const suggEl = document.getElementById('category-suggestion');
+        if (!catSel.value) {
+            suggEl.textContent = `💡 Suggested: ${suggested}`;
+        } else {
+            suggEl.textContent = '';
+        }
+    }
+    // Duplicate check
+    checkDuplicate(name);
+}
+
+function checkDuplicate(name) {
+    const key = name.toLowerCase().trim();
+    const badge = document.getElementById('entry-badge');
+    const resultEl = document.getElementById('dup-result-content');
+    if (!key) {
+        badge.textContent = 'Enter name';
+        badge.className = 'status-badge badge-loading';
+        resultEl.className = 'dup-none';
+        resultEl.textContent = 'Enter a product name above to check for existing listings.';
+        return;
+    }
+    const match = existingProducts.find(p => p.name.toLowerCase().trim() === key);
+    if (match) {
+        badge.textContent = '↩ Reuse Available';
+        badge.className = 'status-badge badge-reuse';
+        resultEl.innerHTML = `
+            <div class="dup-tag">Existing Product Found</div>
+            <div class="dup-name">${match.name}</div>
+            <div class="dup-meta">Category: ${match.category} · Price: ${match.price} · Commission: ${match.commission.split('\n')[0]} · Rank: ${match.rank}</div>
+            <div class="dup-meta" style="margin-top:4px;">Old link: <span style="color:#ff8888;word-break:break-all;">${match.link}</span></div>
+            <div style="margin-top:8px;font-size:0.8rem;color:#ffd700;">✅ Use this product — just select a new campaign above. Original category, rank, and image will be preserved.</div>`;
+        resultEl.className = 'dup-found';
+        // Pre-fill form fields from existing entry
+        prefillFromExisting(match);
+    } else {
+        badge.textContent = '✨ New Product';
+        badge.className = 'status-badge badge-new';
+        resultEl.className = 'dup-none';
+        resultEl.textContent = 'No exact match found — this will be a new product entry.';
+    }
+}
+
+function prefillFromExisting(product) {
+    const safeSet = (id, val) => { if (val) document.getElementById(id).value = val; };
+    safeSet('shop-name', product.creator);
+    safeSet('sale-price', product.price);
+    const commVal = product.commission.split('\n')[0].trim();
+    safeSet('commission-rate', commVal);
+    safeSet('ad-pct', commVal);
+    safeSet('items-sold', product.sold);
+    safeSet('rank', product.rank);
+    if (product.category) {
+        const catSel = document.getElementById('category');
+        for (let i = 0; i < catSel.options.length; i++) {
+            if (catSel.options[i].value === product.category) {
+                catSel.selectedIndex = i;
+                break;
+            }
+        }
+    }
+    if (product.image && product.image.startsWith('http')) {
+        document.getElementById('image-url').value = product.image;
+        setImagePreview(product.image);
+    } else {
+        lookupCachedImage(document.getElementById('product-id').value.trim());
+    }
+}
+
+function updateEntryBadge() {
+    const badge = document.getElementById('entry-badge');
+    if (existingProducts.length > 0) {
+        badge.textContent = `${existingProducts.length} products loaded`;
+        badge.className = 'status-badge badge-reuse';
+    } else {
+        badge.textContent = 'No product data';
+        badge.className = 'status-badge badge-loading';
+    }
+}
+
+// ─── CSV Row Generation ───
+function generateRow() {
+    const sel = document.getElementById('campaign-select');
+    const cid = sel.value.trim();
+    const campaign = activeCampaigns.find(c => c.id === cid);
+
+    const pid = document.getElementById('product-id').value.trim();
+    const name = document.getElementById('product-name').value.trim();
+    const shop = document.getElementById('shop-name').value.trim();
+    const price = document.getElementById('sale-price').value.trim();
+    const samples = document.getElementById('available-samples').value.trim();
+    const sold = document.getElementById('items-sold').value.trim();
+    const commission = document.getElementById('commission-rate').value.trim();
+    const adPct = document.getElementById('ad-pct').value.trim();
+    const rank = document.getElementById('rank').value.trim();
+    const rating = document.getElementById('rating').value.trim();
+    const imageOverride = document.getElementById('image-url').value.trim();
+
+    // Category: use selection, or auto-infer from name
+    let category = document.getElementById('category').value;
+    if (!category && name) category = inferCategory(name);
+
+    // Image URL for reference (not in CSV, but useful to note)
+    const pid_img = imageCache[pid] || imageOverride || '';
+
+    if (!pid || !name) {
+        alert('Product ID and Product Name are required.');
+        return;
+    }
+    if (!campaign) {
+        alert('Please select a campaign.');
+        return;
+    }
+
+    // CSV columns: Product ID,Product Name,Shop Name,Category,Sale Price,Available Samples,
+    //              Items Sold,Total Commission Rate,Campaign ID,Campaign Name,%,Rank,Ad %,Rating,Link
+    const cols = [
+        pid,
+        csvEscape(name),
+        csvEscape(shop),
+        csvEscape(category),
+        csvEscape(price),
+        samples,
+        csvEscape(sold),
+        csvEscape(commission),
+        campaign.id,
+        csvEscape(campaign.name),
+        csvEscape(commission),
+        rank,
+        csvEscape(adPct || commission),
+        rating,
+        csvEscape(campaign.link)
+    ];
+
+    const rowText = cols.join(',');
+    document.getElementById('csv-output').textContent = rowText;
+
+    // Reset copy button
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '📋 Copy to Clipboard';
+    btn.className = 'copy-btn';
+
+    // Note image in status if available
+    const imgStatus = document.getElementById('image-status');
+    if (pid_img) {
+        imgStatus.innerHTML = `🖼️ Image cached for this product ID — pipeline will auto-include it.`;
+    }
+}
+
+function csvEscape(val) {
+    if (!val) return '';
+    if (val.includes(',') || val.includes('"') || val.includes('\n')) {
+        return '"' + val.replace(/"/g, '""') + '"';
+    }
+    return val;
+}
+
+async function copyCSV() {
+    const text = document.getElementById('csv-output').textContent;
+    if (!text || text.startsWith('—')) { alert('Generate a row first.'); return; }
+    try {
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ Copied!';
+        btn.className = 'copy-btn copied';
+        setTimeout(() => {
+            btn.textContent = '📋 Copy to Clipboard';
+            btn.className = 'copy-btn';
+        }, 2500);
+    } catch (e) {
+        const output = document.getElementById('csv-output');
+        output.focus();
+        window.getSelection()?.selectAllChildren(output);
+        alert('Could not auto-copy — text selected, press Ctrl+C / Cmd+C.');
+    }
+}
+
+init();
+</script>
+</body>
+</html>

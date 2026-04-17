@@ -237,10 +237,12 @@ for row in products_rows:
     # De-duplicate: keep the version with the best (lowest) rank
     cid = row.get('Campaign ID', '').strip()
     
-    # Resolve Link
+    # Resolve Link — skip products whose campaign has no active affiliate link
     link_info = links_map.get(cid, {})
     product_link = link_info.get('link', '#')
-    is_priority = (product_link != '#')
+    if product_link == '#':
+        continue
+    is_priority = True  # All retained products have an active affiliate link
     
     # Resolve Commission
     comm = row.get('Total Commission Rate', '').strip()
