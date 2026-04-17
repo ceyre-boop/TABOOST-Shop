@@ -156,13 +156,42 @@ def generate_image_search_url(product_name, category):
     return ''
 
 
+def parse_sheet_date(raw_value):
+    value = (raw_value or '').strip()
+    if not value:
+        return None
+
+    for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
+        try:
+            return datetime.strptime(value, fmt).date()
+        except ValueError:
+            continue
+
+    # Handle values with time fragments
+    date_only = re.split(r'[ T]', value)[0]
+    for fmt in ('%m/%d/%Y', '%m/%d/%y', '%Y-%m-%d'):
+        try:
+            return datetime.strptime(date_only, fmt).date()
+        except ValueError:
+            continue
+
+    return None
+
+
 # ─── 1. Load Campaign Links Map ───
 # TAP-Links columns: CAMPAIGN ID (A), Name (B), Link (C), PRIORITY (D), ...
 # Column C = clean affiliate URL (e.g. https://affiliate-us.tiktok.com/...)
 links_map = {}
+today = datetime.now().date()
+expired_links_skipped = 0
 links_rows = read_csv('tap-links.csv')
 for row in links_rows:
     cid = row.get('CAMPAIGN ID', '').strip()
+    end_date = parse_sheet_date(row.get('End Date', ''))
+    if end_date and end_date < today:
+        expired_links_skipped += 1
+        continue
+
     # Column C header is 'Link' — this is the clean affiliate URL
     link = row.get('Link', '').strip()
     # Strip any malformed prefix (some rows have https://www.tiktok.com/@ prepended)
@@ -174,6 +203,8 @@ for row in links_rows:
             'link': link,
             'priority': priority
         }
+
+print(f"🔗 Active campaign links loaded: {len(links_map)} (expired filtered: {expired_links_skipped})")
 
 # ─── 1b. Load Image Cache (from fetch_product_images.py) ───
 IMAGE_CACHE_FILE = os.path.join(csv_dir, 'product-images.json')
