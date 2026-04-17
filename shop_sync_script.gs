@@ -296,6 +296,7 @@ function regenerateShopDataJS_(config, csvMap, currentDateLabel) {
       views: toNum_(getVal_(row, 'Views')),
       sold: toNum_(getVal_(row, '# Sold') || getVal_(row, 'Sold')),
       gmv: toNum_(getVal_(row, 'GMV ($)')),
+      commDollars: toNum_(getVal_(row, 'Comm $')),
       bonus: toNum_(getVal_(row, 'Agency $') || getVal_(row, '$$$')),
       monthlyBonus: toNum_(getVal_(row, 'Live GMV')),
       commPct: getVal_(row, 'Comm %') || '0%'
