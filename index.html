@@ -1441,6 +1441,14 @@
             return parseCommissionValue(rawCommission) * EPC_MULTIPLIER;
         }
 
+        function calculateCVR(rawCommission) {
+            return CVR_BASE + Math.min(parseCommissionValue(rawCommission), CVR_COMMISSION_CAP) / CVR_DIVISOR;
+        }
+
+        function getChipText(tag) {
+            return (tag?.querySelector('.chip-text')?.textContent || tag?.textContent || '').trim();
+        }
+
         function getCategoryTheme(categoryName = '') {
             const key = categoryName.toLowerCase();
             if (key.includes('beauty')) return { hero: 'rgba(255,0,120,0.16)', body: '#25101d' };
@@ -1560,7 +1568,7 @@
             const cards = [
                 { label: "Top Earning Campaign Today", item: topEarning, metric: `Sold: ${parseSoldValue(topEarning.sold).toLocaleString()}` },
                 { label: "Highest Commission Right Now", item: highestCommission, metric: `EPC: $${calculateEPC(highestCommission.commission).toFixed(2)}` },
-                { label: "Trending Among Creators", item: trending, metric: `CVR: ${(CVR_BASE + Math.min(parseCommissionValue(trending.commission), CVR_COMMISSION_CAP) / CVR_DIVISOR).toFixed(1)}%` }
+                { label: "Trending Among Creators", item: trending, metric: `CVR: ${calculateCVR(trending.commission).toFixed(1)}%` }
             ];
 
             carousel.innerHTML = cards.map(card => `
@@ -1638,7 +1646,11 @@
             const updateHeroRect = () => {
                 heroRect = hero.getBoundingClientRect();
             };
-            window.addEventListener('resize', updateHeroRect, { passive: true });
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateHeroRect, 100);
+            }, { passive: true });
 
             hero.addEventListener('mousemove', (e) => {
                 const x = e.clientX - heroRect.left - heroRect.width / 2;
@@ -1669,7 +1681,7 @@
                     tag.style.setProperty('--ripple-x', `${e.offsetX}px`);
                     tag.style.setProperty('--ripple-y', `${e.offsetY}px`);
                     setTimeout(() => tag.classList.remove('clicked', 'ripple'), 380);
-                    applyCategoryTheme(tag.dataset.cat || tag.textContent.trim());
+                    applyCategoryTheme(tag.dataset.cat || getChipText(tag));
                 });
             });
 
@@ -1811,7 +1823,7 @@
                 document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
                 tag.classList.add('active');
                 const cat = tag.dataset.cat;
-                const chipText = (tag.querySelector('.chip-text')?.textContent || tag.textContent || '').trim();
+                const chipText = getChipText(tag);
                 if (cat) {
                     // Category filter: set search to category name
                     document.getElementById('main-search').value = cat;
