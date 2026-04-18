@@ -67,5 +67,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: deploy
-          # force_orphan ensures gh-pages is always a clean deploy
+          # force_orphan creates a single clean commit each deploy (no history in gh-pages)
           force_orphan: true
