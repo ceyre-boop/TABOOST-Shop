@@ -1296,14 +1296,14 @@
 
         /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
 
-        /* 0. Animated gradient canvas — absolute background */
-        .hero-bg-canvas {
-            position: absolute;
+        /* 0. Full-page animated gradient canvas — fixed, behind everything */
+        #page-bg-canvas {
+            position: fixed;
             inset: 0;
+            width: 100vw !important;
+            height: 100vh !important;
             pointer-events: none;
             z-index: 0;
-            width: 100% !important;
-            height: 100% !important;
         }
 
         /* 1. Hero section entry — whole section fades + slides up */
@@ -1596,6 +1596,8 @@
         </div>
         <div id="genie-tagline">Your Hustle. Amplified.</div>
     </div>
+    <!-- Full-page animated gradient canvas — fixed, z-index 0, behind everything -->
+    <canvas id="page-bg-canvas" aria-hidden="true"></canvas>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
@@ -1621,7 +1623,6 @@
     <!-- Hero: full viewport width, no container constraint -->
     <section class="hero" id="hero-section">
             <!-- Decorative motion layers (aria-hidden, no layout impact) -->
-            <canvas class="hero-bg-canvas" aria-hidden="true"></canvas>
             <div class="hero-spotlight" aria-hidden="true"></div>
             <div class="hero-noise-layer" aria-hidden="true"></div>
             <canvas class="hero-particles" aria-hidden="true"></canvas>
@@ -1708,7 +1709,7 @@
 
         
         <footer>
-            <p>© 2025 TABOOST. All rights reserved.</p>
+            <p>© 2026 TABOOST. All rights reserved.</p>
         </footer>
     </div>
     <script src="js/product-data.js"></script>
@@ -2124,13 +2125,13 @@
                 });
             }
 
-            // ─── Animated gradient canvas (1. Parallax gradient canvas, 20–30s loop) ───
-            const bgCanvas = hero.querySelector('.hero-bg-canvas');
+            // ─── Full-page animated gradient canvas ───
+            const bgCanvas = document.getElementById('page-bg-canvas');
             if (bgCanvas) {
                 const bgCtx = bgCanvas.getContext('2d');
                 const resizeBgCanvas = () => {
-                    bgCanvas.width  = hero.offsetWidth;
-                    bgCanvas.height = hero.offsetHeight;
+                    bgCanvas.width  = window.innerWidth;
+                    bgCanvas.height = window.innerHeight;
                 };
                 resizeBgCanvas();
                 window.addEventListener('resize', resizeBgCanvas, { passive: true });
