@@ -168,14 +168,15 @@
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
+            inset: -10%;
             background:
-                radial-gradient(ellipse 80% 55% at 50% -5%, rgba(255, 0, 68, 0.18) 0%, transparent 62%),
-                radial-gradient(ellipse 45% 38% at 82% 92%, rgba(100, 0, 40, 0.09) 0%, transparent 55%);
+                radial-gradient(ellipse 90% 60% at 50% -5%, rgba(255, 0, 68, 0.38) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 45% at 80% 95%, rgba(140, 0, 60, 0.22) 0%, transparent 55%),
+                radial-gradient(ellipse 55% 40% at 15% 50%, rgba(180, 0, 200, 0.12) 0%, transparent 55%);
             pointer-events: none;
             z-index: 0;
-            animation: heroBgPulse 18s ease-in-out infinite;
-            transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.014), calc(var(--hero-mouse-y, 0px) * -0.012), 0);
+            animation: heroBgPulse 22s ease-in-out infinite;
+            transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028), calc(var(--hero-mouse-y, 0px) * -0.022), 0);
             will-change: transform;
         }
 
@@ -183,12 +184,12 @@
         .hero::after {
             content: '';
             position: absolute;
-            width: min(720px, 90vw);
-            height: 400px;
+            width: min(860px, 110vw);
+            height: 520px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -55%);
-            background: radial-gradient(ellipse at center, rgba(255, 0, 68, 0.11) 0%, transparent 68%);
+            background: radial-gradient(ellipse at center, rgba(255, 0, 68, 0.24) 0%, rgba(255, 0, 68, 0.06) 40%, transparent 70%);
             pointer-events: none;
             z-index: 0;
             animation: spotlightPulse 9s ease-in-out infinite;
@@ -976,13 +977,15 @@
         }
 
         @keyframes heroBgPulse {
-            0%, 100% { opacity: 0.85; }
-            50%       { opacity: 1; }
+            0%   { opacity: 0.90; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028), calc(var(--hero-mouse-y, 0px) * -0.022), 0) scale(1); }
+            33%  { opacity: 1;    transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028 + 22px), calc(var(--hero-mouse-y, 0px) * -0.022 - 14px), 0) scale(1.05); }
+            66%  { opacity: 0.95; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028 - 18px), calc(var(--hero-mouse-y, 0px) * -0.022 + 20px), 0) scale(1.03); }
+            100% { opacity: 0.90; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028), calc(var(--hero-mouse-y, 0px) * -0.022), 0) scale(1); }
         }
 
         @keyframes spotlightPulse {
-            0%, 100% { opacity: 0.8;  transform: translate(-50%, -55%) scale(1); }
-            50%       { opacity: 1;   transform: translate(-50%, -58%) scale(1.04); }
+            0%, 100% { opacity: 0.85; transform: translate(-50%, -55%) scale(1); }
+            50%       { opacity: 1;   transform: translate(-50%, -59%) scale(1.06); }
         }
 
         @keyframes hudFloat {
@@ -1194,6 +1197,16 @@
 
         /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
 
+        /* 0. Animated gradient canvas — absolute background */
+        .hero-bg-canvas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
         /* 1. Hero section entry — whole section fades + slides up */
         .hero {
             opacity: 0;
@@ -1209,16 +1222,16 @@
         /* 2. Mouse-tracking spotlight overlay */
         .hero-spotlight {
             position: absolute;
-            width: min(680px, 88vw);
-            height: 380px;
+            width: min(860px, 100vw);
+            height: 500px;
             border-radius: 50%;
-            background: radial-gradient(ellipse at center, rgba(255, 0, 68, 0.07) 0%, transparent 72%);
+            background: radial-gradient(ellipse at center, rgba(255, 0, 68, 0.20) 0%, rgba(255, 0, 68, 0.05) 45%, transparent 72%);
             pointer-events: none;
             z-index: 0;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform;
         }
 
@@ -1228,15 +1241,15 @@
             inset: 0;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.045;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 160px 160px;
-            mix-blend-mode: overlay;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            mix-blend-mode: screen;
             animation: noiseDrift 10s linear infinite;
         }
         @keyframes noiseDrift {
             from { background-position: 0 0; }
-            to   { background-position: 160px 160px; }
+            to   { background-position: 180px 180px; }
         }
 
         /* 4. Particles canvas */
@@ -1379,6 +1392,7 @@
 
         <section class="hero" id="hero-section">
             <!-- Decorative motion layers (aria-hidden, no layout impact) -->
+            <canvas class="hero-bg-canvas" aria-hidden="true"></canvas>
             <div class="hero-spotlight" aria-hidden="true"></div>
             <div class="hero-noise-layer" aria-hidden="true"></div>
             <canvas class="hero-particles" aria-hidden="true"></canvas>
@@ -1733,15 +1747,15 @@
                 hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
                 // Spotlight gently follows mouse
                 if (spotlightEl) {
-                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.03}px), calc(-50% + ${y * 0.025}px))`;
+                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.07}px), calc(-50% + ${y * 0.06}px))`;
                 }
                 // Micro-parallax: headline (composed with scroll scale)
-                titleMouseX = x * -0.003;
-                titleMouseY = y * -0.002;
+                titleMouseX = x * -0.007;
+                titleMouseY = y * -0.005;
                 updateHeroTitleTransform();
                 // Micro-parallax: other elements (1–3px)
-                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.007}px, ${y * -0.005}px)`;
-                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.003}px, ${y * -0.002}px)`;
+                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.018}px, ${y * -0.013}px)`;
+                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.008}px, ${y * -0.005}px)`;
             }, { passive: true });
 
             hero.addEventListener('mouseleave', () => {
@@ -1808,13 +1822,13 @@
                 resizePC();
                 window.addEventListener('resize', resizePC, { passive: true });
                 const pCtx = particlesCanvas.getContext('2d');
-                const pts  = Array.from({ length: 26 }, () => ({
+                const pts  = Array.from({ length: 55 }, () => ({
                     x:     Math.random() * hero.offsetWidth,
                     y:     Math.random() * hero.offsetHeight,
-                    r:     Math.random() * 1.1 + 0.35,
-                    vx:    (Math.random() - 0.5) * 0.16,
-                    vy:    -Math.random() * 0.1 - 0.03,
-                    alpha: Math.random() * 0.022 + 0.006,
+                    r:     Math.random() * 2.2 + 0.8,
+                    vx:    (Math.random() - 0.5) * 0.18,
+                    vy:    -Math.random() * 0.14 - 0.04,
+                    alpha: Math.random() * 0.055 + 0.025,
                     freq:  Math.random() * 0.006 + 0.002,
                     phase: Math.random() * Math.PI * 2,
                 }));
@@ -1846,6 +1860,43 @@
                     searchBtnEl.appendChild(rip);
                     setTimeout(() => rip.remove(), 460);
                 });
+            }
+
+            // ─── Animated gradient canvas (1. Parallax gradient canvas, 20–30s loop) ───
+            const bgCanvas = hero.querySelector('.hero-bg-canvas');
+            if (bgCanvas) {
+                const bgCtx = bgCanvas.getContext('2d');
+                const resizeBgCanvas = () => {
+                    bgCanvas.width  = hero.offsetWidth;
+                    bgCanvas.height = hero.offsetHeight;
+                };
+                resizeBgCanvas();
+                window.addEventListener('resize', resizeBgCanvas, { passive: true });
+
+                // 4 soft blobs that slowly orbit — each on its own cycle (20–30 s)
+                const blobs = [
+                    { bx: 0.50, by: 0.08, ox: 0.22, oy: 0.18, r: 0.65, cr: 255, cg: 0,   cb: 68,  a: 0.26, spd: 0.000251, ph: 0.00 },
+                    { bx: 0.15, by: 0.75, ox: 0.18, oy: 0.14, r: 0.45, cr: 190, cg: 0,   cb: 210, a: 0.18, spd: 0.000195, ph: 2.10 },
+                    { bx: 0.85, by: 0.40, ox: 0.14, oy: 0.20, r: 0.38, cr: 255, cg: 70,  cb: 0,   a: 0.14, spd: 0.000310, ph: 4.20 },
+                    { bx: 0.50, by: 0.95, ox: 0.30, oy: 0.10, r: 0.30, cr: 60,  cg: 80,  cb: 255, a: 0.09, spd: 0.000170, ph: 1.05 },
+                ];
+
+                (function drawBg(ts) {
+                    const w = bgCanvas.width, h = bgCanvas.height;
+                    bgCtx.clearRect(0, 0, w, h);
+                    blobs.forEach(b => {
+                        const cx  = (b.bx + b.ox * Math.sin(ts * b.spd + b.ph)) * w;
+                        const cy  = (b.by + b.oy * Math.cos(ts * b.spd * 0.7 + b.ph + 1.0)) * h;
+                        const rad = b.r * Math.min(w, h);
+                        const g   = bgCtx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+                        g.addColorStop(0,    `rgba(${b.cr},${b.cg},${b.cb},${b.a})`);
+                        g.addColorStop(0.45, `rgba(${b.cr},${b.cg},${b.cb},${(b.a * 0.28).toFixed(3)})`);
+                        g.addColorStop(1,    `rgba(${b.cr},${b.cg},${b.cb},0)`);
+                        bgCtx.fillStyle = g;
+                        bgCtx.fillRect(0, 0, w, h);
+                    });
+                    requestAnimationFrame(drawBg);
+                })(0);
             }
         }
 
