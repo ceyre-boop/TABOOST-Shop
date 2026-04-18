@@ -1325,6 +1325,37 @@
             will-change: transform;
             transition: transform 0.1s ease-out;
         }
+
+        /* ═══ Motion Layer III — Card Scroll-Reveal, Tilt & Commission Pulse ═══ */
+
+        /* Commission badge: gentle glow-breath pulse */
+        .hero-commission-badge {
+            animation: commissionPulse 3.6s ease-in-out infinite;
+        }
+        @keyframes commissionPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+            50%       { box-shadow: 0 0 16px 5px rgba(0, 255, 136, 0.15); }
+        }
+
+        /* Product cards start hidden; revealed by IntersectionObserver */
+        .product-card {
+            opacity: 0;
+        }
+        .product-card.card-revealed {
+            animation: cardFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(22px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Hero carousel cards: add transform to transition for JS tilt */
+        .hero-carousel-card {
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.2s ease,
+                        background 0.2s ease;
+            will-change: transform;
+        }
     </style>
 </head>
 <body>
@@ -1510,6 +1541,7 @@
             renderInitialGrids();
             updateHeroCarousel();
             updateHeroHud();
+            initCardMotion();
         }
 
         function getBadgeHtml(rank) {
@@ -1889,6 +1921,7 @@
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
             suggestedSection.style.display = 'none';
+            observeAllCards();
         }
 
         function loadMoreResults() {
@@ -1900,6 +1933,7 @@
             // Hide button if all shown
             const loadMore = document.getElementById('load-more-container');
             loadMore.style.display = currentSearchResults.length > displayedCount ? 'block' : 'none';
+            observeAllCards();
         }
 
         function clearSearch() {
@@ -2023,6 +2057,61 @@
             }
             clearProductSelection();
         };
+
+        // ─── Motion Layer III: Card scroll-reveal, tilt & micro-delights ───
+
+        let cardRevealObs = null;
+
+        function observeAllCards() {
+            if (!cardRevealObs) return;
+            document.querySelectorAll('.product-card:not(.card-revealed)').forEach(card => {
+                cardRevealObs.observe(card);
+            });
+        }
+
+        function initCardMotion() {
+            // 1. IntersectionObserver: staggered card fade-up on scroll-into-view
+            cardRevealObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const card = entry.target;
+                    const siblings = Array.from(card.parentElement?.children ?? []);
+                    const delay = (siblings.indexOf(card) % 4) * 55;
+                    card.style.animationDelay = `${delay}ms`;
+                    card.classList.add('card-revealed');
+                    cardRevealObs.unobserve(card);
+                });
+            }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+            observeAllCards();
+
+            // 2. Hero carousel card JS tilt (perspective ±4°)
+            document.querySelectorAll('.hero-carousel-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    card.style.transform = `perspective(520px) rotateX(${my * -3.5}deg) rotateY(${mx * 3.5}deg) translateY(-2px) scale(1.015)`;
+                }, { passive: true });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                }, { passive: true });
+            });
+
+            // 3. Search button 3D soft-tilt on hover
+            const searchBtnEl = document.getElementById('search-trigger');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('mousemove', (e) => {
+                    const r = searchBtnEl.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    searchBtnEl.style.transform = `perspective(220px) rotateX(${my * -5}deg) rotateY(${mx * 5}deg) translateY(-2px)`;
+                }, { passive: true });
+                searchBtnEl.addEventListener('mouseleave', () => {
+                    searchBtnEl.style.transform = '';
+                }, { passive: true });
+            }
+        }
 
         // Initialize
         initHeroMicroInteractions();
