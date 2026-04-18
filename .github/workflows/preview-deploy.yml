@@ -1,6 +1,6 @@
 name: Preview Deploy — hero-preview-deploy
 
-# Triggers on every push to the hero-preview-deploy branch.
+# Triggers on every push to either preview branch.
 # Deploys the site into a subdirectory of the gh-pages branch so the
 # preview is available at a unique URL while the production site
 # (shop.taboost.me, served from main or gh-pages root) is untouched.
@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - hero-preview-deploy
+      - copilot/add-hero-section-animations
 
 permissions:
   contents: write
