@@ -201,40 +201,6 @@
             z-index: 1;
         }
 
-        /* Stats HUD — frosted glass, top-right */
-        .hero-stats-hud {
-            position: absolute;
-            right: 24px;
-            top: 24px;
-            z-index: 4;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            min-width: 210px;
-            padding: 14px 16px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(8, 8, 16, 0.58);
-            backdrop-filter: blur(20px) saturate(1.4);
-            -webkit-backdrop-filter: blur(20px) saturate(1.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            animation: hudFloat 4s ease-in-out infinite;
-        }
-
-        .hud-item {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.45);
-            letter-spacing: 0.01em;
-        }
-
-        .hud-item strong {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-        }
-
         /* Kicker — sparse uppercase label, no pill box */
         .hero-kicker {
             display: inline-block;
@@ -977,10 +943,9 @@
         }
 
         @keyframes heroBgPulse {
-            0%   { opacity: 0.90; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028), calc(var(--hero-mouse-y, 0px) * -0.022), 0) scale(1); }
-            33%  { opacity: 1;    transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028 + 22px), calc(var(--hero-mouse-y, 0px) * -0.022 - 14px), 0) scale(1.05); }
-            66%  { opacity: 0.95; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028 - 18px), calc(var(--hero-mouse-y, 0px) * -0.022 + 20px), 0) scale(1.03); }
-            100% { opacity: 0.90; transform: translate3d(calc(var(--hero-mouse-x, 0px) * -0.028), calc(var(--hero-mouse-y, 0px) * -0.022), 0) scale(1); }
+            0%, 100% { opacity: 0.90; }
+            33%       { opacity: 1; }
+            66%       { opacity: 0.95; }
         }
 
         @keyframes spotlightPulse {
@@ -1039,14 +1004,6 @@
             .hero h1 {
                 font-size: clamp(30px, 8vw, 42px);
                 letter-spacing: -0.03em;
-            }
-
-            .hero-stats-hud {
-                position: static;
-                margin: 0 auto 20px;
-                min-width: 0;
-                width: calc(100% - 24px);
-                max-width: 360px;
             }
 
             .hero-carousel {
@@ -1262,22 +1219,7 @@
             height: 100% !important;
         }
 
-        /* 5. HUD: start hidden, fade in 0.4s after load, then float */
-        .hero-stats-hud {
-            opacity: 0;
-            animation: none;
-        }
-        body.creator-mode-ready .hero-stats-hud {
-            animation:
-                hudFadeIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards,
-                hudFloat 4s ease-in-out 0.85s infinite;
-        }
-        @keyframes hudFadeIn {
-            from { opacity: 0; transform: translateY(-6px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 6. Search button: glow ring on hover + overflow for ripple */
+        /* 5. Search button: glow ring on hover + overflow for ripple */
         .search-btn {
             overflow: hidden;
         }
@@ -1369,9 +1311,149 @@
                         background 0.2s ease;
             will-change: transform;
         }
+        /* ─── Genie Intro Overlay ─── */
+        #genie-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #06060c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #genie-intro.genie-exit {
+            animation: genieOverlayExit 0.55s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+        }
+        @keyframes genieOverlayExit {
+            0%   { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        .genie-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 0, 68, 0);
+            pointer-events: none;
+            animation: genieRingPop 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .genie-ring:nth-child(1) { width: 140px;  height: 140px;  animation-delay: 0.38s; }
+        .genie-ring:nth-child(2) { width: 260px;  height: 260px;  animation-delay: 0.48s; }
+        .genie-ring:nth-child(3) { width: 400px;  height: 400px;  animation-delay: 0.56s; }
+        .genie-ring:nth-child(4) { width: 580px;  height: 580px;  animation-delay: 0.62s; }
+        @keyframes genieRingPop {
+            0%   { border-color: rgba(255, 0, 68, 0);    transform: scale(0.3); }
+            30%  { border-color: rgba(255, 0, 68, 0.55); transform: scale(1.05); }
+            70%  { border-color: rgba(255, 0, 68, 0.18); transform: scale(1); }
+            100% { border-color: rgba(255, 0, 68, 0);    transform: scale(1.15); }
+        }
+
+        #genie-img-wrap {
+            position: relative;
+            z-index: 2;
+            animation: genieEntrance 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform-origin: center bottom;
+        }
+        @keyframes genieEntrance {
+            0%   { opacity: 0;   transform: scale(0.12) translateY(60px); }
+            18%  { opacity: 1;   transform: scale(1.18) translateY(-12px); }
+            28%  { opacity: 1;   transform: scale(0.93) translateY(4px); }
+            40%  { opacity: 1;   transform: scale(1.06) translateY(-6px); }
+            52%  { opacity: 1;   transform: scale(0.98) translateY(0px); }
+            62%  { opacity: 1;   transform: scale(1.0)  translateY(-10px); }
+            72%  { opacity: 1;   transform: scale(1.0)  translateY(0px); }
+            80%  { opacity: 1;   transform: scale(1.0)  translateY(-6px); }
+            100% { opacity: 0;   transform: scale(9.0)  translateY(-20px); }
+        }
+
+        #genie-img-wrap img {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            border: 3px solid rgba(255, 0, 68, 0.8);
+            box-shadow:
+                0 0 0 8px rgba(255, 0, 68, 0.12),
+                0 0 60px rgba(255, 0, 68, 0.45),
+                0 0 120px rgba(255, 0, 68, 0.20);
+            display: block;
+        }
+
+        #genie-tagline {
+            position: absolute;
+            bottom: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: genieTaglineAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieTaglineAnim {
+            0%   { opacity: 0; transform: translateX(-50%) translateY(12px); }
+            28%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            80%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+        }
+
+        #genie-logo-text {
+            position: absolute;
+            top: 36%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            animation: genieLogoAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieLogoAnim {
+            0%   { opacity: 0; transform: translateX(-50%) scale(0.7); }
+            22%  { opacity: 1; transform: translateX(-50%) scale(1.05); }
+            35%  { opacity: 1; transform: translateX(-50%) scale(0.97); }
+            80%  { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) scale(1.3); }
+        }
+
+        #genie-bg-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255, 0, 68, 0.16) 0%, transparent 70%);
+            animation: genieGlow 1.65s ease-in-out forwards;
+        }
+        @keyframes genieGlow {
+            0%   { opacity: 0; }
+            30%  { opacity: 1; }
+            80%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
     </style>
 </head>
 <body>
+    <!-- Genie intro animation overlay — plays once per session -->
+    <div id="genie-intro">
+        <div id="genie-bg-glow"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div id="genie-logo-text">TABOOST</div>
+        <div id="genie-img-wrap">
+            <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
+        </div>
+        <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
@@ -1396,11 +1478,7 @@
             <div class="hero-spotlight" aria-hidden="true"></div>
             <div class="hero-noise-layer" aria-hidden="true"></div>
             <canvas class="hero-particles" aria-hidden="true"></canvas>
-            <div class="hero-stats-hud" id="hero-stats-hud">
-                <div class="hud-item"><span>Avg Creator EPC Today</span><strong id="hud-epc">$0.00</strong></div>
-                <div class="hud-item"><span>Top Campaign Commission</span><strong id="hud-top-commission">0%</strong></div>
-                <div class="hud-item"><span>New Campaigns Added</span><strong id="hud-new-campaigns">0</strong></div>
-            </div>
+
             <div class="hero-kicker">Built for TikTok Shop Creators</div>
             <h1 id="hero-title"><span>Higher Commission.</span><br>Better Products. Faster Wins.</h1>
             <p id="hero-tagline" class="hero-tagline">Access higher commission rates, proven products &amp; exclusive campaigns!</p>
@@ -1733,37 +1811,50 @@
             const updateHeroRect = () => {
                 heroRect = hero.getBoundingClientRect();
             };
+            // Keep heroRect fresh on resize and after fonts/images settle
             let resizeTimer;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(updateHeroRect, 100);
             }, { passive: true });
+            // Refresh once after load in case layout shifted
+            setTimeout(updateHeroRect, 400);
 
-            hero.addEventListener('mousemove', (e) => {
+            // Use window-level listener so mouse tracking works across the full hero
+            let mouseInHero = false;
+            window.addEventListener('mousemove', (e) => {
+                const inHero = e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
+                               e.clientX >= heroRect.left && e.clientX <= heroRect.right;
+                if (!inHero) {
+                    if (mouseInHero) {
+                        mouseInHero = false;
+                        titleMouseX = 0; titleMouseY = 0;
+                        updateHeroTitleTransform();
+                        if (kickerEl)    kickerEl.style.transform   = '';
+                        if (carouselEl)  carouselEl.style.transform = '';
+                        if (spotlightEl) spotlightEl.style.transform = 'translate(-50%, -50%)';
+                        hero.style.setProperty('--hero-mouse-x', '0px');
+                        hero.style.setProperty('--hero-mouse-y', '0px');
+                    }
+                    return;
+                }
+                mouseInHero = true;
                 const x = e.clientX - heroRect.left - heroRect.width / 2;
-                const y = e.clientY - heroRect.top - heroRect.height / 2;
+                const y = e.clientY - heroRect.top  - heroRect.height / 2;
                 hero.style.setProperty('--hero-mouse-x', `${x}px`);
                 hero.style.setProperty('--hero-mouse-y', `${y}px`);
                 hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
-                // Spotlight gently follows mouse
+                // Spotlight follows cursor
                 if (spotlightEl) {
-                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.07}px), calc(-50% + ${y * 0.06}px))`;
+                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.09}px), calc(-50% + ${y * 0.07}px))`;
                 }
                 // Micro-parallax: headline (composed with scroll scale)
-                titleMouseX = x * -0.007;
-                titleMouseY = y * -0.005;
+                titleMouseX = x * -0.009;
+                titleMouseY = y * -0.006;
                 updateHeroTitleTransform();
-                // Micro-parallax: other elements (1–3px)
-                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.018}px, ${y * -0.013}px)`;
-                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.008}px, ${y * -0.005}px)`;
-            }, { passive: true });
-
-            hero.addEventListener('mouseleave', () => {
-                titleMouseX = 0; titleMouseY = 0;
-                updateHeroTitleTransform();
-                if (kickerEl)   kickerEl.style.transform   = '';
-                if (carouselEl) carouselEl.style.transform = '';
-                if (spotlightEl) spotlightEl.style.transform = 'translate(-50%, -50%)';
+                // Micro-parallax: other elements (2–4px)
+                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.022}px, ${y * -0.016}px)`;
+                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.010}px, ${y * -0.006}px)`;
             }, { passive: true });
 
             tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
@@ -1800,10 +1891,22 @@
                     heroScrollProgress = progress;
                     updateHeroTitleTransform();
                     if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
-                    // Subtle scroll blur — starts at 10% scroll, max 2px
-                    hero.style.filter = progress > 0.1 ? `blur(${Math.min((progress - 0.1) * 2.2, 2)}px)` : '';
+                    // Blur only after 75% of the hero title has scrolled past the viewport
+                    if (heroTitle) {
+                        const tb = heroTitle.getBoundingClientRect();
+                        // 75% scrolled past = only 25% of height remains visible above viewport top
+                        const blurThreshold = heroTitle.offsetHeight * 0.25;
+                        if (tb.bottom < blurThreshold) {
+                            const beyond = blurThreshold - tb.bottom;
+                            hero.style.filter = `blur(${Math.min(beyond * 0.04, 3)}px)`;
+                        } else {
+                            hero.style.filter = '';
+                        }
+                    }
                     document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
                     tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
+                    // Keep heroRect current as scroll changes layout
+                    updateHeroRect();
                     scrollTicking = false;
                 });
             };
@@ -2167,6 +2270,22 @@
         // Initialize
         initHeroMicroInteractions();
         loadAllData();
+
+        // ─── Genie intro: plays once per browser session ───
+        (function initGenieIntro() {
+            const overlay = document.getElementById('genie-intro');
+            if (!overlay) return;
+            if (sessionStorage.getItem('genie-shown')) {
+                overlay.remove();
+                return;
+            }
+            sessionStorage.setItem('genie-shown', '1');
+            // Total animation duration is 1.65s, then we fade the overlay out
+            setTimeout(() => {
+                overlay.classList.add('genie-exit');
+                setTimeout(() => overlay.remove(), 580);
+            }, 1700);
+        })();
     </script>
     
     <div id="action-bar" class="sticky-action-bar">
