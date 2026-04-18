@@ -1191,6 +1191,140 @@
         body.overlay-active {
             overflow: hidden;
         }
+
+        /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
+
+        /* 1. Hero section entry — whole section fades + slides up */
+        .hero {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        body.creator-mode-ready .hero {
+            animation: heroEntryFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes heroEntryFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Mouse-tracking spotlight overlay */
+        .hero-spotlight {
+            position: absolute;
+            width: min(680px, 88vw);
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(255, 0, 68, 0.07) 0%, transparent 72%);
+            pointer-events: none;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 1.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        /* 3. Noise texture for depth */
+        .hero-noise-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 160px 160px;
+            mix-blend-mode: overlay;
+            animation: noiseDrift 10s linear infinite;
+        }
+        @keyframes noiseDrift {
+            from { background-position: 0 0; }
+            to   { background-position: 160px 160px; }
+        }
+
+        /* 4. Particles canvas */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* 5. HUD: start hidden, fade in 0.4s after load, then float */
+        .hero-stats-hud {
+            opacity: 0;
+            animation: none;
+        }
+        body.creator-mode-ready .hero-stats-hud {
+            animation:
+                hudFadeIn 0.45s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards,
+                hudFloat 4s ease-in-out 0.85s infinite;
+        }
+        @keyframes hudFadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 6. Search button: glow ring on hover + overflow for ripple */
+        .search-btn {
+            overflow: hidden;
+        }
+        .search-btn:hover {
+            box-shadow: 0 0 0 3px rgba(255, 0, 68, 0.14), 0 8px 20px rgba(255, 0, 68, 0.32);
+        }
+
+        /* 7. Search sparkle — re-enabled with flash animation */
+        .search-sparkle {
+            display: inline-block;
+            position: absolute;
+            right: 88px;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(-50%) scale(0);
+        }
+        .search-wrapper.typing .search-sparkle {
+            animation: sparkleFlash 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        @keyframes sparkleFlash {
+            0%   { opacity: 0;   transform: translateY(-50%) scale(0); }
+            35%  { opacity: 1;   transform: translateY(-62%) scale(1.35); }
+            65%  { opacity: 0.7; transform: translateY(-40%) scale(0.85); }
+            100% { opacity: 0;   transform: translateY(-50%) scale(0); }
+        }
+
+        /* 8. CTA button ripple keyframe */
+        @keyframes btnRippleExpand {
+            0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(9);  opacity: 0; }
+        }
+
+        /* 9. Chip icon bounce on hover */
+        .quick-tag:hover .chip-icon {
+            animation: chipIconBounce 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        .quick-tag.active .chip-icon {
+            animation: none;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        @keyframes chipIconBounce {
+            0%   { transform: scale(1)    rotate(0deg); }
+            30%  { transform: scale(1.22) rotate(-9deg); }
+            65%  { transform: scale(1.1)  rotate(5deg); }
+            100% { transform: scale(1.08) rotate(0deg); }
+        }
+
+        /* 10. Performance hints for parallax elements */
+        .hero-kicker,
+        .hero-carousel {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -1213,6 +1347,10 @@
         </header>
 
         <section class="hero" id="hero-section">
+            <!-- Decorative motion layers (aria-hidden, no layout impact) -->
+            <div class="hero-spotlight" aria-hidden="true"></div>
+            <div class="hero-noise-layer" aria-hidden="true"></div>
+            <canvas class="hero-particles" aria-hidden="true"></canvas>
             <div class="hero-stats-hud" id="hero-stats-hud">
                 <div class="hud-item"><span>Avg Creator EPC Today</span><strong id="hud-epc">$0.00</strong></div>
                 <div class="hud-item"><span>Top Campaign Commission</span><strong id="hud-top-commission">0%</strong></div>
@@ -1225,6 +1363,7 @@
             <div class="search-container">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="main-search" placeholder="Search campaigns, not products...">
+                    <span class="search-sparkle" aria-hidden="true"></span>
                     <button class="search-btn" id="search-trigger">Find Campaigns</button>
                 </div>
                 <div class="search-quick-tags">
@@ -1507,6 +1646,17 @@
             const tagsWrap = document.querySelector('.search-quick-tags');
             if (!hero || !searchInput || !searchWrapper || !tagsWrap) return;
 
+            // Motion Layer II: state for compositing scroll + mouse parallax on hero title
+            let heroScrollProgress = 0;
+            let titleMouseX = 0, titleMouseY = 0;
+            const kickerEl  = hero.querySelector('.hero-kicker');
+            const carouselEl = hero.querySelector('.hero-carousel');
+            const spotlightEl = hero.querySelector('.hero-spotlight');
+            function updateHeroTitleTransform() {
+                if (!heroTitle) return;
+                heroTitle.style.transform = `scale(${1 - heroScrollProgress * 0.04}) translate(${titleMouseX}px, ${titleMouseY}px)`;
+            }
+
             setTimeout(() => document.body.classList.add('creator-mode-ready'), 120);
 
             setInterval(() => {
@@ -1549,7 +1699,26 @@
                 hero.style.setProperty('--hero-mouse-x', `${x}px`);
                 hero.style.setProperty('--hero-mouse-y', `${y}px`);
                 hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
-            });
+                // Spotlight gently follows mouse
+                if (spotlightEl) {
+                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.03}px), calc(-50% + ${y * 0.025}px))`;
+                }
+                // Micro-parallax: headline (composed with scroll scale)
+                titleMouseX = x * -0.003;
+                titleMouseY = y * -0.002;
+                updateHeroTitleTransform();
+                // Micro-parallax: other elements (1–3px)
+                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.007}px, ${y * -0.005}px)`;
+                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.003}px, ${y * -0.002}px)`;
+            }, { passive: true });
+
+            hero.addEventListener('mouseleave', () => {
+                titleMouseX = 0; titleMouseY = 0;
+                updateHeroTitleTransform();
+                if (kickerEl)   kickerEl.style.transform   = '';
+                if (carouselEl) carouselEl.style.transform = '';
+                if (spotlightEl) spotlightEl.style.transform = 'translate(-50%, -50%)';
+            }, { passive: true });
 
             tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
                 let tagRect = null;
@@ -1582,8 +1751,11 @@
                 scrollTicking = true;
                 requestAnimationFrame(() => {
                     const progress = Math.min(1, window.scrollY / HERO_SCROLL_THRESHOLD);
-                    if (heroTitle) heroTitle.style.transform = `scale(${1 - progress * 0.06})`;
+                    heroScrollProgress = progress;
+                    updateHeroTitleTransform();
                     if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
+                    // Subtle scroll blur — starts at 10% scroll, max 2px
+                    hero.style.filter = progress > 0.1 ? `blur(${Math.min((progress - 0.1) * 2.2, 2)}px)` : '';
                     document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
                     tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
                     scrollTicking = false;
@@ -1591,6 +1763,58 @@
             };
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+
+            // ─── Motion Layer II: Ambient particles & micro-delights ───
+
+            // Ambient dust-mote particles (2–4% opacity, extremely subtle)
+            const particlesCanvas = hero.querySelector('.hero-particles');
+            if (particlesCanvas) {
+                const resizePC = () => {
+                    particlesCanvas.width  = hero.offsetWidth;
+                    particlesCanvas.height = hero.offsetHeight;
+                };
+                resizePC();
+                window.addEventListener('resize', resizePC, { passive: true });
+                const pCtx = particlesCanvas.getContext('2d');
+                const pts  = Array.from({ length: 26 }, () => ({
+                    x:     Math.random() * hero.offsetWidth,
+                    y:     Math.random() * hero.offsetHeight,
+                    r:     Math.random() * 1.1 + 0.35,
+                    vx:    (Math.random() - 0.5) * 0.16,
+                    vy:    -Math.random() * 0.1 - 0.03,
+                    alpha: Math.random() * 0.022 + 0.006,
+                    freq:  Math.random() * 0.006 + 0.002,
+                    phase: Math.random() * Math.PI * 2,
+                }));
+                (function drawParticles() {
+                    pCtx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+                    const now = performance.now() / 1000;
+                    pts.forEach(p => {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < -2) p.x = particlesCanvas.width  + 2;
+                        if (p.x > particlesCanvas.width  + 2) p.x = -2;
+                        if (p.y < -2) p.y = particlesCanvas.height + 2;
+                        if (p.y > particlesCanvas.height + 2) p.y = -2;
+                        const a = p.alpha * (0.4 + 0.6 * Math.sin(now * p.freq * Math.PI * 2 + p.phase));
+                        pCtx.beginPath();
+                        pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        pCtx.fillStyle = `rgba(255,255,255,${a.toFixed(4)})`;
+                        pCtx.fill();
+                    });
+                    requestAnimationFrame(drawParticles);
+                })();
+            }
+
+            // Search button click ripple
+            const searchBtnEl = hero.querySelector('.search-btn');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('click', () => {
+                    const rip = document.createElement('span');
+                    rip.style.cssText = 'position:absolute;top:50%;left:50%;width:4px;height:4px;background:rgba(255,255,255,0.4);border-radius:50%;pointer-events:none;animation:btnRippleExpand 0.45s ease-out forwards;';
+                    searchBtnEl.appendChild(rip);
+                    setTimeout(() => rip.remove(), 460);
+                });
+            }
         }
 
         // Track current search results for Load More
