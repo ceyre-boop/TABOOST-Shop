@@ -2531,16 +2531,16 @@
             while (_heroTudumAudioCandidateIdx < HERO_TUDUM_AUDIO_CANDIDATES.length) {
                 if (!_heroTudumAudio) {
                     _heroTudumAudio = new Audio(HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx]);
-                    _heroTudumAudio.preload = 'none';
+                    _heroTudumAudio.preload = 'metadata';
                 }
 
                 try {
-                    if (_heroTudumAudio.readyState > 0) _heroTudumAudio.currentTime = 0;
+                    if (_heroTudumAudio.readyState >= HTMLMediaElement.HAVE_METADATA) _heroTudumAudio.currentTime = 0;
                     await _heroTudumAudio.play();
                     return true;
                 } catch (err) {
-                    const blockedByAutoplay = err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
-                    if (blockedByAutoplay) return false;
+                    const playbackDenied = err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
+                    if (playbackDenied) return false;
                     _heroTudumAudio = null;
                     _heroTudumAudioCandidateIdx += 1;
                 }
