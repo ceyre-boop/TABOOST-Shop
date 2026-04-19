@@ -1250,46 +1250,7 @@
             overflow: hidden;
         }
 
-        /* ── Entry Splash Gate ──────────────────────────────────────── */
-        .splash-gate {
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            cursor: pointer;
-            transition: opacity 0.4s ease;
-            user-select: none;
-        }
-        .splash-gate.splash-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .splash-gate-hint {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-            color: rgba(255, 255, 255, 0.72);
-            font-size: 13px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            animation: splashPulse 2s ease-in-out infinite;
-        }
-        .splash-gate-hint::before {
-            content: '▶';
-            font-size: 34px;
-            color: #00ff88;
-            opacity: 0.9;
-        }
-        @keyframes splashPulse {
-            0%, 100% { opacity: 0.55; transform: scale(1); }
-            50%       { opacity: 1;    transform: scale(1.05); }
-        }
+
         /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
 
 
@@ -1550,10 +1511,6 @@
             <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
         </div>
         <div id="genie-tagline">Your Hustle. Amplified.</div>
-    </div>
-    <div id="splash-gate" class="splash-gate" role="button" aria-label="Tap anywhere to enter">
-        <div class="splash-gate-hint">tap anywhere to enter</div>
-
     </div>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
@@ -2509,15 +2466,54 @@
         };
 
         // ── Hero boot sound ─────────────────────────────────────────────────
-        // Synthesised Netflix-style "ta-DUM" synced to the hero bootSweep
-        // animation. Works on page load, reload, and first interaction.
+        // Hero boot sound synced to the bootSweep animation.
+        // Prefers an MP3 file (common project paths), then falls back to synth.
         let _heroSoundPlayed = false;
+        let _heroTudumAudio = null;
+        let _heroTudumAudioCandidateIdx = 0;
+        const HERO_TUDUM_AUDIO_CANDIDATES = [
+            'sounds/netflix-tudum-sfx-n-c (1).mp3',
+            'sounds/netflix-tudum.mp3',
+            'sounds/hero-tudum.mp3',
+            'sounds/tudum.mp3',
+            'audio/netflix-tudum-sfx-n-c (1).mp3',
+            'audio/hero-tudum.mp3',
+            'audio/tudum.mp3',
+            'assets/sounds/hero-tudum.mp3',
+            'assets/sounds/tudum.mp3',
+            'assets/audio/hero-tudum.mp3',
+            'assets/hero-tudum.mp3',
+            'hero-tudum.mp3',
+            'tudum.mp3'
+        ];
 
-        async function tryPlayHeroTudum() {
-            if (_heroSoundPlayed) return;
+        async function tryPlayHeroTudumFromFile() {
+            while (_heroTudumAudioCandidateIdx < HERO_TUDUM_AUDIO_CANDIDATES.length) {
+                if (!_heroTudumAudio) {
+                    _heroTudumAudio = new Audio(HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx]);
+                    _heroTudumAudio.preload = 'auto';
+                }
 
+                try {
+                    if (_heroTudumAudio.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) _heroTudumAudio.currentTime = 0;
+                    await _heroTudumAudio.play();
+                    return true;
+                } catch (err) {
+                    const playbackDenied = err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
+                    if (playbackDenied) return false;
+                    if (window.console?.debug) {
+                        console.debug('[Hero Tudum] MP3 play failed:', HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx], err);
+                    }
+                    _heroTudumAudio = null;
+                    _heroTudumAudioCandidateIdx += 1;
+                }
+            }
+            return false;
+        }
+
+        async function playSyntheticHeroTudum() {
             const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (!AudioCtx) { _heroSoundPlayed = true; return; }
+            if (!AudioCtx) return false;
 
             const ctx = new AudioCtx();
 
@@ -2527,16 +2523,14 @@
                 await ctx.resume();
             } catch (e) {
                 ctx.close().catch(() => {});
-                return;
+                return false;
             }
 
             if (ctx.state !== 'running') {
                 // Still suspended — autoplay blocked, interaction fallback will retry.
                 ctx.close().catch(() => {});
-                return;
+                return false;
             }
-
-            _heroSoundPlayed = true;
 
             const now = ctx.currentTime + 0.02;
 
@@ -2630,6 +2624,20 @@
             osc2b.stop(t2 + 0.62);
 
             setTimeout(() => { if (ctx.state !== 'closed') ctx.close().catch(() => {}); }, 1500);
+            return true;
+        }
+
+        async function tryPlayHeroTudum() {
+            if (_heroSoundPlayed) return;
+
+            const filePlayed = await tryPlayHeroTudumFromFile();
+            if (filePlayed) {
+                _heroSoundPlayed = true;
+                return;
+            }
+
+            const synthPlayed = await playSyntheticHeroTudum();
+            if (synthPlayed) _heroSoundPlayed = true;
         }
 
         function initHeroTudum() {
@@ -2650,33 +2658,7 @@
         }
         // ────────────────────────────────────────────────────────────────────
 
-        function initSplashGate() {
-            const gate = document.getElementById('splash-gate');
-            if (!gate) return;
-
-            let dismissed = false;
-            let autoTimer = null;
-
-            function dismiss() {
-                if (dismissed) return;
-                dismissed = true;
-                window.removeEventListener('pointerdown', dismiss);
-                window.removeEventListener('keydown', dismiss);
-                clearTimeout(autoTimer);
-                gate.classList.add('splash-out');
-                gate.addEventListener('transitionend', () => gate.remove(), { once: true });
-            }
-
-            // Any tap, click, or keypress counts as the user gesture → lets Tudum play.
-            // initHeroTudum's handlers fire on the same event and call tryPlayHeroTudum().
-            window.addEventListener('pointerdown', dismiss, { passive: true });
-            window.addEventListener('keydown', dismiss);
-
-            // Auto-dismiss after 3 s if the user hasn't interacted yet.
-            // Sound won't play on this programmatic dismiss (no user gesture),
-            // but initHeroTudum's fallback will catch their next real interaction.
-            autoTimer = setTimeout(dismiss, 3000);
-        }
+        function initSplashGate() { /* splash gate removed */ }
         // ────────────────────────────────────────────────────────────────────
         // ─── Motion Layer III: Card scroll-reveal, tilt & micro-delights ───
 
