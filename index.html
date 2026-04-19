@@ -1284,7 +1284,7 @@
 
             hero.classList.add('hero-animate-in');
 
-            const interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
+            const interactionEvents = ['pointerdown', 'keydown'];
             const playOnInteraction = () => {
                 playHeroTudum();
                 interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
@@ -1294,6 +1294,7 @@
             });
             if (navigator.userActivation && navigator.userActivation.hasBeenActive) {
                 playHeroTudum();
+                interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
             }
         }
 
