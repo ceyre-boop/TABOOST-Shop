@@ -26,8 +26,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #06060c;
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
@@ -62,9 +62,21 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px 40px;
             position: relative;
             z-index: 1;
+        }
+
+        /* Full-bleed header wrapper */
+        .site-header-wrap {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 0;
         }
         
         /* Header */
@@ -72,7 +84,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
         
         .logo {
@@ -150,402 +162,432 @@
             box-shadow: 0 10px 30px rgba(255, 0, 68, 0.3);
         }
         
-        /* Hero / Search Section */
+        /* ═══ Hero Section — Apple-style ═══ */
         .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 120px 24px 80px;
             text-align: center;
-            padding: 40px 0 40px;
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 24px;
-            background: radial-gradient(120% 90% at 20% 10%, rgba(255,0,68,0.12), transparent 60%),
-                        radial-gradient(120% 100% at 90% 20%, rgba(0,255,136,0.1), transparent 70%);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
-            isolation: isolate;
         }
 
-        .hero > *:not(.hero-bg-layer):not(.hero-motion-lines):not(.hero-noise):not(.hero-boot-line):not(.hero-ambient-layer):not(.hero-shimmer) {
+        /* All hero children sit above the base background */
+        .hero > * {
             position: relative;
-            z-index: 3;
-        }
-
-        .hero-ambient-layer,
-        .hero-bg-layer,
-        .hero-motion-lines,
-        .hero-noise,
-        .hero-boot-line,
-        .hero-shimmer {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .hero-ambient-layer {
-            opacity: 0.12;
-            filter: blur(10px) saturate(85%);
-            background:
-                radial-gradient(80% 120% at 20% 30%, rgba(255,255,255,0.11), transparent 60%),
-                linear-gradient(120deg, rgba(255,255,255,0.07) 0%, transparent 30%, rgba(255,255,255,0.1) 60%, transparent 100%);
-            animation: videoDrift 18s ease-in-out infinite alternate;
-            z-index: 0;
-        }
-
-        .hero-bg-layer {
-            opacity: 0.55;
-            z-index: 0;
-            will-change: transform;
-        }
-
-        .hero-bg-layer.depth-1 {
-            background: radial-gradient(55% 50% at 10% 20%, rgba(255,0,68,0.28), transparent 68%);
-            transform: translate3d(calc(var(--hero-mouse-x) * -0.02), calc(var(--hero-mouse-y) * -0.02), 0);
-            animation: cloudFloat 16s ease-in-out infinite alternate;
-        }
-
-        .hero-bg-layer.depth-2 {
-            background: radial-gradient(50% 45% at 80% 20%, rgba(0,255,136,0.24), transparent 72%);
-            transform: translate3d(calc(var(--hero-mouse-x) * 0.03), calc(var(--hero-mouse-y) * 0.03), 0);
-            animation: cloudFloat 22s ease-in-out infinite alternate-reverse;
-        }
-
-        .hero-noise {
-            z-index: 2;
-            opacity: 0.065;
-            mix-blend-mode: screen;
-            background-image:
-                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
-                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.35) 0.4px, transparent 0.4px);
-            background-size: 3px 3px, 4px 4px;
-            animation: noiseShift 0.45s steps(3) infinite;
-        }
-
-        .hero-motion-lines {
             z-index: 1;
-            opacity: 0.28;
-            overflow: hidden;
         }
 
-        .hero-motion-lines span {
-            position: absolute;
-            width: 1px;
-            height: 170%;
-            top: -35%;
-            transform: rotate(30deg);
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 68, 0.2) 35%, rgba(255, 255, 255, 0.8) 50%, rgba(0, 255, 136, 0.22) 65%, transparent 100%);
-            filter: blur(0.2px);
-            animation: lineDrift 12s linear infinite;
-            opacity: calc(0.22 + var(--hero-pulse));
-        }
-
-        .hero-motion-lines span:nth-child(1) { left: 12%; animation-delay: 0s; }
-        .hero-motion-lines span:nth-child(2) { left: 29%; animation-delay: -2.2s; }
-        .hero-motion-lines span:nth-child(3) { left: 46%; animation-delay: -4.4s; }
-        .hero-motion-lines span:nth-child(4) { left: 64%; animation-delay: -6.6s; }
-        .hero-motion-lines span:nth-child(5) { left: 81%; animation-delay: -8.8s; }
-
-        .hero-boot-line {
-            height: 2px;
-            top: 32%;
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
-            opacity: 0;
-            transform: translateX(-120%);
-            z-index: 5;
-        }
-
-        body.creator-mode-ready .hero-boot-line {
-            animation: bootSweep 0.55s ease-out;
-        }
-
+        /* Kicker — sparse uppercase label, no pill box */
         .hero-kicker {
             display: inline-block;
-            background: rgba(255,0,68,0.1);
-            border: 1px solid #ff0044;
-            color: #ff0044;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+            color: rgba(255, 0, 68, 0.85);
+            font-size: 11px;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            animation: heroFlicker 0.55s ease-out;
+            letter-spacing: 0.2em;
+            margin-bottom: 26px;
+            opacity: 0;
+            transform: translateY(12px);
         }
-        
+
+        body.creator-mode-ready .hero-kicker {
+            animation: heroFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.05s forwards;
+        }
+
+        /* Headline — big, tight tracking, light-to-muted white gradient */
         .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            font-size: clamp(38px, 6vw, 76px);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.78) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        
+
         .hero h1 span {
-            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            background: linear-gradient(135deg, #ff0044 0%, #ff6060 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
+        body.creator-mode-ready .hero h1 {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.18s forwards;
+        }
+
+        /* Subheadline — light weight, 70% opacity */
         .hero p {
-            font-size: 18px;
-            color: #aaa;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-            min-height: 30px;
+            font-size: clamp(15px, 1.8vw, 19px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.68);
+            max-width: 540px;
+            margin: 0 auto 44px;
+            line-height: 1.65;
+            letter-spacing: 0.01em;
+            min-height: 28px;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .hero p {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
         }
 
         .hero-tagline {
-            transition: opacity 0.32s ease, transform 0.32s ease;
+            transition: opacity 0.28s ease, transform 0.28s ease;
         }
 
         .hero-tagline.swapping {
-            opacity: 0;
-            transform: translateY(10px);
+            opacity: 0 !important;
+            transform: translateY(8px) !important;
         }
 
-        .hero-shimmer {
-            z-index: 2;
-            background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.06) 50%, transparent 65%);
-            transform: translateX(calc(-60% + var(--scroll-shimmer)));
-            transition: transform 0.2s linear;
-        }
-
-        /* Search Bar */
+        /* Search bar — minimal Apple-style pill */
         .search-container {
-            max-width: 800px;
-            margin: 0 auto 40px;
+            max-width: 640px;
+            width: 100%;
+            margin: 0 auto 32px;
             position: relative;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .search-container {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.42s forwards;
         }
 
         .search-wrapper {
             display: flex;
+            align-items: center;
             background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50px;
-            padding: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 5px 5px 5px 22px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             position: relative;
-            overflow: hidden;
         }
 
         .search-wrapper:focus-within {
-            border-color: #ff0044;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 40px rgba(255, 0, 68, 0.2), 0 0 0 2px rgba(255, 0, 68, 0.2), 0 0 35px rgba(255,0,68,0.28);
-            transform: scale(1.02);
-            animation: neonPulse 1.4s ease-in-out infinite;
+            border-color: rgba(255, 0, 68, 0.45);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 3px rgba(255, 0, 68, 0.1), 0 8px 28px rgba(0, 0, 0, 0.3);
         }
 
         .search-sparkle {
-            position: absolute;
-            right: 120px;
-            top: 50%;
-            width: 6px;
-            height: 6px;
-            transform: translateY(-50%) scale(0);
-            border-radius: 50%;
-            background: #fff;
-            box-shadow: 0 0 0 6px rgba(255,255,255,0.08), 0 0 18px rgba(255,255,255,0.7);
-            opacity: 0;
-            transition: transform 0.22s ease, opacity 0.22s ease;
-        }
-
-        .search-wrapper.typing .search-sparkle {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
+            display: none;
         }
 
         .search-input {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 12px 25px;
+            padding: 11px 0;
             color: #fff;
-            font-size: 18px;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.005em;
             outline: none;
         }
 
         .search-input::placeholder {
-            color: #666;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 300;
+            transition: color 0.2s ease;
+        }
+
+        .search-input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.2);
         }
 
         .search-btn {
-            background: linear-gradient(135deg, #ff0044, #cc0033);
+            background: #ff0044;
             border: none;
             border-radius: 40px;
-            color: white;
-            padding: 12px 35px;
-            font-weight: 700;
+            color: #fff;
+            padding: 11px 26px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.02em;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s, letter-spacing 0.2s;
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease;
+            flex-shrink: 0;
         }
 
         .search-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 68, 0.4), 0 0 20px rgba(255,0,68,0.45);
-            letter-spacing: 0.5px;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 68, 0.32);
+            background: #e0003c;
         }
 
-        .search-quick-tags {
-            margin-top: 20px;
+        .search-btn:active {
+            transform: translateY(0);
+            transition-duration: 0.08s;
+        }
+
+        /* ─── Search Suggestions Dropdown ─── */
+        .search-suggestions {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 20, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 200;
+            max-height: 320px;
+            overflow-y: auto;
+            display: none;
+        }
+        .search-suggestions.visible {
+            display: block;
+            animation: suggestionsDrop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes suggestionsDrop {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .suggestion-section-label {
+            padding: 10px 16px 4px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.28);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+        .suggestion-item {
             display: flex;
+            align-items: center;
             gap: 12px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .suggestion-item:last-child { border-bottom: none; }
+        .suggestion-item:hover, .suggestion-item.focused {
+            background: rgba(255, 0, 68, 0.08);
+        }
+        .suggestion-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            width: 28px;
+            text-align: center;
+        }
+        .suggestion-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .suggestion-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.88);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .suggestion-meta {
+            font-size: 11px;
+            color: rgba(255,255,255,0.38);
+            margin-top: 1px;
+        }
+        .suggestion-commission {
+            font-size: 12px;
+            font-weight: 700;
+            color: #00ff88;
+            flex-shrink: 0;
+        }
+        .suggestion-name mark {
+            background: none;
+            color: #ff0044;
+            font-weight: 700;
+        }
+
+        /* ─── Sort Controls ─── */
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .sort-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            font-weight: 500;
+            margin-right: 2px;
+        }
+        .sort-btn {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.45);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            white-space: nowrap;
+        }
+        .sort-btn:hover {
+            border-color: rgba(255,0,68,0.35);
+            color: rgba(255,255,255,0.85);
+            background: rgba(255,0,68,0.06);
+        }
+        .sort-btn.active {
+            background: rgba(255,0,68,0.12);
+            border-color: rgba(255,0,68,0.4);
+            color: #fff;
+        }
+
+        /* Category chips — minimal transparent pills, staggered fade */
+        .search-quick-tags {
+            margin-top: 16px;
+            display: flex;
+            gap: 7px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .quick-tag {
-            background: rgba(255, 255, 255, 0.05);
+            background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 18px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 13px;
-            color: #888;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
             white-space: nowrap;
-            position: relative;
-            transform: translate3d(0,0,0);
-            will-change: transform;
-            overflow: hidden;
             display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 4px;
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(8px);
         }
 
         body.creator-mode-ready .quick-tag {
-            animation: chipSlideIn 0.45s ease forwards;
+            animation: heroFadeUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        body.creator-mode-ready .quick-tag:nth-child(odd) { animation-delay: 0.08s; }
-        body.creator-mode-ready .quick-tag:nth-child(even) { animation-delay: 0.16s; }
+        body.creator-mode-ready .quick-tag:nth-child(1)  { animation-delay: 0.70s; }
+        body.creator-mode-ready .quick-tag:nth-child(2)  { animation-delay: 0.76s; }
+        body.creator-mode-ready .quick-tag:nth-child(3)  { animation-delay: 0.82s; }
+        body.creator-mode-ready .quick-tag:nth-child(4)  { animation-delay: 0.88s; }
+        body.creator-mode-ready .quick-tag:nth-child(5)  { animation-delay: 0.94s; }
+        body.creator-mode-ready .quick-tag:nth-child(6)  { animation-delay: 1.00s; }
+        body.creator-mode-ready .quick-tag:nth-child(7)  { animation-delay: 1.06s; }
+        body.creator-mode-ready .quick-tag:nth-child(8)  { animation-delay: 1.12s; }
+        body.creator-mode-ready .quick-tag:nth-child(9)  { animation-delay: 1.18s; }
+        body.creator-mode-ready .quick-tag:nth-child(10) { animation-delay: 1.24s; }
+        body.creator-mode-ready .quick-tag:nth-child(11) { animation-delay: 1.30s; }
+        body.creator-mode-ready .quick-tag:nth-child(12) { animation-delay: 1.36s; }
 
         .quick-tag:hover, .quick-tag.active {
-            background: rgba(255, 0, 68, 0.1);
-            border-color: #ff0044;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(255,0,68,0.18);
+            border-color: rgba(255, 0, 68, 0.45);
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 0, 68, 0.07);
+            transform: translateY(-1px);
         }
 
         .quick-tag .chip-icon {
             display: inline-block;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            opacity: 0.86;
+            font-size: 11px;
+            opacity: 0.75;
+            transition: transform 0.18s ease, opacity 0.18s ease;
         }
 
         .quick-tag:hover .chip-icon,
         .quick-tag.active .chip-icon {
-            transform: translateY(-1px) scale(1.08);
+            transform: scale(1.15);
             opacity: 1;
         }
 
         .quick-tag.clicked {
-            animation: chipBounce 0.32s ease;
+            transform: scale(0.94) !important;
+            transition-duration: 0.08s;
         }
 
         .quick-tag::after {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.55);
-            transform: translate(-50%, -50%) scale(0);
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        .quick-tag.ripple::after {
-            left: var(--ripple-x, 50%);
-            top: var(--ripple-y, 50%);
-            animation: chipRipple 0.45s ease-out;
-        }
-
-        .high-commission-badge {
-            background: linear-gradient(135deg, #00ff88, #00cc66);
-            color: #000;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            margin-bottom: 5px;
-            display: inline-block;
-        }
-
-        .commission-comparison {
-            font-size: 12px;
-            color: #00ff88;
-            margin-top: 4px;
-            font-weight: 600;
-        }
-
-        .quick-tag:hover {
-            background: rgba(255, 0, 68, 0.1);
-            border-color: #ff0044;
-            color: #fff;
+            content: none;
         }
 
         .search-quick-tags.sticky {
             position: sticky;
             top: 12px;
             z-index: 40;
-            margin: 14px auto 0;
+            margin: 12px auto 0;
             width: fit-content;
             max-width: 100%;
-            padding: 10px;
-            border-radius: 18px;
-            background: rgba(18,18,26,0.7);
-            border: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            padding: 9px 14px;
+            border-radius: 20px;
+            background: rgba(8, 8, 16, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
+        /* Hero carousel — wider, edge-to-edge within hero's inner padding */
         .hero-carousel {
-            margin: 22px auto 18px;
+            margin: 28px auto 0;
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-            max-width: 920px;
+            gap: 10px;
+            max-width: min(900px, calc(100% - 48px));
+            width: 100%;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .hero-carousel {
+            animation: heroFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 1.0s forwards;
         }
 
         .hero-carousel-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 14px;
-            padding: 14px;
+            padding: 14px 16px;
             text-align: left;
-            transform: translateY(16px);
-            opacity: 0;
-            animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+            transition: border-color 0.2s ease, background 0.2s ease;
         }
 
-        .hero-carousel-card:nth-child(2) { animation-delay: 0.08s; }
-        .hero-carousel-card:nth-child(3) { animation-delay: 0.16s; }
+        .hero-carousel-card:hover {
+            border-color: rgba(255, 255, 255, 0.13);
+            background: rgba(255, 255, 255, 0.05);
+        }
 
         .hero-carousel-title {
-            font-size: 11px;
-            color: #bcbcbc;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.35);
             text-transform: uppercase;
-            letter-spacing: 0.9px;
-            margin-bottom: 8px;
+            letter-spacing: 0.12em;
+            margin-bottom: 7px;
+            font-weight: 500;
         }
 
         .hero-carousel-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 10px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -555,49 +597,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 12px;
-            color: #9d9d9d;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.38);
         }
 
         .hero-commission-pill {
-            font-size: 12px;
-            color: #0a130f;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00ff88, #00cc66);
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            background: rgba(255, 0, 68, 0.18);
+            border: 1px solid rgba(255, 0, 68, 0.28);
             border-radius: 999px;
-            padding: 4px 10px;
-            box-shadow: 0 0 20px rgba(0,255,136,0.3);
-        }
-
-        .hero-stats-hud {
-            position: absolute;
-            right: 18px;
-            top: 18px;
-            z-index: 4;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            min-width: 245px;
-            padding: 12px;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(18,18,30,0.45);
-            backdrop-filter: blur(18px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-            animation: hudFloat 3s ease-in-out infinite;
-        }
-
-        .hud-item {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            font-size: 12px;
-            color: #b6b6b6;
-        }
-
-        .hud-item strong {
-            color: #fff;
-            font-weight: 700;
+            padding: 2px 8px;
+            letter-spacing: 0.02em;
         }
 
         /* Dashboard/Campaign Sections */
@@ -1021,73 +1033,22 @@
             font-size: 14px;
         }
 
-        @keyframes noiseShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-2px, 2px); }
-        }
-
-        @keyframes cloudFloat {
-            0% { transform: translate3d(calc(var(--hero-mouse-x) * -0.02), calc(var(--hero-mouse-y) * -0.02), 0); }
-            100% { transform: translate3d(calc(var(--hero-mouse-x) * 0.025), calc(var(--hero-mouse-y) * 0.02), 0); }
-        }
-
-        @keyframes lineDrift {
-            0% { transform: translateY(-12%) rotate(30deg); }
-            100% { transform: translateY(12%) rotate(30deg); }
-        }
-
-        @keyframes bootSweep {
-            0% { opacity: 0; transform: translateX(-120%); }
-            20% { opacity: 1; }
-            100% { opacity: 0; transform: translateX(120%); }
-        }
-
-        @keyframes heroFlicker {
-            0% { opacity: 0.3; transform: translateY(-4px); }
-            60% { opacity: 1; }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes neonPulse {
-            0%, 100% { box-shadow: 0 0 40px rgba(255, 0, 68, 0.2), 0 0 0 2px rgba(255, 0, 68, 0.2), 0 0 20px rgba(255,0,68,0.22); }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 68, 0.28), 0 0 0 2px rgba(255, 0, 68, 0.24), 0 0 35px rgba(255,0,68,0.35); }
-        }
-
-        @keyframes chipBounce {
-            0% { transform: scale(1); }
-            45% { transform: scale(0.93); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes chipRipple {
-            0% { opacity: 0.65; transform: translate(-50%, -50%) scale(0); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(12); }
-        }
-
-        @keyframes chipSlideIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes cardIn {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        /* ─── Keyframes ─── */
+        @keyframes heroFadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes hudFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        @keyframes videoDrift {
-            0% { transform: scale(1.02) translateX(-1%); }
-            100% { transform: scale(1.05) translateX(1%); }
+            50%       { transform: translateY(-4px); }
         }
          
         /* Mobile */
         @media (max-width: 768px) {
+            .site-header-inner {
+                padding: 20px 16px 0;
+            }
+
             header {
                 margin-bottom: 20px;
                 flex-direction: row;
@@ -1124,29 +1085,19 @@
             }
 
             .hero {
-                padding-top: 20px;
+                min-height: 100svh;
+                padding: 100px 16px 60px;
+                justify-content: center;
             }
 
             .hero h1 {
-                font-size: 26px;
-                white-space: nowrap;
-            }
-
-            .hero-stats-hud {
-                position: static;
-                margin: 0 auto 14px;
-                min-width: 0;
-                width: calc(100% - 24px);
-                max-width: 360px;
+                font-size: clamp(30px, 8vw, 42px);
+                letter-spacing: -0.03em;
             }
 
             .hero-carousel {
                 grid-template-columns: 1fr;
-                margin: 14px 10px;
-            }
-
-            .hero-motion-lines {
-                display: none;
+                margin: 16px 0 0;
             }
 
             .search-container .search-btn {
@@ -1154,13 +1105,13 @@
             }
 
             .search-wrapper {
-                margin: 0 10px;
-                background: rgba(255, 255, 255, 0.03);
+                margin: 0;
+                padding-left: 18px;
             }
 
             .search-input {
                 font-size: 16px;
-                padding: 10px 15px;
+                padding: 10px 0;
             }
             
             .stats {
@@ -1194,6 +1145,15 @@
             .tap-link-btn {
                 font-size: 10px;
                 padding: 7px 8px;
+            }
+
+            .sort-controls {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            .sort-btn {
+                font-size: 11px;
+                padding: 5px 9px;
             }
         }
         
@@ -1330,17 +1290,278 @@
             0%, 100% { opacity: 0.55; transform: scale(1); }
             50%       { opacity: 1;    transform: scale(1.05); }
         }
+        /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
+
+
+
+        /* 1. Hero section entry — whole section fades + slides up */
+        .hero {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        body.creator-mode-ready .hero {
+            animation: heroEntryFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes heroEntryFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Mouse-tracking spotlight overlay */
+        .hero-spotlight {
+            display: none;
+        }
+
+        /* 4. Particles canvas */
+        .hero-particles {
+            display: none;
+        }
+
+        /* 5. Search button: glow ring on hover + overflow for ripple */
+        .search-btn {
+            overflow: hidden;
+        }
+        .search-btn:hover {
+            box-shadow: 0 0 0 3px rgba(255, 0, 68, 0.14), 0 8px 20px rgba(255, 0, 68, 0.32);
+        }
+
+        /* 7. Search sparkle — re-enabled with flash animation */
+        .search-sparkle {
+            display: inline-block;
+            position: absolute;
+            right: 88px;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(-50%) scale(0);
+        }
+        .search-wrapper.typing .search-sparkle {
+            animation: sparkleFlash 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        @keyframes sparkleFlash {
+            0%   { opacity: 0;   transform: translateY(-50%) scale(0); }
+            35%  { opacity: 1;   transform: translateY(-62%) scale(1.35); }
+            65%  { opacity: 0.7; transform: translateY(-40%) scale(0.85); }
+            100% { opacity: 0;   transform: translateY(-50%) scale(0); }
+        }
+
+        /* 8. CTA button ripple keyframe */
+        @keyframes btnRippleExpand {
+            0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(9);  opacity: 0; }
+        }
+
+        /* 9. Chip icon bounce on hover */
+        .quick-tag:hover .chip-icon {
+            animation: chipIconBounce 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        .quick-tag.active .chip-icon {
+            animation: none;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        @keyframes chipIconBounce {
+            0%   { transform: scale(1)    rotate(0deg); }
+            30%  { transform: scale(1.22) rotate(-9deg); }
+            65%  { transform: scale(1.1)  rotate(5deg); }
+            100% { transform: scale(1.08) rotate(0deg); }
+        }
+
+        /* 10. Performance hints for parallax elements */
+        .hero-kicker,
+        .hero-carousel {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* ═══ Motion Layer III — Card Scroll-Reveal, Tilt & Commission Pulse ═══ */
+
+        /* Commission badge: gentle glow-breath pulse */
+        .hero-commission-badge {
+            animation: commissionPulse 3.6s ease-in-out infinite;
+        }
+        @keyframes commissionPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+            50%       { box-shadow: 0 0 16px 5px rgba(0, 255, 136, 0.15); }
+        }
+
+        /* Product cards start hidden; revealed by IntersectionObserver */
+        .product-card {
+            opacity: 0;
+        }
+        .product-card.card-revealed {
+            animation: cardFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(22px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Hero carousel cards: add transform to transition for JS tilt */
+        .hero-carousel-card {
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.2s ease,
+                        background 0.2s ease;
+            will-change: transform;
+        }
+        /* ─── Genie Intro Overlay ─── */
+        #genie-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #06060c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #genie-intro.genie-exit {
+            animation: genieOverlayExit 0.55s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+        }
+        @keyframes genieOverlayExit {
+            0%   { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        .genie-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 0, 68, 0);
+            pointer-events: none;
+            animation: genieRingPop 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .genie-ring:nth-child(1) { width: 140px;  height: 140px;  animation-delay: 0.38s; }
+        .genie-ring:nth-child(2) { width: 260px;  height: 260px;  animation-delay: 0.48s; }
+        .genie-ring:nth-child(3) { width: 400px;  height: 400px;  animation-delay: 0.56s; }
+        .genie-ring:nth-child(4) { width: 580px;  height: 580px;  animation-delay: 0.62s; }
+        @keyframes genieRingPop {
+            0%   { border-color: rgba(255, 0, 68, 0);    transform: scale(0.3); }
+            30%  { border-color: rgba(255, 0, 68, 0.55); transform: scale(1.05); }
+            70%  { border-color: rgba(255, 0, 68, 0.18); transform: scale(1); }
+            100% { border-color: rgba(255, 0, 68, 0);    transform: scale(1.15); }
+        }
+
+        #genie-img-wrap {
+            position: relative;
+            z-index: 2;
+            animation: genieEntrance 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform-origin: center bottom;
+        }
+        @keyframes genieEntrance {
+            0%   { opacity: 0;   transform: scale(0.12) translateY(60px); }
+            18%  { opacity: 1;   transform: scale(1.18) translateY(-12px); }
+            28%  { opacity: 1;   transform: scale(0.93) translateY(4px); }
+            40%  { opacity: 1;   transform: scale(1.06) translateY(-6px); }
+            52%  { opacity: 1;   transform: scale(0.98) translateY(0px); }
+            62%  { opacity: 1;   transform: scale(1.0)  translateY(-10px); }
+            72%  { opacity: 1;   transform: scale(1.0)  translateY(0px); }
+            80%  { opacity: 1;   transform: scale(1.0)  translateY(-6px); }
+            100% { opacity: 0;   transform: scale(9.0)  translateY(-20px); }
+        }
+
+        #genie-img-wrap img {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            border: 3px solid rgba(255, 0, 68, 0.8);
+            box-shadow:
+                0 0 0 8px rgba(255, 0, 68, 0.12),
+                0 0 60px rgba(255, 0, 68, 0.45),
+                0 0 120px rgba(255, 0, 68, 0.20);
+            display: block;
+        }
+
+        #genie-tagline {
+            position: absolute;
+            bottom: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: genieTaglineAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieTaglineAnim {
+            0%   { opacity: 0; transform: translateX(-50%) translateY(12px); }
+            28%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            80%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+        }
+
+        #genie-logo-text {
+            position: absolute;
+            top: 36%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            animation: genieLogoAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieLogoAnim {
+            0%   { opacity: 0; transform: translateX(-50%) scale(0.7); }
+            22%  { opacity: 1; transform: translateX(-50%) scale(1.05); }
+            35%  { opacity: 1; transform: translateX(-50%) scale(0.97); }
+            80%  { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) scale(1.3); }
+        }
+
+        #genie-bg-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255, 0, 68, 0.16) 0%, transparent 70%);
+            animation: genieGlow 1.65s ease-in-out forwards;
+        }
+        @keyframes genieGlow {
+            0%   { opacity: 0; }
+            30%  { opacity: 1; }
+            80%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
     </style>
 </head>
 <body>
+    <!-- Genie intro animation overlay — plays once per session -->
+    <div id="genie-intro">
+        <div id="genie-bg-glow"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div id="genie-logo-text">TABOOST</div>
+        <div id="genie-img-wrap">
+            <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
+        </div>
+        <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
     <div id="splash-gate" class="splash-gate" role="button" aria-label="Tap anywhere to enter">
         <div class="splash-gate-hint">tap anywhere to enter</div>
+
     </div>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
     
-    <div class="container">
+    <!-- Header: full-bleed width, inner content capped at 1200px -->
+    <div class="site-header-wrap">
+        <div class="site-header-inner">
         <header>
             <div class="logo">
                 <img src="images/taboost-genie.jpg" alt="TABOOST">
@@ -1353,32 +1574,27 @@
                 </div>
             </nav>
         </header>
+        </div>
+    </div>
 
-        <section class="hero" id="hero-section">
-            <div class="hero-ambient-layer"></div>
-            <div class="hero-bg-layer depth-1"></div>
-            <div class="hero-bg-layer depth-2"></div>
-            <div class="hero-motion-lines" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="hero-noise" aria-hidden="true"></div>
-            <div class="hero-shimmer" aria-hidden="true"></div>
-            <div class="hero-boot-line" aria-hidden="true"></div>
-            <div class="hero-stats-hud" id="hero-stats-hud">
-                <div class="hud-item"><span>Avg Creator EPC Today</span><strong id="hud-epc">$0.00</strong></div>
-                <div class="hud-item"><span>Top Campaign Commission</span><strong id="hud-top-commission">0%</strong></div>
-                <div class="hud-item"><span>New Campaigns Added</span><strong id="hud-new-campaigns">0</strong></div>
-            </div>
+    <!-- Hero: full viewport width, no container constraint -->
+    <section class="hero" id="hero-section">
+            <!-- Decorative motion layers (aria-hidden, no layout impact) -->
+            <div class="hero-spotlight" aria-hidden="true"></div>
+            <div class="hero-noise-layer" aria-hidden="true"></div>
+            <canvas class="hero-particles" aria-hidden="true"></canvas>
+
             <div class="hero-kicker">Built for TikTok Shop Creators</div>
-            <h1 id="hero-title"><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
-            <p id="hero-tagline" class="hero-tagline">Access higher commission rates, proven products & exclusive campaigns!</p>
+            <h1 id="hero-title"><span>Higher Commission.</span><br>Better Products. Faster Wins.</h1>
+            <p id="hero-tagline" class="hero-tagline">Access higher commission rates, proven products &amp; exclusive campaigns!</p>
             
             <div class="search-container">
                 <div class="search-wrapper">
-                    <input type="text" class="search-input" id="main-search" placeholder="Search campaigns, not products...">
+                    <input type="text" class="search-input" id="main-search" placeholder="Search campaigns, not products..." autocomplete="off">
                     <span class="search-sparkle" aria-hidden="true"></span>
                     <button class="search-btn" id="search-trigger">Find Campaigns</button>
                 </div>
+                <div id="search-suggestions" class="search-suggestions" aria-live="polite"></div>
                 <div class="search-quick-tags">
                     <span class="quick-tag" data-cat="Beauty & Personal Care"><span class="chip-icon">💄</span><span class="chip-text">Beauty</span></span>
                     <span class="quick-tag" data-cat="Phones & Electronics"><span class="chip-icon">📱</span><span class="chip-text">Electronics</span></span>
@@ -1397,20 +1613,31 @@
             <div class="hero-carousel" id="hero-carousel"></div>
         </section>
 
+    <div class="container" id="content-container">
+
         <!-- Search Results Section (Hidden initially) -->
         <div id="search-results-container" class="results-section">
             <div class="section-header">
-                <h2 class="section-title" id="search-results-title">Search Results</h2>
-                <div style="display:flex; gap:10px; align-items:center;">
-                    <span id="results-count" style="color:#888; font-size:13px;"></span>
-                    <a href="#" class="section-view-all" id="clear-search">Clear Search</a>
+                <div>
+                    <h2 class="section-title" id="search-results-title">Search Results</h2>
+                    <span id="results-count" style="color:#888; font-size:13px; display:block; margin-top:4px;"></span>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <div class="sort-controls" id="sort-controls">
+                        <span class="sort-label">Sort:</span>
+                        <button class="sort-btn active" data-sort="relevance">✦ Best Match</button>
+                        <button class="sort-btn" data-sort="commission">💰 Commission</button>
+                        <button class="sort-btn" data-sort="epc">📈 EPC</button>
+                        <button class="sort-btn" data-sort="sales">🔥 Sales</button>
+                    </div>
+                    <a href="#" class="section-view-all" id="clear-search">✕ Clear</a>
                 </div>
             </div>
             <div class="product-grid" id="search-results-grid">
                 <!-- Search results will be injected here -->
             </div>
             <div id="load-more-container" style="text-align:center; padding:30px 0; display:none;">
-                <button id="load-more-btn" style="background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:12px 40px; border-radius:30px; font-size:14px; font-weight:700; cursor:pointer; transition:all 0.3s;">Load More Products</button>
+                <button id="load-more-btn" style="background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:12px 40px; border-radius:30px; font-size:14px; font-weight:700; cursor:pointer; transition:all 0.3s;">Load More Campaigns</button>
             </div>
         </div>
 
@@ -1439,7 +1666,7 @@
 
         
         <footer>
-            <p>© 2025 TABOOST. All rights reserved.</p>
+            <p>© 2026 TABOOST. All rights reserved.</p>
         </footer>
     </div>
     <script src="js/product-data.js"></script>
@@ -1523,6 +1750,7 @@
             renderInitialGrids();
             updateHeroCarousel();
             updateHeroHud();
+            initCardMotion();
         }
 
         function getBadgeHtml(rank) {
@@ -1647,8 +1875,7 @@
             const hero = document.getElementById('hero-section');
             if (!hero) return;
             const theme = getCategoryTheme(categoryName);
-            hero.style.boxShadow = `0 30px 70px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 50px ${theme.hero}`;
-            document.body.style.background = `linear-gradient(135deg, #0a0a0f 0%, ${theme.body} 55%, #0f0f1a 100%)`;
+            document.body.style.background = `linear-gradient(135deg, #06060c 0%, ${theme.body} 60%, #06060c 100%)`;
         }
 
         function initHeroMicroInteractions() {
@@ -1660,10 +1887,22 @@
             const tagsWrap = document.querySelector('.search-quick-tags');
             if (!hero || !searchInput || !searchWrapper || !tagsWrap) return;
 
+            // Motion Layer II: state for compositing scroll + mouse parallax on hero title
+            let heroScrollProgress = 0;
+            let titleMouseX = 0, titleMouseY = 0;
+            const kickerEl  = hero.querySelector('.hero-kicker');
+            const carouselEl = hero.querySelector('.hero-carousel');
+            const spotlightEl = hero.querySelector('.hero-spotlight');
+            function updateHeroTitleTransform() {
+                if (!heroTitle) return;
+                heroTitle.style.transform = `scale(${1 - heroScrollProgress * 0.04}) translate(${titleMouseX}px, ${titleMouseY}px)`;
+            }
+
             setTimeout(() => {
                 document.body.classList.add('creator-mode-ready');
                 tryPlayHeroTudum();
             }, 120);
+
 
             setInterval(() => {
                 heroTagline.classList.add('swapping');
@@ -1693,19 +1932,51 @@
             const updateHeroRect = () => {
                 heroRect = hero.getBoundingClientRect();
             };
+            // Keep heroRect fresh on resize and after fonts/images settle
             let resizeTimer;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(updateHeroRect, 100);
             }, { passive: true });
+            // Refresh once after load in case layout shifted
+            setTimeout(updateHeroRect, 400);
 
-            hero.addEventListener('mousemove', (e) => {
+            // Use window-level listener so mouse tracking works across the full hero
+            let mouseInHero = false;
+            window.addEventListener('mousemove', (e) => {
+                const inHero = e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
+                               e.clientX >= heroRect.left && e.clientX <= heroRect.right;
+                if (!inHero) {
+                    if (mouseInHero) {
+                        mouseInHero = false;
+                        titleMouseX = 0; titleMouseY = 0;
+                        updateHeroTitleTransform();
+                        if (kickerEl)    kickerEl.style.transform   = '';
+                        if (carouselEl)  carouselEl.style.transform = '';
+                        if (spotlightEl) spotlightEl.style.transform = 'translate(-50%, -50%)';
+                        hero.style.setProperty('--hero-mouse-x', '0px');
+                        hero.style.setProperty('--hero-mouse-y', '0px');
+                    }
+                    return;
+                }
+                mouseInHero = true;
                 const x = e.clientX - heroRect.left - heroRect.width / 2;
-                const y = e.clientY - heroRect.top - heroRect.height / 2;
+                const y = e.clientY - heroRect.top  - heroRect.height / 2;
                 hero.style.setProperty('--hero-mouse-x', `${x}px`);
                 hero.style.setProperty('--hero-mouse-y', `${y}px`);
                 hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
-            });
+                // Spotlight follows cursor
+                if (spotlightEl) {
+                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.09}px), calc(-50% + ${y * 0.07}px))`;
+                }
+                // Micro-parallax: headline (composed with scroll scale)
+                titleMouseX = x * -0.009;
+                titleMouseY = y * -0.006;
+                updateHeroTitleTransform();
+                // Micro-parallax: other elements (2–4px)
+                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.022}px, ${y * -0.016}px)`;
+                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.010}px, ${y * -0.006}px)`;
+            }, { passive: true });
 
             tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
                 let tagRect = null;
@@ -1738,89 +2009,222 @@
                 scrollTicking = true;
                 requestAnimationFrame(() => {
                     const progress = Math.min(1, window.scrollY / HERO_SCROLL_THRESHOLD);
-                    if (heroTitle) heroTitle.style.transform = `scale(${1 - progress * 0.06})`;
+                    heroScrollProgress = progress;
+                    updateHeroTitleTransform();
                     if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
+                    // Blur only after 75% of the hero title has scrolled past the viewport
+                    if (heroTitle) {
+                        const tb = heroTitle.getBoundingClientRect();
+                        // 75% scrolled past = only 25% of height remains visible above viewport top
+                        const blurThreshold = heroTitle.offsetHeight * 0.25;
+                        if (tb.bottom < blurThreshold) {
+                            const beyond = blurThreshold - tb.bottom;
+                            hero.style.filter = `blur(${Math.min(beyond * 0.04, 3)}px)`;
+                        } else {
+                            hero.style.filter = '';
+                        }
+                    }
                     document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
                     tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
+                    // Keep heroRect current as scroll changes layout
+                    updateHeroRect();
                     scrollTicking = false;
                 });
             };
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
+
+            // ─── Motion Layer II: Ambient particles & micro-delights ───
+
+            // Ambient dust-mote particles (2–4% opacity, extremely subtle)
+            const particlesCanvas = hero.querySelector('.hero-particles');
+            if (particlesCanvas) {
+                const resizePC = () => {
+                    particlesCanvas.width  = hero.offsetWidth;
+                    particlesCanvas.height = hero.offsetHeight;
+                };
+                resizePC();
+                window.addEventListener('resize', resizePC, { passive: true });
+                const pCtx = particlesCanvas.getContext('2d');
+                const pts  = Array.from({ length: 55 }, () => ({
+                    x:     Math.random() * hero.offsetWidth,
+                    y:     Math.random() * hero.offsetHeight,
+                    r:     Math.random() * 2.2 + 0.8,
+                    vx:    (Math.random() - 0.5) * 0.18,
+                    vy:    -Math.random() * 0.14 - 0.04,
+                    alpha: Math.random() * 0.055 + 0.025,
+                    freq:  Math.random() * 0.006 + 0.002,
+                    phase: Math.random() * Math.PI * 2,
+                }));
+                (function drawParticles() {
+                    pCtx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+                    const now = performance.now() / 1000;
+                    pts.forEach(p => {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < -2) p.x = particlesCanvas.width  + 2;
+                        if (p.x > particlesCanvas.width  + 2) p.x = -2;
+                        if (p.y < -2) p.y = particlesCanvas.height + 2;
+                        if (p.y > particlesCanvas.height + 2) p.y = -2;
+                        const a = p.alpha * (0.4 + 0.6 * Math.sin(now * p.freq * Math.PI * 2 + p.phase));
+                        pCtx.beginPath();
+                        pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        pCtx.fillStyle = `rgba(255,255,255,${a.toFixed(4)})`;
+                        pCtx.fill();
+                    });
+                    requestAnimationFrame(drawParticles);
+                })();
+            }
+
+            // Search button click ripple
+            const searchBtnEl = hero.querySelector('.search-btn');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('click', () => {
+                    const rip = document.createElement('span');
+                    rip.style.cssText = 'position:absolute;top:50%;left:50%;width:4px;height:4px;background:rgba(255,255,255,0.4);border-radius:50%;pointer-events:none;animation:btnRippleExpand 0.45s ease-out forwards;';
+                    searchBtnEl.appendChild(rip);
+                    setTimeout(() => rip.remove(), 460);
+                });
+            }
+
         }
+
+        // ─── Search Engine v2 ───────────────────────────────────────────────────────
 
         // Track current search results for Load More
         let currentSearchResults = [];
         let displayedCount = 0;
         const RESULTS_PER_PAGE = 48;
+        let currentSort = 'relevance';
 
-        function handleSearch() {
+        // Score an item against a query (higher = better match)
+        function scoreItem(item, query) {
+            const q = query.toLowerCase().trim();
+            const words = q.split(/\s+/).filter(Boolean);
+            const name   = (item.name     || '').toLowerCase();
+            const cat    = (item.category || '').toLowerCase();
+            const creator = (item.creator || '').toLowerCase();
+            let score = 0;
+
+            // Exact full matches
+            if (name === q)   score += 100;
+            if (cat  === q)   score += 90;
+
+            // Contains full query as substring
+            if (name.includes(q))    score += 40;
+            if (cat.includes(q))     score += 35;
+            if (creator.includes(q)) score += 20;
+
+            // Word-level matches
+            words.forEach(w => {
+                if (name.includes(w))    score += 15;
+                if (cat.includes(w))     score += 12;
+                if (creator.includes(w)) score += 8;
+                // Prefix matches on category words
+                cat.split(/[\s&,]+/).forEach(cw => { if (cw.startsWith(w)) score += 10; });
+            });
+
+            // Fuzzy: partial char overlap for short single words (≤8 chars)
+            if (words.length === 1 && q.length >= 3) {
+                const nameWords = name.split(/\s+/);
+                nameWords.forEach(nw => {
+                    if (nw.startsWith(q.slice(0, 3))) score += 8;
+                });
+            }
+
+            return score;
+        }
+
+        function applySort(items, sortKey, queryForRelevance) {
+            if (sortKey === 'commission') {
+                return [...items].sort((a, b) =>
+                    parseCommissionValue(b.commission) - parseCommissionValue(a.commission));
+            }
+            if (sortKey === 'epc') {
+                return [...items].sort((a, b) =>
+                    calculateEPC(parseCommissionValue(b.commission)) -
+                    calculateEPC(parseCommissionValue(a.commission)));
+            }
+            if (sortKey === 'sales') {
+                return [...items].sort((a, b) => parseSoldValue(b.sold) - parseSoldValue(a.sold));
+            }
+            // relevance: use stored _score, then rank
+            return [...items].sort((a, b) => {
+                const sd = (b._score || 0) - (a._score || 0);
+                if (sd !== 0) return sd;
+                return (a.rank || 999) - (b.rank || 999);
+            });
+        }
+
+        function handleSearch(preserveSort) {
             const query = document.getElementById('main-search').value.trim().toLowerCase();
             const resultsSection = document.getElementById('search-results-container');
-            const resultsGrid = document.getElementById('search-results-grid');
-            const featuredSection = document.getElementById('featured-section');
+            const resultsGrid    = document.getElementById('search-results-grid');
+            const featuredSection  = document.getElementById('featured-section');
             const suggestedSection = document.getElementById('suggested-section');
-            const resultsTitle = document.getElementById('search-results-title');
-            const resultsCount = document.getElementById('results-count');
+            const resultsTitle   = document.getElementById('search-results-title');
+            const resultsCount   = document.getElementById('results-count');
 
-            if (query === "") {
+            hideSuggestions();
+
+            if (query === '') {
                 clearSearch();
                 return;
             }
 
-            let results = [];
+            // Reset sort to relevance on new query unless sorting explicitly
+            if (!preserveSort) currentSort = 'relevance';
+            updateSortUI();
 
-            // Special: High Commission filter
+            let results = [];
+            let titleText = '';
+
+            // High-commission shortcut
             if (query === 'high commission') {
-                results = allItems.filter(item => {
-                    const comm = parseFloat(String(item.commission).split('\n')[0]);
-                    return comm >= 15;
-                }).sort((a,b) => parseFloat(String(b.commission)) - parseFloat(String(a.commission)));
-                resultsTitle.textContent = "🔥 Highest Commission Products";
+                results = allItems.filter(item => parseCommissionValue(item.commission) >= 15);
+                results.forEach(r => { r._score = parseCommissionValue(r.commission); });
+                titleText = '🔥 Highest Commission Campaigns';
             } else {
-                // Search across name, creator, AND category
-                results = allItems.filter(item => 
-                    item.name.toLowerCase().includes(query) || 
-                    item.creator.toLowerCase().includes(query) ||
-                    item.category.toLowerCase().includes(query) ||
-                    // Also match partial category words
-                    item.category.toLowerCase().split(' ').some(w => w.startsWith(query)) ||
-                    item.category.toLowerCase().split('&').some(w => w.trim().startsWith(query))
-                ).sort((a, b) => {
-                    // Prioritize: exact category match > name match > creator match
-                    const aExactCat = a.category.toLowerCase() === query ? 1 : 0;
-                    const bExactCat = b.category.toLowerCase() === query ? 1 : 0;
-                    if (aExactCat !== bExactCat) return bExactCat - aExactCat;
-                    if (a.rank !== b.rank) return a.rank - b.rank;
-                    return parseFloat(String(b.commission)) - parseFloat(String(a.commission));
-                });
-                
-                // Fallback
-                if (results.length === 0) {
-                    results = allItems.filter(item => 
-                        item.category.toLowerCase().split(' ')[0] === query.split(' ')[0] ||
-                        item.rank <= 2
-                    ).slice(0, 48);
-                    resultsTitle.textContent = "No exact matches for '" + query + "'. Try these instead:";
+                // Score every item
+                const scored = allItems.map(item => {
+                    const s = scoreItem(item, query);
+                    return { ...item, _score: s };
+                }).filter(item => item._score > 0);
+
+                if (scored.length > 0) {
+                    results = scored;
+                    titleText = `Results for "${query}"`;
                 } else {
-                    resultsTitle.textContent = "Search Results for '" + query + "'";
+                    // Fuzzy fallback — pick the best-ranked items and surface them
+                    const firstWord = query.split(' ')[0];
+                    const fallback = allItems.filter(item =>
+                        (item.category || '').toLowerCase().split(/[\s&,]+/)[0].startsWith(firstWord) ||
+                        (item.rank || 999) <= 3
+                    ).slice(0, 48);
+                    fallback.forEach(r => { r._score = 0; });
+                    results = fallback;
+                    titleText = `No exact matches for "${query}" — showing top campaigns:`;
                 }
             }
 
-            // Store for Load More
+            results = applySort(results, currentSort, query);
+
             currentSearchResults = results;
             displayedCount = Math.min(RESULTS_PER_PAGE, results.length);
-            
+
+            resultsTitle.textContent = titleText;
             resultsGrid.innerHTML = results.slice(0, displayedCount).map(createProductCard).join('');
-            resultsCount.textContent = `${results.length} products found`;
-            
-            // Show/hide Load More
+            resultsCount.textContent = `${results.length} campaign${results.length !== 1 ? 's' : ''} found`;
+
             const loadMore = document.getElementById('load-more-container');
             loadMore.style.display = results.length > displayedCount ? 'block' : 'none';
-            
-            resultsSection.style.display = 'block';
-            featuredSection.style.display = 'none';
+
+            resultsSection.style.display  = 'block';
+            featuredSection.style.display  = 'none';
             suggestedSection.style.display = 'none';
+            observeAllCards();
+
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function loadMoreResults() {
@@ -1828,32 +2232,166 @@
             const nextBatch = currentSearchResults.slice(displayedCount, displayedCount + RESULTS_PER_PAGE);
             resultsGrid.innerHTML += nextBatch.map(createProductCard).join('');
             displayedCount += nextBatch.length;
-            
-            // Hide button if all shown
             const loadMore = document.getElementById('load-more-container');
             loadMore.style.display = currentSearchResults.length > displayedCount ? 'block' : 'none';
+            observeAllCards();
         }
 
         function clearSearch() {
-            document.getElementById('main-search').value = "";
+            document.getElementById('main-search').value = '';
             document.getElementById('search-results-container').style.display = 'none';
-            document.getElementById('featured-section').style.display = 'block';
+            document.getElementById('featured-section').style.display  = 'block';
             document.getElementById('suggested-section').style.display = 'block';
             document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
+            hideSuggestions();
             currentSearchResults = [];
             displayedCount = 0;
+            currentSort = 'relevance';
+            updateSortUI();
         }
 
-        // Event Listeners
+        function updateSortUI() {
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.sort === currentSort);
+            });
+        }
+
+        // ─── Live Suggestions ─────────────────────────────────────────────────────
+
+        const TRENDING_SEARCHES = [
+            { label: '🔥 High Commission', value: 'high commission' },
+            { label: '💄 Beauty & Care', value: 'Beauty & Personal Care' },
+            { label: '📱 Electronics', value: 'Phones & Electronics' },
+            { label: '💊 Health & Wellness', value: 'Health' },
+            { label: '👗 Fashion', value: 'Womenswear & Underwear' },
+        ];
+
+        function buildSuggestions(query) {
+            const panel = document.getElementById('search-suggestions');
+            if (!panel) return;
+            const q = (query || '').trim().toLowerCase();
+
+            let html = '';
+
+            if (!q) {
+                // Trending
+                html += `<div class="suggestion-section-label">🔍 Trending Searches</div>`;
+                html += TRENDING_SEARCHES.map(t =>
+                    `<div class="suggestion-item" data-value="${t.value}">
+                        <span class="suggestion-icon">🔥</span>
+                        <span class="suggestion-text"><span class="suggestion-name">${t.label}</span></span>
+                    </div>`
+                ).join('');
+            } else {
+                // Category matches
+                const allCats = [...new Set(allItems.map(i => i.category).filter(Boolean))];
+                const matchedCats = allCats.filter(c => c.toLowerCase().includes(q)).slice(0, 3);
+                if (matchedCats.length) {
+                    html += `<div class="suggestion-section-label">📂 Categories</div>`;
+                    html += matchedCats.map(cat =>
+                        `<div class="suggestion-item" data-value="${cat}">
+                            <span class="suggestion-icon">📂</span>
+                            <span class="suggestion-text"><span class="suggestion-name">${highlightMatch(cat, q)}</span></span>
+                        </div>`
+                    ).join('');
+                }
+
+                // Top item matches (up to 5)
+                const topItems = allItems
+                    .map(i => ({ ...i, _score: scoreItem(i, q) }))
+                    .filter(i => i._score > 0)
+                    .sort((a, b) => (b._score - a._score) || (a.rank || 999) - (b.rank || 999))
+                    .slice(0, 5);
+
+                if (topItems.length) {
+                    html += `<div class="suggestion-section-label">🏆 Top Campaigns</div>`;
+                    const catIcons2 = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
+                    html += topItems.map(item => {
+                        const commVal = parseCommissionValue(item.commission).toFixed(0) + '%';
+                        const icon = catIcons2[item.category] || '📦';
+                        return `<div class="suggestion-item" data-value="${escAttr(item.name)}">
+                            <span class="suggestion-icon">${icon}</span>
+                            <span class="suggestion-text">
+                                <span class="suggestion-name">${highlightMatch(item.name, q)}</span>
+                                <span class="suggestion-meta">${item.category || ''}</span>
+                            </span>
+                            <span class="suggestion-commission">${commVal}</span>
+                        </div>`;
+                    }).join('');
+                }
+
+                if (!matchedCats.length && !topItems.length) {
+                    html += `<div class="suggestion-item" style="pointer-events:none; opacity:0.5;">
+                        <span class="suggestion-icon">🔍</span>
+                        <span class="suggestion-text"><span class="suggestion-name">No suggestions — press Enter to search</span></span>
+                    </div>`;
+                }
+            }
+
+            panel.innerHTML = html;
+            panel.querySelectorAll('.suggestion-item[data-value]').forEach(el => {
+                el.addEventListener('mousedown', (e) => {
+                    e.preventDefault();
+                    document.getElementById('main-search').value = el.dataset.value;
+                    hideSuggestions();
+                    handleSearch();
+                });
+            });
+        }
+
+        function highlightMatch(text, query) {
+            if (!query) return text;
+            const idx = text.toLowerCase().indexOf(query.toLowerCase());
+            if (idx === -1) return text;
+            return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
+        }
+
+        function escAttr(str) {
+            return (str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function showSuggestions() {
+            const panel = document.getElementById('search-suggestions');
+            if (panel) panel.classList.add('visible');
+        }
+        function hideSuggestions() {
+            const panel = document.getElementById('search-suggestions');
+            if (panel) panel.classList.remove('visible');
+        }
+
+        // ─── Event Listeners ──────────────────────────────────────────────────────
+
         document.getElementById('search-trigger').addEventListener('click', handleSearch);
         
-        // Live Search (as they type)
+        // Live search: suggestions + debounced results
         let searchTimeout;
-        document.getElementById('main-search').addEventListener('input', (e) => {
+        const searchInput = document.getElementById('main-search');
+
+        searchInput.addEventListener('input', () => {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                handleSearch();
-            }, 300); // 300ms debounce
+            const q = searchInput.value.trim();
+            buildSuggestions(q);
+            showSuggestions();
+            if (q.length === 0) {
+                clearSearch();
+                return;
+            }
+            searchTimeout = setTimeout(() => handleSearch(), 280);
+        });
+
+        searchInput.addEventListener('focus', () => {
+            buildSuggestions(searchInput.value.trim());
+            showSuggestions();
+        });
+
+        searchInput.addEventListener('blur', () => {
+            // Delay so mousedown on suggestion fires first
+            setTimeout(hideSuggestions, 160);
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); hideSuggestions(); handleSearch(); }
+            if (e.key === 'Escape') { hideSuggestions(); }
         });
 
         document.getElementById('main-search').addEventListener('keypress', (e) => {
@@ -1864,6 +2402,25 @@
             clearSearch();
         });
 
+        // Sort buttons
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSort = btn.dataset.sort;
+                updateSortUI();
+                if (currentSearchResults.length) {
+                    const query = document.getElementById('main-search').value.trim().toLowerCase();
+                    const sorted = applySort(currentSearchResults, currentSort, query);
+                    currentSearchResults = sorted;
+                    displayedCount = Math.min(RESULTS_PER_PAGE, sorted.length);
+                    document.getElementById('search-results-grid').innerHTML =
+                        sorted.slice(0, displayedCount).map(createProductCard).join('');
+                    const loadMore = document.getElementById('load-more-container');
+                    loadMore.style.display = sorted.length > displayedCount ? 'block' : 'none';
+                    observeAllCards();
+                }
+            });
+        });
+
         // Quick Tags - support data-cat attribute for category filtering
         document.querySelectorAll('.quick-tag').forEach(tag => {
             tag.addEventListener('click', () => {
@@ -1871,13 +2428,8 @@
                 tag.classList.add('active');
                 const cat = tag.dataset.cat;
                 const chipText = getChipText(tag);
-                if (cat) {
-                    // Category filter: set search to category name
-                    document.getElementById('main-search').value = cat;
-                } else {
-                    // Text-based search (e.g. 'High Commission')
-                    document.getElementById('main-search').value = chipText;
-                }
+                document.getElementById('main-search').value = cat || chipText;
+                hideSuggestions();
                 handleSearch();
             });
         });
@@ -2126,12 +2678,83 @@
             autoTimer = setTimeout(dismiss, 3000);
         }
         // ────────────────────────────────────────────────────────────────────
+        // ─── Motion Layer III: Card scroll-reveal, tilt & micro-delights ───
+
+        let cardRevealObs = null;
+
+        function observeAllCards() {
+            if (!cardRevealObs) return;
+            document.querySelectorAll('.product-card:not(.card-revealed)').forEach(card => {
+                cardRevealObs.observe(card);
+            });
+        }
+
+        function initCardMotion() {
+            // 1. IntersectionObserver: staggered card fade-up on scroll-into-view
+            cardRevealObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const card = entry.target;
+                    const siblings = Array.from(card.parentElement?.children ?? []);
+                    const delay = (siblings.indexOf(card) % 4) * 55;
+                    card.style.animationDelay = `${delay}ms`;
+                    card.classList.add('card-revealed');
+                    cardRevealObs.unobserve(card);
+                });
+            }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+            observeAllCards();
+
+            // 2. Hero carousel card JS tilt (perspective ±4°)
+            document.querySelectorAll('.hero-carousel-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    card.style.transform = `perspective(520px) rotateX(${my * -3.5}deg) rotateY(${mx * 3.5}deg) translateY(-2px) scale(1.015)`;
+                }, { passive: true });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                }, { passive: true });
+            });
+
+            // 3. Search button 3D soft-tilt on hover
+            const searchBtnEl = document.getElementById('search-trigger');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('mousemove', (e) => {
+                    const r = searchBtnEl.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    searchBtnEl.style.transform = `perspective(220px) rotateX(${my * -5}deg) rotateY(${mx * 5}deg) translateY(-2px)`;
+                }, { passive: true });
+                searchBtnEl.addEventListener('mouseleave', () => {
+                    searchBtnEl.style.transform = '';
+                }, { passive: true });
+            }
+        }
+
 
         // Initialize
         initHeroMicroInteractions();
         initHeroTudum();
         initSplashGate();
         loadAllData();
+
+        // ─── Genie intro: plays once per browser session ───
+        (function initGenieIntro() {
+            const overlay = document.getElementById('genie-intro');
+            if (!overlay) return;
+            if (sessionStorage.getItem('genie-shown')) {
+                overlay.remove();
+                return;
+            }
+            sessionStorage.setItem('genie-shown', '1');
+            // Total animation duration is 1.65s, then we fade the overlay out
+            setTimeout(() => {
+                overlay.classList.add('genie-exit');
+                setTimeout(() => overlay.remove(), 580);
+            }, 1700);
+        })();
     </script>
     
     <div id="action-bar" class="sticky-action-bar">
