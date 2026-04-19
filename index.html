@@ -1306,13 +1306,14 @@
 
             const interactionEvents = ['pointerdown', 'click', 'keydown'];
             const playOnInteraction = () => {
-                if (!hasPlayedHeroTudum && !playHeroTudum()) return;
-                interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
+                if (hasPlayedHeroTudum || playHeroTudum()) {
+                    interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
+                }
             };
             if (!playHeroTudum()) {
                 interactionEvents.forEach(evt => {
                     if (evt === 'keydown') {
-                        // Keep keydown non-passive; passive options are primarily for scroll/touch events.
+                        // Keydown doesn't benefit from passive listeners and we may need preventDefault for keyboard UX.
                         window.addEventListener(evt, playOnInteraction);
                     } else {
                         window.addEventListener(evt, playOnInteraction, { passive: true });
