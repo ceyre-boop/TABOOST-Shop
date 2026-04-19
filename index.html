@@ -1289,9 +1289,53 @@
         body.overlay-active {
             overflow: hidden;
         }
+
+        /* ── Entry Splash Gate ──────────────────────────────────────── */
+        .splash-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+            user-select: none;
+        }
+        .splash-gate.splash-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .splash-gate-hint {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            animation: splashPulse 2s ease-in-out infinite;
+        }
+        .splash-gate-hint::before {
+            content: '▶';
+            font-size: 34px;
+            color: #00ff88;
+            opacity: 0.9;
+        }
+        @keyframes splashPulse {
+            0%, 100% { opacity: 0.55; transform: scale(1); }
+            50%       { opacity: 1;    transform: scale(1.05); }
+        }
     </style>
 </head>
 <body>
+    <div id="splash-gate" class="splash-gate" role="button" aria-label="Tap anywhere to enter">
+        <div class="splash-gate-hint">tap anywhere to enter</div>
+    </div>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
@@ -2054,9 +2098,39 @@
         }
         // ────────────────────────────────────────────────────────────────────
 
+        function initSplashGate() {
+            const gate = document.getElementById('splash-gate');
+            if (!gate) return;
+
+            let dismissed = false;
+            let autoTimer = null;
+
+            function dismiss() {
+                if (dismissed) return;
+                dismissed = true;
+                window.removeEventListener('pointerdown', dismiss);
+                window.removeEventListener('keydown', dismiss);
+                clearTimeout(autoTimer);
+                gate.classList.add('splash-out');
+                gate.addEventListener('transitionend', () => gate.remove(), { once: true });
+            }
+
+            // Any tap, click, or keypress counts as the user gesture → lets Tudum play.
+            // initHeroTudum's handlers fire on the same event and call tryPlayHeroTudum().
+            window.addEventListener('pointerdown', dismiss, { passive: true });
+            window.addEventListener('keydown', dismiss);
+
+            // Auto-dismiss after 3 s if the user hasn't interacted yet.
+            // Sound won't play on this programmatic dismiss (no user gesture),
+            // but initHeroTudum's fallback will catch their next real interaction.
+            autoTimer = setTimeout(dismiss, 3000);
+        }
+        // ────────────────────────────────────────────────────────────────────
+
         // Initialize
         initHeroMicroInteractions();
         initHeroTudum();
+        initSplashGate();
         loadAllData();
     </script>
     
