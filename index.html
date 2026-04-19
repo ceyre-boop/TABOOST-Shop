@@ -1276,6 +1276,10 @@
             toneB.connect(gain);
             toneB.start(now + 0.19);
             toneB.stop(now + 0.52);
+
+            window.setTimeout(() => {
+                if (ctx.state !== 'closed') ctx.close().catch(() => {});
+            }, 650);
         }
 
         function initHeroAnimationSound() {
@@ -1284,7 +1288,7 @@
 
             hero.classList.add('hero-animate-in');
 
-            const interactionEvents = ['pointerdown', 'keydown'];
+            const interactionEvents = ['pointerdown', 'click', 'keydown'];
             const playOnInteraction = () => {
                 playHeroTudum();
                 interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
