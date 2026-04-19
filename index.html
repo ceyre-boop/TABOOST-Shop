@@ -1250,6 +1250,46 @@
             overflow: hidden;
         }
 
+        /* ── Entry Splash Gate ──────────────────────────────────────── */
+        .splash-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+            user-select: none;
+        }
+        .splash-gate.splash-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .splash-gate-hint {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            animation: splashPulse 2s ease-in-out infinite;
+        }
+        .splash-gate-hint::before {
+            content: '▶';
+            font-size: 34px;
+            color: #00ff88;
+            opacity: 0.9;
+        }
+        @keyframes splashPulse {
+            0%, 100% { opacity: 0.55; transform: scale(1); }
+            50%       { opacity: 1;    transform: scale(1.05); }
+        }
         /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
 
 
@@ -1510,6 +1550,10 @@
             <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
         </div>
         <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
+    <div id="splash-gate" class="splash-gate" role="button" aria-label="Tap anywhere to enter">
+        <div class="splash-gate-hint">tap anywhere to enter</div>
+
     </div>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
@@ -1854,7 +1898,11 @@
                 heroTitle.style.transform = `scale(${1 - heroScrollProgress * 0.04}) translate(${titleMouseX}px, ${titleMouseY}px)`;
             }
 
-            setTimeout(() => document.body.classList.add('creator-mode-ready'), 120);
+            setTimeout(() => {
+                document.body.classList.add('creator-mode-ready');
+                tryPlayHeroTudum();
+            }, 120);
+
 
             setInterval(() => {
                 heroTagline.classList.add('swapping');
@@ -2460,6 +2508,176 @@
             clearProductSelection();
         };
 
+        // ── Hero boot sound ─────────────────────────────────────────────────
+        // Synthesised Netflix-style "ta-DUM" synced to the hero bootSweep
+        // animation. Works on page load, reload, and first interaction.
+        let _heroSoundPlayed = false;
+
+        async function tryPlayHeroTudum() {
+            if (_heroSoundPlayed) return;
+
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) { _heroSoundPlayed = true; return; }
+
+            const ctx = new AudioCtx();
+
+            // Resume the context (resolves immediately if already running,
+            // or after the browser grants audio permission).
+            try {
+                await ctx.resume();
+            } catch (e) {
+                ctx.close().catch(() => {});
+                return;
+            }
+
+            if (ctx.state !== 'running') {
+                // Still suspended — autoplay blocked, interaction fallback will retry.
+                ctx.close().catch(() => {});
+                return;
+            }
+
+            _heroSoundPlayed = true;
+
+            const now = ctx.currentTime + 0.02;
+
+            // ── Master output ──────────────────────────────────────────────
+            const master = ctx.createGain();
+            master.gain.setValueAtTime(0.85, now);
+            master.connect(ctx.destination);
+
+            // ── Short delay reverb tail ────────────────────────────────────
+            const delayNode = ctx.createDelay(0.6);
+            delayNode.delayTime.setValueAtTime(0.24, now);
+            const fbGain = ctx.createGain();
+            fbGain.gain.setValueAtTime(0.22, now);
+            const reverbMix = ctx.createGain();
+            reverbMix.gain.setValueAtTime(0.30, now);
+            delayNode.connect(fbGain);
+            fbGain.connect(delayNode);
+            delayNode.connect(reverbMix);
+            reverbMix.connect(master);
+
+            // ── First punch: "ta" — short percussive sub-bass hit ──────────
+            const g1 = ctx.createGain();
+            g1.gain.setValueAtTime(0.001, now);
+            g1.gain.linearRampToValueAtTime(0.75, now + 0.008);
+            g1.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            g1.connect(master);
+            g1.connect(delayNode);
+
+            const osc1 = ctx.createOscillator();
+            osc1.type = 'triangle';
+            osc1.frequency.setValueAtTime(160, now);
+            osc1.frequency.exponentialRampToValueAtTime(72, now + 0.22);
+            osc1.connect(g1);
+            osc1.start(now);
+            osc1.stop(now + 0.30);
+
+            // Noise transient — adds the crisp "t" attack click
+            const bufSize = Math.floor(ctx.sampleRate * 0.07);
+            const nBuf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+            const nd = nBuf.getChannelData(0);
+            for (let i = 0; i < bufSize; i++) nd[i] = Math.random() * 2 - 1;
+
+            const nFilt = ctx.createBiquadFilter();
+            nFilt.type = 'bandpass';
+            nFilt.frequency.setValueAtTime(320, now);
+            nFilt.Q.setValueAtTime(1.2, now);
+
+            const nGain = ctx.createGain();
+            nGain.gain.setValueAtTime(0.28, now);
+            nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+            nGain.connect(master);
+
+            const nSrc = ctx.createBufferSource();
+            nSrc.buffer = nBuf;
+            nSrc.connect(nFilt);
+            nFilt.connect(nGain);
+            nSrc.start(now);
+            nSrc.stop(now + 0.07);
+
+            // ── Second punch: "DUM" — the iconic deep resonant note ─────────
+            const t2 = now + 0.16;
+
+            const g2 = ctx.createGain();
+            g2.gain.setValueAtTime(0.001, t2);
+            g2.gain.linearRampToValueAtTime(0.92, t2 + 0.012);
+            g2.gain.exponentialRampToValueAtTime(0.001, t2 + 0.72);
+            g2.connect(master);
+            g2.connect(delayNode);
+
+            const osc2 = ctx.createOscillator();
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(295, t2);
+            osc2.frequency.exponentialRampToValueAtTime(205, t2 + 0.52);
+            osc2.connect(g2);
+            osc2.start(t2);
+            osc2.stop(t2 + 0.76);
+
+            // Sub-octave layer on the "DUM" for deep body
+            const g2b = ctx.createGain();
+            g2b.gain.setValueAtTime(0.001, t2);
+            g2b.gain.linearRampToValueAtTime(0.48, t2 + 0.015);
+            g2b.gain.exponentialRampToValueAtTime(0.001, t2 + 0.58);
+            g2b.connect(master);
+
+            const osc2b = ctx.createOscillator();
+            osc2b.type = 'sine';
+            osc2b.frequency.setValueAtTime(148, t2);
+            osc2b.frequency.exponentialRampToValueAtTime(102, t2 + 0.52);
+            osc2b.connect(g2b);
+            osc2b.start(t2);
+            osc2b.stop(t2 + 0.62);
+
+            setTimeout(() => { if (ctx.state !== 'closed') ctx.close().catch(() => {}); }, 1500);
+        }
+
+        function initHeroTudum() {
+            // Install first-interaction fallback in case autoplay is blocked.
+            const events = ['pointerdown', 'click', 'keydown'];
+            const handler = () => {
+                if (_heroSoundPlayed) {
+                    events.forEach(e => window.removeEventListener(e, handler));
+                    return;
+                }
+                tryPlayHeroTudum().then(() => {
+                    if (_heroSoundPlayed) events.forEach(e => window.removeEventListener(e, handler));
+                });
+            };
+            events.forEach(e => {
+                window.addEventListener(e, handler, e === 'keydown' ? undefined : { passive: true });
+            });
+        }
+        // ────────────────────────────────────────────────────────────────────
+
+        function initSplashGate() {
+            const gate = document.getElementById('splash-gate');
+            if (!gate) return;
+
+            let dismissed = false;
+            let autoTimer = null;
+
+            function dismiss() {
+                if (dismissed) return;
+                dismissed = true;
+                window.removeEventListener('pointerdown', dismiss);
+                window.removeEventListener('keydown', dismiss);
+                clearTimeout(autoTimer);
+                gate.classList.add('splash-out');
+                gate.addEventListener('transitionend', () => gate.remove(), { once: true });
+            }
+
+            // Any tap, click, or keypress counts as the user gesture → lets Tudum play.
+            // initHeroTudum's handlers fire on the same event and call tryPlayHeroTudum().
+            window.addEventListener('pointerdown', dismiss, { passive: true });
+            window.addEventListener('keydown', dismiss);
+
+            // Auto-dismiss after 3 s if the user hasn't interacted yet.
+            // Sound won't play on this programmatic dismiss (no user gesture),
+            // but initHeroTudum's fallback will catch their next real interaction.
+            autoTimer = setTimeout(dismiss, 3000);
+        }
+        // ────────────────────────────────────────────────────────────────────
         // ─── Motion Layer III: Card scroll-reveal, tilt & micro-delights ───
 
         let cardRevealObs = null;
@@ -2515,8 +2733,11 @@
             }
         }
 
+
         // Initialize
         initHeroMicroInteractions();
+        initHeroTudum();
+        initSplashGate();
         loadAllData();
 
         // ─── Genie intro: plays once per browser session ───
