@@ -1288,10 +1288,9 @@
             ['pointerdown', 'keydown', 'touchstart'].forEach(evt => {
                 window.addEventListener(evt, playOnInteraction, { once: true, passive: true });
             });
-
-            window.setTimeout(() => {
+            if (navigator.userActivation && navigator.userActivation.hasBeenActive) {
                 playHeroTudum();
-            }, 120);
+            }
         }
 
         // Initialize
