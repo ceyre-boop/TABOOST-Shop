@@ -150,6 +150,10 @@
             text-align: center;
             padding: 40px 0 40px;
         }
+
+        .hero.hero-animate-in {
+            animation: heroFadeIn 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
         
         .hero h1 {
             font-size: 56px;
@@ -175,6 +179,17 @@
             max-width: 700px;
             margin: 0 auto 30px;
             line-height: 1.6;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.99);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         /* Search Bar */
@@ -1228,7 +1243,73 @@
             clearProductSelection();
         };
 
+        let hasPlayedHeroTudum = false;
+        function playHeroTudum() {
+            if (hasPlayedHeroTudum) return;
+            hasPlayedHeroTudum = true;
+
+            const ENVELOPE_MIN = 0.0001;
+            const ENVELOPE_PEAK = 0.20;
+            const ENVELOPE_ATTACK_SEC = 0.035;
+            const ENVELOPE_RELEASE_SEC = 0.55;
+            const SOUND_CLEANUP_MS = 650;
+
+            const audioContextCtor = window.AudioContext || window.webkitAudioContext;
+            if (!audioContextCtor) return;
+
+            const ctx = new audioContextCtor();
+            if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+
+            const now = ctx.currentTime + 0.02;
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(ENVELOPE_MIN, now);
+            gain.gain.exponentialRampToValueAtTime(ENVELOPE_PEAK, now + ENVELOPE_ATTACK_SEC);
+            gain.gain.exponentialRampToValueAtTime(ENVELOPE_MIN, now + ENVELOPE_RELEASE_SEC);
+            gain.connect(ctx.destination);
+
+            const toneA = ctx.createOscillator();
+            toneA.type = 'triangle';
+            toneA.frequency.setValueAtTime(82, now);
+            toneA.frequency.exponentialRampToValueAtTime(64, now + 0.30);
+            toneA.connect(gain);
+            toneA.start(now);
+            toneA.stop(now + 0.33);
+
+            const toneB = ctx.createOscillator();
+            toneB.type = 'sine';
+            toneB.frequency.setValueAtTime(164, now + 0.19);
+            toneB.frequency.exponentialRampToValueAtTime(126, now + 0.48);
+            toneB.connect(gain);
+            toneB.start(now + 0.19);
+            toneB.stop(now + 0.52);
+
+            window.setTimeout(() => {
+                if (ctx.state !== 'closed') ctx.close().catch(() => {});
+            }, SOUND_CLEANUP_MS);
+        }
+
+        function initHeroAnimationSound() {
+            const hero = document.getElementById('hero-section');
+            if (!hero) return;
+
+            hero.classList.add('hero-animate-in');
+
+            const interactionEvents = ['pointerdown', 'click', 'keydown'];
+            const playOnInteraction = () => {
+                playHeroTudum();
+                interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
+            };
+            interactionEvents.forEach(evt => {
+                window.addEventListener(evt, playOnInteraction, { passive: true });
+            });
+            if (navigator.userActivation && navigator.userActivation.hasBeenActive) {
+                playHeroTudum();
+                interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
+            }
+        }
+
         // Initialize
+        initHeroAnimationSound();
         loadAllData();
     </script>
     
