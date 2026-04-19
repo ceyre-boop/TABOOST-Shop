@@ -1245,7 +1245,7 @@
 
         let hasPlayedHeroTudum = false;
         function playHeroTudum() {
-            if (hasPlayedHeroTudum) return false;
+            if (hasPlayedHeroTudum) return true;
 
             const ENVELOPE_MIN = 0.0001;
             const ENVELOPE_PEAK = 0.20;
@@ -1313,7 +1313,7 @@
             if (!playHeroTudum()) {
                 interactionEvents.forEach(evt => {
                     if (evt === 'keydown') {
-                        // Keydown doesn't benefit from passive listeners and we may need preventDefault for keyboard UX.
+                        // Keep keydown listener default-configured for keyboard-event compatibility.
                         window.addEventListener(evt, playOnInteraction);
                     } else {
                         window.addEventListener(evt, playOnInteraction, { passive: true });
