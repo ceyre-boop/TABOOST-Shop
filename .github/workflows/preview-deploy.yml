@@ -1,0 +1,45 @@
+name: Preview Deploy — hero-preview-deploy
+
+# Triggers on every push to either preview branch.
+# Deploys the site into a subdirectory of the gh-pages branch so the
+# preview is available at a unique URL while the production site
+# (shop.taboost.me, served from main or gh-pages root) is untouched.
+on:
+  push:
+    branches:
+      - hero-preview-deploy
+      - copilot/add-hero-section-animations
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-preview:
+    name: Deploy preview to gh-pages/preview/hero-preview-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      # peaceiris/actions-gh-pages writes the contents of publish_dir into
+      # destination_dir inside the gh-pages branch.
+      # keep_files: true  — preserves all existing files in gh-pages (so
+      #                     production content at the root is never deleted).
+      - name: Publish preview to gh-pages subdirectory
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          destination_dir: preview/hero-preview-deploy
+          keep_files: true
+          # Exclude development-only files from the deployed preview.
+          exclude_assets: >-
+            .github,
+            *.py,
+            *.bat,
+            *.gs,
+            *.workspace,
+            marco-dashboard,
+            scripts,
+            data
