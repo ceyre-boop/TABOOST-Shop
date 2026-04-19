@@ -31,6 +31,11 @@
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
+            transition: background 0.45s ease;
+            --hero-mouse-x: 0px;
+            --hero-mouse-y: 0px;
+            --hero-pulse: 0.1;
+            --scroll-shimmer: 0px;
         }
         
         /* Ambient glow effects */
@@ -149,6 +154,121 @@
         .hero {
             text-align: center;
             padding: 40px 0 40px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            background: radial-gradient(120% 90% at 20% 10%, rgba(255,0,68,0.12), transparent 60%),
+                        radial-gradient(120% 100% at 90% 20%, rgba(0,255,136,0.1), transparent 70%);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+            isolation: isolate;
+        }
+
+        .hero > *:not(.hero-bg-layer):not(.hero-motion-lines):not(.hero-noise):not(.hero-boot-line):not(.hero-ambient-layer):not(.hero-shimmer) {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-ambient-layer,
+        .hero-bg-layer,
+        .hero-motion-lines,
+        .hero-noise,
+        .hero-boot-line,
+        .hero-shimmer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .hero-ambient-layer {
+            opacity: 0.12;
+            filter: blur(10px) saturate(85%);
+            background:
+                radial-gradient(80% 120% at 20% 30%, rgba(255,255,255,0.11), transparent 60%),
+                linear-gradient(120deg, rgba(255,255,255,0.07) 0%, transparent 30%, rgba(255,255,255,0.1) 60%, transparent 100%);
+            animation: videoDrift 18s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        .hero-bg-layer {
+            opacity: 0.55;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .hero-bg-layer.depth-1 {
+            background: radial-gradient(55% 50% at 10% 20%, rgba(255,0,68,0.28), transparent 68%);
+            transform: translate3d(calc(var(--hero-mouse-x) * -0.02), calc(var(--hero-mouse-y) * -0.02), 0);
+            animation: cloudFloat 16s ease-in-out infinite alternate;
+        }
+
+        .hero-bg-layer.depth-2 {
+            background: radial-gradient(50% 45% at 80% 20%, rgba(0,255,136,0.24), transparent 72%);
+            transform: translate3d(calc(var(--hero-mouse-x) * 0.03), calc(var(--hero-mouse-y) * 0.03), 0);
+            animation: cloudFloat 22s ease-in-out infinite alternate-reverse;
+        }
+
+        .hero-noise {
+            z-index: 2;
+            opacity: 0.065;
+            mix-blend-mode: screen;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.35) 0.4px, transparent 0.4px);
+            background-size: 3px 3px, 4px 4px;
+            animation: noiseShift 0.45s steps(3) infinite;
+        }
+
+        .hero-motion-lines {
+            z-index: 1;
+            opacity: 0.28;
+            overflow: hidden;
+        }
+
+        .hero-motion-lines span {
+            position: absolute;
+            width: 1px;
+            height: 170%;
+            top: -35%;
+            transform: rotate(30deg);
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 68, 0.2) 35%, rgba(255, 255, 255, 0.8) 50%, rgba(0, 255, 136, 0.22) 65%, transparent 100%);
+            filter: blur(0.2px);
+            animation: lineDrift 12s linear infinite;
+            opacity: calc(0.22 + var(--hero-pulse));
+        }
+
+        .hero-motion-lines span:nth-child(1) { left: 12%; animation-delay: 0s; }
+        .hero-motion-lines span:nth-child(2) { left: 29%; animation-delay: -2.2s; }
+        .hero-motion-lines span:nth-child(3) { left: 46%; animation-delay: -4.4s; }
+        .hero-motion-lines span:nth-child(4) { left: 64%; animation-delay: -6.6s; }
+        .hero-motion-lines span:nth-child(5) { left: 81%; animation-delay: -8.8s; }
+
+        .hero-boot-line {
+            height: 2px;
+            top: 32%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+            opacity: 0;
+            transform: translateX(-120%);
+            z-index: 5;
+        }
+
+        body.creator-mode-ready .hero-boot-line {
+            animation: bootSweep 0.55s ease-out;
+        }
+
+        .hero-kicker {
+            display: inline-block;
+            background: rgba(255,0,68,0.1);
+            border: 1px solid #ff0044;
+            color: #ff0044;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: heroFlicker 0.55s ease-out;
         }
         
         .hero h1 {
@@ -175,6 +295,23 @@
             max-width: 700px;
             margin: 0 auto 30px;
             line-height: 1.6;
+            min-height: 30px;
+        }
+
+        .hero-tagline {
+            transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        .hero-tagline.swapping {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .hero-shimmer {
+            z-index: 2;
+            background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.06) 50%, transparent 65%);
+            transform: translateX(calc(-60% + var(--scroll-shimmer)));
+            transition: transform 0.2s linear;
         }
 
         /* Search Bar */
@@ -192,13 +329,35 @@
             padding: 8px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .search-wrapper:focus-within {
             border-color: #ff0044;
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 40px rgba(255, 0, 68, 0.2);
+            box-shadow: 0 0 40px rgba(255, 0, 68, 0.2), 0 0 0 2px rgba(255, 0, 68, 0.2), 0 0 35px rgba(255,0,68,0.28);
             transform: scale(1.02);
+            animation: neonPulse 1.4s ease-in-out infinite;
+        }
+
+        .search-sparkle {
+            position: absolute;
+            right: 120px;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            transform: translateY(-50%) scale(0);
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.08), 0 0 18px rgba(255,255,255,0.7);
+            opacity: 0;
+            transition: transform 0.22s ease, opacity 0.22s ease;
+        }
+
+        .search-wrapper.typing .search-sparkle {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
         }
 
         .search-input {
@@ -223,12 +382,15 @@
             padding: 12px 35px;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, letter-spacing 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
         .search-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 0, 68, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 0, 68, 0.4), 0 0 20px rgba(255,0,68,0.45);
+            letter-spacing: 0.5px;
         }
 
         .search-quick-tags {
@@ -247,15 +409,66 @@
             font-size: 13px;
             color: #888;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
             white-space: nowrap;
+            position: relative;
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            opacity: 0;
+            transform: translateY(10px);
         }
+
+        body.creator-mode-ready .quick-tag {
+            animation: chipSlideIn 0.45s ease forwards;
+        }
+
+        body.creator-mode-ready .quick-tag:nth-child(odd) { animation-delay: 0.08s; }
+        body.creator-mode-ready .quick-tag:nth-child(even) { animation-delay: 0.16s; }
 
         .quick-tag:hover, .quick-tag.active {
             background: rgba(255, 0, 68, 0.1);
             border-color: #ff0044;
             color: #fff;
             transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255,0,68,0.18);
+        }
+
+        .quick-tag .chip-icon {
+            display: inline-block;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0.86;
+        }
+
+        .quick-tag:hover .chip-icon,
+        .quick-tag.active .chip-icon {
+            transform: translateY(-1px) scale(1.08);
+            opacity: 1;
+        }
+
+        .quick-tag.clicked {
+            animation: chipBounce 0.32s ease;
+        }
+
+        .quick-tag::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .quick-tag.ripple::after {
+            left: var(--ripple-x, 50%);
+            top: var(--ripple-y, 50%);
+            animation: chipRipple 0.45s ease-out;
         }
 
         .high-commission-badge {
@@ -280,6 +493,111 @@
             background: rgba(255, 0, 68, 0.1);
             border-color: #ff0044;
             color: #fff;
+        }
+
+        .search-quick-tags.sticky {
+            position: sticky;
+            top: 12px;
+            z-index: 40;
+            margin: 14px auto 0;
+            width: fit-content;
+            max-width: 100%;
+            padding: 10px;
+            border-radius: 18px;
+            background: rgba(18,18,26,0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        }
+
+        .hero-carousel {
+            margin: 22px auto 18px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 920px;
+        }
+
+        .hero-carousel-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: left;
+            transform: translateY(16px);
+            opacity: 0;
+            animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+        }
+
+        .hero-carousel-card:nth-child(2) { animation-delay: 0.08s; }
+        .hero-carousel-card:nth-child(3) { animation-delay: 0.16s; }
+
+        .hero-carousel-title {
+            font-size: 11px;
+            color: #bcbcbc;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            margin-bottom: 8px;
+        }
+
+        .hero-carousel-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hero-carousel-metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #9d9d9d;
+        }
+
+        .hero-commission-pill {
+            font-size: 12px;
+            color: #0a130f;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            border-radius: 999px;
+            padding: 4px 10px;
+            box-shadow: 0 0 20px rgba(0,255,136,0.3);
+        }
+
+        .hero-stats-hud {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 245px;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(18,18,30,0.45);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            animation: hudFloat 3s ease-in-out infinite;
+        }
+
+        .hud-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 12px;
+            color: #b6b6b6;
+        }
+
+        .hud-item strong {
+            color: #fff;
+            font-weight: 700;
         }
 
         /* Dashboard/Campaign Sections */
@@ -330,6 +648,53 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
+        .product-card:hover .hero-commission-badge {
+            box-shadow: 0 0 22px rgba(0,255,136,0.35);
+            border-color: rgba(0,255,136,0.38);
+        }
+
+        .product-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,0,68,0.55), rgba(0,255,136,0.35), rgba(255,0,68,0.55));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.22s ease;
+            pointer-events: none;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card::after {
+            content: "Creator Insights";
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.8);
+            background: rgba(11,11,18,0.65);
+            border: 1px solid rgba(255,255,255,0.14);
+            padding: 4px 7px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .product-image {
             width: 100%;
             aspect-ratio: 1;
@@ -356,6 +721,19 @@
             font-size: 11px;
             color: #888;
             margin: 6px 0;
+        }
+
+        .hero-commission-badge {
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #00ff88;
+            line-height: 1;
+            border: 1px solid rgba(0,255,136,0.22);
+            border-radius: 8px;
+            padding: 4px 8px;
+            background: rgba(0,255,136,0.08);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .product-info {
@@ -642,7 +1020,72 @@
             color: #444;
             font-size: 14px;
         }
-        
+
+        @keyframes noiseShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-2px, 2px); }
+        }
+
+        @keyframes cloudFloat {
+            0% { transform: translate3d(calc(var(--hero-mouse-x) * -0.02), calc(var(--hero-mouse-y) * -0.02), 0); }
+            100% { transform: translate3d(calc(var(--hero-mouse-x) * 0.025), calc(var(--hero-mouse-y) * 0.02), 0); }
+        }
+
+        @keyframes lineDrift {
+            0% { transform: translateY(-12%) rotate(30deg); }
+            100% { transform: translateY(12%) rotate(30deg); }
+        }
+
+        @keyframes bootSweep {
+            0% { opacity: 0; transform: translateX(-120%); }
+            20% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(120%); }
+        }
+
+        @keyframes heroFlicker {
+            0% { opacity: 0.3; transform: translateY(-4px); }
+            60% { opacity: 1; }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 0, 68, 0.2), 0 0 0 2px rgba(255, 0, 68, 0.2), 0 0 20px rgba(255,0,68,0.22); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 68, 0.28), 0 0 0 2px rgba(255, 0, 68, 0.24), 0 0 35px rgba(255,0,68,0.35); }
+        }
+
+        @keyframes chipBounce {
+            0% { transform: scale(1); }
+            45% { transform: scale(0.93); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes chipRipple {
+            0% { opacity: 0.65; transform: translate(-50%, -50%) scale(0); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(12); }
+        }
+
+        @keyframes chipSlideIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes cardIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hudFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes videoDrift {
+            0% { transform: scale(1.02) translateX(-1%); }
+            100% { transform: scale(1.05) translateX(1%); }
+        }
+         
         /* Mobile */
         @media (max-width: 768px) {
             header {
@@ -687,6 +1130,23 @@
             .hero h1 {
                 font-size: 26px;
                 white-space: nowrap;
+            }
+
+            .hero-stats-hud {
+                position: static;
+                margin: 0 auto 14px;
+                min-width: 0;
+                width: calc(100% - 24px);
+                max-width: 360px;
+            }
+
+            .hero-carousel {
+                grid-template-columns: 1fr;
+                margin: 14px 10px;
+            }
+
+            .hero-motion-lines {
+                display: none;
             }
 
             .search-container .search-btn {
@@ -851,30 +1311,46 @@
         </header>
 
         <section class="hero" id="hero-section">
-            <div style="display:inline-block; background:rgba(255,0,68,0.1); border:1px solid #ff0044; color:#ff0044; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Built for TikTok Shop Creators</div>
-            <h1><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
-            <p>Access higher commission rates, proven products & exclusive campaigns!</p>
+            <div class="hero-ambient-layer"></div>
+            <div class="hero-bg-layer depth-1"></div>
+            <div class="hero-bg-layer depth-2"></div>
+            <div class="hero-motion-lines" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="hero-noise" aria-hidden="true"></div>
+            <div class="hero-shimmer" aria-hidden="true"></div>
+            <div class="hero-boot-line" aria-hidden="true"></div>
+            <div class="hero-stats-hud" id="hero-stats-hud">
+                <div class="hud-item"><span>Avg Creator EPC Today</span><strong id="hud-epc">$0.00</strong></div>
+                <div class="hud-item"><span>Top Campaign Commission</span><strong id="hud-top-commission">0%</strong></div>
+                <div class="hud-item"><span>New Campaigns Added</span><strong id="hud-new-campaigns">0</strong></div>
+            </div>
+            <div class="hero-kicker">Built for TikTok Shop Creators</div>
+            <h1 id="hero-title"><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
+            <p id="hero-tagline" class="hero-tagline">Access higher commission rates, proven products & exclusive campaigns!</p>
             
             <div class="search-container">
                 <div class="search-wrapper">
-                    <input type="text" class="search-input" id="main-search" placeholder="Search for products, categories, or brands...">
-                    <button class="search-btn" id="search-trigger">Search</button>
+                    <input type="text" class="search-input" id="main-search" placeholder="Search campaigns, not products...">
+                    <span class="search-sparkle" aria-hidden="true"></span>
+                    <button class="search-btn" id="search-trigger">Find Campaigns</button>
                 </div>
                 <div class="search-quick-tags">
-                    <span class="quick-tag" data-cat="Beauty & Personal Care">💄 Beauty</span>
-                    <span class="quick-tag" data-cat="Phones & Electronics">📱 Electronics</span>
-                    <span class="quick-tag" data-cat="Womenswear & Underwear">👗 Fashion</span>
-                    <span class="quick-tag" data-cat="Health">💊 Health</span>
-                    <span class="quick-tag" data-cat="Home Supplies">🏠 Home</span>
-                    <span class="quick-tag" data-cat="Sports & Outdoor">⚽ Sports</span>
-                    <span class="quick-tag" data-cat="Kitchenware">🍳 Kitchen</span>
-                    <span class="quick-tag" data-cat="Pet Supplies">🐾 Pets</span>
-                    <span class="quick-tag">High Commission</span>
-                    <span class="quick-tag" data-cat="Fashion Accessories">💍 Accessories</span>
-                    <span class="quick-tag" data-cat="Food & Beverages">🍔 Food</span>
-                    <span class="quick-tag" data-cat="Toys & Hobbies">🧸 Toys</span>
+                    <span class="quick-tag" data-cat="Beauty & Personal Care"><span class="chip-icon">💄</span><span class="chip-text">Beauty</span></span>
+                    <span class="quick-tag" data-cat="Phones & Electronics"><span class="chip-icon">📱</span><span class="chip-text">Electronics</span></span>
+                    <span class="quick-tag" data-cat="Womenswear & Underwear"><span class="chip-icon">👗</span><span class="chip-text">Fashion</span></span>
+                    <span class="quick-tag" data-cat="Health"><span class="chip-icon">💊</span><span class="chip-text">Health</span></span>
+                    <span class="quick-tag" data-cat="Home Supplies"><span class="chip-icon">🏠</span><span class="chip-text">Home</span></span>
+                    <span class="quick-tag" data-cat="Sports & Outdoor"><span class="chip-icon">⚽</span><span class="chip-text">Sports</span></span>
+                    <span class="quick-tag" data-cat="Kitchenware"><span class="chip-icon">🍳</span><span class="chip-text">Kitchen</span></span>
+                    <span class="quick-tag" data-cat="Pet Supplies"><span class="chip-icon">🐾</span><span class="chip-text">Pets</span></span>
+                    <span class="quick-tag"><span class="chip-icon">⚡</span><span class="chip-text">High Commission</span></span>
+                    <span class="quick-tag" data-cat="Fashion Accessories"><span class="chip-icon">💍</span><span class="chip-text">Accessories</span></span>
+                    <span class="quick-tag" data-cat="Food & Beverages"><span class="chip-icon">🍔</span><span class="chip-text">Food</span></span>
+                    <span class="quick-tag" data-cat="Toys & Hobbies"><span class="chip-icon">🧸</span><span class="chip-text">Toys</span></span>
                 </div>
             </div>
+            <div class="hero-carousel" id="hero-carousel"></div>
         </section>
 
         <!-- Search Results Section (Hidden initially) -->
@@ -927,6 +1403,62 @@
         // Data State
         let allItems = [];
         let campaigns = [];
+        const HERO_TAGLINES = [
+            "Find campaigns that actually pay.",
+            "Higher commissions. Faster wins.",
+            "Products creators are winning with today.",
+            "Stop scrolling. Start earning.",
+            "Your next creator win starts here."
+        ];
+        const HERO_PLACEHOLDERS = [
+            "Search campaigns, not products...",
+            "Find your next viral win...",
+            "What do you want to promote today..."
+        ];
+        let heroTaglineIndex = 0;
+        let heroPlaceholderIndex = 0;
+        const EPC_MULTIPLIER = 0.065;
+        const CVR_BASE = 8; // Base conversion rate percentage.
+        const CVR_COMMISSION_CAP = 25; // Max commission value that contributes to CVR boost.
+        const CVR_DIVISOR = 2; // Scales commission impact into a realistic CVR range.
+        const TAGLINE_ROTATION_INTERVAL = 2800;
+        const PLACEHOLDER_ROTATION_INTERVAL = 3400;
+        const HERO_SCROLL_THRESHOLD = 240;
+        const STICKY_TAGS_THRESHOLD = 0.45;
+
+        function parseCommissionValue(rawCommission) {
+            const firstLine = String(rawCommission || "0%").split('\n')[0];
+            const val = parseFloat(firstLine.replace(/[^\d.]/g, ''));
+            return Number.isFinite(val) ? val : 0;
+        }
+
+        function parseSoldValue(rawSold) {
+            const val = parseFloat(String(rawSold || "0").replace(/[^\d.]/g, ''));
+            return Number.isFinite(val) ? val : 0;
+        }
+
+        function calculateEPC(rawCommission) {
+            return parseCommissionValue(rawCommission) * EPC_MULTIPLIER;
+        }
+
+        function calculateCVR(rawCommission) {
+            return CVR_BASE + Math.min(parseCommissionValue(rawCommission), CVR_COMMISSION_CAP) / CVR_DIVISOR;
+        }
+
+        function getChipText(tag) {
+            return (tag?.querySelector('.chip-text')?.textContent || tag?.textContent || '').trim();
+        }
+
+        function getCategoryTheme(categoryName = '') {
+            const key = categoryName.toLowerCase();
+            if (key.includes('beauty')) return { hero: 'rgba(255,0,120,0.16)', body: '#25101d' };
+            if (key.includes('electronics') || key.includes('phones')) return { hero: 'rgba(0,140,255,0.16)', body: '#0d1b2b' };
+            if (key.includes('fashion')) return { hero: 'rgba(255,80,168,0.16)', body: '#241126' };
+            if (key.includes('health')) return { hero: 'rgba(0,255,136,0.16)', body: '#0f241b' };
+            if (key.includes('home')) return { hero: 'rgba(255,175,50,0.16)', body: '#2a1f12' };
+            if (key.includes('sports')) return { hero: 'rgba(50,230,255,0.15)', body: '#0f2227' };
+            return { hero: 'rgba(255,0,68,0.14)', body: '#12121c' };
+        }
 
         async function loadAllData() {
             try {
@@ -945,6 +1477,8 @@
                 campaigns = [];
             }
             renderInitialGrids();
+            updateHeroCarousel();
+            updateHeroHud();
         }
 
         function getBadgeHtml(rank) {
@@ -988,7 +1522,7 @@
                         <div class="product-name">${item.name}</div>
                         
                         <div style="margin-bottom: 8px;">
-                            <div style="font-size: 22px; font-weight: 800; color: #00ff88; line-height: 1;">${commissionVal}</div>
+                            <div class="hero-commission-badge">${commissionVal}</div>
                             ${comparisonText ? `<div style="font-size: 10px; font-weight: 600; color: ${comparisonCol}; margin-top: 3px;">${comparisonText}</div>` : ''}
                         </div>
 
@@ -1020,6 +1554,155 @@
             // Show total product count
             const totalEl = document.getElementById('results-count');
             if (totalEl) totalEl.textContent = `${allItems.length} products available`;
+        }
+
+        function updateHeroCarousel() {
+            const carousel = document.getElementById('hero-carousel');
+            if (!carousel) return;
+            const source = campaigns.length ? campaigns : allItems;
+            if (!source.length) return;
+
+            const topEarning = [...source].sort((a, b) => parseSoldValue(b.sold) - parseSoldValue(a.sold))[0] || source[0];
+            const highestCommission = [...source].sort((a, b) => parseCommissionValue(b.commission) - parseCommissionValue(a.commission))[0] || source[0];
+            const trending = [...source].sort((a, b) => (a.rank || 99) - (b.rank || 99))[0] || source[0];
+            const cards = [
+                { label: "Top Earning Campaign Today", item: topEarning, metric: `Sold: ${parseSoldValue(topEarning.sold).toLocaleString()}` },
+                { label: "Highest Commission Right Now", item: highestCommission, metric: `EPC: $${calculateEPC(highestCommission.commission).toFixed(2)}` },
+                { label: "Trending Among Creators", item: trending, metric: `CVR: ${calculateCVR(trending.commission).toFixed(1)}%` }
+            ];
+
+            carousel.innerHTML = cards.map(card => `
+                <article class="hero-carousel-card" aria-label="${card.label}: ${card.item.name || 'Campaign'}">
+                    <div class="hero-carousel-title">${card.label}</div>
+                    <div class="hero-carousel-name">${card.item.name || 'Campaign'}</div>
+                    <div class="hero-carousel-metric">
+                        <span>${card.metric}</span>
+                        <span class="hero-commission-pill">${parseCommissionValue(card.item.commission).toFixed(0)}%</span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function updateHeroHud() {
+            const source = campaigns.length ? campaigns : allItems;
+            if (!source.length) return;
+            const avgComm = source.reduce((acc, item) => acc + parseCommissionValue(item.commission), 0) / source.length;
+            const topComm = Math.max(...source.map(item => parseCommissionValue(item.commission)));
+            const newCampaigns = source.filter(item => (item.rank || 999) <= 12).length;
+
+            const epc = calculateEPC(avgComm).toFixed(2);
+            const epcEl = document.getElementById('hud-epc');
+            const topEl = document.getElementById('hud-top-commission');
+            const newEl = document.getElementById('hud-new-campaigns');
+            if (epcEl) epcEl.textContent = `$${epc}`;
+            if (topEl) topEl.textContent = `${topComm.toFixed(0)}%`;
+            if (newEl) newEl.textContent = String(newCampaigns);
+        }
+
+        function applyCategoryTheme(categoryName = '') {
+            const hero = document.getElementById('hero-section');
+            if (!hero) return;
+            const theme = getCategoryTheme(categoryName);
+            hero.style.boxShadow = `0 30px 70px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 50px ${theme.hero}`;
+            document.body.style.background = `linear-gradient(135deg, #0a0a0f 0%, ${theme.body} 55%, #0f0f1a 100%)`;
+        }
+
+        function initHeroMicroInteractions() {
+            const hero = document.getElementById('hero-section');
+            const heroTitle = document.getElementById('hero-title');
+            const heroTagline = document.getElementById('hero-tagline');
+            const searchInput = document.getElementById('main-search');
+            const searchWrapper = document.querySelector('.search-wrapper');
+            const tagsWrap = document.querySelector('.search-quick-tags');
+            if (!hero || !searchInput || !searchWrapper || !tagsWrap) return;
+
+            setTimeout(() => {
+                document.body.classList.add('creator-mode-ready');
+                tryPlayHeroTudum();
+            }, 120);
+
+            setInterval(() => {
+                heroTagline.classList.add('swapping');
+                setTimeout(() => {
+                    heroTaglineIndex = (heroTaglineIndex + 1) % HERO_TAGLINES.length;
+                    heroTagline.textContent = HERO_TAGLINES[heroTaglineIndex];
+                    heroTagline.classList.remove('swapping');
+                }, 180);
+            }, TAGLINE_ROTATION_INTERVAL);
+
+            setInterval(() => {
+                heroPlaceholderIndex = (heroPlaceholderIndex + 1) % HERO_PLACEHOLDERS.length;
+                if (document.activeElement !== searchInput && !searchInput.value.trim()) {
+                    searchInput.setAttribute('placeholder', HERO_PLACEHOLDERS[heroPlaceholderIndex]);
+                }
+            }, PLACEHOLDER_ROTATION_INTERVAL);
+
+            let sparkleTimeout;
+            searchInput.addEventListener('input', () => {
+                if (!searchInput.value.trim()) return;
+                searchWrapper.classList.add('typing');
+                clearTimeout(sparkleTimeout);
+                sparkleTimeout = setTimeout(() => searchWrapper.classList.remove('typing'), 320);
+            });
+
+            let heroRect = hero.getBoundingClientRect();
+            const updateHeroRect = () => {
+                heroRect = hero.getBoundingClientRect();
+            };
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateHeroRect, 100);
+            }, { passive: true });
+
+            hero.addEventListener('mousemove', (e) => {
+                const x = e.clientX - heroRect.left - heroRect.width / 2;
+                const y = e.clientY - heroRect.top - heroRect.height / 2;
+                hero.style.setProperty('--hero-mouse-x', `${x}px`);
+                hero.style.setProperty('--hero-mouse-y', `${y}px`);
+                hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
+            });
+
+            tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
+                let tagRect = null;
+                const updateTagRect = () => {
+                    tagRect = tag.getBoundingClientRect();
+                };
+                tag.addEventListener('mouseenter', updateTagRect);
+                tag.addEventListener('mousemove', (e) => {
+                    if (!tagRect) updateTagRect();
+                    const mx = (e.clientX - tagRect.left - tagRect.width / 2) * 0.12;
+                    const my = (e.clientY - tagRect.top - tagRect.height / 2) * 0.15;
+                    tag.style.transform = `translate(${mx}px, ${my}px)`;
+                });
+                tag.addEventListener('mouseleave', () => {
+                    tag.style.transform = '';
+                    tagRect = null;
+                });
+                tag.addEventListener('click', (e) => {
+                    tag.classList.add('clicked', 'ripple');
+                    tag.style.setProperty('--ripple-x', `${e.offsetX}px`);
+                    tag.style.setProperty('--ripple-y', `${e.offsetY}px`);
+                    setTimeout(() => tag.classList.remove('clicked', 'ripple'), 380);
+                    applyCategoryTheme(tag.dataset.cat || getChipText(tag));
+                });
+            });
+
+            let scrollTicking = false;
+            const onScroll = () => {
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    const progress = Math.min(1, window.scrollY / HERO_SCROLL_THRESHOLD);
+                    if (heroTitle) heroTitle.style.transform = `scale(${1 - progress * 0.06})`;
+                    if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
+                    document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
+                    tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
+                    scrollTicking = false;
+                });
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
         }
 
         // Track current search results for Load More
@@ -1143,12 +1826,13 @@
                 document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
                 tag.classList.add('active');
                 const cat = tag.dataset.cat;
+                const chipText = getChipText(tag);
                 if (cat) {
                     // Category filter: set search to category name
                     document.getElementById('main-search').value = cat;
                 } else {
                     // Text-based search (e.g. 'High Commission')
-                    document.getElementById('main-search').value = tag.textContent.trim();
+                    document.getElementById('main-search').value = chipText;
                 }
                 handleSearch();
             });
@@ -1228,7 +1912,88 @@
             clearProductSelection();
         };
 
+        // ── Hero boot sound ─────────────────────────────────────────────────
+        // Plays a short synthesised bass-drop chord synced to the hero bootSweep
+        // animation. Works on page load, reload, and first interaction.
+        let _heroSoundPlayed = false;
+
+        async function tryPlayHeroTudum() {
+            if (_heroSoundPlayed) return;
+
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) { _heroSoundPlayed = true; return; }
+
+            const ctx = new AudioCtx();
+
+            // Resume the context (resolves immediately if already running,
+            // or after the browser grants audio permission).
+            try {
+                await ctx.resume();
+            } catch (e) {
+                ctx.close().catch(() => {});
+                return;
+            }
+
+            if (ctx.state !== 'running') {
+                // Still suspended — autoplay blocked, interaction fallback will retry.
+                ctx.close().catch(() => {});
+                return;
+            }
+
+            _heroSoundPlayed = true;
+
+            const now  = ctx.currentTime + 0.02;
+            const PEAK = 0.20;
+            const MIN  = 0.0001;
+
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(MIN, now);
+            gain.gain.exponentialRampToValueAtTime(PEAK, now + 0.035);
+            gain.gain.exponentialRampToValueAtTime(MIN, now + 0.55);
+            gain.connect(ctx.destination);
+
+            // Low thud — triangle wave drops from 82 → 64 Hz
+            const toneA = ctx.createOscillator();
+            toneA.type = 'triangle';
+            toneA.frequency.setValueAtTime(82, now);
+            toneA.frequency.exponentialRampToValueAtTime(64, now + 0.30);
+            toneA.connect(gain);
+            toneA.start(now);
+            toneA.stop(now + 0.33);
+
+            // Upper bloom — sine wave follows 0.19 s later
+            const toneB = ctx.createOscillator();
+            toneB.type = 'sine';
+            toneB.frequency.setValueAtTime(164, now + 0.19);
+            toneB.frequency.exponentialRampToValueAtTime(126, now + 0.48);
+            toneB.connect(gain);
+            toneB.start(now + 0.19);
+            toneB.stop(now + 0.52);
+
+            setTimeout(() => { if (ctx.state !== 'closed') ctx.close().catch(() => {}); }, 700);
+        }
+
+        function initHeroTudum() {
+            // Install first-interaction fallback in case autoplay is blocked.
+            const events = ['pointerdown', 'click', 'keydown'];
+            const handler = () => {
+                if (_heroSoundPlayed) {
+                    events.forEach(e => window.removeEventListener(e, handler));
+                    return;
+                }
+                tryPlayHeroTudum().then(() => {
+                    if (_heroSoundPlayed) events.forEach(e => window.removeEventListener(e, handler));
+                });
+            };
+            events.forEach(e => {
+                window.addEventListener(e, handler, e === 'keydown' ? undefined : { passive: true });
+            });
+        }
+        // ────────────────────────────────────────────────────────────────────
+
         // Initialize
+        initHeroMicroInteractions();
+        initHeroTudum();
         loadAllData();
     </script>
     
