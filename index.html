@@ -2509,15 +2509,48 @@
         };
 
         // ── Hero boot sound ─────────────────────────────────────────────────
-        // Synthesised Netflix-style "ta-DUM" synced to the hero bootSweep
-        // animation. Works on page load, reload, and first interaction.
+        // Hero boot sound synced to the bootSweep animation.
+        // Prefers an MP3 file (common project paths), then falls back to synth.
         let _heroSoundPlayed = false;
+        let _heroTudumAudio = null;
+        let _heroTudumAudioCandidateIdx = 0;
+        const HERO_TUDUM_AUDIO_CANDIDATES = [
+            'sounds/hero-tudum.mp3',
+            'sounds/tudum.mp3',
+            'audio/hero-tudum.mp3',
+            'audio/tudum.mp3',
+            'assets/sounds/hero-tudum.mp3',
+            'assets/sounds/tudum.mp3',
+            'assets/audio/hero-tudum.mp3',
+            'assets/hero-tudum.mp3',
+            'hero-tudum.mp3',
+            'tudum.mp3'
+        ];
 
-        async function tryPlayHeroTudum() {
-            if (_heroSoundPlayed) return;
+        async function tryPlayHeroTudumFromFile() {
+            while (_heroTudumAudioCandidateIdx < HERO_TUDUM_AUDIO_CANDIDATES.length) {
+                if (!_heroTudumAudio) {
+                    _heroTudumAudio = new Audio(HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx]);
+                    _heroTudumAudio.preload = 'auto';
+                }
 
+                try {
+                    _heroTudumAudio.currentTime = 0;
+                    await _heroTudumAudio.play();
+                    return true;
+                } catch (err) {
+                    const blockedByAutoplay = err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
+                    if (blockedByAutoplay) return false;
+                    _heroTudumAudio = null;
+                    _heroTudumAudioCandidateIdx += 1;
+                }
+            }
+            return false;
+        }
+
+        async function playSyntheticHeroTudum() {
             const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (!AudioCtx) { _heroSoundPlayed = true; return; }
+            if (!AudioCtx) return false;
 
             const ctx = new AudioCtx();
 
@@ -2527,16 +2560,14 @@
                 await ctx.resume();
             } catch (e) {
                 ctx.close().catch(() => {});
-                return;
+                return false;
             }
 
             if (ctx.state !== 'running') {
                 // Still suspended — autoplay blocked, interaction fallback will retry.
                 ctx.close().catch(() => {});
-                return;
+                return false;
             }
-
-            _heroSoundPlayed = true;
 
             const now = ctx.currentTime + 0.02;
 
@@ -2630,6 +2661,20 @@
             osc2b.stop(t2 + 0.62);
 
             setTimeout(() => { if (ctx.state !== 'closed') ctx.close().catch(() => {}); }, 1500);
+            return true;
+        }
+
+        async function tryPlayHeroTudum() {
+            if (_heroSoundPlayed) return;
+
+            const filePlayed = await tryPlayHeroTudumFromFile();
+            if (filePlayed) {
+                _heroSoundPlayed = true;
+                return;
+            }
+
+            const synthPlayed = await playSyntheticHeroTudum();
+            if (synthPlayed) _heroSoundPlayed = true;
         }
 
         function initHeroTudum() {
