@@ -1245,7 +1245,7 @@
 
         let hasPlayedHeroTudum = false;
         function playHeroTudum() {
-            if (hasPlayedHeroTudum) return true;
+            if (hasPlayedHeroTudum) return false;
 
             const ENVELOPE_MIN = 0.0001;
             const ENVELOPE_PEAK = 0.20;
@@ -1263,6 +1263,7 @@
                 }, SOUND_CLEANUP_MS);
             };
 
+            // Browsers often block audio playback until the page is user-activated.
             if (ctx.state === 'suspended' && !(navigator.userActivation && navigator.userActivation.hasBeenActive)) {
                 cleanupCtx();
                 return false;
@@ -1305,12 +1306,13 @@
 
             const interactionEvents = ['pointerdown', 'click', 'keydown'];
             const playOnInteraction = () => {
-                if (!playHeroTudum()) return;
+                if (!hasPlayedHeroTudum && !playHeroTudum()) return;
                 interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
             };
             if (!playHeroTudum()) {
                 interactionEvents.forEach(evt => {
                     if (evt === 'keydown') {
+                        // Keep keydown non-passive; passive options are primarily for scroll/touch events.
                         window.addEventListener(evt, playOnInteraction);
                     } else {
                         window.addEventListener(evt, playOnInteraction, { passive: true });
