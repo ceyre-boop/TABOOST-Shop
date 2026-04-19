@@ -150,6 +150,10 @@
             text-align: center;
             padding: 40px 0 40px;
         }
+
+        .hero.hero-animate-in {
+            animation: heroFadeIn 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
         
         .hero h1 {
             font-size: 56px;
@@ -175,6 +179,17 @@
             max-width: 700px;
             margin: 0 auto 30px;
             line-height: 1.6;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.99);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         /* Search Bar */
@@ -1228,7 +1243,59 @@
             clearProductSelection();
         };
 
+        let hasPlayedHeroTudum = false;
+        function playHeroTudum() {
+            if (hasPlayedHeroTudum) return;
+            hasPlayedHeroTudum = true;
+
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+
+            const now = ctx.currentTime + 0.02;
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.20, now + 0.035);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+            gain.connect(ctx.destination);
+
+            const toneA = ctx.createOscillator();
+            toneA.type = 'triangle';
+            toneA.frequency.setValueAtTime(82, now);
+            toneA.frequency.exponentialRampToValueAtTime(64, now + 0.30);
+            toneA.connect(gain);
+            toneA.start(now);
+            toneA.stop(now + 0.33);
+
+            const toneB = ctx.createOscillator();
+            toneB.type = 'sine';
+            toneB.frequency.setValueAtTime(164, now + 0.19);
+            toneB.frequency.exponentialRampToValueAtTime(126, now + 0.48);
+            toneB.connect(gain);
+            toneB.start(now + 0.19);
+            toneB.stop(now + 0.52);
+        }
+
+        function initHeroAnimationSound() {
+            const hero = document.getElementById('hero-section');
+            if (!hero) return;
+
+            hero.classList.add('hero-animate-in');
+
+            const playOnInteraction = () => playHeroTudum();
+            ['pointerdown', 'keydown', 'touchstart'].forEach(evt => {
+                window.addEventListener(evt, playOnInteraction, { once: true, passive: true });
+            });
+
+            window.setTimeout(() => {
+                playHeroTudum();
+            }, 120);
+        }
+
         // Initialize
+        initHeroAnimationSound();
         loadAllData();
     </script>
     
