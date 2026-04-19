@@ -1245,8 +1245,7 @@
 
         let hasPlayedHeroTudum = false;
         function playHeroTudum() {
-            if (hasPlayedHeroTudum) return;
-            hasPlayedHeroTudum = true;
+            if (hasPlayedHeroTudum) return true;
 
             const ENVELOPE_MIN = 0.0001;
             const ENVELOPE_PEAK = 0.20;
@@ -1255,9 +1254,19 @@
             const SOUND_CLEANUP_MS = 650;
 
             const audioContextCtor = window.AudioContext || window.webkitAudioContext;
-            if (!audioContextCtor) return;
+            if (!audioContextCtor) return false;
 
             const ctx = new audioContextCtor();
+            const cleanupCtx = () => {
+                window.setTimeout(() => {
+                    if (ctx.state !== 'closed') ctx.close().catch(() => {});
+                }, SOUND_CLEANUP_MS);
+            };
+
+            if (ctx.state === 'suspended' && !(navigator.userActivation && navigator.userActivation.hasBeenActive)) {
+                cleanupCtx();
+                return false;
+            }
             if (ctx.state === 'suspended') ctx.resume().catch(() => {});
 
             const now = ctx.currentTime + 0.02;
@@ -1283,9 +1292,9 @@
             toneB.start(now + 0.19);
             toneB.stop(now + 0.52);
 
-            window.setTimeout(() => {
-                if (ctx.state !== 'closed') ctx.close().catch(() => {});
-            }, SOUND_CLEANUP_MS);
+            hasPlayedHeroTudum = true;
+            cleanupCtx();
+            return true;
         }
 
         function initHeroAnimationSound() {
@@ -1296,14 +1305,14 @@
 
             const interactionEvents = ['pointerdown', 'click', 'keydown'];
             const playOnInteraction = () => {
-                playHeroTudum();
+                if (!playHeroTudum()) return;
                 interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
             };
-            interactionEvents.forEach(evt => {
-                window.addEventListener(evt, playOnInteraction, { passive: true });
-            });
-            if (navigator.userActivation && navigator.userActivation.hasBeenActive) {
-                playHeroTudum();
+            if (!playHeroTudum()) {
+                interactionEvents.forEach(evt => {
+                    window.addEventListener(evt, playOnInteraction);
+                });
+            } else {
                 interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
             }
         }
