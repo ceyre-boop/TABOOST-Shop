@@ -1248,6 +1248,12 @@
             if (hasPlayedHeroTudum) return;
             hasPlayedHeroTudum = true;
 
+            const ENVELOPE_MIN = 0.0001;
+            const ENVELOPE_PEAK = 0.20;
+            const ENVELOPE_ATTACK_SEC = 0.035;
+            const ENVELOPE_RELEASE_SEC = 0.55;
+            const SOUND_CLEANUP_MS = 650;
+
             const audioContextCtor = window.AudioContext || window.webkitAudioContext;
             if (!audioContextCtor) return;
 
@@ -1256,9 +1262,9 @@
 
             const now = ctx.currentTime + 0.02;
             const gain = ctx.createGain();
-            gain.gain.setValueAtTime(0.0001, now);
-            gain.gain.exponentialRampToValueAtTime(0.20, now + 0.035);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+            gain.gain.setValueAtTime(ENVELOPE_MIN, now);
+            gain.gain.exponentialRampToValueAtTime(ENVELOPE_PEAK, now + ENVELOPE_ATTACK_SEC);
+            gain.gain.exponentialRampToValueAtTime(ENVELOPE_MIN, now + ENVELOPE_RELEASE_SEC);
             gain.connect(ctx.destination);
 
             const toneA = ctx.createOscillator();
@@ -1279,7 +1285,7 @@
 
             window.setTimeout(() => {
                 if (ctx.state !== 'closed') ctx.close().catch(() => {});
-            }, 650);
+            }, SOUND_CLEANUP_MS);
         }
 
         function initHeroAnimationSound() {
