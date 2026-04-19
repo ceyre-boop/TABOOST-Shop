@@ -1248,10 +1248,10 @@
             if (hasPlayedHeroTudum) return;
             hasPlayedHeroTudum = true;
 
-            const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            if (!AudioCtx) return;
+            const audioContextCtor = window.AudioContext || window.webkitAudioContext;
+            if (!audioContextCtor) return;
 
-            const ctx = new AudioCtx();
+            const ctx = new audioContextCtor();
             if (ctx.state === 'suspended') ctx.resume().catch(() => {});
 
             const now = ctx.currentTime + 0.02;
@@ -1284,9 +1284,13 @@
 
             hero.classList.add('hero-animate-in');
 
-            const playOnInteraction = () => playHeroTudum();
-            ['pointerdown', 'keydown', 'touchstart'].forEach(evt => {
-                window.addEventListener(evt, playOnInteraction, { once: true, passive: true });
+            const interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
+            const playOnInteraction = () => {
+                playHeroTudum();
+                interactionEvents.forEach(evt => window.removeEventListener(evt, playOnInteraction));
+            };
+            interactionEvents.forEach(evt => {
+                window.addEventListener(evt, playOnInteraction, { passive: true });
             });
             if (navigator.userActivation && navigator.userActivation.hasBeenActive) {
                 playHeroTudum();
