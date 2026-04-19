@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>TABOOST Shop - Login</title>
+    <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff0044;
+            box-shadow: 0 0 30px rgba(255,0,68,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        .tagline {
+            text-align: center;
+            color: #ff0044;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ff0044;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .toggle a {
+            color: #ff0044;
+            text-decoration: none;
+        }
+        .error {
+            background: rgba(255,0,68,0.1);
+            border: 1px solid #ff0044;
+            color: #ff0044;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .success {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            color: #888;
+            margin-top: 10px;
+        }
+        .helper-text {
+            color: #666;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+        .forgot-password a {
+            color: #888;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            color: #ff0044;
+        }
+        .email-display {
+            background: rgba(0,255,136,0.05);
+            border: 1px solid rgba(0,255,136,0.2);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .email-display.visible {
+            display: block;
+        }
+        .email-display label {
+            color: #00ff88;
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+        }
+        .email-display .email-value {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .signup-hint {
+            background: rgba(255,0,68,0.05);
+            border: 1px dashed rgba(255,0,68,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        .signup-hint.visible {
+            display: block;
+        }
+        .signup-hint p {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        .signup-hint a {
+            color: #ff0044;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="images/taboost-genie.jpg" alt="TABOOST" class="logo-img">
+        </div>
+        <p class="tagline">Turn Your Hustle Into a Business</p>
+        <p class="subtitle">Sign in to your Shop account</p>
+        
+        <div class="error" id="error"></div>
+        <div class="success" id="success"></div>
+        
+        <form id="loginForm">
+            <!-- SHOP CREATOR EMAIL -->
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+                <p class="helper-text">Enter the email associated with your Shop account</p>
+            </div>
+            
+            <div class="form-group">
+                <label>Password *</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            
+            <div class="forgot-password">
+                <a href="reset-password.html">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="btn" id="loginBtn">Sign In</button>
+            <div class="loading" id="loginLoading">Looking up your account...</div>
+        </form>
+        
+        <div class="toggle">
+            <span>First time here?</span>
+            <a href="shop-signup.html">Create account</a>
+        </div>
+        
+        <div class="signup-hint" id="signupHint">
+            <p>Don't have an account yet?</p>
+            <a href="shop-signup.html">Sign up here first →</a>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            databaseURL: "https://taboost-platform-default-rtdb.firebaseio.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Clear storage to prevent cached redirects
+        console.log('Clearing all storage...');
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // Clear any URL parameters that might cause redirects
+        if (window.location.search.includes('redirect') || window.location.search.includes('return')) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        
+        // Unregister any service workers
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    console.log('Unregistering service worker:', registration);
+                    registration.unregister();
+                });
+            });
+        }
+
+        function showError(msg) {
+            const el = document.getElementById('error');
+            el.innerHTML = msg;
+            el.style.display = 'block';
+            document.getElementById('success').style.display = 'none';
+        }
+
+        function showSuccess(msg) {
+            const el = document.getElementById('success');
+            el.textContent = msg;
+            el.style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+        }
+
+        function hideMessages() {
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('success').style.display = 'none';
+            document.getElementById('signupHint').classList.remove('visible');
+        }
+
+        // Check if already logged in — redirect to SHOP dashboard
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                redirectToDashboard();
+            }
+        });
+
+        async function redirectToDashboard() {
+            try {
+                const user = auth.currentUser;
+                console.log('Current user:', user?.email);
+                
+                const userDoc = await db.collection('users').doc(user.uid).get();
+                const userData = userDoc.data() || {};
+                console.log('User data:', userData);
+                
+                let role = userData.role || 'creator';
+                if (user.email?.toLowerCase() === 'marco@taboost.me') {
+                    role = 'admin';
+                    console.log('Admin detected via email');
+                }
+                
+                console.log('Role determined:', role);
+                
+                // SHOP LOGIN — always redirect to shop-dashboard
+                let targetPage;
+                if (role === 'admin') {
+                    targetPage = 'dashboard.html';
+                } else {
+                    // All non-admin users go to shop-dashboard
+                    targetPage = 'shop-dashboard.html';
+                }
+                
+                console.log('Redirecting to:', targetPage);
+                window.location.href = targetPage;
+                
+            } catch (error) {
+                console.error('Redirect error:', error);
+                // Default to shop dashboard on error
+                window.location.replace('shop-dashboard.html');
+            }
+        }
+
+        // LOGIN HANDLER
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const password = document.getElementById('password').value;
+            const btn = document.getElementById('loginBtn');
+            const loading = document.getElementById('loginLoading');
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            hideMessages();
+            
+            try {
+                if (!email) {
+                    showError('Please enter your email address.');
+                    btn.disabled = false;
+                    loading.style.display = 'none';
+                    return;
+                }
+                
+                console.log('Signing in with:', email);
+                showSuccess('Signing in...');
+                
+                try {
+                    await auth.signInWithEmailAndPassword(email, password);
+                    // Success! Redirect to shop dashboard handled by onAuthStateChanged
+                    redirectToDashboard();
+                } catch (signInError) {
+                    throw signInError;
+                }
+                
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                let message = 'Unable to sign in. Please try again.';
+                
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                    case 'auth/invalid-credential':
+                        message = 'Email or password is incorrect. <a href="reset-password.html" style="color: #ff0044; text-decoration: underline;">Reset your password</a> or create an account if you haven\'t signed up yet.';
+                        document.getElementById('signupHint').classList.add('visible');
+                        break;
+                    case 'auth/wrong-password':
+                        message = 'Password is incorrect. <a href="reset-password.html" style="color: #ff0044; text-decoration: underline;">Reset your password here</a>.';
+                        break;
+                    case 'auth/invalid-email':
+                        message = 'Please enter a valid email address.';
+                        break;
+                    case 'auth/user-disabled':
+                        message = 'This account has been disabled. Please contact your manager.';
+                        break;
+                    case 'auth/too-many-requests':
+                        message = 'Too many failed login attempts. Please wait a few minutes and try again.';
+                        break;
+                    case 'auth/network-request-failed':
+                        message = 'Network connection issue. Please check your internet and try again.';
+                        break;
+                    default:
+                        if (error.message && error.message.includes('credential')) {
+                            message = 'Login information is incorrect. Please check your email and password.';
+                        }
+                }
+                
+                showError(message);
+                
+                btn.disabled = false;
+                loading.style.display = 'none';
+                btn.textContent = 'Sign In';
+            }
+        });
+
+        function showForgotPassword() {
+            const email = document.getElementById('email').value.trim();
+            if (email) {
+                auth.sendPasswordResetEmail(email)
+                    .then(() => showSuccess('Password reset email sent!'))
+                    .catch(err => showError('Could not send reset email: ' + err.message));
+            } else {
+                showError('Please enter your email address first to reset password');
+                document.getElementById('email').focus();
+            }
+        }
+    </script>
+</body>
+</html>

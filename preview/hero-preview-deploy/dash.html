@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>My Dashboard - Taboost</title>
+    <script>
+    // SECURITY: Authentication Check (runs before anything else)
+    (function checkAuth(){
+      try {
+        const user = JSON.parse(localStorage.getItem('taboost_user') || '{}');
+        const SESSION_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
+        
+        if (!user || (!user.role && !user.username)) {
+          window.location.href = 'index.html';
+          return;
+        }
+        
+        // Check session expiration
+        if (user.loginTime) {
+          const sessionAge = Date.now() - user.loginTime;
+          if (sessionAge > SESSION_DURATION_MS) {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+            return;
+          }
+        }
+      } catch (err) {
+        window.location.href = 'index.html';
+      }
+    })();
+    </script>
+    <link rel="stylesheet" href="css/styles.css?v=20250305">
+    <link rel="stylesheet" href="css/creator-dashboard.css?v=20250305">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* FORCE REMOVE RED BAR - OVERRIDE ALL */
+        .stat-card::before,
+        .stat-card::after {
+            display: none !important;
+            content: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="creator-layout">
+        <!-- Sidebar Logo for Mobile -->
+        <div class="mobile-logo">
+            <img src="images/taboost-logo.jpg" alt="TABOOST">
+        </div>
+        
+        <!-- Header -->
+        <header class="creator-header">
+            <div class="creator-profile">
+                <img src="images/creator-avatar.jpg" alt="Creator" class="creator-avatar-img" id="creatorAvatar">
+                <div class="creator-info">
+                    <h1 id="creatorName">Loading...</h1>
+                    <p><i class="fas fa-clock"></i> <span id="joinDate">--</span></p>
+                    <div class="creator-badges" id="creatorBadges">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="manager-pill" id="managerPill">
+                    <i class="fas fa-user-tie"></i>
+                    <span id="managerName">--</span>
+                </div>
+                <button class="settings-btn" onclick="openSettings()">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Welcome Banner -->
+        <div class="welcome-banner" id="welcomeBanner">
+            <div class="welcome-content">
+                <i class="fas fa-rocket"></i>
+                <div>
+                    <h3 id="welcomeTitle">Welcome back!</h3>
+                    <p id="welcomeMessage">Check out your latest earnings and goals.</p>
+                    <small style="color: #00ff88;">✓ Updated: March 5, 2025</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <div class="stat-header">
+                    <span class="stat-label">This Month's Diamonds</span>
+                </div>
+                <div class="stat-value" id="currentDiamonds">--</div>
+                <div class="stat-usd" id="currentUSD">--</div>
+                <div class="stat-trend" id="diamondTrend">
+                    <span class="trend-indicator">
+                        <i class="fas fa-chart-line"></i> --% vs last month
+                    </span>
+                </div>
+                <div class="stat-footer">
+                    <small class="last-updated">Last updated: <span id="lastUpdatedTime">--</span></small>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">My Rank</span>
+                </div>
+                <div class="rank-display">
+                    <span class="rank-number" id="currentRank">--</span>
+                    <span class="rank-total">of <span id="totalCreators">--</span></span>
+                </div>
+                <div class="rank-progress">
+                    <div class="rank-bar" id="rankBar"></div>
+                </div>
+                <p class="rank-goal" id="rankGoal">-- more to rank up</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Current Rewards Available</span>
+                </div>
+                <div class="stat-value" id="totalRewards" style="color: var(--taboost-success);">--</div>
+                <div class="stat-breakdown" id="rewardsBreakdown">
+                    <span>Total Rewards Earned: --</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NEW: Creator Score & Activity Level -->
+        <div class="section-card score-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star" style="color: #ffd700;"></i> My Creator Score</h2>
+                <span class="score-badge" id="scoreBadge">Score: --</span>
+            </div>
+            
+            <!-- Score Progress Bar -->
+            <div class="score-progress-container">
+                <div class="score-chart-wrapper">
+                    <div class="score-scale-line">
+                        <div class="scale-item" style="left: 0%">
+                            <span class="scale-num">0</span>
+                            <span class="scale-tier tier-agent">AGENT</span>
+                        </div>
+                        <div class="scale-item" style="left: 10%">
+                            <span class="scale-num">10</span>
+                            <span class="scale-tier tier-starters">STARTERS</span>
+                        </div>
+                        <div class="scale-item" style="left: 30%">
+                            <span class="scale-num">30</span>
+                            <span class="scale-tier tier-nextups">NEXT-UPS</span>
+                        </div>
+                        <div class="scale-item" style="left: 50%">
+                            <span class="scale-num">50</span>
+                            <span class="scale-tier tier-stars">STARS</span>
+                        </div>
+                        <div class="scale-item" style="left: 70%">
+                            <span class="scale-num">70</span>
+                            <span class="scale-tier tier-pros">PROS</span>
+                        </div>
+                        <div class="scale-item" style="left: 90%">
+                            <span class="scale-num">90</span>
+                            <span class="scale-tier tier-masters">MASTERS</span>
+                        </div>
+                        <div class="scale-item" style="left: 100%">
+                            <span class="scale-num">100</span>
+                            <span class="scale-tier tier-max">MAX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="score-segmented-bar">
+                    <div class="score-segments" id="scoreSegments"></div>
+                    <!-- Tick marks at tier boundaries -->
+                    <div class="tier-ticks">
+                        <div class="tier-tick" style="left: 0%"></div>
+                        <div class="tier-tick" style="left: 10%"></div>
+                        <div class="tier-tick" style="left: 30%"></div>
+                        <div class="tier-tick" style="left: 50%"></div>
+                        <div class="tier-tick" style="left: 70%"></div>
+                        <div class="tier-tick" style="left: 90%"></div>
+                        <div class="tier-tick" style="left: 100%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Score Breakdown -->
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Activity Level</span>
+                    <strong id="scoreActivity">--</strong>
+                </div>
+                <div class="breakdown-item">
+                    <i class="fas fa-gem"></i>
+                    <span>3-Month Diamonds</span>
+                    <strong id="scoreDiamonds">--</strong>
+                </div>
+                <div class="breakdown-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance Trend</span>
+                    <strong id="scoreTrend">--</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NEW: Activity Level Tracker -->
+        <div class="section-card activity-level-section">
+            <div class="section-header">
+                <h2><i class="fas fa-layer-group" style="color: var(--taboost-red);"></i> My Activity Level</h2>
+                <span class="level-badge" id="currentLevelBadge">Level --</span>
+            </div>
+            
+            <!-- Level Progress -->
+            <div class="level-tracker">
+                <div class="level-step" data-level="0">
+                    <div class="level-icon">0</div>
+                    <div class="level-req">7 Days<br>15 Hours</div>
+                </div>
+                <div class="level-connector"></div>
+                <div class="level-step ${(myData.level || 0) >= 1 ? 'completed' : ''}" data-level="1">
+                    <div class="level-icon">1</div>
+                    <div class="level-req">8 Days<br>20 Hours</div>
+                </div>
+                <div class="level-connector"></div>
+                <div class="level-step ${(myData.level || 0) >= 2 ? 'completed' : ''}" data-level="2">
+                    <div class="level-icon">2</div>
+                    <div class="level-req">11 Days<br>30 Hours</div>
+                </div>
+                <div class="level-connector"></div>
+                <div class="level-step ${(myData.level || 0) >= 3 ? 'completed' : ''}" data-level="3">
+                    <div class="level-icon">3</div>
+                    <div class="level-req">15 Days<br>40 Hours</div>
+                </div>
+                <div class="level-connector"></div>
+                <div class="level-step ${(myData.level || 0) >= 4 ? 'completed' : ''}" data-level="4">
+                    <div class="level-icon">4</div>
+                    <div class="level-req">18 Days<br>60 Hours</div>
+                </div>
+                <div class="level-connector"></div>
+                <div class="level-step ${(myData.level || 0) >= 5 ? 'completed' : ''}" data-level="5">
+                    <div class="level-icon">5</div>
+                    <div class="level-req">22 Days<br>80 Hours</div>
+                </div>
+            </div>
+            
+            <!-- Current Progress -->
+            <div class="current-progress">
+                <div class="progress-stat">
+                    <span class="progress-label">Days Streamed</span>
+                    <span class="progress-value" id="daysStreamed">-- / --</span>
+                    <div class="mini-bar"><div class="mini-fill" id="daysFill"></div></div>
+                </div>
+                <div class="progress-stat">
+                    <span class="progress-label">Hours Streamed</span>
+                    <span class="progress-value" id="hoursStreamedLevel">-- / --</span>
+                    <div class="mini-bar"><div class="mini-fill" id="hoursFillLevel"></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NEW: My 3 Revenue Streams -->
+        <div class="section-card revenue-section">
+            <div class="section-header">
+                <h2><i class="fas fa-coins" style="color: var(--taboost-success);"></i> My Revenue Streams</h2>
+            </div>
+            <div class="revenue-grid">
+                <div class="revenue-item">
+                    <div class="revenue-icon" style="background: rgba(0,212,255,0.1); color: #00d4ff;">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <span class="revenue-name">Diamond Earnings</span>
+                        <span class="revenue-value" id="diamondRevenue">$--</span>
+                    </div>
+                    <span class="revenue-amount" id="diamondCount">-- 💎</span>
+                </div>
+                <div class="revenue-item highlight">
+                    <div class="revenue-icon" style="background: rgba(0,255,136,0.1); color: var(--taboost-success);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="revenue-info">
+                        <span class="revenue-name">Rank Up Bonus</span>
+                        <span class="revenue-value" id="rankRevenue">NEW!</span>
+                    </div>
+                    <span class="revenue-note">Coming soon</span>
+                </div>
+            </div>
+        </div>
+        
+                <!-- Goals Section -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-bullseye" style="color: var(--taboost-red);"></i> My Monthly Goals</h2>
+                <span class="days-remaining" id="daysRemaining">-- days left</span>
+            </div>
+            <div class="goals-grid" id="goalsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Performance Chart -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2>My Performance</h2>
+                <div class="chart-tabs">
+                    <button class="chart-tab active" data-period="history">6 Month History</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="chart-insights" id="chartInsights">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Achievements -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-medal" style="color: #ffd700;"></i> My Achievements</h2>
+                <span class="achievement-count" id="achievementCount">-- unlocked</span>
+            </div>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- History Table -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2>Earnings History</h2>
+            </div>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Diamonds</th>
+                        <th>USD Value</th>
+                        <th>Rewards</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Recent Rewards -->
+        <div class="section-card awards-card">
+            <div class="section-header">
+                <h2><i class="fas fa-trophy" style="color: #ffd700;"></i> Recent Rewards</h2>
+                <span style="color: #00ff88; font-size: 12px;">✓ TEST: March 5, 2025 v2</span>
+            </div>
+            <div class="awards-list" id="awardsList">
+                <!-- Populated by JS - Now showing last 5 rewards only -->
+            </div>
+        </div>
+        
+        <!-- Weekly Live Calendar -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-week" style="color: var(--taboost-red);"></i> Weekly Live Calendar</h2>
+                <span class="calendar-week" id="calendarWeek">--</span>
+            </div>
+            
+            <!-- TABOOST Campaign Banner -->
+            <div class="campaign-banner" id="taboostCampaignBanner">
+                <!-- Populated by JS -->
+            </div>
+            
+            <!-- Weekly Schedule Grid -->
+            <div class="weekly-calendar" id="weeklyCalendar">
+                <!-- Populated by JS -->
+            </div>
+            
+            <!-- TikTok Campaigns -->
+            <div class="tiktok-campaigns">
+                <h4><i class="fab fa-tiktok"></i> TikTok Campaigns</h4>
+                <div id="tiktokCampaignsList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Export Section -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2>Export My Data</h2>
+            </div>
+            <p class="export-desc">Download your earnings reports for tax purposes or personal records.</p>
+            <div class="export-buttons">
+                <button class="export-btn" onclick="exportData('csv')">
+                    <i class="fas fa-file-csv"></i>
+                    <span>Download CSV</span>
+                </button>
+                <button class="export-btn" onclick="exportData('pdf')">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Download PDF</span>
+                </button>
+            </div>
+        </div>
+        
+        <footer class="creator-footer">
+            <p>Questions? Contact <span id="footerManager">your manager</span> or <a href="mailto:support@taboost.me">support@taboost.me</a></p>
+            <p>© 2026 Taboost Agency. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-overlay" onclick="closeSettings()"></div>
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button class="settings-close" onclick="closeSettings()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="settings-content">
+                <!-- Admin Data Source (Admin Only) -->
+                <div class="settings-section" id="adminSection" style="display:none;">
+                    <h3><i class="fas fa-database"></i> Data Source</h3>
+                    <div class="settings-field">
+                        <label>Google Sheets CSV URL</label>
+                        <input type="text" id="settingSheetUrl" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?gid=0&single=true&output=csv">
+                        <p style="color:#666;font-size:0.75rem;margin-top:5px;">Paste the "Publish to web" CSV URL from Google Sheets</p>
+                    </div>
+                    <button class="settings-save-btn" onclick="saveSheetUrl()">Update Data Source</button>
+                </div>
+                
+                <!-- Profile Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-user"></i> Profile Settings</h3>
+                    <div class="settings-field">
+                        <label>Display Name</label>
+                        <input type="text" id="settingDisplayName" placeholder="Your display name">
+                    </div>
+                    <div class="settings-field">
+                        <label>Email</label>
+                        <input type="email" id="settingEmail" placeholder="your@email.com">
+                    </div>
+                    <div class="settings-field">
+                        <label>Role</label>
+                        <input type="text" id="settingRole" value="Creator" readonly>
+                    </div>
+                    <button class="settings-save-btn" onclick="saveProfileSettings()">Save Changes</button>
+                </div>
+                
+                <!-- Notifications -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-bell"></i> Notifications</h3>
+                    <div class="settings-toggle">
+                        <span>Email Notifications</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggleEmail" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-toggle">
+                        <span>Push Notifications</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="togglePush">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-toggle">
+                        <span>Weekly Reports</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggleWeekly" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-toggle">
+                        <span>Alert Sounds</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggleSounds" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Appearance -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-paint-brush"></i> Appearance</h3>
+                    <div class="settings-field">
+                        <label>Theme</label>
+                        <select id="settingTheme">
+                            <option value="dark">Dark (Default)</option>
+                            <option value="light">Light</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="settings-field">
+                        <label>Dashboard Layout</label>
+                        <select id="settingLayout">
+                            <option value="grid">Grid</option>
+                            <option value="list">List</option>
+                        </select>
+                    </div>
+                    <div class="settings-field">
+                        <label>Items Per Page</label>
+                        <select id="settingItemsPerPage">
+                            <option value="25">25</option>
+                            <option value="50" selected>50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Security -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                    <div class="settings-field">
+                        <label>Current Password</label>
+                        <input type="password" id="settingCurrentPassword" placeholder="••••••••">
+                    </div>
+                    <div class="settings-field">
+                        <label>New Password</label>
+                        <input type="password" id="settingNewPassword" placeholder="Enter new password">
+                    </div>
+                    <div class="settings-field">
+                        <label>Confirm Password</label>
+                        <input type="password" id="settingConfirmPassword" placeholder="Confirm new password">
+                    </div>
+                    <button class="settings-save-btn" onclick="updatePassword()">Update Password</button>
+                    
+                    <div class="settings-divider"></div>
+                    
+                    <div class="settings-2fa">
+                        <div class="settings-2fa-info">
+                            <h4><i class="fas fa-lock"></i> Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle2FA" onchange="toggle2FA()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-2fa-setup" id="setup2FA" style="display:none;">
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Scan QR code with authenticator app</p>
+                        </div>
+                        <div class="settings-field">
+                            <label>Verification Code</label>
+                            <input type="text" id="setting2FACode" placeholder="000000" maxlength="6">
+                        </div>
+                        <button class="settings-save-btn" onclick="verify2FA()">Verify & Enable</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/rewards-data.js"></script>
+    <script src="js/events-data.js"></script>
+    <script src="js/weekly-calendar-data.js"></script>
+    <script src="js/sheets-data.js"></script>
+    <script src="js/dashboard.js?v=20250305"></script>
+    <script>
+        // Auth check
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) {
+            window.location.href = 'index.html';
+        } else if (user.role === 'admin') {
+            window.location.href = 'dashboard.html';
+        } else {
+            initCreatorDashboard(user);
+        }
+        
+        function logout() {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+        }
+        
+        function exportData(format) {
+            const creatorName = document.getElementById('creatorName').textContent;
+            alert(`Exporting ${format.toUpperCase()} report for ${creatorName}...`);
+        }
+    </script>
+</body>
+</html>

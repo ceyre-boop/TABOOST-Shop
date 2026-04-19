@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streams - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-magic"></i></div>
+                <div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span><span class="nav-badge">831</span></a>
+                    <a href="diamonds.html" class="nav-item"><i class="fas fa-gem"></i><span>Diamonds</span></a>
+                    <a href="live-streams.html" class="nav-item active"><i class="fas fa-video"></i><span>Live Streams</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Management</div>
+                    <a href="managers.html" class="nav-item"><i class="fas fa-user-tie"></i><span>Managers</span></a>
+                    <a href="rookies.html" class="nav-item"><i class="fas fa-seedling"></i><span>Rookies</span></a>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Reports</div>
+                    <a href="reports.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+                    <a href="alerts.html" class="nav-item"><i class="fas fa-bell"></i><span>Alerts</span><span class="nav-badge">3</span></a>
+                    <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search streams...">
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <div class="user-profile" onclick="logout()">
+                        <div class="user-avatar" id="userAvatar">M</div>
+                        <div class="user-info">
+                            <div class="user-name" id="userName">Marco</div>
+                            <div class="user-role" id="userRole">Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content fade-in">
+                <div style="margin-bottom: 25px;">
+                    <h1 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Live Streams</h1>
+                    <p style="color: #888;">Monitor streaming activity and performance metrics</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-video"></i></div>
+                        <div class="stat-value">12.4K</div>
+                        <div class="stat-label">Total Streams</div>
+                        <span class="stat-change up"><i class="fas fa-arrow-up"></i> 15% this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-value">8.5K</div>
+                        <div class="stat-label">Hours Streamed</div>
+                        <span class="stat-change down"><i class="fas fa-arrow-down"></i> 3% this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="stat-value">18.2</div>
+                        <div class="stat-label">Avg Days/Month</div>
+                        <span class="stat-change up"><i class="fas fa-arrow-up"></i> 5% this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-signal"></i></div>
+                        <div class="stat-value">Live</div>
+                        <div class="stat-label">47 Currently</div>
+                        <span class="stat-change up"><i class="fas fa-arrow-up"></i> 12 now</span>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Streaming Hours Distribution</h3>
+                            <p class="card-subtitle">Hours streamed per creator this month</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="streamsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/app.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) window.location.href = 'index.html';
+        else {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator';
+            document.getElementById('userAvatar').textContent = user.avatar;
+        }
+        function logout() {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            new Chart(document.getElementById('streamsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['0-10h', '10-25h', '25-50h', '50-75h', '75-100h', '100h+'],
+                    datasets: [{
+                        label: 'Number of Creators',
+                        data: [245, 312, 189, 56, 21, 8],
+                        backgroundColor: '#ff0044',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { ticks: { color: '#888' }, grid: { color: '#222' } },
+                        x: { ticks: { color: '#888' }, grid: { display: false } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

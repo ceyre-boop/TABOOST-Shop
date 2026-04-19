@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - Update from CSV</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        .file-input-label {
+            display: block;
+            padding: 40px 20px;
+            background: #0a0a0a;
+            border: 2px dashed #444;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .file-input-label:hover {
+            border-color: #feca57;
+        }
+        .file-input-label.has-file {
+            border-color: #4ade80;
+            background: #0a1a0a;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number { font-size: 28px; font-weight: bold; }
+        .stat-label { color: #888; font-size: 11px; }
+        .new { color: #4ade80; }
+        .update { color: #feca57; }
+        .unchanged { color: #60a5fa; }
+        .remove { color: #f87171; }
+        .log {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .log-entry { margin: 2px 0; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        .warning { color: #fbbf24; }
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .preview-table th, .preview-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .preview-table th {
+            background: #0a0a0a;
+            color: #888;
+        }
+        .action-new { color: #4ade80; }
+        .action-update { color: #feca57; }
+        .action-unchanged { color: #666; }
+        .hidden { display: none; }
+        .toggle-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #0a0a0a;
+            border-radius: 8px;
+        }
+        .toggle-section label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .toggle-section input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #feca57;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 TABOOST CSV Update</h1>
+        <p class="subtitle">Update creator data with latest CSV</p>
+
+        <div class="card">
+            <h3>📁 Select CSV File</h3>
+            <div class="file-input-wrapper">
+                <input type="file" id="csvFile" accept=".csv" onchange="handleFileSelect(event)">
+                <label for="csvFile" class="file-input-label" id="fileLabel">
+                    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                    <div>Click to select CSV file</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="card hidden" id="previewSection">
+            <h3>📊 Preview Changes</h3>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number new" id="newCount">0</div>
+                    <div class="stat-label">New Creators</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number update" id="updateCount">0</div>
+                    <div class="stat-label">To Update</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number unchanged" id="unchangedCount">0</div>
+                    <div class="stat-label">Unchanged</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="totalCount">0</div>
+                    <div class="stat-label">Total in CSV</div>
+                </div>
+            </div>
+
+            <div class="toggle-section">
+                <label>
+                    <input type="checkbox" id="updateManagers" checked>
+                    <span>Update manager assignments</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="updateRanks" checked>
+                    <span>Update rank/level data</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="addNew" checked>
+                    <span>Add new creators from CSV</span>
+                </label>
+            </div>
+
+            <button class="btn" id="updateBtn" onclick="startUpdate()">
+                🚀 APPLY UPDATES
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>📋 Log</h3>
+            <div class="log" id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let csvData = [];
+        let changes = { new: [], update: [], unchanged: [] };
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            document.getElementById('fileLabel').classList.add('has-file');
+            document.getElementById('fileLabel').innerHTML = `
+                <div style="font-size: 48px; margin-bottom: 10px;">✅</div>
+                <div>${file.name}</div>
+                <div style="color: #4ade80; font-size: 12px; margin-top: 5px;">${(file.size / 1024).toFixed(1)} KB</div>
+            `;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                parseCSVContent(e.target.result);
+            };
+            reader.readAsText(file);
+        }
+
+        async function parseCSVContent(content) {
+            log('📊 Parsing CSV file...', 'info');
+            
+            const lines = content.split('\n');
+            csvData = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = parseCSVLine(line);
+                if (cols.length < 3) continue;
+                
+                const cid = cols[1]?.trim();
+                const username = cols[2]?.trim();
+                let manager = cols[8]?.trim() || 'carrington';
+                
+                // Clean manager name
+                if (manager.includes('+')) {
+                    manager = manager.split('+')[0].trim();
+                }
+                if (!manager || manager.toLowerCase() === 'n/a') {
+                    manager = 'carrington';
+                }
+                
+                if (cid && username) {
+                    csvData.push({
+                        cid: cid,
+                        username: username.toLowerCase(),
+                        manager: manager.toLowerCase(),
+                        claimed: username.toLowerCase() === 'skylerclarkk',
+                        raw: cols
+                    });
+                }
+            }
+            
+            log(`✅ Parsed ${csvData.length} creators from CSV`, 'success');
+            await compareWithFirebase();
+        }
+
+        async function compareWithFirebase() {
+            log('🔍 Comparing with Firebase data...', 'info');
+            
+            changes = { new: [], update: [], unchanged: [] };
+            
+            // Get all existing creators from Firebase
+            const snapshot = await db.collection('creatorRoster').get();
+            const existing = {};
+            
+            snapshot.forEach(doc => {
+                existing[doc.id] = doc.data();
+            });
+            
+            log(`📋 Found ${Object.keys(existing).length} creators in Firebase`, 'info');
+            
+            // Compare each CSV entry
+            for (const creator of csvData) {
+                const existingData = existing[creator.username];
+                
+                if (!existingData) {
+                    // New creator
+                    changes.new.push(creator);
+                } else {
+                    // Check if data changed
+                    const managerChanged = existingData.manager?.toLowerCase() !== creator.manager;
+                    const cidChanged = existingData.cid !== creator.cid;
+                    
+                    if (managerChanged || cidChanged) {
+                        changes.update.push({
+                            ...creator,
+                            oldManager: existingData.manager,
+                            changes: []
+                        });
+                        if (managerChanged) changes.update[changes.update.length - 1].changes.push('manager');
+                        if (cidChanged) changes.update[changes.update.length - 1].changes.push('cid');
+                    } else {
+                        changes.unchanged.push(creator);
+                    }
+                }
+            }
+            
+            // Update preview
+            document.getElementById('newCount').textContent = changes.new.length;
+            document.getElementById('updateCount').textContent = changes.update.length;
+            document.getElementById('unchangedCount').textContent = changes.unchanged.length;
+            document.getElementById('totalCount').textContent = csvData.length;
+            
+            document.getElementById('previewSection').classList.remove('hidden');
+            
+            log(`✅ Comparison complete:`, 'success');
+            log(`  - ${changes.new.length} new creators`, 'info');
+            log(`  - ${changes.update.length} to update`, 'info');
+            log(`  - ${changes.unchanged.length} unchanged`, 'info');
+        }
+
+        async function startUpdate() {
+            const updateManagers = document.getElementById('updateManagers').checked;
+            const addNew = document.getElementById('addNew').checked;
+            
+            const btn = document.getElementById('updateBtn');
+            btn.disabled = true;
+            
+            let totalOps = 0;
+            if (addNew) totalOps += changes.new.length;
+            if (updateManagers) totalOps += changes.update.length;
+            
+            log(`🚀 Starting update (${totalOps} operations)...`, 'info');
+            
+            let completed = 0;
+            const BATCH_SIZE = 400;
+            
+            // Add new creators
+            if (addNew && changes.new.length > 0) {
+                log(`📥 Adding ${changes.new.length} new creators...`, 'info');
+                
+                for (let i = 0; i < changes.new.length; i += BATCH_SIZE) {
+                    const batch = db.batch();
+                    const chunk = changes.new.slice(i, i + BATCH_SIZE);
+                    
+                    chunk.forEach(creator => {
+                        const ref = db.collection('creatorRoster').doc(creator.username);
+                        batch.set(ref, {
+                            cid: creator.cid,
+                            tiktokUsername: creator.username,
+                            claimed: creator.claimed,
+                            manager: creator.manager.toUpperCase(),
+                            importedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                    });
+                    
+                    await batch.commit();
+                    completed += chunk.length;
+                    log(`✅ Added ${completed}/${changes.new.length} new creators`, 'success');
+                    
+                    await new Promise(r => setTimeout(r, 300));
+                }
+            }
+            
+            // Update existing creators
+            if (updateManagers && changes.update.length > 0) {
+                log(`🔄 Updating ${changes.update.length} creators...`, 'info');
+                
+                for (let i = 0; i < changes.update.length; i += BATCH_SIZE) {
+                    const batch = db.batch();
+                    const chunk = changes.update.slice(i, i + BATCH_SIZE);
+                    
+                    chunk.forEach(creator => {
+                        const ref = db.collection('creatorRoster').doc(creator.username);
+                        const updateData = {
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        };
+                        
+                        if (creator.changes.includes('manager')) {
+                            updateData.manager = creator.manager.toUpperCase();
+                        }
+                        if (creator.changes.includes('cid')) {
+                            updateData.cid = creator.cid;
+                        }
+                        
+                        batch.update(ref, updateData);
+                    });
+                    
+                    await batch.commit();
+                    completed += chunk.length;
+                    log(`✅ Updated ${completed}/${changes.update.length} creators`, 'success');
+                    
+                    await new Promise(r => setTimeout(r, 300));
+                }
+            }
+            
+            log(`🎉 Update complete!`, 'success');
+            btn.disabled = false;
+            btn.textContent = '✅ UPDATE COMPLETE';
+        }
+
+        log('📋 Ready. Select a CSV file to begin.', 'info');
+    </script>
+</body>
+</html>

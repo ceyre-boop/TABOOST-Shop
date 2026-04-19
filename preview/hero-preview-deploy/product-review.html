@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST — Pending Product Review</title>
+    <!-- Load current live product data to detect what's new -->
+    <script src="js/product-data.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0f;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding: 30px 20px 80px;
+        }
+
+        /* ── Top bar ── */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+        .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+        .notice {
+            background: rgba(255,200,0,0.08);
+            border: 1px solid rgba(255,200,0,0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+        .notice code {
+            background: rgba(0,0,0,0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* ── Summary bar ── */
+        .summary-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+        }
+        .summary-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .summary-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .summary-label { font-size: 0.72rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+        .summary-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.08); }
+        .summary-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ── Buttons ── */
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+        .btn:hover { opacity: 0.85; }
+        .btn-green {
+            background: linear-gradient(135deg, #00cc66, #009944);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            color: #ccc;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+        .btn-copy {
+            background: rgba(0,212,255,0.12);
+            color: #00d4ff;
+            border: 1px solid rgba(0,212,255,0.3);
+        }
+        .btn-copy:hover { background: rgba(0,212,255,0.2); }
+        .btn-copy.copied { color: #00ff88; border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.1); }
+
+        /* ── Filters ── */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .filter-pill {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: #aaa;
+        }
+        .filter-pill.active { background: rgba(255,0,68,0.2); border-color: rgba(255,0,68,0.4); color: #fff; }
+        .filter-search {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 7px 12px;
+            color: #fff;
+            font-size: 0.85rem;
+            font-family: inherit;
+            outline: none;
+            width: 220px;
+        }
+        .filter-search:focus { border-color: rgba(255,0,68,0.4); }
+
+        /* ── Product review card ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+            gap: 18px;
+        }
+        @media (max-width: 640px) { .cards-grid { grid-template-columns: 1fr; } }
+
+        .review-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .review-card.approved {
+            border-color: rgba(0,255,136,0.35);
+            background: rgba(0,255,136,0.03);
+        }
+        .review-card.needs-image {
+            border-color: rgba(255,200,0,0.3);
+        }
+        .review-card.no-link {
+            border-color: rgba(255,60,60,0.35);
+            background: rgba(255,0,0,0.03);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .card-status-icon { font-size: 1.2rem; }
+        .card-header-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .card-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-radius: 5px;
+            padding: 2px 8px;
+        }
+        .tag-new    { background: rgba(255,200,0,0.15); color: #ffd700; }
+        .tag-ok     { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .tag-nolink { background: rgba(255,60,60,0.15); color: #ff6060; }
+        .tag-approved { background: rgba(0,255,136,0.2); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); }
+
+        .card-body {
+            padding: 14px 16px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 14px;
+        }
+
+        /* ── Thumbnail ── */
+        .card-thumb {
+            width: 100px;
+            aspect-ratio: 1;
+            background: #151520;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .card-thumb-status {
+            font-size: 0.65rem;
+            text-align: center;
+            margin-top: 5px;
+            color: #666;
+        }
+        .img-ok   { color: #00ff88 !important; }
+        .img-miss { color: #ffd700 !important; }
+
+        /* ── Field grid ── */
+        .card-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 14px;
+        }
+        .field-group { display: flex; flex-direction: column; gap: 3px; }
+        .field-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #555;
+            font-weight: 700;
+        }
+        .field-value {
+            font-size: 0.85rem;
+            color: #ddd;
+            line-height: 1.3;
+        }
+        .field-value.green { color: #00ff88; font-weight: 700; }
+        .field-value.red   { color: #ff6060; }
+        .field-value.link  { color: #00d4ff; font-size: 0.72rem; word-break: break-all; }
+        .field-full { grid-column: 1 / -1; }
+
+        /* ── Image URL input ── */
+        .image-row {
+            padding: 10px 16px;
+            background: rgba(0,0,0,0.15);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .image-input {
+            flex: 1;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 7px;
+            padding: 8px 11px;
+            color: #fff;
+            font-size: 0.82rem;
+            font-family: inherit;
+            outline: none;
+        }
+        .image-input:focus { border-color: rgba(0,212,255,0.4); }
+        .image-input.has-url { border-color: rgba(0,255,136,0.3); }
+        .image-label {
+            font-size: 0.75rem;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        /* ── Rank selector ── */
+        .rank-select {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 4px 8px;
+            color: #fff;
+            font-size: 0.8rem;
+            font-family: inherit;
+            outline: none;
+            cursor: pointer;
+        }
+        .rank-select option { background: #1a1a2e; }
+
+        /* ── Card footer ── */
+        .card-footer {
+            padding: 10px 16px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .approve-btn {
+            flex: 1;
+            padding: 9px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .approve-btn.unapproved {
+            background: rgba(0,255,136,0.1);
+            color: #00ff88;
+            border: 1px solid rgba(0,255,136,0.25);
+        }
+        .approve-btn.unapproved:hover { background: rgba(0,255,136,0.2); }
+        .approve-btn.approved-state {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+            border: 1px solid rgba(0,255,136,0.4);
+        }
+        .skip-btn {
+            padding: 9px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.05);
+            color: #666;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .skip-btn:hover { background: rgba(255,60,60,0.1); color: #ff6060; border-color: rgba(255,60,60,0.2); }
+        .card-pid {
+            font-size: 0.68rem;
+            color: #444;
+            font-family: monospace;
+        }
+
+        /* ── Export panel ── */
+        .export-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10,10,15,0.95);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 24px;
+            display: none;
+            align-items: center;
+            gap: 16px;
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+        .export-panel.visible { display: flex; }
+        .export-label { font-size: 0.85rem; color: #aaa; }
+        .export-count {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #00ff88;
+        }
+        .export-actions { display: flex; gap: 10px; margin-left: auto; }
+
+        /* ── Empty state ── */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #555;
+        }
+        .empty-state .big-icon { font-size: 3rem; margin-bottom: 12px; }
+        .empty-state h2 { font-size: 1.2rem; color: #666; margin-bottom: 8px; }
+
+        /* ── Loading ── */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-size: 1rem;
+        }
+        .spinner { display: inline-block; animation: spin 1s linear infinite; margin-right: 8px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── CSV output modal ── */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: #111118;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 780px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .modal-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .modal-sub { font-size: 0.82rem; color: #888; }
+        .csv-block {
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.76rem;
+            color: #00d4ff;
+            word-break: break-all;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            flex: 1;
+            line-height: 1.7;
+        }
+        .modal-actions { display: flex; gap: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="logo">TABOOST</div>
+<div class="subtitle">Pending Product Review — Auto-detects new products from Google Sheets sync</div>
+
+<div class="notice">
+    ⚠️ Serve this page over HTTP, not as a file. Run: <code>python3 -m http.server 8080</code>
+    then visit <code>http://localhost:8080/product-review.html</code>
+    — After approving, paste the exported rows into <code>data/shop/tap-products.csv</code>
+    (or confirm they're already there) and run <code>python3 update_discovery_data.py</code>.
+</div>
+
+<!-- Summary bar -->
+<div class="summary-bar" id="summary-bar" style="display:none;">
+    <div class="summary-stat">
+        <div class="summary-num" id="stat-total" style="color:#ffd700;">—</div>
+        <div class="summary-label">Pending</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+        <div class="summary-num" id="stat-has-img" style="color:#00ff88;">—</div>
+        <div class="summary-label">Has Image</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+        <div class="summary-num" id="stat-no-img" style="color:#ffd700;">—</div>
+        <div class="summary-label">Needs Image</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+        <div class="summary-num" id="stat-no-link" style="color:#ff6060;">—</div>
+        <div class="summary-label">No Active Link</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+        <div class="summary-num" id="stat-approved" style="color:#00ff88;">0</div>
+        <div class="summary-label">Approved</div>
+    </div>
+    <div class="summary-actions">
+        <button class="btn btn-green" onclick="approveAll()">✅ Approve All With Links</button>
+        <button class="btn btn-secondary" onclick="reloadData()">🔄 Refresh from CSV</button>
+    </div>
+</div>
+
+<!-- Filter bar -->
+<div class="filter-bar" id="filter-bar" style="display:none;">
+    <input class="filter-search" id="search-input" type="text" placeholder="🔍 Filter by name…"
+           oninput="renderCards()">
+    <button class="filter-pill active" data-filter="all" onclick="setFilter('all', this)">All</button>
+    <button class="filter-pill" data-filter="needs-image" onclick="setFilter('needs-image', this)">⚠️ Needs Image</button>
+    <button class="filter-pill" data-filter="no-link" onclick="setFilter('no-link', this)">🔴 No Link</button>
+    <button class="filter-pill" data-filter="approved" onclick="setFilter('approved', this)">✅ Approved</button>
+    <button class="filter-pill" data-filter="unapproved" onclick="setFilter('unapproved', this)">⏳ Unapproved</button>
+</div>
+
+<!-- Loading indicator -->
+<div class="loading" id="loading">
+    <span class="spinner">⏳</span> Loading product data from CSV files…
+</div>
+
+<!-- Cards -->
+<div class="cards-grid" id="cards-grid"></div>
+
+<!-- Empty state -->
+<div class="empty-state" id="empty-state" style="display:none;">
+    <div class="big-icon">🎉</div>
+    <h2>All caught up!</h2>
+    <p>No pending products found. Every product in tap-products.csv is already live in product-data.js.</p>
+    <p style="margin-top:8px;">If you just ran the sync from Google Sheets, click <strong>Refresh from CSV</strong> to check for new products.</p>
+</div>
+
+<!-- Sticky export panel -->
+<div class="export-panel" id="export-panel">
+    <div>
+        <div class="export-label">Approved rows ready</div>
+        <div class="export-count" id="export-count">0</div>
+    </div>
+    <div class="export-actions">
+        <button class="btn btn-copy" id="export-copy-btn" onclick="openExportModal()">📋 View &amp; Copy All Rows</button>
+    </div>
+</div>
+
+<!-- Export modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+        <div>
+            <div class="modal-title">📄 Approved CSV Rows</div>
+            <div class="modal-sub" id="modal-sub">— rows —</div>
+        </div>
+        <div class="modal-sub" style="background:rgba(255,200,0,0.06);border:1px solid rgba(255,200,0,0.2);border-radius:8px;padding:10px;color:#ffd700;">
+            These rows are already in <code style="background:rgba(0,0,0,0.4);padding:1px 5px;border-radius:3px;font-family:monospace;">tap-products.csv</code> (synced from Google Sheets).
+            Copy them to verify, or use the corrected versions below if you edited any fields.
+            After reviewing, run <code style="background:rgba(0,0,0,0.4);padding:1px 5px;border-radius:3px;font-family:monospace;">python3 update_discovery_data.py</code> to publish.
+        </div>
+        <div class="csv-block" id="csv-block"></div>
+        <div class="modal-actions">
+            <button class="btn btn-copy" id="modal-copy-btn" onclick="copyModal()">📋 Copy to Clipboard</button>
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ─── State ───
+let pendingProducts = [];  // [{pid, name, shop, category, price, comm, rank, sold, cid, link, imageUrl, imageSource, status}]
+let approvedSet = new Set();
+let skippedSet = new Set();
+let imageOverrides = {};   // pid → manual URL
+let rankOverrides = {};    // pid → rank
+let activeFilter = 'all';
+let activeCampaigns = {};  // cid → {link, name, priority}
+let imageCache = {};
+
+// ─── Category Keywords ───
+const CATEGORY_KEYWORDS = {
+    'Beauty & Personal Care': ['mascara','lipstick','lip','foundation','concealer','blush','serum','moisturizer','cream','cleanser','sunscreen','skincare','makeup','beauty','eyeshadow','bronzer','primer','toner','face wash','lotion','scrub','retinol','vitamin c','hyaluronic','collagen','niacinamide','spf','eyeliner','brow','lash','nail','perfume','fragrance','cologne','shampoo','conditioner','hair oil','hair mask','derma','dermaplaning','razor','wax','peel','facial','face mask','eye cream','body wash','deodorant','toothpaste','whitening','self tan','acne','skin','cosmetic','powder','contour','highlighter','setting spray','too faced','tarte','nyx','maybelline','olay','cerave','neutrogena','drunk elephant'],
+    'Health': ['supplement','vitamin','probiotic','protein','collagen peptide','gummy','gummies','capsule','omega','magnesium','zinc','iron','melatonin','sleep','energy','immunity','digest','gut','detox','wellness','health','cbd','hemp','ashwagandha','turmeric','elderberry','electrolyte','hydration','fiber','weight loss','fat burner','biotin','prenatal','postnatal','fertility','blood pressure','cholesterol','chill gummies','unwind','curb'],
+    'Phones & Electronics': ['earbuds','headphone','headset','speaker','charger','cable','usb','bluetooth','wireless','phone case','screen protector','power bank','webcam','camera','microphone','ring light','tripod','drone','smartwatch','watch','fitbit','airpods','tablet','ipad','keyboard','mouse','monitor','hub','adapter','hdmi','gaming','controller','console','vr','jlab','epic','go air','jbuds','anker','belkin','audio','sound','noise cancelling','led','light strip'],
+    'Womenswear & Underwear': ['dress','blouse','skirt','top','legging','jumpsuit','romper','cardigan','sweater','jacket',"women's",'bra','panties','lingerie','shapewear','bodysuit','tank top','cami','maxi','midi','mini','crop top','hoodie','sweatshirt','jogger','pant','jean','shorts','kimono','wrap','tunic','blazer','coat','vest','scrunchie','bikini','swimsuit','swimwear','cover up','pajama','robe','nightgown'],
+    'Sports & Outdoor': ['yoga','fitness','gym','workout','exercise','resistance band','dumbbell','kettlebell','mat','foam roller','jump rope','pull up','camping','tent','sleeping bag','hiking','backpack','water bottle','cooler','grill','fishing','bicycle','bike','scooter','skateboard','surfboard','kayak','paddle','golf','tennis','basketball','football','soccer','baseball','running','sneaker','athletic','sport'],
+    'Home Supplies': ['trash can','organizer','storage','bin','basket','hook','hanger','shelf','rack','holder','dispenser','soap','sponge','cleaner','cleaning','mop','broom','vacuum','duster','air freshener','candle','diffuser','rug','mat','towel','shower','bath','laundry','iron','steamer','dryer','hamper','mirror','clock','decor','vase','frame','pillow','blanket','throw','curtain'],
+    'Kitchenware': ['pot','pan','spatula','knife','cutting board','blender','mixer','toaster','oven','microwave','air fryer','instant pot','slow cooker','coffee','tea','mug','cup','plate','bowl','fork','spoon','tupperware','container','lunch box','bento','straw','utensil','kitchen','baking','whisk','colander','grater','peeler','can opener'],
+    'Furniture': ['chair','table','desk','sofa','couch','bed','mattress','nightstand','dresser','bookshelf','cabinet','ottoman','bench','stool','futon','recliner','loveseat','sectional','folding','patio','outdoor furniture','picnic','camping chair','lounge'],
+    'Fashion Accessories': ['necklace','bracelet','earring','ring','watch band','sunglasses','hat','cap','beanie','scarf','gloves','belt','wallet','purse','handbag','clutch','tote','crossbody','chain','pendant','charm','hair clip','headband','barrette','pin','brooch','anklet','evry jewels','statement'],
+    'Food & Beverages': ['snack','candy','chocolate','cookie','chips','popcorn','jerky','protein bar','granola','cereal','oatmeal','smoothie','juice','soda','drink','water','sparkling','kombucha','matcha','seasoning','spice','sauce','honey','syrup','jam','spread','bundle'],
+    'Automotive & Motorcycle': ['car','vehicle','auto','steering','seat cover','car mount','dash cam','gps','tire','oil','wiper','car wash','detailing','motorcycle','helmet','visor','cup holder','armrest','trunk'],
+    'Household Appliances': ['vacuum cleaner','robot vacuum','humidifier','dehumidifier','air purifier','fan','heater','ac','washer','dryer machine','dishwasher','garbage disposal','water filter','purifier','steam mop','carpet cleaner','electric','appliance','nuderma'],
+    'Toys & Hobbies': ['toy','puzzle','lego','game','board game','card game','figure','doll','plush','stuffed','rc','remote control','craft','art','paint','draw','color','sticker','stamp'],
+    'Pet Supplies': ['dog','cat','pet','leash','collar','harness','bed','bowl','feeder','treat','chew','toy','crate','kennel','litter','fish','aquarium','bird','hamster','rabbit'],
+    'Luggage & Bags': ['suitcase','luggage','carry on','travel bag','duffel','weekender','toiletry bag','packing cube','backpack','travel case','garment bag']
+};
+const CAT_ICONS = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
+
+function inferCategory(name, shop) {
+    const text = (name + ' ' + shop).toLowerCase();
+    let best = 'Other', bestScore = 0;
+    for (const [cat, kws] of Object.entries(CATEGORY_KEYWORDS)) {
+        let score = 0;
+        for (const kw of kws) { if (text.includes(kw)) score += kw.length; }
+        if (score > bestScore) { bestScore = score; best = cat; }
+    }
+    return best;
+}
+
+// ─── CSV parsing ───
+function splitCSVLine(line) {
+    const result = [];
+    let cur = '', inQuote = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') { inQuote = !inQuote; }
+        else if (ch === ',' && !inQuote) { result.push(cur); cur = ''; }
+        else { cur += ch; }
+    }
+    result.push(cur);
+    return result;
+}
+
+function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return [];
+    const headers = splitCSVLine(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
+    return lines.slice(1)
+        .filter(l => l.trim())
+        .map(l => {
+            const cols = splitCSVLine(l);
+            const obj = {};
+            headers.forEach((h, i) => { obj[h] = (cols[i] || '').trim().replace(/^"|"$/g, ''); });
+            return obj;
+        });
+}
+
+// ─── Date parsing ───
+function parseSheetDate(raw) {
+    const value = (raw || '').trim();
+    if (!value) return null;
+    const formats = [
+        (v) => { const m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/); return m ? new Date(m[3], m[1]-1, m[2]) : null; },
+        (v) => { const m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/); return m ? new Date(2000+parseInt(m[3]), m[1]-1, m[2]) : null; },
+        (v) => { const d = new Date(v.split(/[ T]/)[0]); return isNaN(d) ? null : d; }
+    ];
+    for (const fn of formats) {
+        const d = fn(value);
+        if (d && !isNaN(d)) return d;
+    }
+    return null;
+}
+
+// ─── Init ───
+async function init() {
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('empty-state').style.display = 'none';
+
+    try {
+        // Load all data in parallel
+        const [linksResp, productsResp, imagesResp] = await Promise.allSettled([
+            fetch('data/shop/tap-links.csv'),
+            fetch('data/shop/tap-products.csv'),
+            fetch('data/shop/product-images.json')
+        ]);
+
+        // Parse links
+        if (linksResp.status === 'fulfilled' && linksResp.value.ok) {
+            const text = await linksResp.value.text();
+            parseCampaignLinks(text);
+        }
+
+        // Parse image cache
+        if (imagesResp.status === 'fulfilled' && imagesResp.value.ok) {
+            imageCache = await imagesResp.value.json();
+        }
+
+        // Parse products and find new ones
+        if (productsResp.status === 'fulfilled' && productsResp.value.ok) {
+            const text = await productsResp.value.text();
+            findPendingProducts(text);
+        } else {
+            throw new Error('Could not load tap-products.csv — serve this page over HTTP');
+        }
+    } catch (e) {
+        document.getElementById('loading').textContent = '❌ Error: ' + e.message;
+        return;
+    }
+
+    document.getElementById('loading').style.display = 'none';
+
+    if (pendingProducts.length === 0) {
+        document.getElementById('empty-state').style.display = 'block';
+    } else {
+        document.getElementById('summary-bar').style.display = 'flex';
+        document.getElementById('filter-bar').style.display = 'flex';
+        updateSummary();
+        renderCards();
+    }
+}
+
+function parseCampaignLinks(csvText) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const rows = parseCSV(csvText);
+    activeCampaigns = {};
+    for (const row of rows) {
+        const cid = row['CAMPAIGN ID'] || '';
+        if (!cid) continue;
+        const endDate = parseSheetDate(row['End Date'] || '');
+        if (endDate && endDate < today) continue;
+        let link = (row['Link'] || '').trim();
+        if (link.startsWith('https://www.tiktok.com/@https://')) {
+            link = 'https://' + link.split('https://www.tiktok.com/@https://')[1];
+        }
+        if (link && link.startsWith('http')) {
+            activeCampaigns[cid] = {
+                link,
+                name: row['Name'] || cid,
+                priority: row['PRIORITY'] || ''
+            };
+        }
+    }
+}
+
+function findPendingProducts(csvText) {
+    // Build lookup of existing product IDs
+    const existingIds = new Set((window.PRODUCT_DATA || []).map(p => p.id));
+
+    const rows = parseCSV(csvText);
+    pendingProducts = [];
+
+    for (const row of rows) {
+        const pid = row['Product ID'] || '';
+        if (!pid) continue;
+
+        // Only show products NOT yet in the live product-data.js
+        if (existingIds.has(pid)) continue;
+
+        const name = row['Product Name'] || '';
+        const shop = row['Shop Name'] || '';
+        const cid = row['Campaign ID'] || '';
+        const campaignInfo = activeCampaigns[cid];
+        const link = campaignInfo ? campaignInfo.link : null;
+
+        // Category
+        let category = row['Category'] || '';
+        if (!category || category === '~~~') category = inferCategory(name, shop);
+
+        // Image
+        const imageUrl = imageCache[pid] || '';
+        const imageSource = imageUrl ? 'cache' : 'none';
+
+        // Price formatting
+        let price = row['Sale Price'] || '';
+        if (price && !price.startsWith('$')) price = '$' + price;
+
+        pendingProducts.push({
+            pid,
+            name,
+            shop,
+            category,
+            price,
+            comm: row['Total Commission Rate'] || row['%'] || '',
+            adPct: row['Ad %'] || '',
+            rank: parseInt(row['Rank']) || 4,
+            sold: row['Items Sold'] || '0',
+            rating: row['Rating'] || '',
+            samples: row['Available Samples'] || '',
+            cid,
+            campaignName: row['Campaign Name'] || (campaignInfo ? campaignInfo.name : ''),
+            link,
+            imageUrl,
+            imageSource,
+            csvRow: row  // keep original for reference
+        });
+    }
+
+    // Sort: no-link last, needs-image next, has-everything first
+    pendingProducts.sort((a, b) => {
+        const scoreA = (a.link ? 2 : 0) + (a.imageUrl ? 1 : 0);
+        const scoreB = (b.link ? 2 : 0) + (b.imageUrl ? 1 : 0);
+        return scoreB - scoreA;
+    });
+}
+
+// ─── Rendering ───
+function setFilter(filter, el) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    renderCards();
+}
+
+function renderCards() {
+    const query = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
+    const grid = document.getElementById('cards-grid');
+
+    const visible = pendingProducts.filter((p, i) => {
+        if (skippedSet.has(p.pid)) return false;
+        if (query && !p.name.toLowerCase().includes(query) && !p.shop.toLowerCase().includes(query)) return false;
+        if (activeFilter === 'needs-image') return !getImage(p);
+        if (activeFilter === 'no-link') return !p.link;
+        if (activeFilter === 'approved') return approvedSet.has(p.pid);
+        if (activeFilter === 'unapproved') return !approvedSet.has(p.pid);
+        return true;
+    });
+
+    if (visible.length === 0) {
+        grid.innerHTML = '<div class="empty-state" style="display:block;"><div class="big-icon">🔍</div><h2>No products match this filter.</h2></div>';
+        return;
+    }
+
+    grid.innerHTML = visible.map((p, i) => buildCard(p)).join('');
+}
+
+function getImage(p) {
+    return imageOverrides[p.pid] || p.imageUrl || '';
+}
+
+function buildCard(p) {
+    const isApproved = approvedSet.has(p.pid);
+    const imgUrl = getImage(p);
+    const imgSrc = imageOverrides[p.pid] ? 'manual' : p.imageSource;
+    const icon = CAT_ICONS[p.category] || '📦';
+    const rank = rankOverrides[p.pid] ?? p.rank;
+
+    // Status
+    let cardClass = 'review-card';
+    let statusIcon = '📋';
+    let tagHtml = '';
+    if (isApproved) {
+        cardClass += ' approved';
+        statusIcon = '✅';
+        tagHtml = '<span class="card-tag tag-approved">Approved</span>';
+    } else if (!p.link) {
+        cardClass += ' no-link';
+        statusIcon = '🔴';
+        tagHtml = '<span class="card-tag tag-nolink">No Active Link</span>';
+    } else if (!imgUrl) {
+        cardClass += ' needs-image';
+        statusIcon = '⚠️';
+        tagHtml = '<span class="card-tag tag-new">Needs Image</span>';
+    } else {
+        tagHtml = '<span class="card-tag tag-ok">Ready</span>';
+    }
+
+    const imgHtml = imgUrl
+        ? `<img src="${escapeHtml(imgUrl)}" alt="${escapeHtml(p.name)}" onerror="this.parentElement.innerHTML='${icon}'">`
+        : icon;
+
+    const imgStatusClass = imgUrl ? 'img-ok' : 'img-miss';
+    const imgStatusText = imgSrc === 'cache' ? '✅ Cached' : imgSrc === 'manual' ? '✏️ Manual' : '⚠️ Missing';
+
+    const rankOptions = [1,2,3,4,5].map(r =>
+        `<option value="${r}" ${r === rank ? 'selected' : ''}>${r}${r===1?' 🏆':r===2?' ⭐':r===3?' 💎':''}</option>`
+    ).join('');
+
+    const linkHtml = p.link
+        ? `<a href="${escapeHtml(p.link)}" target="_blank" class="field-value link">${escapeHtml(p.link)}</a>`
+        : '<span class="field-value red">No active campaign link — update campaign in Google Sheets</span>';
+
+    const commDisplay = p.comm ? (p.comm.includes('%') ? p.comm : p.comm + '%') : '—';
+
+    return `
+    <div class="${cardClass}" id="card-${escapeId(p.pid)}">
+        <div class="card-header">
+            <span class="card-status-icon">${statusIcon}</span>
+            <span class="card-header-name" title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</span>
+            ${tagHtml}
+        </div>
+        <div class="card-body">
+            <div>
+                <div class="card-thumb" id="thumb-${escapeId(p.pid)}">${imgHtml}</div>
+                <div class="card-thumb-status ${imgStatusClass}">${imgStatusText}</div>
+            </div>
+            <div class="card-fields">
+                <div class="field-group">
+                    <div class="field-label">Shop / Brand</div>
+                    <div class="field-value">${escapeHtml(p.shop) || '—'}</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Category</div>
+                    <div class="field-value">${escapeHtml(p.category)}</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Price</div>
+                    <div class="field-value">${escapeHtml(p.price) || '—'}</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Commission</div>
+                    <div class="field-value green">${escapeHtml(commDisplay)}</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Items Sold</div>
+                    <div class="field-value">🔥 ${escapeHtml(p.sold)}</div>
+                </div>
+                <div class="field-group">
+                    <div class="field-label">Rank / Badge</div>
+                    <select class="rank-select" onchange="setRankOverride('${escapeId(p.pid)}', this.value)">
+                        ${rankOptions}
+                    </select>
+                </div>
+                <div class="field-group field-full">
+                    <div class="field-label">Campaign: ${escapeHtml(p.cid)} ${p.campaignName ? '— ' + escapeHtml(p.campaignName) : ''}</div>
+                    ${linkHtml}
+                </div>
+            </div>
+        </div>
+        <div class="image-row">
+            <span class="image-label">🖼️ Image URL:</span>
+            <input class="image-input ${imgUrl ? 'has-url' : ''}" type="text"
+                   id="img-input-${escapeId(p.pid)}"
+                   placeholder="Paste TikTok CDN image URL…"
+                   value="${escapeHtml(imageOverrides[p.pid] || '')}"
+                   oninput="setImageOverride('${escapeId(p.pid)}', this.value)">
+        </div>
+        <div class="card-footer">
+            <button class="approve-btn ${isApproved ? 'approved-state' : 'unapproved'}"
+                    onclick="toggleApprove('${escapeId(p.pid)}')">
+                ${isApproved ? '✅ Approved — click to undo' : (p.link ? '✅ Approve' : '⚠️ Approve anyway')}
+            </button>
+            <button class="skip-btn" onclick="skipProduct('${escapeId(p.pid)}')">Skip</button>
+            <span class="card-pid">${p.pid.slice(0, 12)}…</span>
+        </div>
+    </div>`;
+}
+
+function escapeHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function escapeId(str) {
+    return String(str || '').replace(/[^a-z0-9]/gi, '_');
+}
+
+// ─── Actions ───
+function setImageOverride(escapedPid, url) {
+    // Find real pid from escaped id
+    const p = pendingProducts.find(x => escapeId(x.pid) === escapedPid);
+    if (!p) return;
+    if (url.trim()) {
+        imageOverrides[p.pid] = url.trim();
+    } else {
+        delete imageOverrides[p.pid];
+    }
+    // Update thumbnail immediately
+    const thumb = document.getElementById(`thumb-${escapedPid}`);
+    const imgUrl = getImage(p);
+    const icon = CAT_ICONS[p.category] || '📦';
+    if (thumb) {
+        thumb.innerHTML = imgUrl
+            ? `<img src="${escapeHtml(imgUrl)}" alt="${escapeHtml(p.name)}" onerror="this.parentElement.innerHTML='${icon}'">`
+            : icon;
+    }
+    // Update status text
+    const statusEl = thumb?.nextElementSibling;
+    if (statusEl) {
+        statusEl.textContent = imgUrl ? (imageOverrides[p.pid] ? '✏️ Manual' : '✅ Cached') : '⚠️ Missing';
+        statusEl.className = 'card-thumb-status ' + (imgUrl ? 'img-ok' : 'img-miss');
+    }
+    // Update input styling
+    const input = document.getElementById(`img-input-${escapedPid}`);
+    if (input) input.className = 'image-input ' + (imgUrl ? 'has-url' : '');
+    updateSummary();
+}
+
+function setRankOverride(escapedPid, val) {
+    const p = pendingProducts.find(x => escapeId(x.pid) === escapedPid);
+    if (p) rankOverrides[p.pid] = parseInt(val) || 4;
+}
+
+function toggleApprove(escapedPid) {
+    const p = pendingProducts.find(x => escapeId(x.pid) === escapedPid);
+    if (!p) return;
+    if (approvedSet.has(p.pid)) {
+        approvedSet.delete(p.pid);
+    } else {
+        approvedSet.add(p.pid);
+    }
+    updateSummary();
+    // Re-render just this card
+    const card = document.getElementById(`card-${escapedPid}`);
+    if (card) card.outerHTML = buildCard(p);
+}
+
+function skipProduct(escapedPid) {
+    const p = pendingProducts.find(x => escapeId(x.pid) === escapedPid);
+    if (!p) return;
+    skippedSet.add(p.pid);
+    approvedSet.delete(p.pid);
+    const card = document.getElementById(`card-${escapedPid}`);
+    if (card) card.remove();
+    updateSummary();
+}
+
+function approveAll() {
+    for (const p of pendingProducts) {
+        if (p.link && !skippedSet.has(p.pid)) {
+            approvedSet.add(p.pid);
+        }
+    }
+    updateSummary();
+    renderCards();
+}
+
+function updateSummary() {
+    const total = pendingProducts.filter(p => !skippedSet.has(p.pid)).length;
+    const hasImg = pendingProducts.filter(p => !skippedSet.has(p.pid) && getImage(p)).length;
+    const noImg = total - hasImg;
+    const noLink = pendingProducts.filter(p => !skippedSet.has(p.pid) && !p.link).length;
+    const approved = approvedSet.size;
+
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-has-img').textContent = hasImg;
+    document.getElementById('stat-no-img').textContent = noImg;
+    document.getElementById('stat-no-link').textContent = noLink;
+    document.getElementById('stat-approved').textContent = approved;
+
+    const exportPanel = document.getElementById('export-panel');
+    document.getElementById('export-count').textContent = approved;
+    if (approved > 0) {
+        exportPanel.classList.add('visible');
+    } else {
+        exportPanel.classList.remove('visible');
+    }
+}
+
+// ─── CSV Row Generation ───
+function csvEscape(val) {
+    if (!val) return '';
+    val = String(val);
+    if (val.includes(',') || val.includes('"') || val.includes('\n')) {
+        return '"' + val.replace(/"/g, '""') + '"';
+    }
+    return val;
+}
+
+function buildCSVRow(p) {
+    const rank = rankOverrides[p.pid] ?? p.rank;
+    const imgUrl = getImage(p);
+    const link = p.link || '';
+    const comm = p.comm || '';
+
+    // Columns match tap-products.csv exactly:
+    // Product ID,Product Name,Shop Name,Category,Sale Price,Available Samples,
+    // Items Sold,Total Commission Rate,Campaign ID,Campaign Name,%,Rank,Ad %,Rating,Link
+    const cols = [
+        p.pid,
+        csvEscape(p.name),
+        csvEscape(p.shop),
+        csvEscape(p.category),
+        csvEscape(p.price),
+        p.samples || '',
+        csvEscape(p.sold),
+        csvEscape(comm),
+        p.cid,
+        csvEscape(p.campaignName),
+        csvEscape(comm),
+        rank,
+        csvEscape(p.adPct || comm),
+        p.rating || '',
+        csvEscape(link)
+    ];
+    return cols.join(',');
+}
+
+// ─── Export modal ───
+function openExportModal() {
+    const approved = pendingProducts.filter(p => approvedSet.has(p.pid));
+    if (!approved.length) return;
+
+    const rows = approved.map(p => buildCSVRow(p));
+    document.getElementById('csv-block').textContent = rows.join('\n');
+    document.getElementById('modal-sub').textContent = `${rows.length} approved row${rows.length !== 1 ? 's' : ''} — paste into tap-products.csv`;
+    document.getElementById('modal-copy-btn').textContent = '📋 Copy to Clipboard';
+    document.getElementById('modal-copy-btn').className = 'btn btn-copy';
+    document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+}
+
+async function copyModal() {
+    const text = document.getElementById('csv-block').textContent;
+    try {
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('modal-copy-btn');
+        btn.textContent = '✅ Copied!';
+        btn.className = 'btn btn-copy copied';
+        setTimeout(() => {
+            btn.textContent = '📋 Copy to Clipboard';
+            btn.className = 'btn btn-copy';
+        }, 2500);
+    } catch (e) {
+        window.getSelection()?.selectAllChildren(document.getElementById('csv-block'));
+    }
+}
+
+async function reloadData() {
+    approvedSet.clear();
+    skippedSet.clear();
+    imageOverrides = {};
+    rankOverrides = {};
+    pendingProducts = [];
+    document.getElementById('summary-bar').style.display = 'none';
+    document.getElementById('filter-bar').style.display = 'none';
+    document.getElementById('cards-grid').innerHTML = '';
+    document.getElementById('empty-state').style.display = 'none';
+    document.getElementById('export-panel').classList.remove('visible');
+    await init();
+}
+
+init();
+</script>
+</body>
+</html>

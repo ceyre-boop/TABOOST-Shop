@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Real-Time Dashboard</title>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
+            padding: 20px 40px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #888;
+            font-size: 14px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            border-color: #ff0044;
+        }
+        .kpi-label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .kpi-change {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .positive { color: #00ff88; }
+        .negative { color: #ff4444; }
+        
+        .section {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .search-box {
+            background: #0a0a0a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #fff;
+            width: 300px;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #ff0044;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 15px;
+            color: #888;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #333;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #222;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .rank {
+            font-weight: 700;
+            color: #ff0044;
+        }
+        .creator-name {
+            font-weight: 500;
+        }
+        .manager-tag {
+            background: rgba(255, 0, 68, 0.1);
+            color: #ff6b6b;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        .diamonds {
+            font-weight: 600;
+            color: #feca57;
+        }
+        .score {
+            font-weight: 600;
+        }
+        .score-high { color: #00ff88; }
+        .score-medium { color: #feca57; }
+        .score-low { color: #ff4444; }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #888;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #333;
+            border-top-color: #ff0044;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .last-updated {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        
+        .error {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+            border-radius: 8px;
+            padding: 20px;
+            color: #ff6b6b;
+            text-align: center;
+        }
+        
+        .agent-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #0a0a0a;
+            border: 1px solid #444;
+            color: #888;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #ff0044;
+            border-color: #ff0044;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🔥 TABOOST COMMAND CENTER</div>
+        <div class="status">
+            <div class="status-dot"></div>
+            <span id="connection-status">Connecting...</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">Total Creators</div>
+                <div class="kpi-value" id="total-creators">-</div>
+                <div class="kpi-change positive">Live data</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Total Diamonds</div>
+                <div class="kpi-value" id="total-diamonds">-</div>
+                <div class="kpi-change positive">Real-time</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Active Creators</div>
+                <div class="kpi-value" id="active-creators">-</div>
+                <div class="kpi-change positive">This month</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Total Rewards</div>
+                <div class="kpi-value" id="total-rewards">-</div>
+                <div class="kpi-change positive">Earned</div>
+            </div>
+        </div>
+        
+        <!-- Agent Filter -->
+        <div class="agent-filter" id="agent-filters">
+            <button class="filter-btn active" onclick="filterByAgent('ALL')">All Agents</button>
+        </div>
+        
+        <!-- Creators Table -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-title">🏆 Top Performers</div>
+                <input type="text" class="search-box" id="search" placeholder="Search creators..." oninput="searchCreators()">
+            </div>
+            
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <div>Loading live data from Firebase...</div>
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                Error loading data. Please refresh.
+            </div>
+            
+            <table id="creators-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Creator</th>
+                        <th>Agent</th>
+                        <th>Tier</th>
+                        <th>Diamonds</th>
+                        <th>Rewards</th>
+                        <th>Hours</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="creators-tbody">
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="last-updated">
+            Last updated: <span id="last-update">-</span>
+        </div>
+    </div>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        
+        let allCreators = [];
+        let filteredCreators = [];
+        let agents = new Set();
+        
+        function formatNumber(num) {
+            if (!num) return '0';
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toLocaleString();
+        }
+        
+        function getScoreClass(score) {
+            if (score >= 80) return 'score-high';
+            if (score >= 60) return 'score-medium';
+            return 'score-low';
+        }
+        
+        function updateKPIs(creators) {
+            const totalCreators = creators.length;
+            const totalDiamonds = creators.reduce((sum, c) => sum + (c.diamonds || 0), 0);
+            const activeCreators = creators.filter(c => (c.hours || 0) > 0).length;
+            const totalRewards = creators.reduce((sum, c) => sum + (c.rewards || 0), 0);
+            
+            document.getElementById('total-creators').textContent = totalCreators;
+            document.getElementById('total-diamonds').textContent = formatNumber(totalDiamonds);
+            document.getElementById('active-creators').textContent = activeCreators;
+            document.getElementById('total-rewards').textContent = formatNumber(totalRewards);
+            
+            document.getElementById('connection-status').textContent = 'Live';
+            document.getElementById('last-update').textContent = new Date().toLocaleString();
+        }
+        
+        function renderTable(creators) {
+            const tbody = document.getElementById('creators-tbody');
+            tbody.innerHTML = '';
+            
+            creators.slice(0, 100).forEach((creator, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="rank">#${index + 1}</td>
+                    <td class="creator-name">${creator.username || 'Unknown'}</td>
+                    <td><span class="manager-tag">${creator.agent || 'CARRINGTON'}</span></td>
+                    <td>${creator.tier || '-'}</td>
+                    <td class="diamonds">${formatNumber(creator.diamonds)} 💎</td>
+                    <td>${formatNumber(creator.rewards)}</td>
+                    <td>${creator.hours || 0}h</td>
+                    <td class="score ${getScoreClass(creator.score)}">${creator.score || 0}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('creators-table').style.display = 'table';
+        }
+        
+        function updateAgentFilters() {
+            const container = document.getElementById('agent-filters');
+            agents.forEach(agent => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = agent;
+                btn.onclick = () => filterByAgent(agent);
+                container.appendChild(btn);
+            });
+        }
+        
+        function filterByAgent(agent) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (agent === 'ALL') {
+                filteredCreators = allCreators;
+            } else {
+                filteredCreators = allCreators.filter(c => c.agent === agent);
+            }
+            renderTable(filteredCreators);
+        }
+        
+        function searchCreators() {
+            const query = document.getElementById('search').value.toLowerCase();
+            filteredCreators = allCreators.filter(c => 
+                (c.username || '').toLowerCase().includes(query)
+            );
+            renderTable(filteredCreators);
+        }
+        
+        // Real-time listener
+        console.log('Starting Firebase real-time sync...');
+        
+        db.collection('creators')
+            .orderBy('diamonds', 'desc')
+            .onSnapshot((snapshot) => {
+                allCreators = [];
+                agents.clear();
+                
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    allCreators.push(data);
+                    if (data.agent) agents.add(data.agent);
+                });
+                
+                console.log(`Loaded ${allCreators.length} creators from Firebase`);
+                
+                filteredCreators = allCreators;
+                updateKPIs(allCreators);
+                renderTable(allCreators);
+                updateAgentFilters();
+                
+            }, (error) => {
+                console.error('Firebase error:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Error: ' + error.message;
+            });
+    </script>
+</body>
+</html>

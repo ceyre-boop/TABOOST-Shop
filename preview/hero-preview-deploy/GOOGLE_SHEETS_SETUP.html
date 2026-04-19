@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Google Sheets Integration Setup | TABOOST_Platfrom</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Google Sheets Integration Setup" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="• ✅ Admin Dashboard - Full agency view with all 823 creators • ✅ Creator Portal - Personal earnings &amp; tax data • ✅ Working Charts - Diamonds, Top Gainers, Hours Distribution • ✅ Filters - Group, Manager, Status, Search • ✅ Pagination - 50 creators per page, 17 pages total • ✅ Hot Red/Black Taboost branding • ✅ 823 Creators loaded with real data" />
+<meta property="og:description" content="• ✅ Admin Dashboard - Full agency view with all 823 creators • ✅ Creator Portal - Personal earnings &amp; tax data • ✅ Working Charts - Diamonds, Top Gainers, Hours Distribution • ✅ Filters - Group, Manager, Status, Search • ✅ Pagination - 50 creators per page, 17 pages total • ✅ Hot Red/Black Taboost branding • ✅ 823 Creators loaded with real data" />
+<link rel="canonical" href="https://ceyre-boop.github.io/TABOOST_Platfrom/GOOGLE_SHEETS_SETUP.html" />
+<meta property="og:url" content="https://ceyre-boop.github.io/TABOOST_Platfrom/GOOGLE_SHEETS_SETUP.html" />
+<meta property="og:site_name" content="TABOOST_Platfrom" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Google Sheets Integration Setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"• ✅ Admin Dashboard - Full agency view with all 823 creators • ✅ Creator Portal - Personal earnings &amp; tax data • ✅ Working Charts - Diamonds, Top Gainers, Hours Distribution • ✅ Filters - Group, Manager, Status, Search • ✅ Pagination - 50 creators per page, 17 pages total • ✅ Hot Red/Black Taboost branding • ✅ 823 Creators loaded with real data","headline":"Google Sheets Integration Setup","url":"https://ceyre-boop.github.io/TABOOST_Platfrom/GOOGLE_SHEETS_SETUP.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/TABOOST_Platfrom/assets/css/style.css?v=b4e46c28fbef38f6b787db4ad265452fe0898c93">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/TABOOST_Platfrom/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ceyre-boop.github.io/TABOOST_Platfrom/">TABOOST_Platfrom</a></h1>
+      
+
+      <h1 id="google-sheets-integration-setup">Google Sheets Integration Setup</h1>
+
+<h2 id="for-marco-how-to-connect-live-sheet-to-website">For Marco: How to Connect Live Sheet to Website</h2>
+
+<h3 id="option-1-publish-to-web-quick--free">Option 1: Publish to Web (Quick &amp; Free)</h3>
+
+<ol>
+  <li><strong>Open your Google Sheet</strong>
+    <ul>
+      <li>Go to: https://docs.google.com/spreadsheets/d/1KPFMGAgqa44thN3i0-hnvfmzjzdhgMyYPX_995VWqMo/edit</li>
+    </ul>
+  </li>
+  <li><strong>Publish to Web</strong>
+    <ul>
+      <li>Click: <strong>File → Share → Publish to web</strong></li>
+      <li>Select: Your data sheet (e.g., “Current Month”)</li>
+      <li>Format: <strong>Comma-separated values (.csv)</strong></li>
+      <li>Click: <strong>Publish</strong></li>
+      <li>Copy the URL (looks like: <code class="language-plaintext highlighter-rouge">https://docs.google.com/spreadsheets/d/e/.../pub?gid=0&amp;single=true&amp;output=csv</code>)</li>
+    </ul>
+  </li>
+  <li><strong>Add URL to Website</strong>
+    <ul>
+      <li>Log into the creator dashboard as admin</li>
+      <li>Go to: <strong>Settings → Data Source</strong></li>
+      <li>Paste the CSV URL</li>
+      <li>Click: <strong>Update Data Source</strong></li>
+      <li>Refresh the page</li>
+    </ul>
+  </li>
+  <li><strong>Done!</strong>
+    <ul>
+      <li>The website now pulls live data from your Google Sheet</li>
+      <li>Updates automatically when you edit the sheet</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="important-notes">Important Notes:</h3>
+
+<ul>
+  <li><strong>Data is read-only</strong> - Creators can’t modify your sheet through the website</li>
+  <li><strong>Updates every page load</strong> - No caching, always fresh data</li>
+  <li><strong>Make sure the sheet is publicly viewable</strong> or published</li>
+  <li><strong>Keep the CSV URL private</strong> - Don’t share it publicly</li>
+</ul>
+
+<h3 id="troubleshooting">Troubleshooting:</h3>
+
+<p><strong>“Failed to load CSV” error?</strong></p>
+<ol>
+  <li>Check that the sheet is published (not just shared)</li>
+  <li>Make sure you’re using the CSV format URL</li>
+  <li>Try opening the CSV URL in a new tab - it should download a .csv file</li>
+</ol>
+
+<p><strong>Data not showing?</strong></p>
+<ol>
+  <li>Check the browser console (F12) for errors</li>
+  <li>Verify column headers match the expected format</li>
+  <li>Make sure the sheet has data rows</li>
+</ol>
+
+<h3 id="alternative-direct-csv-upload">Alternative: Direct CSV Upload</h3>
+
+<p>If publishing doesn’t work, you can still:</p>
+<ol>
+  <li>Download CSV from Google Sheets (File → Download → CSV)</li>
+  <li>Replace the <code class="language-plaintext highlighter-rouge">data/live-data-current.csv</code> file in the GitHub repo</li>
+  <li>Changes will be live in ~2 minutes</li>
+</ol>
+
+<hr />
+
+<h2 id="for-developers-api-integration-option-2">For Developers: API Integration (Option 2)</h2>
+
+<p>If you need authenticated access or more control:</p>
+
+<ol>
+  <li>Create Google Apps Script in the sheet</li>
+  <li>Deploy as web app with “Execute as me” access</li>
+  <li>Use the Apps Script URL with authentication</li>
+  <li>Requires OAuth setup</li>
+</ol>
+
+<p>Contact your developer for this option.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

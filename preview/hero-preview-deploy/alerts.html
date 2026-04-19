@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-logo"><i class="fas fa-magic"></i></div><div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div></div>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span><span class="nav-badge">831</span></a>
+                    <a href="diamonds.html" class="nav-item"><i class="fas fa-gem"></i><span>Diamonds</span></a>
+                    <a href="live-streams.html" class="nav-item"><i class="fas fa-video"></i><span>Live Streams</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-section-title">Management</div>
+                    <a href="managers.html" class="nav-item"><i class="fas fa-user-tie"></i><span>Managers</span></a>
+                    <a href="rookies.html" class="nav-item"><i class="fas fa-seedling"></i><span>Rookies</span></a>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-section-title">Reports</div>
+                    <a href="reports.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+                    <a href="alerts.html" class="nav-item active"><i class="fas fa-bell"></i><span>Alerts</span><span class="nav-badge">3</span></a>
+                    <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search"><i class="fas fa-search"></i><input type="text" placeholder="Search alerts..."></div>
+                <div class="header-actions">
+                    <button class="header-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <div class="user-profile" onclick="logout()"><div class="user-avatar" id="userAvatar">M</div><div class="user-info"><div class="user-name" id="userName">Marco</div><div class="user-role" id="userRole">Admin</div></div></div>
+                </div>
+            </header>
+            <div class="dashboard-content fade-in">
+                <div style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                    <div><h1 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Alerts & Notifications</h1><p style="color: #888;">Important updates and creator notifications</p></div>
+                    <button class="btn btn-secondary" onclick="markAllRead()"><i class="fas fa-check-double"></i> Mark All Read</button>
+                </div>
+                <div class="content-card">
+                    <div class="card-body" style="padding: 0;">
+                        <div style="padding: 20px; border-bottom: 1px solid #222; background: rgba(255, 0, 68, 0.05); display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--taboost-red); display: flex; align-items: center; justify-content: center; color: white;"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 5px;">Rookie Performance Alert</h4>
+                                <p style="color: #888; font-size: 14px;">5 rookies are below minimum hour requirements this week</p>
+                            </div>
+                            <span class="badge badge-danger" style="margin-right: 15px;">Critical</span>
+                            <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 12px;">View</button>
+                        </div>
+                        <div style="padding: 20px; border-bottom: 1px solid #222; display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 170, 0, 0.2); display: flex; align-items: center; justify-content: center; color: var(--taboost-warning);"><i class="fas fa-chart-line"></i></div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 5px;">Diamonds Milestone</h4>
+                                <p style="color: #888; font-size: 14px;">singleonthemove reached 4.8M total diamonds!</p>
+                            </div>
+                            <span class="badge badge-warning" style="margin-right: 15px;">Achievement</span>
+                            <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 12px;">View</button>
+                        </div>
+                        <div style="padding: 20px; border-bottom: 1px solid #222; display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 255, 136, 0.2); display: flex; align-items: center; justify-content: center; color: var(--taboost-success);"><i class="fas fa-user-plus"></i></div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 5px;">New Creator Joined</h4>
+                                <p style="color: #888; font-size: 14px;">lancektyree joined the agency under carrington</p>
+                            </div>
+                            <span class="badge badge-success" style="margin-right: 15px;">New</span>
+                            <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 12px;">View</button>
+                        </div>
+                        <div style="padding: 20px; border-bottom: 1px solid #222; display: flex; align-items: center; gap: 15px; opacity: 0.6;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(100, 100, 100, 0.2); display: flex; align-items: center; justify-content: center; color: #888;"><i class="fas fa-info-circle"></i></div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 5px;">Weekly Report Available</h4>
+                                <p style="color: #888; font-size: 14px;">Your weekly performance summary is ready for download</p>
+                            </div>
+                            <span class="badge badge-info" style="margin-right: 15px;">Info</span>
+                            <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 12px;">Download</button>
+                        </div>
+                        <div style="padding: 20px; display: flex; align-items: center; gap: 15px; opacity: 0.6;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(100, 100, 100, 0.2); display: flex; align-items: center; justify-content: center; color: #888;"><i class="fas fa-calendar-check"></i></div>
+                            <div style="flex: 1;">
+                                <h4 style="margin-bottom: 5px;">Meeting Reminder</h4>
+                                <p style="color: #888; font-size: 14px;">Manager sync meeting tomorrow at 2 PM EST</p>
+                            </div>
+                            <span class="badge badge-info" style="margin-right: 15px;">Reminder</span>
+                            <button class="btn btn-secondary" style="padding: 8px 15px; font-size: 12px;">Dismiss</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/data.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) window.location.href = 'index.html';
+        else { document.getElementById('userName').textContent = user.name; document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator'; document.getElementById('userAvatar').textContent = user.avatar; }
+        function logout() { localStorage.removeItem('taboost_user'); window.location.href = 'index.html'; }
+        function markAllRead() { alert('All alerts marked as read'); }
+    </script>
+</body>
+</html>

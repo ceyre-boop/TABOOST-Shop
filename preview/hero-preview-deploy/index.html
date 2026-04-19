@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST — Turn Your Hustle Into a Business</title>
+    <meta name="description" content="The creator platform that turns your TikTok hustle into a real business. Track diamonds, earn rewards, grow your brand.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://live.taboost.me/">
+    <meta property="og:title" content="TABOOST — Turn Your Hustle Into a Business">
+    <meta property="og:description" content="The creator platform that turns your TikTok hustle into a real business. Track diamonds, earn rewards, grow your brand.">
+    <meta property="og:image" content="https://live.taboost.me/images/taboost-genie.jpg">
+    <meta property="og:site_name" content="TABOOST">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://live.taboost.me/">
+    <meta name="twitter:title" content="TABOOST — Turn Your Hustle Into a Business">
+    <meta name="twitter:description" content="The creator platform that turns your TikTok hustle into a real business.">
+    <meta name="twitter:image" content="https://live.taboost.me/images/taboost-genie.jpg">
+    
+    <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #06060c;
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            transition: background 0.45s ease;
+            --hero-mouse-x: 0px;
+            --hero-mouse-y: 0px;
+            --hero-pulse: 0.1;
+            --scroll-shimmer: 0px;
+        }
+        
+        /* Ambient glow effects */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .glow-1 {
+            top: -200px;
+            right: -200px;
+            background: #ff0044;
+        }
+        .glow-2 {
+            bottom: -200px;
+            left: -200px;
+            background: #ff0044;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Full-bleed header wrapper */
+        .site-header-wrap {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+        }
+        .site-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 0;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: 2px solid #ff0044;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff0044;
+        }
+        
+        .nav-guest {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #333;
+            color: #fff;
+        }
+        
+        .btn-outline:hover {
+            border-color: #ff0044;
+            background: rgba(255, 0, 68, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 68, 0.3);
+        }
+        
+        /* ═══ Hero Section — Apple-style ═══ */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 120px 24px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* All hero children sit above the base background */
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Kicker — sparse uppercase label, no pill box */
+        .hero-kicker {
+            display: inline-block;
+            color: rgba(255, 0, 68, 0.85);
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 26px;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        body.creator-mode-ready .hero-kicker {
+            animation: heroFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.05s forwards;
+        }
+
+        /* Headline — big, tight tracking, light-to-muted white gradient */
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 76px);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.78) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #ff0044 0%, #ff6060 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.creator-mode-ready .hero h1 {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.18s forwards;
+        }
+
+        /* Subheadline — light weight, 70% opacity */
+        .hero p {
+            font-size: clamp(15px, 1.8vw, 19px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.68);
+            max-width: 540px;
+            margin: 0 auto 44px;
+            line-height: 1.65;
+            letter-spacing: 0.01em;
+            min-height: 28px;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .hero p {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+        }
+
+        .hero-tagline {
+            transition: opacity 0.28s ease, transform 0.28s ease;
+        }
+
+        .hero-tagline.swapping {
+            opacity: 0 !important;
+            transform: translateY(8px) !important;
+        }
+
+        /* Search bar — minimal Apple-style pill */
+        .search-container {
+            max-width: 640px;
+            width: 100%;
+            margin: 0 auto 32px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .search-container {
+            animation: heroFadeUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.42s forwards;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 5px 5px 5px 22px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .search-wrapper:focus-within {
+            border-color: rgba(255, 0, 68, 0.45);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 0 3px rgba(255, 0, 68, 0.1), 0 8px 28px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-sparkle {
+            display: none;
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 11px 0;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.005em;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 300;
+            transition: color 0.2s ease;
+        }
+
+        .search-input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-btn {
+            background: #ff0044;
+            border: none;
+            border-radius: 40px;
+            color: #fff;
+            padding: 11px 26px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease;
+            flex-shrink: 0;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 68, 0.32);
+            background: #e0003c;
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+            transition-duration: 0.08s;
+        }
+
+        /* ─── Search Suggestions Dropdown ─── */
+        .search-suggestions {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 20, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 200;
+            max-height: 320px;
+            overflow-y: auto;
+            display: none;
+        }
+        .search-suggestions.visible {
+            display: block;
+            animation: suggestionsDrop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes suggestionsDrop {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .suggestion-section-label {
+            padding: 10px 16px 4px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.28);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .suggestion-item:last-child { border-bottom: none; }
+        .suggestion-item:hover, .suggestion-item.focused {
+            background: rgba(255, 0, 68, 0.08);
+        }
+        .suggestion-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            width: 28px;
+            text-align: center;
+        }
+        .suggestion-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .suggestion-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.88);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .suggestion-meta {
+            font-size: 11px;
+            color: rgba(255,255,255,0.38);
+            margin-top: 1px;
+        }
+        .suggestion-commission {
+            font-size: 12px;
+            font-weight: 700;
+            color: #00ff88;
+            flex-shrink: 0;
+        }
+        .suggestion-name mark {
+            background: none;
+            color: #ff0044;
+            font-weight: 700;
+        }
+
+        /* ─── Sort Controls ─── */
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .sort-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            font-weight: 500;
+            margin-right: 2px;
+        }
+        .sort-btn {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.45);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            white-space: nowrap;
+        }
+        .sort-btn:hover {
+            border-color: rgba(255,0,68,0.35);
+            color: rgba(255,255,255,0.85);
+            background: rgba(255,0,68,0.06);
+        }
+        .sort-btn.active {
+            background: rgba(255,0,68,0.12);
+            border-color: rgba(255,0,68,0.4);
+            color: #fff;
+        }
+
+        /* Category chips — minimal transparent pills, staggered fade */
+        .search-quick-tags {
+            margin-top: 16px;
+            display: flex;
+            gap: 7px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quick-tag {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.01em;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        body.creator-mode-ready .quick-tag {
+            animation: heroFadeUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        body.creator-mode-ready .quick-tag:nth-child(1)  { animation-delay: 0.70s; }
+        body.creator-mode-ready .quick-tag:nth-child(2)  { animation-delay: 0.76s; }
+        body.creator-mode-ready .quick-tag:nth-child(3)  { animation-delay: 0.82s; }
+        body.creator-mode-ready .quick-tag:nth-child(4)  { animation-delay: 0.88s; }
+        body.creator-mode-ready .quick-tag:nth-child(5)  { animation-delay: 0.94s; }
+        body.creator-mode-ready .quick-tag:nth-child(6)  { animation-delay: 1.00s; }
+        body.creator-mode-ready .quick-tag:nth-child(7)  { animation-delay: 1.06s; }
+        body.creator-mode-ready .quick-tag:nth-child(8)  { animation-delay: 1.12s; }
+        body.creator-mode-ready .quick-tag:nth-child(9)  { animation-delay: 1.18s; }
+        body.creator-mode-ready .quick-tag:nth-child(10) { animation-delay: 1.24s; }
+        body.creator-mode-ready .quick-tag:nth-child(11) { animation-delay: 1.30s; }
+        body.creator-mode-ready .quick-tag:nth-child(12) { animation-delay: 1.36s; }
+
+        .quick-tag:hover, .quick-tag.active {
+            border-color: rgba(255, 0, 68, 0.45);
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 0, 68, 0.07);
+            transform: translateY(-1px);
+        }
+
+        .quick-tag .chip-icon {
+            display: inline-block;
+            font-size: 11px;
+            opacity: 0.75;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        .quick-tag:hover .chip-icon,
+        .quick-tag.active .chip-icon {
+            transform: scale(1.15);
+            opacity: 1;
+        }
+
+        .quick-tag.clicked {
+            transform: scale(0.94) !important;
+            transition-duration: 0.08s;
+        }
+
+        .quick-tag::after {
+            content: none;
+        }
+
+        .search-quick-tags.sticky {
+            position: sticky;
+            top: 12px;
+            z-index: 40;
+            margin: 12px auto 0;
+            width: fit-content;
+            max-width: 100%;
+            padding: 9px 14px;
+            border-radius: 20px;
+            background: rgba(8, 8, 16, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Hero carousel — wider, edge-to-edge within hero's inner padding */
+        .hero-carousel {
+            margin: 28px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            max-width: min(900px, calc(100% - 48px));
+            width: 100%;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        body.creator-mode-ready .hero-carousel {
+            animation: heroFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 1.0s forwards;
+        }
+
+        .hero-carousel-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 14px 16px;
+            text-align: left;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .hero-carousel-card:hover {
+            border-color: rgba(255, 255, 255, 0.13);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-carousel-title {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 7px;
+            font-weight: 500;
+        }
+
+        .hero-carousel-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hero-carousel-metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.38);
+        }
+
+        .hero-commission-pill {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            background: rgba(255, 0, 68, 0.18);
+            border: 1px solid rgba(255, 0, 68, 0.28);
+            border-radius: 999px;
+            padding: 2px 8px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Dashboard/Campaign Sections */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-view-all {
+            color: #ff0044;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 0, 68, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-card:hover .hero-commission-badge {
+            box-shadow: 0 0 22px rgba(0,255,136,0.35);
+            border-color: rgba(0,255,136,0.38);
+        }
+
+        .product-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,0,68,0.55), rgba(0,255,136,0.35), rgba(255,0,68,0.55));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.22s ease;
+            pointer-events: none;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card::after {
+            content: "Creator Insights";
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.8);
+            background: rgba(11,11,18,0.65);
+            border: 1px solid rgba(255,255,255,0.14);
+            padding: 4px 7px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #151520;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 11px;
+            color: #888;
+            margin: 6px 0;
+        }
+
+        .hero-commission-badge {
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #00ff88;
+            line-height: 1;
+            border: 1px solid rgba(0,255,136,0.22);
+            border-radius: 8px;
+            padding: 4px 8px;
+            background: rgba(0,255,136,0.08);
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .product-info {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 13px;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-bottom {
+            margin-top: auto;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.2px;
+        }
+
+        .tap-link-btn {
+            display: none;
+        }
+
+        .product-card.selected {
+            border-color: #00ff88;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            transform: scale(1.02);
+            z-index: 1001;
+        }
+        
+        /* Full Screen Overlay when product is selected */
+        .selection-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .selection-overlay.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .taboost-pick {
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            color: #fff;
+        }
+
+        .creator-pick {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: #000;
+        }
+
+        .best-overall {
+            background: linear-gradient(135deg, #4834d4, #686de0);
+            color: #fff;
+        }
+
+        .product-card.selected::after {
+            content: '✓ Selected';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff88;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 900;
+            z-index: 1002;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff0044;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-creator {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .product-commission {
+            font-size: 11px;
+            color: #00ff88;
+            font-weight: 700;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 3px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .ai-label {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: #ddd;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ai-label i {
+            font-style: normal;
+        }
+
+        .results-section {
+            display: none;
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 80px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ff0044;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 0, 68, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+        
+        footer p {
+            color: #444;
+            font-size: 14px;
+        }
+
+        /* ─── Keyframes ─── */
+        @keyframes heroFadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes hudFloat {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-4px); }
+        }
+         
+        /* Mobile */
+        @media (max-width: 768px) {
+            .site-header-inner {
+                padding: 20px 16px 0;
+            }
+
+            header {
+                margin-bottom: 20px;
+                flex-direction: row;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .logo {
+                justify-content: flex-start;
+            }
+
+            .logo img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: flex;
+                width: auto;
+                justify-content: flex-end;
+            }
+
+            .nav-guest {
+                gap: 12px;
+            }
+
+            .btn {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 100svh;
+                padding: 100px 16px 60px;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: clamp(30px, 8vw, 42px);
+                letter-spacing: -0.03em;
+            }
+
+            .hero-carousel {
+                grid-template-columns: 1fr;
+                margin: 16px 0 0;
+            }
+
+            .search-container .search-btn {
+                display: none !important;
+            }
+
+            .search-wrapper {
+                margin: 0;
+                padding-left: 18px;
+            }
+
+            .search-input {
+                font-size: 16px;
+                padding: 10px 0;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .product-card {
+                padding: 0;
+                border-radius: 10px;
+            }
+
+            .product-card:hover {
+                transform: none;
+            }
+            
+            .product-info {
+                padding: 10px;
+            }
+
+            .product-name {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+
+            .tap-link-btn {
+                font-size: 10px;
+                padding: 7px 8px;
+            }
+
+            .sort-controls {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+            .sort-btn {
+                font-size: 11px;
+                padding: 5px 9px;
+            }
+        }
+        
+        /* Multi-Select & Sticky Action Bar */
+        .product-card.selected {
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+            transform: translateY(-8px);
+        }
+        
+        .product-card.selected::after {
+            content: '✓ Selected';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff88;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            z-index: 20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .sticky-action-bar {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: rgba(20, 20, 30, 0.98);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            border-radius: 30px;
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            z-index: 2000;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 136, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .sticky-action-bar.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .action-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .action-count {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .action-est {
+            font-size: 13px;
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        .launch-btn {
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .launch-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Prevent background scroll when overlay is active */
+        body.overlay-active {
+            overflow: hidden;
+        }
+
+
+        /* ═══ Motion Layer II — Cinematic Motion & Interactions ═══ */
+
+
+
+        /* 1. Hero section entry — whole section fades + slides up */
+        .hero {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        body.creator-mode-ready .hero {
+            animation: heroEntryFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes heroEntryFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Mouse-tracking spotlight overlay */
+        .hero-spotlight {
+            display: none;
+        }
+
+        /* 4. Particles canvas */
+        .hero-particles {
+            display: none;
+        }
+
+        /* 5. Search button: glow ring on hover + overflow for ripple */
+        .search-btn {
+            overflow: hidden;
+        }
+        .search-btn:hover {
+            box-shadow: 0 0 0 3px rgba(255, 0, 68, 0.14), 0 8px 20px rgba(255, 0, 68, 0.32);
+        }
+
+        /* 7. Search sparkle — re-enabled with flash animation */
+        .search-sparkle {
+            display: inline-block;
+            position: absolute;
+            right: 88px;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+            opacity: 0;
+            transform: translateY(-50%) scale(0);
+        }
+        .search-wrapper.typing .search-sparkle {
+            animation: sparkleFlash 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        @keyframes sparkleFlash {
+            0%   { opacity: 0;   transform: translateY(-50%) scale(0); }
+            35%  { opacity: 1;   transform: translateY(-62%) scale(1.35); }
+            65%  { opacity: 0.7; transform: translateY(-40%) scale(0.85); }
+            100% { opacity: 0;   transform: translateY(-50%) scale(0); }
+        }
+
+        /* 8. CTA button ripple keyframe */
+        @keyframes btnRippleExpand {
+            0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(9);  opacity: 0; }
+        }
+
+        /* 9. Chip icon bounce on hover */
+        .quick-tag:hover .chip-icon {
+            animation: chipIconBounce 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+        }
+        .quick-tag.active .chip-icon {
+            animation: none;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        @keyframes chipIconBounce {
+            0%   { transform: scale(1)    rotate(0deg); }
+            30%  { transform: scale(1.22) rotate(-9deg); }
+            65%  { transform: scale(1.1)  rotate(5deg); }
+            100% { transform: scale(1.08) rotate(0deg); }
+        }
+
+        /* 10. Performance hints for parallax elements */
+        .hero-kicker,
+        .hero-carousel {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* ═══ Motion Layer III — Card Scroll-Reveal, Tilt & Commission Pulse ═══ */
+
+        /* Commission badge: gentle glow-breath pulse */
+        .hero-commission-badge {
+            animation: commissionPulse 3.6s ease-in-out infinite;
+        }
+        @keyframes commissionPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+            50%       { box-shadow: 0 0 16px 5px rgba(0, 255, 136, 0.15); }
+        }
+
+        /* Product cards start hidden; revealed by IntersectionObserver */
+        .product-card {
+            opacity: 0;
+        }
+        .product-card.card-revealed {
+            animation: cardFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(22px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Hero carousel cards: add transform to transition for JS tilt */
+        .hero-carousel-card {
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.2s ease,
+                        background 0.2s ease;
+            will-change: transform;
+        }
+        /* ─── Genie Intro Overlay ─── */
+        #genie-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #06060c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #genie-intro.genie-exit {
+            animation: genieOverlayExit 0.55s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+        }
+        @keyframes genieOverlayExit {
+            0%   { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        .genie-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 0, 68, 0);
+            pointer-events: none;
+            animation: genieRingPop 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .genie-ring:nth-child(1) { width: 140px;  height: 140px;  animation-delay: 0.38s; }
+        .genie-ring:nth-child(2) { width: 260px;  height: 260px;  animation-delay: 0.48s; }
+        .genie-ring:nth-child(3) { width: 400px;  height: 400px;  animation-delay: 0.56s; }
+        .genie-ring:nth-child(4) { width: 580px;  height: 580px;  animation-delay: 0.62s; }
+        @keyframes genieRingPop {
+            0%   { border-color: rgba(255, 0, 68, 0);    transform: scale(0.3); }
+            30%  { border-color: rgba(255, 0, 68, 0.55); transform: scale(1.05); }
+            70%  { border-color: rgba(255, 0, 68, 0.18); transform: scale(1); }
+            100% { border-color: rgba(255, 0, 68, 0);    transform: scale(1.15); }
+        }
+
+        #genie-img-wrap {
+            position: relative;
+            z-index: 2;
+            animation: genieEntrance 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform-origin: center bottom;
+        }
+        @keyframes genieEntrance {
+            0%   { opacity: 0;   transform: scale(0.12) translateY(60px); }
+            18%  { opacity: 1;   transform: scale(1.18) translateY(-12px); }
+            28%  { opacity: 1;   transform: scale(0.93) translateY(4px); }
+            40%  { opacity: 1;   transform: scale(1.06) translateY(-6px); }
+            52%  { opacity: 1;   transform: scale(0.98) translateY(0px); }
+            62%  { opacity: 1;   transform: scale(1.0)  translateY(-10px); }
+            72%  { opacity: 1;   transform: scale(1.0)  translateY(0px); }
+            80%  { opacity: 1;   transform: scale(1.0)  translateY(-6px); }
+            100% { opacity: 0;   transform: scale(9.0)  translateY(-20px); }
+        }
+
+        #genie-img-wrap img {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            border: 3px solid rgba(255, 0, 68, 0.8);
+            box-shadow:
+                0 0 0 8px rgba(255, 0, 68, 0.12),
+                0 0 60px rgba(255, 0, 68, 0.45),
+                0 0 120px rgba(255, 0, 68, 0.20);
+            display: block;
+        }
+
+        #genie-tagline {
+            position: absolute;
+            bottom: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: genieTaglineAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieTaglineAnim {
+            0%   { opacity: 0; transform: translateX(-50%) translateY(12px); }
+            28%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            80%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+        }
+
+        #genie-logo-text {
+            position: absolute;
+            top: 36%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            animation: genieLogoAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes genieLogoAnim {
+            0%   { opacity: 0; transform: translateX(-50%) scale(0.7); }
+            22%  { opacity: 1; transform: translateX(-50%) scale(1.05); }
+            35%  { opacity: 1; transform: translateX(-50%) scale(0.97); }
+            80%  { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0; transform: translateX(-50%) scale(1.3); }
+        }
+
+        #genie-bg-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255, 0, 68, 0.16) 0%, transparent 70%);
+            animation: genieGlow 1.65s ease-in-out forwards;
+        }
+        @keyframes genieGlow {
+            0%   { opacity: 0; }
+            30%  { opacity: 1; }
+            80%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Genie intro animation overlay — plays once per session -->
+    <div id="genie-intro">
+        <div id="genie-bg-glow"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div id="genie-logo-text">TABOOST</div>
+        <div id="genie-img-wrap">
+            <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
+        </div>
+        <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
+    
+    <!-- Header: full-bleed width, inner content capped at 1200px -->
+    <div class="site-header-wrap">
+        <div class="site-header-inner">
+        <header>
+            <div class="logo">
+                <img src="images/taboost-genie.jpg" alt="TABOOST">
+                <span class="logo-text">TABOOST</span>
+            </div>
+            <nav class="nav-links">
+                <div class="nav-guest">
+                    <a href="shop-signup.html">Sign Up</a>
+                    <a href="shop-login.html" class="btn">Login</a>
+                </div>
+            </nav>
+        </header>
+        </div>
+    </div>
+
+    <!-- Hero: full viewport width, no container constraint -->
+    <section class="hero" id="hero-section">
+            <!-- Decorative motion layers (aria-hidden, no layout impact) -->
+            <div class="hero-spotlight" aria-hidden="true"></div>
+            <div class="hero-noise-layer" aria-hidden="true"></div>
+            <canvas class="hero-particles" aria-hidden="true"></canvas>
+
+            <div class="hero-kicker">Built for TikTok Shop Creators</div>
+            <h1 id="hero-title"><span>Higher Commission.</span><br>Better Products. Faster Wins.</h1>
+            <p id="hero-tagline" class="hero-tagline">Access higher commission rates, proven products &amp; exclusive campaigns!</p>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="main-search" placeholder="Search campaigns, not products..." autocomplete="off">
+                    <span class="search-sparkle" aria-hidden="true"></span>
+                    <button class="search-btn" id="search-trigger">Find Campaigns</button>
+                </div>
+                <div id="search-suggestions" class="search-suggestions" aria-live="polite"></div>
+                <div class="search-quick-tags">
+                    <span class="quick-tag" data-cat="Beauty & Personal Care"><span class="chip-icon">💄</span><span class="chip-text">Beauty</span></span>
+                    <span class="quick-tag" data-cat="Phones & Electronics"><span class="chip-icon">📱</span><span class="chip-text">Electronics</span></span>
+                    <span class="quick-tag" data-cat="Womenswear & Underwear"><span class="chip-icon">👗</span><span class="chip-text">Fashion</span></span>
+                    <span class="quick-tag" data-cat="Health"><span class="chip-icon">💊</span><span class="chip-text">Health</span></span>
+                    <span class="quick-tag" data-cat="Home Supplies"><span class="chip-icon">🏠</span><span class="chip-text">Home</span></span>
+                    <span class="quick-tag" data-cat="Sports & Outdoor"><span class="chip-icon">⚽</span><span class="chip-text">Sports</span></span>
+                    <span class="quick-tag" data-cat="Kitchenware"><span class="chip-icon">🍳</span><span class="chip-text">Kitchen</span></span>
+                    <span class="quick-tag" data-cat="Pet Supplies"><span class="chip-icon">🐾</span><span class="chip-text">Pets</span></span>
+                    <span class="quick-tag"><span class="chip-icon">⚡</span><span class="chip-text">High Commission</span></span>
+                    <span class="quick-tag" data-cat="Fashion Accessories"><span class="chip-icon">💍</span><span class="chip-text">Accessories</span></span>
+                    <span class="quick-tag" data-cat="Food & Beverages"><span class="chip-icon">🍔</span><span class="chip-text">Food</span></span>
+                    <span class="quick-tag" data-cat="Toys & Hobbies"><span class="chip-icon">🧸</span><span class="chip-text">Toys</span></span>
+                </div>
+            </div>
+            <div class="hero-carousel" id="hero-carousel"></div>
+        </section>
+
+    <div class="container" id="content-container">
+
+        <!-- Search Results Section (Hidden initially) -->
+        <div id="search-results-container" class="results-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title" id="search-results-title">Search Results</h2>
+                    <span id="results-count" style="color:#888; font-size:13px; display:block; margin-top:4px;"></span>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <div class="sort-controls" id="sort-controls">
+                        <span class="sort-label">Sort:</span>
+                        <button class="sort-btn active" data-sort="relevance">✦ Best Match</button>
+                        <button class="sort-btn" data-sort="commission">💰 Commission</button>
+                        <button class="sort-btn" data-sort="epc">📈 EPC</button>
+                        <button class="sort-btn" data-sort="sales">🔥 Sales</button>
+                    </div>
+                    <a href="#" class="section-view-all" id="clear-search">✕ Clear</a>
+                </div>
+            </div>
+            <div class="product-grid" id="search-results-grid">
+                <!-- Search results will be injected here -->
+            </div>
+            <div id="load-more-container" style="text-align:center; padding:30px 0; display:none;">
+                <button id="load-more-btn" style="background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); color:#00ff88; padding:12px 40px; border-radius:30px; font-size:14px; font-weight:700; cursor:pointer; transition:all 0.3s;">Load More Campaigns</button>
+            </div>
+        </div>
+
+        <!-- Featured Section -->
+        <div id="featured-section">
+            <div class="section-header">
+                <h2 class="section-title">Priority Campaigns</h2>
+                <a href="#" class="section-view-all">View All Campaigns</a>
+            </div>
+            <div class="product-grid" id="featured-grid">
+                <!-- Featured campaigns will be injected here -->
+            </div>
+        </div>
+
+        <!-- Suggested Section -->
+        <div id="suggested-section">
+            <div class="section-header">
+                <h2 class="section-title">Suggested for You</h2>
+                <a href="#" class="section-view-all">See More</a>
+            </div>
+            <div class="product-grid" id="suggested-grid">
+                <!-- Suggested products will be injected here -->
+            </div>
+        </div>
+        
+
+        
+        <footer>
+            <p>© 2026 TABOOST. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="js/product-data.js"></script>
+    <script>
+        // Data State
+        let allItems = [];
+        let campaigns = [];
+        const HERO_TAGLINES = [
+            "Find campaigns that actually pay.",
+            "Higher commissions. Faster wins.",
+            "Products creators are winning with today.",
+            "Stop scrolling. Start earning.",
+            "Your next creator win starts here."
+        ];
+        const HERO_PLACEHOLDERS = [
+            "Search campaigns, not products...",
+            "Find your next viral win...",
+            "What do you want to promote today..."
+        ];
+        let heroTaglineIndex = 0;
+        let heroPlaceholderIndex = 0;
+        const EPC_MULTIPLIER = 0.065;
+        const CVR_BASE = 8; // Base conversion rate percentage.
+        const CVR_COMMISSION_CAP = 25; // Max commission value that contributes to CVR boost.
+        const CVR_DIVISOR = 2; // Scales commission impact into a realistic CVR range.
+        const TAGLINE_ROTATION_INTERVAL = 2800;
+        const PLACEHOLDER_ROTATION_INTERVAL = 3400;
+        const HERO_SCROLL_THRESHOLD = 240;
+        const STICKY_TAGS_THRESHOLD = 0.45;
+
+        function parseCommissionValue(rawCommission) {
+            const firstLine = String(rawCommission || "0%").split('\n')[0];
+            const val = parseFloat(firstLine.replace(/[^\d.]/g, ''));
+            return Number.isFinite(val) ? val : 0;
+        }
+
+        function parseSoldValue(rawSold) {
+            const val = parseFloat(String(rawSold || "0").replace(/[^\d.]/g, ''));
+            return Number.isFinite(val) ? val : 0;
+        }
+
+        function calculateEPC(rawCommission) {
+            return parseCommissionValue(rawCommission) * EPC_MULTIPLIER;
+        }
+
+        function calculateCVR(rawCommission) {
+            return CVR_BASE + Math.min(parseCommissionValue(rawCommission), CVR_COMMISSION_CAP) / CVR_DIVISOR;
+        }
+
+        function getChipText(tag) {
+            return (tag?.querySelector('.chip-text')?.textContent || tag?.textContent || '').trim();
+        }
+
+        function getCategoryTheme(categoryName = '') {
+            const key = categoryName.toLowerCase();
+            if (key.includes('beauty')) return { hero: 'rgba(255,0,120,0.16)', body: '#25101d' };
+            if (key.includes('electronics') || key.includes('phones')) return { hero: 'rgba(0,140,255,0.16)', body: '#0d1b2b' };
+            if (key.includes('fashion')) return { hero: 'rgba(255,80,168,0.16)', body: '#241126' };
+            if (key.includes('health')) return { hero: 'rgba(0,255,136,0.16)', body: '#0f241b' };
+            if (key.includes('home')) return { hero: 'rgba(255,175,50,0.16)', body: '#2a1f12' };
+            if (key.includes('sports')) return { hero: 'rgba(50,230,255,0.15)', body: '#0f2227' };
+            return { hero: 'rgba(255,0,68,0.14)', body: '#12121c' };
+        }
+
+        async function loadAllData() {
+            try {
+                // Use pre-loaded data from js/product-data.js
+                if (window.PRODUCT_DATA && window.CAMPAIGN_DATA) {
+                    allItems = window.PRODUCT_DATA;
+                    campaigns = window.CAMPAIGN_DATA;
+                } else {
+                    throw new Error("Data not pre-loaded");
+                }
+            } catch (err) {
+                console.warn("Using minimal fallback (Data load issue):", err);
+                allItems = [
+                    { id: "P_FB", name: "Limited Catalog Mode", creator: "TABOOST", price: "$0", commission: "0%", category: "All", type: "product", image: "", link: "#", rank: 99, sold: "0", isAI: false }
+                ];
+                campaigns = [];
+            }
+            renderInitialGrids();
+            updateHeroCarousel();
+            updateHeroHud();
+            initCardMotion();
+        }
+
+        function getBadgeHtml(rank) {
+            if (rank == 1) return '<div class="rank-badge taboost-pick">🏆 TABOOST Top Pick</div>';
+            if (rank == 2) return '<div class="rank-badge creator-pick">⭐ Creator Top Pick</div>';
+            if (rank == 3) return '<div class="rank-badge best-overall">💎 Best Overall</div>';
+            return '';
+        }
+
+        function createProductCard(item) {
+            // Commission from CSV — parse the multi-line format: "20%\nvs. open collab 15%"
+            let fullComm = item.commission || "0%";
+            let commLines = fullComm.split('\n');
+            let commissionVal = commLines[0].trim();
+            if (!commissionVal.includes('%')) commissionVal += '%';
+            const rawCommNum = parseFloat(commissionVal);
+            
+            // Use the REAL "vs. open collab" line from the CSV, never make up a comparison
+            let comparisonText = '';
+            let comparisonCol = '#888';
+            if (commLines.length > 1) {
+                comparisonText = commLines[1].trim(); // e.g. "vs. open collab 15%"
+                comparisonCol = '#00d4ff';
+            }
+
+            // Product image — use real image or client-side placeholder
+            const hasRealImage = item.image && item.image.startsWith('http');
+            const catIcons = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
+            const catIcon = catIcons[item.category] || '📦';
+            const imgHtml = hasRealImage 
+                ? `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;\\'>${catIcon}</div>';" loading="lazy">`
+                : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">${catIcon}</div>`;
+
+            return `
+                <div class="product-card" id="card-${item.id}" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}', '${item.link}')">
+                    ${getBadgeHtml(item.rank)}
+                    <div class="product-image">
+                        ${imgHtml}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${item.name}</div>
+                        
+                        <div style="margin-bottom: 8px;">
+                            <div class="hero-commission-badge">${commissionVal}</div>
+                            ${comparisonText ? `<div style="font-size: 10px; font-weight: 600; color: ${comparisonCol}; margin-top: 3px;">${comparisonText}</div>` : ''}
+                        </div>
+
+                        <div class="product-stats">
+                            <span style="color: #888; font-size: 12px;">🔥 ${item.sold || '0'} sold</span>
+                            <span style="color: #666; font-size: 11px;">${item.category || ''}</span>
+                        </div>
+                        
+                        <div class="product-bottom">
+                            <div class="product-price">${item.price}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderInitialGrids() {
+            const featuredGrid = document.getElementById('featured-grid');
+            const suggestedGrid = document.getElementById('suggested-grid');
+            
+            // Render Featured Campaigns (Priority) — show 8
+            const featured = campaigns.sort((a,b) => a.rank - b.rank).slice(0, 8);
+            featuredGrid.innerHTML = featured.map(createProductCard).join('');
+            
+            // Render Suggested Products — show top 24 by rank
+            const suggested = allItems.sort((a,b) => a.rank - b.rank).slice(0, 24);
+            suggestedGrid.innerHTML = suggested.map(createProductCard).join('');
+            
+            // Show total product count
+            const totalEl = document.getElementById('results-count');
+            if (totalEl) totalEl.textContent = `${allItems.length} products available`;
+        }
+
+        function updateHeroCarousel() {
+            const carousel = document.getElementById('hero-carousel');
+            if (!carousel) return;
+            const source = campaigns.length ? campaigns : allItems;
+            if (!source.length) return;
+
+            const topEarning = [...source].sort((a, b) => parseSoldValue(b.sold) - parseSoldValue(a.sold))[0] || source[0];
+            const highestCommission = [...source].sort((a, b) => parseCommissionValue(b.commission) - parseCommissionValue(a.commission))[0] || source[0];
+            const trending = [...source].sort((a, b) => (a.rank || 99) - (b.rank || 99))[0] || source[0];
+            const cards = [
+                { label: "Top Earning Campaign Today", item: topEarning, metric: `Sold: ${parseSoldValue(topEarning.sold).toLocaleString()}` },
+                { label: "Highest Commission Right Now", item: highestCommission, metric: `EPC: $${calculateEPC(highestCommission.commission).toFixed(2)}` },
+                { label: "Trending Among Creators", item: trending, metric: `CVR: ${calculateCVR(trending.commission).toFixed(1)}%` }
+            ];
+
+            carousel.innerHTML = cards.map(card => `
+                <article class="hero-carousel-card" aria-label="${card.label}: ${card.item.name || 'Campaign'}">
+                    <div class="hero-carousel-title">${card.label}</div>
+                    <div class="hero-carousel-name">${card.item.name || 'Campaign'}</div>
+                    <div class="hero-carousel-metric">
+                        <span>${card.metric}</span>
+                        <span class="hero-commission-pill">${parseCommissionValue(card.item.commission).toFixed(0)}%</span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function updateHeroHud() {
+            const source = campaigns.length ? campaigns : allItems;
+            if (!source.length) return;
+            const avgComm = source.reduce((acc, item) => acc + parseCommissionValue(item.commission), 0) / source.length;
+            const topComm = Math.max(...source.map(item => parseCommissionValue(item.commission)));
+            const newCampaigns = source.filter(item => (item.rank || 999) <= 12).length;
+
+            const epc = calculateEPC(avgComm).toFixed(2);
+            const epcEl = document.getElementById('hud-epc');
+            const topEl = document.getElementById('hud-top-commission');
+            const newEl = document.getElementById('hud-new-campaigns');
+            if (epcEl) epcEl.textContent = `$${epc}`;
+            if (topEl) topEl.textContent = `${topComm.toFixed(0)}%`;
+            if (newEl) newEl.textContent = String(newCampaigns);
+        }
+
+        function applyCategoryTheme(categoryName = '') {
+            const hero = document.getElementById('hero-section');
+            if (!hero) return;
+            const theme = getCategoryTheme(categoryName);
+            document.body.style.background = `linear-gradient(135deg, #06060c 0%, ${theme.body} 60%, #06060c 100%)`;
+        }
+
+        function initHeroMicroInteractions() {
+            const hero = document.getElementById('hero-section');
+            const heroTitle = document.getElementById('hero-title');
+            const heroTagline = document.getElementById('hero-tagline');
+            const searchInput = document.getElementById('main-search');
+            const searchWrapper = document.querySelector('.search-wrapper');
+            const tagsWrap = document.querySelector('.search-quick-tags');
+            if (!hero || !searchInput || !searchWrapper || !tagsWrap) return;
+
+            // Motion Layer II: state for compositing scroll + mouse parallax on hero title
+            let heroScrollProgress = 0;
+            let titleMouseX = 0, titleMouseY = 0;
+            const kickerEl  = hero.querySelector('.hero-kicker');
+            const carouselEl = hero.querySelector('.hero-carousel');
+            const spotlightEl = hero.querySelector('.hero-spotlight');
+            function updateHeroTitleTransform() {
+                if (!heroTitle) return;
+                heroTitle.style.transform = `scale(${1 - heroScrollProgress * 0.04}) translate(${titleMouseX}px, ${titleMouseY}px)`;
+            }
+
+            setTimeout(() => {
+                document.body.classList.add('creator-mode-ready');
+                tryPlayHeroTudum();
+            }, 120);
+
+
+            setInterval(() => {
+                heroTagline.classList.add('swapping');
+                setTimeout(() => {
+                    heroTaglineIndex = (heroTaglineIndex + 1) % HERO_TAGLINES.length;
+                    heroTagline.textContent = HERO_TAGLINES[heroTaglineIndex];
+                    heroTagline.classList.remove('swapping');
+                }, 180);
+            }, TAGLINE_ROTATION_INTERVAL);
+
+            setInterval(() => {
+                heroPlaceholderIndex = (heroPlaceholderIndex + 1) % HERO_PLACEHOLDERS.length;
+                if (document.activeElement !== searchInput && !searchInput.value.trim()) {
+                    searchInput.setAttribute('placeholder', HERO_PLACEHOLDERS[heroPlaceholderIndex]);
+                }
+            }, PLACEHOLDER_ROTATION_INTERVAL);
+
+            let sparkleTimeout;
+            searchInput.addEventListener('input', () => {
+                if (!searchInput.value.trim()) return;
+                searchWrapper.classList.add('typing');
+                clearTimeout(sparkleTimeout);
+                sparkleTimeout = setTimeout(() => searchWrapper.classList.remove('typing'), 320);
+            });
+
+            let heroRect = hero.getBoundingClientRect();
+            const updateHeroRect = () => {
+                heroRect = hero.getBoundingClientRect();
+            };
+            // Keep heroRect fresh on resize and after fonts/images settle
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(updateHeroRect, 100);
+            }, { passive: true });
+            // Refresh once after load in case layout shifted
+            setTimeout(updateHeroRect, 400);
+
+            // Use window-level listener so mouse tracking works across the full hero
+            let mouseInHero = false;
+            window.addEventListener('mousemove', (e) => {
+                const inHero = e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
+                               e.clientX >= heroRect.left && e.clientX <= heroRect.right;
+                if (!inHero) {
+                    if (mouseInHero) {
+                        mouseInHero = false;
+                        titleMouseX = 0; titleMouseY = 0;
+                        updateHeroTitleTransform();
+                        if (kickerEl)    kickerEl.style.transform   = '';
+                        if (carouselEl)  carouselEl.style.transform = '';
+                        if (spotlightEl) spotlightEl.style.transform = 'translate(-50%, -50%)';
+                        hero.style.setProperty('--hero-mouse-x', '0px');
+                        hero.style.setProperty('--hero-mouse-y', '0px');
+                    }
+                    return;
+                }
+                mouseInHero = true;
+                const x = e.clientX - heroRect.left - heroRect.width / 2;
+                const y = e.clientY - heroRect.top  - heroRect.height / 2;
+                hero.style.setProperty('--hero-mouse-x', `${x}px`);
+                hero.style.setProperty('--hero-mouse-y', `${y}px`);
+                hero.style.setProperty('--hero-pulse', `${Math.min(0.4, Math.abs(x) / heroRect.width + Math.abs(y) / heroRect.height)}`);
+                // Spotlight follows cursor
+                if (spotlightEl) {
+                    spotlightEl.style.transform = `translate(calc(-50% + ${x * 0.09}px), calc(-50% + ${y * 0.07}px))`;
+                }
+                // Micro-parallax: headline (composed with scroll scale)
+                titleMouseX = x * -0.009;
+                titleMouseY = y * -0.006;
+                updateHeroTitleTransform();
+                // Micro-parallax: other elements (2–4px)
+                if (kickerEl)   kickerEl.style.transform   = `translate(${x * -0.022}px, ${y * -0.016}px)`;
+                if (carouselEl) carouselEl.style.transform = `translate(${x * -0.010}px, ${y * -0.006}px)`;
+            }, { passive: true });
+
+            tagsWrap.querySelectorAll('.quick-tag').forEach(tag => {
+                let tagRect = null;
+                const updateTagRect = () => {
+                    tagRect = tag.getBoundingClientRect();
+                };
+                tag.addEventListener('mouseenter', updateTagRect);
+                tag.addEventListener('mousemove', (e) => {
+                    if (!tagRect) updateTagRect();
+                    const mx = (e.clientX - tagRect.left - tagRect.width / 2) * 0.12;
+                    const my = (e.clientY - tagRect.top - tagRect.height / 2) * 0.15;
+                    tag.style.transform = `translate(${mx}px, ${my}px)`;
+                });
+                tag.addEventListener('mouseleave', () => {
+                    tag.style.transform = '';
+                    tagRect = null;
+                });
+                tag.addEventListener('click', (e) => {
+                    tag.classList.add('clicked', 'ripple');
+                    tag.style.setProperty('--ripple-x', `${e.offsetX}px`);
+                    tag.style.setProperty('--ripple-y', `${e.offsetY}px`);
+                    setTimeout(() => tag.classList.remove('clicked', 'ripple'), 380);
+                    applyCategoryTheme(tag.dataset.cat || getChipText(tag));
+                });
+            });
+
+            let scrollTicking = false;
+            const onScroll = () => {
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    const progress = Math.min(1, window.scrollY / HERO_SCROLL_THRESHOLD);
+                    heroScrollProgress = progress;
+                    updateHeroTitleTransform();
+                    if (heroTagline) heroTagline.style.transform = `translateY(${progress * 6}px)`;
+                    // Blur only after 75% of the hero title has scrolled past the viewport
+                    if (heroTitle) {
+                        const tb = heroTitle.getBoundingClientRect();
+                        // 75% scrolled past = only 25% of height remains visible above viewport top
+                        const blurThreshold = heroTitle.offsetHeight * 0.25;
+                        if (tb.bottom < blurThreshold) {
+                            const beyond = blurThreshold - tb.bottom;
+                            hero.style.filter = `blur(${Math.min(beyond * 0.04, 3)}px)`;
+                        } else {
+                            hero.style.filter = '';
+                        }
+                    }
+                    document.body.style.setProperty('--scroll-shimmer', `${window.scrollY * 0.45}px`);
+                    tagsWrap.classList.toggle('sticky', window.scrollY > (hero.offsetTop + hero.offsetHeight * STICKY_TAGS_THRESHOLD));
+                    // Keep heroRect current as scroll changes layout
+                    updateHeroRect();
+                    scrollTicking = false;
+                });
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // ─── Motion Layer II: Ambient particles & micro-delights ───
+
+            // Ambient dust-mote particles (2–4% opacity, extremely subtle)
+            const particlesCanvas = hero.querySelector('.hero-particles');
+            if (particlesCanvas) {
+                const resizePC = () => {
+                    particlesCanvas.width  = hero.offsetWidth;
+                    particlesCanvas.height = hero.offsetHeight;
+                };
+                resizePC();
+                window.addEventListener('resize', resizePC, { passive: true });
+                const pCtx = particlesCanvas.getContext('2d');
+                const pts  = Array.from({ length: 55 }, () => ({
+                    x:     Math.random() * hero.offsetWidth,
+                    y:     Math.random() * hero.offsetHeight,
+                    r:     Math.random() * 2.2 + 0.8,
+                    vx:    (Math.random() - 0.5) * 0.18,
+                    vy:    -Math.random() * 0.14 - 0.04,
+                    alpha: Math.random() * 0.055 + 0.025,
+                    freq:  Math.random() * 0.006 + 0.002,
+                    phase: Math.random() * Math.PI * 2,
+                }));
+                (function drawParticles() {
+                    pCtx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+                    const now = performance.now() / 1000;
+                    pts.forEach(p => {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < -2) p.x = particlesCanvas.width  + 2;
+                        if (p.x > particlesCanvas.width  + 2) p.x = -2;
+                        if (p.y < -2) p.y = particlesCanvas.height + 2;
+                        if (p.y > particlesCanvas.height + 2) p.y = -2;
+                        const a = p.alpha * (0.4 + 0.6 * Math.sin(now * p.freq * Math.PI * 2 + p.phase));
+                        pCtx.beginPath();
+                        pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        pCtx.fillStyle = `rgba(255,255,255,${a.toFixed(4)})`;
+                        pCtx.fill();
+                    });
+                    requestAnimationFrame(drawParticles);
+                })();
+            }
+
+            // Search button click ripple
+            const searchBtnEl = hero.querySelector('.search-btn');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('click', () => {
+                    const rip = document.createElement('span');
+                    rip.style.cssText = 'position:absolute;top:50%;left:50%;width:4px;height:4px;background:rgba(255,255,255,0.4);border-radius:50%;pointer-events:none;animation:btnRippleExpand 0.45s ease-out forwards;';
+                    searchBtnEl.appendChild(rip);
+                    setTimeout(() => rip.remove(), 460);
+                });
+            }
+
+        }
+
+        // ─── Search Engine v2 ───────────────────────────────────────────────────────
+
+        // Track current search results for Load More
+        let currentSearchResults = [];
+        let displayedCount = 0;
+        const RESULTS_PER_PAGE = 48;
+        let currentSort = 'relevance';
+
+        // Score an item against a query (higher = better match)
+        function scoreItem(item, query) {
+            const q = query.toLowerCase().trim();
+            const words = q.split(/\s+/).filter(Boolean);
+            const name   = (item.name     || '').toLowerCase();
+            const cat    = (item.category || '').toLowerCase();
+            const creator = (item.creator || '').toLowerCase();
+            let score = 0;
+
+            // Exact full matches
+            if (name === q)   score += 100;
+            if (cat  === q)   score += 90;
+
+            // Contains full query as substring
+            if (name.includes(q))    score += 40;
+            if (cat.includes(q))     score += 35;
+            if (creator.includes(q)) score += 20;
+
+            // Word-level matches
+            words.forEach(w => {
+                if (name.includes(w))    score += 15;
+                if (cat.includes(w))     score += 12;
+                if (creator.includes(w)) score += 8;
+                // Prefix matches on category words
+                cat.split(/[\s&,]+/).forEach(cw => { if (cw.startsWith(w)) score += 10; });
+            });
+
+            // Fuzzy: partial char overlap for short single words (≤8 chars)
+            if (words.length === 1 && q.length >= 3) {
+                const nameWords = name.split(/\s+/);
+                nameWords.forEach(nw => {
+                    if (nw.startsWith(q.slice(0, 3))) score += 8;
+                });
+            }
+
+            return score;
+        }
+
+        function applySort(items, sortKey, queryForRelevance) {
+            if (sortKey === 'commission') {
+                return [...items].sort((a, b) =>
+                    parseCommissionValue(b.commission) - parseCommissionValue(a.commission));
+            }
+            if (sortKey === 'epc') {
+                return [...items].sort((a, b) =>
+                    calculateEPC(parseCommissionValue(b.commission)) -
+                    calculateEPC(parseCommissionValue(a.commission)));
+            }
+            if (sortKey === 'sales') {
+                return [...items].sort((a, b) => parseSoldValue(b.sold) - parseSoldValue(a.sold));
+            }
+            // relevance: use stored _score, then rank
+            return [...items].sort((a, b) => {
+                const sd = (b._score || 0) - (a._score || 0);
+                if (sd !== 0) return sd;
+                return (a.rank || 999) - (b.rank || 999);
+            });
+        }
+
+        function handleSearch(preserveSort) {
+            const query = document.getElementById('main-search').value.trim().toLowerCase();
+            const resultsSection = document.getElementById('search-results-container');
+            const resultsGrid    = document.getElementById('search-results-grid');
+            const featuredSection  = document.getElementById('featured-section');
+            const suggestedSection = document.getElementById('suggested-section');
+            const resultsTitle   = document.getElementById('search-results-title');
+            const resultsCount   = document.getElementById('results-count');
+
+            hideSuggestions();
+
+            if (query === '') {
+                clearSearch();
+                return;
+            }
+
+            // Reset sort to relevance on new query unless sorting explicitly
+            if (!preserveSort) currentSort = 'relevance';
+            updateSortUI();
+
+            let results = [];
+            let titleText = '';
+
+            // High-commission shortcut
+            if (query === 'high commission') {
+                results = allItems.filter(item => parseCommissionValue(item.commission) >= 15);
+                results.forEach(r => { r._score = parseCommissionValue(r.commission); });
+                titleText = '🔥 Highest Commission Campaigns';
+            } else {
+                // Score every item
+                const scored = allItems.map(item => {
+                    const s = scoreItem(item, query);
+                    return { ...item, _score: s };
+                }).filter(item => item._score > 0);
+
+                if (scored.length > 0) {
+                    results = scored;
+                    titleText = `Results for "${query}"`;
+                } else {
+                    // Fuzzy fallback — pick the best-ranked items and surface them
+                    const firstWord = query.split(' ')[0];
+                    const fallback = allItems.filter(item =>
+                        (item.category || '').toLowerCase().split(/[\s&,]+/)[0].startsWith(firstWord) ||
+                        (item.rank || 999) <= 3
+                    ).slice(0, 48);
+                    fallback.forEach(r => { r._score = 0; });
+                    results = fallback;
+                    titleText = `No exact matches for "${query}" — showing top campaigns:`;
+                }
+            }
+
+            results = applySort(results, currentSort, query);
+
+            currentSearchResults = results;
+            displayedCount = Math.min(RESULTS_PER_PAGE, results.length);
+
+            resultsTitle.textContent = titleText;
+            resultsGrid.innerHTML = results.slice(0, displayedCount).map(createProductCard).join('');
+            resultsCount.textContent = `${results.length} campaign${results.length !== 1 ? 's' : ''} found`;
+
+            const loadMore = document.getElementById('load-more-container');
+            loadMore.style.display = results.length > displayedCount ? 'block' : 'none';
+
+            resultsSection.style.display  = 'block';
+            featuredSection.style.display  = 'none';
+            suggestedSection.style.display = 'none';
+            observeAllCards();
+
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function loadMoreResults() {
+            const resultsGrid = document.getElementById('search-results-grid');
+            const nextBatch = currentSearchResults.slice(displayedCount, displayedCount + RESULTS_PER_PAGE);
+            resultsGrid.innerHTML += nextBatch.map(createProductCard).join('');
+            displayedCount += nextBatch.length;
+            const loadMore = document.getElementById('load-more-container');
+            loadMore.style.display = currentSearchResults.length > displayedCount ? 'block' : 'none';
+            observeAllCards();
+        }
+
+        function clearSearch() {
+            document.getElementById('main-search').value = '';
+            document.getElementById('search-results-container').style.display = 'none';
+            document.getElementById('featured-section').style.display  = 'block';
+            document.getElementById('suggested-section').style.display = 'block';
+            document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
+            hideSuggestions();
+            currentSearchResults = [];
+            displayedCount = 0;
+            currentSort = 'relevance';
+            updateSortUI();
+        }
+
+        function updateSortUI() {
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.sort === currentSort);
+            });
+        }
+
+        // ─── Live Suggestions ─────────────────────────────────────────────────────
+
+        const TRENDING_SEARCHES = [
+            { label: '🔥 High Commission', value: 'high commission' },
+            { label: '💄 Beauty & Care', value: 'Beauty & Personal Care' },
+            { label: '📱 Electronics', value: 'Phones & Electronics' },
+            { label: '💊 Health & Wellness', value: 'Health' },
+            { label: '👗 Fashion', value: 'Womenswear & Underwear' },
+        ];
+
+        function buildSuggestions(query) {
+            const panel = document.getElementById('search-suggestions');
+            if (!panel) return;
+            const q = (query || '').trim().toLowerCase();
+
+            let html = '';
+
+            if (!q) {
+                // Trending
+                html += `<div class="suggestion-section-label">🔍 Trending Searches</div>`;
+                html += TRENDING_SEARCHES.map(t =>
+                    `<div class="suggestion-item" data-value="${t.value}">
+                        <span class="suggestion-icon">🔥</span>
+                        <span class="suggestion-text"><span class="suggestion-name">${t.label}</span></span>
+                    </div>`
+                ).join('');
+            } else {
+                // Category matches
+                const allCats = [...new Set(allItems.map(i => i.category).filter(Boolean))];
+                const matchedCats = allCats.filter(c => c.toLowerCase().includes(q)).slice(0, 3);
+                if (matchedCats.length) {
+                    html += `<div class="suggestion-section-label">📂 Categories</div>`;
+                    html += matchedCats.map(cat =>
+                        `<div class="suggestion-item" data-value="${cat}">
+                            <span class="suggestion-icon">📂</span>
+                            <span class="suggestion-text"><span class="suggestion-name">${highlightMatch(cat, q)}</span></span>
+                        </div>`
+                    ).join('');
+                }
+
+                // Top item matches (up to 5)
+                const topItems = allItems
+                    .map(i => ({ ...i, _score: scoreItem(i, q) }))
+                    .filter(i => i._score > 0)
+                    .sort((a, b) => (b._score - a._score) || (a.rank || 999) - (b.rank || 999))
+                    .slice(0, 5);
+
+                if (topItems.length) {
+                    html += `<div class="suggestion-section-label">🏆 Top Campaigns</div>`;
+                    const catIcons2 = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
+                    html += topItems.map(item => {
+                        const commVal = parseCommissionValue(item.commission).toFixed(0) + '%';
+                        const icon = catIcons2[item.category] || '📦';
+                        return `<div class="suggestion-item" data-value="${escAttr(item.name)}">
+                            <span class="suggestion-icon">${icon}</span>
+                            <span class="suggestion-text">
+                                <span class="suggestion-name">${highlightMatch(item.name, q)}</span>
+                                <span class="suggestion-meta">${item.category || ''}</span>
+                            </span>
+                            <span class="suggestion-commission">${commVal}</span>
+                        </div>`;
+                    }).join('');
+                }
+
+                if (!matchedCats.length && !topItems.length) {
+                    html += `<div class="suggestion-item" style="pointer-events:none; opacity:0.5;">
+                        <span class="suggestion-icon">🔍</span>
+                        <span class="suggestion-text"><span class="suggestion-name">No suggestions — press Enter to search</span></span>
+                    </div>`;
+                }
+            }
+
+            panel.innerHTML = html;
+            panel.querySelectorAll('.suggestion-item[data-value]').forEach(el => {
+                el.addEventListener('mousedown', (e) => {
+                    e.preventDefault();
+                    document.getElementById('main-search').value = el.dataset.value;
+                    hideSuggestions();
+                    handleSearch();
+                });
+            });
+        }
+
+        function highlightMatch(text, query) {
+            if (!query) return text;
+            const idx = text.toLowerCase().indexOf(query.toLowerCase());
+            if (idx === -1) return text;
+            return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
+        }
+
+        function escAttr(str) {
+            return (str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function showSuggestions() {
+            const panel = document.getElementById('search-suggestions');
+            if (panel) panel.classList.add('visible');
+        }
+        function hideSuggestions() {
+            const panel = document.getElementById('search-suggestions');
+            if (panel) panel.classList.remove('visible');
+        }
+
+        // ─── Event Listeners ──────────────────────────────────────────────────────
+
+        document.getElementById('search-trigger').addEventListener('click', handleSearch);
+        
+        // Live search: suggestions + debounced results
+        let searchTimeout;
+        const searchInput = document.getElementById('main-search');
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            const q = searchInput.value.trim();
+            buildSuggestions(q);
+            showSuggestions();
+            if (q.length === 0) {
+                clearSearch();
+                return;
+            }
+            searchTimeout = setTimeout(() => handleSearch(), 280);
+        });
+
+        searchInput.addEventListener('focus', () => {
+            buildSuggestions(searchInput.value.trim());
+            showSuggestions();
+        });
+
+        searchInput.addEventListener('blur', () => {
+            // Delay so mousedown on suggestion fires first
+            setTimeout(hideSuggestions, 160);
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); hideSuggestions(); handleSearch(); }
+            if (e.key === 'Escape') { hideSuggestions(); }
+        });
+
+        document.getElementById('main-search').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+        document.getElementById('clear-search').addEventListener('click', (e) => {
+            e.preventDefault();
+            clearSearch();
+        });
+
+        // Sort buttons
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSort = btn.dataset.sort;
+                updateSortUI();
+                if (currentSearchResults.length) {
+                    const query = document.getElementById('main-search').value.trim().toLowerCase();
+                    const sorted = applySort(currentSearchResults, currentSort, query);
+                    currentSearchResults = sorted;
+                    displayedCount = Math.min(RESULTS_PER_PAGE, sorted.length);
+                    document.getElementById('search-results-grid').innerHTML =
+                        sorted.slice(0, displayedCount).map(createProductCard).join('');
+                    const loadMore = document.getElementById('load-more-container');
+                    loadMore.style.display = sorted.length > displayedCount ? 'block' : 'none';
+                    observeAllCards();
+                }
+            });
+        });
+
+        // Quick Tags - support data-cat attribute for category filtering
+        document.querySelectorAll('.quick-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                const cat = tag.dataset.cat;
+                const chipText = getChipText(tag);
+                document.getElementById('main-search').value = cat || chipText;
+                hideSuggestions();
+                handleSearch();
+            });
+        });
+
+        // Load More button
+        document.getElementById('load-more-btn')?.addEventListener('click', loadMoreResults);
+
+        // Single-Select Logic
+        let selectedProductId = null;
+        let selectedProductLink = null;
+        let estCommissionTotal = 0;
+        const HIGH_POTENTIAL_THRESHOLD = 75;
+        const MEDIUM_POTENTIAL_THRESHOLD = 25;
+
+        window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
+            const isAlreadySelected = selectedProductId === id;
+            
+            // Clear previous selection if any
+            clearProductSelection();
+
+            if (!isAlreadySelected) {
+                // New Selection
+                const price = parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
+                estCommissionTotal = price * (commPct / 100);
+                selectedProductId = id;
+                selectedProductLink = link;
+
+                // Add classes
+                element.classList.add('selected');
+                document.getElementById('selection-overlay').classList.add('visible');
+                document.body.classList.add('overlay-active');
+                
+                updateStickyBar();
+            }
+        };
+
+        window.clearProductSelection = function() {
+            selectedProductId = null;
+            selectedProductLink = null;
+            estCommissionTotal = 0;
+            
+            document.querySelectorAll('.product-card.selected').forEach(el => el.classList.remove('selected'));
+            document.getElementById('selection-overlay').classList.remove('visible');
+            document.body.classList.remove('overlay-active');
+            
+            updateStickyBar();
+        };
+
+        function updateStickyBar() {
+            const bar = document.getElementById('action-bar');
+            const countEl = document.getElementById('action-count');
+            const estEl = document.getElementById('action-est');
+            
+            if (selectedProductId) {
+                countEl.textContent = `Add Product to Showcase`;
+                const projectedSales = 10;
+                const totalProj = estCommissionTotal * projectedSales;
+                let potentialLevel = 'Base';
+                if (totalProj >= HIGH_POTENTIAL_THRESHOLD) {
+                    potentialLevel = 'High';
+                } else if (totalProj >= MEDIUM_POTENTIAL_THRESHOLD) {
+                    potentialLevel = 'Medium';
+                }
+                estEl.textContent = `Commission Potential: ${potentialLevel}`;
+                
+                bar.classList.add('visible');
+            } else {
+                bar.classList.remove('visible');
+            }
+        }
+
+        window.launchCampaign = function() {
+            if (selectedProductLink) {
+                window.open(selectedProductLink, '_blank');
+            }
+            clearProductSelection();
+        };
+
+        // ── Hero boot sound ─────────────────────────────────────────────────
+        // Hero boot sound synced to the bootSweep animation.
+        // Prefers an MP3 file (common project paths), then falls back to synth.
+        let _heroSoundPlayed = false;
+        let _heroTudumAudio = null;
+        let _heroTudumAudioCandidateIdx = 0;
+        const HERO_TUDUM_AUDIO_CANDIDATES = [
+            'sounds/netflix-tudum-sfx-n-c (1).mp3',
+            'sounds/netflix-tudum.mp3',
+            'sounds/hero-tudum.mp3',
+            'sounds/tudum.mp3',
+            'audio/netflix-tudum-sfx-n-c (1).mp3',
+            'audio/hero-tudum.mp3',
+            'audio/tudum.mp3',
+            'assets/sounds/hero-tudum.mp3',
+            'assets/sounds/tudum.mp3',
+            'assets/audio/hero-tudum.mp3',
+            'assets/hero-tudum.mp3',
+            'hero-tudum.mp3',
+            'tudum.mp3'
+        ];
+
+        async function tryPlayHeroTudumFromFile() {
+            while (_heroTudumAudioCandidateIdx < HERO_TUDUM_AUDIO_CANDIDATES.length) {
+                if (!_heroTudumAudio) {
+                    _heroTudumAudio = new Audio(HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx]);
+                    _heroTudumAudio.preload = 'auto';
+                }
+
+                try {
+                    if (_heroTudumAudio.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) _heroTudumAudio.currentTime = 0;
+                    await _heroTudumAudio.play();
+                    return true;
+                } catch (err) {
+                    const playbackDenied = err && (err.name === 'NotAllowedError' || err.name === 'AbortError');
+                    if (playbackDenied) return false;
+                    if (window.console?.debug) {
+                        console.debug('[Hero Tudum] MP3 play failed:', HERO_TUDUM_AUDIO_CANDIDATES[_heroTudumAudioCandidateIdx], err);
+                    }
+                    _heroTudumAudio = null;
+                    _heroTudumAudioCandidateIdx += 1;
+                }
+            }
+            return false;
+        }
+
+        async function playSyntheticHeroTudum() {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return false;
+
+            const ctx = new AudioCtx();
+
+            // Resume the context (resolves immediately if already running,
+            // or after the browser grants audio permission).
+            try {
+                await ctx.resume();
+            } catch (e) {
+                ctx.close().catch(() => {});
+                return false;
+            }
+
+            if (ctx.state !== 'running') {
+                // Still suspended — autoplay blocked, interaction fallback will retry.
+                ctx.close().catch(() => {});
+                return false;
+            }
+
+            const now = ctx.currentTime + 0.02;
+
+            // ── Master output ──────────────────────────────────────────────
+            const master = ctx.createGain();
+            master.gain.setValueAtTime(0.85, now);
+            master.connect(ctx.destination);
+
+            // ── Short delay reverb tail ────────────────────────────────────
+            const delayNode = ctx.createDelay(0.6);
+            delayNode.delayTime.setValueAtTime(0.24, now);
+            const fbGain = ctx.createGain();
+            fbGain.gain.setValueAtTime(0.22, now);
+            const reverbMix = ctx.createGain();
+            reverbMix.gain.setValueAtTime(0.30, now);
+            delayNode.connect(fbGain);
+            fbGain.connect(delayNode);
+            delayNode.connect(reverbMix);
+            reverbMix.connect(master);
+
+            // ── First punch: "ta" — short percussive sub-bass hit ──────────
+            const g1 = ctx.createGain();
+            g1.gain.setValueAtTime(0.001, now);
+            g1.gain.linearRampToValueAtTime(0.75, now + 0.008);
+            g1.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            g1.connect(master);
+            g1.connect(delayNode);
+
+            const osc1 = ctx.createOscillator();
+            osc1.type = 'triangle';
+            osc1.frequency.setValueAtTime(160, now);
+            osc1.frequency.exponentialRampToValueAtTime(72, now + 0.22);
+            osc1.connect(g1);
+            osc1.start(now);
+            osc1.stop(now + 0.30);
+
+            // Noise transient — adds the crisp "t" attack click
+            const bufSize = Math.floor(ctx.sampleRate * 0.07);
+            const nBuf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+            const nd = nBuf.getChannelData(0);
+            for (let i = 0; i < bufSize; i++) nd[i] = Math.random() * 2 - 1;
+
+            const nFilt = ctx.createBiquadFilter();
+            nFilt.type = 'bandpass';
+            nFilt.frequency.setValueAtTime(320, now);
+            nFilt.Q.setValueAtTime(1.2, now);
+
+            const nGain = ctx.createGain();
+            nGain.gain.setValueAtTime(0.28, now);
+            nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+            nGain.connect(master);
+
+            const nSrc = ctx.createBufferSource();
+            nSrc.buffer = nBuf;
+            nSrc.connect(nFilt);
+            nFilt.connect(nGain);
+            nSrc.start(now);
+            nSrc.stop(now + 0.07);
+
+            // ── Second punch: "DUM" — the iconic deep resonant note ─────────
+            const t2 = now + 0.16;
+
+            const g2 = ctx.createGain();
+            g2.gain.setValueAtTime(0.001, t2);
+            g2.gain.linearRampToValueAtTime(0.92, t2 + 0.012);
+            g2.gain.exponentialRampToValueAtTime(0.001, t2 + 0.72);
+            g2.connect(master);
+            g2.connect(delayNode);
+
+            const osc2 = ctx.createOscillator();
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(295, t2);
+            osc2.frequency.exponentialRampToValueAtTime(205, t2 + 0.52);
+            osc2.connect(g2);
+            osc2.start(t2);
+            osc2.stop(t2 + 0.76);
+
+            // Sub-octave layer on the "DUM" for deep body
+            const g2b = ctx.createGain();
+            g2b.gain.setValueAtTime(0.001, t2);
+            g2b.gain.linearRampToValueAtTime(0.48, t2 + 0.015);
+            g2b.gain.exponentialRampToValueAtTime(0.001, t2 + 0.58);
+            g2b.connect(master);
+
+            const osc2b = ctx.createOscillator();
+            osc2b.type = 'sine';
+            osc2b.frequency.setValueAtTime(148, t2);
+            osc2b.frequency.exponentialRampToValueAtTime(102, t2 + 0.52);
+            osc2b.connect(g2b);
+            osc2b.start(t2);
+            osc2b.stop(t2 + 0.62);
+
+            setTimeout(() => { if (ctx.state !== 'closed') ctx.close().catch(() => {}); }, 1500);
+            return true;
+        }
+
+        async function tryPlayHeroTudum() {
+            if (_heroSoundPlayed) return;
+
+            const filePlayed = await tryPlayHeroTudumFromFile();
+            if (filePlayed) {
+                _heroSoundPlayed = true;
+                return;
+            }
+
+            const synthPlayed = await playSyntheticHeroTudum();
+            if (synthPlayed) _heroSoundPlayed = true;
+        }
+
+        function initHeroTudum() {
+            // Install first-interaction fallback in case autoplay is blocked.
+            const events = ['pointerdown', 'click', 'keydown'];
+            const handler = () => {
+                if (_heroSoundPlayed) {
+                    events.forEach(e => window.removeEventListener(e, handler));
+                    return;
+                }
+                tryPlayHeroTudum().then(() => {
+                    if (_heroSoundPlayed) events.forEach(e => window.removeEventListener(e, handler));
+                });
+            };
+            events.forEach(e => {
+                window.addEventListener(e, handler, e === 'keydown' ? undefined : { passive: true });
+            });
+        }
+        // ────────────────────────────────────────────────────────────────────
+
+        function initSplashGate() { /* splash gate removed */ }
+        // ────────────────────────────────────────────────────────────────────
+        // ─── Motion Layer III: Card scroll-reveal, tilt & micro-delights ───
+
+        let cardRevealObs = null;
+
+        function observeAllCards() {
+            if (!cardRevealObs) return;
+            document.querySelectorAll('.product-card:not(.card-revealed)').forEach(card => {
+                cardRevealObs.observe(card);
+            });
+        }
+
+        function initCardMotion() {
+            // 1. IntersectionObserver: staggered card fade-up on scroll-into-view
+            cardRevealObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const card = entry.target;
+                    const siblings = Array.from(card.parentElement?.children ?? []);
+                    const delay = (siblings.indexOf(card) % 4) * 55;
+                    card.style.animationDelay = `${delay}ms`;
+                    card.classList.add('card-revealed');
+                    cardRevealObs.unobserve(card);
+                });
+            }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+            observeAllCards();
+
+            // 2. Hero carousel card JS tilt (perspective ±4°)
+            document.querySelectorAll('.hero-carousel-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const r = card.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    card.style.transform = `perspective(520px) rotateX(${my * -3.5}deg) rotateY(${mx * 3.5}deg) translateY(-2px) scale(1.015)`;
+                }, { passive: true });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                }, { passive: true });
+            });
+
+            // 3. Search button 3D soft-tilt on hover
+            const searchBtnEl = document.getElementById('search-trigger');
+            if (searchBtnEl) {
+                searchBtnEl.addEventListener('mousemove', (e) => {
+                    const r = searchBtnEl.getBoundingClientRect();
+                    const mx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+                    const my = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                    searchBtnEl.style.transform = `perspective(220px) rotateX(${my * -5}deg) rotateY(${mx * 5}deg) translateY(-2px)`;
+                }, { passive: true });
+                searchBtnEl.addEventListener('mouseleave', () => {
+                    searchBtnEl.style.transform = '';
+                }, { passive: true });
+            }
+        }
+
+
+        // Initialize
+        initHeroMicroInteractions();
+        initHeroTudum();
+        initSplashGate();
+        loadAllData();
+
+        // ─── Genie intro: plays once per browser session ───
+        (function initGenieIntro() {
+            const overlay = document.getElementById('genie-intro');
+            if (!overlay) return;
+            if (sessionStorage.getItem('genie-shown')) {
+                overlay.remove();
+                return;
+            }
+            sessionStorage.setItem('genie-shown', '1');
+            // Total animation duration is 1.65s, then we fade the overlay out
+            setTimeout(() => {
+                overlay.classList.add('genie-exit');
+                setTimeout(() => overlay.remove(), 580);
+            }, 1700);
+        })();
+    </script>
+    
+    <div id="action-bar" class="sticky-action-bar">
+        <div class="action-stats">
+            <span class="action-count" id="action-count">Add Product to Showcase</span>
+            <span class="action-est" id="action-est">Commission Potential: High</span>
+        </div>
+        <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
+    </div>
+</body>
+</html>

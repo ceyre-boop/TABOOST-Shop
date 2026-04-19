@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Bulk Import Creators</title>
+    <style>
+        body {
+            background: #0a0a0f;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .log {
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success { color: #00ff88; }
+        .error { color: #ff0044; }
+        .info { color: #888; }
+    </style>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        const creators = [
+            {"cid": "7359135084659736581", "username": "samanthasingsit", "manager": "carrington"},
+            {"cid": "7359135097779519493", "username": "bryton.39", "manager": "marco"},
+            {"cid": "7359135105165656069", "username": "freekbass", "manager": "carrington"},
+            {"cid": "7359135264167428102", "username": "coloreomusic", "manager": "carrington"},
+            {"cid": "7359134585688522757", "username": "singleonthemove", "manager": "carrington"},
+            {"cid": "7527933905626988561", "username": "shanellenikolee", "manager": "carrington"},
+            {"cid": "7359134572702957574", "username": "jayden_egg", "manager": "carrington"},
+            {"cid": "7368626525710794769", "username": "daisy_dew4", "manager": "carrington"},
+            {"cid": "7359135727810052101", "username": "hotterjakepaul", "manager": "carrington"},
+            {"cid": "7359134909191159814", "username": "skylerclarkk", "manager": "carrington", "claimed": true},
+            {"cid": "7359134960558571525", "username": "smity194", "manager": "carrington"},
+            {"cid": "7513787055730638849", "username": "cwdetroit", "manager": "carrington"},
+            {"cid": "7359135814745391109", "username": "tha_dripp_phamily", "manager": "carrington"},
+            {"cid": "7417960855335354369", "username": "pcdrums76", "manager": "carrington"},
+            {"cid": "7359136208586637317", "username": "thebellaflora__", "manager": "carrington"},
+            {"cid": "7391438796933546001", "username": "mirsowavy", "manager": "carrington"},
+            {"cid": "7576723590549389326", "username": "gaywhonotme", "manager": "sven"},
+            {"cid": "7359136272692117509", "username": "koryskitchen", "manager": "carrington"},
+            {"cid": "7359136287120719877", "username": "redrumstudios", "manager": "bryton"},
+            {"cid": "7409743090665242641", "username": "theviolution", "manager": "carrington"},
+            {"cid": "7433607263870517264", "username": "alexaraeemusic", "manager": "carrington"},
+            {"cid": "7359135283092226053", "username": "oregonstargirl", "manager": "carrington"},
+            {"cid": "7359135407352610822", "username": "burnt.tatertot", "manager": "carrington"},
+            {"cid": "7359137631822708741", "username": "sam_g_89", "manager": "bryton"},
+            {"cid": "7497777597393190929", "username": "stefanielauryn415", "manager": "carrington"},
+            {"cid": "7359135268521246726", "username": "thetrapviolinist", "manager": "carrington"},
+            {"cid": "7558760842850746382", "username": "sarahegant", "manager": "carrington"},
+            {"cid": "7451090481020321808", "username": "growandglowasmr", "manager": "bryton"},
+            {"cid": "7581605738645078071", "username": "jordan.borges", "manager": "dylan"},
+            {"cid": "7554552006812188727", "username": "imjustnicob", "manager": "bryton"},
+            {"cid": "7359135408745447429", "username": "b.herbz", "manager": "carrington"},
+            {"cid": "7387268256991657985", "username": "titancosplays", "manager": "carrington"},
+            {"cid": "7359138280010645509", "username": "ageofangel", "manager": "carrington"},
+            {"cid": "7359135698651217926", "username": "mystiquedejello", "manager": "carrington"},
+            {"cid": "7595776572192243726", "username": "muthafknsid", "manager": "bryton"},
+            {"cid": "7359134875733000198", "username": "maiazakay", "manager": "marco"},
+            {"cid": "7359134984718024709", "username": "cpayne_04", "manager": "carrington"},
+            {"cid": "7359135322615185413", "username": "aaronhunt30575", "manager": "carrington"},
+            {"cid": "7359136363951816710", "username": "rockylanemusic", "manager": "carrington"},
+            {"cid": "7359134961959632902", "username": "thecyrilia", "manager": "carrington"},
+            {"cid": "7359134527924666373", "username": "basswizrd", "manager": "carrington"},
+            {"cid": "7359134698641293317", "username": "bobbyjwil", "manager": "carrington"},
+            {"cid": "7608338554233602062", "username": "deearnnap", "manager": "levi"},
+            {"cid": "7359134981857280006", "username": "averynoelles", "manager": "carrington"},
+            {"cid": "7601674566645202999", "username": "threehundredseventytwo", "manager": "levi"},
+            {"cid": "7359134813120659461", "username": "jeremiahboutross", "manager": "carrington"},
+            {"cid": "7517471096153718800", "username": "imamberleybriana", "manager": "sven"},
+            {"cid": "7359134456151867397", "username": "luke.h.reynoldsmusic", "manager": "carrington"},
+            {"cid": "7359137668212490245", "username": "sebbythecatdad", "manager": "levi"}
+        ];
+        
+        window.importCreators = async () => {
+            const btn = document.getElementById('importBtn');
+            const log = document.getElementById('log');
+            
+            btn.disabled = true;
+            log.innerHTML = '<p class="info">Starting import...</p>';
+            
+            let imported = 0;
+            let skipped = 0;
+            let errors = 0;
+            
+            for (const creator of creators) {
+                try {
+                    const docRef = doc(db, 'creatorRoster', creator.username.toLowerCase());
+                    const docSnap = await getDoc(docRef);
+                    
+                    if (docSnap.exists()) {
+                        log.innerHTML += `<p class="info">⏭️ Skipped (exists): ${creator.username}</p>`;
+                        skipped++;
+                    } else {
+                        await setDoc(docRef, {
+                            cid: creator.cid,
+                            tiktokUsername: creator.username.toLowerCase(),
+                            claimed: creator.claimed || false,
+                            manager: creator.manager.toUpperCase(),
+                            importedAt: new Date().toISOString()
+                        });
+                        log.innerHTML += `<p class="success">✅ Imported: ${creator.username}</p>`;
+                        imported++;
+                    }
+                } catch (error) {
+                    log.innerHTML += `<p class="error">❌ Error with ${creator.username}: ${error.message}</p>`;
+                    errors++;
+                }
+                
+                // Scroll to bottom
+                log.scrollTop = log.scrollHeight;
+            }
+            
+            log.innerHTML += `<p class="info">\n🎉 Import complete! Imported: ${imported}, Skipped: ${skipped}, Errors: ${errors}</p>`;
+            btn.disabled = false;
+        };
+    </script>
+</head>
+<body>
+    <div class="logo">TABOOST</div>
+    <h1>Bulk Import Creators</h1>
+    <p>This will import all 50+ creators from your roster into Firestore.</p>
+    <p style="color: #888;">Skyler is marked as already claimed since she has an account.</p>
+    
+    <button class="btn" id="importBtn" onclick="importCreators()">Import All Creators</button>
+    
+    <div class="log" id="log">
+        <p class="info">Click "Import All Creators" to start...</p>
+    </div>
+    
+    <p style="margin-top: 20px;">
+        <a href="signup.html" style="color: #ff0044;">← Back to Signup</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboost - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .logo {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ff0044;
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,0,68,0.3);
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .toggle a {
+            color: #ff0044;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .error {
+            background: rgba(255,0,68,0.1);
+            border: 1px solid rgba(255,0,68,0.3);
+            color: #ff0044;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .error.show { display: block; }
+        .success {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.3);
+            color: #00ff88;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        .success.show { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <div class="subtitle" id="subtitle">Sign in to your account</div>
+        
+        <div id="error" class="error"></div>
+        <div id="success" class="success"></div>
+        
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="loginUser" placeholder="@yourusername" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="Your password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        
+        <!-- SIGNUP FORM -->
+        <form id="signupForm" style="display: none;">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="signupUser" placeholder="@yourusername" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="signupEmail" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="signupPass" placeholder="Min 8 characters" required minlength="8">
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="signupConfirm" placeholder="Confirm password" required>
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+        
+        <div class="toggle">
+            <span id="toggleText">First time here</span>
+            <a href="#" id="toggleLink" onclick="toggleMode(); return false;">Create account</a>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // MINIMAL AUTH SYSTEM - NO EXTERNAL DEPENDENCIES
+        // ==========================================
+        
+        const STORAGE_KEY = 'taboost_auth_v1';
+        const SIGNUP_LOG_KEY = 'taboost_signup_log_v1';
+        
+        // Get all stored passwords
+        function getPasswords() {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : {};
+            } catch (e) {
+                return {};
+            }
+        }
+        
+        // Get signup log
+        function getSignupLog() {
+            try {
+                const data = localStorage.getItem(SIGNUP_LOG_KEY);
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+        
+        // Add to signup log
+        function logSignup(username, email) {
+            const log = getSignupLog();
+            const entry = {
+                username: username.toLowerCase().replace(/^@/, ''),
+                email: email,
+                timestamp: new Date().toISOString(),
+                date: new Date().toLocaleDateString(),
+                time: new Date().toLocaleTimeString(),
+                userAgent: navigator.userAgent.substring(0, 100)
+            };
+            log.push(entry);
+            log.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); // Newest first
+            localStorage.setItem(SIGNUP_LOG_KEY, JSON.stringify(log));
+            console.log('📝 Logged signup:', entry);
+            return entry;
+        }
+        
+        // Save password
+        function savePassword(username, password) {
+            const passwords = getPasswords();
+            passwords[username.toLowerCase().replace(/^@/, '')] = password;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(passwords));
+            console.log('💾 Saved password for:', username);
+        }
+        
+        // Get password
+        function getPassword(username) {
+            const passwords = getPasswords();
+            return passwords[username.toLowerCase().replace(/^@/, '')];
+        }
+        
+        // Check if user exists
+        function userExists(username) {
+            return !!getPassword(username);
+        }
+        
+        // Set current user
+        function setCurrentUser(userData) {
+            localStorage.setItem('taboost_current_user', JSON.stringify(userData));
+        }
+        
+        // Get current user
+        function getCurrentUser() {
+            try {
+                return JSON.parse(localStorage.getItem('taboost_current_user'));
+            } catch (e) {
+                return null;
+            }
+        }
+        
+        // Show error
+        function showError(msg) {
+            const el = document.getElementById('error');
+            el.textContent = msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 5000);
+        }
+        
+        // Show success
+        function showSuccess(msg) {
+            const el = document.getElementById('success');
+            el.textContent = msg;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 3000);
+        }
+        
+        // Toggle login/signup
+        let isLogin = true;
+        function toggleMode() {
+            isLogin = !isLogin;
+            document.getElementById('loginForm').style.display = isLogin ? 'block' : 'none';
+            document.getElementById('signupForm').style.display = isLogin ? 'none' : 'block';
+            document.getElementById('subtitle').textContent = isLogin ? 'Sign in to your account' : 'Create your account';
+            document.getElementById('toggleText').textContent = isLogin ? 'New to Taboost?' : 'Already have an account?';
+            document.getElementById('toggleLink').textContent = isLogin ? 'Create account' : 'Sign in';
+        }
+        
+        // LOGIN
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUser').value.trim();
+            const password = document.getElementById('loginPass').value;
+            
+            console.log('🔐 Login attempt:', username);
+            
+            // Admin login
+            if (username.toLowerCase() === 'marco@taboost.me' && password === 'Taboost2026!Admin') {
+                setCurrentUser({ 
+                    username: 'marco@taboost.me', 
+                    role: 'admin', 
+                    name: 'Marco',
+                    loginTime: Date.now()
+                });
+                window.location.href = 'dashboard.html';
+                return;
+            }
+            
+            // Check if exists
+            if (!userExists(username)) {
+                showError('Account not found. Please create an account first.');
+                return;
+            }
+            
+            // Check password
+            const storedPass = getPassword(username);
+            if (password !== storedPass) {
+                showError('Wrong password. Please try again.');
+                return;
+            }
+            
+            // Success
+            const cleanUser = username.toLowerCase().replace(/^@/, '');
+            setCurrentUser({
+                username: cleanUser,
+                role: 'creator',
+                name: cleanUser
+            });
+            
+            console.log('✅ Login success:', cleanUser);
+            window.location.href = 'creator-dashboard.html';
+        });
+        
+        // SIGNUP
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('signupUser').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPass').value;
+            const confirm = document.getElementById('signupConfirm').value;
+            
+            console.log('🔐 Signup attempt:', username, email);
+            
+            // Validation
+            if (password !== confirm) {
+                showError('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters!');
+                return;
+            }
+            
+            // Check if already exists
+            if (userExists(username)) {
+                showError('This username already has an account. Please log in.');
+                return;
+            }
+            
+            // Save
+            savePassword(username, password);
+            
+            // Log the signup with timestamp
+            logSignup(username, email);
+            
+            const cleanUser = username.toLowerCase().replace(/^@/, '');
+            setCurrentUser({
+                username: cleanUser,
+                email: email,
+                role: 'creator',
+                name: cleanUser
+            });
+            
+            console.log('✅ Signup success:', cleanUser);
+            console.log('📊 Total signups:', getSignupLog().length);
+            showSuccess('Account created! Redirecting...');
+            
+            setTimeout(() => {
+                window.location.href = 'creator-dashboard.html';
+            }, 1000);
+        });
+        
+        // Check if already logged in (with session expiration)
+        const currentUser = getCurrentUser();
+        const SESSION_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
+        
+        if (currentUser && currentUser.loginTime) {
+            const sessionAge = Date.now() - currentUser.loginTime;
+            if (sessionAge < SESSION_DURATION_MS) {
+                // Session still valid - show "Continue as [user]" option
+                const continueDiv = document.createElement('div');
+                continueDiv.innerHTML = `
+                    <div style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.3);border-radius:10px;padding:15px;margin-bottom:20px;text-align:center;">
+                        <p style="color:#aaa;margin-bottom:10px;">Welcome back!</p>
+                        <p style="color:#fff;font-weight:600;margin-bottom:15px;">Continue as ${currentUser.name || currentUser.username}?</p>
+                        <div style="display:flex;gap:10px;justify-content:center;">
+                            <button onclick="continueSession()" style="background:#00ff88;color:#000;border:none;padding:10px 20px;border-radius:5px;font-weight:600;cursor:pointer;">Continue</button>
+                            <button onclick="logout()" style="background:transparent;color:#ff0044;border:1px solid #ff0044;padding:10px 20px;border-radius:5px;font-weight:600;cursor:pointer;">Log Out</button>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.container').insertBefore(continueDiv, document.querySelector('form'));
+            } else {
+                // Session expired - clear it
+                logout();
+            }
+        }
+        
+        function continueSession() {
+            if (currentUser.role === 'admin') {
+                window.location.href = 'dashboard.html';
+            } else {
+                window.location.href = 'creator-dashboard.html';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('taboost_current_user');
+            location.reload();
+        }
+        
+        // Override setCurrentUser to include login timestamp
+        const originalSetCurrentUser = setCurrentUser;
+        setCurrentUser = function(userData) {
+            userData.loginTime = Date.now();
+            originalSetCurrentUser(userData);
+        };
+        
+        console.log('🔐 Auth system ready. Stored users:', Object.keys(getPasswords()));
+    </script>
+</body>
+</html>

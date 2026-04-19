@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managers - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-magic"></i></div>
+                <div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span><span class="nav-badge" id="navCreatorCount">831</span></a>
+                    <a href="diamonds.html" class="nav-item"><i class="fas fa-gem"></i><span>Diamonds</span></a>
+                    <a href="live-streams.html" class="nav-item"><i class="fas fa-video"></i><span>Live Streams</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Management</div>
+                    <a href="managers.html" class="nav-item active"><i class="fas fa-user-tie"></i><span>Managers</span></a>
+                    <a href="rookies.html" class="nav-item"><i class="fas fa-seedling"></i><span>Rookies</span></a>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Reports</div>
+                    <a href="reports.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+                    <a href="alerts.html" class="nav-item"><i class="fas fa-bell"></i><span>Alerts</span><span class="nav-badge">3</span></a>
+                    <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search managers...">
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="refreshBtn" title="Refresh Data"><i class="fas fa-sync-alt"></i></button>
+                    <button class="header-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <div class="user-profile" onclick="logout()">
+                        <div class="user-avatar" id="userAvatar">M</div>
+                        <div class="user-info">
+                            <div class="user-name" id="userName">Marco</div>
+                            <div class="user-role" id="userRole">Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content fade-in">
+                <div style="margin-bottom: 25px;">
+                    <h1 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Manager Performance</h1>
+                    <p style="color: #888;">Track and compare manager team performance • Live from Google Sheets</p>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="stat-value" id="totalManagers">--</div>
+                        <div class="stat-label">Total Managers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-value" id="avgCreators">--</div>
+                        <div class="stat-label">Avg Creators/Manager</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-gem"></i></div>
+                        <div class="stat-value" id="totalDiamonds">--</div>
+                        <div class="stat-label">Total Diamonds</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(0, 255, 136, 0.1); color: var(--taboost-success);"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-value" id="totalRewards">--</div>
+                        <div class="stat-label">Total Rewards</div>
+                    </div>
+                </div>
+                
+                <!-- Manager Cards Grid -->
+                <div class="managers-grid" id="managersGrid">
+                    <!-- Populated by JS -->
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: #888;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 40px; margin-bottom: 20px; display: block;"></i>
+                        Loading manager data...
+                    </div>
+                </div>
+                
+                <!-- Manager Rankings Table -->
+                <div class="content-card" style="margin-top: 25px;">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Manager Rankings</h3>
+                            <p class="card-subtitle">Performance by total team diamonds</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Manager</th>
+                                    <th>Team Size</th>
+                                    <th>Total Diamonds</th>
+                                    <th>Total Rewards</th>
+                                    <th>Avg Hours</th>
+                                    <th>Top Creator</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="managerRankingsBody">
+                                <tr><td colspan="8" style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <style>
+        .managers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .manager-card {
+            background: var(--taboost-gray);
+            border: 1px solid var(--taboost-gray-light);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .manager-card:hover {
+            border-color: var(--taboost-red);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(255, 0, 68, 0.15);
+        }
+        
+        .manager-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--manager-color, var(--taboost-red));
+        }
+        
+        .manager-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .manager-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            background: var(--manager-color, var(--taboost-red));
+        }
+        
+        .manager-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .manager-info .role {
+            font-size: 13px;
+            color: #888;
+        }
+        
+        .manager-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .manager-stat {
+            background: var(--taboost-dark);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .manager-stat .value {
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .manager-stat .label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .top-creators-section {
+            border-top: 1px solid var(--taboost-gray-light);
+            padding-top: 15px;
+        }
+        
+        .top-creators-section h4 {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        
+        .top-creator-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--taboost-dark);
+        }
+        
+        .top-creator-item:last-child {
+            border-bottom: none;
+        }
+        
+        .top-creator-name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .top-creator-diamonds {
+            font-size: 12px;
+            color: var(--taboost-red);
+            font-weight: 700;
+        }
+    </style>
+    
+    <script src="js/data.js"></script>
+    <script src="js/sheets-data.js"></script>
+    <script>
+        // Auth check
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator';
+            document.getElementById('userAvatar').textContent = user.avatar;
+        }
+        
+        function logout() {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+        }
+        
+        function formatNumber(num) {
+            if (!num) return '0';
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            return num.toLocaleString();
+        }
+        
+        function formatFullNumber(num) {
+            return (num || 0).toLocaleString();
+        }
+        
+        function getManagerColor(manager) {
+            if (!manager) return '#888';
+            const m = manager.toLowerCase();
+            if (m.includes('carrington')) return '#ff0044';
+            if (m.includes('bryton')) return '#00ff88';
+            if (m.includes('sven')) return '#0096ff';
+            return '#888';
+        }
+        
+        // Initialize
+        async function init() {
+            await taboostData.loadFromCSV();
+            
+            const creators = taboostData.getAllCreators();
+            const managerStats = calculateManagerStats(creators);
+            
+            // Update stats
+            document.getElementById('totalManagers').textContent = managerStats.length;
+            document.getElementById('navCreatorCount').textContent = creators.length;
+            
+            const avgCreators = Math.round(creators.length / managerStats.length);
+            document.getElementById('avgCreators').textContent = avgCreators;
+            
+            const totalDiamonds = managerStats.reduce((sum, m) => sum + m.totalDiamonds, 0);
+            document.getElementById('totalDiamonds').textContent = formatNumber(totalDiamonds);
+            
+            const totalRewards = managerStats.reduce((sum, m) => sum + m.totalRewards, 0);
+            document.getElementById('totalRewards').textContent = formatNumber(totalRewards);
+            
+            // Render manager cards
+            renderManagerCards(managerStats);
+            
+            // Render rankings table
+            renderRankingsTable(managerStats);
+        }
+        
+        function calculateManagerStats(creators) {
+            const stats = {};
+            
+            creators.forEach(c => {
+                const manager = c.manager || 'Unassigned';
+                if (!stats[manager]) {
+                    stats[manager] = {
+                        name: manager,
+                        color: getManagerColor(manager),
+                        creators: [],
+                        totalDiamonds: 0,
+                        totalRewards: 0,
+                        totalHours: 0,
+                        totalStreams: 0
+                    };
+                }
+                
+                stats[manager].creators.push(c);
+                stats[manager].totalDiamonds += c.diamonds || 0;
+                stats[manager].totalRewards += c.rewards?.earned || 0;
+                stats[manager].totalHours += c.hours || 0;
+                stats[manager].totalStreams += c.liveStreams || 0;
+            });
+            
+            // Convert to array and sort by total diamonds
+            return Object.values(stats)
+                .map(m => ({
+                    ...m,
+                    teamSize: m.creators.length,
+                    avgHours: m.totalHours / m.creators.length,
+                    topCreator: m.creators.sort((a, b) => (b.diamonds || 0) - (a.diamonds || 0))[0]
+                }))
+                .sort((a, b) => b.totalDiamonds - a.totalDiamonds);
+        }
+        
+        function renderManagerCards(managerStats) {
+            const grid = document.getElementById('managersGrid');
+            
+            grid.innerHTML = managerStats.map((m, i) => `
+                <div class="manager-card" style="--manager-color: ${m.color};">
+                    <div class="manager-header">
+                        <div class="manager-avatar">${m.name.charAt(0)}</div>
+                        <div class="manager-info">
+                            <h3>${m.name}</h3>
+                            <div class="role">#${i + 1} by Diamonds</div>
+                        </div>
+                    </div>
+                    
+                    <div class="manager-stats">
+                        <div class="manager-stat">
+                            <div class="value">${m.teamSize}</div>
+                            <div class="label">Creators</div>
+                        </div>
+                        <div class="manager-stat">
+                            <div class="value">${formatNumber(m.totalDiamonds)}</div>
+                            <div class="label">Diamonds</div>
+                        </div>
+                        <div class="manager-stat">
+                            <div class="value">${formatNumber(m.totalRewards)}</div>
+                            <div class="label">Rewards</div>
+                        </div>
+                        <div class="manager-stat">
+                            <div class="value">${m.avgHours.toFixed(1)}h</div>
+                            <div class="label">Avg Hours</div>
+                        </div>
+                    </div>
+                    
+                    <div class="top-creators-section">
+                        <h4>Top 3 Creators</h4>
+                        ${m.creators.slice(0, 3).map(c => `
+                            <div class="top-creator-item">
+                                <span class="top-creator-name">${c.username}</span>
+                                <span class="top-creator-diamonds">${formatNumber(c.diamonds)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderRankingsTable(managerStats) {
+            const tbody = document.getElementById('managerRankingsBody');
+            const maxDiamonds = managerStats[0]?.totalDiamonds || 1;
+            
+            tbody.innerHTML = managerStats.map((m, i) => {
+                const perfPercent = (m.totalDiamonds / maxDiamonds * 100).toFixed(0);
+                
+                return `
+                    <tr>
+                        <td><strong style="color: ${i < 3 ? 'var(--taboost-gold)' : '#888'};">#${i + 1}</strong></td>
+                        <td>
+                            <div class="user-cell">
+                                <div class="user-avatar-sm" style="background: ${m.color}; color: white;">
+                                    ${m.name.charAt(0)}
+                                </div>
+                                <div class="user-details">
+                                    <h4>${m.name}</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${m.teamSize}</td>
+                        <td><strong style="color: var(--taboost-red);">${formatNumber(m.totalDiamonds)}</strong></td>
+                        <td><strong style="color: var(--taboost-success);">${formatNumber(m.totalRewards)}</strong></td>
+                        <td>${m.avgHours.toFixed(1)}h</td>
+                        <td>
+                            <a href="creator-detail.html?user=${m.topCreator?.username}" style="color: var(--taboost-white);">
+                                ${m.topCreator?.username || 'N/A'}
+                            </a>
+                        </td>
+                        <td>
+                            <div class="progress-bar" style="width: 150px;">
+                                <div class="progress-fill" style="width: ${perfPercent}%;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.manager-card');
+            
+            cards.forEach(card => {
+                const name = card.querySelector('.manager-info h3').textContent.toLowerCase();
+                card.style.display = name.includes(query) ? 'block' : 'none';
+            });
+            
+            // Also filter table rows
+            const rows = document.querySelectorAll('#managerRankingsBody tr');
+            rows.forEach(row => {
+                const name = row.querySelector('.user-details h4')?.textContent.toLowerCase();
+                row.style.display = name && name.includes(query) ? '' : 'none';
+            });
+        });
+        
+        // Refresh
+        document.getElementById('refreshBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('refreshBtn');
+            btn.classList.add('spinning');
+            await init();
+            setTimeout(() => btn.classList.remove('spinning'), 500);
+        });
+        
+        // Initialize
+        init();
+    </script>
+</body>
+</html>

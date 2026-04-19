@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST - Firebase Security Setup</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #ff0044;
+            border-bottom: 2px solid #ff0044;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00ff88;
+            margin-top: 40px;
+        }
+        .step {
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid #ff0044;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .step-number {
+            display: inline-block;
+            background: #ff0044;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        code {
+            background: rgba(0,0,0,0.5);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            color: #ccc;
+        }
+        .warning {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid #ffaa00;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffaa00;
+        }
+        .success {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #00ff88;
+        }
+        a {
+            color: #ff0044;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 TABOOST Firebase Security Guide</h1>
+    
+    <div class="success">
+        <strong>Goal:</strong> Secure platform where creators can ONLY access their own account, 
+        and admins can manage everything. No account hijacking possible.
+    </div>
+
+    <h2>📚 How Firebase Works (Simple)</h2>
+    
+    <div class="step">
+        <span class="step-number">1</span>
+        <strong>Authentication (Who are you?)</strong>
+        <p>Firebase Auth stores emails and passwords securely. When someone logs in, Firebase gives them a unique ID called a <code>UID</code>.</p>
+        <p>Example UID: <code>XjD4aZVLhKVio5QTYEIcCbY0v0g2</code></p>
+        <p>This UID is their real identity. Email is just a label.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <strong>Firestore Database (Your data)</strong>
+        <p>Stores user profiles, creator data, etc. Each user gets a document.</p>
+        <pre>users/
+  └── UID1/          ← Document ID = Firebase Auth UID
+        email: "creator1@email.com"
+        role: "creator"
+        name: "Skyler"
+  └── UID2/
+        email: "marco@taboost.me"
+        role: "admin"
+        name: "Marco"</pre>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <strong>Security Rules (The Gatekeeper)</strong>
+        <p>Rules decide who can read/write what. Example:</p>
+        <pre>match /users/{userId} {
+  allow read: if request.auth.uid == userId;
+}</pre>
+        <p>This means: "Users can ONLY read their own document."</p>
+    </div>
+
+    <h2>🛡️ Why This Prevents Hijacking</h2>
+    
+    <p>When a creator logs in:</p>
+    <ol>
+        <li>Firebase verifies their password</li>
+        <li>Firebase attaches their UID to every request</li>
+        <li>If they try to access another user's data, the rule blocks it</li>
+    </ol>
+
+    <div class="success">
+        ✅ Result: Creators can ONLY see their own account. Impossible to access others.
+    </div>
+
+    <h2>🔧 Step-by-Step Setup</h2>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <strong>Enable Email/Password Auth</strong>
+        <p>Go to: <a href="https://console.firebase.google.com/project/taboost-platform/authentication" target="_blank">Firebase Console → Authentication</a></p>
+        <ul>
+            <li>Click "Get started"</li>
+            <li>Click "Email/Password"</li>
+            <li>Toggle "Enable"</li>
+            <li>Save</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <strong>Create Firestore Database</strong>
+        <p>Go to: <a href="https://console.firebase.google.com/project/taboost-platform/firestore" target="_blank">Firebase Console → Firestore Database</a></p>
+        <ul>
+            <li>Click "Create database"</li>
+            <li>Choose "Start in production mode" (or test mode temporarily)</li>
+            <li>Select location: <code>us-central</code></li>
+            <li>Enable</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <strong>Add Authorized Domains</strong>
+        <p>Go to: <a href="https://console.firebase.google.com/project/taboost-platform/authentication/settings" target="_blank">Firebase Console → Authentication → Settings</a></p>
+        <p>Add these domains:</p>
+        <ul>
+            <li><code>live.taboost.me</code> ⬅️ CRITICAL</li>
+            <li><code>taboost.me</code></li>
+            <li><code>ceyre-boop.github.io</code></li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <strong>Deploy Security Rules</strong>
+        <p>In Cloud Shell, run:</p>
+        <pre>cd ~/taboost-rules
+
+cat > firestore.rules << 'EOF'
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users can only access their own document
+    match /users/{userId} {
+      // Allow users to read their own data
+      allow read: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow users to update their own data (but not role)
+      allow update: if request.auth != null 
+        && request.auth.uid == userId
+        && request.resource.data.role == resource.data.role; // Role cannot change
+      
+      // Only admins can create users
+      allow create: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Admin can read all users
+    match /users/{userId} {
+      allow read: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Roster - approved creator list
+    match /roster/{username} {
+      // Anyone can read roster (to check if approved)
+      allow read: if request.auth != null;
+      
+      // Only admin can modify
+      allow write: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Signup audit log
+    match /signups/{docId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null 
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+}
+EOF
+
+firebase deploy --only firestore:rules --project taboost-platform</pre>
+    </div>
+
+    <div class="step">
+        <span class="step-number">5</span>
+        <strong>Create Admin User</strong>
+        <p>Go to: <a href="https://console.firebase.google.com/project/taboost-platform/authentication/users" target="_blank">Firebase Console → Authentication → Users</a></p>
+        <ul>
+            <li>Click "Add user"</li>
+            <li>Email: <code>marco@taboost.me</code></li>
+            <li>Password: (create strong password)</li>
+            <li>Copy the UID that appears</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">6</span>
+        <strong>Add Admin to Firestore</strong>
+        <p>Go to: <a href="https://console.firebase.google.com/project/taboost-platform/firestore" target="_blank">Firebase Console → Firestore Database</a></p>
+        <ul>
+            <li>Click "Start collection"</li>
+            <li>Collection ID: <code>users</code></li>
+            <li>Document ID: (paste Marco's UID)</li>
+            <li>Add fields:
+                <ul>
+                    <li><code>email</code> (string): "marco@taboost.me"</li>
+                    <li><code>role</code> (string): "admin"</li>
+                    <li><code>name</code> (string): "Marco"</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <span class="step-number">7</span>
+        <strong>Add Creator Roster</strong>
+        <p>In Firestore, create collection: <code>roster</code></p>
+        <p>Add documents for approved creators:</p>
+        <ul>
+            <li>Document ID: <code>skylerclarkk</code></li>
+            <li>Fields:
+                <ul>
+                    <li><code>username</code>: "skylerclarkk"</li>
+                    <li><code>approved</code>: true</li>
+                    <li><code>manager</code>: "carrington@taboost.me"</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>✅ Security Checklist</h2>
+    
+    <div class="success">
+        <strong>Before going live, verify:</strong>
+        <ul>
+            <li>✅ Email/Password auth enabled</li>
+            <li>✅ Firestore database created</li>
+            <li>✅ Security rules deployed</li>
+            <li>✅ Domains authorized (live.taboost.me)</li>
+            <li>✅ Admin user created in Auth</li>
+            <li>✅ Admin document created in Firestore with role: "admin"</li>
+            <li>✅ Creator roster populated</li>
+            <li>✅ Test login works</li>
+            <li>✅ Test creator can ONLY see their data</li>
+            <li>✅ Test admin can see all data</li>
+        </ul>
+    </div>
+
+    <h2>🚨 Common Mistakes to Avoid</h2>
+    
+    <div class="warning">
+        <strong>❌ NEVER DO THIS:</strong>
+        <pre>// BAD - Lets anyone read everything
+match /{document=**} {
+  allow read, write: if request.auth != null;
+}</pre>
+    </div>
+
+    <div class="warning">
+        <strong>❌ NEVER USE EMAIL AS DOCUMENT ID:</strong>
+        <pre>// BAD
+users/
+  └── marco@taboost.me  ← Don't do this
+
+// GOOD
+users/
+  └── XjD4aZVLhKVio5QTYEIcCbY0v0g2  ← Use UID</pre>
+    </div>
+
+    <h2>🧪 Testing Your Setup</h2>
+    
+    <ol>
+        <li>Go to: <code>https://your-site.com/firebase-login.html</code></li>
+        <li>Try signing up with an approved roster username</li>
+        <li>Verify creator dashboard loads with THEIR data only</li>
+        <li>Log out, log in as admin</li>
+        <li>Verify admin dashboard shows all creators</li>
+        <li>Try accessing another user's data (should fail)</li>
+    </ol>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="https://console.firebase.google.com/project/taboost-platform" class="btn" target="_blank">Open Firebase Console</a>
+        <a href="firebase-login.html" class="btn">Test Login</a>
+    </div>
+
+</body>
+</html>

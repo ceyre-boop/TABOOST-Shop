@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header"><div class="sidebar-logo"><i class="fas fa-magic"></i></div><div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div></div>
+            <nav class="sidebar-nav">
+                <div class="nav-section"><div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span><span class="nav-badge">831</span></a>
+                    <a href="diamonds.html" class="nav-item"><i class="fas fa-gem"></i><span>Diamonds</span></a>
+                    <a href="live-streams.html" class="nav-item"><i class="fas fa-video"></i><span>Live Streams</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-section-title">Management</div>
+                    <a href="managers.html" class="nav-item"><i class="fas fa-user-tie"></i><span>Managers</span></a>
+                    <a href="rookies.html" class="nav-item"><i class="fas fa-seedling"></i><span>Rookies</span></a>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+                <div class="nav-section"><div class="nav-section-title">Reports</div>
+                    <a href="reports.html" class="nav-item active"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+                    <a href="alerts.html" class="nav-item"><i class="fas fa-bell"></i><span>Alerts</span><span class="nav-badge">3</span></a>
+                    <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search"><i class="fas fa-search"></i><input type="text" placeholder="Search reports..."></div>
+                <div class="header-actions">
+                    <button class="header-btn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                    <div class="user-profile" onclick="logout()"><div class="user-avatar" id="userAvatar">M</div><div class="user-info"><div class="user-name" id="userName">Marco</div><div class="user-role" id="userRole">Admin</div></div></div>
+                </div>
+            </header>
+            <div class="dashboard-content fade-in">
+                <div style="margin-bottom: 25px;"><h1 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Reports & Exports</h1><p style="color: #888;">Generate and download agency performance reports</p></div>
+                <div class="grid-3">
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-file-csv"></i></div>
+                            <h3 style="margin-bottom: 10px;">Creator Report</h3>
+                            <p style="color: #888; margin-bottom: 20px;">Full creator list with all metrics</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('creators')"><i class="fas fa-download"></i> Download CSV</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-file-excel"></i></div>
+                            <h3 style="margin-bottom: 10px;">Diamonds Report</h3>
+                            <p style="color: #888; margin-bottom: 20px;">Diamond earnings by creator & group</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('diamonds')"><i class="fas fa-download"></i> Download CSV</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-file-pdf"></i></div>
+                            <h3 style="margin-bottom: 10px;">Performance Summary</h3>
+                            <p style="color: #888; margin-bottom: 20px;">Monthly performance overview PDF</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('performance')"><i class="fas fa-download"></i> Download PDF</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-users-cog"></i></div>
+                            <h3 style="margin-bottom: 10px;">Manager Report</h3>
+                            <p style="color: #888; margin-bottom: 20px;">Team performance by manager</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('managers')"><i class="fas fa-download"></i> Download CSV</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-seedling"></i></div>
+                            <h3 style="margin-bottom: 10px;">Rookie Report</h3>
+                            <p style="color: #888; margin-bottom: 20px;">New creator progress tracking</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('rookies')"><i class="fas fa-download"></i> Download CSV</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-body" style="text-align: center; padding: 40px 25px;">
+                            <div style="font-size: 48px; color: var(--taboost-red); margin-bottom: 20px;"><i class="fas fa-video"></i></div>
+                            <h3 style="margin-bottom: 10px;">Streaming Report</h3>
+                            <p style="color: #888; margin-bottom: 20px;">Live stream metrics & hours</p>
+                            <button class="btn btn-primary btn-block" onclick="exportReport('streams')"><i class="fas fa-download"></i> Download CSV</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card" style="margin-top: 25px;">
+                    <div class="card-header"><div><h3 class="card-title">Recent Exports</h3><p class="card-subtitle">Previously generated reports</p></div></div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="data-table">
+                            <thead><tr><th>Report Name</th><th>Type</th><th>Date Generated</th><th>Size</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                <tr><td><i class="fas fa-file-csv" style="color: var(--taboost-red); margin-right: 10px;"></i>Creator_Full_Report_Feb2026.csv</td><td>CSV</td><td>2026-02-25 09:30 AM</td><td>245 KB</td><td><button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;"><i class="fas fa-download"></i></button></td></tr>
+                                <tr><td><i class="fas fa-file-excel" style="color: var(--taboost-red); margin-right: 10px;"></i>Diamonds_Summary_Feb2026.csv</td><td>CSV</td><td>2026-02-25 08:15 AM</td><td>128 KB</td><td><button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;"><i class="fas fa-download"></i></button></td></tr>
+                                <tr><td><i class="fas fa-file-pdf" style="color: var(--taboost-red); margin-right: 10px;"></i>Monthly_Performance_Jan2026.pdf</td><td>PDF</td><td>2026-02-01 10:00 AM</td><td>1.2 MB</td><td><button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;"><i class="fas fa-download"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/data.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) window.location.href = 'index.html';
+        else { document.getElementById('userName').textContent = user.name; document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator'; document.getElementById('userAvatar').textContent = user.avatar; }
+        function logout() { localStorage.removeItem('taboost_user'); window.location.href = 'index.html'; }
+        function exportReport(type) { alert('Generating ' + type + ' report... Download will start shortly.'); }
+    </script>
+</body>
+</html>

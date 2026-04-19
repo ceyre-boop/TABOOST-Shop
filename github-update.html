@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - GitHub Data Update</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .drop-zone {
+            background: rgba(255,255,255,0.03);
+            border: 3px dashed #444;
+            border-radius: 20px;
+            padding: 60px 40px;
+            cursor: pointer;
+            margin: 30px 0;
+        }
+        .drop-zone:hover { border-color: #ff0044; }
+        .drop-icon { font-size: 48px; margin-bottom: 15px; }
+        .btn {
+            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .output {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+        .output.visible { display: block; }
+        .instructions {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .instructions h3 { color: #feca57; margin-bottom: 10px; }
+        .instructions ol { margin-left: 20px; }
+        .instructions li { margin: 10px 0; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <p style="color:#888">GitHub Data Update (No Firebase Limits!)</p>
+        
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-icon">📁</div>
+            <div>Drop CSV file here</div>
+            <input type="file" id="fileInput" accept=".csv" style="display:none">
+        </div>
+        
+        <button class="btn" onclick="downloadJSON()">⬇️ Download creators.json</button>
+        
+        <div class="output" id="output"></div>
+        
+        <div class="instructions">
+            <h3>📋 How to Update (3 Steps):</h3>
+            <ol>
+                <li><strong>Drop CSV</strong> on the box above</li>
+                <li><strong>Click "Download creators.json"</strong> button</li>
+                <li><strong>Upload to GitHub:</strong> Go to your repo → data/creators.json → Edit → Paste → Commit</li>
+            </ol>
+            <p style="color:#666; margin-top:15px;">
+                💡 <strong>Tip:</strong> You can also drag the downloaded file directly into GitHub's web editor!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let creatorsData = null;
+
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const output = document.getElementById('output');
+
+        dropZone.onclick = () => fileInput.click();
+        
+        dropZone.ondragover = (e) => { 
+            e.preventDefault(); 
+            dropZone.style.borderColor = '#ff0044'; 
+        };
+        
+        dropZone.ondragleave = () => { 
+            dropZone.style.borderColor = '#444'; 
+        };
+        
+        dropZone.ondrop = (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#444';
+            if (e.dataTransfer.files.length) processFile(e.dataTransfer.files[0]);
+        };
+        
+        fileInput.onchange = (e) => { 
+            if (e.target.files.length) processFile(e.target.files[0]); 
+        };
+
+        function log(msg) {
+            output.classList.add('visible');
+            const div = document.createElement('div');
+            div.textContent = msg;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        async function processFile(file) {
+            log(`📁 Reading ${file.name}...`);
+            
+            const text = await file.text();
+            const lines = text.split('\n');
+            const creators = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = parseCSVLine(line);
+                if (cols.length < 3) continue;
+                
+                const cid = cols[1]?.trim();
+                const username = cols[2]?.trim();
+                let manager = cols[8]?.trim() || 'carrington';
+                
+                if (manager.includes('+')) manager = manager.split('+')[0].trim();
+                if (!manager || manager.toLowerCase() === 'n/a') manager = 'carrington';
+                
+                if (cid && username) {
+                    creators.push({
+                        cid: cid,
+                        username: username.toLowerCase(),
+                        manager: manager.toLowerCase(),
+                        claimed: username.toLowerCase() === 'skylerclarkk',
+                        diamonds: cols[19]?.replace(/,/g, '') || '0',
+                        hours: cols[16]?.trim() || '0',
+                        days: cols[12]?.trim() || '0',
+                        tier: cols[21]?.trim() || '',
+                        earned: cols[33]?.replace(/,/g, '') || '0',
+                        updatedAt: new Date().toISOString()
+                    });
+                }
+            }
+            
+            creatorsData = creators;
+            log(`✅ Parsed ${creators.length} creators`);
+            log(`✅ Ready to download! Click the button above.`);
+            
+            dropZone.innerHTML = `
+                <div class="drop-icon">✅</div>
+                <div>${creators.length} creators loaded</div>
+            `;
+        }
+
+        function downloadJSON() {
+            if (!creatorsData) {
+                alert('Please drop a CSV file first!');
+                return;
+            }
+            
+            const jsonStr = JSON.stringify(creatorsData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'creators.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            log('⬇️ Downloaded creators.json!');
+            log('📤 Now upload this file to GitHub:');
+            log('   1. Go to your repo');
+            log('   2. Navigate to data/creators.json');
+            log('   3. Click "Edit" (pencil icon)');
+            log('   4. Delete old content, paste new');
+            log('   5. Commit changes');
+        }
+    </script>
+</body>
+</html>

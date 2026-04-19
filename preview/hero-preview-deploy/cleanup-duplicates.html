@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - Cleanup Duplicates</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-danger {
+            background: #dc2626;
+            color: #fff;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number { font-size: 32px; font-weight: bold; color: #feca57; }
+        .stat-label { color: #888; font-size: 12px; }
+        .log {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .log-entry { margin: 2px 0; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .warning { color: #fbbf24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Cleanup Duplicates</h1>
+        <p style="text-align:center;color:#888;margin-bottom:30px;">Remove duplicate creators from Firestore</p>
+
+        <div class="card">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="totalDocs">-</div>
+                    <div class="stat-label">Total Documents</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="uniqueUsers">-</div>
+                    <div class="stat-label">Unique Usernames</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="duplicates">-</div>
+                    <div class="stat-label">Duplicates to Remove</div>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="analyzeDuplicates()">🔍 ANALYZE DUPLICATES</button>
+            <button class="btn btn-danger hidden" id="cleanupBtn" onclick="cleanupDuplicates()">🗑️ REMOVE DUPLICATES</button>
+        </div>
+
+        <div class="card">
+            <h3>📋 Log</h3>
+            <div class="log" id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        let duplicatesToDelete = [];
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        async function analyzeDuplicates() {
+            log('🔍 Analyzing creatorRoster collection...', 'info');
+            
+            try {
+                const snapshot = await db.collection('creatorRoster').get();
+                const totalDocs = snapshot.size;
+                
+                const usernames = {};
+                const docs = [];
+                
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const username = data.tiktokUsername || doc.id;
+                    docs.push({ id: doc.id, username: username.toLowerCase(), data: data });
+                    
+                    if (!usernames[username.toLowerCase()]) {
+                        usernames[username.toLowerCase()] = [];
+                    }
+                    usernames[username.toLowerCase()].push(doc.id);
+                });
+                
+                const uniqueCount = Object.keys(usernames).length;
+                duplicatesToDelete = [];
+                
+                // Find duplicates (keep the first one, delete the rest)
+                Object.entries(usernames).forEach(([username, ids]) => {
+                    if (ids.length > 1) {
+                        log(`⚠️ Duplicate found: "${username}" has ${ids.length} entries`, 'warning');
+                        // Keep first, delete rest
+                        for (let i = 1; i < ids.length; i++) {
+                            duplicatesToDelete.push(ids[i]);
+                        }
+                    }
+                });
+                
+                document.getElementById('totalDocs').textContent = totalDocs;
+                document.getElementById('uniqueUsers').textContent = uniqueCount;
+                document.getElementById('duplicates').textContent = duplicatesToDelete.length;
+                
+                log(`✅ Analysis complete: ${totalDocs} docs, ${uniqueCount} unique, ${duplicatesToDelete.length} duplicates`, 'success');
+                
+                if (duplicatesToDelete.length > 0) {
+                    document.getElementById('cleanupBtn').classList.remove('hidden');
+                }
+                
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function cleanupDuplicates() {
+            if (duplicatesToDelete.length === 0) {
+                log('No duplicates to remove', 'info');
+                return;
+            }
+            
+            log(`🗑️ Removing ${duplicatesToDelete.length} duplicates...`, 'warning');
+            
+            const BATCH_SIZE = 400;
+            let deleted = 0;
+            
+            for (let i = 0; i < duplicatesToDelete.length; i += BATCH_SIZE) {
+                const batch = db.batch();
+                const chunk = duplicatesToDelete.slice(i, i + BATCH_SIZE);
+                
+                chunk.forEach(docId => {
+                    const ref = db.collection('creatorRoster').doc(docId);
+                    batch.delete(ref);
+                });
+                
+                try {
+                    await batch.commit();
+                    deleted += chunk.length;
+                    log(`✅ Deleted batch: ${deleted}/${duplicatesToDelete.length}`, 'success');
+                } catch (error) {
+                    log(`❌ Batch error: ${error.message}`, 'error');
+                }
+                
+                await new Promise(r => setTimeout(r, 500));
+            }
+            
+            log(`🎉 Cleanup complete! Removed ${deleted} duplicates`, 'success');
+            document.getElementById('cleanupBtn').classList.add('hidden');
+            
+            // Re-analyze
+            await analyzeDuplicates();
+        }
+
+        log('📋 Ready. Click ANALYZE DUPLICATES to begin.', 'info');
+    </script>
+</body>
+</html>

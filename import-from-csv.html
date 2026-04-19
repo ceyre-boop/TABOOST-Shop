@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TABOOST - Import Remaining Creators from CSV</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { text-align: center; color: #888; margin-bottom: 20px; }
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #feca57);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .log {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .log-entry { margin: 2px 0; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        .warning { color: #fbbf24; }
+        .warning-box {
+            background: #451a03;
+            border: 1px solid #92400e;
+            color: #fbbf24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #feca57;
+        }
+        .stat-label { color: #888; font-size: 11px; }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            color: #fff;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TABOOST CSV Import</h1>
+        <p class="subtitle">Import Remaining Creators (No Duplicates)</p>
+
+        <div class="warning-box">
+            ⚠️ <strong>Step 1:</strong> Paste your CSV data below<br>
+            <strong>Step 2:</strong> Click "PARSE CSV" to filter already-imported creators<br>
+            <strong>Step 3:</strong> Click "IMPORT TO FIREBASE"
+        </div>
+
+        <div class="card">
+            <h3>📋 Paste CSV Data</h3>
+            <textarea id="csvInput" placeholder="Paste your CSV here..."></textarea>
+            <button class="btn" onclick="parseCSV()">📊 PARSE CSV</button>
+        </div>
+
+        <div class="card hidden" id="importSection">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="csvTotal">0</div>
+                    <div class="stat-label">In CSV</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="newCreators">0</div>
+                    <div class="stat-label">New to Import</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="importedCount">0</div>
+                    <div class="stat-label">Imported</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="errorCount">0</div>
+                    <div class="stat-label">Errors</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            
+            <button class="btn" id="importBtn" onclick="startImport()">
+                🚀 IMPORT TO FIREBASE
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>📋 Log</h3>
+            <div class="log" id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // FIREBASE CONFIG
+        // ============================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // ============================================
+        // ALREADY IMPORTED CREATORS (644 total)
+        // ============================================
+        const ALREADY_IMPORTED = new Set([
+            "samanthasingsit","bryton.39","freekbass","coloreomusic","singleonthemove",
+            "shanellenikolee","jayden_egg","daisy_dew4","hotterjakepaul","skylerclarkk",
+            "smity194","cwdetroit","tha_dripp_phamily","pcdrums76","thebellaflora__",
+            "mirsowavy","gaywhonotme","koryskitchen","redrumstudios","theviolution",
+            "alexaraeemusic","oregonstargirl","burnt.tatertot","sam_g_89","stefanielauryn415",
+            "thetrapviolinist","sarahegant","growandglowasmr","jordan.borges","imjustnicob",
+            "b.herbz","titancosplays","ageofangel","mystiquedejello","muthafknsid",
+            "maiazakay","cpayne_04","aaronhunt30575","rockylanemusic","thecyrilia",
+            "basswizrd","bobbyjwil","deearnnap","averynoelles","threehundredseventytwo",
+            "jeremiahboutross","imamberleybriana","luke.h.reynoldsmusic","sebbythecatdad",
+            "natalianope","blakeslifeline","musicalnugget","metalkitten2","mistresswednesday13",
+            "silvershadowmark","damoyee","celia.silva072","ardy.afshar","naseem0815",
+            "ashleymatute_","uriquarlesceodfm","follow_the_breeze","thatbrokeguy2024",
+            "sierralandmagic","brayden.pantel","ashtingles","danielsbrowning","fishon053",
+            "gorgeousgoddessart","jordananthonymusic","davidwilliamwatts","allltimesam",
+            "laketimemamaw","_alycen","alliemsx","sierralevesquemusic","dontaskhowmany",
+            "smilinjacks69","shelbyjo89","whitn084","shed0fficial","a.marie.911",
+            "voyce89","yourfavderek","backwoodscaiden","modern_ragnar_1.0","whoistatumbittick",
+            "steven_dean","foolishondemkeyz","official.kim20","ajsrantroom","24widmar",
+            "roostersworld4","moji.music","svendranoel","im.just.a.girly39","scarlettjlopez",
+            "miss__kimmy","catarina.cordle","battyfog","sparksboi97","dougielifts",
+            "badgirlbritt2","tbone_ga","relaxwithrissa","cecelove320120","zordoth",
+            "clovonet02","southerncharm0726","therealhambino","fabtiff75","cherylplanb",
+            "princesscults","brandonthebabe","umparker","caroleens","zezecod",
+            "azyatk","thewhisperfaerieasmr","raven4life79","queen_maddy_1202","t1dfighter03_24_12",
+            "skullznbowlz","drewcasta","rawhn3y","bridgetryan","lowrainnn1",
+            "siren_ofthe_stars","_mrs.robinson_","ash_bittickkk","fathernewman","joelerdmann_",
+            "turkcotton","tattedandspicy","suaskiiii","jadelvega","thecluelessbunny",
+            "jordan_shier","swug_asmr","sonnybrightside","aquarius5518","popcultkillers",
+            "cottonsnivy","its_gigi_babi","cybersecurityitguy","tarotbymoonbeam","stephintechnicolor",
+            "shemandigans","beautiful_soul_25","lancektyree","foreveryapping","happilyengaged2011",
+            "risingwithcristina","lyvidyka","yaticasimagination","invictaxilexx","first.lady.jay2.0",
+            "perfectaimm","girldaddy20","slaydrigaming","kinggemini285","hotsenorita2",
+            "lilashiesty","nita_b1068","natures_kill","ryanrevard","riahx2x",
+            "iluvgg_","gudinoashley","jameagledavinci","fdgaming19","barrywhit3",
+            "bananasuperwoman","kes_014","blessxblessx","samuelciafaloni","toxic_luigi69",
+            "mulletdevotional","frimzayy","tyrellgreenlee","kenziehuggg","sebastianadamick",
+            "jarajj1","itsjimmay","fizzle_station","bluubanddchef","destany717",
+            "monkabutt1","arivassallo914","jenni_from_the_block0","1gator90","gentryblue",
+            "caleb_caldwell1","x_deej_x","danny.buth","melina_cajunroyaltea","itsbriannablake",
+            "mattdd1984","johnstonecountry","thecontroversialblonde","inside_the_autistic_mind","yourfriendm00nmusic",
+            "caymanmjohn","lil.ginga5","alaskanbassgal","anaylanaee","midnightxreign",
+            "humblekeshhh","juustjewel237","kayy.jayy26","madysen_luebke","wildstr8",
+            "mf.josh","commakaze","carringtonchronicles","monanightmare","jjreefs",
+            "alexshopsfar3","genxjamz","jordan.o1son","adubthewarriorprincess","poecelain",
+            "softglamasmr","amyluwho982","niatravelstome","kingeloteroman","lmrese",
+            "stonagalbuzz420","keepingupwithfridahoeft_","g_money0805","srt.berner420","stitchfamily626",
+            "rcvry_w._uncle_louie","amberlmccrea","zerixkbm","chadly886","lady_cabernet",
+            "howlingattheearth","mikaylaa.10","nicolefarahh","brick2424","mrsbryan27",
+            "1250dream","katelyn.mitchell23","gtrose","tripsevenofficial1","accountnot.found.32",
+            "mariithonner","auesomemoma","01cumminspassenger","its.sheemahhh","the_ss_lifestyle",
+            "lexiliynn","imjustsaiyanbro","zakiyahnadir01","codenamekodi","dannybartok",
+            "medusawhispers","xx_destmarie","sosefinaaah","willowshaze420","khrisskontours",
+            "djfiretechnodjnyc","justhelpone","n00lanttv","taylorstimeline","carlaaglamss",
+            "jae_moe97","dankinson420","ironshellbeadedcreations","quantumhaze","lsxcrew",
+            "homiequest","v3lueta","kirstenswasey","queenb_597","audracovey24",
+            "xander5klive","1codybentley","darland.jason","yaboiidomo27","paulschofield_bass",
+            "ellen_leanne","rootofrestoration","glowymariia","stubbsx88","callsign_keegan25",
+            "mattlongmusic","tatted_golfer_","jazcatraz","fatalparadox11877","mecheware1959",
+            "ailipsbeauty0","queen_ortiz__","888_fai_fai","geeky_feyn","lisamarieshippy",
+            "bmoneyslife","the.camjohnson","amysalcedo5","biiig46","backporch.crew",
+            "tarotwithchris","julianpalacios2001","primed.plat","th3onef3ar","loisa_asmr",
+            "jamjamish","jeffrey8bp","depttv","damon.ey","heathen_ikyoto",
+            "mergemadam","djbowiejane","a_aronfish","birdiesforeus","ijaneeg",
+            "mauricethemusic","eyekonicswiftie","michelleistheboss1978","itskbearr","retrozombiegaming",
+            "heavenrnybaribaddie","walmart.grey","boundmanlove","trinity.blair","angeleyez39",
+            "the_greekbeast","x.xiii.x","sayeh2002","jovanijara99",".dianaaa__",
+            "fit4ever91","by.nicolel","lolthatsrichie","just_kymie","leahhmelia",
+            "trippedz2xx","swiggitymann","likeromeo","_kristie032","davispack6",
+            ".zmynt","real209er","kristenkittymeow","davehowardshow","thomasetv3000",
+            "dovahkiinsdaydream","jonathan.mcclaine","brookeventre","asiaechols","mayhem.meadows.farm",
+            "devabby1","kinkyykenzzz","freida.martha","iamjacobsavage","ann041468",
+            "jchavolito","coophewitt","rylanlogan.s","kieara_0712","doseof.tayyy",
+            "ctsorrell","nikkinjesus","nantsinthepants","_reallyrachel_","andrewdoeswell",
+            "tastydan","pmarsha423gmail.com","daddylilsky24","stary750v2","gigiinextdoor",
+            "djgregdean","chefvaun","moneysignpeso","prodigalmediumgabe","maritanightingale6",
+            "followyourdestinie","deejay_av_oc","deklangill","x_dark_one_x","montanafougere",
+            "afternoon_dream007","daethaabratt","natebharris","thelyonsband","jeremygregorymusic",
+            "zacairy","bladerelic","its_me_princess2","99boopyboopy","dimplesarelife",
+            "iamchief313","pnwliving","empress3y3s","stefanineemann","gfmusic27",
+            "lalaloopsy.daisy","nena.garcia31","jackijing","crystalcrist.author","serenityxo89",
+            "tattedwendy","yayarodz007","kushpvpi42","maineventswag","giraffewalrus1",
+            "prettyliljbirdz","kelli70548","mortgagemagicmike","xrheaofficial","nickisham",
+            "alchemy.blue","kittydollface","firefly_kat26","samanthaleighce","nightlydaff",
+            "thelindabinda","kenziesworld2020","cf_warrior.xoxo","iamlillyelle","p0921188",
+            "_alexismaria","itzdes2024","jamesanorkawich","barn.to.bedtime","dyylpicklle",
+            "lunawolf4595","kaybaby2141","its_your_girl490","kieranroyce","lindsey.lou.whoo",
+            "rahjaedadrummer","alwysovrr","knzsvisuals","d.russss","ellaseebacherxmusic",
+            "cloakedrevolution","kaitoosimple","tatyanadvoce","digitallizardmama","gofollowmynewacct_cassie",
+            "kimmyhardtoforget","hunterbenjamin3","peggyscourlas","kaemi.s","gigisworld4ever",
+            "blazequeen420_","thejackschittt","therealestherj","sweetvirgo381","jordoncox74",
+            "janelleexxx","liyaaahbaaby","nothingsick","cbrandy13","levi_carrington_",
+            "ambernicolesings","wow_mschez","skibudz67","chelseaabrahamson85","kuluxka",
+            "ironranger023","thisjusdank","flyonpluto","kat24516","cheifkaito",
+            "dubocsisters","therealkashmonroe","sirenofthewest","jackmcars12","oc_tomaz",
+            "jorosemurphy","official_zaybe","brycebecomingsuccessful","realcapitalp","moneygeyser",
+            "guisellehhh","nataliestavola","_van.g03","zzprado","jakeylafinances",
+            "craigzilla_music","billiejean_406","britxfish","naomisalinas0604","leenysfinds",
+            "wilsonthegood","regalejb","itslorenamedina","rayyrollee","_orionsorbit",
+            "jackson.tash","micah_fort_went_e","monalisastyless","princessdianaduh","gn0ah1224",
+            "2xnique","gabbyholiday","leilanisocial","sexysuccubus666","jason.j.knight",
+            "laddanurv","shaunl33t","bethanyflauren","gtrosettv","rdino_36",
+            "extracrispyelle","c.p.a.c.k","nikkigooch4","alwayshim19","amber01123",
+            "tx_clarebear","iluv_pitabread","pglassman68","mariamcgill3","baby.lange7777",
+            "torikayofficial","hannahh764","xoxoseptemberr","royal_maiden","shiennegh",
+            "denise_edwards71","itslalamovess","stefandakarivlogs","wh0s.kaliyaah","mortgage.with.gage",
+            "chelseagafford","kimmie140","sammysosexy1","buickmckane8","gigiguerrero01",
+            "cjthewolfboi25","just.an.average.mark","yamiharuvr",".nicomay","itssalami",
+            "rossauceacademy","karen.ortiz88","itsknotsnot","fishingwithollie1","wadeclark16",
+            "onthatsince94","_alphaash_","mellllaniiee","ezay_life1","inluvwithpnw",
+            "gabgoober","leraheroine","urfavmanic","billyvena","wilsonfurula",
+            "abbydames","stainedbykane6","laynieyork","leticiacm97","realwillgaming",
+            "digicardzzz","awfullyjaded","audreywelly","joshcorbett03","bincyclopedia",
+            "roxannedover1","courtelliottt","prettyinink1","sydneydixonmusic","walleye.1234",
+            "meglloyd0102","aconfusedscorpio","justjuni309","emilyanitaa","emmaisabelleparks",
+            "yesithebear","matia.stoltz","meilebishop","jah.osh","breachrepairersoutreach",
+            "mochi.suka","moodyverse","eetherealseer","briarconerly","kystout0",
+            "b3autifuldisaster1","melissaeastwick","coffeeaddict8639","sasha_owens","carelessmariahh",
+            "zanemelz","thecupcakejake","zaptheboy","soulspiritandlove","trip4brazy",
+            "chuckshadow","makeawish11eleven","wizardfroglive","ioninspire","tcklex",
+            "becomingamillionaregirl","xoxobee30","_.anastasiamichelle","jenny.mccown","lawsonbrady",
+            "typicaljulieth","hazel_b_music","nlmbmeeky","chiroenergy","_itskendalll",
+            "ellezworld","w_toptierclips","kingchrxstine","child_king77777","lil.mishr00m",
+            "idaffne","troydewberrymusic","pannell.emma","linedancerbrooke","sonika.vaid",
+            "mariah_rodrice","dr.labrasca","sociopeep","shyannesmusic","theonlyjoxo",
+            ".thefittestrealtor","manaquinn777","due.4a.win_","savi_trends","janettlyy",
+            "layeredfanatic6","b.angelofficial","blakenwake","dopeyblendz","iamcaseyclare",
+            "elizabeth.grego","amandamleon","kimmylexiek","killbunkmusic","dallrulz",
+            "crazytrainfizzness","missmeowbaby","ag_humphries","advokating","indiamckenzie4",
+            "foster_girl7","annikaklarissa","cityboiup","ogtittymilk","trnd.products",
+            "carmlllababy","real.estate.agent","mgoldcreative","katiemarie.beauty","shellyyoshi",
+            "lady.lemonade1","brookstravels","breydonwhite","queenactivation","mrwhite820",
+            "chrismiller5841","tjdub_","stephanie_092294","prettygirlglaze","joannajoy__",
+            "kyland.young","heatherlee.digital","jennalorenmusic","alextiralosi","lilnikk1",
+            "bettertogether1103","fun_with_kermit_usa","brandy.39","chloerosenbaum","malloryventura1",
+            "katie.n.marie","rykerit","happy.hippogh","cameronbuffalo","rusty_35",
+            "kathleen_oneill","queenofdreamz_444","justbrendaaaa","christianmiller.music","keystone_outdoors3",
+            "brittanydejardo","annaamaxx","hotter_wallen_","frenchiarmelle","864_queen",
+            "20takejake","tef_talk","asmr_anah","kelcie092","malrobisonnn",
+            "nicoleshaee","staceygurns","meg_venus","koryskitchen_2","jennyfromthe_block_",
+            "luxtinglesasmr","allisonrosefinicle","natalieporretta","taboostboss","emileeannmiller"
+        ]);
+
+        let creatorsToImport = [];
+        let currentIndex = 0;
+        let importedCount = 0;
+        let errorCount = 0;
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function parseCSV() {
+            const csvText = document.getElementById('csvInput').value;
+            if (!csvText.trim()) {
+                log('❌ Please paste CSV data first!', 'error');
+                return;
+            }
+
+            log('📊 Parsing CSV...', 'info');
+            
+            const lines = csvText.split('\n');
+            const headers = lines[0].split(',');
+            creatorsToImport = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = line.split(',');
+                if (cols.length < 3) continue;
+                
+                const cid = cols[1]?.trim();
+                const username = cols[2]?.trim();
+                let manager = cols[7]?.trim() || 'carrington';
+                
+                // Clean up manager name
+                if (manager.includes('+')) {
+                    manager = manager.split('+')[0].trim();
+                }
+                if (manager.toLowerCase() === 'n/a' || !manager) {
+                    manager = 'carrington';
+                }
+                
+                if (cid && username && !ALREADY_IMPORTED.has(username.toLowerCase())) {
+                    creatorsToImport.push({
+                        cid: cid,
+                        username: username.toLowerCase(),
+                        manager: manager.toLowerCase(),
+                        claimed: username.toLowerCase() === 'skylerclarkk'
+                    });
+                }
+            }
+            
+            document.getElementById('csvTotal').textContent = lines.length - 1;
+            document.getElementById('newCreators').textContent = creatorsToImport.length;
+            document.getElementById('importSection').classList.remove('hidden');
+            
+            log(`✅ Found ${creatorsToImport.length} new creators to import`, 'success');
+            log(`⏭️ Skipped ${ALREADY_IMPORTED.size} already imported`, 'info');
+        }
+
+        async function importBatch(startIndex, batchSize) {
+            const batch = db.batch();
+            const endIndex = Math.min(startIndex + batchSize, creatorsToImport.length);
+            
+            for (let i = startIndex; i < endIndex; i++) {
+                const creator = creatorsToImport[i];
+                const docRef = db.collection('creatorRoster').doc(creator.username);
+                
+                batch.set(docRef, {
+                    cid: creator.cid,
+                    tiktokUsername: creator.username,
+                    claimed: creator.claimed || false,
+                    manager: creator.manager.toUpperCase(),
+                    importedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            }
+            
+            await batch.commit();
+            return endIndex - startIndex;
+        }
+
+        async function startImport() {
+            if (creatorsToImport.length === 0) {
+                log('❌ No creators to import!', 'error');
+                return;
+            }
+
+            document.getElementById('importBtn').disabled = true;
+            log(`🚀 Starting import of ${creatorsToImport.length} creators...`, 'info');
+
+            const BATCH_SIZE = 400;
+
+            while (currentIndex < creatorsToImport.length) {
+                try {
+                    const imported = await importBatch(currentIndex, BATCH_SIZE);
+                    importedCount += imported;
+                    currentIndex += BATCH_SIZE;
+                    
+                    const percent = Math.round((currentIndex / creatorsToImport.length) * 100);
+                    document.getElementById('progressBar').style.width = `${percent}%`;
+                    document.getElementById('progressBar').textContent = `${percent}%`;
+                    document.getElementById('importedCount').textContent = importedCount;
+                    
+                    log(`✅ Imported ${imported} (${currentIndex}/${creatorsToImport.length})`, 'success');
+                    
+                    await new Promise(r => setTimeout(r, 500));
+                    
+                } catch (error) {
+                    errorCount++;
+                    document.getElementById('errorCount').textContent = errorCount;
+                    log(`❌ Error: ${error.message}`, 'error');
+                    currentIndex += BATCH_SIZE;
+                    await new Promise(r => setTimeout(r, 1000));
+                }
+            }
+
+            log(`🎉 COMPLETE! Imported: ${importedCount}, Errors: ${errorCount}`, 'success');
+            document.getElementById('importBtn').disabled = false;
+            document.getElementById('importBtn').textContent = '🔄 IMPORT COMPLETE';
+        }
+
+        // Initialize
+        log('📋 Ready. Paste CSV data and click PARSE CSV', 'info');
+    </script>
+</body>
+</html>

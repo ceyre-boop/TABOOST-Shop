@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>TABOOST - Clear Cache</title>
+<style>
+body { 
+  background: #000; 
+  color: #fff; 
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+.btn {
+  background: #ff0044;
+  color: #fff;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<div>
+  <h1>Cache Cleared!</h1>
+  <p>All site data has been cleared.</p>
+  <button class="btn" onclick="goToLogin()">Go to Login</button>
+</div>
+<script>
+// NUCLEAR CACHE CLEAR
+localStorage.clear();
+sessionStorage.clear();
+caches.keys().then(names => {
+  names.forEach(name => caches.delete(name));
+});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(r => r.unregister());
+  });
+}
+
+function goToLogin() {
+  window.location.href = 'firebase-login.html?v=' + Date.now();
+}
+</script>
+</body>
+</html>

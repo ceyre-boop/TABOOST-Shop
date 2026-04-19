@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABOOST Shop — Bulk Creator Update</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a; color: #fff;
+            min-height: 100vh; padding: 32px 24px;
+        }
+        .container { max-width: 960px; margin: 0 auto; }
+        h1 {
+            font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 6px;
+            background: linear-gradient(135deg, #ff0055, #ff6b9d);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .subtitle { text-align: center; color: #555; font-size: 13px; margin-bottom: 32px; }
+        .card { background: #141414; border: 1px solid #242424; border-radius: 14px; padding: 24px; margin-bottom: 18px; }
+        .card-title { font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
+
+        .drop-zone {
+            position: relative; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 8px;
+            padding: 44px 20px; background: #0d0d0d;
+            border: 2px dashed #2e2e2e; border-radius: 10px;
+            cursor: pointer; transition: border-color 0.2s, background 0.2s;
+        }
+        .drop-zone:hover { border-color: #ff0055; background: rgba(255,0,85,0.04); }
+        .drop-zone.has-file { border-color: #00c96b; background: rgba(0,201,107,0.04); }
+        .drop-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+        .drop-icon { font-size: 36px; pointer-events: none; }
+        .drop-text { font-size: 14px; color: #777; pointer-events: none; }
+        .drop-hint { font-size: 11px; color: #3e3e3e; pointer-events: none; }
+        .drop-zone.has-file .drop-text { color: #00c96b; }
+
+        .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 18px; }
+        @media(max-width:580px){ .stats-row { grid-template-columns: repeat(2,1fr); } }
+        .stat-box { background: #0d0d0d; border: 1px solid #1e1e1e; border-radius: 10px; padding: 14px 10px; text-align: center; }
+        .stat-num { font-size: 28px; font-weight: 700; line-height: 1; }
+        .stat-lbl { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px; }
+        .clr-new  { color: #00ff88; }
+        .clr-skip { color: #60a5fa; }
+        .clr-warn { color: #fbbf24; }
+        .clr-tot  { color: #aaa; }
+
+        .btn-import {
+            display: block; width: 100%; padding: 15px;
+            background: linear-gradient(135deg, #ff0055, #cc0044);
+            border: none; border-radius: 10px; color: #fff;
+            font-size: 15px; font-weight: 700; cursor: pointer;
+            transition: filter 0.2s, transform 0.1s;
+        }
+        .btn-import:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-import:disabled { opacity: 0.35; cursor: not-allowed; transform: none; filter: none; }
+
+        .progress-wrap { background: #0d0d0d; border-radius: 6px; height: 7px; margin: 14px 0 6px; overflow: hidden; }
+        .progress-bar  { height: 100%; background: linear-gradient(90deg,#ff0055,#ff6b9d); border-radius: 6px; width: 0%; transition: width 0.25s; }
+        .progress-lbl  { font-size: 12px; color: #666; text-align: center; min-height: 18px; }
+
+        .preview-scroll { max-height: 280px; overflow-y: auto; margin-top: 14px; border-radius: 8px; border: 1px solid #1e1e1e; }
+        .preview-table  { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .preview-table th, .preview-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #1a1a1a; }
+        .preview-table th { background: #0d0d0d; color: #555; font-weight: 600; position: sticky; top: 0; z-index: 1; }
+        .preview-table tr:last-child td { border-bottom: none; }
+        .preview-table tr:hover td { background: rgba(255,0,85,0.03); }
+        .badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+        .badge-new  { background: rgba(0,255,136,0.1); color: #00ff88; }
+        .badge-skip { background: rgba(96,165,250,0.1); color: #60a5fa; }
+
+        .log {
+            background: #0d0d0d; border: 1px solid #1e1e1e; border-radius: 8px;
+            padding: 12px 14px; max-height: 300px; overflow-y: auto;
+            font-family: 'Consolas','Courier New',monospace; font-size: 11.5px; line-height: 1.8;
+        }
+        .l-info    { color: #4b91f1; display: block; }
+        .l-success { color: #00c96b; display: block; }
+        .l-warn    { color: #f5a623; display: block; }
+        .l-error   { color: #f06060; display: block; }
+        .hidden { display: none !important; }
+
+        .gate {
+            max-width: 360px; margin: 120px auto;
+            background: #141414; border: 1px solid #242424;
+            border-radius: 14px; padding: 36px 32px; text-align: center;
+        }
+        .gate h2 { font-size: 20px; font-weight: 700; margin-bottom: 24px; }
+        .gate input {
+            width: 100%; padding: 12px 14px; background: #0d0d0d;
+            border: 1px solid #2a2a2a; border-radius: 8px; color: #fff;
+            font-size: 14px; margin-bottom: 12px; outline: none; display: block;
+        }
+        .gate input:focus { border-color: #ff0055; }
+        .gate button {
+            width: 100%; padding: 13px;
+            background: linear-gradient(135deg, #ff0055, #cc0044);
+            border: none; border-radius: 8px; color: #fff;
+            font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 4px;
+        }
+        .gate-err { color: #f06060; font-size: 12px; margin-top: 10px; min-height: 16px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Simple password gate -->
+    <div class="gate" id="gate">
+        <h2>Shop Admin</h2>
+        <input type="text"     id="gUser" placeholder="Username" onkeydown="if(event.key==='Enter')unlock()">
+        <input type="password" id="gPass" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
+        <button onclick="unlock()">Enter</button>
+        <div class="gate-err" id="gateErr"></div>
+    </div>
+
+    <!-- Main tool -->
+    <div id="mainApp" class="hidden">
+    <h1>Shop Creator Bulk Update</h1>
+    <p class="subtitle">Totals CSV → adds new creators to <strong>creatorRoster</strong> (email keyed) · skips any already added</p>
+
+    <div class="card">
+        <div class="card-title">📁 Select Totals CSV</div>
+        <div class="drop-zone" id="dropZone">
+            <input type="file" id="csvFile" accept=".csv" onchange="handleFile(event)">
+            <div class="drop-icon" id="dropIcon">📄</div>
+            <div class="drop-text" id="dropText">Click to choose CSV file</div>
+            <div class="drop-hint" id="dropHint">Export the "Totals" tab as .csv</div>
+        </div>
+    </div>
+
+    <div class="card hidden" id="previewCard">
+        <div class="card-title">📊 Preview</div>
+        <div class="stats-row">
+            <div class="stat-box"><div class="stat-num clr-new"  id="statNew">0</div><div class="stat-lbl">New to Add</div></div>
+            <div class="stat-box"><div class="stat-num clr-skip" id="statSkip">0</div><div class="stat-lbl">Already Added</div></div>
+            <div class="stat-box"><div class="stat-num clr-warn" id="statWarn">0</div><div class="stat-lbl">No Email</div></div>
+            <div class="stat-box"><div class="stat-num clr-tot"  id="statTot">0</div><div class="stat-lbl">Valid Rows</div></div>
+        </div>
+        <button class="btn-import" id="importBtn" onclick="startImport()" disabled>🚀 Add New Creators</button>
+        <div class="progress-wrap hidden" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-lbl hidden" id="progressLbl"></div>
+        <div class="preview-scroll hidden" id="previewScroll">
+            <table class="preview-table">
+                <thead><tr><th>Status</th><th>Email</th><th>Name</th><th>Manager</th><th>Tier</th><th>Level</th><th>Joined</th></tr></thead>
+                <tbody id="previewBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">📋 Log</div>
+        <div class="log" id="log"></div>
+    </div>
+
+    </div><!-- /mainApp -->
+</div>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+        authDomain: "taboost-platform.firebaseapp.com",
+        projectId: "taboost-platform",
+        storageBucket: "taboost-platform.firebasestorage.app",
+        messagingSenderId: "379293685859",
+        appId: "1:379293685859:web:d89592adbf67360b574056"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    function unlock() {
+        const u = document.getElementById('gUser').value.trim();
+        const p = document.getElementById('gPass').value;
+        if (u === 'marco' && p === 'shopupdate:)') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+        } else {
+            document.getElementById('gateErr').textContent = 'Incorrect username or password.';
+        }
+    }
+
+    let newCreators = [], skipCreators = [];
+
+    function log(msg, cls='l-info') {
+        const el = document.getElementById('log');
+        const s = document.createElement('span');
+        s.className = cls;
+        s.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+        el.appendChild(s);
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function parseCSVLine(line) {
+        const out = []; let cur = '', inQ = false;
+        for (let i = 0; i < line.length; i++) {
+            const c = line[i];
+            if (c === '"') { if (inQ && line[i+1]==='"'){cur+='"';i++;}else inQ=!inQ; }
+            else if (c===',' && !inQ) { out.push(cur.trim()); cur=''; }
+            else cur += c;
+        }
+        out.push(cur.trim());
+        return out;
+    }
+
+    function handleFile(evt) {
+        const file = evt.target.files[0];
+        if (!file) return;
+        document.getElementById('dropZone').classList.add('has-file');
+        document.getElementById('dropIcon').textContent = '✅';
+        document.getElementById('dropText').textContent = file.name;
+        document.getElementById('dropHint').textContent = (file.size/1024).toFixed(1) + ' KB · Click to change';
+        const reader = new FileReader();
+        reader.onload = e => parseAndCompare(e.target.result);
+        reader.readAsText(file);
+    }
+
+    async function parseAndCompare(raw) {
+        // Reset
+        newCreators = []; skipCreators = [];
+        document.getElementById('previewBody').innerHTML = '';
+        ['previewScroll','previewCard','progressWrap','progressLbl'].forEach(id => document.getElementById(id).classList.add('hidden'));
+        document.getElementById('progressBar').style.width = '0%';
+        const btn = document.getElementById('importBtn');
+        btn.disabled = true; btn.textContent = '🚀 Add New Creators';
+
+        log('Parsing CSV...');
+        const lines = raw.replace(/^\ufeff/,'').split('\n');
+        const headers = parseCSVLine(lines[0]);
+        const col = {};
+        headers.forEach((h,i) => { col[h.trim().toLowerCase()] = i; });
+
+        const iEmail   = col['user']      ?? 0;
+        const iName    = col['name']      ?? 16;
+        const iJoined  = col['joined']    ?? 17;
+        const iManager = col['manager']   ?? 18;
+        const iTier    = col['tier']      ?? 19;
+        const iLevel   = col['top level'] ?? 20;
+        const iRank    = col['rank']      ?? 21;
+        const iPoints  = col['points']    ?? 13;
+
+        const csvRows = []; let noEmail = 0;
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
+            const cols = parseCSVLine(line);
+            const raw = cols[iEmail]?.trim() || '';
+            if (!raw) continue;
+            if (!raw.includes('@')) { noEmail++; continue; }
+            csvRows.push({
+                email:   raw.toLowerCase(),
+                name:    cols[iName]?.trim()    || '',
+                joined:  cols[iJoined]?.trim()  || '',
+                manager: cols[iManager]?.trim() || '',
+                tier:    cols[iTier]?.trim()    || '',
+                level:   cols[iLevel]?.trim()   || '',
+                rank:    cols[iRank]?.trim()    || '',
+                points:  parseInt(cols[iPoints]?.replace(/[^0-9]/g,'') || '0') || 0,
+            });
+        }
+        log('Parsed ' + csvRows.length + ' valid rows (' + noEmail + ' skipped — no email)');
+
+        // Check creatorRoster for existing email-keyed docs
+        // Doc IDs that contain @ were added by this tool (shop creators)
+        // This is the same collection bulk-import-new.html uses — no auth needed
+        log('Checking creatorRoster for existing shop creators...');
+        const existingEmails = new Set();
+        try {
+            const snap = await db.collection('creatorRoster').get();
+            snap.forEach(doc => {
+                if (doc.id.includes('@')) existingEmails.add(doc.id.toLowerCase().trim());
+                const d = doc.data();
+                if (d.email && d.email.includes('@') && !d.email.includes('@taboost.me'))
+                    existingEmails.add(d.email.toLowerCase().trim());
+            });
+            log('Found ' + existingEmails.size + ' existing shop creators (email-keyed) in creatorRoster', 'l-success');
+        } catch(err) {
+            log('creatorRoster read error: ' + err.message, 'l-error');
+        }
+
+        for (const row of csvRows) {
+            if (existingEmails.has(row.email)) skipCreators.push(row);
+            else newCreators.push(row);
+        }
+
+        log(newCreators.length + ' new · ' + skipCreators.length + ' already in roster', 'l-success');
+
+        document.getElementById('statNew').textContent  = newCreators.length;
+        document.getElementById('statSkip').textContent = skipCreators.length;
+        document.getElementById('statWarn').textContent = noEmail;
+        document.getElementById('statTot').textContent  = csvRows.length;
+
+        const tbody = document.getElementById('previewBody');
+        const toShow = [
+            ...newCreators.slice(0,150).map(c=>({...c,isNew:true})),
+            ...skipCreators.slice(0,50).map(c=>({...c,isNew:false}))
+        ];
+        toShow.forEach(c => {
+            const tr = document.createElement('tr');
+            const badge = c.isNew ? '<span class="badge badge-new">NEW</span>' : '<span class="badge badge-skip">EXISTS</span>';
+            tr.innerHTML = '<td>'+badge+'</td><td style="color:#ccc">'+c.email+'</td><td>'+c.name+'</td><td>'+c.manager+'</td><td>'+c.tier+'</td><td>'+c.level+'</td><td>'+c.joined+'</td>';
+            tbody.appendChild(tr);
+        });
+        const rem = (newCreators.length + skipCreators.length) - toShow.length;
+        if (rem > 0) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = '<td colspan="7" style="color:#444;text-align:center;padding:12px">… ' + rem + ' more rows</td>';
+            tbody.appendChild(tr);
+        }
+
+        document.getElementById('previewCard').classList.remove('hidden');
+        document.getElementById('previewScroll').classList.remove('hidden');
+
+        if (newCreators.length > 0) {
+            btn.disabled = false;
+            log('Ready — ' + newCreators.length + ' new creators will be added', 'l-success');
+        } else {
+            log('All creators already in roster. Nothing to add.', 'l-warn');
+        }
+    }
+
+    async function startImport() {
+        if (!newCreators.length) return;
+        const btn = document.getElementById('importBtn');
+        btn.disabled = true; btn.textContent = '⏳ Importing...';
+        document.getElementById('progressWrap').classList.remove('hidden');
+        document.getElementById('progressLbl').classList.remove('hidden');
+
+        const BATCH_SIZE = 400, total = newCreators.length;
+        let done = 0;
+        log('Starting import of ' + total + ' creators...');
+
+        for (let i = 0; i < total; i += BATCH_SIZE) {
+            const chunk = newCreators.slice(i, i + BATCH_SIZE);
+            const batch = db.batch();
+            chunk.forEach(c => {
+                // Email as doc ID — clearly separate from username-keyed platform docs
+                const ref = db.collection('creatorRoster').doc(c.email);
+                batch.set(ref, {
+                    email:        c.email,
+                    name:         c.name,
+                    joined:       c.joined,
+                    manager:      c.manager,
+                    tier:         c.tier,
+                    level:        c.level,
+                    rank:         c.rank,
+                    points:       c.points,
+                    claimed:      false,
+                    importedAt:   firebase.firestore.FieldValue.serverTimestamp(),
+                    importSource: 'totals-csv',
+                }, { merge: true });
+            });
+            try {
+                await batch.commit();
+                done += chunk.length;
+                const pct = Math.round(done/total*100);
+                document.getElementById('progressBar').style.width = pct + '%';
+                document.getElementById('progressLbl').textContent = done + ' / ' + total + ' (' + pct + '%)';
+                log('Batch done: ' + done + '/' + total, 'l-success');
+            } catch(err) {
+                log('Batch error: ' + err.message, 'l-error');
+                btn.disabled = false; btn.textContent = '🚀 Retry';
+                return;
+            }
+            if (i + BATCH_SIZE < total) await new Promise(r => setTimeout(r, 300));
+        }
+
+        document.getElementById('progressBar').style.width = '100%';
+        document.getElementById('progressLbl').textContent = '✅ ' + total + ' creators added!';
+        btn.disabled = true; btn.textContent = '✅ Done — ' + total + ' added';
+        log('Complete! ' + total + ' creators added to creatorRoster.', 'l-success');
+        newCreators = [];
+    }
+
+    log('Ready. Select a Totals CSV to begin.');
+</script>
+</body>
+</html>

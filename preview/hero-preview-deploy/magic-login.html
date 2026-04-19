@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Login - Taboost</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { opacity: 0.9; }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.3);
+            border-radius: 10px;
+            display: none;
+        }
+        .result.show { display: block; }
+        .result.error {
+            background: rgba(255,0,68,0.1);
+            border-color: rgba(255,0,68,0.3);
+        }
+        .magic-link {
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            word-break: break-all;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .copy-btn {
+            background: #333;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <div class="subtitle">Admin: Generate Magic Login Link</div>
+        
+        <div class="input-group">
+            <label>Creator Username</label>
+            <input type="text" id="username" placeholder="@username" onkeyup="stripAtSymbol()">
+        </div>
+        
+        <div class="input-group">
+            <label>Temp Password (they'll change this after login)</label>
+            <input type="text" id="tempPassword" placeholder="Auto-generated" readonly>
+        </div>
+        
+        <button onclick="generateMagicLink()">✨ GENERATE MAGIC LINK</button>
+        
+        <div id="result" class="result">
+            <div style="color: #00ff88; font-weight: 600; margin-bottom: 10px;">✅ Magic Link Created!</div>
+            <div style="font-size: 0.85rem; color: #aaa; margin-bottom: 10px;">
+                Send this link to the creator. They'll be auto-logged in and can set their own password.
+            </div>
+            <div class="magic-link" id="magicLink" onclick="copyLink()"></div>
+            <button class="copy-btn" onclick="copyLink()">📋 COPY LINK</button>
+        </div>
+        
+        <div id="error" class="result error" style="display: none;">
+            <div style="color: #ff0044; font-weight: 600;">❌ Error</div>
+            <div id="errorMsg" style="font-size: 0.85rem; margin-top: 5px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Generate random password
+        function generatePassword() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%';
+            let password = '';
+            for (let i = 0; i < 12; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return password;
+        }
+        
+        // Strip @ symbol
+        function stripAtSymbol() {
+            let val = document.getElementById('username').value;
+            val = val.replace(/^@/, '');
+            document.getElementById('username').value = val;
+        }
+        
+        // Auto-generate password on input
+        document.getElementById('username').addEventListener('input', function() {
+            if (!document.getElementById('tempPassword').value) {
+                document.getElementById('tempPassword').value = generatePassword();
+            }
+        });
+        
+        async function generateMagicLink() {
+            const username = document.getElementById('username').value.trim().toLowerCase();
+            const tempPassword = document.getElementById('tempPassword').value;
+            
+            if (!username) {
+                showError('Please enter a username');
+                return;
+            }
+            
+            // Generate token
+            const token = btoa(username + ':' + tempPassword + ':' + Date.now()).replace(/[^a-zA-Z0-9]/g, '').substring(0, 32);
+            
+            // Create magic link
+            const baseUrl = window.location.origin + window.location.pathname.replace('magic-login.html', '');
+            const magicLink = `${baseUrl}login.html?magic=${token}&user=${encodeURIComponent(username)}&pass=${encodeURIComponent(tempPassword)}`;
+            
+            // Show result
+            document.getElementById('magicLink').textContent = magicLink;
+            document.getElementById('result').classList.add('show');
+            document.getElementById('error').style.display = 'none';
+            
+            console.log('Magic link generated for:', username);
+            console.log('Link:', magicLink);
+        }
+        
+        function copyLink() {
+            const link = document.getElementById('magicLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copied! Paste in DM to creator.');
+            });
+        }
+        
+        function showError(msg) {
+            document.getElementById('errorMsg').textContent = msg;
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('result').classList.remove('show');
+        }
+    </script>
+</body>
+</html>

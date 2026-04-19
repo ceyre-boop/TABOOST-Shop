@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/jpeg" href="images/taboost-logo.jpg">
+    <title>TABOOST - History Data Update</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        
+        .drop-zone {
+            background: rgba(255,255,255,0.03);
+            border: 3px dashed #444;
+            border-radius: 20px;
+            padding: 50px 40px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s;
+        }
+        .drop-zone:hover { border-color: #3b82f6; }
+        .drop-zone.processing { border-color: #f59e0b; }
+        .drop-zone.ready { border-color: #22c55e; }
+        .drop-icon { font-size: 48px; margin-bottom: 15px; }
+        
+        .token-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            display: none;
+        }
+        .token-section.visible { display: block; }
+        .token-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #3b82f6;
+        }
+        .token-section input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: white;
+            font-size: 14px;
+            font-family: monospace;
+        }
+        .token-section input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .token-help {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+        .token-help a { color: #3b82f6; text-decoration: none; }
+        
+        .btn {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            display: none;
+        }
+        .btn.visible { display: inline-block; }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 250px;
+            overflow-y: auto;
+            display: none;
+        }
+        .status.visible { display: block; }
+        .status-line { margin: 3px 0; padding: 2px 0; }
+        .success { color: #22c55e; }
+        .error { color: #ff4444; }
+        .info { color: #3b82f6; }
+        
+        .instructions {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .instructions h3 { 
+            color: #3b82f6; 
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .instructions ol { margin-left: 20px; }
+        .instructions li { margin: 8px 0; color: #aaa; line-height: 1.5; }
+        .instructions a { color: #3b82f6; text-decoration: none; }
+        .instructions a:hover { text-decoration: underline; }
+        .instructions code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #3b82f6;
+            font-size: 12px;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #333;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">TABOOST</div>
+        <div class="subtitle">History Data Update (6-Month Chart)</div>
+        
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-icon">📈</div>
+            <div id="dropText">Drop HISTORY.csv here</div>
+            <input type="file" id="fileInput" accept=".csv" style="display:none">
+        </div>
+        
+        <div class="token-section" id="tokenSection">
+            <label>🔑 GitHub Personal Access Token</label>
+            <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" oninput="checkReady()">
+            <div class="token-help">
+                Get your token: <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> 
+                → Name it "TABOOST" → Check <code>repo</code> → Generate
+            </div>
+        </div>
+        
+        <button class="btn" id="uploadBtn" onclick="uploadHistory()">🚀 Upload History & Update Chart</button>
+        
+        <div class="status" id="status"></div>
+        
+        <div class="instructions">
+            <h3>📈 How to Update History Chart:</h3>
+            <ol>
+                <li><strong>Export HISTORY.csv from Google Sheets</strong></li>
+                <li><strong>Drop the CSV</strong> on the box above</li>
+                <li><strong>Paste your GitHub token</strong> (same as main portal)</li>
+                <li><strong>Click "Upload History & Update Chart"</strong></li>
+                <li><strong>Wait 2 minutes</strong> - 6-month chart updates automatically!</li>
+            </ol>
+            <p style="color:#666; margin-top:15px; font-size:13px;">
+                🔒 Your token is stored only in your browser.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const REPO_OWNER = 'ceyre-boop';
+        const REPO_NAME = 'TABOOST_Platfrom';
+        
+        let csvFile = null;
+        let jsonContent = null;
+
+        // Drag & drop
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        
+        dropZone.onclick = () => fileInput.click();
+        dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.borderColor = '#3b82f6'; };
+        dropZone.ondragleave = () => { dropZone.style.borderColor = '#444'; };
+        dropZone.ondrop = (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#444';
+            if (e.dataTransfer.files.length) processFile(e.dataTransfer.files[0]);
+        };
+        fileInput.onchange = (e) => { if (e.target.files.length) processFile(e.target.files[0]); };
+
+        function log(msg, type) {
+            const status = document.getElementById('status');
+            status.classList.add('visible');
+            const div = document.createElement('div');
+            div.className = 'status-line ' + (type || '');
+            div.innerHTML = msg;
+            status.appendChild(div);
+            status.scrollTop = status.scrollHeight;
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        function parseNum(val) {
+            if (!val || val === '' || val === '-1') return 0;
+            return parseInt(val.toString().replace(/,/g, '').replace(/"/g, '')) || 0;
+        }
+
+        async function processFile(file) {
+            if (!file.name.endsWith('.csv')) {
+                alert('Please upload a CSV file');
+                return;
+            }
+            
+            csvFile = file;
+            const text = await file.text();
+            
+            // Parse HISTORY CSV
+            const lines = text.split('\n');
+            const creators = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = parseCSVLine(line);
+                if (cols.length < 10) continue;
+                
+                const username = cols[1]; // Column B = Username
+                if (!username || username.includes('3/')) continue;
+                
+                // Diamonds: C=Current, D=Feb, E=Jan, F=Dec, G=Nov, H=Oct, I=Sep
+                const diamonds_current = parseNum(cols[2]);
+                const diamonds_feb = parseNum(cols[3]);
+                const diamonds_jan = parseNum(cols[4]);
+                const diamonds_dec = parseNum(cols[5]);
+                const diamonds_nov = parseNum(cols[6]);
+                const diamonds_oct = parseNum(cols[7]);
+                const diamonds_sep = parseNum(cols[8]);
+                
+                // Build history: Oct → Nov → Dec → Jan → Feb → Current
+                const diamondsHistory = [
+                    diamonds_oct, diamonds_nov, diamonds_dec,
+                    diamonds_jan, diamonds_feb, diamonds_current
+                ];
+                
+                // Calculate growth rates
+                const growthRates = [];
+                for (let j = 0; j < 6; j++) {
+                    if (j === 0) {
+                        growthRates.push(0);
+                    } else {
+                        const prev = diamondsHistory[j-1];
+                        const curr = diamondsHistory[j];
+                        growthRates.push(prev > 0 ? Math.round(((curr - prev) / prev) * 100 * 10) / 10 : 0);
+                    }
+                }
+                
+                // TIER: K=Current, L=Feb, M=Jan, N=Dec, O=Nov, P=Oct, Q=Sep
+                const tier_current = parseInt(cols[10]) || null;  // K
+                const tier_feb = parseInt(cols[11]) || null;      // L
+                const tier_jan = parseInt(cols[12]) || null;      // M
+                const tier_dec = parseInt(cols[13]) || null;      // N
+                const tier_nov = parseInt(cols[14]) || null;      // O
+                const tier_oct = parseInt(cols[15]) || null;      // P
+                const tier_sep = parseInt(cols[16]) || null;      // Q
+                
+                // Build tier history: Oct → Nov → Dec → Jan → Feb → Current
+                const tierHistory = [
+                    tier_oct, tier_nov, tier_dec,
+                    tier_jan, tier_feb, tier_current
+                ];
+                
+                // REWARDS: Index 24=Current, 25=Feb, 26=Jan, 27=Dec, 28=Nov, 29=Oct, 30=Sep
+                const rewards_current = cols[24] || '';  // Current
+                const rewards_feb = cols[25] || '';      // Feb
+                const rewards_jan = cols[26] || '';      // Jan
+                const rewards_dec = cols[27] || '';      // Dec
+                const rewards_nov = cols[28] || '';      // Nov
+                const rewards_oct = cols[29] || '';      // Oct
+                const rewards_sep = cols[30] || '';      // Sep
+                
+                // Build rewards history: Sep → Oct → Nov → Dec → Jan → Feb → Current
+                const rewardsHistory = [
+                    rewards_sep, rewards_oct, rewards_nov,
+                    rewards_dec, rewards_jan, rewards_feb, rewards_current
+                ];
+                
+                creators.push({
+                    username: username,
+                    diamondsHistory: diamondsHistory,
+                    growthRates: growthRates,
+                    tierHistory: tierHistory,
+                    tierCurrent: tier_current,
+                    rewardsHistory: rewardsHistory
+                });
+            }
+            
+            // Generate JSON
+            jsonContent = JSON.stringify(creators, null, 2);
+            
+            // Update UI
+            dropZone.classList.add('ready');
+            document.getElementById('dropText').textContent = `${creators.length} creators ready for chart`;
+            document.getElementById('tokenSection').classList.add('visible');
+            document.getElementById('uploadBtn').classList.add('visible');
+            
+            log(`✅ Parsed ${creators.length} creators from HISTORY.csv`, 'success');
+        }
+
+        function checkReady() {
+            const token = document.getElementById('githubToken').value;
+            document.getElementById('uploadBtn').disabled = !token;
+        }
+
+        async function uploadHistory() {
+            const token = document.getElementById('githubToken').value;
+            if (!token || !jsonContent) return;
+            
+            const btn = document.getElementById('uploadBtn');
+            btn.disabled = true;
+            
+            log('<span class="spinner"></span>Starting upload...', 'info');
+            
+            try {
+                // Get current file SHA
+                log('📡 Checking current creator_trends.json...');
+                let sha = null;
+                try {
+                    const checkRes = await fetch(
+                        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data/creator_trends.json`,
+                        { headers: { 'Authorization': `token ${token}` } }
+                    );
+                    if (checkRes.ok) {
+                        const data = await checkRes.json();
+                        sha = data.sha;
+                    }
+                } catch (e) {}
+                
+                // Upload new JSON
+                log('📤 Uploading creator_trends.json...');
+                const content = btoa(unescape(encodeURIComponent(jsonContent)));
+                const body = {
+                    message: `Update history chart data - ${new Date().toLocaleDateString()}`,
+                    content: content,
+                    branch: 'main'
+                };
+                if (sha) body.sha = sha;
+                
+                const uploadRes = await fetch(
+                    `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data/creator_trends.json`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(body)
+                    }
+                );
+                
+                if (!uploadRes.ok) {
+                    const error = await uploadRes.json();
+                    throw new Error(error.message || 'Upload failed');
+                }
+                
+                log('✅ History uploaded successfully!', 'success');
+                log('🎉 6-month chart will update in ~1 minute!', 'success');
+                log('🔗 <a href="https://live.taboost.me/creator-dashboard.html" target="_blank" style="color:#3b82f6;">Check dashboard</a>');
+                
+                dropZone.innerHTML = '<div class="drop-icon">✅</div><div>History Update Complete!</div>';
+                
+            } catch (error) {
+                log('❌ Error: ' + error.message, 'error');
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1304 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>TABOOST ΓÇö Command Center</title>
+<link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000;
+  --bg2:#0a0a0a;
+  --bg3:#111111;
+  --bg4:#1a1a1a;
+  --red:#ff0044;
+  --red2:#cc0035;
+  --red3:rgba(255,0,68,0.12);
+  --red4:rgba(255,0,68,0.06);
+  --green:#00e676;
+  --amber:#ffab00;
+  --blue:#2979ff;
+  --t1:#ffffff;
+  --t2:#e0e0e0;
+  --t3:#888888;
+  --t4:#444444;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.04);
+  --rb:rgba(255,0,68,0.25);
+  --fd:'Bebas Neue',sans-serif;
+  --fm:'DM Mono',monospace;
+  --fb:'DM Sans',sans-serif;
+  --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--t2);min-height:100vh;display:flex;overflow-x:hidden;font-size:14px}
+
+/* noise */
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ambient glow */
+.glow-r{position:fixed;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:var(--red);opacity:0.04;filter:blur(100px);pointer-events:none;z-index:0}
+.glow-b{position:fixed;bottom:-200px;left:200px;width:500px;height:500px;border-radius:50%;background:var(--red);opacity:0.025;filter:blur(120px);pointer-events:none;z-index:0}
+
+/* ΓöÇΓöÇ SIDEBAR ΓöÇΓöÇ */
+.sidebar{width:200px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0;z-index:200}
+.logo-wrap{padding:20px 18px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.logo-mark{width:32px;height:32px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:18px;height:18px;fill:white}
+.logo-name{font-family:var(--fd);font-size:22px;letter-spacing:0.1em;color:var(--t1)}
+.search-wrap{padding:10px 12px;border-bottom:1px solid var(--border)}
+.search-inp{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:12px;color:var(--t2);outline:none;font-family:var(--fb);transition:border-color 0.2s}
+.search-inp:focus{border-color:var(--rb)}
+.search-inp::placeholder{color:var(--t4)}
+nav{flex:1;overflow-y:auto;padding:8px 0}
+.nav-section-lbl{font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--t4);padding:12px 18px 4px}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 18px;font-size:12px;font-weight:500;color:var(--t3);cursor:pointer;transition:all 0.15s;border-left:2px solid transparent;user-select:none;position:relative}
+.nav-link:hover{color:var(--t1);background:rgba(255,255,255,0.03)}
+.nav-link.active{color:var(--t1);background:rgba(255,0,68,0.08);border-left-color:var(--red)}
+.nav-link.active .nav-icon{color:var(--red)}
+.nav-icon{font-size:14px;width:18px;text-align:center}
+.nav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;font-family:var(--fm)}
+.nav-badge.g{background:rgba(0,230,118,0.15);color:var(--green);border:1px solid rgba(0,230,118,0.3)}
+.sidebar-user{padding:14px 18px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.user-av{width:32px;height:32px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:15px;color:#fff;flex-shrink:0}
+.user-n{font-size:13px;font-weight:600;color:var(--t1)}
+.user-r{font-size:10px;color:var(--t4)}
+
+/* ΓöÇΓöÇ MAIN ΓöÇΓöÇ */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;z-index:1}
+.topbar{height:54px;background:rgba(0,0,0,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:14px;position:sticky;top:0;z-index:100}
+.tb-title{font-family:var(--fd);font-size:18px;letter-spacing:0.06em;color:var(--t1);flex:1}
+.tb-live{display:flex;align-items:center;gap:6px}
+.tb-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+.tb-txt{font-family:var(--fm);font-size:10px;color:var(--green);letter-spacing:0.1em}
+.tb-clock{font-family:var(--fm);font-size:11px;color:var(--t4);padding:5px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:5px}
+.tb-btn{padding:7px 14px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:0.06em;cursor:pointer;border:1px solid;font-family:var(--fb);transition:all 0.15s}
+.tb-btn-red{background:var(--red);border-color:var(--red);color:#fff}
+.tb-btn-red:hover{background:var(--red2)}
+.tb-btn-ghost{background:transparent;border-color:var(--border);color:var(--t3)}
+.tb-btn-ghost:hover{color:var(--t1);border-color:rgba(255,255,255,0.15)}
+
+.content{padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+.page{display:none}.page.active{display:flex;flex-direction:column;gap:20px}
+
+/* ΓöÇΓöÇ GRID ΓöÇΓöÇ */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g21{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+.g31{display:grid;grid-template-columns:3fr 1fr;gap:14px}
+.g12{display:grid;grid-template-columns:1fr 2fr;gap:14px}
+
+/* ΓöÇΓöÇ CARD ΓöÇΓöÇ */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color 0.2s,box-shadow 0.2s}
+.card:hover{border-color:rgba(255,0,68,0.2);box-shadow:0 0 20px rgba(255,0,68,0.04)}
+.card-hd{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-title{font-family:var(--fd);font-size:13px;letter-spacing:0.1em;color:var(--t1)}
+.card-sub{font-size:10px;color:var(--t4);margin-top:2px}
+.card-bd{padding:18px}
+
+/* ΓöÇΓöÇ KPI TILES ΓöÇΓöÇ */
+.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px;position:relative;overflow:hidden;transition:all 0.2s;cursor:default}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);opacity:0}
+.kpi:hover::before{opacity:1}
+.kpi:hover{border-color:rgba(255,0,68,0.25);box-shadow:0 4px 24px rgba(255,0,68,0.06)}
+.kpi-icon{font-size:18px;margin-bottom:12px;opacity:0.8}
+.kpi-val{font-family:var(--fd);font-size:36px;letter-spacing:0.02em;color:var(--t1);line-height:1}
+.kpi-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);margin:6px 0 4px}
+.kpi-sub{font-size:11px;color:var(--t3);display:flex;align-items:center;gap:5px}
+.kpi-corner{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+
+/* ΓöÇΓöÇ LIVE P&L BAR ΓöÇΓöÇ */
+.pnl-bar{background:linear-gradient(90deg,var(--red),transparent);height:3px;border-radius:2px;margin-top:10px;animation:shimmer 3s ease-in-out infinite}
+
+/* ΓöÇΓöÇ TABLE ΓöÇΓöÇ */
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:1px solid var(--border)}
+th{font-family:var(--fm);font-size:9px;font-weight:500;color:var(--t4);letter-spacing:0.12em;text-transform:uppercase;padding:9px 12px;text-align:left;white-space:nowrap}
+td{padding:10px 12px;font-size:12px;color:var(--t2);border-bottom:1px solid var(--border2);vertical-align:middle}
+tbody tr{transition:background 0.1s;cursor:pointer}
+tbody tr:hover{background:rgba(255,0,68,0.04)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ΓöÇΓöÇ CREATOR CELL ΓöÇΓöÇ */
+.cc{display:flex;align-items:center;gap:9px}
+.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:13px;color:#fff;flex-shrink:0;border:1px solid rgba(255,255,255,0.1)}
+.cn{font-size:12px;font-weight:600;color:var(--t1)}
+.ch2{font-size:10px;color:var(--t4);margin-top:1px}
+
+/* ΓöÇΓöÇ TIER CHIP ΓöÇΓöÇ */
+.tc{display:inline-flex;align-items:center;justify-content:center;padding:2px 8px;border-radius:4px;font-family:var(--fm);font-size:10px;font-weight:500;letter-spacing:0.05em}
+.t6{background:rgba(255,0,68,0.15);color:var(--red);border:1px solid rgba(255,0,68,0.3)}
+.t5{background:rgba(255,171,0,0.12);color:var(--amber);border:1px solid rgba(255,171,0,0.3)}
+.t4{background:rgba(41,121,255,0.12);color:#64b5f6;border:1px solid rgba(41,121,255,0.3)}
+.t3{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.25)}
+.t2{background:rgba(255,255,255,0.07);color:var(--t3);border:1px solid var(--border)}
+.t1{background:rgba(255,255,255,0.04);color:var(--t4);border:1px solid var(--border2)}
+
+/* ΓöÇΓöÇ SCORE BAR ΓöÇΓöÇ */
+.sb{display:flex;align-items:center;gap:7px}
+.sb-num{font-family:var(--fm);font-size:11px;width:24px;text-align:right}
+.sb-track{flex:1;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;min-width:40px}
+.sb-fill{height:100%;border-radius:2px}
+
+/* ΓöÇΓöÇ PROGRESS BAR ΓöÇΓöÇ */
+.pb{background:var(--bg4);border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+
+/* ΓöÇΓöÇ ACCOUNT HEALTH CARD (prop-firm style) ΓöÇΓöÇ */
+.health-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px;position:relative;overflow:hidden}
+.health-card::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:var(--r)}
+.health-card.healthy::after{box-shadow:inset 0 0 0 1px rgba(0,230,118,0.2)}
+.health-card.warning::after{box-shadow:inset 0 0 0 1px rgba(255,171,0,0.3)}
+.health-card.critical::after{box-shadow:inset 0 0 0 1px rgba(255,0,68,0.4)}
+.health-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.health-name{font-size:12px;font-weight:600;color:var(--t1)}
+.health-tier{font-family:var(--fd);font-size:22px;letter-spacing:0.06em}
+.health-diamonds{font-family:var(--fd);font-size:28px;letter-spacing:0.02em;color:var(--t1);margin:6px 0 2px}
+.health-label{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);margin-bottom:10px}
+.health-to-tier{font-size:11px;color:var(--t3);margin-top:8px}
+.health-to-tier strong{color:var(--t1)}
+.pulse-ring{position:absolute;top:14px;right:14px;width:12px;height:12px}
+.pulse-ring::before,.pulse-ring::after{content:'';position:absolute;inset:0;border-radius:50%}
+.pulse-ring::before{background:var(--green);animation:pulseRing 2s ease-out infinite}
+.pulse-ring::after{background:var(--green);border-radius:50%;opacity:0.8;animation:pulseRing 2s ease-out infinite 0.5s}
+@keyframes pulseRing{0%{transform:scale(1);opacity:0.8}100%{transform:scale(2.5);opacity:0}}
+.pulse-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* ΓöÇΓöÇ EQUITY CURVE ΓöÇΓöÇ */
+.eq-wrap{position:relative}
+.eq-label{font-family:var(--fm);font-size:9px;color:var(--t4);margin-bottom:6px;letter-spacing:0.08em}
+
+/* ΓöÇΓöÇ MILESTONE BAR (prop-firm style) ΓöÇΓöÇ */
+.milestone{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:14px;margin-bottom:10px}
+.ms-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.ms-name{font-size:12px;font-weight:600;color:var(--t1)}
+.ms-pct{font-family:var(--fd);font-size:20px;letter-spacing:0.05em}
+.ms-details{font-size:11px;color:var(--t3);margin-top:3px}
+.ms-bar{height:6px;background:var(--bg4);border-radius:3px;overflow:hidden;margin-top:8px}
+.ms-fill{height:100%;border-radius:3px;position:relative;overflow:hidden}
+.ms-fill::after{content:'';position:absolute;top:0;right:0;bottom:0;width:20px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3));animation:sweep 2s ease-in-out infinite}
+@keyframes sweep{0%,100%{opacity:0}50%{opacity:1}}
+.ms-eta{font-family:var(--fm);font-size:10px;color:var(--t4);margin-top:6px}
+
+/* ΓöÇΓöÇ ALERT ITEM ΓöÇΓöÇ */
+.al{display:flex;gap:12px;padding:12px 14px;border-radius:6px;border-left:2px solid;margin-bottom:8px;cursor:pointer;transition:background 0.15s}
+.al:hover{background:rgba(255,255,255,0.03)}
+.al-c{background:rgba(255,0,68,0.05);border-color:var(--red)}
+.al-w{background:rgba(255,171,0,0.04);border-color:var(--amber)}
+.al-g{background:rgba(0,230,118,0.04);border-color:var(--green)}
+.al-i{background:rgba(255,255,255,0.03);border-color:var(--t4)}
+.al-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.al-t{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.al-d{font-size:11px;color:var(--t4);line-height:1.5}
+
+/* ΓöÇΓöÇ CHIP ΓöÇΓöÇ */
+.chip{display:inline-block;padding:2px 8px;border-radius:4px;font-family:var(--fm);font-size:9px;font-weight:500;letter-spacing:0.06em}
+.chip-r{background:var(--red3);color:var(--red);border:1px solid var(--rb)}
+.chip-g{background:rgba(0,230,118,0.1);color:var(--green);border:1px solid rgba(0,230,118,0.25)}
+.chip-a{background:rgba(255,171,0,0.1);color:var(--amber);border:1px solid rgba(255,171,0,0.25)}
+.chip-b{background:rgba(41,121,255,0.1);color:#64b5f6;border:1px solid rgba(41,121,255,0.25)}
+.chip-g2{background:rgba(255,255,255,0.06);color:var(--t3);border:1px solid var(--border)}
+
+/* ΓöÇΓöÇ NUMBER COLORS ΓöÇΓöÇ */
+.up{color:var(--green)}.dn{color:var(--red)}.flat{color:var(--t3)}
+.mono{font-family:var(--fm)}
+
+/* ΓöÇΓöÇ FILTER BAR ΓöÇΓöÇ */
+.filter-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fb-btn{padding:5px 12px;border-radius:5px;font-size:11px;font-weight:600;border:1px solid var(--border);color:var(--t4);background:var(--bg3);cursor:pointer;transition:all 0.15s;font-family:var(--fb);letter-spacing:0.04em}
+.fb-btn:hover{color:var(--t2);border-color:rgba(255,255,255,0.15)}
+.fb-btn.active{color:var(--red);border-color:var(--rb);background:var(--red3)}
+
+/* ΓöÇΓöÇ BAR CHART ΓöÇΓöÇ */
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-lbl{font-size:11px;color:var(--t2);width:130px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:8px;background:var(--bg4);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{font-family:var(--fm);font-size:11px;color:var(--t1);width:70px;text-align:right}
+
+/* ΓöÇΓöÇ RANK ΓöÇΓöÇ */
+.rk{font-family:var(--fd);font-size:16px;color:var(--t4);width:30px}
+.rk-1{color:#ffd700}.rk-2{color:#c0c0c0}.rk-3{color:#cd7f32}
+
+/* ΓöÇΓöÇ SECTION HEADER ΓöÇΓöÇ */
+.sec-h{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px}
+.sec-title{font-family:var(--fd);font-size:16px;letter-spacing:0.08em;color:var(--t1)}
+.sec-sub{font-size:11px;color:var(--t4);margin-top:3px}
+
+/* ΓöÇΓöÇ PAG ΓöÇΓöÇ */
+.pag{display:flex;align-items:center;gap:8px;padding:12px 18px;border-top:1px solid var(--border)}
+.pag-btn{padding:5px 12px;border-radius:5px;font-size:11px;font-weight:600;border:1px solid var(--border);color:var(--t3);background:var(--bg3);cursor:pointer;transition:all 0.15s}
+.pag-btn:hover{color:var(--t1);border-color:rgba(255,255,255,0.15)}
+.pag-info{font-family:var(--fm);font-size:10px;color:var(--t4);flex:1;text-align:center}
+
+/* ΓöÇΓöÇ TICKER TAPE ΓöÇΓöÇ */
+.ticker-wrap{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;height:32px;display:flex;align-items:center}
+.ticker-inner{display:flex;gap:0;animation:ticker 40s linear infinite;white-space:nowrap}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 24px;font-family:var(--fm);font-size:10px;border-right:1px solid var(--border);height:32px}
+.ticker-name{color:var(--t3)}
+.ticker-val{color:var(--t1);font-weight:500}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ΓöÇΓöÇ SVG CHART ΓöÇΓöÇ */
+.svg-chart{display:block;overflow:visible}
+
+/* ΓöÇΓöÇ INSIGHT BOX ΓöÇΓöÇ */
+.insight{background:rgba(255,0,68,0.04);border:1px solid rgba(255,0,68,0.15);border-radius:6px;padding:12px 14px;font-size:11px;color:var(--t3);line-height:1.6;margin-top:12px}
+.insight strong{color:var(--red)}
+
+/* ΓöÇΓöÇ MANAGER CARD ΓöÇΓöÇ */
+.mgr-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:all 0.2s;position:relative;overflow:hidden}
+.mgr-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.2s}
+.mgr-card:hover{border-color:rgba(255,0,68,0.25)}
+.mgr-card:hover::before{opacity:1;background:var(--red)}
+.mgr-av{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:20px;color:#fff;margin-bottom:10px;border:1px solid rgba(255,255,255,0.1)}
+.mgr-name{font-family:var(--fd);font-size:16px;letter-spacing:0.06em;color:var(--t1)}
+.mgr-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.ms-lbl{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--t4)}
+.ms-val{font-family:var(--fd);font-size:18px;letter-spacing:0.03em;color:var(--t1);margin-top:2px}
+.mgr-top{margin-top:12px;padding-top:12px;border-top:1px solid var(--border2)}
+.mgr-top-lbl{font-size:9px;color:var(--t4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.mgr-top-item{font-size:11px;color:var(--t3);margin-bottom:3px}
+
+/* ΓöÇΓöÇ REPORT CARD ΓöÇΓöÇ */
+.rep-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:all 0.2s}
+.rep-card:hover{border-color:rgba(255,0,68,0.3);background:rgba(255,0,68,0.03)}
+.rep-icon{font-size:28px;margin-bottom:10px}
+.rep-title{font-family:var(--fd);font-size:14px;letter-spacing:0.06em;color:var(--t1);margin-bottom:4px}
+.rep-sub{font-size:11px;color:var(--t4);margin-bottom:14px}
+.rep-btn{width:100%;padding:8px;border-radius:5px;background:var(--red);border:none;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.08em;cursor:pointer;font-family:var(--fb);transition:background 0.15s}
+.rep-btn:hover{background:var(--red2)}
+
+/* ΓöÇΓöÇ ANIMATIONS ΓöÇΓöÇ */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%,100%{opacity:0.6}50%{opacity:1}}
+@keyframes countUp{from{opacity:0}to{opacity:1}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,68,0)}50%{box-shadow:0 0 12px 2px rgba(255,0,68,0.15)}}
+.fu{animation:fadeUp 0.35s ease both}
+.fu1{animation:fadeUp 0.35s 0.05s ease both}
+.fu2{animation:fadeUp 0.35s 0.1s ease both}
+.fu3{animation:fadeUp 0.35s 0.15s ease both}
+.fu4{animation:fadeUp 0.35s 0.2s ease both}
+.fu5{animation:fadeUp 0.35s 0.25s ease both}
+
+/* ΓöÇΓöÇ DIVIDER ΓöÇΓöÇ */
+.div-r{height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.3;margin:16px 0}
+
+/* ΓöÇΓöÇ RESPONSIVE ΓöÇΓöÇ */
+@media(max-width:1200px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.g3,.g21,.g31{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
+@media(max-width:700px){.sidebar{width:52px}.nav-link span,.nav-section-lbl,.logo-name,.sidebar-user .user-n,.sidebar-user .user-r{display:none}}
+</style>
+</head>
+<body>
+<div class="glow-r"></div>
+<div class="glow-b"></div>
+
+<!-- ΓòÉΓòÉ SIDEBAR ΓòÉΓòÉ -->
+<aside class="sidebar">
+  <div class="logo-wrap">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div class="logo-name">TABOOST</div>
+  </div>
+  <div class="search-wrap">
+    <input class="search-inp" type="text" placeholder="Search creators..." oninput="globalSearch(this.value)">
+  </div>
+  <nav>
+    <div class="nav-section-lbl">Main</div>
+    <a href="marco.html" class="nav-link" style="background:linear-gradient(90deg,rgba(255,0,68,0.15),transparent);border-left-color:#FF0055;"><span class="nav-icon" style="color:#FF0055;">Γùê</span><span>NEW: AI Command Center</span><span class="nav-badge">NEW</span></a>
+    <div class="nav-link active" onclick="showPage('dashboard',this)"><span class="nav-icon">Γùê</span><span>Dashboard</span></div>
+    <div class="nav-link" onclick="showPage('creators',this)"><span class="nav-icon">Γùë</span><span>Creators</span><span class="nav-badge g">802</span></div>
+    <div class="nav-link" onclick="showPage('diamonds',this)"><span class="nav-icon">Γùå</span><span>Diamonds</span></div>
+    <div class="nav-link" onclick="showPage('streams',this)"><span class="nav-icon">Γû╢</span><span>Live Streams</span></div>
+    <div class="nav-section-lbl">Management</div>
+    <div class="nav-link" onclick="showPage('managers',this)"><span class="nav-icon">Γè₧</span><span>Managers</span></div>
+    <div class="nav-link" onclick="showPage('leaderboard',this)"><span class="nav-icon">Γëí</span><span>Leaderboard</span></div>
+    <div class="nav-link" onclick="showPage('health',this)"><span class="nav-icon">ΓÖí</span><span>Creator Health</span><span class="nav-badge">!</span></div>
+    <div class="nav-link" onclick="showPage('milestones',this)"><span class="nav-icon">ΓùÄ</span><span>Milestones</span></div>
+    <div class="nav-section-lbl">Reports</div>
+    <div class="nav-link" onclick="showPage('reports',this)"><span class="nav-icon">Γèí</span><span>Reports</span></div>
+    <div class="nav-link" onclick="showPage('alerts',this)"><span class="nav-icon">ΓÜæ</span><span>Alerts</span><span class="nav-badge">3</span></div>
+    <div class="nav-link" onclick="showPage('settings',this)"><span class="nav-icon">ΓèÖ</span><span>Settings</span></div>
+  </nav>
+  <div class="sidebar-user">
+    <div class="user-av">M</div>
+    <div><div class="user-n">Marco</div><div class="user-r">Admin</div></div>
+    <button onclick="logout()" style="margin-left:auto;background:transparent;border:1px solid var(--red);color:var(--red);padding:4px 8px;border-radius:4px;font-size:11px;cursor:pointer;">Logout</button>
+  </div>
+</aside>
+
+<!-- ΓòÉΓòÉ MAIN ΓòÉΓòÉ -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="tb-title" id="tb-title">DASHBOARD</div>
+    <div class="tb-live"><div class="tb-dot"></div><span class="tb-txt">LIVE</span></div>
+    <div class="tb-clock" id="tb-clock">--:--:--</div>
+    <button class="tb-btn tb-btn-ghost" onclick="showPage('reports',null)">Γåô EXPORT</button>
+    <button class="tb-btn tb-btn-red" onclick="showPage('alerts',null)">ΓÜæ 3 ALERTS</button>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" id="ticker"></div>
+
+  <div class="content">
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ DASHBOARD ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-dashboard" class="page active">
+
+    <!-- TODAY P&L row (prop-firm style) -->
+    <div style="background:var(--bg2);border:1px solid rgba(255,0,68,0.3);border-radius:var(--r);padding:14px 20px;display:flex;align-items:center;gap:20px;animation:glowPulse 4s ease infinite" class="fu">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.5s infinite"></div>
+        <span style="font-family:var(--fm);font-size:10px;color:var(--t4);letter-spacing:0.1em">TODAY'S PERFORMANCE</span>
+      </div>
+      <div style="height:20px;width:1px;background:var(--border)"></div>
+      <div><span style="font-family:var(--fd);font-size:22px;color:var(--green);letter-spacing:0.05em">+47,203</span> <span style="font-size:10px;color:var(--t4);font-family:var(--fm)">DIAMONDS TODAY</span></div>
+      <div style="height:20px;width:1px;background:var(--border)"></div>
+      <div><span style="font-family:var(--fd);font-size:22px;color:var(--t1);letter-spacing:0.05em">47</span> <span style="font-size:10px;color:var(--t4);font-family:var(--fm)">STREAMING NOW</span></div>
+      <div style="height:20px;width:1px;background:var(--border)"></div>
+      <div><span style="font-family:var(--fd);font-size:22px;color:var(--amber);letter-spacing:0.05em">94%</span> <span style="font-size:10px;color:var(--t4);font-family:var(--fm)">MARCH GOAL</span></div>
+      <div style="height:20px;width:1px;background:var(--border)"></div>
+      <div style="flex:1"><div style="font-family:var(--fm);font-size:9px;color:var(--t4);margin-bottom:5px;letter-spacing:0.1em">MARCH TARGET PROGRESS</div><div class="pb" style="height:5px"><div class="pf" style="width:94%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div></div>
+      <div style="font-family:var(--fd);font-size:16px;color:var(--amber)">$150K TO GO</div>
+    </div>
+
+    <!-- KPI grid -->
+    <div class="g4 fu1">
+      <div class="kpi">
+        <div class="kpi-corner" style="background:rgba(255,0,68,0.1)"><span style="font-size:18px">≡ƒæÑ</span></div>
+        <div class="kpi-label">Total Creators</div>
+        <div class="kpi-val">802</div>
+        <div class="kpi-sub"><span style="color:var(--green)">ΓùÅ</span> Live data</div>
+        <div class="pnl-bar" style="opacity:0.5"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-corner" style="background:rgba(255,171,0,0.08)"><span style="font-size:18px">≡ƒÆÄ</span></div>
+        <div class="kpi-label">Total Diamonds</div>
+        <div class="kpi-val" style="color:var(--t1)">12.3M</div>
+        <div class="kpi-sub"><span class="up">Γåæ 8.5%</span> vs last month</div>
+        <div class="pnl-bar" style="background:linear-gradient(90deg,var(--amber),transparent)"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-corner" style="background:rgba(0,230,118,0.08)"><span style="font-size:18px">≡ƒÆ░</span></div>
+        <div class="kpi-label">Total Rewards</div>
+        <div class="kpi-val" style="color:var(--green)">37.6M</div>
+        <div class="kpi-sub">Earned this period</div>
+        <div class="pnl-bar" style="background:linear-gradient(90deg,var(--green),transparent)"></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-corner" style="background:rgba(41,121,255,0.08)"><span style="font-size:18px">ΓÅ▒∩╕Å</span></div>
+        <div class="kpi-label">Hours Streamed</div>
+        <div class="kpi-val">2,251</div>
+        <div class="kpi-sub">Active creators: <strong style="color:var(--t1)">301</strong></div>
+        <div class="pnl-bar" style="background:linear-gradient(90deg,#2979ff,transparent)"></div>
+      </div>
+    </div>
+
+    <div class="g21 fu2">
+      <!-- Main table -->
+      <div class="card">
+        <div class="card-hd">
+          <div><div class="card-title">TOP PERFORMERS</div><div class="card-sub">Ranked by diamonds ┬╖ Current month</div></div>
+          <button class="tb-btn tb-btn-ghost" style="font-size:10px" onclick="showPage('leaderboard',null)">FULL BOARD ΓåÆ</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>RANK</th><th>CREATOR</th><th>MGR</th><th>TIER</th><th>DIAMONDS</th><th>REWARDS</th><th>HRS</th><th>SCORE</th></tr></thead>
+            <tbody id="dash-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right: top rewards + agency health -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card">
+          <div class="card-hd"><div class="card-title">TOP EARNERS ≡ƒÅå</div></div>
+          <div class="card-bd" style="padding-top:10px" id="rewards-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-hd"><div><div class="card-title">AGENCY HEALTH</div><div class="card-sub">Portfolio overview</div></div></div>
+          <div class="card-bd" id="agency-health"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diamond equity curve -->
+    <div class="card fu3">
+      <div class="card-hd"><div><div class="card-title">DIAMOND EQUITY CURVE</div><div class="card-sub">Top 5 creators ΓÇö comparative performance</div></div><div style="display:flex;gap:8px" id="eq-legend"></div></div>
+      <div class="card-bd" style="padding-top:8px">
+        <svg id="eq-svg" class="svg-chart" width="100%" height="140" viewBox="0 0 900 140" preserveAspectRatio="none"></svg>
+        <div style="display:flex;gap:4px;margin-top:8px;overflow-x:auto" id="eq-axis"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ CREATORS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-creators" class="page">
+    <div class="sec-h fu">
+      <div><div class="sec-title">ALL CREATORS</div><div class="sec-sub">802 creators ┬╖ Live from Google Sheets</div></div>
+      <div style="display:flex;gap:8px"><button class="tb-btn tb-btn-ghost">All Groups</button><button class="tb-btn tb-btn-red">Γåô Export CSV</button></div>
+    </div>
+    <div class="filter-bar fu1" id="cr-filters"></div>
+    <div class="card fu2">
+      <div style="overflow-x:auto"><table><thead><tr><th>RANK</th><th>CREATOR</th><th>MANAGER</th><th>TIER</th><th>DIAMONDS</th><th>REWARDS</th><th>HRS</th><th>SCORE</th><th>PACE</th></tr></thead><tbody id="cr-tbody"></tbody></table></div>
+      <div class="pag"><button class="pag-btn" onclick="crPage(-1)">ΓåÉ PREV</button><div class="pag-info" id="cr-pag-info"></div><button class="pag-btn" onclick="crPage(1)">NEXT ΓåÆ</button></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ DIAMONDS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-diamonds" class="page">
+    <div class="g4 fu">
+      <div class="kpi"><div class="kpi-label">Total Diamonds</div><div class="kpi-val">12.3M</div><div class="kpi-sub up">Γåæ 8.5% vs last month</div></div>
+      <div class="kpi"><div class="kpi-label">Top Earner</div><div class="kpi-val" style="font-size:24px">1.06M</div><div class="kpi-sub">samanthasingsit</div></div>
+      <div class="kpi"><div class="kpi-label">Avg (Active)</div><div class="kpi-val" style="font-size:24px">40.9K</div><div class="kpi-sub">301 active creators</div></div>
+      <div class="kpi"><div class="kpi-label">Concentration</div><div class="kpi-val" style="font-size:24px">29%</div><div class="kpi-sub">Top 5 creators share</div></div>
+    </div>
+    <div class="g2 fu1">
+      <div class="card"><div class="card-hd"><div class="card-title">TOP 15 BY DIAMONDS</div></div><div class="card-bd" id="d-bars"></div></div>
+      <div class="card"><div class="card-hd"><div class="card-title">TIER DISTRIBUTION</div><div class="card-sub">Active creators by tier</div></div><div class="card-bd" id="tier-dist"></div></div>
+    </div>
+    <div class="card fu2">
+      <div class="card-hd"><div class="card-title">DIAMOND ANALYTICS ΓÇö ALL CREATORS</div></div>
+      <div style="overflow-x:auto"><table><thead><tr><th>RANK</th><th>CREATOR</th><th>MANAGER</th><th>TIER</th><th>DIAMONDS</th><th>LAST 30D</th><th>PREV MONTH</th><th>MoM</th><th>SCORE</th></tr></thead><tbody id="d-tbody"></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ LIVE STREAMS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-streams" class="page">
+    <div class="g4 fu">
+      <div class="kpi"><div class="kpi-label">Total Hours</div><div class="kpi-val">2,251</div><div class="kpi-sub">All active creators</div></div>
+      <div class="kpi"><div class="kpi-label">Streaming Now</div><div class="kpi-val" style="color:var(--green)">47</div><div class="kpi-sub"><span style="color:var(--green)">ΓùÅ</span> Live</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Hrs/Creator</div><div class="kpi-val" style="font-size:26px">7.5h</div><div class="kpi-sub">Active creators only</div></div>
+      <div class="kpi"><div class="kpi-label">Max Hours</div><div class="kpi-val" style="font-size:26px">39h</div><div class="kpi-sub">daisy_dew4</div></div>
+    </div>
+    <div class="g2 fu1">
+      <div class="card"><div class="card-hd"><div class="card-title">TOP STREAMERS BY HOURS</div></div><div class="card-bd" id="s-bars"></div></div>
+      <div class="card"><div class="card-hd"><div class="card-title">HOURS DISTRIBUTION</div></div><div class="card-bd" id="h-dist"></div></div>
+    </div>
+    <div class="card fu2">
+      <div class="card-hd"><div class="card-title">EFFICIENCY: DIAMONDS PER HOUR</div><div class="card-sub">Best return on streaming time</div></div>
+      <div style="overflow-x:auto"><table><thead><tr><th>RANK</th><th>CREATOR</th><th>MANAGER</th><th>DIAMONDS</th><th>HOURS</th><th>≡ƒÆÄ/HR</th><th>TIER</th></tr></thead><tbody id="eff-tbody"></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ MANAGERS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-managers" class="page">
+    <div class="g4 fu">
+      <div class="kpi"><div class="kpi-label">Total Managers</div><div class="kpi-val">21</div><div class="kpi-sub">Active assignments</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Creators</div><div class="kpi-val">38</div><div class="kpi-sub">Per manager</div></div>
+      <div class="kpi"><div class="kpi-label">Top Manager</div><div class="kpi-val" style="font-size:22px">CARRINGTON</div><div class="kpi-sub">9.4M diamonds</div></div>
+      <div class="kpi"><div class="kpi-label">Portfolio ROI</div><div class="kpi-val up" style="font-size:26px">+347%</div><div class="kpi-sub">Best ΓÇö MARCO</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px" class="fu1" id="mgr-grid"></div>
+    <div class="card fu2">
+      <div class="card-hd"><div class="card-title">MANAGER RANKINGS</div><div class="card-sub">Performance by total team diamonds</div></div>
+      <div style="overflow-x:auto"><table><thead><tr><th>RANK</th><th>MANAGER</th><th>TEAM</th><th>DIAMONDS</th><th>REWARDS</th><th>AVG HRS</th><th>TOP CREATOR</th><th>SHARE</th></tr></thead><tbody id="mgr-tbody"></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ LEADERBOARD ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-leaderboard" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">CREATOR LEADERBOARD</div><div class="sec-sub">Top performers ranked by diamonds ┬╖ Live from Google Sheets</div></div><div class="tb-live"><div class="tb-dot"></div><span class="tb-txt">LIVE</span></div></div>
+    <div class="g4 fu1" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="kpi-label">Total Diamonds</div><div class="kpi-val" style="font-size:26px">12.3M</div></div>
+      <div class="kpi"><div class="kpi-label">Total Rewards</div><div class="kpi-val" style="font-size:26px">37.6M</div></div>
+      <div class="kpi"><div class="kpi-label">Total Hours</div><div class="kpi-val" style="font-size:26px">2,251</div></div>
+      <div class="kpi"><div class="kpi-label">Creators</div><div class="kpi-val" style="font-size:26px">802</div></div>
+    </div>
+    <div class="filter-bar fu2" id="lb-filters"></div>
+    <div class="card fu3">
+      <div style="overflow-x:auto"><table><thead><tr><th>RANK</th><th>CREATOR</th><th>MANAGER</th><th>GROUP</th><th>TIER</th><th>DIAMONDS</th><th>≡ƒÆÄ/HR</th><th>REWARDS</th><th>HRS</th><th>SCORE</th></tr></thead><tbody id="lb-tbody"></tbody></table></div>
+      <div class="pag"><button class="pag-btn" onclick="lbPg(-1)">ΓåÉ PREV</button><div class="pag-info" id="lb-pag-info"></div><button class="pag-btn" onclick="lbPg(1)">NEXT ΓåÆ</button></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ CREATOR HEALTH (prop-firm style) ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-health" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">CREATOR HEALTH MONITOR</div><div class="sec-sub">Account health scores ┬╖ Risk indicators ┬╖ Churn signals</div></div><span class="chip chip-r">14 AT RISK</span></div>
+
+    <div class="g4 fu1">
+      <div class="kpi"><div class="kpi-label">Healthy Creators</div><div class="kpi-val up">248</div><div class="kpi-sub">Score 70+</div></div>
+      <div class="kpi"><div class="kpi-label">Watch List</div><div class="kpi-val" style="color:var(--amber)">39</div><div class="kpi-sub">Score 40ΓÇô69</div></div>
+      <div class="kpi"><div class="kpi-label">At Risk</div><div class="kpi-val dn">14</div><div class="kpi-sub">Score below 40</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Score</div><div class="kpi-val" style="font-size:26px">56<span style="font-size:16px">/100</span></div><div class="kpi-sub">Active creators</div></div>
+    </div>
+
+    <div class="g2 fu2">
+      <!-- Health cards: top creators -->
+      <div>
+        <div style="font-family:var(--fd);font-size:12px;letter-spacing:0.1em;color:var(--t4);margin-bottom:10px">TOP PERFORMERS ΓÇö ACCOUNT HEALTH</div>
+        <div id="health-cards-top"></div>
+      </div>
+      <!-- At-risk cards -->
+      <div>
+        <div style="font-family:var(--fd);font-size:12px;letter-spacing:0.1em;color:var(--red);margin-bottom:10px">ΓÜæ AT-RISK CREATORS</div>
+        <div id="health-cards-risk"></div>
+        <div class="insight"><strong>AI Signal:</strong> 14 creators dropped &gt;30% diamonds vs previous month. freekbass declined 77%, coloreomusic 59%. Immediate outreach recommended to prevent churn. These creators represent an estimated <strong>$184K</strong> monthly revenue at risk.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ MILESTONES (prop-firm style) ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-milestones" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">MILESTONE TRACKER</div><div class="sec-sub">Creator progress to next tier ΓÇö prop-firm style</div></div></div>
+
+    <div class="g4 fu1">
+      <div class="kpi"><div class="kpi-label">Near Promotion</div><div class="kpi-val up">8</div><div class="kpi-sub">Within 200K of tier up</div></div>
+      <div class="kpi"><div class="kpi-label">Avg Completion</div><div class="kpi-val" style="font-size:26px">67%</div><div class="kpi-sub">To next tier</div></div>
+      <div class="kpi"><div class="kpi-label">Fastest Riser</div><div class="kpi-val" style="font-size:20px">daisy_dew4</div><div class="kpi-sub">428K / 500K goal</div></div>
+      <div class="kpi"><div class="kpi-label">This Month</div><div class="kpi-val up" style="font-size:26px">+23</div><div class="kpi-sub">New tier promotions</div></div>
+    </div>
+
+    <div class="g2 fu2">
+      <div>
+        <div style="font-family:var(--fd);font-size:12px;letter-spacing:0.1em;color:var(--t4);margin-bottom:10px">CLOSE TO TIER UP ΓÇö PUSH THEM OVER</div>
+        <div id="ms-close"></div>
+      </div>
+      <div>
+        <div style="font-family:var(--fd);font-size:12px;letter-spacing:0.1em;color:var(--t4);margin-bottom:10px">ALL ACTIVE CREATORS ΓÇö TIER PROGRESS</div>
+        <div style="overflow-x:auto"><table><thead><tr><th>CREATOR</th><th>TIER</th><th>GOAL</th><th>PROGRESS</th><th>ETA</th></tr></thead><tbody id="ms-tbody"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ REPORTS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-reports" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">REPORTS & EXPORTS</div><div class="sec-sub">Generate and download agency performance reports</div></div></div>
+    <div class="g3 fu1" id="rep-grid"></div>
+    <div class="card fu2">
+      <div class="card-hd"><div class="card-title">RECENT EXPORTS</div></div>
+      <table><thead><tr><th>REPORT</th><th>TYPE</th><th>DATE</th><th>SIZE</th><th>ACTION</th></tr></thead>
+      <tbody>
+        <tr><td>Creator_Full_Report_Feb2026.csv</td><td><span class="chip chip-b">CSV</span></td><td class="mono" style="font-size:11px;color:var(--t4)">2026-02-25 09:30</td><td class="mono" style="font-size:11px">245 KB</td><td><button class="tb-btn tb-btn-ghost" style="font-size:10px;padding:4px 10px">Γåô DOWNLOAD</button></td></tr>
+        <tr><td>Diamonds_Summary_Feb2026.csv</td><td><span class="chip chip-b">CSV</span></td><td class="mono" style="font-size:11px;color:var(--t4)">2026-02-25 08:15</td><td class="mono" style="font-size:11px">128 KB</td><td><button class="tb-btn tb-btn-ghost" style="font-size:10px;padding:4px 10px">Γåô DOWNLOAD</button></td></tr>
+        <tr><td>Monthly_Performance_Jan2026.pdf</td><td><span class="chip chip-r">PDF</span></td><td class="mono" style="font-size:11px;color:var(--t4)">2026-02-01 10:00</td><td class="mono" style="font-size:11px">1.2 MB</td><td><button class="tb-btn tb-btn-ghost" style="font-size:10px;padding:4px 10px">Γåô DOWNLOAD</button></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ ALERTS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-alerts" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">ALERTS & NOTIFICATIONS</div></div><button class="tb-btn tb-btn-ghost" style="font-size:10px">MARK ALL READ</button></div>
+    <div class="g2 fu1">
+      <div>
+        <div class="al al-c"><div class="al-icon">≡ƒö┤</div><div><div class="al-t">Rookie Performance Alert</div><div class="al-d">5 rookies below minimum hour requirements this week</div></div><span class="chip chip-r" style="margin-left:auto;height:fit-content;white-space:nowrap">CRITICAL</span></div>
+        <div class="al al-g"><div class="al-icon">≡ƒÅå</div><div><div class="al-t">Diamond Milestone</div><div class="al-d">singleonthemove reached 4.8M total diamonds!</div></div><span class="chip chip-g" style="margin-left:auto;height:fit-content">WIN</span></div>
+        <div class="al al-i"><div class="al-icon">≡ƒæñ</div><div><div class="al-t">New Creator Joined</div><div class="al-d">lancektyree joined under CARRINGTON</div></div><span class="chip chip-g2" style="margin-left:auto;height:fit-content">NEW</span></div>
+        <div class="al al-i"><div class="al-icon">≡ƒôï</div><div><div class="al-t">Weekly Report Ready</div><div class="al-d">Performance summary available for download</div></div><span class="chip chip-g2" style="margin-left:auto;height:fit-content">INFO</span></div>
+        <div class="al al-w"><div class="al-icon">≡ƒôà</div><div><div class="al-t">Meeting Reminder</div><div class="al-d">Manager sync tomorrow at 2 PM EST</div></div><span class="chip chip-a" style="margin-left:auto;height:fit-content">REMINDER</span></div>
+      </div>
+      <div class="card"><div class="card-hd"><div class="card-title">ALERT SUMMARY</div></div><div class="card-bd">
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px">Critical</span><span class="mono dn">1</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px">Warnings</span><span class="mono" style="color:var(--amber)">1</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px">Achievements</span><span class="mono up">1</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0"><span style="font-size:12px">Info</span><span class="mono" style="color:var(--t3)">2</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ SETTINGS ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ -->
+  <div id="page-settings" class="page">
+    <div class="sec-h fu"><div><div class="sec-title">SETTINGS</div><div class="sec-sub">Configure dashboard preferences</div></div></div>
+    <div class="g2 fu1">
+      <div class="card"><div class="card-hd"><div class="card-title">PROFILE</div></div><div class="card-bd" style="display:flex;flex-direction:column;gap:12px">
+        <div><div style="font-family:var(--fm);font-size:9px;letter-spacing:0.12em;color:var(--t4);margin-bottom:5px">DISPLAY NAME</div><input type="text" value="Marco" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--t1);outline:none;font-family:var(--fb)"></div>
+        <div><div style="font-family:var(--fm);font-size:9px;letter-spacing:0.12em;color:var(--t4);margin-bottom:5px">EMAIL</div><input type="text" value="marco@taboost.com" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--t1);outline:none;font-family:var(--fb)"></div>
+        <div><div style="font-family:var(--fm);font-size:9px;letter-spacing:0.12em;color:var(--t4);margin-bottom:5px">ROLE</div><input type="text" value="Admin" disabled style="width:100%;background:var(--bg4);border:1px solid var(--border2);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--t4);font-family:var(--fb)"></div>
+        <button class="tb-btn tb-btn-red">SAVE CHANGES</button>
+      </div></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card"><div class="card-hd"><div class="card-title">APPEARANCE</div></div><div class="card-bd"><div style="display:flex;gap:8px"><button class="fb-btn active">Black</button><button class="fb-btn">Dark</button><button class="fb-btn">Red</button></div></div></div>
+        <div class="card"><div class="card-hd"><div class="card-title">DATA MANAGEMENT</div></div><div class="card-bd" style="display:flex;gap:8px;flex-wrap:wrap"><button class="tb-btn tb-btn-red">REFRESH</button><button class="tb-btn tb-btn-ghost">CLEAR CACHE</button><button class="tb-btn tb-btn-ghost" style="color:var(--red);border-color:rgba(255,0,68,0.3)">LOGOUT</button></div></div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--fm);font-size:10px;color:var(--t4)">LAST SYNC: March 8, 2026 ┬╖ 01:36 AM EST</div>
+        
+        <!-- Admin: Creator Password Management -->
+        <div class="card" style="margin-top:14px"><div class="card-hd"><div class="card-title">CREATOR PASSWORD MANAGEMENT</div><div class="card-sub">Admin only - Reset creator passwords</div></div><div class="card-bd" style="display:flex;flex-direction:column;gap:12px">
+          <div><div style="font-family:var(--fm);font-size:9px;letter-spacing:0.12em;color:var(--t4);margin-bottom:5px">CREATOR USERNAME</div><input type="text" id="adminCreatorUsername" placeholder="Enter creator username" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--t1);outline:none;font-family:var(--fb)"></div>
+          <div><div style="font-family:var(--fm);font-size:9px;letter-spacing:0.12em;color:var(--t4);margin-bottom:5px">NEW PASSWORD</div><input type="password" id="adminNewPassword" placeholder="Enter new password (min 8 chars)" style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--t1);outline:none;font-family:var(--fb)"></div>
+          <button class="tb-btn tb-btn-red" onclick="adminResetCreatorPassword()">RESET PASSWORD</button>
+          <div id="adminPasswordMsg" style="font-size:11px;color:var(--t3)"></div>
+        </div></div>
+        
+        <!-- Admin: Creator Signup Log -->
+        <div class="card" style="margin-top:14px"><div class="card-hd"><div class="card-title">CREATOR SIGNUP LOG</div><div class="card-sub">Track who has created accounts</div></div><div class="card-bd" style="display:flex;flex-direction:column;gap:12px">
+          <div id="signupLogCount" style="font-size:12px;color:var(--t3)">Loading...</div>
+          <div id="signupLogList" style="max-height:200px;overflow-y:auto;font-size:11px;font-family:monospace;background:var(--bg3);padding:10px;border-radius:5px;"></div>
+          <button class="tb-btn tb-btn-ghost" onclick="refreshSignupLog()" style="font-size:10px">Γå╗ REFRESH LOG</button>
+          <button class="tb-btn tb-btn-ghost" onclick="exportSignupLog()" style="font-size:10px">Γåô EXPORT CSV</button>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- content -->
+</div><!-- main -->
+
+<script type="module">
+// ΓöÇΓöÇ SECURITY: Firebase Admin Authentication ΓöÇΓöÇ
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+    authDomain: "taboost-platform.firebaseapp.com",
+    projectId: "taboost-platform",
+    storageBucket: "taboost-platform.firebasestorage.app",
+    messagingSenderId: "379293685859",
+    appId: "1:379293685859:web:d89592adbf67360b574056"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+        console.error('Γ¥î ADMIN ACCESS DENIED: Not logged in');
+        window.location.href = 'firebase-login.html';
+        return;
+    }
+    
+    // Check if user is admin
+    try {
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        const userData = userDoc.data();
+        
+        let role = userData?.role;
+        if (user.email?.toLowerCase() === 'marco@taboost.me') {
+            role = 'admin';
+        }
+        
+        if (role !== 'admin') {
+            console.error('Γ¥î ADMIN ACCESS DENIED: Not an admin');
+            window.location.href = 'creator-dashboard.html';
+            return;
+        }
+        
+        console.log('Γ£à Admin authenticated:', user.email);
+        
+        // Store for later use
+        window.currentUser = {
+            uid: user.uid,
+            email: user.email,
+            role: 'admin',
+            name: userData?.name || 'Admin'
+        };
+    } catch (error) {
+        console.error('Γ¥î Error checking admin status:', error);
+        // Allow if marco email
+        if (user.email?.toLowerCase() === 'marco@taboost.me') {
+            console.log('Γ£à Admin authenticated (by email)');
+            window.currentUser = { uid: user.uid, email: user.email, role: 'admin', name: 'Marco' };
+        } else {
+            window.location.href = 'firebase-login.html';
+        }
+    }
+});
+
+// Logout function
+window.logout = async () => {
+    await auth.signOut();
+    window.location.href = 'firebase-login.html';
+};
+
+// ΓöÇΓöÇ DATA ΓöÇΓöÇ
+const D=[
+  {n:"samanthasingsit",m:"CARRINGTON",b:"Music",d:1064591,r:1586275,h:17,t:6,l30:1872927,p1:1653571,p2:1270834,s:81,tg:3000000},
+  {n:"bryton.39",m:"MARCO",b:"Gaming",d:671274,r:6834850,h:27,t:5,l30:5105288,p1:3264869,p2:4620580,s:90,tg:5000000},
+  {n:"freekbass",m:"CARRINGTON",b:"Music",d:651869,r:2035700,h:17,t:5,l30:367312,p1:2927760,p2:4925433,s:86,tg:3000000},
+  {n:"coloreomusic",m:"CARRINGTON",b:"Music/Gaming",d:617110,r:605450,h:25,t:5,l30:34740,p1:1521625,p2:1376333,s:87,tg:1600000},
+  {n:"singleonthemove",m:"CARRINGTON",b:"",d:602088,r:3037100,h:16,t:5,l30:2734569,p1:5226194,p2:5828132,s:88,tg:8000000},
+  {n:"shanellenikolee",m:"CARRINGTON",b:"",d:440463,r:132000,h:23,t:4,l30:35430,p1:1900960,p2:2331637,s:87,tg:3000000},
+  {n:"jayden_egg",m:"CARRINGTON",b:"Gaming",d:438680,r:296000,h:19,t:4,l30:1723427,p1:2330821,p2:2191553,s:84,tg:3000000},
+  {n:"daisy_dew4",m:"CARRINGTON",b:"",d:428965,r:164000,h:39,t:4,l30:113690,p1:389163,p2:301118,s:39,tg:500000},
+  {n:"hotterjakepaul",m:"CARRINGTON",b:"",d:380732,r:929800,h:14,t:4,l30:2266822,p1:798841,p2:856560,s:66,tg:1000000},
+  {n:"skylerclarkk",m:"CARRINGTON",b:"Music",d:348922,r:217150,h:13,t:4,l30:2530076,p1:2530421,p2:2765414,s:79,tg:3000000},
+  {n:"smity194",m:"CARRINGTON",b:"",d:332799,r:2920750,h:15,t:4,l30:306479,p1:1171166,p2:1137993,s:65,tg:1600000},
+  {n:"cwdetroit",m:"CARRINGTON",b:"",d:287037,r:112000,h:24,t:3,l30:6602,p1:1366037,p2:1039231,s:82,tg:1600000},
+  {n:"tha_dripp_phamily",m:"CARRINGTON",b:"",d:282618,r:188375,h:19,t:3,l30:10830803,p1:501009,p2:340183,s:47,tg:1000000},
+  {n:"pcdrums76",m:"CARRINGTON",b:"Music",d:269571,r:3287650,h:18,t:3,l30:9018,p1:682236,p2:1311281,s:59,tg:1000000},
+  {n:"thebellaflora__",m:"CARRINGTON",b:"",d:256880,r:78250,h:34,t:3,l30:106025,p1:997055,p2:497820,s:67,tg:1000000},
+  {n:"mirsowavy",m:"CARRINGTON",b:"Gaming",d:185400,r:5000,h:33,t:2,l30:57945,p1:517352,p2:368966,s:64,tg:1000000},
+  {n:"gaywhonotme",m:"SVEN + CARRINGTON",b:"",d:179515,r:69000,h:21,t:2,l30:604230,p1:1124167,p2:864252,s:75,tg:1600000},
+  {n:"koryskitchen",m:"CARRINGTON",b:"Food",d:164809,r:95750,h:10,t:2,l30:227986,p1:619960,p2:459866,s:53,tg:1000000},
+  {n:"redrumstudios",m:"BRYTON",b:"",d:164287,r:4000,h:31,t:2,l30:61261,p1:105356,p2:2994,s:19,tg:200000},
+  {n:"theviolution",m:"CARRINGTON",b:"Music",d:156702,r:2533600,h:21,t:2,l30:120679,p1:252697,p2:833320,s:37,tg:300000},
+  {n:"alexaraeemusic",m:"CARRINGTON",b:"Music",d:145995,r:458000,h:6,t:2,l30:1807341,p1:2340757,p2:1490015,s:67,tg:3000000},
+  {n:"oregonstargirl",m:"CARRINGTON",b:"",d:136987,r:1120500,h:10,t:2,l30:142500,p1:1531102,p2:1579057,s:75,tg:1600000},
+  {n:"burnt.tatertot",m:"CARRINGTON",b:"Gaming",d:134674,r:130000,h:7,t:2,l30:198797,p1:1329052,p2:735549,s:72,tg:1600000},
+  {n:"sam_g_89",m:"BRYTON + CARRINGTON",b:"Gaming",d:130027,r:633500,h:9,t:2,l30:31821,p1:613809,p2:399965,s:54,tg:1000000},
+  {n:"stefanielauryn415",m:"CARRINGTON",b:"",d:127477,r:115800,h:6,t:2,l30:2092050,p1:1020019,p2:1239134,s:61,tg:1600000},
+  {n:"thetrapviolinist",m:"CARRINGTON",b:"Music",d:125870,r:189000,h:3,t:2,l30:10351388,p1:504310,p2:326036,s:33,tg:1000000},
+  {n:"sarahegant",m:"CARRINGTON",b:"",d:123880,r:76000,h:4,t:2,l30:26868,p1:860680,p2:269557,s:37,tg:1000000},
+  {n:"growandglowasmr",m:"BRYTON + CARRINGTON",b:"ASMR",d:120316,r:303500,h:21,t:2,l30:21203,p1:641272,p2:595296,s:64,tg:1000000},
+  {n:"jordan.borges",m:"DYLAN + CARRINGTON",b:"",d:120039,r:22000,h:32,t:2,l30:1117,p1:439792,p2:431151,s:61,tg:500000},
+  {n:"imjustnicob",m:"BRYTON + CARRINGTON",b:"Gaming",d:120010,r:119000,h:27,t:2,l30:362436,p1:976773,p2:1175237,s:72,tg:1000000},
+  {n:"b.herbz",m:"CARRINGTON",b:"",d:119258,r:99150,h:2,t:2,l30:49463,p1:395806,p2:448700,s:34,tg:500000},
+  {n:"titancosplays",m:"CARRINGTON",b:"",d:118446,r:31000,h:25,t:2,l30:193697,p1:671705,p2:245249,s:52,tg:1000000},
+  {n:"ageofangel",m:"CARRINGTON",b:"",d:115896,r:353750,h:31,t:2,l30:123291,p1:1957973,p2:1584028,s:77,tg:3000000},
+  {n:"mystiquedejello",m:"CARRINGTON",b:"",d:99117,r:15425,h:9,t:1,l30:241183,p1:655346,p2:574136,s:37,tg:1000000},
+  {n:"muthafknsid",m:"BRYTON + CARRINGTON",b:"",d:96400,r:7000,h:24,t:1,l30:2946,p1:276018,p2:148034,s:52,tg:300000},
+  {n:"maiazakay",m:"MARCO",b:"Music",d:87412,r:61000,h:5,t:1,l30:2152380,p1:268133,p2:3098,s:17,tg:300000},
+  {n:"cpayne_04",m:"CARRINGTON",b:"",d:84241,r:26625,h:6,t:1,l30:667759,p1:209042,p2:396884,s:30,tg:300000},
+  {n:"aaronhunt30575",m:"CARRINGTON",b:"",d:80968,r:384250,h:4,t:1,l30:38635,p1:409997,p2:888661,s:36,tg:500000},
+  {n:"rockylanemusic",m:"CARRINGTON",b:"Music",d:79740,r:1064364,h:12,t:1,l30:172743,p1:1339912,p2:1342827,s:68,tg:1600000},
+  {n:"thecyrilia",m:"CARRINGTON",b:"Music",d:79394,r:929850,h:5,t:1,l30:48882,p1:1692837,p2:2104021,s:67,tg:3000000},
+  {n:"basswizrd",m:"CARRINGTON",b:"Gaming",d:77022,r:5000,h:25,t:1,l30:1158,p1:113368,p2:179383,s:45,tg:200000},
+  {n:"bobbyjwil",m:"CARRINGTON",b:"",d:69394,r:120250,h:26,t:1,l30:1902637,p1:629282,p2:596896,s:58,tg:1000000},
+  {n:"deearnnap",m:"LEVI",b:"",d:62675,r:0,h:14,t:1,l30:759739,p1:90368,p2:0,s:19,tg:200000},
+  {n:"averynoelles",m:"CARRINGTON",b:"",d:61519,r:19375,h:6,t:1,l30:47239,p1:417517,p2:422251,s:37,tg:500000},
+  {n:"threehundredseventytwo",m:"LEVI",b:"",d:61472,r:0,h:6,t:1,l30:1539,p1:8374,p2:0,s:3,tg:100000},
+  {n:"jeremiahboutross",m:"CARRINGTON",b:"Gaming",d:61439,r:138100,h:24,t:1,l30:107593,p1:758627,p2:162773,s:55,tg:1000000},
+  {n:"imamberleybriana",m:"SVEN",b:"",d:59802,r:2000,h:13,t:1,l30:59666,p1:109786,p2:3842,s:11,tg:200000},
+  {n:"luke.h.reynoldsmusic",m:"CARRINGTON",b:"Music",d:59654,r:131500,h:13,t:1,l30:470332,p1:101630,p2:848108,s:31,tg:200000},
+  {n:"sebbythecatdad",m:"LEVI",b:"",d:54508,r:328000,h:9,t:1,l30:24725,p1:19385,p2:390278,s:14,tg:100000},
+  {n:"natalianope",m:"CARRINGTON",b:"",d:53356,r:750450,h:4,t:1,l30:45622,p1:320189,p2:418901,s:28,tg:1000000},
+];
+
+const MGRS=[
+  {n:"CARRINGTON",c:63,d:9375067,r:26050214,h:854,top:["samanthasingsit","freekbass","coloreomusic"]},
+  {n:"LEVI",c:149,d:875206,r:1249800,h:800,top:["deearnnap","threehundredseventytwo","sebbythecatdad"]},
+  {n:"MARCO",c:2,d:758686,r:6895850,h:32,top:["bryton.39","maiazakay"]},
+  {n:"BRYTON + CARRINGTON",c:4,d:466753,r:1063000,h:81,top:["sam_g_89","growandglowasmr","imjustnicob"]},
+  {n:"BRYTON",c:45,d:337693,r:242469,h:173,top:["redrumstudios","ardy.afshar","thatbrokeguy2024"]},
+  {n:"SVEN + CARRINGTON",c:1,d:179515,r:69000,h:21,top:["gaywhonotme"]},
+  {n:"DYLAN + CARRINGTON",c:1,d:120039,r:22000,h:32,top:["jordan.borges"]},
+  {n:"SVEN",c:28,d:71451,r:35300,h:67,top:["imamberleybriana"]},
+  {n:"ASHLEY",c:8,d:60773,r:65900,h:19,top:["davidwilliamwatts"]},
+  {n:"SIERRA",c:7,d:28746,r:49750,h:42,top:["smilinjacks69"]},
+];
+const MTOTAL=12314155;
+
+// ΓöÇΓöÇ UTILS ΓöÇΓöÇ
+const f=(n)=>n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(0)+'K':n.toLocaleString();
+const ff=(n)=>n.toLocaleString();
+const sc=(s)=>s>=70?'var(--green)':s>=40?'var(--amber)':'var(--red)';
+const tc=(t)=>['','t1','t2','t3','t4','t5','t6'][t]||'t1';
+const mc=(m)=>{const map={CARRINGTON:'#ff0044',LEVI:'#2979ff',MARCO:'#00e676',BRYTON:'#ffab00',SVEN:'#e040fb',ASHLEY:'#ff6d00',SIERRA:'#00bcd4',DYLAN:'#8bc34a'};for(const k of Object.keys(map))if(m.startsWith(k))return map[k];return '#555'};
+const ini=(n)=>n[0].toUpperCase();
+const mom=(d,p)=>p?Math.round((d/p-1)*100):null;
+
+// ΓöÇΓöÇ CLOCK ΓöÇΓöÇ
+setInterval(()=>{document.getElementById('tb-clock').textContent=new Date().toLocaleTimeString('en-US',{hour12:false})},1000);
+document.getElementById('tb-clock').textContent=new Date().toLocaleTimeString('en-US',{hour12:false});
+
+// ΓöÇΓöÇ PAGE SWITCH ΓöÇΓöÇ
+const titles={dashboard:'DASHBOARD',creators:'ALL CREATORS',diamonds:'DIAMONDS',streams:'LIVE STREAMS',managers:'MANAGERS',leaderboard:'LEADERBOARD',health:'CREATOR HEALTH',milestones:'MILESTONES',reports:'REPORTS',alerts:'ALERTS',settings:'SETTINGS'};
+function showPage(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  if(el)el.classList.add('active');
+  document.getElementById('tb-title').textContent=titles[id]||id.toUpperCase();
+  // re-trigger animations
+  document.querySelectorAll('.pf').forEach(f=>{const w=f.style.width;f.style.width='0%';setTimeout(()=>f.style.width=w,50)});
+}
+
+// ΓöÇΓöÇ TICKER ΓöÇΓöÇ
+function buildTicker(){
+  const items=D.slice(0,15).map(c=>`<div class="ticker-item"><span class="ticker-name">${c.n.toUpperCase()}</span><span class="ticker-val">${f(c.d)} ≡ƒÆÄ</span><span style="font-size:9px;margin-left:4px;color:${c.p1&&c.d<c.p1*0.7?'var(--red)':c.p1&&c.d>c.p1?'var(--green)':'var(--t4)'}">${c.p1?((c.d/c.p1-1)*100>0?'Γû▓':'Γû╝')+Math.abs(Math.round((c.d/c.p1-1)*100))+'%':''}</span></div>`).join('');
+  document.getElementById('ticker').innerHTML=`<div class="ticker-inner">${items}${items}</div>`;
+}
+
+// ΓöÇΓöÇ DASHBOARD TABLE ΓöÇΓöÇ
+function renderDash(){
+  document.getElementById('dash-tbody').innerHTML=D.slice(0,10).map((c,i)=>{
+    const cl=mc(c.m);const scl=sc(c.s);
+    const r=i===0?'≡ƒÑç':i===1?'≡ƒÑê':i===2?'≡ƒÑë':`<span class="mono" style="color:var(--t4)">${i+1}</span>`;
+    return`<tr><td>${r}</td><td><div class="cc"><div class="av" style="background:${cl}22;border-color:${cl}33">${ini(c.n)}</div><div><div class="cn">${c.n}</div><div class="ch2">${c.b||'ΓÇô'}</div></div></div></td><td><span style="font-size:11px;font-weight:700;color:${cl}">${c.m}</span></td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td><td><strong class="mono">${ff(c.d)}</strong></td><td class="mono up">${f(c.r)}</td><td class="mono">${c.h}h</td><td><div class="sb"><span class="sb-num" style="color:${scl}">${c.s}</span><div class="sb-track"><div class="sb-fill" style="width:${c.s}%;background:${scl}"></div></div></div></td></tr>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ REWARDS ΓöÇΓöÇ
+function renderRewards(){
+  const sorted=[...D].sort((a,b)=>b.r-a.r).slice(0,8);
+  document.getElementById('rewards-list').innerHTML=sorted.map((c,i)=>`<div style="display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--border2)"><span class="mono" style="color:var(--t4);font-size:10px;width:16px">#${i+1}</span><div class="av" style="width:26px;height:26px;font-size:11px;background:${mc(c.m)}22">${ini(c.n)}</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.n}</div><div style="font-size:10px;color:var(--t4)">${c.m}</div></div><span class="mono up" style="font-size:11px;white-space:nowrap">${f(c.r)}</span></div>`).join('');
+}
+
+// ΓöÇΓöÇ AGENCY HEALTH ΓöÇΓöÇ
+function renderAgencyHealth(){
+  const tiers={1:0,2:0,3:0,4:0,5:0,6:0};
+  D.forEach(c=>tiers[c.t]=(tiers[c.t]||0)+1);
+  const tc2=(t,col)=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border2)"><div style="display:flex;align-items:center;gap:8px"><span class="tc ${['','t1','t2','t3','t4','t5','t6'][t]}">T${t}</span></div><div class="sb" style="flex:1;margin:0 12px"><div class="sb-track"><div class="sb-fill" style="width:${(tiers[t]/(D.length||1)*100).toFixed(0)}%;background:${col}"></div></div></div><span class="mono" style="color:${col};font-size:11px">${tiers[t]}</span></div>`;
+  document.getElementById('agency-health').innerHTML=['#ff0044','#ffab00','#00e676','#64b5f6','#ffab00','#e040fb'].reverse().map((col,i)=>tc2(6-i,col)).join('');
+}
+
+// ΓöÇΓöÇ EQUITY CURVE ΓöÇΓöÇ
+function renderEquity(){
+  const top5=D.slice(0,5);
+  const colors=['#ff0044','#ffab00','#00e676','#64b5f6','#e040fb'];
+  const months=['Oct','Nov','Dec','Jan','Feb','Mar'];
+  // Simulated 6-month trend using available data points
+  const curves=top5.map(c=>[c.p2*0.7,c.p2*0.85,c.p2,c.p1*0.7,c.p1,c.d]);
+  const allVals=curves.flat();
+  const maxV=Math.max(...allVals);
+  const minV=0;
+  const W=900,H=120,pad=10;
+  const xPts=(i)=>pad+(i/5)*(W-2*pad);
+  const yPts=(v)=>H-pad-((v-minV)/(maxV-minV||1))*(H-2*pad);
+
+  let svgPaths='';
+  curves.forEach((pts,ci)=>{
+    const coords=pts.map((v,i)=>`${xPts(i).toFixed(1)},${yPts(v).toFixed(1)}`);
+    const areaPath=`M${coords[0]} L${coords.join(' L')} L${xPts(5)},${H} L${xPts(0)},${H} Z`;
+    const linePath=`M${coords[0]} L${coords.join(' L')}`;
+    svgPaths+=`<path d="${areaPath}" fill="${colors[ci]}" opacity="0.05"/>`;
+    svgPaths+=`<path d="${linePath}" fill="none" stroke="${colors[ci]}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const last=pts[5];const prev=pts[4];
+    const dir=last>=prev?'Γû▓':'Γû╝';
+    const col=last>=prev?colors[ci]:colors[ci];
+    svgPaths+=`<circle cx="${xPts(5)}" cy="${yPts(last)}" r="3" fill="${colors[ci]}"/>`;
+  });
+  // grid
+  for(let i=0;i<=4;i++){const y=pad+i*(H-2*pad)/4;svgPaths+=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;}
+  document.getElementById('eq-svg').innerHTML=svgPaths;
+  document.getElementById('eq-legend').innerHTML=top5.map((c,i)=>`<div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t3)"><div style="width:12px;height:2px;background:${colors[i]};border-radius:1px"></div>${c.n.substring(0,10)}</div>`).join('');
+  document.getElementById('eq-axis').innerHTML=months.map(m=>`<div style="flex:1;font-family:var(--fm);font-size:9px;color:var(--t4);text-align:center">${m}</div>`).join('');
+}
+
+// ΓöÇΓöÇ CREATORS TABLE ΓöÇΓöÇ
+let crIdx=0,crFilter='',crMgr='';
+const CPP=25;
+function getFiltered(){return D.filter(c=>(!crFilter||(c.n+c.m).toLowerCase().includes(crFilter.toLowerCase()))&&(!crMgr||c.m.includes(crMgr)))}
+function renderCR(){
+  const fl=getFiltered();const start=crIdx*CPP;const end=Math.min(start+CPP,fl.length);
+  const page=fl.slice(start,end);
+  document.getElementById('cr-tbody').innerHTML=page.map((c,i)=>{const rank=start+i+1;const cl=mc(c.m);const scl=sc(c.s);return`<tr><td><span class="mono" style="color:var(--t4)">${rank}</span></td><td><div class="cc"><div class="av" style="background:${cl}20;border-color:${cl}30">${ini(c.n)}</div><div><div class="cn">${c.n}</div><div class="ch2">${c.b||'ΓÇô'}</div></div></div></td><td><span style="font-size:11px;color:${cl};font-weight:700">${c.m}</span></td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td><td class="mono"><strong>${ff(c.d)}</strong></td><td class="mono up">${ff(c.r)}</td><td class="mono">${c.h}h</td><td><div class="sb"><span class="sb-num" style="color:${scl}">${c.s}</span><div class="sb-track" style="width:60px"><div class="sb-fill" style="width:${c.s}%;background:${scl}"></div></div></div></td><td style="font-size:11px;color:var(--t4)">ΓÇô</td></tr>`}).join('');
+  document.getElementById('cr-pag-info').textContent=`Page ${crIdx+1} of ${Math.ceil(fl.length/CPP)} ┬╖ ${start+1}ΓÇô${end} of ${fl.length}`;
+}
+function crPage(d){const max=Math.ceil(getFiltered().length/CPP)-1;crIdx=Math.max(0,Math.min(max,crIdx+d));renderCR()}
+function globalSearch(v){crFilter=v;crIdx=0;renderCR();lbIdx=0;renderLB()}
+
+function renderCRFilters(){
+  const mgrs=['All',...new Set(D.map(c=>c.m))].slice(0,10);
+  document.getElementById('cr-filters').innerHTML=mgrs.map(m=>`<button class="fb-btn${m==='All'?' active':''}" onclick="setCRMgr('${m}',this)">${m}</button>`).join('');
+}
+function setCRMgr(m,el){crMgr=m==='All'?'':m;crIdx=0;document.querySelectorAll('#cr-filters .fb-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderCR()}
+
+// ΓöÇΓöÇ LEADERBOARD ΓöÇΓöÇ
+let lbIdx=0;const LPP=25;
+function renderLB(){
+  const fl=crFilter?D.filter(c=>(c.n+c.m).toLowerCase().includes(crFilter.toLowerCase())):D;
+  const start=lbIdx*LPP;const end=Math.min(start+LPP,fl.length);
+  const page=fl.slice(start,end);
+  document.getElementById('lb-tbody').innerHTML=page.map((c,i)=>{
+    const rank=start+i+1;const cl=mc(c.m);const scl=sc(c.s);
+    const rk=rank===1?'≡ƒÑç':rank===2?'≡ƒÑê':rank===3?'≡ƒÑë':`<span class="mono" style="color:var(--t4)">${rank}</span>`;
+    const dph=c.h>0?Math.round(c.d/c.h):0;
+    return`<tr><td>${rk}</td><td><div class="cc"><div class="av" style="background:${cl}20;border-color:${cl}30">${ini(c.n)}</div><div><div class="cn">${c.n}</div><div class="ch2">${c.b||'ΓÇô'}</div></div></div></td><td><span style="font-size:11px;color:${cl};font-weight:700">${c.m}</span></td><td style="font-size:11px;color:var(--t4)">Staff</td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td><td><strong class="mono">${ff(c.d)}</strong></td><td class="mono" style="color:var(--t3)">${dph>0?dph.toLocaleString():'-'}</td><td class="mono up">${f(c.r)}</td><td class="mono">${c.h}h</td><td><div class="sb"><span class="sb-num" style="color:${scl}">${c.s}</span><div class="sb-track"><div class="sb-fill" style="width:${c.s}%;background:${scl}"></div></div></div></td></tr>`;
+  }).join('');
+  document.getElementById('lb-pag-info').textContent=`Page ${lbIdx+1} of ${Math.ceil(fl.length/LPP)} ┬╖ ${start+1}ΓÇô${end} of ${fl.length}`;
+}
+function lbPg(d){const max=Math.ceil(D.length/LPP)-1;lbIdx=Math.max(0,Math.min(max,lbIdx+d));renderLB()}
+function renderLBFilters(){
+  const mgrs=['All',...new Set(D.map(c=>c.m))].slice(0,10);
+  document.getElementById('lb-filters').innerHTML=mgrs.map(m=>`<button class="fb-btn${m==='All'?' active':''}" onclick="lbSetMgr('${m}',this)">${m}</button>`).join('');
+}
+function lbSetMgr(m,el){document.querySelectorAll('#lb-filters .fb-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');lbIdx=0;renderLB()}
+
+// ΓöÇΓöÇ DIAMONDS PAGE ΓöÇΓöÇ
+function renderDBars(){
+  const top15=D.slice(0,15);const mx=top15[0].d;
+  document.getElementById('d-bars').innerHTML=top15.map((c,i)=>`<div class="bar-row"><div class="bar-lbl">${c.n}</div><div class="bar-track"><div class="bar-fill" style="width:${(c.d/mx*100).toFixed(1)}%;background:linear-gradient(90deg,var(--red),${mc(c.m)})"></div></div><div class="bar-val">${f(c.d)}</div></div>`).join('');
+}
+function renderTierDist(){
+  const tiers={T6:1,T5:4,T4:6,T3:4,T2:18,T1:268};
+  const cols={T6:'var(--red)',T5:'var(--amber)',T4:'#64b5f6',T3:'var(--green)',T2:'var(--t3)',T1:'var(--t4)'};
+  const total=301;
+  document.getElementById('tier-dist').innerHTML=Object.entries(tiers).map(([t,c])=>`<div class="bar-row" style="margin-bottom:12px"><div class="bar-lbl"><span class="tc ${t.toLowerCase()}">${t}</span></div><div class="bar-track" style="height:10px"><div class="bar-fill" style="height:100%;width:${(c/268*100).toFixed(0)}%;background:${cols[t]}"></div></div><div class="bar-val" style="color:${cols[t]}">${c} <span style="font-size:9px;color:var(--t4)">(${(c/total*100).toFixed(1)}%)</span></div></div>`).join('');
+}
+function renderDTable(){
+  document.getElementById('d-tbody').innerHTML=D.map((c,i)=>{
+    const m=mom(c.d,c.p1);const cl=mc(c.m);const scl=sc(c.s);
+    return`<tr><td class="mono" style="color:var(--t4)">${i+1}</td><td><div class="cc"><div class="av" style="background:${cl}20;border-color:${cl}30">${ini(c.n)}</div><div><div class="cn">${c.n}</div></div></div></td><td><span style="font-size:11px;color:${cl};font-weight:700">${c.m}</span></td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td><td class="mono"><strong>${ff(c.d)}</strong></td><td class="mono" style="color:var(--t3)">${c.l30>0?ff(c.l30):'ΓÇô'}</td><td class="mono" style="color:var(--t3)">${c.p1>0?ff(c.p1):'ΓÇô'}</td><td class="mono ${m===null?'':m>=0?'up':'dn'}">${m===null?'ΓÇô':(m>=0?'Γû▓':'Γû╝')+Math.abs(m)+'%'}</td><td><div class="sb"><span class="sb-num" style="color:${scl}">${c.s}</span><div class="sb-track"><div class="sb-fill" style="width:${c.s}%;background:${scl}"></div></div></div></td></tr>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ STREAMS ΓöÇΓöÇ
+function renderSBars(){
+  const sorted=[...D].filter(c=>c.h>0).sort((a,b)=>b.h-a.h).slice(0,15);const mx=sorted[0].h;
+  document.getElementById('s-bars').innerHTML=sorted.map(c=>`<div class="bar-row"><div class="bar-lbl">${c.n}</div><div class="bar-track"><div class="bar-fill" style="width:${(c.h/mx*100).toFixed(1)}%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div><div class="bar-val">${c.h}h</div></div>`).join('');
+}
+function renderHDist(){
+  const b=[{l:'30h+',c:0},{l:'20ΓÇô29h',c:0},{l:'10ΓÇô19h',c:0},{l:'5ΓÇô9h',c:0},{l:'1ΓÇô4h',c:0}];
+  D.forEach(c=>{if(c.h>=30)b[0].c++;else if(c.h>=20)b[1].c++;else if(c.h>=10)b[2].c++;else if(c.h>=5)b[3].c++;else if(c.h>=1)b[4].c++});
+  const mx=Math.max(...b.map(x=>x.c));
+  const cols=['var(--green)','var(--red)','var(--amber)','#64b5f6','var(--t3)'];
+  document.getElementById('h-dist').innerHTML=b.map((x,i)=>`<div class="bar-row" style="margin-bottom:14px"><div class="bar-lbl" style="font-size:12px">${x.l}</div><div class="bar-track" style="height:10px"><div class="bar-fill" style="height:100%;width:${(x.c/mx*100).toFixed(0)}%;background:${cols[i]}"></div></div><div class="bar-val" style="color:${cols[i]}">${x.c} <span style="font-size:9px;color:var(--t4)">creators</span></div></div>`).join('');
+}
+function renderEffTable(){
+  const sorted=[...D].filter(c=>c.h>0).sort((a,b)=>(b.d/b.h)-(a.d/a.h)).slice(0,20);
+  document.getElementById('eff-tbody').innerHTML=sorted.map((c,i)=>{
+    const dph=Math.round(c.d/c.h);const cl=mc(c.m);
+    return`<tr><td class="mono" style="color:var(--t4)">${i+1}</td><td><div class="cc"><div class="av" style="background:${cl}20;border-color:${cl}30">${ini(c.n)}</div><div class="cn">${c.n}</div></div></td><td><span style="color:${cl};font-size:11px;font-weight:700">${c.m}</span></td><td class="mono">${ff(c.d)}</td><td class="mono">${c.h}h</td><td class="mono" style="color:var(--amber);font-weight:700">${dph.toLocaleString()}</td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td></tr>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ MANAGERS ΓöÇΓöÇ
+const mgrColors=['#ff0044','#2979ff','#00e676','#ffab00','#e040fb','#ff6d00','#00bcd4','#8bc34a','#f06292','#4fc3f7'];
+function renderMgrGrid(){
+  document.getElementById('mgr-grid').innerHTML=MGRS.slice(0,9).map((m,i)=>`
+    <div class="mgr-card">
+      <div class="mgr-av" style="background:${mgrColors[i]}20;color:${mgrColors[i]};border-color:${mgrColors[i]}30">${m.n[0]}</div>
+      <div class="mgr-name">${m.n}</div>
+      <div style="font-size:10px;color:var(--t4);margin-top:2px">#${i+1} by diamonds</div>
+      <div style="margin-top:10px"><div style="height:4px" class="pb"><div class="pf" style="width:${(m.d/MGRS[0].d*100).toFixed(1)}%;background:${mgrColors[i]}"></div></div></div>
+      <div class="mgr-stats">
+        <div><div class="ms-lbl">Creators</div><div class="ms-val">${m.c}</div></div>
+        <div><div class="ms-lbl">Diamonds</div><div class="ms-val" style="color:${mgrColors[i]}">${f(m.d)}</div></div>
+        <div><div class="ms-lbl">Rewards</div><div class="ms-val">${f(m.r)}</div></div>
+        <div><div class="ms-lbl">Avg Hrs</div><div class="ms-val">${m.c>0?(m.h/m.c).toFixed(1):0}h</div></div>
+      </div>
+      <div class="mgr-top"><div class="mgr-top-lbl">Top Creators</div>${m.top.map(t=>`<div class="mgr-top-item">ΓåÆ ${t}</div>`).join('')}</div>
+    </div>`).join('');
+}
+function renderMgrTable(){
+  document.getElementById('mgr-tbody').innerHTML=MGRS.map((m,i)=>{
+    const share=(m.d/MTOTAL*100).toFixed(1);const cl=mgrColors[i]||'var(--t3)';
+    return`<tr><td>${i<3?['≡ƒÑç','≡ƒÑê','≡ƒÑë'][i]:`<span class="mono" style="color:var(--t4)">#${i+1}</span>`}</td><td><div style="display:flex;align-items:center;gap:8px"><div class="av" style="width:26px;height:26px;font-size:11px;background:${cl}20;border-color:${cl}30">${m.n[0]}</div><strong style="color:var(--t1)">${m.n}</strong></div></td><td class="mono">${m.c}</td><td class="mono"><strong style="color:${cl}">${ff(m.d)}</strong></td><td class="mono up">${f(m.r)}</td><td class="mono">${m.c>0?(m.h/m.c).toFixed(1):0}h</td><td style="color:var(--t3);font-size:11px">${m.top[0]||'ΓÇô'}</td><td><div style="display:flex;align-items:center;gap:8px"><div class="pb" style="width:80px;height:4px"><div class="pf" style="width:${(m.d/MGRS[0].d*100).toFixed(1)}%;background:${cl}"></div></div><span class="mono" style="font-size:10px;color:${cl}">${share}%</span></div></td></tr>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ HEALTH PAGE ΓöÇΓöÇ
+function renderHealth(){
+  const top5=D.slice(0,5);
+  const atRisk=D.filter(c=>c.p1>0&&c.d<c.p1*0.7).slice(0,6);
+
+  document.getElementById('health-cards-top').innerHTML=top5.map(c=>{
+    const pct=Math.min(100,Math.round(c.d/c.tg*100));
+    const left=Math.max(0,c.tg-c.d);
+    return`<div class="health-card healthy" style="margin-bottom:10px">
+      <div class="pulse-ring"><div class="pulse-dot"></div></div>
+      <div class="health-top"><div><div class="health-name">${c.n}</div><div style="font-size:10px;color:var(--t4)">${c.m}</div></div><span class="tc ${tc(c.t)}">T${c.t}</span></div>
+      <div class="health-diamonds">${f(c.d)}</div>
+      <div class="health-label">≡ƒÆÄ THIS MONTH</div>
+      <div class="pb" style="height:5px"><div class="pf" style="width:${pct}%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div>
+      <div class="health-to-tier">${pct}% to Tier ${c.t+1} ┬╖ <strong>${f(left)}</strong> diamonds to go</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('health-cards-risk').innerHTML=atRisk.map(c=>{
+    const chg=mom(c.d,c.p1);
+    return`<div class="health-card critical" style="margin-bottom:10px">
+      <div style="position:absolute;top:14px;right:14px;width:10px;height:10px;border-radius:50%;background:var(--red);animation:blink 1s infinite"></div>
+      <div class="health-top"><div><div class="health-name">${c.n}</div><div style="font-size:10px;color:var(--t4)">${c.m}</div></div><span class="tc ${tc(c.t)}">T${c.t}</span></div>
+      <div class="health-diamonds" style="color:var(--red)">${f(c.d)}</div>
+      <div class="health-label">RISK SCORE: <span style="color:var(--red)">${c.s}/100</span></div>
+      <div class="health-to-tier"><span class="dn">Γû╝ ${Math.abs(chg||0)}%</span> vs last month ┬╖ prev: <strong>${f(c.p1)}</strong></div>
+    </div>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ MILESTONES ΓöÇΓöÇ
+function renderMilestones(){
+  // Close to tier up (80%+ of goal)
+  const close=D.filter(c=>c.tg>0&&(c.d/c.tg)>=0.7&&(c.d/c.tg)<1).sort((a,b)=>(b.d/b.tg)-(a.d/a.tg)).slice(0,6);
+  document.getElementById('ms-close').innerHTML=close.map(c=>{
+    const pct=(c.d/c.tg*100).toFixed(1);const left=c.tg-c.d;
+    const dph=c.h>0?c.d/c.h:0;
+    const eta=dph>0?Math.ceil(left/dph):null;
+    return`<div class="milestone">
+      <div class="ms-top">
+        <div><div class="ms-name">${c.n}</div><div class="ms-details">${c.m} ┬╖ T${c.t} ΓåÆ T${c.t+1}</div></div>
+        <div class="ms-pct" style="color:${pct>=90?'var(--green)':'var(--amber)'}">${pct}%</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--t4);margin-bottom:6px"><span>${ff(c.d)} diamonds</span><span>Goal: ${f(c.tg)}</span></div>
+      <div class="ms-bar"><div class="ms-fill" style="width:${pct}%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div>
+      <div class="ms-eta">${f(left)} remaining${eta?' ┬╖ Est. '+eta+'h of streaming':''}${pct>=95?'  ≡ƒöÑ PUSH THEM OVER!':''}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('ms-tbody').innerHTML=D.slice(0,20).map(c=>{
+    const pct=c.tg>0?Math.min(100,(c.d/c.tg*100)).toFixed(0):0;
+    const left=Math.max(0,c.tg-c.d);
+    const dph=c.h>0?c.d/c.h:0;
+    const eta=dph>0&&left>0?Math.ceil(left/dph)+'h est.':'ΓÇô';
+    return`<tr><td><div class="cn">${c.n}</div></td><td><span class="tc ${tc(c.t)}">T${c.t}</span></td><td class="mono" style="font-size:11px">${f(c.tg)}</td><td style="min-width:120px"><div class="pb" style="height:5px"><div class="pf" style="width:${pct}%;background:linear-gradient(90deg,var(--red),var(--amber))"></div></div><div style="font-size:9px;color:var(--t4);margin-top:3px">${pct}% ┬╖ ${f(left)} left</div></td><td class="mono" style="font-size:10px;color:var(--t4)">${eta}</td></tr>`;
+  }).join('');
+}
+
+// ΓöÇΓöÇ REPORTS ΓöÇΓöÇ
+function renderReports(){
+  const reps=[
+    {icon:'≡ƒôï',title:'Creator Report',sub:'Full creator list with all metrics',btn:'Download CSV'},
+    {icon:'≡ƒÆÄ',title:'Diamonds Report',sub:'Diamond earnings by creator & group',btn:'Download CSV'},
+    {icon:'≡ƒôè',title:'Performance Summary',sub:'Monthly performance overview',btn:'Download PDF'},
+    {icon:'≡ƒæö',title:'Manager Report',sub:'Team performance by manager',btn:'Download CSV'},
+    {icon:'≡ƒî▒',title:'Rookie Report',sub:'New creator progress tracking',btn:'Download CSV'},
+    {icon:'≡ƒôí',title:'Streaming Report',sub:'Live stream metrics & hours',btn:'Download CSV'},
+  ];
+  document.getElementById('rep-grid').innerHTML=reps.map(r=>`<div class="rep-card"><div class="rep-icon">${r.icon}</div><div class="rep-title">${r.title}</div><div class="rep-sub">${r.sub}</div><button class="rep-btn" onclick="alert('Generating report...')">${r.btn}</button></div>`).join('');
+}
+
+// ΓöÇΓöÇ INIT ΓöÇΓöÇ
+buildTicker();
+renderDash();renderRewards();renderAgencyHealth();renderEquity();
+renderCR();renderCRFilters();
+renderLB();renderLBFilters();
+renderDBars();renderTierDist();renderDTable();
+renderSBars();renderHDist();renderEffTable();
+renderMgrGrid();renderMgrTable();
+renderHealth();
+renderMilestones();
+renderReports();
+
+// Animate bars on scroll/load
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.pf').forEach(f=>{const w=f.style.width;f.style.width='0%';setTimeout(()=>f.style.width=w,80)})}})},{threshold:0.1});
+document.querySelectorAll('.card,.kpi,.mgr-card,.health-card,.milestone').forEach(c=>io.observe(c));
+
+// ΓöÇΓöÇ ADMIN: CREATOR PASSWORD RESET ΓöÇΓöÇ
+function adminResetCreatorPassword(){
+  const username=document.getElementById('adminCreatorUsername').value.trim().toLowerCase();
+  const newPass=document.getElementById('adminNewPassword').value;
+  const msgEl=document.getElementById('adminPasswordMsg');
+  
+  if(!username||!newPass){
+    msgEl.innerHTML='<span style="color:var(--red)">Γ¥î Please enter both username and password</span>';
+    return;
+  }
+  if(newPass.length<8){
+    msgEl.innerHTML='<span style="color:var(--red)">Γ¥î Password must be at least 8 characters</span>';
+    return;
+  }
+  
+  // Get current passwords
+  const storedPasswords=JSON.parse(localStorage.getItem('creator_passwords')||'{}');
+  
+  // Set new password for this creator only
+  storedPasswords[username]=newPass;
+  localStorage.setItem('creator_passwords',JSON.stringify(storedPasswords));
+  
+  msgEl.innerHTML='<span style="color:var(--green)">Γ£à Password reset for <strong>'+username+'</strong>.</span>';
+  
+  // Clear fields
+  document.getElementById('adminCreatorUsername').value='';
+  document.getElementById('adminNewPassword').value='';
+}
+
+// ΓöÇΓöÇ ADMIN: CREATOR SIGNUP LOG ΓöÇΓöÇ
+function refreshSignupLog(){
+  // Read from both old and new storage keys
+  const oldLog=JSON.parse(localStorage.getItem('creator_signup_log')||'[]');
+  const newLog=JSON.parse(localStorage.getItem('taboost_signup_log_v1')||'[]');
+  
+  // Merge and deduplicate by username
+  const merged=[...oldLog,...newLog];
+  const seen=new Set();
+  const log=[];
+  for(const entry of merged){
+    if(!seen.has(entry.username)){
+      seen.add(entry.username);
+      log.push(entry);
+    }
+  }
+  
+  const countEl=document.getElementById('signupLogCount');
+  const listEl=document.getElementById('signupLogList');
+  
+  countEl.textContent=log.length+' creators have signed up';
+  
+  if(log.length===0){
+    listEl.innerHTML='<span style="color:var(--t4)">No signups yet</span>';
+    return;
+  }
+  
+  // Sort by timestamp (newest first)
+  log.sort((a,b)=>new Date(b.timestamp)-new Date(a.timestamp));
+  
+  listEl.innerHTML=log.map((entry,i)=>`
+    <div style="padding:6px 0;border-bottom:1px solid var(--border);${i===0?'background:rgba(0,255,136,0.1);':''}">
+      <strong style="color:var(--green)">${i+1}.</strong> 
+      <strong>${entry.username}</strong> 
+      <span style="color:var(--t4)">(${entry.email||'no email'})</span><br>
+      <span style="color:var(--t4);font-size:10px">${entry.date||new Date(entry.timestamp).toLocaleDateString()} at ${entry.time||new Date(entry.timestamp).toLocaleTimeString()}</span>
+    </div>
+  `).join('');
+}
+
+function exportSignupLog(){
+  // Read from both old and new storage keys
+  const oldLog=JSON.parse(localStorage.getItem('creator_signup_log')||'[]');
+  const newLog=JSON.parse(localStorage.getItem('taboost_signup_log_v1')||'[]');
+  const merged=[...oldLog,...newLog];
+  
+  // Deduplicate
+  const seen=new Set();
+  const log=[];
+  for(const entry of merged){
+    if(!seen.has(entry.username)){
+      seen.add(entry.username);
+      log.push(entry);
+    }
+  }
+  
+  if(log.length===0){
+    alert('No signups to export');
+    return;
+  }
+  
+  // CSV header
+  let csv='Username,Email,Date,Time,Timestamp\n';
+  log.forEach(entry=>{
+    csv+=`${entry.username},${entry.email},${entry.date},${entry.time},${entry.timestamp}\n`;
+  });
+  
+  // Download
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='creator_signups_'+new Date().toISOString().split('T')[0]+'.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// Load log on page load
+refreshSignupLog();
+
+// ΓöÇΓöÇ ADMIN: REAL-TIME SIGNUP NOTIFICATIONS ΓöÇΓöÇ
+function checkForNewSignups(){
+    try {
+        const notification = JSON.parse(localStorage.getItem('last_signup_notification') || '{}');
+        if (notification && !notification.notified && notification.username) {
+            // Show alert for new signup
+            alert('≡ƒÄë NEW CREATOR SIGNUP!\n\nUsername: ' + notification.username + '\nEmail: ' + notification.email + '\nTime: ' + notification.time + '\n\nTotal signups: ' + JSON.parse(localStorage.getItem('creator_signup_log') || '[]').length);
+            
+            // Mark as notified
+            notification.notified = true;
+            localStorage.setItem('last_signup_notification', JSON.stringify(notification));
+            
+            // Refresh the log display
+            refreshSignupLog();
+        }
+    } catch(e) {
+        console.error('Error checking notifications:', e);
+    }
+}
+
+// Check for new signups every 3 seconds
+checkForNewSignups();
+setInterval(checkForNewSignups, 3000);
+
+console.log('≡ƒöö Admin signup notifications active - checking every 3 seconds');
+
+// ΓöÇΓöÇ LOGOUT FUNCTION ΓöÇΓöÇ
+async function logout() {
+    // Use Firebase logout if available
+    if (typeof auth !== 'undefined' && auth) {
+        await auth.signOut();
+    }
+    // Clear legacy storage
+    localStorage.removeItem('taboost_user');
+    localStorage.removeItem('taboost_current_user');
+    window.location.href = 'firebase-login.html';
+}
+</script>
+
+<!-- Firebase Real-time Data Integration -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="js/firebase-realtime.js"></script>
+<script>
+// Hook into existing dashboard data loading
+// Override the JSON loading with Firebase real-time data
+function loadDashboardData() {
+    console.log('Dashboard loading Firebase real-time data...');
+    // The firebase-realtime.js will automatically update the dashboard
+    // when data changes in Firestore
+}
+
+// Call on page load
+document.addEventListener('DOMContentLoaded', loadDashboardData);
+</script>
+
+<!-- ANTI-UBAKERY SAFEGUARD: Clear any malicious redirects -->
+<script>
+// Clear all redirect-related storage on page load
+(function() {
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (key.includes('redirect') || key.includes('ubakery') || key.includes('bakery'))) {
+            keysToRemove.push(key);
+        }
+    }
+    keysToRemove.forEach(key => {
+        console.log('Removing stored key:', key);
+        localStorage.removeItem(key);
+    });
+    
+    // Also check sessionStorage
+    const sessionKeysToRemove = [];
+    for (let i = 0; i < sessionStorage.length; i++) {
+        const key = sessionStorage.key(i);
+        if (key && (key.includes('redirect') || key.includes('ubakery') || key.includes('bakery'))) {
+            sessionKeysToRemove.push(key);
+        }
+    }
+    sessionKeysToRemove.forEach(key => {
+        console.log('Removing session key:', key);
+        sessionStorage.removeItem(key);
+    });
+    
+    console.log('Anti-redirect safeguard active - cleared', keysToRemove.length + sessionKeysToRemove.length, 'keys');
+})();
+</script>
+
+<!-- Firebase Admin Auth Check -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script>
+// Check admin auth on page load
+(function checkAdminAuth(){
+  const firebaseConfig = {
+    apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+    authDomain: "taboost-platform.firebaseapp.com",
+    projectId: "taboost-platform",
+    storageBucket: "taboost-platform.firebasestorage.app",
+    messagingSenderId: "379293685859",
+    appId: "1:379293685859:web:d89592adbf67360b574056"
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) {
+      console.log('Not logged in, redirecting to login...');
+      window.location.href = 'firebase-login.html';
+      return;
+    }
+    
+    // Check if admin
+    const userDoc = await db.collection('users').doc(user.uid).get();
+    const userData = userDoc.data() || {};
+    
+    const isAdmin = user.email?.toLowerCase() === 'marco@taboost.me' || userData.role === 'admin';
+    
+    if (!isAdmin) {
+      console.log('Not admin, redirecting to creator dashboard...');
+      window.location.href = 'creator-dashboard.html';
+      return;
+    }
+    
+    console.log('✅ Admin authenticated:', user.email);
+  });
+})();
+</script>
+</body>
+</html>

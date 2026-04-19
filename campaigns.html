@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns - Taboost Agency</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/campaigns.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-magic"></i></div>
+                <div class="sidebar-brand"><h2>Tab<span>oost</span></h2></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+                    <a href="campaigns.html" class="nav-item active"><i class="fas fa-bullhorn"></i><span>Campaigns</span></a>
+                    <a href="creators.html" class="nav-item"><i class="fas fa-users"></i><span>Creators</span></a>
+                    <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i><span>Leaderboard</span></a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search campaigns...">
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="notifBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot" id="notifDot" style="display: none;"></span>
+                    </button>
+                    <div class="user-profile" onclick="logout()">
+                        <div class="user-avatar" id="userAvatar">M</div>
+                        <div class="user-info">
+                            <div class="user-name" id="userName">Marco</div>
+                            <div class="user-role" id="userRole">Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content fade-in">
+                <!-- Header -->
+                <div class="campaigns-header">
+                    <div>
+                        <h1>Campaign Schedule</h1>
+                        <p>Upcoming events and opportunities for creators</p>
+                    </div>
+                    <button class="btn btn-primary" id="createCampaignBtn" style="display: none;">
+                        <i class="fas fa-plus"></i> New Campaign
+                    </button>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="list">
+                        <i class="fas fa-list"></i> List View
+                    </button>
+                    <button class="view-btn" data-view="calendar">
+                        <i class="fas fa-calendar"></i> Calendar
+                    </button>
+                </div>
+                
+                <!-- Filters -->
+                <div class="campaign-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="live">Live Now</button>
+                    <button class="filter-btn" data-filter="ended">Ended</button>
+                    <button class="filter-btn" data-filter="opted">My Campaigns</button>
+                </div>
+                
+                <!-- Campaigns List -->
+                <div class="campaigns-list" id="campaignsList">
+                    <!-- Populated by JS -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h3>No campaigns found</h3>
+                    <p>Check back later for new opportunities</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Opt-in Modal -->
+    <div class="modal" id="optinModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Participation</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="campaign-preview" id="modalCampaignPreview"></div>
+                <p class="modal-note">By opting in, you commit to participating in this campaign. The agency will be notified.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" id="confirmOptinBtn">
+                    <i class="fas fa-check"></i> Confirm Opt-In
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/sheets-data.js"></script>
+    <script src="js/campaigns.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('taboost_user'));
+        if (!user) window.location.href = 'index.html';
+        else {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userRole').textContent = user.role === 'admin' ? 'Admin' : 'Creator';
+            document.getElementById('userAvatar').textContent = user.avatar;
+            
+            // Show create button for admin
+            if (user.role === 'admin') {
+                document.getElementById('createCampaignBtn').style.display = 'flex';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('taboost_user');
+            window.location.href = 'index.html';
+        }
+        
+        initCampaigns(user);
+    </script>
+</body>
+</html>
