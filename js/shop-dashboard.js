@@ -96,41 +96,6 @@ async function initCreatorDashboard(user) {
         console.error('ERROR in dashboard update:', e);
     }
     
-    // Change 12: Load rewards dynamically from CSV
-    try {
-        const rewardsMap = await loadDetailedRewards();
-        if (rewardsMap && myData.name) {
-            // Try matching by name (lowercase stripped)
-            const nameKey = myData.name.toLowerCase().trim();
-            const handles = (myData.accounts || []).map(a => (a.handle || '').toLowerCase().trim());
-            
-            let myRewards = null;
-            for (const [key, rewards] of Object.entries(rewardsMap)) {
-                if (key === nameKey || handles.includes(key)) {
-                    myRewards = rewards;
-                    break;
-                }
-            }
-            
-            if (myRewards && myRewards.length > 0) {
-                const rewardsContainer = document.getElementById('rewardsBreakdown');
-                // Show last 5 rewards
-                const recent = myRewards.slice(-5).reverse();
-                if (rewardsContainer) {
-                    rewardsContainer.innerHTML = recent.map(r => `
-                        <div style="display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 12px;">
-                            <span>${r.icon}</span>
-                            <span style="color: #ccc;">${r.type || 'Reward'}</span>
-                            <span style="color: #00ff88; margin-left: auto;">${r.plus || ''}</span>
-                        </div>
-                    `).join('');
-                }
-            }
-        }
-    } catch(e) {
-        console.warn('Rewards load skipped:', e);
-    }
-    
     // Update footer manager
     const footerManagerName = myData.manager;
     const footerHasManager = footerManagerName && footerManagerName.trim() !== '' && footerManagerName !== 'Unassigned';
