@@ -1,0 +1,29 @@
+name: Rebuild shop-data.js on CSV change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/shop/totals.csv'
+      - 'data/shop/current.csv'
+      - 'data/shop/history.csv'
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Rebuild shop-data.js
+        run: node build-shop-data.js
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Auto-rebuild: shop-data.js from CSV'
+          file_pattern: 'js/shop-data.js'

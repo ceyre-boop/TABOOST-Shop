@@ -84,19 +84,11 @@ function syncShopSheetsToGitHub() {
   Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's');
   logResults_(results, duration);
 
-  // Regenerate shop-data.js using the IN-MEMORY CSV content (no GitHub re-fetch)
-  // This avoids GitHub CDN cache delays (up to 5 min) that caused stale data.
-  if (csvCache['Totals'] && csvCache['Current']) {
-    try {
-      Logger.log('🔄 Regenerating shop-data.js from in-memory CSVs...');
-      regenerateShopDataJS_(config, csvCache, currentDateLabel);
-      Logger.log('✅ shop-data.js pushed to GitHub successfully');
-    } catch (e) {
-      Logger.log('❌ shop-data.js regeneration FAILED: ' + e.message + '\nStack: ' + e.stack);
-    }
-  } else {
-    Logger.log('⚠️ Skipping shop-data.js — Totals or Current CSV missing from cache');
-  }
+  // shop-data.js is now rebuilt by GitHub Actions (rebuild-shop-data.yml) whenever
+  // CSV files change. The Apps Script version of regenerateShopDataJS_ was out of sync
+  // with build-shop-data.js (missing commDollars and other fields), causing commission
+  // to reset to $0 every 1-3 days. Do NOT re-enable this block.
+  Logger.log('ℹ️ shop-data.js regeneration skipped — handled by GitHub Actions');
 
   return {
     success: successCount === SHEET_CONFIG.length,
