@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-04-27T18:04:56.770Z
+// Generated: 2026-04-27T19:15:29.837Z
 // Total Mapped: 211 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -41,40 +41,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "abbey.kline",
-        "gmv": [
-          288300.01,
-          443723.15,
-          308984.28,
-          338953.2,
-          290036.68,
-          290755.71,
-          231154.11
-        ]
-      },
-      {
-        "handle": "only_cups",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      142599.74,
-      142548.17,
-      84913.11,
-      162600.5,
-      159456.68,
-      135101.72
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1785,
     "totalGMV": 231154.11,
     "totalComm": 37011.15,
@@ -108,32 +76,7 @@ const allShopData = [
     "agg_views": 5329495,
     "agg_sold": 8924,
     "agg_ctr": "0%",
-    "gmvPace": 266716.28,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      1750
-    ]
+    "gmvPace": 266716.28
   },
   {
     "username": "sylviavanhoeven2001@gmail.com",
@@ -187,52 +130,8 @@ const allShopData = [
         "commPct": "8.15%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "sylviavanhoevenbeauty",
-        "gmv": [
-          219508.65,
-          366733.13,
-          290035.79,
-          279804.79,
-          169632.77,
-          140603.26,
-          132304.92
-        ]
-      },
-      {
-        "handle": "sylviavanhoeven",
-        "gmv": [
-          37343.2,
-          34811.32,
-          19404.55,
-          18920.99,
-          17228.42,
-          19726.64,
-          13811.48
-        ]
-      },
-      {
-        "handle": "sylviavanhoevenreviews",
-        "gmv": [
-          2029.11,
-          3222.54,
-          2252.35,
-          2101.93,
-          1790.94,
-          1422.52,
-          454.77
-        ]
-      }
-    ],
-    "tapHistory": [
-      108478.41,
-      182490.41,
-      160461.65,
-      114071.41,
-      89370.62,
-      66836.67
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1340,
     "totalGMV": 146571.17,
     "totalComm": 23751.49,
@@ -266,32 +165,7 @@ const allShopData = [
     "agg_views": 7537050,
     "agg_sold": 9518,
     "agg_ctr": "0%",
-    "gmvPace": 152659.52,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      500
-    ]
+    "gmvPace": 152659.52
   },
   {
     "username": "peytonxmedia@gmail.com",
@@ -330,40 +204,8 @@ const allShopData = [
         "commPct": "8.22%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "peytonxblack",
-        "gmv": [
-          131292.5,
-          142249.76,
-          86045.09,
-          120925.99,
-          58071.17,
-          532622.31,
-          56918.35
-        ]
-      },
-      {
-        "handle": "peytonxshops",
-        "gmv": [
-          40,
-          27,
-          9.22,
-          0,
-          57.1,
-          26.65,
-          18.25
-        ]
-      }
-    ],
-    "tapHistory": [
-      106415.33,
-      108793.76,
-      61355.36,
-      87631.52,
-      43168,
-      507312.59
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 938,
     "totalGMV": 56936.6,
     "totalComm": 10299.16,
@@ -397,32 +239,7 @@ const allShopData = [
     "agg_views": 1959303,
     "agg_sold": 2862,
     "agg_ctr": "0%",
-    "gmvPace": 65675.02,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      2500
-    ]
+    "gmvPace": 65675.02
   },
   {
     "username": "merileydapulido1994@gmail.com",
@@ -446,28 +263,8 @@ const allShopData = [
         "commPct": "9.65%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "prettygirlglaze",
-        "gmv": [
-          56883.31,
-          52804.9,
-          49175.97,
-          61074.29,
-          69025.14,
-          210451.35,
-          165845.56
-        ]
-      }
-    ],
-    "tapHistory": [
-      503.03,
-      975.98,
-      2782.18,
-      4479.89,
-      11611.75,
-      93207.82
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 883,
     "totalGMV": 165845.56,
     "totalComm": 16000.18,
@@ -501,32 +298,7 @@ const allShopData = [
     "agg_views": 9856548,
     "agg_sold": 6053,
     "agg_ctr": "0%",
-    "gmvPace": 191360.26,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 191360.26
   },
   {
     "username": "milenafg45@gmail.com",
@@ -565,40 +337,8 @@ const allShopData = [
         "commPct": "11.26%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lizzmi45",
-        "gmv": [
-          501817.06,
-          541894.33,
-          516800.5,
-          557272.46,
-          488914.93,
-          586472.89,
-          472381.69
-        ]
-      },
-      {
-        "handle": "lizzv23",
-        "gmv": [
-          4846.93,
-          6007.67,
-          3938.58,
-          3713.47,
-          4270.15,
-          4589.63,
-          1881.9
-        ]
-      }
-    ],
-    "tapHistory": [
-      109444.09,
-      111499.97,
-      174079.76,
-      170416.40000000002,
-      101341.65,
-      84975.52
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 840,
     "totalGMV": 474263.59,
     "totalComm": 49911.55,
@@ -632,32 +372,7 @@ const allShopData = [
     "agg_views": 14084191,
     "agg_sold": 15635,
     "agg_ctr": "0%",
-    "gmvPace": 545055.8,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      1500
-    ]
+    "gmvPace": 545055.8
   },
   {
     "username": "k3llie.a@gmail.com",
@@ -681,28 +396,8 @@ const allShopData = [
         "commPct": "20.23%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kelliecrowther",
-        "gmv": [
-          0,
-          77134.58,
-          115700.32,
-          188072.52,
-          221577.68,
-          313170.15,
-          46713.85
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      3027.49,
-      14806.71,
-      22690.16,
-      158823.02,
-      277679.37
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 564,
     "totalGMV": 46713.85,
     "totalComm": 9450.59,
@@ -736,32 +431,7 @@ const allShopData = [
     "agg_views": 2047751,
     "agg_sold": 1936,
     "agg_ctr": "0%",
-    "gmvPace": 53900.6,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      2000
-    ]
+    "gmvPace": 53900.6
   },
   {
     "username": "tinamarielux@gmail.com",
@@ -785,28 +455,8 @@ const allShopData = [
         "commPct": "13.96%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jalisasahm",
-        "gmv": [
-          78861.07,
-          128816.43,
-          97345.87,
-          46065.97,
-          51131.17,
-          118047.81,
-          110067.7
-        ]
-      }
-    ],
-    "tapHistory": [
-      173.38,
-      221.02,
-      281.46,
-      530.9,
-      2898.79,
-      34789.93
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 504,
     "totalGMV": 110067.7,
     "totalComm": 15361.18,
@@ -840,32 +490,7 @@ const allShopData = [
     "agg_views": 3802372,
     "agg_sold": 2696,
     "agg_ctr": "0%",
-    "gmvPace": 127001.19,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 127001.19
   },
   {
     "username": "brittanykuhl.tiktok@gmail.com",
@@ -904,40 +529,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "bkewwwl1507",
-        "gmv": [
-          144062.23,
-          551900.95,
-          683890.44,
-          134018.77,
-          97225.31,
-          135757.89,
-          120223.19
-        ]
-      },
-      {
-        "handle": "kuhl_finds",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          40.83,
-          149.75,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      73758.11,
-      29361.78,
-      49723.99,
-      14831.24,
-      16229.23,
-      12497.1
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 480,
     "totalGMV": 120223.19,
     "totalComm": 15912.83,
@@ -971,32 +564,7 @@ const allShopData = [
     "agg_views": 12626750,
     "agg_sold": 3547,
     "agg_ctr": "0%",
-    "gmvPace": 138719.07,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      1200,
-      0
-    ]
+    "gmvPace": 138719.07
   },
   {
     "username": "hammer.brittanie@gmail.com",
@@ -1035,40 +603,8 @@ const allShopData = [
         "commPct": "8.83%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "bestiebriitt",
-        "gmv": [
-          612068.44,
-          1000759.16,
-          1092772.92,
-          668927.86,
-          429313.29,
-          475575.13,
-          773356.53
-        ]
-      },
-      {
-        "handle": "brittaniehammershop",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          4719.73,
-          6443.59,
-          5348.71
-        ]
-      }
-    ],
-    "tapHistory": [
-      65896.52,
-      75760.02,
-      57622.02,
-      32387.61,
-      32662.99,
-      28204.44
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 434,
     "totalGMV": 778705.24,
     "totalComm": 82136.84,
@@ -1102,32 +638,7 @@ const allShopData = [
     "agg_views": 25831510,
     "agg_sold": 11707,
     "agg_ctr": "0%",
-    "gmvPace": 892334.46,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 892334.46
   },
   {
     "username": "tawnieannie@gmail.com",
@@ -1151,28 +662,8 @@ const allShopData = [
         "commPct": "11.35%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "tawnieannie",
-        "gmv": [
-          0,
-          10460.18,
-          32727.01,
-          9401.04,
-          31592.41,
-          39130.12,
-          124267.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      339.63,
-      251.98,
-      180.74,
-      192.86,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 433,
     "totalGMV": 124267.61,
     "totalComm": 14104.19,
@@ -1206,32 +697,7 @@ const allShopData = [
     "agg_views": 103891,
     "agg_sold": 13453,
     "agg_ctr": "0%",
-    "gmvPace": 143385.7,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 143385.7
   },
   {
     "username": "alleebaray@gmail.com",
@@ -1285,52 +751,8 @@ const allShopData = [
         "commPct": "9.85%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ababyandabulldog",
-        "gmv": [
-          909559.27,
-          930965.56,
-          673686,
-          490981.17,
-          552626.29,
-          465600.11,
-          432681.59
-        ]
-      },
-      {
-        "handle": "shopaholicallee",
-        "gmv": [
-          174261.45,
-          299807.54,
-          301484.05,
-          132709.61,
-          154411.75,
-          176611.3,
-          146761.11
-        ]
-      },
-      {
-        "handle": "shopaholicallee2",
-        "gmv": [
-          33971.63,
-          31312.77,
-          194304.71,
-          70079.8,
-          72820.16,
-          71010.88,
-          112694.87
-        ]
-      }
-    ],
-    "tapHistory": [
-      28014.059999999998,
-      43438.2,
-      50101.81999999999,
-      95886.81,
-      86795.91,
-      22174.46
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 418,
     "totalGMV": 692137.57,
     "totalComm": 81171.77,
@@ -1364,32 +786,7 @@ const allShopData = [
     "agg_views": 22786600,
     "agg_sold": 18271,
     "agg_ctr": "0%",
-    "gmvPace": 499247.99,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      500
-    ]
+    "gmvPace": 499247.99
   },
   {
     "username": "brehyah@icloud.com",
@@ -1413,28 +810,8 @@ const allShopData = [
         "commPct": "13.68%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brehyah",
-        "gmv": [
-          21177.42,
-          24537.28,
-          19764.47,
-          16868.61,
-          32028.22,
-          37609.8,
-          23240.83
-        ]
-      }
-    ],
-    "tapHistory": [
-      7705.37,
-      12882.97,
-      12934.21,
-      7907.07,
-      20666.79,
-      18156.92
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 404,
     "totalGMV": 23240.83,
     "totalComm": 3178.53,
@@ -1468,32 +845,7 @@ const allShopData = [
     "agg_views": 956303,
     "agg_sold": 487,
     "agg_ctr": "0%",
-    "gmvPace": 26816.34,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 26816.34
   },
   {
     "username": "thecarocollection@gmail.com",
@@ -1517,28 +869,8 @@ const allShopData = [
         "commPct": "16.96%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "caro_manning",
-        "gmv": [
-          20200.81,
-          23511.46,
-          25149.87,
-          50292.99,
-          19932.24,
-          146274.55,
-          25949.56
-        ]
-      }
-    ],
-    "tapHistory": [
-      8661.47,
-      5545.65,
-      6125.53,
-      30947.44,
-      10701,
-      134375.36
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 388,
     "totalGMV": 25949.56,
     "totalComm": 4402.26,
@@ -1572,32 +904,7 @@ const allShopData = [
     "agg_views": 1199346,
     "agg_sold": 1093,
     "agg_ctr": "0%",
-    "gmvPace": 29941.8,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      500
-    ]
+    "gmvPace": 29941.8
   },
   {
     "username": "shilohstemple@gmail.com",
@@ -1621,28 +928,8 @@ const allShopData = [
         "commPct": "12.59%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "shilohstemple",
-        "gmv": [
-          216996.49,
-          347619.33,
-          243590.63,
-          187162.29,
-          196937.58,
-          316312.05,
-          219877.73
-        ]
-      }
-    ],
-    "tapHistory": [
-      14047.29,
-      27809.92,
-      25394.43,
-      14144.33,
-      12504.68,
-      24884.79
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 374,
     "totalGMV": 219877.73,
     "totalComm": 27674.47,
@@ -1676,32 +963,7 @@ const allShopData = [
     "agg_views": 8922951,
     "agg_sold": 12575,
     "agg_ctr": "0%",
-    "gmvPace": 253705.07,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      538
-    ]
+    "gmvPace": 253705.07
   },
   {
     "username": "michaelashaescott@gmail.com",
@@ -1725,28 +987,8 @@ const allShopData = [
         "commPct": "15.30%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "michaelascott20",
-        "gmv": [
-          155782.03,
-          188569.23,
-          146724.87,
-          129434.37,
-          88108.35,
-          73904.23,
-          59414.51
-        ]
-      }
-    ],
-    "tapHistory": [
-      22028.54,
-      47492.45,
-      28541.36,
-      27893.9,
-      21432.83,
-      15143.73
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 359,
     "totalGMV": 59414.51,
     "totalComm": 9087.88,
@@ -1780,32 +1022,7 @@ const allShopData = [
     "agg_views": 3205496,
     "agg_sold": 2740,
     "agg_ctr": "0%",
-    "gmvPace": 68555.2,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 68555.2
   },
   {
     "username": "jenn@jennlyles.com",
@@ -1829,28 +1046,8 @@ const allShopData = [
         "commPct": "11.47%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jenn_lyles",
-        "gmv": [
-          305774.9,
-          514370.48,
-          308236.85,
-          420130.96,
-          343969.49,
-          311473.14,
-          246631.84
-        ]
-      }
-    ],
-    "tapHistory": [
-      7004.43,
-      4100.5,
-      6285.45,
-      25053.05,
-      19908.18,
-      16032
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 349,
     "totalGMV": 246631.84,
     "totalComm": 28282.18,
@@ -1884,32 +1081,7 @@ const allShopData = [
     "agg_views": 5612895,
     "agg_sold": 7562,
     "agg_ctr": "0%",
-    "gmvPace": 284575.2,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 284575.2
   },
   {
     "username": "hollyrachelsizemore@gmail.com",
@@ -1933,28 +1105,8 @@ const allShopData = [
         "commPct": "14.57%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "holly.sizemore",
-        "gmv": [
-          40325.71,
-          73473.3,
-          57111.27,
-          66160.09,
-          85182.18,
-          108209.48,
-          73624.17
-        ]
-      }
-    ],
-    "tapHistory": [
-      4230.7,
-      8188.77,
-      2772.96,
-      742.71,
-      808.89,
-      966.25
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 303,
     "totalGMV": 73624.17,
     "totalComm": 10727.73,
@@ -1988,32 +1140,7 @@ const allShopData = [
     "agg_views": 106823,
     "agg_sold": 3503,
     "agg_ctr": "0%",
-    "gmvPace": 84950.97,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 84950.97
   },
   {
     "username": "angelacallisto123@gmail.com",
@@ -2037,28 +1164,8 @@ const allShopData = [
         "commPct": "11.75%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "angelacallisto123",
-        "gmv": [
-          387434.81,
-          584910.76,
-          459861.1,
-          393837.12,
-          272420.25,
-          271336.2,
-          163237.36
-        ]
-      }
-    ],
-    "tapHistory": [
-      107992.21,
-      135466.17,
-      98108.7,
-      77101.16,
-      65215.53,
-      41599.11
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 288,
     "totalGMV": 163237.36,
     "totalComm": 19177.37,
@@ -2092,32 +1199,7 @@ const allShopData = [
     "agg_views": 1904893,
     "agg_sold": 5529,
     "agg_ctr": "0%",
-    "gmvPace": 188350.8,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      500
-    ]
+    "gmvPace": 188350.8
   },
   {
     "username": "shawna.collaborate@gmail.com",
@@ -2141,28 +1223,8 @@ const allShopData = [
         "commPct": "26.60%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "the_ss_lifestyle",
-        "gmv": [
-          0,
-          0,
-          33069.18,
-          105749.27,
-          54320.57,
-          66573.44,
-          29368.77
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      46.42,
-      52.2,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 273,
     "totalGMV": 29368.77,
     "totalComm": 7813.07,
@@ -2196,32 +1258,7 @@ const allShopData = [
     "agg_views": 86697,
     "agg_sold": 682,
     "agg_ctr": "0%",
-    "gmvPace": 33887.04,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 33887.04
   },
   {
     "username": "justjessycollabsxo@gmail.com",
@@ -2260,40 +1297,8 @@ const allShopData = [
         "commPct": "10.62%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "justjessyxo",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          39485.78,
-          201958.68
-        ]
-      },
-      {
-        "handle": "petitegirlstyle",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          1665.03
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 262,
     "totalGMV": 203623.71,
     "totalComm": 28266.41,
@@ -2327,32 +1332,7 @@ const allShopData = [
     "agg_views": 1776588,
     "agg_sold": 7743,
     "agg_ctr": "0%",
-    "gmvPace": 233029.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 233029.25
   },
   {
     "username": "itsallabouttiktok50@gmail.com",
@@ -2376,28 +1356,8 @@ const allShopData = [
         "commPct": "20.05%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "button.n.bangle",
-        "gmv": [
-          38363.35,
-          26997.66,
-          10262.6,
-          6820.8,
-          13207.9,
-          18214.08,
-          16448.39
-        ]
-      }
-    ],
-    "tapHistory": [
-      26357.52,
-      17478.41,
-      4664.73,
-      1970.68,
-      5912.7,
-      7291.57
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 259,
     "totalGMV": 16448.39,
     "totalComm": 3297.45,
@@ -2431,32 +1391,7 @@ const allShopData = [
     "agg_views": 39319,
     "agg_sold": 674,
     "agg_ctr": "0%",
-    "gmvPace": 18978.91,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 18978.91
   },
   {
     "username": "michelle@michelledemoda.com",
@@ -2480,28 +1415,8 @@ const allShopData = [
         "commPct": "17.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "michelledemoda",
-        "gmv": [
-          136448.25,
-          219682.32,
-          145965.15,
-          131257.69,
-          105967.41,
-          114752.72,
-          74043.18
-        ]
-      }
-    ],
-    "tapHistory": [
-      27202.42,
-      44395.72,
-      25418.37,
-      39079.88,
-      32732.47,
-      29262.83
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 258,
     "totalGMV": 74043.18,
     "totalComm": 12981.64,
@@ -2535,32 +1450,7 @@ const allShopData = [
     "agg_views": 1708341,
     "agg_sold": 3470,
     "agg_ctr": "0%",
-    "gmvPace": 85434.44,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 85434.44
   },
   {
     "username": "melissadlr@me.com",
@@ -2584,28 +1474,8 @@ const allShopData = [
         "commPct": "13.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thatgenxlesbianmomof3",
-        "gmv": [
-          40028.68,
-          160129.51,
-          134546.46,
-          53497.23,
-          75870.04,
-          129695.86,
-          34907.54
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      875.66,
-      4.97,
-      0,
-      12,
-      45
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 254,
     "totalGMV": 34907.54,
     "totalComm": 4723.35,
@@ -2639,32 +1509,7 @@ const allShopData = [
     "agg_views": 368309,
     "agg_sold": 565,
     "agg_ctr": "0%",
-    "gmvPace": 40277.93,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 40277.93
   },
   {
     "username": "toreehillis@gmail.com",
@@ -2688,28 +1533,8 @@ const allShopData = [
         "commPct": "15.83%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "toreefromtennessee",
-        "gmv": [
-          137714.79,
-          198179.71,
-          36088.31,
-          35451.66,
-          35254.51,
-          72558.18,
-          54354.52
-        ]
-      }
-    ],
-    "tapHistory": [
-      5584.39,
-      2327.58,
-      639.27,
-      128.09,
-      552.18,
-      582.81
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 217,
     "totalGMV": 54354.52,
     "totalComm": 8604.16,
@@ -2743,32 +1568,7 @@ const allShopData = [
     "agg_views": 98458,
     "agg_sold": 2095,
     "agg_ctr": "0%",
-    "gmvPace": 62716.75,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 62716.75
   },
   {
     "username": "chelsleebcontact@gmail.com",
@@ -2807,28 +1607,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "chelsleebmoney",
-        "gmv": [
-          194570.57,
-          378092.94,
-          300947.9,
-          159230.27,
-          149273.56,
-          121801.56,
-          171386.85
-        ]
-      }
-    ],
-    "tapHistory": [
-      18717.43,
-      38611.23,
-      61544.12,
-      25347.4,
-      28611.17,
-      18603.64
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 194,
     "totalGMV": 171386.85,
     "totalComm": 20451.42,
@@ -2862,32 +1642,7 @@ const allShopData = [
     "agg_views": 3334792,
     "agg_sold": 2373,
     "agg_ctr": "0%",
-    "gmvPace": 197754.06,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      800,
-      0
-    ]
+    "gmvPace": 197754.06
   },
   {
     "username": "jaxandbrynco@gmail.com",
@@ -2911,28 +1666,8 @@ const allShopData = [
         "commPct": "16.98%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jaxandbrynco",
-        "gmv": [
-          85796.53,
-          98747.97,
-          180115.78,
-          78399.34,
-          75524.9,
-          89922.57,
-          87782.38
-        ]
-      }
-    ],
-    "tapHistory": [
-      1422.44,
-      2824.65,
-      1448.68,
-      727.04,
-      1164.6,
-      6082.75
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 178,
     "totalGMV": 87782.38,
     "totalComm": 14904.6,
@@ -2966,32 +1701,7 @@ const allShopData = [
     "agg_views": 4363489,
     "agg_sold": 3788,
     "agg_ctr": "0%",
-    "gmvPace": 101287.36,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 101287.36
   },
   {
     "username": "hanaisfinechina@gmail.com",
@@ -3030,40 +1740,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "hanaisfinechina",
-        "gmv": [
-          38812.09,
-          42465.23,
-          16545.83,
-          26701.53,
-          70684.98,
-          45238.94,
-          39365.11
-        ]
-      },
-      {
-        "handle": "hanasfaves",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      10215.66,
-      6908.15,
-      749.93,
-      2694.62,
-      33210.59,
-      11575.06
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 164,
     "totalGMV": 39365.11,
     "totalComm": 5389.88,
@@ -3097,32 +1775,7 @@ const allShopData = [
     "agg_views": 1441206,
     "agg_sold": 1581,
     "agg_ctr": "0%",
-    "gmvPace": 45421.28,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 45421.28
   },
   {
     "username": "coachmye@gmail.com",
@@ -3146,28 +1799,8 @@ const allShopData = [
         "commPct": "12.71%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "workwithmyesha",
-        "gmv": [
-          7941.01,
-          3936.65,
-          8310.07,
-          2094.23,
-          1437.31,
-          1722.58,
-          2908.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      46.07,
-      0,
-      0,
-      0,
-      62.99
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 151,
     "totalGMV": 2908.61,
     "totalComm": 369.69,
@@ -3201,32 +1834,7 @@ const allShopData = [
     "agg_views": 45400,
     "agg_sold": 53,
     "agg_ctr": "0%",
-    "gmvPace": 3356.09,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3356.09
   },
   {
     "username": "collabwithcass@gmail.com",
@@ -3250,28 +1858,8 @@ const allShopData = [
         "commPct": "12.23%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "cassycass00",
-        "gmv": [
-          65058,
-          375404.73,
-          341225.17,
-          132527.76,
-          96838.62,
-          121286.44,
-          75425.99
-        ]
-      }
-    ],
-    "tapHistory": [
-      1682.46,
-      7254.06,
-      9224.77,
-      14505.02,
-      10659.06,
-      10707.9
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 147,
     "totalGMV": 75425.99,
     "totalComm": 9221.65,
@@ -3305,32 +1893,7 @@ const allShopData = [
     "agg_views": 3741258,
     "agg_sold": 1833,
     "agg_ctr": "0%",
-    "gmvPace": 87029.99,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 87029.99
   },
   {
     "username": "shopfinds.5000@gmail.com",
@@ -3354,28 +1917,8 @@ const allShopData = [
         "commPct": "18.87%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "the.real.deal.d",
-        "gmv": [
-          0,
-          0,
-          23297.94,
-          15473.44,
-          12645.81,
-          16342.4,
-          10152.5
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      630.39,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 142,
     "totalGMV": 10152.5,
     "totalComm": 1915.32,
@@ -3409,32 +1952,7 @@ const allShopData = [
     "agg_views": 1041159,
     "agg_sold": 352,
     "agg_ctr": "0%",
-    "gmvPace": 11714.42,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 11714.42
   },
   {
     "username": "katrinamoore621@gmail.com",
@@ -3458,28 +1976,8 @@ const allShopData = [
         "commPct": "11.00%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "katrinagmoore",
-        "gmv": [
-          465787.99,
-          497975.21,
-          396646.28,
-          446987.06,
-          468349.16,
-          611111.8,
-          531077.97
-        ]
-      }
-    ],
-    "tapHistory": [
-      28470.9,
-      54571.12,
-      51857.99,
-      27106.37,
-      18405.6,
-      10747.48
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 133,
     "totalGMV": 531077.97,
     "totalComm": 58416.04,
@@ -3513,32 +2011,7 @@ const allShopData = [
     "agg_views": 4813653,
     "agg_sold": 20094,
     "agg_ctr": "0%",
-    "gmvPace": 612782.27,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 612782.27
   },
   {
     "username": "kelsic.ugc@gmail.com",
@@ -3562,28 +2035,8 @@ const allShopData = [
         "commPct": "15.50%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kelsi.campbell",
-        "gmv": [
-          26229.09,
-          66245.31,
-          44880.65,
-          121608.8,
-          61294.07,
-          38860.83,
-          16751.7
-        ]
-      }
-    ],
-    "tapHistory": [
-      446.84,
-      2820.23,
-      3008.95,
-      5698.81,
-      3578.98,
-      11555.3
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 133,
     "totalGMV": 16751.7,
     "totalComm": 2596.57,
@@ -3617,32 +2070,7 @@ const allShopData = [
     "agg_views": 1236148,
     "agg_sold": 614,
     "agg_ctr": "0%",
-    "gmvPace": 19328.88,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 19328.88
   },
   {
     "username": "5518decanting@gmail.com",
@@ -3666,28 +2094,8 @@ const allShopData = [
         "commPct": "13.82%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "aquarius5518",
-        "gmv": [
-          7726.71,
-          5124.74,
-          5205.47,
-          3760.55,
-          6118.88,
-          6891.63,
-          4576.95
-        ]
-      }
-    ],
-    "tapHistory": [
-      56,
-      44.22,
-      58.93,
-      0,
-      0,
-      62.76
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 121,
     "totalGMV": 4576.95,
     "totalComm": 632.76,
@@ -3721,32 +2129,7 @@ const allShopData = [
     "agg_views": 36783,
     "agg_sold": 202,
     "agg_ctr": "0%",
-    "gmvPace": 5281.1,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 5281.1
   },
   {
     "username": "colleen@elementalsocials.com",
@@ -3770,28 +2153,8 @@ const allShopData = [
         "commPct": "19.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "colleen_fusco",
-        "gmv": [
-          48409.97,
-          49060.77,
-          74676.39,
-          54780.26,
-          25306.4,
-          17451.79,
-          14181.49
-        ]
-      }
-    ],
-    "tapHistory": [
-      21654.9,
-      15231.66,
-      11790.84,
-      29241.87,
-      15384.42,
-      9493.83
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 115,
     "totalGMV": 14181.49,
     "totalComm": 2769.91,
@@ -3825,32 +2188,7 @@ const allShopData = [
     "agg_views": 694639,
     "agg_sold": 775,
     "agg_ctr": "0%",
-    "gmvPace": 16363.26,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 16363.26
   },
   {
     "username": "ashleyorganic1@gmail.com",
@@ -3904,52 +2242,8 @@ const allShopData = [
         "commPct": "10.29%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ashleyorganic",
-        "gmv": [
-          85081.66,
-          241904.62,
-          208664.32,
-          110113.66,
-          88657.97,
-          95900.36,
-          77462.16
-        ]
-      },
-      {
-        "handle": "ashleyorganicedits",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          65206.53,
-          61523.75,
-          51569.35
-        ]
-      },
-      {
-        "handle": "ashleyorganicunfiltered",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          4582.29
-        ]
-      }
-    ],
-    "tapHistory": [
-      5799.7,
-      2828.43,
-      3093.85,
-      5701.3,
-      5198.23,
-      6745.2
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 110,
     "totalGMV": 133613.8,
     "totalComm": 16414.45,
@@ -3983,32 +2277,7 @@ const allShopData = [
     "agg_views": 3463998,
     "agg_sold": 3148,
     "agg_ctr": "0%",
-    "gmvPace": 89379.42,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      1400,
-      300
-    ]
+    "gmvPace": 89379.42
   },
   {
     "username": "thebanksedit@gmail.com",
@@ -4032,28 +2301,8 @@ const allShopData = [
         "commPct": "17.89%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thatnordicblonde",
-        "gmv": [
-          46801.55,
-          23254.9,
-          10534.56,
-          45768.46,
-          47467.25,
-          38078.68,
-          16366.23
-        ]
-      }
-    ],
-    "tapHistory": [
-      34507.32,
-      19220.51,
-      7777.93,
-      36362.81,
-      43955.74,
-      28081.53
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 104,
     "totalGMV": 16366.23,
     "totalComm": 2927.67,
@@ -4087,32 +2336,7 @@ const allShopData = [
     "agg_views": 299808,
     "agg_sold": 560,
     "agg_ctr": "0%",
-    "gmvPace": 18884.11,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 18884.11
   },
   {
     "username": "vanessaanaya30collab@gmail.com",
@@ -4136,28 +2360,8 @@ const allShopData = [
         "commPct": "11.09%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "vanessaanaya30",
-        "gmv": [
-          56844.22,
-          216318.48,
-          195977.57,
-          96489.65,
-          91420.92,
-          80606.52,
-          74954.77
-        ]
-      }
-    ],
-    "tapHistory": [
-      481.13,
-      74323.29,
-      69902.08,
-      10978.92,
-      6163.11,
-      6083.14
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 94,
     "totalGMV": 74954.77,
     "totalComm": 8315.87,
@@ -4191,32 +2395,7 @@ const allShopData = [
     "agg_views": 6040724,
     "agg_sold": 2997,
     "agg_ctr": "0%",
-    "gmvPace": 86486.27,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 86486.27
   },
   {
     "username": "samjonescontent@gmail.com",
@@ -4255,40 +2434,8 @@ const allShopData = [
         "commPct": "7.34%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "sam_joness_",
-        "gmv": [
-          199124.08,
-          274462.51,
-          283671.06,
-          142416.63,
-          176354.57,
-          204671.05,
-          170798.2
-        ]
-      },
-      {
-        "handle": "samjones_2",
-        "gmv": [
-          5816.06,
-          16177.66,
-          7070,
-          4475.37,
-          3873.6,
-          3515.4,
-          6611.34
-        ]
-      }
-    ],
-    "tapHistory": [
-      74528.95000000001,
-      80428.68,
-      70558.38,
-      11552.029999999999,
-      23516.18,
-      19103.01
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 92,
     "totalGMV": 177409.54,
     "totalComm": 22169.74,
@@ -4322,32 +2469,7 @@ const allShopData = [
     "agg_views": 5782354,
     "agg_sold": 4327,
     "agg_ctr": "0%",
-    "gmvPace": 197074.85,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 197074.85
   },
   {
     "username": "helloashleywill@gmail.com",
@@ -4371,28 +2493,8 @@ const allShopData = [
         "commPct": "12.74%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "theashleywill",
-        "gmv": [
-          178753.33,
-          271924.17,
-          216177.27,
-          82145.17,
-          84553.71,
-          103502.1,
-          79700.3
-        ]
-      }
-    ],
-    "tapHistory": [
-      48563.69,
-      137717.76,
-      67338.57,
-      13024.52,
-      3125.74,
-      2180.26
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 89,
     "totalGMV": 79700.3,
     "totalComm": 10153.35,
@@ -4426,32 +2528,7 @@ const allShopData = [
     "agg_views": 1727676,
     "agg_sold": 2460,
     "agg_ctr": "0%",
-    "gmvPace": 91961.88,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 91961.88
   },
   {
     "username": "kay.cap123@gmail.com",
@@ -4490,40 +2567,8 @@ const allShopData = [
         "commPct": "16.67%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kay_caputo",
-        "gmv": [
-          44113.39,
-          35922.74,
-          25849.52,
-          22370.91,
-          29203.9,
-          20993.13,
-          21434.67
-        ]
-      },
-      {
-        "handle": "lil.bbykay",
-        "gmv": [
-          23373.33,
-          31171.52,
-          22004.34,
-          41289.89,
-          21467.83,
-          13326.84,
-          3952.38
-        ]
-      }
-    ],
-    "tapHistory": [
-      1057.8400000000001,
-      832.9,
-      1308.3,
-      2156.43,
-      1125.41,
-      1471.77
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 89,
     "totalGMV": 25387.05,
     "totalComm": 3862.11,
@@ -4557,32 +2602,7 @@ const allShopData = [
     "agg_views": 2231843,
     "agg_sold": 938,
     "agg_ctr": "0%",
-    "gmvPace": 24732.31,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 24732.31
   },
   {
     "username": "cassyedwards@ymail.com",
@@ -4606,28 +2626,8 @@ const allShopData = [
         "commPct": "16.11%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "cassymedwards_",
-        "gmv": [
-          42855.24,
-          100762.9,
-          35588.13,
-          41193.66,
-          44762.67,
-          29031,
-          18254.65
-        ]
-      }
-    ],
-    "tapHistory": [
-      5713.33,
-      23103.21,
-      9865.92,
-      11913.36,
-      11115.11,
-      7026.83
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 83,
     "totalGMV": 18254.65,
     "totalComm": 2941.59,
@@ -4661,32 +2661,7 @@ const allShopData = [
     "agg_views": 484181,
     "agg_sold": 744,
     "agg_ctr": "0%",
-    "gmvPace": 21063.06,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 21063.06
   },
   {
     "username": "arcalviello@gmail.com",
@@ -4710,28 +2685,8 @@ const allShopData = [
         "commPct": "10.97%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "_alanacalvs",
-        "gmv": [
-          207936.36,
-          324804.13,
-          328664.58,
-          251558.07,
-          160530.94,
-          218864.44,
-          211732.2
-        ]
-      }
-    ],
-    "tapHistory": [
-      10294.91,
-      40520.89,
-      70878.92,
-      17375.33,
-      5486.74,
-      2517.68
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 80,
     "totalGMV": 211732.2,
     "totalComm": 23225.17,
@@ -4765,32 +2720,7 @@ const allShopData = [
     "agg_views": 11486797,
     "agg_sold": 6469,
     "agg_ctr": "0%",
-    "gmvPace": 244306.38,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 244306.38
   },
   {
     "username": "candidlybetsy@gmail.com",
@@ -4829,40 +2759,8 @@ const allShopData = [
         "commPct": "13.49%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "candidly.betsy",
-        "gmv": [
-          24157.19,
-          25405.73,
-          25078.25,
-          4390.66,
-          4936.35,
-          9903.07,
-          4716.94
-        ]
-      },
-      {
-        "handle": "betsyapproved",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          578.31,
-          498.11
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      94.13,
-      26.13,
-      0,
-      30.99
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 74,
     "totalGMV": 5215.05,
     "totalComm": 741.15,
@@ -4896,32 +2794,7 @@ const allShopData = [
     "agg_views": 117041,
     "agg_sold": 169,
     "agg_ctr": "0%",
-    "gmvPace": 5442.62,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 5442.62
   },
   {
     "username": "lifewithangiemae@gmail.com",
@@ -4945,28 +2818,8 @@ const allShopData = [
         "commPct": "11.24%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lifewithangiemae",
-        "gmv": [
-          17547.06,
-          43658.36,
-          47874.43,
-          29749.35,
-          44093.85,
-          65346.58,
-          40105.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      755.76,
-      2528.32,
-      5039.88,
-      1779.75,
-      2152.06,
-      7634.5
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 74,
     "totalGMV": 40105.61,
     "totalComm": 4508.07,
@@ -5000,32 +2853,7 @@ const allShopData = [
     "agg_views": 1390486,
     "agg_sold": 1437,
     "agg_ctr": "0%",
-    "gmvPace": 46275.7,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 46275.7
   },
   {
     "username": "hkmedia.partners@gmail.com",
@@ -5064,40 +2892,8 @@ const allShopData = [
         "commPct": "16.98%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "hkapproved",
-        "gmv": [
-          119079.4,
-          224665.44,
-          215789.85,
-          129135.52,
-          154823.1,
-          330584.89,
-          199813.19
-        ]
-      },
-      {
-        "handle": "honeyquiche",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          13832.17,
-          159247.97,
-          334332.95
-        ]
-      }
-    ],
-    "tapHistory": [
-      3186.61,
-      109143.67,
-      79041.26,
-      24701.2,
-      6266.38,
-      3123.9
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 72,
     "totalGMV": 534146.14,
     "totalComm": 73668.9,
@@ -5131,32 +2927,7 @@ const allShopData = [
     "agg_views": 37125406,
     "agg_sold": 19532,
     "agg_ctr": "0%",
-    "gmvPace": 385768.79,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 385768.79
   },
   {
     "username": "christysocials17@gmail.com",
@@ -5210,52 +2981,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "christylong40",
-        "gmv": [
-          26267.89,
-          62303.29,
-          88512.86,
-          46270.87,
-          42951.97,
-          40826.34,
-          32194.09
-        ]
-      },
-      {
-        "handle": "christysfaves",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          201.92,
-          0
-        ]
-      },
-      {
-        "handle": "aricandchristy",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          143.74
-        ]
-      }
-    ],
-    "tapHistory": [
-      1237.61,
-      989.35,
-      407.95,
-      670.62,
-      257.14,
-      189.67
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 65,
     "totalGMV": 32337.83,
     "totalComm": 5669.97,
@@ -5289,32 +3016,7 @@ const allShopData = [
     "agg_views": 479007,
     "agg_sold": 882,
     "agg_ctr": "0%",
-    "gmvPace": 37147.03,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 37147.03
   },
   {
     "username": "ssimons2@gmail.com",
@@ -5353,40 +3055,8 @@ const allShopData = [
         "commPct": "16.62%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "stephsimons",
-        "gmv": [
-          165280.07,
-          147731.36,
-          99977.21,
-          80062.74,
-          92473.63,
-          53392.63,
-          85966.93
-        ]
-      },
-      {
-        "handle": "saoirse.simons",
-        "gmv": [
-          6233.84,
-          3672.25,
-          2594.09,
-          2596.92,
-          48.95,
-          244.88,
-          1221.68
-        ]
-      }
-    ],
-    "tapHistory": [
-      119.75,
-      3533.97,
-      436.36,
-      342.14,
-      433.64,
-      371.63
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 60,
     "totalGMV": 87188.61,
     "totalComm": 13918.45,
@@ -5420,32 +3090,7 @@ const allShopData = [
     "agg_views": 2017796,
     "agg_sold": 2527,
     "agg_ctr": "0%",
-    "gmvPace": 99192.61,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 99192.61
   },
   {
     "username": "lyndamiko143@gmail.com",
@@ -5469,28 +3114,8 @@ const allShopData = [
         "commPct": "17.30%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lyndatran_",
-        "gmv": [
-          105807.48,
-          101029.8,
-          135841.24,
-          115184.09,
-          78896.74,
-          64175.58,
-          87265.58
-        ]
-      }
-    ],
-    "tapHistory": [
-      16949.28,
-      22082.46,
-      1331.59,
-      1716.32,
-      1779.65,
-      2642.8
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 57,
     "totalGMV": 87265.58,
     "totalComm": 15101.19,
@@ -5524,32 +3149,7 @@ const allShopData = [
     "agg_views": 3335161,
     "agg_sold": 5702,
     "agg_ctr": "0%",
-    "gmvPace": 100691.05,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      300
-    ]
+    "gmvPace": 100691.05
   },
   {
     "username": "brandie.nicole27@gmail.com",
@@ -5573,28 +3173,8 @@ const allShopData = [
         "commPct": "15.66%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brandienicole27",
-        "gmv": [
-          127921.71,
-          164181.59,
-          162684.16,
-          119724.25,
-          149415.7,
-          167502.19,
-          308155.17
-        ]
-      }
-    ],
-    "tapHistory": [
-      738.35,
-      638.06,
-      2376.1,
-      696.5,
-      403.26,
-      266.42
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 56,
     "totalGMV": 308155.17,
     "totalComm": 48247.25,
@@ -5628,32 +3208,7 @@ const allShopData = [
     "agg_views": 8455116,
     "agg_sold": 12518,
     "agg_ctr": "0%",
-    "gmvPace": 355563.66,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 355563.66
   },
   {
     "username": "natalieskhalil@gmail.com",
@@ -5677,28 +3232,8 @@ const allShopData = [
         "commPct": "13.58%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "nataleezyy",
-        "gmv": [
-          153842.74,
-          262717.21,
-          133598.38,
-          121376.2,
-          99665.28,
-          201629.86,
-          79510.87
-        ]
-      }
-    ],
-    "tapHistory": [
-      7965.75,
-      16113.39,
-      10675.87,
-      9489.04,
-      7292.15,
-      7291.46
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 54,
     "totalGMV": 79510.87,
     "totalComm": 10797.87,
@@ -5732,32 +3267,7 @@ const allShopData = [
     "agg_views": 2558172,
     "agg_sold": 3247,
     "agg_ctr": "0%",
-    "gmvPace": 91743.31,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 91743.31
   },
   {
     "username": "yourpassportpal1@gmail.com",
@@ -5796,40 +3306,8 @@ const allShopData = [
         "commPct": "9.56%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "yourpassportpal",
-        "gmv": [
-          139939.76,
-          100265.61,
-          57933.36,
-          83635.57,
-          72995.03,
-          66510.03,
-          48975.21
-        ]
-      },
-      {
-        "handle": "itsmekaycee77",
-        "gmv": [
-          44014.25,
-          80174.53,
-          138365.08,
-          154036.36,
-          157257.78,
-          78001.59,
-          24742.43
-        ]
-      }
-    ],
-    "tapHistory": [
-      3714.1,
-      6560.91,
-      5385.66,
-      2466.49,
-      2883.02,
-      3563.25
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 54,
     "totalGMV": 73717.64,
     "totalComm": 8873.33,
@@ -5863,32 +3341,7 @@ const allShopData = [
     "agg_views": 2168264,
     "agg_sold": 2465,
     "agg_ctr": "0%",
-    "gmvPace": 56509.86,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 56509.86
   },
   {
     "username": "theseasonaldiariess@gmail.com",
@@ -5912,28 +3365,8 @@ const allShopData = [
         "commPct": "12.03%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "seasonaldiariess",
-        "gmv": [
-          23696.79,
-          34518.67,
-          32931.86,
-          18586.46,
-          28512.27,
-          48709.83,
-          34189.24
-        ]
-      }
-    ],
-    "tapHistory": [
-      6426.18,
-      10662.61,
-      8088.67,
-      1638.17,
-      6611.53,
-      4464.8
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 50,
     "totalGMV": 34189.24,
     "totalComm": 4114.29,
@@ -5967,32 +3400,7 @@ const allShopData = [
     "agg_views": 2086072,
     "agg_sold": 1056,
     "agg_ctr": "0%",
-    "gmvPace": 39449.12,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      800,
-      0
-    ]
+    "gmvPace": 39449.12
   },
   {
     "username": "kaganrbrooks@gmail.com",
@@ -6016,28 +3424,8 @@ const allShopData = [
         "commPct": "15.85%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kaganbrooks",
-        "gmv": [
-          183362.62,
-          125913.25,
-          66753.33,
-          72740.81,
-          63903.89,
-          88854.89,
-          83448.62
-        ]
-      }
-    ],
-    "tapHistory": [
-      2207.71,
-      2896.28,
-      771.53,
-      1765.38,
-      1565.28,
-      1197
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 47,
     "totalGMV": 83448.62,
     "totalComm": 13228.38,
@@ -6071,32 +3459,7 @@ const allShopData = [
     "agg_views": 4151424,
     "agg_sold": 2181,
     "agg_ctr": "0%",
-    "gmvPace": 96286.87,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 96286.87
   },
   {
     "username": "createdbyalliee@gmail.com",
@@ -6120,28 +3483,8 @@ const allShopData = [
         "commPct": "11.34%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "pinspo.girl",
-        "gmv": [
-          376136.18,
-          196697.08,
-          137403.62,
-          76091.58,
-          64253.12,
-          84462.45,
-          55330.7
-        ]
-      }
-    ],
-    "tapHistory": [
-      10464.3,
-      10497.09,
-      2591.06,
-      1134.25,
-      2557.26,
-      5824.21
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 42,
     "totalGMV": 55330.7,
     "totalComm": 6277.21,
@@ -6175,32 +3518,7 @@ const allShopData = [
     "agg_views": 2284193,
     "agg_sold": 1286,
     "agg_ctr": "0%",
-    "gmvPace": 63843.12,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 63843.12
   },
   {
     "username": "jennjohnsoncollabs@gmail.com",
@@ -6224,28 +3542,8 @@ const allShopData = [
         "commPct": "8.76%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jenlashay",
-        "gmv": [
-          71468.33,
-          124812.32,
-          39667.48,
-          21106.29,
-          19442.35,
-          22427.05,
-          18488.07
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 42,
     "totalGMV": 18488.07,
     "totalComm": 1619.7,
@@ -6279,32 +3577,7 @@ const allShopData = [
     "agg_views": 545156,
     "agg_sold": 471,
     "agg_ctr": "0%",
-    "gmvPace": 21332.39,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 21332.39
   },
   {
     "username": "collaboratewithsteph@gmail.com",
@@ -6328,28 +3601,8 @@ const allShopData = [
         "commPct": "13.83%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "stephanie_stimson",
-        "gmv": [
-          149844.72,
-          254391.32,
-          381639.12,
-          238534.95,
-          226641.06,
-          213823.25,
-          115126.3
-        ]
-      }
-    ],
-    "tapHistory": [
-      1618.98,
-      6948.97,
-      7749.5,
-      3315.04,
-      2358.45,
-      1943.38
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 41,
     "totalGMV": 115126.3,
     "totalComm": 15922.61,
@@ -6383,32 +3636,7 @@ const allShopData = [
     "agg_views": 1824601,
     "agg_sold": 3429,
     "agg_ctr": "0%",
-    "gmvPace": 132838.04,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 132838.04
   },
   {
     "username": "ugcwithbrii@gmail.com",
@@ -6432,28 +3660,8 @@ const allShopData = [
         "commPct": "14.39%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ugcwithbrii",
-        "gmv": [
-          385849.7,
-          262387.14,
-          281789.92,
-          176427.79,
-          181736.87,
-          348400.53,
-          293369.3
-        ]
-      }
-    ],
-    "tapHistory": [
-      5397.04,
-      4675.06,
-      2411.84,
-      220.2,
-      345.33,
-      135.11
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 33,
     "totalGMV": 293369.3,
     "totalComm": 42226.53,
@@ -6487,32 +3695,7 @@ const allShopData = [
     "agg_views": 7733146,
     "agg_sold": 13339,
     "agg_ctr": "0%",
-    "gmvPace": 338503.04,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 338503.04
   },
   {
     "username": "isaiahhay03@protonmail.com",
@@ -6536,28 +3719,8 @@ const allShopData = [
         "commPct": "14.18%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jacobien233",
-        "gmv": [
-          7640.86,
-          14615.03,
-          17246.15,
-          12229.92,
-          13554.09,
-          18771.3,
-          20083.84
-        ]
-      }
-    ],
-    "tapHistory": [
-      605.85,
-      2451.61,
-      1958.53,
-      986.01,
-      1782.12,
-      1499.55
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 32,
     "totalGMV": 20083.84,
     "totalComm": 2846.97,
@@ -6591,32 +3754,7 @@ const allShopData = [
     "agg_views": 3028711,
     "agg_sold": 718,
     "agg_ctr": "0%",
-    "gmvPace": 23173.66,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 23173.66
   },
   {
     "username": "karina.m.cruz3@gmail.com",
@@ -6640,28 +3778,8 @@ const allShopData = [
         "commPct": "13.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "_karina.michelle",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          62702.35
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 32,
     "totalGMV": 62702.35,
     "totalComm": 8481.34,
@@ -6695,32 +3813,7 @@ const allShopData = [
     "agg_views": 2280556,
     "agg_sold": 2322,
     "agg_ctr": "0%",
-    "gmvPace": 72348.87,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 72348.87
   },
   {
     "username": "amandapac.ugc@gmail.com",
@@ -6744,28 +3837,8 @@ const allShopData = [
         "commPct": "13.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "amanda_pac",
-        "gmv": [
-          16068.87,
-          111607.88,
-          109284.49,
-          37892.84,
-          24389.95,
-          30661.14,
-          28244.42
-        ]
-      }
-    ],
-    "tapHistory": [
-      727.42,
-      3475.36,
-      3451.16,
-      1103.34,
-      1653.46,
-      1903.59
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 31,
     "totalGMV": 28244.42,
     "totalComm": 3821.65,
@@ -6799,32 +3872,7 @@ const allShopData = [
     "agg_views": 1822325,
     "agg_sold": 825,
     "agg_ctr": "0%",
-    "gmvPace": 32589.72,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 32589.72
   },
   {
     "username": "digitaljinxy@gmail.com",
@@ -6848,28 +3896,8 @@ const allShopData = [
         "commPct": "12.92%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "digitaljinxy",
-        "gmv": [
-          185767.13,
-          170455.01,
-          152434.77,
-          74326.67,
-          80434.78,
-          54101.25,
-          71015.73
-        ]
-      }
-    ],
-    "tapHistory": [
-      862.34,
-      2403.28,
-      1348.13,
-      666.73,
-      296.17,
-      660.87
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 31,
     "totalGMV": 71015.73,
     "totalComm": 9176.97,
@@ -6903,32 +3931,7 @@ const allShopData = [
     "agg_views": 2316882,
     "agg_sold": 1722,
     "agg_ctr": "0%",
-    "gmvPace": 81941.23,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 81941.23
   },
   {
     "username": "ugcbyanastasiya@gmail.com",
@@ -6982,52 +3985,8 @@ const allShopData = [
         "commPct": "17.70%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "anastasiya_ray",
-        "gmv": [
-          54514.01,
-          55681.06,
-          50557.83,
-          24315.89,
-          25539.38,
-          32053.18,
-          20180.04
-        ]
-      },
-      {
-        "handle": "theraysfinds",
-        "gmv": [
-          55642.17,
-          49890.83,
-          42204.4,
-          42832.45,
-          12199.9,
-          11703.22,
-          6930.58
-        ]
-      },
-      {
-        "handle": "thisblondieee",
-        "gmv": [
-          0,
-          0,
-          1044.93,
-          2728.19,
-          2261.26,
-          1173.75,
-          1439.2
-        ]
-      }
-    ],
-    "tapHistory": [
-      5608.8,
-      7828.05,
-      4614.25,
-      3821.25,
-      3769.32,
-      6419.62
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 31,
     "totalGMV": 28549.82,
     "totalComm": 3768.65,
@@ -7061,32 +4020,7 @@ const allShopData = [
     "agg_views": 1228329,
     "agg_sold": 1011,
     "agg_ctr": "0%",
-    "gmvPace": 23284.66,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      1400,
-      0
-    ]
+    "gmvPace": 23284.66
   },
   {
     "username": "wesleybarkerbookings@gmail.com",
@@ -7110,28 +4044,8 @@ const allShopData = [
         "commPct": "13.77%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "wesleyrbarker",
-        "gmv": [
-          126078.16,
-          96641.03,
-          71051.52,
-          73909.57,
-          61110.69,
-          95346.49,
-          88265.44
-        ]
-      }
-    ],
-    "tapHistory": [
-      12389.72,
-      28106.39,
-      24740.87,
-      4940.09,
-      2109.4,
-      2068.95
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 31,
     "totalGMV": 88265.44,
     "totalComm": 12151.94,
@@ -7165,32 +4079,7 @@ const allShopData = [
     "agg_views": 4407977,
     "agg_sold": 2643,
     "agg_ctr": "0%",
-    "gmvPace": 101844.74,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 101844.74
   },
   {
     "username": "kristinadunn711@gmail.com",
@@ -7229,40 +4118,8 @@ const allShopData = [
         "commPct": "11.93%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kristinadunnn",
-        "gmv": [
-          187563.24,
-          123442.65,
-          151933.97,
-          106757.81,
-          116234.81,
-          140206.67,
-          81628.83
-        ]
-      },
-      {
-        "handle": "kristinanicoletall",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          118695.6,
-          171080.01,
-          129854.02
-        ]
-      }
-    ],
-    "tapHistory": [
-      1414.53,
-      6092.52,
-      2585.57,
-      597.99,
-      3196.81,
-      1161.67
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 30,
     "totalGMV": 211482.85,
     "totalComm": 25677.03,
@@ -7296,32 +4153,7 @@ const allShopData = [
     "agg_views": 13529361,
     "agg_sold": 6700,
     "agg_ctr": "0%",
-    "gmvPace": 149831.56,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 149831.56
   },
   {
     "username": "avarygg@gmail.com",
@@ -7345,28 +4177,8 @@ const allShopData = [
         "commPct": "15.71%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "avarygg",
-        "gmv": [
-          7780.53,
-          8222.26,
-          6100.7,
-          9876.85,
-          8941.89,
-          6985.23,
-          4704.97
-        ]
-      }
-    ],
-    "tapHistory": [
-      2110.82,
-      3395.61,
-      1294.36,
-      2215.5,
-      2874.93,
-      797.05
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 29,
     "totalGMV": 4704.97,
     "totalComm": 738.94,
@@ -7400,32 +4212,7 @@ const allShopData = [
     "agg_views": 507667,
     "agg_sold": 223,
     "agg_ctr": "0%",
-    "gmvPace": 5428.81,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 5428.81
   },
   {
     "username": "riannapepe428@gmail.com",
@@ -7449,28 +4236,8 @@ const allShopData = [
         "commPct": "13.41%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "riannapepe",
-        "gmv": [
-          12315.83,
-          68894.47,
-          64727.48,
-          16190.72,
-          28455.07,
-          38752.07,
-          26444.15
-        ]
-      }
-    ],
-    "tapHistory": [
-      770.11,
-      205.83,
-      1788.74,
-      776.82,
-      1478.47,
-      1877.17
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 28,
     "totalGMV": 26444.15,
     "totalComm": 3545.89,
@@ -7504,32 +4271,7 @@ const allShopData = [
     "agg_views": 1655571,
     "agg_sold": 1073,
     "agg_ctr": "0%",
-    "gmvPace": 30512.48,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 30512.48
   },
   {
     "username": "southernlakemom@gmail.com",
@@ -7568,40 +4310,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "southernlakemom",
-        "gmv": [
-          115112.71,
-          158412.36,
-          87208.02,
-          50060.04,
-          47232.06,
-          151914.86,
-          128308.28
-        ]
-      },
-      {
-        "handle": "lakemomfinds",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          245,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      657.7,
-      1139.14,
-      456.13,
-      410.79,
-      73.97,
-      601.81
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 26,
     "totalGMV": 128308.28,
     "totalComm": 14771.76,
@@ -7635,32 +4345,7 @@ const allShopData = [
     "agg_views": 2986498,
     "agg_sold": 4849,
     "agg_ctr": "0%",
-    "gmvPace": 148048.02,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 148048.02
   },
   {
     "username": "carlymanninggg@gmail.com",
@@ -7684,28 +4369,8 @@ const allShopData = [
         "commPct": "19.78%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "carlymanninggg",
-        "gmv": [
-          5291.34,
-          3557.89,
-          2619.34,
-          50205.68,
-          5285.77,
-          21130.67,
-          5548.23
-        ]
-      }
-    ],
-    "tapHistory": [
-      5018.83,
-      3129.12,
-      2462.84,
-      33367.39,
-      5018.54,
-      21031.17
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 25,
     "totalGMV": 5548.23,
     "totalComm": 1097.22,
@@ -7739,32 +4404,7 @@ const allShopData = [
     "agg_views": 203351,
     "agg_sold": 224,
     "agg_ctr": "0%",
-    "gmvPace": 6401.8,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 6401.8
   },
   {
     "username": "baileysoliver0307@gmail.com",
@@ -7788,28 +4428,8 @@ const allShopData = [
         "commPct": "10.40%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "baileyyoliverr",
-        "gmv": [
-          100969.69,
-          134107.42,
-          60584.95,
-          67806.94,
-          58741.8,
-          69820.49,
-          53390
-        ]
-      }
-    ],
-    "tapHistory": [
-      522.65,
-      681.42,
-      807.34,
-      750.25,
-      1588.33,
-      1634.82
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 24,
     "totalGMV": 53390,
     "totalComm": 5550.95,
@@ -7843,32 +4463,7 @@ const allShopData = [
     "agg_views": 1356148,
     "agg_sold": 1839,
     "agg_ctr": "0%",
-    "gmvPace": 61603.85,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 61603.85
   },
   {
     "username": "lindsay.kathleen.trimble@gmail.com",
@@ -7907,28 +4502,8 @@ const allShopData = [
         "commPct": "8.72%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lowtoxlinz",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          59554.02,
-          75103,
-          91066.89
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 24,
     "totalGMV": 182133.78,
     "totalComm": 15874.64,
@@ -7962,32 +4537,7 @@ const allShopData = [
     "agg_views": 8815178,
     "agg_sold": 3204,
     "agg_ctr": "0%",
-    "gmvPace": 105077.18,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 105077.18
   },
   {
     "username": "contactmahogany@gmail.com",
@@ -8011,28 +4561,8 @@ const allShopData = [
         "commPct": "16.87%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mahoganylox",
-        "gmv": [
-          33046.06,
-          15379.02,
-          7813.62,
-          5082.55,
-          5854.3,
-          4944.06,
-          10865.29
-        ]
-      }
-    ],
-    "tapHistory": [
-      3587.5,
-      2702.94,
-      788.45,
-      208.75,
-      2570.73,
-      1428.82
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 23,
     "totalGMV": 10865.29,
     "totalComm": 1833.37,
@@ -8066,32 +4596,7 @@ const allShopData = [
     "agg_views": 804201,
     "agg_sold": 452,
     "agg_ctr": "0%",
-    "gmvPace": 12536.87,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 12536.87
   },
   {
     "username": "itskseniainfo@gmail.com",
@@ -8115,28 +4620,8 @@ const allShopData = [
         "commPct": "17.99%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kseniasenn",
-        "gmv": [
-          97292.1,
-          94315.86,
-          61125.05,
-          41823.85,
-          30859.79,
-          23794.67,
-          26454.29
-        ]
-      }
-    ],
-    "tapHistory": [
-      24770.94,
-      2338.1,
-      4190.1,
-      1120.93,
-      948.19,
-      644.72
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 21,
     "totalGMV": 26454.29,
     "totalComm": 4760.43,
@@ -8170,32 +4655,7 @@ const allShopData = [
     "agg_views": 1105741,
     "agg_sold": 1498,
     "agg_ctr": "0%",
-    "gmvPace": 30524.18,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 30524.18
   },
   {
     "username": "jasmineameadows@gmail.com",
@@ -8219,28 +4679,8 @@ const allShopData = [
         "commPct": "14.58%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jasmineashley22",
-        "gmv": [
-          7787.37,
-          17043.83,
-          9653.24,
-          9895.89,
-          12424.24,
-          14440.12,
-          14445.21
-        ]
-      }
-    ],
-    "tapHistory": [
-      246.07,
-      631.66,
-      667.06,
-      506.29,
-      976.91,
-      730.93
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 18,
     "totalGMV": 14445.21,
     "totalComm": 2106.31,
@@ -8274,32 +4714,7 @@ const allShopData = [
     "agg_views": 926185,
     "agg_sold": 704,
     "agg_ctr": "0%",
-    "gmvPace": 16667.55,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 16667.55
   },
   {
     "username": "torineu04@gmail.com",
@@ -8323,28 +4738,8 @@ const allShopData = [
         "commPct": "13.00%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "torineu04",
-        "gmv": [
-          41566.2,
-          54507.1,
-          44798.58,
-          20212.94,
-          18647.32,
-          30102.11,
-          12510.49
-        ]
-      }
-    ],
-    "tapHistory": [
-      6998.43,
-      6619.27,
-      8989.39,
-      4000.29,
-      4113.78,
-      1366.52
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 17,
     "totalGMV": 12510.49,
     "totalComm": 1626.4,
@@ -8378,32 +4773,7 @@ const allShopData = [
     "agg_views": 650620,
     "agg_sold": 333,
     "agg_ctr": "0%",
-    "gmvPace": 14435.18,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 14435.18
   },
   {
     "username": "trinityblair1120@gmail.com",
@@ -8442,40 +4812,8 @@ const allShopData = [
         "commPct": "14.85%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "trinity.blair",
-        "gmv": [
-          12039.6,
-          14206.25,
-          17649.01,
-          11702.75,
-          6400.3,
-          11688.97,
-          10073.24
-        ]
-      },
-      {
-        "handle": "trintries",
-        "gmv": [
-          827.96,
-          1341.24,
-          1557.68,
-          976.75,
-          3619.69,
-          2652.55,
-          1604.28
-        ]
-      }
-    ],
-    "tapHistory": [
-      517.09,
-      1612.71,
-      1061.26,
-      316.93,
-      238.04,
-      406.47
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 17,
     "totalGMV": 11677.52,
     "totalComm": 1513.15,
@@ -8509,32 +4847,7 @@ const allShopData = [
     "agg_views": 4203479,
     "agg_sold": 538,
     "agg_ctr": "0%",
-    "gmvPace": 11622.97,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 11622.97
   },
   {
     "username": "thatkindafitmomma@gmail.com",
@@ -8558,28 +4871,8 @@ const allShopData = [
         "commPct": "10.51%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thatkindafitmomma",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          181940.79,
-          166172.78,
-          124053.21
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      581.3,
-      281.85
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 16,
     "totalGMV": 124053.21,
     "totalComm": 13038.8,
@@ -8613,32 +4906,7 @@ const allShopData = [
     "agg_views": 3357847,
     "agg_sold": 3850,
     "agg_ctr": "0%",
-    "gmvPace": 143138.32,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 143138.32
   },
   {
     "username": "contact@jennamediaco.com",
@@ -8677,40 +4945,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jennamediaco",
-        "gmv": [
-          21.59,
-          23.23,
-          32.98,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "handle": "little__j",
-        "gmv": [
-          28759.67,
-          7092.88,
-          33073.27,
-          20337.11,
-          17234.9,
-          27680.1,
-          44254.97
-        ]
-      }
-    ],
-    "tapHistory": [
-      167.66,
-      24.94,
-      11.25,
-      0,
-      54.54,
-      236.29
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 15,
     "totalGMV": 44254.97,
     "totalComm": 5570.24,
@@ -8744,32 +4980,7 @@ const allShopData = [
     "agg_views": 2771027,
     "agg_sold": 1124,
     "agg_ctr": "0%",
-    "gmvPace": 51063.43,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 51063.43
   },
   {
     "username": "errrcatpr@gmail.com",
@@ -8793,28 +5004,8 @@ const allShopData = [
         "commPct": "9.82%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "errrcat",
-        "gmv": [
-          68289.59,
-          243509.27,
-          124704.79,
-          104494.27,
-          125550.96,
-          157106.32,
-          144920.18
-        ]
-      }
-    ],
-    "tapHistory": [
-      863.08,
-      3256.81,
-      869.77,
-      1419.79,
-      1082.36,
-      989.87
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 15,
     "totalGMV": 144920.18,
     "totalComm": 14236.71,
@@ -8848,32 +5039,7 @@ const allShopData = [
     "agg_views": 6247843,
     "agg_sold": 6609,
     "agg_ctr": "0%",
-    "gmvPace": 167215.59,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 167215.59
   },
   {
     "username": "therestadfamcontent@gmail.com",
@@ -8912,40 +5078,8 @@ const allShopData = [
         "commPct": "15.59%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "therestadfam",
-        "gmv": [
-          167619.14,
-          118109.61,
-          254427.94,
-          67486.18,
-          44966.69,
-          45501.16,
-          26924.08
-        ]
-      },
-      {
-        "handle": "mobilemerchant",
-        "gmv": [
-          76803.06,
-          123602.17,
-          142535.58,
-          42090.87,
-          56873.16,
-          169260.86,
-          20320.86
-        ]
-      }
-    ],
-    "tapHistory": [
-      14326.310000000001,
-      4937.46,
-      5943.24,
-      3219.4500000000003,
-      975.34,
-      3963.69
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 15,
     "totalGMV": 47244.94,
     "totalComm": 6605.32,
@@ -8979,32 +5113,7 @@ const allShopData = [
     "agg_views": 1677087,
     "agg_sold": 1525,
     "agg_ctr": "0%",
-    "gmvPace": 31066.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 31066.25
   },
   {
     "username": "kistyscoco@gmail.com",
@@ -9028,28 +5137,8 @@ const allShopData = [
         "commPct": "8.98%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kathryn_scoco",
-        "gmv": [
-          139566.25,
-          261415.51,
-          178973.32,
-          137687.98,
-          174046.11,
-          195555.79,
-          138857.76
-        ]
-      }
-    ],
-    "tapHistory": [
-      1397.74,
-      1313.06,
-      498.91,
-      1580.21,
-      554.7,
-      185.5
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 14,
     "totalGMV": 138857.76,
     "totalComm": 12475.41,
@@ -9083,32 +5172,7 @@ const allShopData = [
     "agg_views": 3622569,
     "agg_sold": 3451,
     "agg_ctr": "0%",
-    "gmvPace": 160220.49,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 160220.49
   },
   {
     "username": "stephaniemurphyx@gmail.com",
@@ -9147,40 +5211,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "stephsharesitall",
-        "gmv": [
-          85528.93,
-          99850.79,
-          52627.05,
-          42997.79,
-          33796.4,
-          49415.52,
-          49771.74
-        ]
-      },
-      {
-        "handle": "stephshares2.0",
-        "gmv": [
-          443.89,
-          31.98,
-          44.2,
-          112.46,
-          0,
-          54.99,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      1525.77,
-      2145.38,
-      1148.72,
-      67.12,
-      613.07,
-      981.72
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 13,
     "totalGMV": 49771.74,
     "totalComm": 6614.81,
@@ -9214,32 +5246,7 @@ const allShopData = [
     "agg_views": 3018243,
     "agg_sold": 3090,
     "agg_ctr": "0%",
-    "gmvPace": 57428.93,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 57428.93
   },
   {
     "username": "miller.kylika@gmail.com",
@@ -9278,40 +5285,8 @@ const allShopData = [
         "commPct": "9.62%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kylikamiller44",
-        "gmv": [
-          42829.26,
-          77789.87,
-          64337.67,
-          161698.51,
-          41554.79,
-          44810.96,
-          27183.28
-        ]
-      },
-      {
-        "handle": "kindafitky",
-        "gmv": [
-          34.05,
-          0,
-          0,
-          814.58,
-          1270.74,
-          1261.88,
-          707.63
-        ]
-      }
-    ],
-    "tapHistory": [
-      4984.53,
-      29933.52,
-      30292.02,
-      120601.04,
-      8283.36,
-      2176.64
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 12,
     "totalGMV": 27890.91,
     "totalComm": 3101.77,
@@ -9345,32 +5320,7 @@ const allShopData = [
     "agg_views": 1152280,
     "agg_sold": 847,
     "agg_ctr": "0%",
-    "gmvPace": 31365.32,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      500
-    ]
+    "gmvPace": 31365.32
   },
   {
     "username": "mslbell87@gmail.com",
@@ -9424,52 +5374,8 @@ const allShopData = [
         "commPct": "9.37%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "stylevaultverdicts",
-        "gmv": [
-          125647.53,
-          100545.44,
-          69360.45,
-          33353.72,
-          57416.59,
-          47602.78,
-          38980.91
-        ]
-      },
-      {
-        "handle": "thattiktoklady3",
-        "gmv": [
-          891.45,
-          326.94,
-          194.75,
-          94.95,
-          26.98,
-          203.29,
-          179.63
-        ]
-      },
-      {
-        "handle": "thatwardrobewhisperer",
-        "gmv": [
-          43078.34,
-          26362.21,
-          23811.66,
-          29659.63,
-          53152.12,
-          51368.61,
-          29099.4
-        ]
-      }
-    ],
-    "tapHistory": [
-      1818.52,
-      1818.81,
-      426.29,
-      414.29,
-      3025.94,
-      672.41
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 12,
     "totalGMV": 68259.94,
     "totalComm": 7161.24,
@@ -9503,32 +5409,7 @@ const allShopData = [
     "agg_views": 1153889,
     "agg_sold": 2813,
     "agg_ctr": "0%",
-    "gmvPace": 44977.97,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 44977.97
   },
   {
     "username": "cristina.schoeck@icloud.com",
@@ -9552,28 +5433,8 @@ const allShopData = [
         "commPct": "22.04%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "risingwithcristina",
-        "gmv": [
-          0,
-          0,
-          1040.69,
-          19527.84,
-          15164.01,
-          18142.02,
-          1490.05
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 11,
     "totalGMV": 1490.05,
     "totalComm": 328.4,
@@ -9607,32 +5468,7 @@ const allShopData = [
     "agg_views": 36234,
     "agg_sold": 34,
     "agg_ctr": "0%",
-    "gmvPace": 1719.29,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1719.29
   },
   {
     "username": "hello@keyaj.com",
@@ -9656,28 +5492,8 @@ const allShopData = [
         "commPct": "10.56%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "keyajames",
-        "gmv": [
-          63809.65,
-          93053.5,
-          99112.48,
-          59822.19,
-          57947.9,
-          78366.9,
-          91479.93
-        ]
-      }
-    ],
-    "tapHistory": [
-      1109.79,
-      788.18,
-      240.05,
-      155.09,
-      279.89,
-      429.72
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 11,
     "totalGMV": 91479.93,
     "totalComm": 9657.1,
@@ -9711,32 +5527,7 @@ const allShopData = [
     "agg_views": 3567723,
     "agg_sold": 3776,
     "agg_ctr": "0%",
-    "gmvPace": 105553.77,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 105553.77
   },
   {
     "username": "inquire.ahsocial@gmail.com",
@@ -9760,28 +5551,8 @@ const allShopData = [
         "commPct": "10.08%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "honestamandafinds",
-        "gmv": [
-          0,
-          0,
-          0,
-          52424.72,
-          118952.22,
-          151974,
-          101646.46
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 11,
     "totalGMV": 101646.46,
     "totalComm": 10250.66,
@@ -9815,32 +5586,7 @@ const allShopData = [
     "agg_views": 2772671,
     "agg_sold": 2189,
     "agg_ctr": "0%",
-    "gmvPace": 117284.38,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 117284.38
   },
   {
     "username": "jquibs95@gmail.com",
@@ -9864,28 +5610,8 @@ const allShopData = [
         "commPct": "12.70%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thejessicuh",
-        "gmv": [
-          3124.72,
-          1971.37,
-          630.4,
-          731.67,
-          975.82,
-          2166.48,
-          1802.72
-        ]
-      }
-    ],
-    "tapHistory": [
-      74.35,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 11,
     "totalGMV": 1802.72,
     "totalComm": 229.01,
@@ -9919,32 +5645,7 @@ const allShopData = [
     "agg_views": 111208,
     "agg_sold": 52,
     "agg_ctr": "0%",
-    "gmvPace": 2080.06,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2080.06
   },
   {
     "username": "singleonthemovecollab@gmail.com",
@@ -9968,28 +5669,8 @@ const allShopData = [
         "commPct": "9.74%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "singleonthemove",
-        "gmv": [
-          8941.15,
-          5639.26,
-          4562.83,
-          2904.76,
-          2470.43,
-          18475.63,
-          5041.27
-        ]
-      }
-    ],
-    "tapHistory": [
-      203.66,
-      79.9,
-      77.51,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 11,
     "totalGMV": 5041.27,
     "totalComm": 491.27,
@@ -10023,32 +5704,7 @@ const allShopData = [
     "agg_views": 199699,
     "agg_sold": 212,
     "agg_ctr": "0%",
-    "gmvPace": 5816.85,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 5816.85
   },
   {
     "username": "brandiebarron1@gmail.com",
@@ -10072,28 +5728,8 @@ const allShopData = [
         "commPct": "11.41%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brandie1234",
-        "gmv": [
-          154774.75,
-          153597.33,
-          136142.38,
-          98897.88,
-          71135,
-          131574.97,
-          83270.26
-        ]
-      }
-    ],
-    "tapHistory": [
-      609.5,
-      955.43,
-      651.35,
-      216.57,
-      138.79,
-      356.53
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 10,
     "totalGMV": 83270.26,
     "totalComm": 9499.97,
@@ -10127,32 +5763,7 @@ const allShopData = [
     "agg_views": 2626604,
     "agg_sold": 2361,
     "agg_ctr": "0%",
-    "gmvPace": 96081.07,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 96081.07
   },
   {
     "username": "kate@rebelsocials.com",
@@ -10191,40 +5802,8 @@ const allShopData = [
         "commPct": "9.80%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kategrauss",
-        "gmv": [
-          78644.9,
-          102434.33,
-          51070.86,
-          40601.06,
-          52236.87,
-          41143.26,
-          22649.57
-        ]
-      },
-      {
-        "handle": "kategrs",
-        "gmv": [
-          0,
-          0,
-          0,
-          1056.45,
-          303.78,
-          224.06,
-          1203.46
-        ]
-      }
-    ],
-    "tapHistory": [
-      3475.23,
-      35470.83,
-      16226.28,
-      7287.18,
-      5235.82,
-      1535.05
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 10,
     "totalGMV": 23853.03,
     "totalComm": 4874.49,
@@ -10258,32 +5837,7 @@ const allShopData = [
     "agg_views": 3585457,
     "agg_sold": 668,
     "agg_ctr": "0%",
-    "gmvPace": 26134.12,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 26134.12
   },
   {
     "username": "kusuma_na@icloud.com",
@@ -10322,40 +5876,8 @@ const allShopData = [
         "commPct": "17.03%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kusumabanana",
-        "gmv": [
-          7242.36,
-          8607.69,
-          7448.67,
-          3813.43,
-          3453.68,
-          3676.63,
-          1843.78
-        ]
-      },
-      {
-        "handle": "gooddeals_withmel",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          37.58
-        ]
-      }
-    ],
-    "tapHistory": [
-      1502.45,
-      1271.32,
-      1563.95,
-      871.52,
-      1093.44,
-      1275.88
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 10,
     "totalGMV": 1881.36,
     "totalComm": 251.89,
@@ -10389,32 +5911,7 @@ const allShopData = [
     "agg_views": 161885,
     "agg_sold": 95,
     "agg_ctr": "0%",
-    "gmvPace": 2127.44,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2127.44
   },
   {
     "username": "lesette@webwealth.org",
@@ -10438,28 +5935,8 @@ const allShopData = [
         "commPct": "11.10%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lesettey",
-        "gmv": [
-          67454.49,
-          129801.65,
-          96628.35,
-          66513.14,
-          50270.64,
-          94935.01,
-          63751.35
-        ]
-      }
-    ],
-    "tapHistory": [
-      1477.39,
-      2829.43,
-      64.38,
-      38.35,
-      76.48,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 10,
     "totalGMV": 63751.35,
     "totalComm": 7073.8,
@@ -10493,32 +5970,7 @@ const allShopData = [
     "agg_views": 1776406,
     "agg_sold": 1648,
     "agg_ctr": "0%",
-    "gmvPace": 73559.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 73559.25
   },
   {
     "username": "backnjennaup@gmail.com",
@@ -10557,40 +6009,8 @@ const allShopData = [
         "commPct": "11.92%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jennaparksonefelt",
-        "gmv": [
-          2492.57,
-          825.5,
-          207.2,
-          146.21,
-          307.9,
-          186.77,
-          202.96
-        ]
-      },
-      {
-        "handle": "backnjennaup",
-        "gmv": [
-          30040.79,
-          45253.23,
-          37496.69,
-          32119.71,
-          20584.25,
-          36588.3,
-          27255.62
-        ]
-      }
-    ],
-    "tapHistory": [
-      392.06,
-      126.32,
-      2216.86,
-      672.8,
-      475.5,
-      252.41
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 9,
     "totalGMV": 27458.58,
     "totalComm": 2781.78,
@@ -10624,32 +6044,7 @@ const allShopData = [
     "agg_views": 419922,
     "agg_sold": 522,
     "agg_ctr": "0%",
-    "gmvPace": 31448.79,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 31448.79
   },
   {
     "username": "brandon.palmertree3316@gmail.com",
@@ -10673,28 +6068,8 @@ const allShopData = [
         "commPct": "21.12%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brando23454",
-        "gmv": [
-          25005.68,
-          75537.74,
-          56499.1,
-          40616.77,
-          86766.68,
-          198591.4,
-          84584.28
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      334.65,
-      123.33,
-      0,
-      0,
-      423.6
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 9,
     "totalGMV": 84584.28,
     "totalComm": 17868.03,
@@ -10728,32 +6103,7 @@ const allShopData = [
     "agg_views": 3541339,
     "agg_sold": 2636,
     "agg_ctr": "0%",
-    "gmvPace": 97597.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 97597.25
   },
   {
     "username": "kristicustomcreations@gmail.com",
@@ -10777,28 +6127,8 @@ const allShopData = [
         "commPct": "10.27%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kristiscustomcreations",
-        "gmv": [
-          83313.9,
-          173183.52,
-          106526.18,
-          25054.53,
-          30877.23,
-          149574.33,
-          82952.72
-        ]
-      }
-    ],
-    "tapHistory": [
-      620.23,
-      411.15,
-      99.38,
-      22.49,
-      0,
-      19.15
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 9,
     "totalGMV": 82952.72,
     "totalComm": 8517.24,
@@ -10832,32 +6162,7 @@ const allShopData = [
     "agg_views": 2917391,
     "agg_sold": 2386,
     "agg_ctr": "0%",
-    "gmvPace": 95714.68,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 95714.68
   },
   {
     "username": "affiliategenise@gmail.com",
@@ -10881,28 +6186,8 @@ const allShopData = [
         "commPct": "12.24%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "itsgenise",
-        "gmv": [
-          0,
-          22415.61,
-          23974.64,
-          20192.69,
-          79920.11,
-          37674.87,
-          29300.82
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      318.65,
-      210.2,
-      64.38,
-      592.31,
-      313.94
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 8,
     "totalGMV": 29300.82,
     "totalComm": 3586.95,
@@ -10936,32 +6221,7 @@ const allShopData = [
     "agg_views": 1463699,
     "agg_sold": 1296,
     "agg_ctr": "0%",
-    "gmvPace": 33808.64,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 33808.64
   },
   {
     "username": "atravelingfern@gmail.com",
@@ -11030,64 +6290,8 @@ const allShopData = [
         "commPct": "32.12%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "southern_wellness",
-        "gmv": [
-          30161.97,
-          102729.57,
-          85318.15,
-          91791.97,
-          51645.41,
-          39122.13,
-          20113
-        ]
-      },
-      {
-        "handle": "tonyashomefinds",
-        "gmv": [
-          0,
-          1312.34,
-          800.17,
-          89.99,
-          166.53,
-          1288.67,
-          2214.04
-        ]
-      },
-      {
-        "handle": "tonya.wellness.np",
-        "gmv": [
-          0,
-          2787.92,
-          828.89,
-          579.35,
-          706.57,
-          759.52,
-          580.03
-        ]
-      },
-      {
-        "handle": "tonyaskoreanskincarefavs",
-        "gmv": [
-          0,
-          121.87,
-          272.03,
-          39.1,
-          52.41,
-          128.56,
-          105.26
-        ]
-      }
-    ],
-    "tapHistory": [
-      434.88,
-      517.47,
-      928.33,
-      0,
-      622.3000000000001,
-      441.93
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 8,
     "totalGMV": 23012.33,
     "totalComm": 4072.9,
@@ -11121,32 +6325,7 @@ const allShopData = [
     "agg_views": 352601,
     "agg_sold": 743,
     "agg_ctr": "0%",
-    "gmvPace": 23207.31,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 23207.31
   },
   {
     "username": "jaimelynnhill@gmail.com",
@@ -11170,28 +6349,8 @@ const allShopData = [
         "commPct": "10.94%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jaimehillathome",
-        "gmv": [
-          0,
-          78465.14,
-          108850.51,
-          75071.78,
-          97918.31,
-          58686.8,
-          47258.26
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      34.99,
-      154.09,
-      0,
-      0,
-      58.68
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 7,
     "totalGMV": 47258.26,
     "totalComm": 5171.73,
@@ -11225,32 +6384,7 @@ const allShopData = [
     "agg_views": 2358978,
     "agg_sold": 1591,
     "agg_ctr": "0%",
-    "gmvPace": 54528.76,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 54528.76
   },
   {
     "username": "spankifarris@gmail.com",
@@ -11274,28 +6408,8 @@ const allShopData = [
         "commPct": "11.09%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "spankifarris",
-        "gmv": [
-          0,
-          159404.7,
-          88153.89,
-          57803.21,
-          45944.72,
-          77031.38,
-          69718.46
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 7,
     "totalGMV": 69718.46,
     "totalComm": 7729.33,
@@ -11329,32 +6443,7 @@ const allShopData = [
     "agg_views": 1124997,
     "agg_sold": 2197,
     "agg_ctr": "0%",
-    "gmvPace": 80444.38,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 80444.38
   },
   {
     "username": "thatgirlkaty2024@gmail.com",
@@ -11378,28 +6467,8 @@ const allShopData = [
         "commPct": "13.88%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thatgirlkaty2",
-        "gmv": [
-          9926.04,
-          9121.8,
-          30750.02,
-          20989.05,
-          2615.59,
-          3721.47,
-          21477
-        ]
-      }
-    ],
-    "tapHistory": [
-      559.25,
-      1525.9,
-      254,
-      223.15,
-      26.07,
-      386.47
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 7,
     "totalGMV": 21477,
     "totalComm": 2980.06,
@@ -11433,32 +6502,7 @@ const allShopData = [
     "agg_views": 814885,
     "agg_sold": 946,
     "agg_ctr": "0%",
-    "gmvPace": 24781.15,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 24781.15
   },
   {
     "username": "amandahadz1@gmail.com",
@@ -11482,28 +6526,8 @@ const allShopData = [
         "commPct": "12.94%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "amanda_hadzimichalis",
-        "gmv": [
-          54927.99,
-          65255.98,
-          57420.8,
-          41041.73,
-          39930.22,
-          51928.29,
-          42362.53
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      461.65,
-      83.37,
-      75.99,
-      15.99,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 6,
     "totalGMV": 42362.53,
     "totalComm": 5479.63,
@@ -11537,32 +6561,7 @@ const allShopData = [
     "agg_views": 899185,
     "agg_sold": 2044,
     "agg_ctr": "0%",
-    "gmvPace": 48879.84,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 48879.84
   },
   {
     "username": "kaseystraub920@gmail.com",
@@ -11616,52 +6615,8 @@ const allShopData = [
         "commPct": "7.53%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kaseys0920",
-        "gmv": [
-          12546.68,
-          28231.99,
-          27276.98,
-          7061.83,
-          13088.04,
-          7580.08,
-          12076.25
-        ]
-      },
-      {
-        "handle": "kaseyas0920",
-        "gmv": [
-          3881.87,
-          47207.87,
-          72155.91,
-          10552.37,
-          7867.85,
-          6858.75,
-          6690.61
-        ]
-      },
-      {
-        "handle": "kcs0920",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          138
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      256.47,
-      20.63,
-      272.69,
-      131.97,
-      50.89
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 6,
     "totalGMV": 18904.86,
     "totalComm": 1921.65,
@@ -11695,32 +6650,7 @@ const allShopData = [
     "agg_views": 2146661,
     "agg_sold": 887,
     "agg_ctr": "0%",
-    "gmvPace": 13934.13,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 13934.13
   },
   {
     "username": "arsinehv@gmail.com",
@@ -11744,28 +6674,8 @@ const allShopData = [
         "commPct": "15.58%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "arsy_vartanian",
-        "gmv": [
-          54171.11,
-          91266.88,
-          81340.63,
-          51891.18,
-          28897.59,
-          35795.96,
-          30629.15
-        ]
-      }
-    ],
-    "tapHistory": [
-      395.94,
-      1734.05,
-      1040.3,
-      799.67,
-      567.01,
-      258.81
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 5,
     "totalGMV": 30629.15,
     "totalComm": 4773.49,
@@ -11799,32 +6709,7 @@ const allShopData = [
     "agg_views": 655145,
     "agg_sold": 680,
     "agg_ctr": "0%",
-    "gmvPace": 35341.33,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 35341.33
   },
   {
     "username": "aulozzilydia@gmail.com",
@@ -11848,28 +6733,8 @@ const allShopData = [
         "commPct": "14.25%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lydiaaulozzi_",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          66828.08,
-          42243.23
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 5,
     "totalGMV": 42243.23,
     "totalComm": 6020.73,
@@ -11903,32 +6768,7 @@ const allShopData = [
     "agg_views": 2822980,
     "agg_sold": 1390,
     "agg_ctr": "0%",
-    "gmvPace": 48742.19,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 48742.19
   },
   {
     "username": "keehnsasha@gmail.com",
@@ -11952,28 +6792,8 @@ const allShopData = [
         "commPct": "13.11%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "sashamarielovesshopping",
-        "gmv": [
-          67652.21,
-          62657.87,
-          53229.49,
-          37864.7,
-          42613.38,
-          26746.5,
-          21763.64
-        ]
-      }
-    ],
-    "tapHistory": [
-      2221.37,
-      3216.37,
-      746.03,
-      377.8,
-      1033.29,
-      229.3
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 5,
     "totalGMV": 21763.64,
     "totalComm": 2853.72,
@@ -12007,32 +6827,7 @@ const allShopData = [
     "agg_views": 1410514,
     "agg_sold": 820,
     "agg_ctr": "0%",
-    "gmvPace": 25111.89,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 25111.89
   },
   {
     "username": "lizzwaldropp@yahoo.com",
@@ -12056,28 +6851,8 @@ const allShopData = [
         "commPct": "9.94%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lizshops",
-        "gmv": [
-          7812.09,
-          9100.83,
-          14170.64,
-          10487.93,
-          8677.9,
-          12584.83,
-          10535.05
-        ]
-      }
-    ],
-    "tapHistory": [
-      126.54,
-      67.07,
-      55.95,
-      0,
-      0,
-      438.49
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 5,
     "totalGMV": 10535.05,
     "totalComm": 1047.16,
@@ -12111,32 +6886,7 @@ const allShopData = [
     "agg_views": 269054,
     "agg_sold": 378,
     "agg_ctr": "0%",
-    "gmvPace": 12155.83,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 12155.83
   },
   {
     "username": "alisammarieontiktok@gmail.com",
@@ -12160,28 +6910,8 @@ const allShopData = [
         "commPct": "9.04%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alisammarie",
-        "gmv": [
-          13593.35,
-          12376.38,
-          9620.84,
-          6398.28,
-          8143.58,
-          9378.81,
-          6550.77
-        ]
-      }
-    ],
-    "tapHistory": [
-      3782.84,
-      3853.82,
-      1279.38,
-      1381.7,
-      1752.62,
-      942.94
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 4,
     "totalGMV": 6550.77,
     "totalComm": 592.28,
@@ -12215,32 +6945,7 @@ const allShopData = [
     "agg_views": 217761,
     "agg_sold": 203,
     "agg_ctr": "0%",
-    "gmvPace": 7558.58,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 7558.58
   },
   {
     "username": "businessbecs@gmail.com",
@@ -12264,28 +6969,8 @@ const allShopData = [
         "commPct": "14.91%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "becsreview",
-        "gmv": [
-          20817.11,
-          12618.77,
-          15558.24,
-          7407.32,
-          3956.45,
-          4561.05,
-          3873.55
-        ]
-      }
-    ],
-    "tapHistory": [
-      703.12,
-      655.62,
-      545.37,
-      121.68,
-      57.84,
-      84.37
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 4,
     "totalGMV": 3873.55,
     "totalComm": 577.49,
@@ -12319,32 +7004,7 @@ const allShopData = [
     "agg_views": 201446,
     "agg_sold": 235,
     "agg_ctr": "0%",
-    "gmvPace": 4469.48,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4469.48
   },
   {
     "username": "meganheneghan2392@gmail.com",
@@ -12368,28 +7028,8 @@ const allShopData = [
         "commPct": "11.17%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "themagicalmillennial_",
-        "gmv": [
-          27177.95,
-          42580.79,
-          48083.47,
-          43099.62,
-          46318.24,
-          44107.22,
-          34697.76
-        ]
-      }
-    ],
-    "tapHistory": [
-      104.03,
-      58.78,
-      0,
-      32.99,
-      61.48,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 4,
     "totalGMV": 34697.76,
     "totalComm": 3875.91,
@@ -12423,32 +7063,7 @@ const allShopData = [
     "agg_views": 2277359,
     "agg_sold": 1547,
     "agg_ctr": "0%",
-    "gmvPace": 40035.88,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 40035.88
   },
   {
     "username": "mlondon8@yahoo.com",
@@ -12472,28 +7087,8 @@ const allShopData = [
         "commPct": "9.61%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "london_bridges_the_gap",
-        "gmv": [
-          0,
-          28620.58,
-          35190.56,
-          29540.03,
-          51867.81,
-          54587.55,
-          33205.98
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      71.44,
-      0,
-      231.18,
-      47.62
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 4,
     "totalGMV": 33205.98,
     "totalComm": 3192.5,
@@ -12527,32 +7122,7 @@ const allShopData = [
     "agg_views": 578782,
     "agg_sold": 999,
     "agg_ctr": "0%",
-    "gmvPace": 38314.59,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 38314.59
   },
   {
     "username": "tayloradis@icloud.com",
@@ -12576,28 +7146,8 @@ const allShopData = [
         "commPct": "10.21%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "tayloradis",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          55771.34,
-          102286.44,
-          36669.19
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 4,
     "totalGMV": 36669.19,
     "totalComm": 3742.14,
@@ -12631,32 +7181,7 @@ const allShopData = [
     "agg_views": 1652549,
     "agg_sold": 975,
     "agg_ctr": "0%",
-    "gmvPace": 42310.6,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 42310.6
   },
   {
     "username": "andreac@mybumpmybaby.org",
@@ -12680,28 +7205,8 @@ const allShopData = [
         "commPct": "12.09%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "andrea_costanzo",
-        "gmv": [
-          2565.31,
-          1768.81,
-          1382.8,
-          6764.36,
-          27292.08,
-          39665.96,
-          16741.86
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      158.31,
-      403.16
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 16741.86,
     "totalComm": 2023.92,
@@ -12735,32 +7240,7 @@ const allShopData = [
     "agg_views": 399268,
     "agg_sold": 871,
     "agg_ctr": "0%",
-    "gmvPace": 19317.53,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 19317.53
   },
   {
     "username": "ashleyzarb7@gmail.com",
@@ -12799,28 +7279,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mama.of.boys7",
-        "gmv": [
-          15909.04,
-          27605.34,
-          28253.12,
-          23198.08,
-          20390.09,
-          28822.07,
-          29433.86
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      89.98,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 29433.86,
     "totalComm": 3916.74,
@@ -12854,32 +7314,7 @@ const allShopData = [
     "agg_views": 1013859,
     "agg_sold": 985,
     "agg_ctr": "0%",
-    "gmvPace": 33962.15,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 33962.15
   },
   {
     "username": "becraftmorgan750@gmail.com",
@@ -12903,28 +7338,8 @@ const allShopData = [
         "commPct": "6.70%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "styledwithmorgs",
-        "gmv": [
-          0,
-          17849.01,
-          88060.34,
-          22962.72,
-          8465.71,
-          13994.31,
-          24517.14
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      99.82,
-      102.49,
-      135.76,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 24517.14,
     "totalComm": 1643.3,
@@ -12958,32 +7373,7 @@ const allShopData = [
     "agg_views": 1639687,
     "agg_sold": 1259,
     "agg_ctr": "0%",
-    "gmvPace": 28289.01,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 28289.01
   },
   {
     "username": "daniellampassarelli@gmail.com",
@@ -13007,28 +7397,8 @@ const allShopData = [
         "commPct": "11.73%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "andthatsthelipton",
-        "gmv": [
-          13520.92,
-          10315.15,
-          22976.61,
-          21476.43,
-          16825.3,
-          20035.33,
-          22398.06
-        ]
-      }
-    ],
-    "tapHistory": [
-      29,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 22398.06,
     "totalComm": 2626.32,
@@ -13062,32 +7432,7 @@ const allShopData = [
     "agg_views": 2688906,
     "agg_sold": 1106,
     "agg_ctr": "0%",
-    "gmvPace": 25843.92,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 25843.92
   },
   {
     "username": "graysonfinks@gmail.com",
@@ -13111,28 +7456,8 @@ const allShopData = [
         "commPct": "11.05%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "grayson.finks",
-        "gmv": [
-          149802.62,
-          140749.9,
-          93774.76,
-          70086.54,
-          62640.59,
-          46761.42,
-          29283.68
-        ]
-      }
-    ],
-    "tapHistory": [
-      1415.4,
-      536.81,
-      132.68,
-      0,
-      229.29,
-      224.67
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 29283.68,
     "totalComm": 3236.31,
@@ -13166,32 +7491,7 @@ const allShopData = [
     "agg_views": 1992337,
     "agg_sold": 936,
     "agg_ctr": "0%",
-    "gmvPace": 33788.86,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 33788.86
   },
   {
     "username": "rustiqueair@gmail.com",
@@ -13215,28 +7515,8 @@ const allShopData = [
         "commPct": "13.06%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "strongmama10",
-        "gmv": [
-          150081.21,
-          192196.08,
-          119910.9,
-          52165.65,
-          31694.63,
-          37688.86,
-          24764.91
-        ]
-      }
-    ],
-    "tapHistory": [
-      1924.49,
-      2666.28,
-      2583.45,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 3,
     "totalGMV": 24764.91,
     "totalComm": 3233.79,
@@ -13270,32 +7550,7 @@ const allShopData = [
     "agg_views": 428726,
     "agg_sold": 644,
     "agg_ctr": "0%",
-    "gmvPace": 28574.9,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 28574.9
   },
   {
     "username": "allyadams1714@gmail.com",
@@ -13334,40 +7589,8 @@ const allShopData = [
         "commPct": "7.88%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "shopdealzbyally",
-        "gmv": [
-          2056.25,
-          2217.48,
-          31790.76,
-          2439.87,
-          1184.91,
-          1003.23,
-          1655.91
-        ]
-      },
-      {
-        "handle": "official.ally.a.54",
-        "gmv": [
-          328.82,
-          229.03,
-          376.42,
-          86.74,
-          57.23,
-          50.95,
-          56.7
-        ]
-      }
-    ],
-    "tapHistory": [
-      23.75,
-      36,
-      219.16,
-      25,
-      37.05,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 1712.61,
     "totalComm": 166.19,
@@ -13401,32 +7624,7 @@ const allShopData = [
     "agg_views": 57562,
     "agg_sold": 26,
     "agg_ctr": "0%",
-    "gmvPace": 1910.67,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1910.67
   },
   {
     "username": "brittaggert9@gmail.com",
@@ -13450,28 +7648,8 @@ const allShopData = [
         "commPct": "12.84%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brittany.fnp",
-        "gmv": [
-          4200.18,
-          6784.54,
-          7717.24,
-          2801.95,
-          3247.21,
-          6000.77,
-          7708.32
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      29,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 7708.32,
     "totalComm": 989.62,
@@ -13505,32 +7683,7 @@ const allShopData = [
     "agg_views": 567850,
     "agg_sold": 235,
     "agg_ctr": "0%",
-    "gmvPace": 8894.22,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 8894.22
   },
   {
     "username": "brittney.collab@gmail.com",
@@ -13554,28 +7707,8 @@ const allShopData = [
         "commPct": "8.75%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brittneys.favorite.finds",
-        "gmv": [
-          33827.6,
-          54989.58,
-          80364.36,
-          22825.82,
-          26277.84,
-          37752.88,
-          17746.6
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      25.99,
-      26.47,
-      29.15
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 17746.6,
     "totalComm": 1552.78,
@@ -13609,32 +7742,7 @@ const allShopData = [
     "agg_views": 491845,
     "agg_sold": 370,
     "agg_ctr": "0%",
-    "gmvPace": 20476.85,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 20476.85
   },
   {
     "username": "brittnymarch1@gmail.com",
@@ -13658,28 +7766,8 @@ const allShopData = [
         "commPct": "12.13%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "brittnymarch",
-        "gmv": [
-          1197.51,
-          2378.48,
-          8490.33,
-          4154.03,
-          9923.29,
-          13791.87,
-          12465.69
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      32,
-      0,
-      32.74,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 12465.69,
     "totalComm": 1512.62,
@@ -13713,32 +7801,7 @@ const allShopData = [
     "agg_views": 227871,
     "agg_sold": 819,
     "agg_ctr": "0%",
-    "gmvPace": 14383.49,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 14383.49
   },
   {
     "username": "chesparza90@gmail.com",
@@ -13762,28 +7825,8 @@ const allShopData = [
         "commPct": "14.88%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "carlosesparza",
-        "gmv": [
-          15194.92,
-          19643.03,
-          13236.51,
-          7965.39,
-          5383.08,
-          6670.91,
-          6347.42
-        ]
-      }
-    ],
-    "tapHistory": [
-      160,
-      350.3,
-      116.5,
-      63.9,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 6347.42,
     "totalComm": 944.51,
@@ -13817,32 +7860,7 @@ const allShopData = [
     "agg_views": 290074,
     "agg_sold": 200,
     "agg_ctr": "0%",
-    "gmvPace": 7323.95,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 7323.95
   },
   {
     "username": "classymmarie@protonmail.com",
@@ -13866,28 +7884,8 @@ const allShopData = [
         "commPct": "16.55%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mariebriii",
-        "gmv": [
-          69431.93,
-          79430.98,
-          80280.86,
-          53736.5,
-          38899.15,
-          11250.31,
-          2402.12
-        ]
-      }
-    ],
-    "tapHistory": [
-      8195,
-      5207.71,
-      8057.66,
-      1531.32,
-      1061.75,
-      354.78
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 2402.12,
     "totalComm": 397.56,
@@ -13921,32 +7919,7 @@ const allShopData = [
     "agg_views": 4091,
     "agg_sold": 114,
     "agg_ctr": "0%",
-    "gmvPace": 2771.68,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2771.68
   },
   {
     "username": "happyhealthyabbie1@gmail.com",
@@ -13985,40 +7958,8 @@ const allShopData = [
         "commPct": "13.51%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "happyhealthyabbie",
-        "gmv": [
-          28154.48,
-          28231.56,
-          14425.17,
-          8071.02,
-          7008.88,
-          4351.5,
-          2374.45
-        ]
-      },
-      {
-        "handle": "ohheyitsabbie",
-        "gmv": [
-          6681.05,
-          6190.22,
-          1899.2,
-          350.8,
-          288.81,
-          7200.59,
-          2900.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      1171.48,
-      355.49,
-      61.89,
-      56.9,
-      124.99,
-      77.86
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 5275.06,
     "totalComm": 515.58,
@@ -14052,32 +7993,7 @@ const allShopData = [
     "agg_views": 204679,
     "agg_sold": 169,
     "agg_ctr": "0%",
-    "gmvPace": 3346.86,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3346.86
   },
   {
     "username": "lillianharriscollabs@gmail.com",
@@ -14101,28 +8017,8 @@ const allShopData = [
         "commPct": "9.86%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lillian_harriss",
-        "gmv": [
-          31603.64,
-          27531.84,
-          28068.06,
-          18867.7,
-          14307.43,
-          12272.69,
-          8005.39
-        ]
-      }
-    ],
-    "tapHistory": [
-      2405.06,
-      240.38,
-      109.4,
-      0,
-      42,
-      90.15
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 8005.39,
     "totalComm": 789.45,
@@ -14156,32 +8052,7 @@ const allShopData = [
     "agg_views": 377757,
     "agg_sold": 311,
     "agg_ctr": "0%",
-    "gmvPace": 9236.99,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 9236.99
   },
   {
     "username": "lmscollabs@gmail.com",
@@ -14205,28 +8076,8 @@ const allShopData = [
         "commPct": "12.84%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "leahmstapleton",
-        "gmv": [
-          12655.45,
-          23036.97,
-          54516.19,
-          21506.55,
-          12515.81,
-          19575.44,
-          12432.05
-        ]
-      }
-    ],
-    "tapHistory": [
-      79.95,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 12432.05,
     "totalComm": 1596.81,
@@ -14260,32 +8111,7 @@ const allShopData = [
     "agg_views": 2158509,
     "agg_sold": 479,
     "agg_ctr": "0%",
-    "gmvPace": 14344.67,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 14344.67
   },
   {
     "username": "megan.lefevre@yahoo.com",
@@ -14309,28 +8135,8 @@ const allShopData = [
         "commPct": "8.16%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "meganlouise2319",
-        "gmv": [
-          6331.73,
-          17661.12,
-          28127.48,
-          19105.87,
-          12739.58,
-          16483.77,
-          10651.44
-        ]
-      }
-    ],
-    "tapHistory": [
-      106.21,
-      22.76,
-      31.84,
-      96.28,
-      0,
-      145.22
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 10651.44,
     "totalComm": 868.67,
@@ -14364,32 +8170,7 @@ const allShopData = [
     "agg_views": 452356,
     "agg_sold": 382,
     "agg_ctr": "0%",
-    "gmvPace": 12290.12,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 12290.12
   },
   {
     "username": "nikidetrich@gmail.com",
@@ -14428,40 +8209,8 @@ const allShopData = [
         "commPct": "12.05%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "nikidetrich",
-        "gmv": [
-          1536.54,
-          2682.72,
-          15825.83,
-          1613.93,
-          2598.34,
-          2655.32,
-          2799.23
-        ]
-      },
-      {
-        "handle": "bookswithniki",
-        "gmv": [
-          1052.55,
-          1804.55,
-          3417.26,
-          1497.79,
-          953.73,
-          1075.12,
-          134.87
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 2934.1,
     "totalComm": 334.69,
@@ -14495,32 +8244,7 @@ const allShopData = [
     "agg_views": 184826,
     "agg_sold": 95,
     "agg_ctr": "0%",
-    "gmvPace": 3229.88,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3229.88
   },
   {
     "username": "ollie999tiktok@gmail.com",
@@ -14559,40 +8283,8 @@ const allShopData = [
         "commPct": "15.32%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ollie999",
-        "gmv": [
-          8083.99,
-          11445.85,
-          13022.45,
-          5362.5,
-          2109.36,
-          1620.16,
-          758.02
-        ]
-      },
-      {
-        "handle": "brotherbrad888",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          2894.93,
-          2058.84,
-          73.45
-        ]
-      }
-    ],
-    "tapHistory": [
-      376.99,
-      212.69,
-      174.43,
-      161.05,
-      79.54,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 831.47,
     "totalComm": 108.16,
@@ -14626,32 +8318,7 @@ const allShopData = [
     "agg_views": 134167,
     "agg_sold": 26,
     "agg_ctr": "0%",
-    "gmvPace": 874.64,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 874.64
   },
   {
     "username": "revyungme@gmail.com",
@@ -14675,28 +8342,8 @@ const allShopData = [
         "commPct": "17.01%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "revyungme",
-        "gmv": [
-          13595.2,
-          22580.1,
-          16727.95,
-          11581.94,
-          20171.58,
-          28382.92,
-          17514.86
-        ]
-      }
-    ],
-    "tapHistory": [
-      228.65,
-      2103.47,
-      504.53,
-      23,
-      31.49,
-      428.52
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 17514.86,
     "totalComm": 2979.54,
@@ -14730,32 +8377,7 @@ const allShopData = [
     "agg_views": 357601,
     "agg_sold": 720,
     "agg_ctr": "0%",
-    "gmvPace": 20209.45,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 20209.45
   },
   {
     "username": "rondadaly@comcast.net",
@@ -14779,28 +8401,8 @@ const allShopData = [
         "commPct": "10.33%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "rondadaly",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          7211.96,
-          27278.54,
-          19493.01
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 2,
     "totalGMV": 19493.01,
     "totalComm": 2013.93,
@@ -14834,32 +8436,7 @@ const allShopData = [
     "agg_views": 474905,
     "agg_sold": 758,
     "agg_ctr": "0%",
-    "gmvPace": 22491.93,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 22491.93
   },
   {
     "username": "aironstok@gmail.com",
@@ -14883,28 +8460,8 @@ const allShopData = [
         "commPct": "18.19%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thenursethattoks",
-        "gmv": [
-          6104.69,
-          6843.33,
-          10911.98,
-          11013.26,
-          4533.52,
-          4689.59,
-          1042.1
-        ]
-      }
-    ],
-    "tapHistory": [
-      35,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1042.1,
     "totalComm": 189.6,
@@ -14938,32 +8495,7 @@ const allShopData = [
     "agg_views": 85686,
     "agg_sold": 38,
     "agg_ctr": "0%",
-    "gmvPace": 1202.42,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1202.42
   },
   {
     "username": "alexandracastellanos2@gmail.com",
@@ -14987,28 +8519,8 @@ const allShopData = [
         "commPct": "0.00%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alexandracaste",
-        "gmv": [
-          71.46,
-          234.16,
-          27.04,
-          0,
-          61.13,
-          60.53,
-          13.29
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 13.29,
     "totalComm": 0,
@@ -15042,32 +8554,7 @@ const allShopData = [
     "agg_views": 851,
     "agg_sold": 1,
     "agg_ctr": "0%",
-    "gmvPace": 15.33,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 15.33
   },
   {
     "username": "allthingsadmg@gmail.com",
@@ -15091,28 +8578,8 @@ const allShopData = [
         "commPct": "18.48%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "allthings_andrea",
-        "gmv": [
-          356.96,
-          217.23,
-          199.91,
-          321.02,
-          329.6,
-          593.1,
-          162.87
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 162.87,
     "totalComm": 30.1,
@@ -15146,32 +8613,7 @@ const allShopData = [
     "agg_views": 6767,
     "agg_sold": 2,
     "agg_ctr": "0%",
-    "gmvPace": 187.93,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 187.93
   },
   {
     "username": "ally.munch@hotmail.com",
@@ -15195,28 +8637,8 @@ const allShopData = [
         "commPct": "18.23%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alexandraarosee",
-        "gmv": [
-          12029.02,
-          9724.24,
-          7103.89,
-          4140.72,
-          4343.6,
-          2803.19,
-          1663.55
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1663.55,
     "totalComm": 303.29,
@@ -15250,32 +8672,7 @@ const allShopData = [
     "agg_views": 99730,
     "agg_sold": 54,
     "agg_ctr": "0%",
-    "gmvPace": 1919.48,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1919.48
   },
   {
     "username": "alwayzlele2019@gmail.com",
@@ -15299,28 +8696,8 @@ const allShopData = [
         "commPct": "10.47%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alwayzlele2019",
-        "gmv": [
-          1177.03,
-          926.93,
-          552.5,
-          355.67,
-          775.04,
-          1400.92,
-          399.98
-        ]
-      }
-    ],
-    "tapHistory": [
-      35,
-      13.23,
-      0,
-      0,
-      24.71,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 399.98,
     "totalComm": 41.89,
@@ -15354,32 +8731,7 @@ const allShopData = [
     "agg_views": 27720,
     "agg_sold": 15,
     "agg_ctr": "0%",
-    "gmvPace": 461.52,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 461.52
   },
   {
     "username": "alysonmartincollab@gmail.com",
@@ -15403,28 +8755,8 @@ const allShopData = [
         "commPct": "9.87%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alysonmartin87",
-        "gmv": [
-          1004.67,
-          649.58,
-          336.39,
-          628.72,
-          370.94,
-          254.28,
-          53.18
-        ]
-      }
-    ],
-    "tapHistory": [
-      139.73,
-      0,
-      12.96,
-      79.8,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 53.18,
     "totalComm": 5.25,
@@ -15458,32 +8790,7 @@ const allShopData = [
     "agg_views": 3990,
     "agg_sold": 3,
     "agg_ctr": "0%",
-    "gmvPace": 61.36,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 61.36
   },
   {
     "username": "anju@socialstudiosla.com",
@@ -15507,28 +8814,8 @@ const allShopData = [
         "commPct": "10.20%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ayeitsanju",
-        "gmv": [
-          2598.6,
-          2850.22,
-          2061.44,
-          1406.17,
-          1604.15,
-          1695.24,
-          1565.96
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1565.96,
     "totalComm": 159.78,
@@ -15562,32 +8849,7 @@ const allShopData = [
     "agg_views": 54136,
     "agg_sold": 117,
     "agg_ctr": "0%",
-    "gmvPace": 1806.88,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1806.88
   },
   {
     "username": "annaslivka19@gmail.com",
@@ -15611,28 +8873,8 @@ const allShopData = [
         "commPct": "10.51%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "annaslivka2",
-        "gmv": [
-          7633.53,
-          16273.22,
-          11390.92,
-          14310.97,
-          12124.97,
-          10188.99,
-          5962.99
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 5962.99,
     "totalComm": 626.9,
@@ -15666,32 +8908,7 @@ const allShopData = [
     "agg_views": 148897,
     "agg_sold": 137,
     "agg_ctr": "0%",
-    "gmvPace": 6880.37,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 6880.37
   },
   {
     "username": "beautybyrani88@gmail.com",
@@ -15715,28 +8932,8 @@ const allShopData = [
         "commPct": "11.61%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "savi_trends",
-        "gmv": [
-          6298.5,
-          5211.42,
-          3858.93,
-          6635.49,
-          4796.97,
-          4113.45,
-          3618.35
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      129.32,
-      220.86,
-      72.87,
-      28.8,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3618.35,
     "totalComm": 420.15,
@@ -15770,32 +8967,7 @@ const allShopData = [
     "agg_views": 162424,
     "agg_sold": 137,
     "agg_ctr": "0%",
-    "gmvPace": 4175.02,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4175.02
   },
   {
     "username": "bigvicenergyinc@gmail.com",
@@ -15819,28 +8991,8 @@ const allShopData = [
         "commPct": "8.24%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "victoriaperciballi",
-        "gmv": [
-          800.5,
-          1138.87,
-          2834.94,
-          862.51,
-          197.56,
-          357.47,
-          335.35
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 335.35,
     "totalComm": 27.64,
@@ -15874,32 +9026,7 @@ const allShopData = [
     "agg_views": 17397,
     "agg_sold": 16,
     "agg_ctr": "0%",
-    "gmvPace": 386.94,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 386.94
   },
   {
     "username": "brooketaylorbeautyy@gmail.com",
@@ -15923,28 +9050,8 @@ const allShopData = [
         "commPct": "10.85%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "btbeautyx",
-        "gmv": [
-          9596.13,
-          16404.28,
-          12346.11,
-          4419.66,
-          5059.57,
-          6064.96,
-          3914.85
-        ]
-      }
-    ],
-    "tapHistory": [
-      277.52,
-      92.38,
-      0,
-      48.59,
-      61.48,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3914.85,
     "totalComm": 424.57,
@@ -15978,32 +9085,7 @@ const allShopData = [
     "agg_views": 137331,
     "agg_sold": 126,
     "agg_ctr": "0%",
-    "gmvPace": 4517.13,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4517.13
   },
   {
     "username": "bryttani.mingo92@gmail.com",
@@ -16027,28 +9109,8 @@ const allShopData = [
         "commPct": "8.96%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "bryttani_mingo",
-        "gmv": [
-          12354.59,
-          13066.46,
-          12131.44,
-          3567.95,
-          2209.68,
-          3593.88,
-          1847.32
-        ]
-      }
-    ],
-    "tapHistory": [
-      205.24,
-      265.53,
-      255.54,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1847.32,
     "totalComm": 165.43,
@@ -16082,32 +9144,7 @@ const allShopData = [
     "agg_views": 31108,
     "agg_sold": 39,
     "agg_ctr": "0%",
-    "gmvPace": 2131.52,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2131.52
   },
   {
     "username": "bybrencollabs@gmail.com",
@@ -16131,28 +9168,8 @@ const allShopData = [
         "commPct": "9.02%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "by.bren2",
-        "gmv": [
-          9070.1,
-          23204.41,
-          15690.7,
-          9573.71,
-          5755.47,
-          8550.54,
-          6688.05
-        ]
-      }
-    ],
-    "tapHistory": [
-      108.93,
-      327.93,
-      146.45,
-      28.99,
-      47.91,
-      22.04
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 6688.05,
     "totalComm": 603.05,
@@ -16186,32 +9203,7 @@ const allShopData = [
     "agg_views": 397645,
     "agg_sold": 251,
     "agg_ctr": "0%",
-    "gmvPace": 7716.98,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 7716.98
   },
   {
     "username": "caleb.scholling@gmail.com",
@@ -16235,28 +9227,8 @@ const allShopData = [
         "commPct": "9.77%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "calebrichhh",
-        "gmv": [
-          5292.69,
-          8070.18,
-          10692.32,
-          9899.97,
-          12552.94,
-          12052.86,
-          9178.59
-        ]
-      }
-    ],
-    "tapHistory": [
-      79.65,
-      219.63,
-      0,
-      58.41,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 9178.59,
     "totalComm": 897.19,
@@ -16290,32 +9262,7 @@ const allShopData = [
     "agg_views": 290620,
     "agg_sold": 413,
     "agg_ctr": "0%",
-    "gmvPace": 10590.68,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 10590.68
   },
   {
     "username": "collabjustjess111@gmail.com",
@@ -16339,28 +9286,8 @@ const allShopData = [
         "commPct": "19.33%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "justjess111",
-        "gmv": [
-          1038.54,
-          2082.45,
-          593.65,
-          278.93,
-          565.97,
-          245.54,
-          97.73
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      106.16,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 97.73,
     "totalComm": 18.89,
@@ -16394,32 +9321,7 @@ const allShopData = [
     "agg_views": 4203,
     "agg_sold": 5,
     "agg_ctr": "0%",
-    "gmvPace": 112.77,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 112.77
   },
   {
     "username": "collabs.aliciacacho@gmail.com",
@@ -16443,28 +9345,8 @@ const allShopData = [
         "commPct": "14.24%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "aliciamariecacho",
-        "gmv": [
-          1927.78,
-          5576.06,
-          2426.53,
-          1479.11,
-          914.5,
-          614.32,
-          244.94
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 244.94,
     "totalComm": 34.89,
@@ -16498,32 +9380,7 @@ const allShopData = [
     "agg_views": 21391,
     "agg_sold": 11,
     "agg_ctr": "0%",
-    "gmvPace": 282.62,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 282.62
   },
   {
     "username": "collabwithez@gmail.com",
@@ -16547,28 +9404,8 @@ const allShopData = [
         "commPct": "13.04%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ez.influence",
-        "gmv": [
-          895.44,
-          987.26,
-          5319.73,
-          936.31,
-          4395.45,
-          5874.98,
-          2481.87
-        ]
-      }
-    ],
-    "tapHistory": [
-      69.45,
-      52.05,
-      181.84,
-      103,
-      630.08,
-      299.82
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2481.87,
     "totalComm": 323.68,
@@ -16602,32 +9439,7 @@ const allShopData = [
     "agg_views": 81794,
     "agg_sold": 112,
     "agg_ctr": "0%",
-    "gmvPace": 2863.7,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2863.7
   },
   {
     "username": "contact@chloerosenbaum.com",
@@ -16651,28 +9463,8 @@ const allShopData = [
         "commPct": "12.12%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "itschlospamm",
-        "gmv": [
-          11834.57,
-          992.96,
-          3145.5,
-          1944.03,
-          486.31,
-          1091.43,
-          862.63
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 862.63,
     "totalComm": 104.56,
@@ -16706,32 +9498,7 @@ const allShopData = [
     "agg_views": 187793,
     "agg_sold": 40,
     "agg_ctr": "0%",
-    "gmvPace": 995.34,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 995.34
   },
   {
     "username": "crashingskydrummer@gmail.com",
@@ -16755,28 +9522,8 @@ const allShopData = [
         "commPct": "14.39%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "skylerclarkk",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          428.59
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 428.59,
     "totalComm": 61.69,
@@ -16810,32 +9557,7 @@ const allShopData = [
     "agg_views": 40317,
     "agg_sold": 21,
     "agg_ctr": "0%",
-    "gmvPace": 494.53,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 494.53
   },
   {
     "username": "cre8tingkatie@gmail.com",
@@ -16859,28 +9581,8 @@ const allShopData = [
         "commPct": "9.63%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "katiemarie.beauty",
-        "gmv": [
-          490.82,
-          242.97,
-          43.99,
-          13.99,
-          0,
-          190.83,
-          154.02
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 154.02,
     "totalComm": 14.83,
@@ -16914,32 +9616,7 @@ const allShopData = [
     "agg_views": 5824,
     "agg_sold": 3,
     "agg_ctr": "0%",
-    "gmvPace": 177.72,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 177.72
   },
   {
     "username": "creatorsalleyshop@gmail.com",
@@ -16963,28 +9640,8 @@ const allShopData = [
         "commPct": "6.18%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "creatorsalley",
-        "gmv": [
-          2576.91,
-          4923.78,
-          6022.31,
-          3195.79,
-          4774.13,
-          3897.78,
-          3427.02
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      101.48,
-      544.14,
-      264.87,
-      91.95,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3427.02,
     "totalComm": 211.78,
@@ -17018,32 +9675,7 @@ const allShopData = [
     "agg_views": 25668,
     "agg_sold": 30,
     "agg_ctr": "0%",
-    "gmvPace": 3954.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3954.25
   },
   {
     "username": "dalenamandrade@gmail.com",
@@ -17067,28 +9699,8 @@ const allShopData = [
         "commPct": "6.09%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mrslenalena",
-        "gmv": [
-          1565.56,
-          805.88,
-          786.36,
-          116.04,
-          282.61,
-          204.44,
-          185.3
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      15.74,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 185.3,
     "totalComm": 11.28,
@@ -17122,32 +9734,7 @@ const allShopData = [
     "agg_views": 7557,
     "agg_sold": 18,
     "agg_ctr": "0%",
-    "gmvPace": 213.81,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 213.81
   },
   {
     "username": "daynamariebiz@gmail.com",
@@ -17171,28 +9758,8 @@ const allShopData = [
         "commPct": "13.76%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mattanddayna",
-        "gmv": [
-          0,
-          0,
-          6265.54,
-          21234.99,
-          4482.04,
-          2745.33,
-          3084.14
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3084.14,
     "totalComm": 424.35,
@@ -17226,32 +9793,7 @@ const allShopData = [
     "agg_views": 701088,
     "agg_sold": 207,
     "agg_ctr": "0%",
-    "gmvPace": 3558.62,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3558.62
   },
   {
     "username": "dealsbyjomomma@gmail.com",
@@ -17275,28 +9817,8 @@ const allShopData = [
         "commPct": "28.49%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "dealsbyjomomma",
-        "gmv": [
-          3853.19,
-          46008.09,
-          11357.48,
-          8852.24,
-          19746.68,
-          256.15,
-          58.1
-        ]
-      }
-    ],
-    "tapHistory": [
-      90.71,
-      381.36,
-      34.79,
-      20,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 58.1,
     "totalComm": 16.55,
@@ -17330,32 +9852,7 @@ const allShopData = [
     "agg_views": 98,
     "agg_sold": 2,
     "agg_ctr": "0%",
-    "gmvPace": 67.04,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 67.04
   },
   {
     "username": "dinakxoxo@gmail.com",
@@ -17379,28 +9876,8 @@ const allShopData = [
         "commPct": "12.17%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "dinakxoxo",
-        "gmv": [
-          3744.87,
-          6484.9,
-          3790.75,
-          10040.17,
-          4997.93,
-          8419.37,
-          5564.6
-        ]
-      }
-    ],
-    "tapHistory": [
-      155.98,
-      368.56,
-      0,
-      0,
-      10.25,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 5564.6,
     "totalComm": 677.09,
@@ -17434,32 +9911,7 @@ const allShopData = [
     "agg_views": 868832,
     "agg_sold": 318,
     "agg_ctr": "0%",
-    "gmvPace": 6420.69,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 6420.69
   },
   {
     "username": "emileylanecontact@gmail.com",
@@ -17483,28 +9935,8 @@ const allShopData = [
         "commPct": "12.49%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "emileys.drafts",
-        "gmv": [
-          9257.06,
-          18825.64,
-          18883.26,
-          4279.13,
-          6558.91,
-          6275.24,
-          3757.04
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      10.5,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3757.04,
     "totalComm": 469.08,
@@ -17538,32 +9970,7 @@ const allShopData = [
     "agg_views": 115544,
     "agg_sold": 260,
     "agg_ctr": "0%",
-    "gmvPace": 4335.05,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4335.05
   },
   {
     "username": "gabbrieluh@gmail.com",
@@ -17587,28 +9994,8 @@ const allShopData = [
         "commPct": "9.46%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "gabbrieluh",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          3586.88
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3586.88,
     "totalComm": 339.38,
@@ -17642,32 +10029,7 @@ const allShopData = [
     "agg_views": 234971,
     "agg_sold": 149,
     "agg_ctr": "0%",
-    "gmvPace": 4138.71,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4138.71
   },
   {
     "username": "giacintoalexa@gmail.com",
@@ -17691,28 +10053,8 @@ const allShopData = [
         "commPct": "10.27%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "alexagiacinto",
-        "gmv": [
-          90.57,
-          208.02,
-          214.14,
-          20.58,
-          0,
-          15.28,
-          107.97
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 107.97,
     "totalComm": 11.09,
@@ -17746,32 +10088,7 @@ const allShopData = [
     "agg_views": 7187,
     "agg_sold": 4,
     "agg_ctr": "0%",
-    "gmvPace": 124.58,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 124.58
   },
   {
     "username": "hayleejoe@gmail.com",
@@ -17795,28 +10112,8 @@ const allShopData = [
         "commPct": "12.72%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "hayleejoe",
-        "gmv": [
-          4371.06,
-          7659.31,
-          4792.45,
-          2872.32,
-          3639.69,
-          3502.65,
-          2108
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2108,
     "totalComm": 268.12,
@@ -17850,32 +10147,7 @@ const allShopData = [
     "agg_views": 85147,
     "agg_sold": 81,
     "agg_ctr": "0%",
-    "gmvPace": 2432.31,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2432.31
   },
   {
     "username": "hayley@hayleyyrichardson.com",
@@ -17899,28 +10171,8 @@ const allShopData = [
         "commPct": "8.34%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "hayleyyrichardson",
-        "gmv": [
-          0,
-          174.99,
-          168.99,
-          37.95,
-          133.98,
-          214.62,
-          166.9
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 166.9,
     "totalComm": 13.92,
@@ -17954,32 +10206,7 @@ const allShopData = [
     "agg_views": 4373,
     "agg_sold": 3,
     "agg_ctr": "0%",
-    "gmvPace": 192.58,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 192.58
   },
   {
     "username": "hello@itsjustlaw.com",
@@ -18003,28 +10230,8 @@ const allShopData = [
         "commPct": "5.00%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "Itsjesslaw",
-        "gmv": [
-          657.55,
-          320.06,
-          401.03,
-          26.95,
-          819.48,
-          1033.27,
-          809.97
-        ]
-      }
-    ],
-    "tapHistory": [
-      30.29,
-      117.7,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 809.97,
     "totalComm": 40.5,
@@ -18058,32 +10265,7 @@ const allShopData = [
     "agg_views": 11946,
     "agg_sold": 3,
     "agg_ctr": "0%",
-    "gmvPace": 934.58,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 934.58
   },
   {
     "username": "hello@lexiiludgate.com",
@@ -18107,28 +10289,8 @@ const allShopData = [
         "commPct": "8.39%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lt_finds",
-        "gmv": [
-          9480.29,
-          13380.83,
-          15645.51,
-          9866.43,
-          7907.3,
-          5579.95,
-          2995.41
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2995.41,
     "totalComm": 251.18,
@@ -18162,32 +10324,7 @@ const allShopData = [
     "agg_views": 189362,
     "agg_sold": 105,
     "agg_ctr": "0%",
-    "gmvPace": 3456.24,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3456.24
   },
   {
     "username": "info@ohkrista.com",
@@ -18211,28 +10348,8 @@ const allShopData = [
         "commPct": "12.58%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ohkrista",
-        "gmv": [
-          12016.13,
-          7396.63,
-          9774.18,
-          10533.01,
-          11632.61,
-          13096.52,
-          7430.81
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      81.47,
-      402.54,
-      705.5,
-      974.26,
-      1015.15
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 7430.81,
     "totalComm": 934.63,
@@ -18266,32 +10383,7 @@ const allShopData = [
     "agg_views": 921103,
     "agg_sold": 187,
     "agg_ctr": "0%",
-    "gmvPace": 8574.01,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 8574.01
   },
   {
     "username": "info@theashleyyancy.com",
@@ -18315,28 +10407,8 @@ const allShopData = [
         "commPct": "11.73%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "iamashleyyancy",
-        "gmv": [
-          499.68,
-          491.12,
-          858.11,
-          1956.53,
-          1675.68,
-          2547.28,
-          687.39
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      39.08
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 687.39,
     "totalComm": 80.66,
@@ -18370,32 +10442,7 @@ const allShopData = [
     "agg_views": 31562,
     "agg_sold": 22,
     "agg_ctr": "0%",
-    "gmvPace": 793.14,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 793.14
   },
   {
     "username": "ismarinolasco@gmail.com",
@@ -18419,28 +10466,8 @@ const allShopData = [
         "commPct": "10.87%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "wanderlustismari",
-        "gmv": [
-          1260.01,
-          2549.71,
-          2385.83,
-          715.7,
-          1027.99,
-          1194.93,
-          522.56
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      15.5,
-      0,
-      0,
-      98.56,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 522.56,
     "totalComm": 56.82,
@@ -18474,32 +10501,7 @@ const allShopData = [
     "agg_views": 41038,
     "agg_sold": 15,
     "agg_ctr": "0%",
-    "gmvPace": 602.95,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 602.95
   },
   {
     "username": "izzod3@outlook.com",
@@ -18523,28 +10525,8 @@ const allShopData = [
         "commPct": "5.44%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "heyimdanizzo",
-        "gmv": [
-          31.96,
-          85.33,
-          67.25,
-          13.9,
-          0,
-          189.22,
-          16.9
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 16.9,
     "totalComm": 0.92,
@@ -18578,32 +10560,7 @@ const allShopData = [
     "agg_views": 3827,
     "agg_sold": 1,
     "agg_ctr": "0%",
-    "gmvPace": 19.5,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 19.5
   },
   {
     "username": "izzypriest13@gmail.com",
@@ -18627,28 +10584,8 @@ const allShopData = [
         "commPct": "13.04%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "izwakeup",
-        "gmv": [
-          9109.14,
-          17969.44,
-          10464.57,
-          7264.61,
-          5446.02,
-          7131.13,
-          7738.38
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 7738.38,
     "totalComm": 1009.13,
@@ -18682,32 +10619,7 @@ const allShopData = [
     "agg_views": 436812,
     "agg_sold": 276,
     "agg_ctr": "0%",
-    "gmvPace": 8928.9,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 8928.9
   },
   {
     "username": "jadann26@gmail.com",
@@ -18731,28 +10643,8 @@ const allShopData = [
         "commPct": "12.04%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "aye11861",
-        "gmv": [
-          1045.88,
-          788.14,
-          913.55,
-          740.36,
-          330.27,
-          374.69,
-          456.71
-        ]
-      }
-    ],
-    "tapHistory": [
-      16.89,
-      126.5,
-      36.96,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 456.71,
     "totalComm": 54.97,
@@ -18786,32 +10678,7 @@ const allShopData = [
     "agg_views": 13120,
     "agg_sold": 12,
     "agg_ctr": "0%",
-    "gmvPace": 526.97,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 526.97
   },
   {
     "username": "jennacaputo429@gmail.com",
@@ -18835,28 +10702,8 @@ const allShopData = [
         "commPct": "6.26%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jennababiolakis",
-        "gmv": [
-          515.32,
-          153.17,
-          34.94,
-          162.32,
-          275.67,
-          774.86,
-          2530.02
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2530.02,
     "totalComm": 158.35,
@@ -18890,32 +10737,7 @@ const allShopData = [
     "agg_views": 119984,
     "agg_sold": 106,
     "agg_ctr": "0%",
-    "gmvPace": 2919.25,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2919.25
   },
   {
     "username": "jessicahiggins2@yahoo.com",
@@ -18939,28 +10761,8 @@ const allShopData = [
         "commPct": "8.51%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jeca050709",
-        "gmv": [
-          17551.42,
-          19099.91,
-          1533.3,
-          2383.62,
-          1664.92,
-          731.83,
-          293.2
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      63.4,
-      37.45,
-      139.99,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 293.2,
     "totalComm": 24.96,
@@ -18994,32 +10796,7 @@ const allShopData = [
     "agg_views": 21097,
     "agg_sold": 18,
     "agg_ctr": "0%",
-    "gmvPace": 338.31,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 338.31
   },
   {
     "username": "jonwickicollabs@gmail.com",
@@ -19043,28 +10820,8 @@ const allShopData = [
         "commPct": "10.09%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "jon_wicki_",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          149.8,
-          5616.41
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 5616.41,
     "totalComm": 566.55,
@@ -19098,32 +10855,7 @@ const allShopData = [
     "agg_views": 196361,
     "agg_sold": 124,
     "agg_ctr": "0%",
-    "gmvPace": 6480.47,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 6480.47
   },
   {
     "username": "kyliebrumcollabs@gmail.com",
@@ -19147,28 +10879,8 @@ const allShopData = [
         "commPct": "7.64%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kyliebrum",
-        "gmv": [
-          2176.03,
-          2178.16,
-          448.05,
-          240.89,
-          381.58,
-          311.92,
-          445.51
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 445.51,
     "totalComm": 34.03,
@@ -19202,32 +10914,7 @@ const allShopData = [
     "agg_views": 54815,
     "agg_sold": 19,
     "agg_ctr": "0%",
-    "gmvPace": 514.05,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 514.05
   },
   {
     "username": "kynleesheriff@gmail.com",
@@ -19251,28 +10938,8 @@ const allShopData = [
         "commPct": "14.21%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kynleebeau",
-        "gmv": [
-          2975.49,
-          2149.76,
-          2008.1,
-          1462.71,
-          821.3,
-          1518.66,
-          1118.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      138.49
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1118.61,
     "totalComm": 158.94,
@@ -19306,32 +10973,7 @@ const allShopData = [
     "agg_views": 118897,
     "agg_sold": 51,
     "agg_ctr": "0%",
-    "gmvPace": 1290.7,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      200
-    ]
+    "gmvPace": 1290.7
   },
   {
     "username": "laurenluto@gmail.com",
@@ -19355,28 +10997,8 @@ const allShopData = [
         "commPct": "11.28%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "laurenluto",
-        "gmv": [
-          553.3,
-          1540.58,
-          1081.25,
-          351.27,
-          1358.08,
-          2168.03,
-          2211.59
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2211.59,
     "totalComm": 249.44,
@@ -19410,32 +11032,7 @@ const allShopData = [
     "agg_views": 210485,
     "agg_sold": 62,
     "agg_ctr": "0%",
-    "gmvPace": 2551.83,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2551.83
   },
   {
     "username": "lexie@17westmanagement.com",
@@ -19459,28 +11056,8 @@ const allShopData = [
         "commPct": "10.36%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "lexschul",
-        "gmv": [
-          4052.88,
-          5742.86,
-          6069.55,
-          2412.35,
-          3106.4,
-          1730.2,
-          1193.94
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1193.94,
     "totalComm": 123.65,
@@ -19514,32 +11091,7 @@ const allShopData = [
     "agg_views": 55653,
     "agg_sold": 17,
     "agg_ctr": "0%",
-    "gmvPace": 1377.62,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1377.62
   },
   {
     "username": "lizacollabs@outlook.com",
@@ -19563,28 +11115,8 @@ const allShopData = [
         "commPct": "13.32%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "diaryofamaterialgurl",
-        "gmv": [
-          7809.14,
-          7268.21,
-          3027.87,
-          3132.83,
-          4533.78,
-          8387.9,
-          3362.54
-        ]
-      }
-    ],
-    "tapHistory": [
-      295.07,
-      0,
-      13.95,
-      0,
-      0,
-      31.45
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3362.54,
     "totalComm": 447.87,
@@ -19618,32 +11150,7 @@ const allShopData = [
     "agg_views": 81032,
     "agg_sold": 112,
     "agg_ctr": "0%",
-    "gmvPace": 3879.85,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3879.85
   },
   {
     "username": "lolita@lolitacarrico.com",
@@ -19667,28 +11174,8 @@ const allShopData = [
         "commPct": "14.13%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "watchlolita",
-        "gmv": [
-          4648.37,
-          6357.58,
-          2842.27,
-          2863.48,
-          2115.42,
-          6508.76,
-          4875.6
-        ]
-      }
-    ],
-    "tapHistory": [
-      31.99,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 4875.6,
     "totalComm": 688.98,
@@ -19722,32 +11209,7 @@ const allShopData = [
     "agg_views": 344752,
     "agg_sold": 309,
     "agg_ctr": "0%",
-    "gmvPace": 5625.69,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 5625.69
   },
   {
     "username": "mckenzgillespie@gmail.com",
@@ -19771,28 +11233,8 @@ const allShopData = [
         "commPct": "13.94%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mckenzgillespie",
-        "gmv": [
-          287.69,
-          290.4,
-          189.63,
-          283.16,
-          98.53,
-          126.9,
-          42.89
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 42.89,
     "totalComm": 5.98,
@@ -19826,32 +11268,7 @@ const allShopData = [
     "agg_views": 3236,
     "agg_sold": 3,
     "agg_ctr": "0%",
-    "gmvPace": 49.49,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 49.49
   },
   {
     "username": "mommapayingbills@gmail.com",
@@ -19875,28 +11292,8 @@ const allShopData = [
         "commPct": "10.65%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "christianmomma83",
-        "gmv": [
-          3563.41,
-          4093.91,
-          1869.83,
-          0,
-          0,
-          799.61,
-          2847.16
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      160.6,
-      495.66,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2847.16,
     "totalComm": 303.09,
@@ -19930,32 +11327,7 @@ const allShopData = [
     "agg_views": 162797,
     "agg_sold": 120,
     "agg_ctr": "0%",
-    "gmvPace": 3285.18,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3285.18
   },
   {
     "username": "mommarynnPR@gmail.com",
@@ -19979,28 +11351,8 @@ const allShopData = [
         "commPct": "7.35%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "mommarynn",
-        "gmv": [
-          1621.56,
-          3247.44,
-          2822.89,
-          1233.97,
-          1803.69,
-          314.33,
-          50.32
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      88.51,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 50.32,
     "totalComm": 3.7,
@@ -20034,32 +11386,7 @@ const allShopData = [
     "agg_views": 18665,
     "agg_sold": 4,
     "agg_ctr": "0%",
-    "gmvPace": 58.06,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 58.06
   },
   {
     "username": "natalieporretta@gmail.com",
@@ -20083,28 +11410,8 @@ const allShopData = [
         "commPct": "10.67%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "natalieporretta",
-        "gmv": [
-          28153.28,
-          100757.66,
-          103145.79,
-          40369.85,
-          15450.57,
-          5542.75,
-          3479.71
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3479.71,
     "totalComm": 371.33,
@@ -20138,32 +11445,7 @@ const allShopData = [
     "agg_views": 69029,
     "agg_sold": 77,
     "agg_ctr": "0%",
-    "gmvPace": 4015.05,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4015.05
   },
   {
     "username": "nicole@nakbranding.com",
@@ -20187,28 +11469,8 @@ const allShopData = [
         "commPct": "14.15%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "nicoashleyyy",
-        "gmv": [
-          1956.14,
-          1722.45,
-          2497.53,
-          1818.27,
-          1134.94,
-          1560.74,
-          2759.6
-        ]
-      }
-    ],
-    "tapHistory": [
-      35.99,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2759.6,
     "totalComm": 390.37,
@@ -20242,32 +11504,7 @@ const allShopData = [
     "agg_views": 110931,
     "agg_sold": 94,
     "agg_ctr": "0%",
-    "gmvPace": 3184.15,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3184.15
   },
   {
     "username": "nicolevbusiness@gmail.com",
@@ -20291,28 +11528,8 @@ const allShopData = [
         "commPct": "12.35%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "vitulls",
-        "gmv": [
-          14307,
-          16428.57,
-          11627.4,
-          8247.42,
-          16209.89,
-          7158.09,
-          5628.91
-        ]
-      }
-    ],
-    "tapHistory": [
-      35.62,
-      48.21,
-      20.1,
-      62.63,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 5628.91,
     "totalComm": 695.4,
@@ -20346,32 +11563,7 @@ const allShopData = [
     "agg_views": 211327,
     "agg_sold": 185,
     "agg_ctr": "0%",
-    "gmvPace": 6494.9,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 6494.9
   },
   {
     "username": "oinettahunt@gmail.com",
@@ -20395,28 +11587,8 @@ const allShopData = [
         "commPct": "12.98%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kamoin18",
-        "gmv": [
-          7716.01,
-          12615.97,
-          30994.46,
-          11568.58,
-          11169.9,
-          3082.91,
-          1474.26
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1474.26,
     "totalComm": 191.36,
@@ -20450,32 +11622,7 @@ const allShopData = [
     "agg_views": 52264,
     "agg_sold": 99,
     "agg_ctr": "0%",
-    "gmvPace": 1701.07,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1701.07
   },
   {
     "username": "retrodenverfinds@gmail.com",
@@ -20499,28 +11646,8 @@ const allShopData = [
         "commPct": "12.05%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "retrodenverfinds",
-        "gmv": [
-          245.98,
-          407.34,
-          231.97,
-          35.56,
-          0,
-          0,
-          138.59
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 138.59,
     "totalComm": 2798.43,
@@ -20554,32 +11681,7 @@ const allShopData = [
     "agg_views": 10469,
     "agg_sold": 860,
     "agg_ctr": "0%",
-    "gmvPace": 159.91,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 159.91
   },
   {
     "username": "roserroser13@yahoo.com",
@@ -20603,28 +11705,8 @@ const allShopData = [
         "commPct": "10.62%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "az.babe",
-        "gmv": [
-          493.77,
-          471.69,
-          663.75,
-          305.01,
-          426.67,
-          356.89,
-          106.62
-        ]
-      }
-    ],
-    "tapHistory": [
-      89.99,
-      0,
-      62.84,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 106.62,
     "totalComm": 11.32,
@@ -20658,32 +11740,7 @@ const allShopData = [
     "agg_views": 20373,
     "agg_sold": 5,
     "agg_ctr": "0%",
-    "gmvPace": 123.02,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 123.02
   },
   {
     "username": "rrisaa444@gmail.com",
@@ -20707,28 +11764,8 @@ const allShopData = [
         "commPct": "9.07%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "shopwithrisah",
-        "gmv": [
-          124.04,
-          0,
-          250.95,
-          0,
-          48.55,
-          82.43,
-          248.61
-        ]
-      }
-    ],
-    "tapHistory": [
-      78.11,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 248.61,
     "totalComm": 22.55,
@@ -20762,32 +11799,7 @@ const allShopData = [
     "agg_views": 9990,
     "agg_sold": 12,
     "agg_ctr": "0%",
-    "gmvPace": 286.86,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 286.86
   },
   {
     "username": "ryan@LoveRyanGirl.com",
@@ -20811,28 +11823,8 @@ const allShopData = [
         "commPct": "23.64%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "Love_RyanGirl",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          2651.93,
-          3394.63,
-          595.91
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 595.91,
     "totalComm": 140.86,
@@ -20866,32 +11858,7 @@ const allShopData = [
     "agg_views": 48426,
     "agg_sold": 19,
     "agg_ctr": "0%",
-    "gmvPace": 687.59,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 687.59
   },
   {
     "username": "samanthasingsit@gmail.com",
@@ -20915,28 +11882,8 @@ const allShopData = [
         "commPct": "7.95%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "samanthasingsit",
-        "gmv": [
-          1765.5,
-          1977.51,
-          1126.57,
-          1383.82,
-          4185.33,
-          2923.68,
-          1390.14
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 1390.14,
     "totalComm": 110.56,
@@ -20970,32 +11917,7 @@ const allShopData = [
     "agg_views": 84772,
     "agg_sold": 77,
     "agg_ctr": "0%",
-    "gmvPace": 1604.01,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1604.01
   },
   {
     "username": "shekinahhawkins80@gmail.com",
@@ -21019,28 +11941,8 @@ const allShopData = [
         "commPct": "4.86%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "cheerockafellaa",
-        "gmv": [
-          3793.58,
-          3611.73,
-          5036.27,
-          2642.33,
-          2968.36,
-          3125.46,
-          2566.44
-        ]
-      }
-    ],
-    "tapHistory": [
-      38.19,
-      0,
-      0,
-      9.99,
-      0,
-      33.89
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 2566.44,
     "totalComm": 124.61,
@@ -21074,32 +11976,7 @@ const allShopData = [
     "agg_views": 96239,
     "agg_sold": 34,
     "agg_ctr": "0%",
-    "gmvPace": 2961.28,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 2961.28
   },
   {
     "username": "southernstyleandhome@gmail.com",
@@ -21123,28 +12000,8 @@ const allShopData = [
         "commPct": "10.12%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "southernstyleandhome",
-        "gmv": [
-          21173.77,
-          35611.23,
-          19167.09,
-          5020.77,
-          9932.87,
-          8477.74,
-          3494.03
-        ]
-      }
-    ],
-    "tapHistory": [
-      441.79,
-      210.97,
-      108.92,
-      30.66,
-      91.59,
-      72.43
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3494.03,
     "totalComm": 353.46,
@@ -21178,32 +12035,7 @@ const allShopData = [
     "agg_views": 158895,
     "agg_sold": 119,
     "agg_ctr": "0%",
-    "gmvPace": 4031.57,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4031.57
   },
   {
     "username": "taryntaryn041@gmail.com",
@@ -21227,28 +12059,8 @@ const allShopData = [
         "commPct": "17.98%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "tarynupmyheart__",
-        "gmv": [
-          3618.94,
-          2196.99,
-          1677.45,
-          1020.83,
-          1586.04,
-          1455.24,
-          945.15
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 945.15,
     "totalComm": 169.96,
@@ -21282,32 +12094,7 @@ const allShopData = [
     "agg_views": 32778,
     "agg_sold": 26,
     "agg_ctr": "0%",
-    "gmvPace": 1090.56,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 1090.56
   },
   {
     "username": "torivild@gmail.com",
@@ -21331,28 +12118,8 @@ const allShopData = [
         "commPct": "0.86%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "torivofficial",
-        "gmv": [
-          152.97,
-          0,
-          151.97,
-          57.99,
-          171.66,
-          188.96,
-          69.99
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 69.99,
     "totalComm": 0.6,
@@ -21386,32 +12153,7 @@ const allShopData = [
     "agg_views": 252,
     "agg_sold": 1,
     "agg_ctr": "0%",
-    "gmvPace": 80.76,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 80.76
   },
   {
     "username": "ttsdani25@gmail.com",
@@ -21435,28 +12177,8 @@ const allShopData = [
         "commPct": "10.60%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ttsdani25",
-        "gmv": [
-          2617.49,
-          2063.34,
-          1971.73,
-          1371.03,
-          1012.58,
-          1014.11,
-          456.03
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 456.03,
     "totalComm": 48.34,
@@ -21490,32 +12212,7 @@ const allShopData = [
     "agg_views": 25615,
     "agg_sold": 21,
     "agg_ctr": "0%",
-    "gmvPace": 526.19,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 526.19
   },
   {
     "username": "ugc.ang@gmail.com",
@@ -21539,28 +12236,8 @@ const allShopData = [
         "commPct": "10.76%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "anggwells",
-        "gmv": [
-          9759.63,
-          14418.38,
-          9050.28,
-          3916.83,
-          2634.04,
-          3630.39,
-          3349.34
-        ]
-      }
-    ],
-    "tapHistory": [
-      4420.59,
-      4361.32,
-      2315.86,
-      750.73,
-      123.5,
-      321.31
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 3349.34,
     "totalComm": 360.34,
@@ -21594,32 +12271,7 @@ const allShopData = [
     "agg_views": 169289,
     "agg_sold": 142,
     "agg_ctr": "0%",
-    "gmvPace": 3864.62,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 3864.62
   },
   {
     "username": "workwithkellyjb@gmail.com",
@@ -21643,28 +12295,8 @@ const allShopData = [
         "commPct": "12.81%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "kellyjbfinds",
-        "gmv": [
-          5556.88,
-          4863.9,
-          2523.01,
-          1538.21,
-          2769.59,
-          5333.94,
-          4188.34
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 1,
     "totalGMV": 4188.34,
     "totalComm": 536.53,
@@ -21698,32 +12330,7 @@ const allShopData = [
     "agg_views": 269945,
     "agg_sold": 136,
     "agg_ctr": "0%",
-    "gmvPace": 4832.7,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 4832.7
   },
   {
     "username": "annamaxbusiness@gmail.com",
@@ -21747,28 +12354,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "annaamaxx",
-        "gmv": [
-          28.99,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -21802,32 +12389,7 @@ const allShopData = [
     "agg_views": 340,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "askforjanyl.ugc@gmail.com",
@@ -21851,28 +12413,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "urshoppingbestie",
-        "gmv": [
-          0,
-          0,
-          595.68,
-          60.58,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -21906,32 +12448,7 @@ const allShopData = [
     "agg_views": 1270,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "audrey3wells@gmail.com",
@@ -21955,28 +12472,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "audreywelly",
-        "gmv": [
-          77.41,
-          51.91,
-          21.4,
-          20.99,
-          20.99,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22010,32 +12507,7 @@ const allShopData = [
     "agg_views": 150,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "bowiejaneskinn@gmail.com",
@@ -22059,28 +12531,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "djbowiejane",
-        "gmv": [
-          22,
-          0,
-          0,
-          0,
-          0,
-          12.84,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22114,32 +12566,7 @@ const allShopData = [
     "agg_views": 179,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "christinahamdan1999@gmail.com",
@@ -22163,28 +12590,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "stylesbychristina",
-        "gmv": [
-          6176.89,
-          42366.99,
-          30168.3,
-          20474.87,
-          18561.9,
-          5202.65,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      102.39,
-      0,
-      126.05,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22218,32 +12625,7 @@ const allShopData = [
     "agg_views": 1944,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "dylan.wade1030@gmail.com",
@@ -22267,28 +12649,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "d.wade31",
-        "gmv": [
-          0,
-          69.99,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      69.99,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22322,32 +12684,7 @@ const allShopData = [
     "agg_views": 90,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "erikamariecreates@gmail.com",
@@ -22371,28 +12708,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "erika.marie.reyna",
-        "gmv": [
-          0,
-          0,
-          0,
-          200.34,
-          134.74,
-          35,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      32.13,
-      35
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22426,32 +12743,7 @@ const allShopData = [
     "agg_views": 34,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "hello@thesleevedchick.com",
@@ -22475,28 +12767,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "thesleevedchick",
-        "gmv": [
-          131.84,
-          33.99,
-          372,
-          25.92,
-          33.21,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22530,32 +12802,7 @@ const allShopData = [
     "agg_views": 6008,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "illusion@illusion.gg",
@@ -22579,28 +12826,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "illusion",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22634,32 +12861,7 @@ const allShopData = [
     "agg_views": 0,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "ivannakor@yahoo.com",
@@ -22683,28 +12885,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "ivannajackson",
-        "gmv": [
-          0,
-          184.62,
-          60.96,
-          135.32,
-          13.86,
-          34,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22738,32 +12920,7 @@ const allShopData = [
     "agg_views": 1687,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "skylery12@gmail.com",
@@ -22787,28 +12944,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "how2husbandd",
-        "gmv": [
-          0,
-          0,
-          9.96,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22842,32 +12979,7 @@ const allShopData = [
     "agg_views": 244,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "theevelyng@gmail.com",
@@ -22891,28 +13003,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "evelyngonzalez",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -22946,32 +13038,7 @@ const allShopData = [
     "agg_views": 342,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "therealtylerschmitt@gmail.com",
@@ -22995,28 +13062,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "tylerrschmitt",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -23050,32 +13097,7 @@ const allShopData = [
     "agg_views": 380,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   },
   {
     "username": "worldofsarah@myyahoo.com",
@@ -23099,28 +13121,8 @@ const allShopData = [
         "commPct": "0%"
       }
     ],
-    "accountsHistory": [
-      {
-        "handle": "worldof.sarah",
-        "gmv": [
-          176.37,
-          99.99,
-          33.61,
-          0,
-          236.87,
-          157.61,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
+    "accountsHistory": [],
+    "tapHistory": [],
     "points": 0,
     "totalGMV": 0,
     "totalComm": 0,
@@ -23154,32 +13156,7 @@ const allShopData = [
     "agg_views": 131898,
     "agg_sold": 0,
     "agg_ctr": "0%",
-    "gmvPace": 0,
-    "historyMonths": [
-      "Oct 2025",
-      "Nov 2025",
-      "Dec 2025",
-      "Jan 2026",
-      "Feb 2026",
-      "Mar 2026",
-      "Apr 26"
-    ],
-    "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
+    "gmvPace": 0
   }
 ];
 
