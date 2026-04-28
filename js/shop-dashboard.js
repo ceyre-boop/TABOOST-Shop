@@ -153,7 +153,7 @@ function formatNumber(num) {
     // Always round DOWN — never show a tier/milestone the creator hasn't actually hit
     if (num >= 1000000) return (Math.floor(num / 100000) / 10) + 'M';
     if (num >= 1000) return (Math.floor(num / 100) / 10) + 'K';
-    return num.toLocaleString();
+    return Math.round(num).toLocaleString();
 }
 
 function formatNumberPlain(num) {
@@ -329,7 +329,7 @@ function updateGMVStats() {
     }
     
     // Revenue Streams
-    document.getElementById('commissionRevenueUSD').textContent = '$' + (myData.totalComm || 0).toLocaleString();
+    document.getElementById('commissionRevenueUSD').textContent = '$' + Math.round(myData.totalComm || 0).toLocaleString();
     const commEl = document.getElementById('commissionRevenue');
     commEl.textContent = (myData.avgComm || 0).toFixed ? (myData.avgComm || 0).toFixed(1) + '% Avg Commission' : myData.avgComm + '% Avg Commission';
     commEl.classList.add('glow-blue');
@@ -337,7 +337,7 @@ function updateGMVStats() {
     // Change 5: Agency Cash Bonus shows $0 if nothing, right side says TABOOST Benefit
     const bonusMTD = myData.bonusMTD || 0; // HOTFIX: Restored from earlier deletion to prevent ReferenceError
     const bonusEl = document.getElementById('proBonusRevenueValue');
-    if (bonusEl) bonusEl.textContent = bonusMTD > 0 ? '$' + bonusMTD.toLocaleString() : '$0';
+    if (bonusEl) bonusEl.textContent = bonusMTD > 0 ? '$' + Math.round(bonusMTD).toLocaleString() : '$0';
     const bonusNote = document.getElementById('proBonusRevenueNote');
     if (bonusNote) bonusNote.textContent = 'TABOOST Benefit';
 }
@@ -479,10 +479,10 @@ async function loadAndRenderAccounts(grid, lbl) {
         let rawHandle = handleFromHistory || acc.handle || 'Unknown';
         const handle = (rawHandle.toLowerCase() !== 'unknown') ? rawHandle.replace(/^@/, '') : 'Unknown';
         
-        const gm = '$' + (acc.gmv || 0).toLocaleString();
+        const gm = '$' + Math.round(acc.gmv || 0).toLocaleString();
         const sv = (acc.sv || 0).toLocaleString();
         const sold = (acc.sold || 0).toLocaleString();
-        const commAmt = '$' + (acc.commDollars || 0).toLocaleString();
+        const commAmt = '$' + Math.round(acc.commDollars || 0).toLocaleString();
         
         return `
             <div class="account-card" style="margin-bottom: 8px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
