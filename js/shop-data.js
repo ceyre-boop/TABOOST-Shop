@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-04-27T19:19:34.434Z
+// Generated: 2026-04-28T15:39:05.078Z
 // Total Mapped: 211 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -97,7 +97,7 @@ const allShopData = [
     "bonusYTD": 1950,
     "tapLM": 135101.72,
     "tapGoalM": 50000,
-    "tapLQ": 458908.9,
+    "tapLQ": 620990.23,
     "tapGoalQ": 0,
     "tapTotalTQ": 87705.28,
     "totalSV": 86,
@@ -133,12 +133,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      51233.95,
+      74389.1,
+      57936.07,
+      62183.86,
+      51850.56,
+      48046.91,
       37011.15
     ],
     "bonusHistory": [
@@ -276,7 +276,7 @@ const allShopData = [
     "bonusYTD": 500,
     "tapLM": 66836.67,
     "tapGoalM": 50000,
-    "tapLQ": 270778.7,
+    "tapLQ": 370906.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 48934.82,
     "totalSV": 179,
@@ -312,12 +312,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      42054.13,
+      63575.29,
+      47957.12,
+      45300.68,
+      30142.460000000003,
+      24684.97,
       23751.489999999998
     ],
     "bonusHistory": [
@@ -423,7 +423,7 @@ const allShopData = [
     "bonusYTD": 3190,
     "tapLM": 507312.59,
     "tapGoalM": 50000,
-    "tapLQ": 640612.11,
+    "tapLQ": 775284.34,
     "tapGoalQ": 0,
     "tapTotalTQ": 44387.44,
     "totalSV": 22,
@@ -459,12 +459,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      24139.16,
+      26084.29,
+      15708.63,
+      22408.39,
+      10550.43,
+      101713.40999999999,
       10299.16
     ],
     "bonusHistory": [
@@ -538,7 +538,7 @@ const allShopData = [
     "bonusYTD": 375,
     "tapLM": 93207.82,
     "tapGoalM": 50000,
-    "tapLQ": 109299.46,
+    "tapLQ": 153508.49,
     "tapGoalQ": 0,
     "tapTotalTQ": 35690.6,
     "totalSV": 175,
@@ -574,12 +574,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6879.14,
+      6660.06,
+      6204.88,
+      8405.52,
+      10457.77,
+      25345.74,
       16000.18
     ],
     "bonusHistory": [
@@ -685,7 +685,7 @@ const allShopData = [
     "bonusYTD": 1500,
     "tapLM": 84975.52,
     "tapGoalM": 50000,
-    "tapLQ": 358233.57,
+    "tapLQ": 548277.3,
     "tapGoalQ": 0,
     "tapTotalTQ": 42228.52,
     "totalSV": 159,
@@ -721,12 +721,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      54639.21,
+      61697.340000000004,
+      60508.72,
+      68572.28,
+      56537.4,
+      64934.05,
       49911.55
     ],
     "bonusHistory": [
@@ -800,7 +800,7 @@ const allShopData = [
     "bonusYTD": 2700,
     "tapLM": 277679.37,
     "tapGoalM": 50000,
-    "tapLQ": 461192.55,
+    "tapLQ": 602702.7,
     "tapGoalQ": 0,
     "tapTotalTQ": 27500.57,
     "totalSV": 120,
@@ -837,11 +837,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      14560.93,
+      21085.16,
+      36188.62,
+      42568.52,
+      62753.01,
       9450.59
     ],
     "bonusHistory": [
@@ -915,7 +915,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 34789.93,
     "tapGoalM": 50000,
-    "tapLQ": 38219.62,
+    "tapLQ": 67313.73,
     "tapGoalQ": 0,
     "tapTotalTQ": 22842.78,
     "totalSV": 111,
@@ -951,12 +951,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      9487.97,
+      15754.49,
+      11226.43,
+      6058.71,
+      6737.53,
+      16297.87,
       15361.18
     ],
     "bonusHistory": [
@@ -1062,7 +1062,7 @@ const allShopData = [
     "bonusYTD": 2520,
     "tapLM": 12497.1,
     "tapGoalM": 50000,
-    "tapLQ": 44757.57,
+    "tapLQ": 94973.41,
     "tapGoalQ": 0,
     "tapTotalTQ": 27319.66,
     "totalSV": 125,
@@ -1098,12 +1098,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      27634.38,
+      86186.12,
+      100158.98,
+      19047.59,
+      13456.1,
+      17712.149999999998,
       15912.83
     ],
     "bonusHistory": [
@@ -1209,7 +1209,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 28204.44,
     "tapGoalM": 50000,
-    "tapLQ": 93255.04,
+    "tapLQ": 273540.18,
     "tapGoalQ": 0,
     "tapTotalTQ": 31916.85,
     "totalSV": 104,
@@ -1245,12 +1245,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      87085.6,
+      149277.91,
+      143508.83,
+      74612.12,
+      50440.840000000004,
+      55232.18,
       82136.84
     ],
     "bonusHistory": [
@@ -1324,7 +1324,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 373.6,
+    "tapLQ": 11202.98,
     "tapGoalQ": 0,
     "tapTotalTQ": 26.95,
     "totalSV": 39,
@@ -1361,11 +1361,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1331.8,
+      3774.11,
+      1167.76,
+      5042.48,
+      4619.14,
       14104.19
     ],
     "bonusHistory": [
@@ -1503,7 +1503,7 @@ const allShopData = [
     "bonusYTD": 500,
     "tapLM": 22174.46,
     "tapGoalM": 50000,
-    "tapLQ": 205357.18,
+    "tapLQ": 484205.94,
     "tapGoalQ": 0,
     "tapTotalTQ": 20024.42,
     "totalSV": 409,
@@ -1539,12 +1539,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      119888.48,
+      151602.85,
+      134139.3,
+      91497.47,
+      99335.36,
+      88015.93,
       81171.77
     ],
     "bonusHistory": [
@@ -1618,7 +1618,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 18156.92,
     "tapGoalM": 50000,
-    "tapLQ": 46730.78,
+    "tapLQ": 59178.59,
     "tapGoalQ": 0,
     "tapTotalTQ": 11621.33,
     "totalSV": 22,
@@ -1654,12 +1654,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2746.59,
+      3386.81,
+      2795.6,
+      2457.42,
+      4747.73,
+      5242.66,
       3178.53
     ],
     "bonusHistory": [
@@ -1733,7 +1733,7 @@ const allShopData = [
     "bonusYTD": 1900,
     "tapLM": 134375.36,
     "tapGoalM": 50000,
-    "tapLQ": 176523.8,
+    "tapLQ": 219992.35,
     "tapGoalQ": 0,
     "tapTotalTQ": 15080.45,
     "totalSV": 96,
@@ -1769,12 +1769,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3544.61,
+      4284.05,
+      4149.91,
+      10340.86,
+      3521.29,
+      29606.4,
       4402.26
     ],
     "bonusHistory": [
@@ -1848,7 +1848,7 @@ const allShopData = [
     "bonusYTD": 1938,
     "tapLM": 24884.79,
     "tapGoalM": 50000,
-    "tapLQ": 52071.8,
+    "tapLQ": 145258.47,
     "tapGoalQ": 0,
     "tapTotalTQ": 23979.49,
     "totalSV": 90,
@@ -1884,12 +1884,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      29902.83,
+      44087.81,
+      28553.01,
+      25577.53,
+      24298.46,
+      43310.68,
       27674.47
     ],
     "bonusHistory": [
@@ -1963,7 +1963,7 @@ const allShopData = [
     "bonusYTD": 1000,
     "tapLM": 15143.73,
     "tapGoalM": 50000,
-    "tapLQ": 64470.46,
+    "tapLQ": 110179.64,
     "tapGoalQ": 0,
     "tapTotalTQ": 15965.54,
     "totalSV": 12,
@@ -1999,12 +1999,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      25264.07,
+      30060.79,
+      22838.56,
+      20838.47,
+      13519.19,
+      11351.52,
       9087.88
     ],
     "bonusHistory": [
@@ -2078,7 +2078,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 16032,
     "tapGoalM": 50000,
-    "tapLQ": 60993.23,
+    "tapLQ": 205046.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 8347.81,
     "totalSV": 95,
@@ -2114,12 +2114,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      45234.44,
+      71396.16,
+      40206.15,
+      63612.67,
+      43890.42,
+      36550.12,
       28282.18
     ],
     "bonusHistory": [
@@ -2193,7 +2193,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 966.25,
     "tapGoalM": 10000,
-    "tapLQ": 2517.85,
+    "tapLQ": 38328.47,
     "tapGoalQ": 0,
     "tapTotalTQ": 230.84,
     "totalSV": 9,
@@ -2229,12 +2229,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6265.79,
+      13185.68,
+      9597.99,
+      9231.17,
+      11660.92,
+      14918.53,
       10727.73
     ],
     "bonusHistory": [
@@ -2308,7 +2308,7 @@ const allShopData = [
     "bonusYTD": 500,
     "tapLM": 41599.11,
     "tapGoalM": 50000,
-    "tapLQ": 184415.8,
+    "tapLQ": 300037.41,
     "tapGoalQ": 0,
     "tapTotalTQ": 21406.01,
     "totalSV": 94,
@@ -2344,12 +2344,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      49918.86,
+      78120.4,
+      56773.03,
+      49108.3,
+      33238.24,
+      33275.07,
       19177.37
     ],
     "bonusHistory": [
@@ -2423,7 +2423,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 52.2,
+    "tapLQ": 61822.14,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 30,
@@ -2461,10 +2461,10 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      9156.44,
+      28419.91,
+      15054.94,
+      18295.09,
       7813.07
     ],
     "bonusHistory": [
@@ -2570,7 +2570,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 5258.24,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 246,
@@ -2611,7 +2611,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      5258.24,
       28266.410000000003
     ],
     "bonusHistory": [
@@ -2685,7 +2685,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 7291.57,
     "tapGoalM": 10000,
-    "tapLQ": 15174.95,
+    "tapLQ": 22450.46,
     "tapGoalQ": 0,
     "tapTotalTQ": 2952.72,
     "totalSV": 59,
@@ -2721,12 +2721,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      7329.6,
+      6360.9,
+      2027.67,
+      1163.87,
+      2463.5,
+      3648.14,
       3297.45
     ],
     "bonusHistory": [
@@ -2800,7 +2800,7 @@ const allShopData = [
     "bonusYTD": 840,
     "tapLM": 29262.83,
     "tapGoalM": 50000,
-    "tapLQ": 101075.18,
+    "tapLQ": 165442.37,
     "tapGoalQ": 0,
     "tapTotalTQ": 12311.76,
     "totalSV": 56,
@@ -2836,12 +2836,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      21022.65,
+      34327.07,
+      21132.45,
+      26133.36,
+      18424.91,
+      19808.92,
       12981.64
     ],
     "bonusHistory": [
@@ -2915,7 +2915,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 45,
     "tapGoalM": 10000,
-    "tapLQ": 57,
+    "tapLQ": 31904.77,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 283,
@@ -2951,12 +2951,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5067.14,
+      21692.64,
+      14870.92,
+      6046.97,
+      10086.05,
+      15714.75,
       4723.35
     ],
     "bonusHistory": [
@@ -3030,7 +3030,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 582.81,
     "tapGoalM": 10000,
-    "tapLQ": 1263.08,
+    "tapLQ": 23005.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 325.79,
     "totalSV": 33,
@@ -3066,12 +3066,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      22594.85,
+      29597.64,
+      5856.31,
+      5234.49,
+      5082.09,
+      11425.78,
       8604.16
     ],
     "bonusHistory": [
@@ -3165,7 +3165,7 @@ const allShopData = [
     "bonusYTD": 1700,
     "tapLM": 18603.64,
     "tapGoalM": 50000,
-    "tapLQ": 73362.21,
+    "tapLQ": 149154.74,
     "tapGoalQ": 0,
     "tapTotalTQ": 9612.71,
     "totalSV": 223,
@@ -3201,12 +3201,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      34357.25,
+      65600.91,
+      42270.87,
+      29982.76,
+      25863.32,
+      19946.45,
       20451.42
     ],
     "bonusHistory": [
@@ -3280,7 +3280,7 @@ const allShopData = [
     "bonusYTD": 3400,
     "tapLM": 6082.75,
     "tapGoalM": 10000,
-    "tapLQ": 7974.39,
+    "tapLQ": 52359.77,
     "tapGoalQ": 0,
     "tapTotalTQ": 3767,
     "totalSV": 112,
@@ -3316,12 +3316,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      13672.64,
+      17742.45,
+      34412.87,
+      16064.35,
+      12851,
+      15470.03,
       14904.6
     ],
     "bonusHistory": [
@@ -3427,7 +3427,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 11575.06,
     "tapGoalM": 50000,
-    "tapLQ": 47480.27,
+    "tapLQ": 68119.17,
     "tapGoalQ": 0,
     "tapTotalTQ": 7903.3,
     "totalSV": 21,
@@ -3463,12 +3463,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5763.51,
+      5465.23,
+      1953.02,
+      3342.68,
+      10843.53,
+      6452.69,
       5389.88
     ],
     "bonusHistory": [
@@ -3542,7 +3542,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 62.99,
     "tapGoalM": 10000,
-    "tapLQ": 62.99,
+    "tapLQ": 624.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 54.99,
     "totalSV": 62,
@@ -3578,12 +3578,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1103.12,
+      431.54,
+      1122.84,
+      195.28,
+      143.68,
+      222.49,
       369.69
     ],
     "bonusHistory": [
@@ -3657,7 +3657,7 @@ const allShopData = [
     "bonusYTD": 480,
     "tapLM": 10707.9,
     "tapGoalM": 50000,
-    "tapLQ": 35871.98,
+    "tapLQ": 84913.73,
     "tapGoalQ": 0,
     "tapTotalTQ": 7482.82,
     "totalSV": 151,
@@ -3693,12 +3693,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6860.56,
+      45738.3,
+      38900.56,
+      19994.35,
+      12703.44,
+      16343.96,
       9221.65
     ],
     "bonusHistory": [
@@ -3772,7 +3772,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 10784.36,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 88,
@@ -3810,10 +3810,10 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      4909.74,
+      3501.45,
+      3176.71,
+      4106.2,
       1915.32
     ],
     "bonusHistory": [
@@ -3887,7 +3887,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 10747.48,
     "tapGoalM": 50000,
-    "tapLQ": 56259.45,
+    "tapLQ": 230559.32,
     "tapGoalQ": 0,
     "tapTotalTQ": 7153.05,
     "totalSV": 109,
@@ -3923,12 +3923,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      57721.75,
+      63684.34,
+      48504.87,
+      51796.49,
+      53235.5,
+      69267.88,
       58416.04
     ],
     "bonusHistory": [
@@ -4002,7 +4002,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 11555.3,
     "tapGoalM": 50000,
-    "tapLQ": 20833.09,
+    "tapLQ": 67257.66,
     "tapGoalQ": 0,
     "tapTotalTQ": 2770.93,
     "totalSV": 100,
@@ -4038,12 +4038,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3230.29,
+      9785.47,
+      7114.51,
+      24271.47,
+      14536.76,
+      7616.34,
       2596.57
     ],
     "bonusHistory": [
@@ -4117,7 +4117,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 62.76,
     "tapGoalM": 10000,
-    "tapLQ": 62.76,
+    "tapLQ": 2584.41,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 35,
@@ -4153,12 +4153,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1123.27,
+      743.67,
+      812.1,
+      534.73,
+      914.12,
+      1072.8,
       632.76
     ],
     "bonusHistory": [
@@ -4232,7 +4232,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 9493.83,
     "tapGoalM": 10000,
-    "tapLQ": 54120.12,
+    "tapLQ": 74201.91,
     "tapGoalQ": 0,
     "tapTotalTQ": 6743.91,
     "totalSV": 36,
@@ -4268,12 +4268,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      9264.79,
+      9046.14,
+      18568.15,
+      11883.56,
+      4832.25,
+      3365.98,
       2769.91
     ],
     "bonusHistory": [
@@ -4411,7 +4411,7 @@ const allShopData = [
     "bonusYTD": 3150,
     "tapLM": 6745.2,
     "tapGoalM": 10000,
-    "tapLQ": 19344.73,
+    "tapLQ": 73351.01,
     "tapGoalQ": 0,
     "tapTotalTQ": 4643.41,
     "totalSV": 205,
@@ -4447,12 +4447,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      10837.49,
+      29454.25,
+      22834.89,
+      14727.87,
+      19528.75,
+      19749.66,
       16414.45
     ],
     "bonusHistory": [
@@ -4526,7 +4526,7 @@ const allShopData = [
     "bonusYTD": 1050,
     "tapLM": 28081.53,
     "tapGoalM": 50000,
-    "tapLQ": 108400.08,
+    "tapLQ": 133594.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 8998.08,
     "totalSV": 20,
@@ -4562,12 +4562,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      8071.21,
+      4427.66,
+      1883.53,
+      8507.62,
+      9284.77,
+      7401.68,
       2927.67
     ],
     "bonusHistory": [
@@ -4641,7 +4641,7 @@ const allShopData = [
     "bonusYTD": 1680,
     "tapLM": 6083.14,
     "tapGoalM": 10000,
-    "tapLQ": 23225.17,
+    "tapLQ": 53475.38,
     "tapGoalQ": 0,
     "tapTotalTQ": 6243.38,
     "totalSV": 112,
@@ -4677,12 +4677,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6178.13,
+      24804.02,
+      22523.87,
+      11482.99,
+      10189.17,
+      8578.05,
       8315.87
     ],
     "bonusHistory": [
@@ -4788,7 +4788,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 19103.01,
     "tapGoalM": 50000,
-    "tapLQ": 54171.22,
+    "tapLQ": 121125.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 7416,
     "totalSV": 75,
@@ -4824,12 +4824,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      27400.28,
+      39604.420000000006,
+      38133.060000000005,
+      18638.489999999998,
+      22215.54,
+      26099.9,
       22169.74
     ],
     "bonusHistory": [
@@ -4903,7 +4903,7 @@ const allShopData = [
     "bonusYTD": 1100,
     "tapLM": 2180.26,
     "tapGoalM": 10000,
-    "tapLQ": 18330.52,
+    "tapLQ": 51962.07,
     "tapGoalQ": 0,
     "tapTotalTQ": 4641.97,
     "totalSV": 265,
@@ -4939,12 +4939,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      22460.19,
+      36301.55,
+      28613.51,
+      10092.94,
+      10801.01,
+      12737.6,
       10153.35
     ],
     "bonusHistory": [
@@ -5050,7 +5050,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 1471.77,
     "tapGoalM": 10000,
-    "tapLQ": 4753.61,
+    "tapLQ": 26269.49,
     "tapGoalQ": 0,
     "tapTotalTQ": 3951.32,
     "totalSV": 16,
@@ -5086,12 +5086,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      9882.96,
+      9949.74,
+      7385.84,
+      9703.689999999999,
+      6994.24,
+      4817.95,
       3862.11
     ],
     "bonusHistory": [
@@ -5165,7 +5165,7 @@ const allShopData = [
     "bonusYTD": 1250,
     "tapLM": 7026.83,
     "tapGoalM": 10000,
-    "tapLQ": 30055.3,
+    "tapLQ": 49274.64,
     "tapGoalQ": 0,
     "tapTotalTQ": 3838.69,
     "totalSV": 132,
@@ -5201,12 +5201,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      7651.32,
+      18363.4,
+      6247.36,
+      7873.22,
+      6807.51,
+      4538.61,
       2941.59
     ],
     "bonusHistory": [
@@ -5280,7 +5280,7 @@ const allShopData = [
     "bonusYTD": 300,
     "tapLM": 2517.68,
     "tapGoalM": 10000,
-    "tapLQ": 25379.75,
+    "tapLQ": 103139.67,
     "tapGoalQ": 0,
     "tapTotalTQ": 2936.68,
     "totalSV": 103,
@@ -5316,12 +5316,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      26917.91,
+      42382.34,
+      42544.78,
+      32225.92,
+      19441.33,
+      26092.67,
       23225.17
     ],
     "bonusHistory": [
@@ -5427,7 +5427,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 30.99,
     "tapGoalM": 10000,
-    "tapLQ": 57.12,
+    "tapLQ": 2950.02,
     "tapGoalQ": 0,
     "tapTotalTQ": 88,
     "totalSV": 184,
@@ -5463,12 +5463,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3457.14,
+      4035.01,
+      4075.5,
+      579.89,
+      796.46,
+      1516.5500000000002,
       741.1500000000001
     ],
     "bonusHistory": [
@@ -5542,7 +5542,7 @@ const allShopData = [
     "bonusYTD": 200,
     "tapLM": 7634.5,
     "tapGoalM": 10000,
-    "tapLQ": 11566.31,
+    "tapLQ": 28125.16,
     "tapGoalQ": 0,
     "tapTotalTQ": 4695.55,
     "totalSV": 249,
@@ -5578,12 +5578,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1786.49,
+      4640.45,
+      5189.95,
+      3538.34,
+      5195.25,
+      7825.26,
       4508.07
     ],
     "bonusHistory": [
@@ -5689,7 +5689,7 @@ const allShopData = [
     "bonusYTD": 1930,
     "tapLM": 3123.9,
     "tapGoalM": 10000,
-    "tapLQ": 34091.48,
+    "tapLQ": 162305.53,
     "tapGoalQ": 0,
     "tapTotalTQ": 352.84,
     "totalSV": 115,
@@ -5725,12 +5725,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      22297,
+      42825.66,
+      37141.29,
+      21890.35,
+      24299.15,
+      82024.54999999999,
       73668.9
     ],
     "bonusHistory": [
@@ -5868,7 +5868,7 @@ const allShopData = [
     "bonusYTD": 700,
     "tapLM": 189.67,
     "tapGoalM": 10000,
-    "tapLQ": 1117.43,
+    "tapLQ": 24058.9,
     "tapGoalQ": 0,
     "tapTotalTQ": 28.05,
     "totalSV": 218,
@@ -5904,12 +5904,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5297.43,
+      9536.35,
+      12453.83,
+      8864.78,
+      7317.05,
+      6759.64,
       5669.97
     ],
     "bonusHistory": [
@@ -6015,7 +6015,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 371.63,
     "tapGoalM": 10000,
-    "tapLQ": 1147.41,
+    "tapLQ": 39832.76,
     "tapGoalQ": 0,
     "tapTotalTQ": 379.85,
     "totalSV": 227,
@@ -6051,12 +6051,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      28142.07,
+      28671.61,
+      17703.02,
+      14164.12,
+      15882.85,
+      8638.380000000001,
       13918.449999999999
     ],
     "bonusHistory": [
@@ -6130,7 +6130,7 @@ const allShopData = [
     "bonusYTD": 450,
     "tapLM": 2642.8,
     "tapGoalM": 10000,
-    "tapLQ": 6438.77,
+    "tapLQ": 52859.99,
     "tapGoalQ": 0,
     "tapTotalTQ": 2084,
     "totalSV": 72,
@@ -6166,12 +6166,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      21057.95,
+      19755.18,
+      26538.33,
+      21654.81,
+      14277.39,
+      10489.02,
       15101.19
     ],
     "bonusHistory": [
@@ -6245,7 +6245,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 266.42,
     "tapGoalM": 10000,
-    "tapLQ": 1366.18,
+    "tapLQ": 55455.6,
     "tapGoalQ": 0,
     "tapTotalTQ": 1283.29,
     "totalSV": 173,
@@ -6281,12 +6281,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      15081.99,
+      19790.89,
+      22058.25,
+      16120.83,
+      17779.26,
+      20189.33,
       48247.25
     ],
     "bonusHistory": [
@@ -6360,7 +6360,7 @@ const allShopData = [
     "bonusYTD": 1820,
     "tapLM": 7291.46,
     "tapGoalM": 10000,
-    "tapLQ": 24072.65,
+    "tapLQ": 85908.99,
     "tapGoalQ": 0,
     "tapTotalTQ": 3649.61,
     "totalSV": 172,
@@ -6396,12 +6396,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      21814.31,
+      36520.77,
+      19660.9,
+      18267.64,
+      13529.99,
+      30038.71,
       10797.87
     ],
     "bonusHistory": [
@@ -6507,7 +6507,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 3563.25,
     "tapGoalM": 10000,
-    "tapLQ": 8912.76,
+    "tapLQ": 81748.53,
     "tapGoalQ": 0,
     "tapTotalTQ": 2211.48,
     "totalSV": 326,
@@ -6543,12 +6543,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      24616.41,
+      23058,
+      21288.55,
+      26652.64,
+      27938.17,
+      18244.96,
       8873.33
     ],
     "bonusHistory": [
@@ -6622,7 +6622,7 @@ const allShopData = [
     "bonusYTD": 1050,
     "tapLM": 4464.8,
     "tapGoalM": 10000,
-    "tapLQ": 13514.5,
+    "tapLQ": 26554.49,
     "tapGoalQ": 0,
     "tapTotalTQ": 2010.15,
     "totalSV": 156,
@@ -6658,12 +6658,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2868.06,
+      4890.78,
+      4800.78,
+      2405.83,
+      3873.22,
+      6760.94,
       4114.29
     ],
     "bonusHistory": [
@@ -6737,7 +6737,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 1197,
     "tapGoalM": 10000,
-    "tapLQ": 4527.66,
+    "tapLQ": 34872.91,
     "tapGoalQ": 0,
     "tapTotalTQ": 919.2,
     "totalSV": 82,
@@ -6773,12 +6773,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      16939.19,
+      12733.91,
+      6685.78,
+      8913.59,
+      8175.89,
+      13255.77,
       13228.38
     ],
     "bonusHistory": [
@@ -6852,7 +6852,7 @@ const allShopData = [
     "bonusYTD": 1750,
     "tapLM": 5824.21,
     "tapGoalM": 10000,
-    "tapLQ": 9515.72,
+    "tapLQ": 42341.58,
     "tapGoalQ": 0,
     "tapTotalTQ": 1371.29,
     "totalSV": 65,
@@ -6888,12 +6888,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      64594.87,
+      34124.95,
+      22538.71,
+      11417.14,
+      9146.39,
+      12262.33,
       6277.21
     ],
     "bonusHistory": [
@@ -6967,7 +6967,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 6515.68,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 19,
@@ -7003,12 +7003,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      7725.53,
+      18663.86,
+      3239.81,
+      2266.29,
+      1909.27,
+      2340.12,
       1619.7
     ],
     "bonusHistory": [
@@ -7082,7 +7082,7 @@ const allShopData = [
     "bonusYTD": 2550,
     "tapLM": 1943.38,
     "tapGoalM": 10000,
-    "tapLQ": 7616.87,
+    "tapLQ": 102847.06,
     "tapGoalQ": 0,
     "tapTotalTQ": 1262.33,
     "totalSV": 147,
@@ -7118,12 +7118,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      21554.07,
+      37838.04,
+      51357.92,
+      33103.74,
+      31724.86,
+      30401.59,
       15922.61
     ],
     "bonusHistory": [
@@ -7197,7 +7197,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 135.11,
     "tapGoalM": 10000,
-    "tapLQ": 700.64,
+    "tapLQ": 105021.72,
     "tapGoalQ": 0,
     "tapTotalTQ": 162.94,
     "totalSV": 57,
@@ -7233,12 +7233,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      60896.97,
+      43256.76,
+      41245.35,
+      28019.51,
+      26508.43,
+      49793.14,
       42226.53
     ],
     "bonusHistory": [
@@ -7312,7 +7312,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 1499.55,
     "tapGoalM": 10000,
-    "tapLQ": 4267.68,
+    "tapLQ": 10468.61,
     "tapGoalQ": 0,
     "tapTotalTQ": 1394.64,
     "totalSV": 173,
@@ -7348,12 +7348,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1303.68,
+      2508.17,
+      2815.06,
+      1739.65,
+      2007.57,
+      2453.71,
       2846.97
     ],
     "bonusHistory": [
@@ -7542,7 +7542,7 @@ const allShopData = [
     "bonusYTD": 400,
     "tapLM": 1903.59,
     "tapGoalM": 10000,
-    "tapLQ": 4660.39,
+    "tapLQ": 17399.32,
     "tapGoalQ": 0,
     "tapTotalTQ": 1331.16,
     "totalSV": 145,
@@ -7578,12 +7578,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2158.09,
+      12181.91,
+      13312.19,
+      5363.18,
+      3055.84,
+      4319.91,
       3821.65
     ],
     "bonusHistory": [
@@ -7657,7 +7657,7 @@ const allShopData = [
     "bonusYTD": 400,
     "tapLM": 660.87,
     "tapGoalM": 10000,
-    "tapLQ": 1623.77,
+    "tapLQ": 33719.02,
     "tapGoalQ": 0,
     "tapTotalTQ": 1141.04,
     "totalSV": 191,
@@ -7693,12 +7693,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      25319.72,
+      30845.56,
+      31913,
+      11540.63,
+      11968.58,
+      8586.04,
       9176.97
     ],
     "bonusHistory": [
@@ -7836,7 +7836,7 @@ const allShopData = [
     "bonusYTD": 1600,
     "tapLM": 6419.62,
     "tapGoalM": 10000,
-    "tapLQ": 15410.19,
+    "tapLQ": 36406.33,
     "tapGoalQ": 0,
     "tapTotalTQ": 4224.34,
     "totalSV": 423,
@@ -7872,12 +7872,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      14546.26,
+      14281.09,
+      12293.64,
+      10311.33,
+      5159.630000000001,
+      5525.18,
       3768.65
     ],
     "bonusHistory": [
@@ -7951,7 +7951,7 @@ const allShopData = [
     "bonusYTD": 1180,
     "tapLM": 2068.95,
     "tapGoalM": 10000,
-    "tapLQ": 9118.44,
+    "tapLQ": 41536.61,
     "tapGoalQ": 0,
     "tapTotalTQ": 1032.57,
     "totalSV": 49,
@@ -7987,12 +7987,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      17156.47,
+      13081.8,
+      9493.08,
+      10636.51,
+      8653.97,
+      13127.69,
       12151.94
     ],
     "bonusHistory": [
@@ -8098,7 +8098,7 @@ const allShopData = [
     "bonusYTD": 300,
     "tapLM": 1161.67,
     "tapGoalM": 10000,
-    "tapLQ": 4956.47,
+    "tapLQ": 87648.83,
     "tapGoalQ": 0,
     "tapTotalTQ": 427.86,
     "totalSV": 415,
@@ -8134,12 +8134,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      23797.79,
+      15328.79,
+      17011.95,
+      13643.32,
+      30240.42,
+      38808.619999999995,
       25677.03
     ],
     "bonusHistory": [
@@ -8213,7 +8213,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 797.05,
     "tapGoalM": 10000,
-    "tapLQ": 5887.48,
+    "tapLQ": 10597.58,
     "tapGoalQ": 0,
     "tapTotalTQ": 487.22,
     "totalSV": 2,
@@ -8249,12 +8249,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1169.52,
+      1376.47,
+      855.16,
+      1892.3,
+      1664.78,
+      1153.02,
       738.94
     ],
     "bonusHistory": [
@@ -8328,7 +8328,7 @@ const allShopData = [
     "bonusYTD": 2950,
     "tapLM": 1877.17,
     "tapGoalM": 10000,
-    "tapLQ": 4132.46,
+    "tapLQ": 17052.86,
     "tapGoalQ": 0,
     "tapTotalTQ": 782.7,
     "totalSV": 79,
@@ -8364,12 +8364,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1411.22,
+      10719.5,
+      8845.81,
+      2249.77,
+      4144.99,
+      6525.64,
       3545.89
     ],
     "bonusHistory": [
@@ -8475,7 +8475,7 @@ const allShopData = [
     "bonusYTD": 225,
     "tapLM": 601.81,
     "tapGoalM": 10000,
-    "tapLQ": 1086.57,
+    "tapLQ": 32340.9,
     "tapGoalQ": 0,
     "tapTotalTQ": 135.96,
     "totalSV": 225,
@@ -8511,12 +8511,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      19074.99,
+      28430.83,
+      13858.25,
+      7108.73,
+      5478.22,
+      18667.38,
       14771.76
     ],
     "bonusHistory": [
@@ -8590,7 +8590,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 21031.17,
     "tapGoalM": 50000,
-    "tapLQ": 59417.1,
+    "tapLQ": 77102.73,
     "tapGoalQ": 0,
     "tapTotalTQ": 5406.41,
     "totalSV": 6,
@@ -8626,12 +8626,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1026.86,
+      637.11,
+      473.29,
+      11908.85,
+      1202.97,
+      4573.81,
       1097.22
     ],
     "bonusHistory": [
@@ -8705,7 +8705,7 @@ const allShopData = [
     "bonusYTD": 500,
     "tapLM": 1634.82,
     "tapGoalM": 10000,
-    "tapLQ": 3973.4,
+    "tapLQ": 25096.92,
     "tapGoalQ": 0,
     "tapTotalTQ": 1124.04,
     "totalSV": 210,
@@ -8741,12 +8741,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      10642.95,
+      13895.62,
+      6198.51,
+      7409.48,
+      6332.73,
+      7381.31,
       5550.95
     ],
     "bonusHistory": [
@@ -8840,7 +8840,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 12185.13,
     "tapGoalQ": 0,
     "tapTotalTQ": 99.98,
     "totalSV": 118,
@@ -8880,8 +8880,8 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
+      5919.95,
+      6265.18,
       7937.32
     ],
     "bonusHistory": [
@@ -8955,7 +8955,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 1428.82,
     "tapGoalM": 10000,
-    "tapLQ": 4208.3,
+    "tapLQ": 6827.13,
     "tapGoalQ": 0,
     "tapTotalTQ": 1069.61,
     "totalSV": 12,
@@ -8991,12 +8991,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5063.77,
+      2472.06,
+      1332.98,
+      832.51,
+      984.39,
+      801.93,
       1833.37
     ],
     "bonusHistory": [
@@ -9070,7 +9070,7 @@ const allShopData = [
     "bonusYTD": 1990,
     "tapLM": 644.72,
     "tapGoalM": 10000,
-    "tapLQ": 2713.84,
+    "tapLQ": 19510.4,
     "tapGoalQ": 0,
     "tapTotalTQ": 905.46,
     "totalSV": 114,
@@ -9106,12 +9106,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      20201.34,
+      17959.42,
+      12068.34,
+      7346.78,
+      5200.64,
+      4249.14,
       4760.43
     ],
     "bonusHistory": [
@@ -9185,7 +9185,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 730.93,
     "tapGoalM": 10000,
-    "tapLQ": 2214.13,
+    "tapLQ": 8102.88,
     "tapGoalQ": 0,
     "tapTotalTQ": 645.25,
     "totalSV": 176,
@@ -9221,12 +9221,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1275.42,
+      2698.93,
+      1515.64,
+      1543.92,
+      2049.65,
+      2295.18,
       2106.31
     ],
     "bonusHistory": [
@@ -9300,7 +9300,7 @@ const allShopData = [
     "bonusYTD": 450,
     "tapLM": 1366.52,
     "tapGoalM": 10000,
-    "tapLQ": 9480.59,
+    "tapLQ": 19126.63,
     "tapGoalQ": 0,
     "tapTotalTQ": 707.71,
     "totalSV": 60,
@@ -9336,12 +9336,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5807.76,
+      8179.75,
+      5794.38,
+      2982.85,
+      2636.23,
+      4026.96,
       1626.4
     ],
     "bonusHistory": [
@@ -9447,7 +9447,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 406.47,
     "tapGoalM": 10000,
-    "tapLQ": 961.44,
+    "tapLQ": 5503.62,
     "tapGoalQ": 0,
     "tapTotalTQ": 131.8,
     "totalSV": 28,
@@ -9483,12 +9483,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1834.4,
+      1855.3,
+      1616.1299999999999,
+      1409.1200000000001,
+      1347.21,
+      1785.8500000000001,
       1513.15
     ],
     "bonusHistory": [
@@ -9562,7 +9562,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 281.85,
     "tapGoalM": 10000,
-    "tapLQ": 863.15,
+    "tapLQ": 39857.14,
     "tapGoalQ": 0,
     "tapTotalTQ": 142.97,
     "totalSV": 179,
@@ -9602,8 +9602,8 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
+      20068.53,
+      18925.46,
       13038.8
     ],
     "bonusHistory": [
@@ -9709,7 +9709,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 236.29,
     "tapGoalM": 10000,
-    "tapLQ": 290.83,
+    "tapLQ": 9960.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 536.96,
     "totalSV": 256,
@@ -9745,12 +9745,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      4900.16,
+      1020.62,
+      4267.26,
+      2984.89,
+      2704.14,
+      3980.58,
       5570.24
     ],
     "bonusHistory": [
@@ -9824,7 +9824,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 989.87,
     "tapGoalM": 10000,
-    "tapLQ": 3492.02,
+    "tapLQ": 44102,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 45,
@@ -9860,12 +9860,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      7660.93,
+      32151.99,
+      15543.14,
+      10532.52,
+      13333.65,
+      16743.81,
       14236.71
     ],
     "bonusHistory": [
@@ -9971,7 +9971,7 @@ const allShopData = [
     "bonusYTD": 200,
     "tapLM": 3963.69,
     "tapGoalM": 10000,
-    "tapLQ": 8158.48,
+    "tapLQ": 63945.57,
     "tapGoalQ": 0,
     "tapTotalTQ": 798.27,
     "totalSV": 307,
@@ -10007,12 +10007,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      34786.44,
+      33366.84,
+      51035.369999999995,
+      16669.33,
+      13279.8,
+      25837.96,
       6605.32
     ],
     "bonusHistory": [
@@ -10086,7 +10086,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 185.5,
     "tapGoalM": 10000,
-    "tapLQ": 2320.41,
+    "tapLQ": 54627.7,
     "tapGoalQ": 0,
     "tapTotalTQ": 237.97,
     "totalSV": 74,
@@ -10122,12 +10122,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      14412.06,
+      28921.13,
+      17163.98,
+      15324.27,
+      18131.64,
+      18851.38,
       12475.41
     ],
     "bonusHistory": [
@@ -10233,7 +10233,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 981.72,
     "tapGoalM": 10000,
-    "tapLQ": 1661.91,
+    "tapLQ": 16364.75,
     "tapGoalQ": 0,
     "tapTotalTQ": 370.79,
     "totalSV": 153,
@@ -10269,12 +10269,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      9670.26,
+      9972.83,
+      6655.14,
+      5168.62,
+      3936.73,
+      5597.49,
       6614.81
     ],
     "bonusHistory": [
@@ -10380,7 +10380,7 @@ const allShopData = [
     "bonusYTD": 575,
     "tapLM": 2176.64,
     "tapGoalM": 10000,
-    "tapLQ": 131561.04,
+    "tapLQ": 178623.07,
     "tapGoalQ": 0,
     "tapTotalTQ": 842.82,
     "totalSV": 82,
@@ -10416,12 +10416,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5765.31,
+      10399.12,
+      8050.7,
+      36140.85,
+      5673.0599999999995,
+      5248.12,
       3101.77
     ],
     "bonusHistory": [
@@ -10559,7 +10559,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 672.41,
     "tapGoalM": 10000,
-    "tapLQ": 4112.64,
+    "tapLQ": 33922.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 172.53,
     "totalSV": 75,
@@ -10595,12 +10595,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      18288.800000000003,
+      14540.14,
+      10365.83,
+      6819.08,
+      11892.45,
+      11097.98,
       7161.24
     ],
     "bonusHistory": [
@@ -10674,7 +10674,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 12577.12,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 14,
@@ -10712,10 +10712,10 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      136.07,
+      4824.03,
+      3723.12,
+      4029.97,
       328.4
     ],
     "bonusHistory": [
@@ -10789,7 +10789,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 429.72,
     "tapGoalM": 10000,
-    "tapLQ": 864.7,
+    "tapLQ": 23754.42,
     "tapGoalQ": 0,
     "tapTotalTQ": 60.49,
     "totalSV": 120,
@@ -10825,12 +10825,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6433.58,
+      9518.12,
+      11012.75,
+      6843.83,
+      6703.38,
+      9342.51,
       9657.1
     ],
     "bonusHistory": [
@@ -10904,7 +10904,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 33031.89,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 69,
@@ -10943,9 +10943,9 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
-      0,
+      5633.55,
+      11551.98,
+      15846.36,
       10250.66
     ],
     "bonusHistory": [
@@ -11019,7 +11019,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 805.27,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 65,
@@ -11055,12 +11055,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      755.81,
+      424.55,
+      111.1,
+      157.39,
+      243.29,
+      404.59,
       229.01
     ],
     "bonusHistory": [
@@ -11134,7 +11134,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 2646.84,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 18,
@@ -11170,12 +11170,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1048.07,
+      705.63,
+      549.48,
+      370.37,
+      266.09,
+      2010.38,
       491.27
     ],
     "bonusHistory": [
@@ -11249,7 +11249,7 @@ const allShopData = [
     "bonusYTD": 800,
     "tapLM": 356.53,
     "tapGoalM": 10000,
-    "tapLQ": 711.89,
+    "tapLQ": 35040.97,
     "tapGoalQ": 0,
     "tapTotalTQ": 189.44,
     "totalSV": 191,
@@ -11285,12 +11285,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      16930.04,
+      18850.91,
+      16974.09,
+      10964.96,
+      7542.24,
+      15821.88,
       9499.97
     ],
     "bonusHistory": [
@@ -11396,7 +11396,7 @@ const allShopData = [
     "bonusYTD": 600,
     "tapLM": 1535.05,
     "tapGoalM": 10000,
-    "tapLQ": 14058.05,
+    "tapLQ": 42974.49,
     "tapGoalQ": 0,
     "tapTotalTQ": 254.96,
     "totalSV": 64,
@@ -11432,12 +11432,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      16101.21,
+      22486.5,
+      11281.81,
+      8451.56,
+      11506.41,
+      8958.47,
       4874.49
     ],
     "bonusHistory": [
@@ -11543,7 +11543,7 @@ const allShopData = [
     "bonusYTD": 400,
     "tapLM": 1275.88,
     "tapGoalM": 10000,
-    "tapLQ": 3240.84,
+    "tapLQ": 4705.93,
     "tapGoalQ": 0,
     "tapTotalTQ": 435.71,
     "totalSV": 56,
@@ -11579,12 +11579,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1004.67,
+      970.19,
+      825.67,
+      505.16,
+      469.32,
+      490.61,
       251.89000000000001
     ],
     "bonusHistory": [
@@ -11658,7 +11658,7 @@ const allShopData = [
     "bonusYTD": 600,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 114.83,
+    "tapLQ": 23528.4,
     "tapGoalQ": 0,
     "tapTotalTQ": 149.21,
     "totalSV": 102,
@@ -11694,12 +11694,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      8403.47,
+      17296.03,
+      12556.37,
+      6191.74,
+      6011.01,
+      11210.82,
       7073.8
     ],
     "bonusHistory": [
@@ -11805,7 +11805,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 252.41,
     "tapGoalM": 10000,
-    "tapLQ": 1400.71,
+    "tapLQ": 10677.77,
     "tapGoalQ": 0,
     "tapTotalTQ": 296.25,
     "totalSV": 271,
@@ -11841,12 +11841,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      4443.8099999999995,
+      6090.360000000001,
+      4070.38,
+      3596.7999999999997,
+      2185.3199999999997,
+      3494.94,
       2781.7799999999997
     ],
     "bonusHistory": [
@@ -11920,7 +11920,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 423.6,
     "tapGoalM": 10000,
-    "tapLQ": 423.6,
+    "tapLQ": 84708.82,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 87,
@@ -11956,12 +11956,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3056.71,
+      8831.9,
+      6835.19,
+      5081.42,
+      19237.56,
+      59966.24,
       17868.03
     ],
     "bonusHistory": [
@@ -12035,7 +12035,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 19.15,
     "tapGoalM": 10000,
-    "tapLQ": 41.64,
+    "tapLQ": 24621.8,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 73,
@@ -12071,12 +12071,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      10217.6,
+      20722.1,
+      12078.04,
+      2874.4,
+      3422.64,
+      18283.12,
       8517.24
     ],
     "bonusHistory": [
@@ -12150,7 +12150,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 313.94,
     "tapGoalM": 10000,
-    "tapLQ": 970.63,
+    "tapLQ": 23479.9,
     "tapGoalQ": 0,
     "tapTotalTQ": 270.94,
     "totalSV": 155,
@@ -12187,11 +12187,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3136.72,
+      3345.65,
+      2523.84,
+      14761.89,
+      5223.54,
       3586.95
     ],
     "bonusHistory": [
@@ -12361,7 +12361,7 @@ const allShopData = [
     "bonusYTD": 100,
     "tapLM": 441.93,
     "tapGoalM": 10000,
-    "tapLQ": 1064.23,
+    "tapLQ": 35533.78,
     "tapGoalQ": 0,
     "tapTotalTQ": 76.22,
     "totalSV": 96,
@@ -12397,12 +12397,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6323.13,
+      21560.02,
+      17665.03,
+      17565.14,
+      9495.5,
+      7408.910000000001,
       4072.9
     ],
     "bonusHistory": [
@@ -12476,7 +12476,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 58.68,
     "tapGoalM": 10000,
-    "tapLQ": 58.68,
+    "tapLQ": 28172.59,
     "tapGoalQ": 0,
     "tapTotalTQ": 166.89,
     "totalSV": 125,
@@ -12513,11 +12513,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6348.03,
+      11148.1,
+      8841.59,
+      12364.86,
+      6907.46,
       5171.73
     ],
     "bonusHistory": [
@@ -12591,7 +12591,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 20268.95,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 25,
@@ -12628,11 +12628,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      18100.99,
+      9852.19,
+      6694.34,
+      5210.72,
+      8363.89,
       7729.33
     ],
     "bonusHistory": [
@@ -12706,7 +12706,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 386.47,
     "tapGoalM": 10000,
-    "tapLQ": 635.69,
+    "tapLQ": 4110.25,
     "tapGoalQ": 0,
     "tapTotalTQ": 230.75,
     "totalSV": 144,
@@ -12742,12 +12742,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1358.95,
+      1333.8,
+      4397.38,
+      2575.07,
+      332.39,
+      567.1,
       2980.06
     ],
     "bonusHistory": [
@@ -12821,7 +12821,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 91.98,
+    "tapLQ": 15992.11,
     "tapGoalQ": 0,
     "tapTotalTQ": 55.98,
     "totalSV": 87,
@@ -12857,12 +12857,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      6847.85,
+      7955.87,
+      6744.01,
+      5137.48,
+      4680.7,
+      6081.95,
       5479.63
     ],
     "bonusHistory": [
@@ -13000,7 +13000,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 50.89,
     "tapGoalM": 10000,
-    "tapLQ": 455.55,
+    "tapLQ": 6059.76,
     "tapGoalQ": 0,
     "tapTotalTQ": 78.66,
     "totalSV": 389,
@@ -13036,12 +13036,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1867.79,
+      9560.51,
+      11381.94,
+      1825.44,
+      2252.17,
+      1526.6,
       1921.6500000000003
     ],
     "bonusHistory": [
@@ -13115,7 +13115,7 @@ const allShopData = [
     "bonusYTD": 1400,
     "tapLM": 258.81,
     "tapGoalM": 10000,
-    "tapLQ": 1625.49,
+    "tapLQ": 21469.53,
     "tapGoalQ": 0,
     "tapTotalTQ": 133.99,
     "totalSV": 111,
@@ -13151,12 +13151,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      8333.55,
+      14472.11,
+      12816.29,
+      8799.25,
+      4855.7,
+      6189.09,
       4773.49
     ],
     "bonusHistory": [
@@ -13230,7 +13230,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 9965.28,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 72,
@@ -13271,7 +13271,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      9965.28,
       6020.73
     ],
     "bonusHistory": [
@@ -13345,7 +13345,7 @@ const allShopData = [
     "bonusYTD": 1040,
     "tapLM": 229.3,
     "tapGoalM": 10000,
-    "tapLQ": 1640.39,
+    "tapLQ": 16043.84,
     "tapGoalQ": 0,
     "tapTotalTQ": 247.88,
     "totalSV": 17,
@@ -13381,12 +13381,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      9345.98,
+      13051.4,
+      7233.88,
+      5705.07,
+      5220.63,
+      3477.75,
       2853.72
     ],
     "bonusHistory": [
@@ -13460,7 +13460,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 438.49,
     "tapGoalM": 10000,
-    "tapLQ": 438.49,
+    "tapLQ": 3684.55,
     "tapGoalQ": 0,
     "tapTotalTQ": 192.44,
     "totalSV": 39,
@@ -13496,12 +13496,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      829.28,
+      972.64,
+      1235.61,
+      1073.76,
+      899.83,
+      1272.47,
       1047.16
     ],
     "bonusHistory": [
@@ -13575,7 +13575,7 @@ const allShopData = [
     "bonusYTD": 250,
     "tapLM": 942.94,
     "tapGoalM": 10000,
-    "tapLQ": 4077.26,
+    "tapLQ": 6390.12,
     "tapGoalQ": 0,
     "tapTotalTQ": 117.14,
     "totalSV": 12,
@@ -13611,12 +13611,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1283.06,
+      1203.05,
+      987.17,
+      652.33,
+      739.91,
+      920.62,
       592.28
     ],
     "bonusHistory": [
@@ -13690,7 +13690,7 @@ const allShopData = [
     "bonusYTD": 600,
     "tapLM": 84.37,
     "tapGoalM": 10000,
-    "tapLQ": 263.89,
+    "tapLQ": 2635.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 75.64,
     "totalSV": 2,
@@ -13726,12 +13726,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      4234.68,
+      2551.63,
+      2775.74,
+      1109.97,
+      496.13,
+      765.82,
       577.49
     ],
     "bonusHistory": [
@@ -13805,7 +13805,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 94.47,
+    "tapLQ": 14583.06,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 29,
@@ -13841,12 +13841,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      4244.03,
+      5901.48,
+      5870.7,
+      4849.47,
+      4941.86,
+      4697.26,
       3875.91
     ],
     "bonusHistory": [
@@ -13920,7 +13920,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 47.62,
     "tapGoalM": 10000,
-    "tapLQ": 278.8,
+    "tapLQ": 13770.74,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 24,
@@ -13957,11 +13957,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3083.69,
+      3746.5,
+      3137.36,
+      5130.64,
+      5223.94,
       3192.5
     ],
     "bonusHistory": [
@@ -14035,7 +14035,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 16741.39,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 82,
@@ -14075,8 +14075,8 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
+      6060.79,
+      10680.6,
       3742.14
     ],
     "bonusHistory": [
@@ -14150,7 +14150,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 403.16,
     "tapGoalM": 10000,
-    "tapLQ": 561.47,
+    "tapLQ": 8188.28,
     "tapGoalQ": 0,
     "tapTotalTQ": 47.96,
     "totalSV": 107,
@@ -14186,12 +14186,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      250.63,
+      151.62,
+      95.74,
+      467.52,
+      2779.84,
+      4379.45,
       2023.92
     ],
     "bonusHistory": [
@@ -14285,7 +14285,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 89.98,
+    "tapLQ": 7970.85,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 111,
@@ -14321,12 +14321,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1695.07,
+      2610.86,
+      2685.31,
+      2391.93,
+      2102.64,
+      3386.3,
       3916.74
     ],
     "bonusHistory": [
@@ -14400,7 +14400,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 135.76,
+    "tapLQ": 3533.29,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 45,
@@ -14437,11 +14437,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1540.38,
+      5688.66,
+      1629.06,
+      645.44,
+      1123.03,
       1643.3
     ],
     "bonusHistory": [
@@ -14515,7 +14515,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 6600.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 129,
@@ -14551,12 +14551,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1523.45,
+      1297.74,
+      3161.91,
+      2503.59,
+      1959.35,
+      2137.87,
       2626.32
     ],
     "bonusHistory": [
@@ -14630,7 +14630,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 224.67,
     "tapGoalM": 10000,
-    "tapLQ": 453.96,
+    "tapLQ": 18373.59,
     "tapGoalQ": 0,
     "tapTotalTQ": 201.68,
     "totalSV": 50,
@@ -14666,12 +14666,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      15294.23,
+      14246.4,
+      9191.59,
+      6931.91,
+      6452.42,
+      4535.3,
       3236.31
     ],
     "bonusHistory": [
@@ -14745,7 +14745,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 19444.88,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 144,
@@ -14781,12 +14781,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      20970.14,
+      32396.46,
+      21184.14,
+      9530.78,
+      4913.36,
+      5000.74,
       3233.79
     ],
     "bonusHistory": [
@@ -14892,7 +14892,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 62.05,
+    "tapLQ": 548.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 116,
@@ -14928,12 +14928,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      240.06,
+      264.56,
+      3242.6200000000003,
+      256.49,
+      124.13000000000001,
+      105.47999999999999,
       166.19
     ],
     "bonusHistory": [
@@ -15007,7 +15007,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1314.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 23.72,
     "totalSV": 29,
@@ -15043,12 +15043,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      468.58,
+      774,
+      741.31,
+      288.27,
+      316,
+      710.17,
       989.62
     ],
     "bonusHistory": [
@@ -15122,7 +15122,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 29.15,
     "tapGoalM": 10000,
-    "tapLQ": 81.61,
+    "tapLQ": 8858.09,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 85,
@@ -15158,12 +15158,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3950.73,
+      5580.56,
+      6942.21,
+      2306.81,
+      2658.24,
+      3811.43,
       1552.78
     ],
     "bonusHistory": [
@@ -15237,7 +15237,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 32.74,
+    "tapLQ": 2645.61,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -15273,12 +15273,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      149.68,
+      295.19,
+      827.03,
+      426.86,
+      788.53,
+      1397.48,
       1512.62
     ],
     "bonusHistory": [
@@ -15352,7 +15352,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 63.9,
+    "tapLQ": 2684.16,
     "tapGoalQ": 0,
     "tapTotalTQ": 49.99,
     "totalSV": 5,
@@ -15388,12 +15388,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2705.27,
+      2959.81,
+      1745.48,
+      1049.6,
+      710.39,
+      860.27,
       944.51
     ],
     "bonusHistory": [
@@ -15467,7 +15467,7 @@ const allShopData = [
     "bonusYTD": 280,
     "tapLM": 354.78,
     "tapGoalM": 10000,
-    "tapLQ": 2947.85,
+    "tapLQ": 19229.9,
     "tapGoalQ": 0,
     "tapTotalTQ": 51.29,
     "totalSV": 0,
@@ -15503,12 +15503,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      15070.99,
+      15495.33,
+      13367.5,
+      8628.32,
+      6138.22,
+      1515.51,
       397.56
     ],
     "bonusHistory": [
@@ -15614,7 +15614,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 77.86,
     "tapGoalM": 10000,
-    "tapLQ": 259.75,
+    "tapLQ": 3192.22,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -15650,12 +15650,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      4030.99,
+      3957.77,
+      1773.28,
+      989.41,
+      878.13,
+      1064.93,
       515.5799999999999
     ],
     "bonusHistory": [
@@ -15729,7 +15729,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 90.15,
     "tapGoalM": 10000,
-    "tapLQ": 132.15,
+    "tapLQ": 4619.61,
     "tapGoalQ": 0,
     "tapTotalTQ": 14,
     "totalSV": 4,
@@ -15765,12 +15765,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3507.27,
+      2853.86,
+      2785.67,
+      1900.63,
+      1340.9,
+      1245.93,
       789.45
     ],
     "bonusHistory": [
@@ -15844,7 +15844,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 7307.13,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 24,
@@ -15880,12 +15880,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1878.7,
+      3539.89,
+      7285.68,
+      2961.32,
+      1749.31,
+      2596.5,
       1596.81
     ],
     "bonusHistory": [
@@ -15959,7 +15959,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 145.22,
     "tapGoalM": 10000,
-    "tapLQ": 241.5,
+    "tapLQ": 4246.67,
     "tapGoalQ": 0,
     "tapTotalTQ": 30.99,
     "totalSV": 120,
@@ -15995,12 +15995,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      758.23,
+      2235.63,
+      2671.43,
+      1444.34,
+      1061.22,
+      1499.61,
       868.67
     ],
     "bonusHistory": [
@@ -16106,7 +16106,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1232.72,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 11,
@@ -16142,12 +16142,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      282.78,
+      622.86,
+      1741.67,
+      324.58,
+      402.71000000000004,
+      505.42999999999995,
       334.69
     ],
     "bonusHistory": [
@@ -16253,7 +16253,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 240.59,
+    "tapLQ": 2169.4,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 277,
@@ -16289,12 +16289,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1648.38,
+      2623.2,
+      1928,
+      740.26,
+      705.73,
+      482.82000000000005,
       108.16
     ],
     "bonusHistory": [
@@ -16368,7 +16368,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 428.52,
     "tapGoalM": 10000,
-    "tapLQ": 483.01,
+    "tapLQ": 11256.76,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -16404,12 +16404,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2768.33,
+      4510.45,
+      2928.14,
+      2064.47,
+      3772.14,
+      4937.14,
       2979.54
     ],
     "bonusHistory": [
@@ -16483,7 +16483,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 3659.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 161,
@@ -16523,8 +16523,8 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
+      730.94,
+      2928.87,
       2013.93
     ],
     "bonusHistory": [
@@ -16598,7 +16598,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 4270.1,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 57,
@@ -16634,12 +16634,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      999.67,
+      1237.83,
+      2496.3,
+      2818.77,
+      805.03,
+      646.3,
       189.6
     ],
     "bonusHistory": [
@@ -16713,7 +16713,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 12.12,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -16749,12 +16749,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      3.88,
+      38.28,
+      4.06,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      5.85,
+      6.27,
       0
     ],
     "bonusHistory": [
@@ -16828,7 +16828,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 192.99,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -16864,12 +16864,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      29.14,
+      16.78,
+      18.1,
+      24.96,
+      59.43,
+      108.6,
       30.1
     ],
     "bonusHistory": [
@@ -16943,7 +16943,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1893.88,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 12,
@@ -16979,12 +16979,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2161.69,
+      2053.38,
+      1277.72,
+      710.28,
+      762.53,
+      421.07,
       303.29
     ],
     "bonusHistory": [
@@ -17058,7 +17058,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 24.71,
+    "tapLQ": 330.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 62,
@@ -17094,12 +17094,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      198.05,
+      149.64,
+      66.5,
+      54.5,
+      72.69,
+      178.25,
       41.89
     ],
     "bonusHistory": [
@@ -17173,7 +17173,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 79.8,
+    "tapLQ": 233.63,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -17209,12 +17209,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      109.37,
+      66.01,
+      32.97,
+      78.71,
+      47.87,
+      27.25,
       5.25
     ],
     "bonusHistory": [
@@ -17288,7 +17288,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 352.33,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 2,
@@ -17324,12 +17324,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      211.82,
+      248.97,
+      175.4,
+      100.07,
+      120.96,
+      131.3,
       159.78
     ],
     "bonusHistory": [
@@ -17403,7 +17403,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 4096.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 8,
@@ -17439,12 +17439,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      880.71,
+      1853.12,
+      1207.48,
+      1545.89,
+      1353.37,
+      1197.55,
       626.9
     ],
     "bonusHistory": [
@@ -17518,7 +17518,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 101.67,
+    "tapLQ": 1852.5,
     "tapGoalQ": 0,
     "tapTotalTQ": 22.91,
     "totalSV": 187,
@@ -17554,12 +17554,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      989.36,
+      919.83,
+      554.3,
+      589.41,
+      682.03,
+      479.39,
       420.15
     ],
     "bonusHistory": [
@@ -17633,7 +17633,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 100.5,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -17669,12 +17669,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      58.44,
+      107.76,
+      203.49,
+      58.45,
+      12.26,
+      29.79,
       27.64
     ],
     "bonusHistory": [
@@ -17748,7 +17748,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 110.07,
+    "tapLQ": 1938.14,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 20,
@@ -17784,12 +17784,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1019.76,
+      1799.39,
+      1363.63,
+      522.02,
+      596.48,
+      709.57,
       424.57
     ],
     "bonusHistory": [
@@ -17863,7 +17863,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 859.71,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -17899,12 +17899,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1283.73,
+      1656.48,
+      1304.13,
+      399.61,
+      179.15,
+      280.95,
       165.43
     ],
     "bonusHistory": [
@@ -17978,7 +17978,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 22.04,
     "tapGoalM": 10000,
-    "tapLQ": 98.94,
+    "tapLQ": 2524.67,
     "tapGoalQ": 0,
     "tapTotalTQ": 53.89,
     "totalSV": 4,
@@ -18014,12 +18014,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1109.61,
+      2617.17,
+      1819.67,
+      1018.96,
+      565.86,
+      840.91,
       603.05
     ],
     "bonusHistory": [
@@ -18093,7 +18093,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 58.41,
+    "tapLQ": 3984.51,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -18129,12 +18129,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      782.33,
+      1285.21,
+      1399.29,
+      1255.6,
+      1445.62,
+      1224.88,
       897.19
     ],
     "bonusHistory": [
@@ -18208,7 +18208,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 140.09,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -18244,12 +18244,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      162.37,
+      351.48,
+      78.06,
+      38.99,
+      69.84,
+      31.26,
       18.89
     ],
     "bonusHistory": [
@@ -18323,7 +18323,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 376.46,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 9,
@@ -18359,12 +18359,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      281.69,
+      814.36,
+      250.55,
+      192.09,
+      108.43,
+      75.94,
       34.89
     ],
     "bonusHistory": [
@@ -18438,7 +18438,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 299.82,
     "tapGoalM": 10000,
-    "tapLQ": 1032.9,
+    "tapLQ": 2623.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 31.84,
     "totalSV": 215,
@@ -18474,12 +18474,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      141.37,
+      170.19,
+      513.58,
+      120.95,
+      648.95,
+      820.35,
       323.68
     ],
     "bonusHistory": [
@@ -18553,7 +18553,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 548.7,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -18589,12 +18589,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1221.79,
+      118.74,
+      647.6,
+      334.28,
+      70.21,
+      144.21,
       104.56
     ],
     "bonusHistory": [
@@ -18783,7 +18783,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 20.34,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -18819,12 +18819,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      61.45,
+      29,
+      11,
+      2.8,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      17.54,
       14.83
     ],
     "bonusHistory": [
@@ -18898,7 +18898,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 356.82,
+    "tapLQ": 1498.13,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -18934,12 +18934,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      255.85,
+      437.63,
+      630.94,
+      306.64,
+      411.87,
+      422.8,
       211.78
     ],
     "bonusHistory": [
@@ -19013,7 +19013,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 43.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -19049,12 +19049,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      174.47,
+      93.13,
+      89.85,
+      6.01,
+      19.67,
+      17.47,
       11.28
     ],
     "bonusHistory": [
@@ -19128,7 +19128,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 4027.05,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 4,
@@ -19166,10 +19166,10 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      1019.52,
+      2986.88,
+      656.2,
+      383.97,
       424.35
     ],
     "bonusHistory": [
@@ -19243,7 +19243,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 20,
+    "tapLQ": 8590.55,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -19279,12 +19279,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1011.06,
+      14087.01,
+      3351.45,
+      2450.82,
+      6052.68,
+      67.05,
       16.55
     ],
     "bonusHistory": [
@@ -19358,7 +19358,7 @@ const allShopData = [
     "bonusYTD": 225,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 10.25,
+    "tapLQ": 2807.88,
     "tapGoalQ": 0,
     "tapTotalTQ": 22.64,
     "totalSV": 108,
@@ -19394,12 +19394,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      467.57,
+      799.35,
+      261.11,
+      1105.67,
+      619.31,
+      1072.65,
       677.09
     ],
     "bonusHistory": [
@@ -19473,7 +19473,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 10.5,
+    "tapLQ": 2040.09,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 13,
@@ -19509,12 +19509,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1150.83,
+      2437.59,
+      2216.19,
+      539.75,
+      755.54,
+      734.3,
       469.08
     ],
     "bonusHistory": [
@@ -19703,7 +19703,7 @@ const allShopData = [
     "bonusYTD": 225,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 3.13,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 10,
@@ -19739,12 +19739,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      5.72,
+      15.43,
+      19.91,
+      1.65,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1.48,
       11.09
     ],
     "bonusHistory": [
@@ -19818,7 +19818,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1333.05,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -19854,12 +19854,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      707.58,
+      1242.85,
+      733.76,
+      416.06,
+      486.67,
+      430.32,
       268.12
     ],
     "bonusHistory": [
@@ -19933,7 +19933,7 @@ const allShopData = [
     "bonusYTD": 300,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 35.24,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 3,
@@ -19970,11 +19970,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      16.4,
+      13.52,
+      7.49,
+      8.71,
+      19.04,
       13.92
     ],
     "bonusHistory": [
@@ -20048,7 +20048,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 96.08,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 2,
@@ -20084,12 +20084,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      61.23,
+      56.56,
+      41.61,
+      2.7,
+      41.72,
+      51.66,
       40.5
     ],
     "bonusHistory": [
@@ -20163,7 +20163,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 2016.94,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 26,
@@ -20199,12 +20199,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      724.26,
+      1091.7,
+      1115.18,
+      853.82,
+      643.67,
+      519.45,
       251.18
     ],
     "bonusHistory": [
@@ -20278,7 +20278,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 1015.15,
     "tapGoalM": 10000,
-    "tapLQ": 2694.91,
+    "tapLQ": 7973.53,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 136,
@@ -20314,12 +20314,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2269.48,
+      1391.31,
+      1450.33,
+      1567.34,
+      1855.13,
+      1856.15,
       934.63
     ],
     "bonusHistory": [
@@ -20393,7 +20393,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 39.08,
     "tapGoalM": 10000,
-    "tapLQ": 39.08,
+    "tapLQ": 655.01,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 6,
@@ -20429,12 +20429,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      45.93,
+      54.05,
+      95.69,
+      197.28,
+      160.02,
+      258.63,
       80.66
     ],
     "bonusHistory": [
@@ -20508,7 +20508,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 98.56,
+    "tapLQ": 426.91,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 78,
@@ -20544,12 +20544,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      128,
+      228.95,
+      240.16,
+      98.67,
+      123.57,
+      106.11,
       56.82
     ],
     "bonusHistory": [
@@ -20623,7 +20623,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 22.35,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -20659,12 +20659,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      3.2,
+      6.87,
+      5.89,
+      0.69,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      21.66,
       0.92
     ],
     "bonusHistory": [
@@ -20738,7 +20738,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 2973.09,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 4,
@@ -20774,12 +20774,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1310.91,
+      2038,
+      1923.4,
+      1097.82,
+      798.33,
+      1076.94,
       1009.13
     ],
     "bonusHistory": [
@@ -20853,7 +20853,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 179.94,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 20,
@@ -20889,12 +20889,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      134.34,
+      113.34,
+      110.7,
+      78.04,
+      38.28,
+      63.62,
       54.97
     ],
     "bonusHistory": [
@@ -20968,7 +20968,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 130.9,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 36,
@@ -21004,12 +21004,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      64.49,
+      20.34,
+      5.4,
+      41.97,
+      25.5,
+      63.43,
       158.35
     ],
     "bonusHistory": [
@@ -21083,7 +21083,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 139.99,
+    "tapLQ": 693.96,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 21,
@@ -21119,12 +21119,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      3288.62,
+      2760.53,
+      208.39,
+      233.18,
+      251.08,
+      69.71,
       24.96
     ],
     "bonusHistory": [
@@ -21198,7 +21198,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 12.64,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 155,
@@ -21239,7 +21239,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      12.64,
       566.55
     ],
     "bonusHistory": [
@@ -21313,7 +21313,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 72.53,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -21349,12 +21349,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      220.9,
+      230.99,
+      46.12,
+      26.44,
+      23.25,
+      22.84,
       34.03
     ],
     "bonusHistory": [
@@ -21428,7 +21428,7 @@ const allShopData = [
     "bonusYTD": 200,
     "tapLM": 138.49,
     "tapGoalM": 10000,
-    "tapLQ": 338.49,
+    "tapLQ": 918.84,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 14,
@@ -21464,12 +21464,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      591.91,
+      395.77,
+      405.35,
+      229.77,
+      112.11,
+      238.47,
       158.94
     ],
     "bonusHistory": [
@@ -21543,7 +21543,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 455.78,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 33,
@@ -21579,12 +21579,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      64.19,
+      142.11,
+      131.49,
+      31.86,
+      129.56,
+      294.36,
       249.44
     ],
     "bonusHistory": [
@@ -21658,7 +21658,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 864.08,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -21694,12 +21694,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      450.64,
+      611.43,
+      594.46,
+      235.13,
+      413.88,
+      215.07,
       123.65
     ],
     "bonusHistory": [
@@ -21773,7 +21773,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 31.45,
     "tapGoalM": 10000,
-    "tapLQ": 31.45,
+    "tapLQ": 2207.61,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 70,
@@ -21809,12 +21809,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1423.58,
+      1072.66,
+      395.68,
+      426.41,
+      596.78,
+      1152.97,
       447.87
     ],
     "bonusHistory": [
@@ -21888,7 +21888,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1656.09,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 16,
@@ -21924,12 +21924,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      842.21,
+      1048.09,
+      525.46,
+      487.93,
+      324.2,
+      843.96,
       688.98
     ],
     "bonusHistory": [
@@ -22003,7 +22003,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 61.65,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -22039,12 +22039,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      28.41,
+      26.08,
+      16.71,
+      37.38,
+      10.1,
+      14.17,
       5.98
     ],
     "bonusHistory": [
@@ -22118,7 +22118,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 104.62,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 134,
@@ -22154,12 +22154,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      491.43,
+      564.27,
+      278.84,
       0,
       0,
-      0,
-      0,
-      0,
-      0,
+      104.62,
       303.09
     ],
     "bonusHistory": [
@@ -22233,7 +22233,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 409.73,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 3,
@@ -22269,12 +22269,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      110.79,
+      369.7,
+      275.42,
+      158.17,
+      197.27,
+      54.29,
       3.7
     ],
     "bonusHistory": [
@@ -22348,7 +22348,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 6362.81,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 5,
@@ -22384,12 +22384,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2973.92,
+      10859.58,
+      10766.4,
+      4136.75,
+      1640.02,
+      586.04,
       371.33
     ],
     "bonusHistory": [
@@ -22463,7 +22463,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 667.07,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -22499,12 +22499,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      290.73,
+      247.75,
+      312.71,
+      255.45,
+      150.08,
+      261.54,
       390.37
     ],
     "bonusHistory": [
@@ -22578,7 +22578,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 62.63,
+    "tapLQ": 4304.54,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -22614,12 +22614,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1901.59,
+      2112.76,
+      1479.29,
+      1030.12,
+      2228.92,
+      982.87,
       695.4
     ],
     "bonusHistory": [
@@ -22693,7 +22693,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 3366.02,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -22729,12 +22729,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      853.75,
+      1468.72,
+      3336.94,
+      1678.29,
+      1326.71,
+      361.02,
       191.36
     ],
     "bonusHistory": [
@@ -22808,7 +22808,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 8395.29,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 28,
@@ -22844,12 +22844,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2798.43,
+      2798.43,
+      2798.43,
+      2798.43,
+      2798.43,
+      2798.43,
       2798.43
     ],
     "bonusHistory": [
@@ -22923,7 +22923,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 111.18,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 2,
@@ -22959,12 +22959,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      59.82,
+      48.97,
+      81.19,
+      31.13,
+      48.55,
+      31.5,
       11.32
     ],
     "bonusHistory": [
@@ -23038,7 +23038,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 4.52,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 14,
@@ -23074,12 +23074,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      21.04,
       0,
+      35.96,
       0,
-      0,
-      0,
-      0,
-      0,
+      3.2,
+      1.32,
       22.55
     ],
     "bonusHistory": [
@@ -23153,7 +23153,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1329.19,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 13,
@@ -23193,8 +23193,8 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
+      516.29,
+      812.9,
       140.86
     ],
     "bonusHistory": [
@@ -23268,7 +23268,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 811.06,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 7,
@@ -23304,12 +23304,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      203.86,
+      163.46,
+      95.12,
+      127.88,
+      359.57,
+      323.61,
       110.56
     ],
     "bonusHistory": [
@@ -23383,7 +23383,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 33.89,
     "tapGoalM": 10000,
-    "tapLQ": 43.88,
+    "tapLQ": 645.97,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 13,
@@ -23419,12 +23419,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      227.3,
+      243.94,
+      311.05,
+      172.75,
+      212.68,
+      216.66,
       124.61
     ],
     "bonusHistory": [
@@ -23498,7 +23498,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 72.43,
     "tapGoalM": 10000,
-    "tapLQ": 194.68,
+    "tapLQ": 2652.78,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 16,
@@ -23534,12 +23534,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2379.82,
+      4474.32,
+      2411.25,
+      521.65,
+      1043.63,
+      892.82,
       353.46
     ],
     "bonusHistory": [
@@ -23613,7 +23613,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 769.1,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 3,
@@ -23649,12 +23649,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      885.72,
+      567.22,
+      314.54,
+      241.91,
+      273.97,
+      253.22,
       169.96
     ],
     "bonusHistory": [
@@ -23728,7 +23728,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 3.72,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -23764,12 +23764,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      1.29,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1.28,
+      0.5,
+      1.65,
+      1.57,
       0.6
     ],
     "bonusHistory": [
@@ -23843,7 +23843,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 488.62,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -23879,12 +23879,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      254.69,
+      226.48,
+      234.44,
+      231.38,
+      142.27,
+      114.97,
       48.34
     ],
     "bonusHistory": [
@@ -23958,7 +23958,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 321.31,
     "tapGoalM": 10000,
-    "tapLQ": 1195.54,
+    "tapLQ": 2447.39,
     "tapGoalQ": 0,
     "tapTotalTQ": 89.94,
     "totalSV": 0,
@@ -23994,12 +23994,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1486.52,
+      2186.95,
+      1344.09,
+      549.03,
+      288.76,
+      414.06,
       360.34
     ],
     "bonusHistory": [
@@ -24073,7 +24073,7 @@ const allShopData = [
     "bonusYTD": 750,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1236.98,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 46,
@@ -24109,12 +24109,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      659.11,
+      596.51,
+      305.18,
+      192.35,
+      368.83,
+      675.8,
       536.53
     ],
     "bonusHistory": [
@@ -24224,7 +24224,7 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
+      5.8,
       0,
       0,
       0,
@@ -24303,7 +24303,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 19.21,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -24341,8 +24341,8 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
-      0,
+      175.74,
+      19.21,
       0,
       0,
       0
@@ -24418,7 +24418,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 6.14,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -24454,11 +24454,11 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
+      2.64,
+      3.74,
+      2.68,
+      3.07,
+      3.07,
       0,
       0
     ],
@@ -24533,7 +24533,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 1.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -24569,12 +24569,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      4.4,
       0,
       0,
       0,
       0,
-      0,
-      0,
+      1.15,
       0
     ],
     "bonusHistory": [
@@ -24648,7 +24648,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 126.05,
+    "tapLQ": 12589.32,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -24684,12 +24684,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1189.91,
+      8378.86,
+      7429.67,
+      5862.72,
+      5394.39,
+      1206.16,
       0
     ],
     "bonusHistory": [
@@ -24800,7 +24800,7 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
+      5.6,
       0,
       0,
       0,
@@ -24878,7 +24878,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 35,
     "tapGoalM": 10000,
-    "tapLQ": 67.13,
+    "tapLQ": 113.87,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -24917,9 +24917,9 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0,
-      0,
+      28.64,
+      11.8,
+      6.3,
       0
     ],
     "bonusHistory": [
@@ -24993,7 +24993,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 8.67,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 4,
@@ -25029,11 +25029,11 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
+      13.2,
+      4,
+      31.17,
+      4.32,
+      4.35,
       0,
       0
     ],
@@ -25223,7 +25223,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 21.88,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 1,
@@ -25260,11 +25260,11 @@ const allShopData = [
     ],
     "commHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      40.94,
+      11.88,
+      18.97,
+      1.39,
+      1.52,
       0
     ],
     "bonusHistory": [
@@ -25376,7 +25376,7 @@ const allShopData = [
     "commHistory": [
       0,
       0,
-      0,
+      1.15,
       0,
       0,
       0,
@@ -25683,7 +25683,7 @@ const allShopData = [
     "bonusYTD": 0,
     "tapLM": 0,
     "tapGoalM": 10000,
-    "tapLQ": 0,
+    "tapLQ": 49.52,
     "tapGoalQ": 0,
     "tapTotalTQ": 0,
     "totalSV": 0,
@@ -25719,12 +25719,12 @@ const allShopData = [
       "Apr 26"
     ],
     "commHistory": [
+      9.7,
+      10,
+      4.51,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      32.5,
+      17.02,
       0
     ],
     "bonusHistory": [
