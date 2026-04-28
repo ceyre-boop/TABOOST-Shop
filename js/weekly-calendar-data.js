@@ -72,7 +72,7 @@ function generateRollingCalendar() {
         },
         {
             id: 5,
-            title: "Bloomin Deals",
+            title: "Bloomin' Deals",
             type: "sale",
             time: "Sale",
             startDate: new Date(2026, 4, 13),
@@ -81,7 +81,7 @@ function generateRollingCalendar() {
         },
         {
             id: 6,
-            title: "Father’s Day Campaign",
+            title: "Fathers Day",
             type: "campaign",
             time: "Promo",
             startDate: new Date(2026, 5, 5),
@@ -90,7 +90,7 @@ function generateRollingCalendar() {
         },
         {
             id: 7,
-            title: "Fun in the Sun Sale",
+            title: "Fun in the Sun",
             type: "sale",
             time: "Major",
             startDate: new Date(2026, 6, 22),
