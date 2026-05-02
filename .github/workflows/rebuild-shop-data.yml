@@ -8,6 +8,9 @@ on:
       - 'data/shop/current.csv'
       - 'data/shop/history.csv'
 
+permissions:
+  contents: write
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
