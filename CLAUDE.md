@@ -141,3 +141,28 @@ Always run `validate-and-deploy-shop.js` before pushing data updates. It generat
 - Edit `js/shop-data.js` directly
 - Change the 7 CSV column schemas without updating `update-shop-data.js`
 - Skip `validate-and-deploy-shop.js` before pushing — users will see stale cached data
+
+---
+
+## Session End Protocol
+
+At the end of EVERY session — before your final message — write a session note to the Obsidian vault using the `obsidian-vault` MCP tool (`write_file`).
+
+**File path:** `C:\Users\Admin\clawdbot-vault\Projects\TABOOST-Shop\Sessions\YYYY-MM-DD-[topic].md`
+
+**Template:**
+```
+# Session: [topic] — YYYY-MM-DD
+
+## What we did
+[What was discussed or built]
+
+## What changed
+[Files modified, features added, bugs fixed]
+
+## Decisions made
+[Any non-obvious decisions and why]
+
+## Next
+[Open questions, what to pick up next session]
+```
