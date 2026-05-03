@@ -7,6 +7,16 @@ on:
       - 'data/shop/totals.csv'
       - 'data/shop/current.csv'
       - 'data/shop/history.csv'
+      - 'data/shop/tap-links.csv'
+      - 'data/shop/tap-products.csv'
+      - 'data/shop/shop-current.csv'
+
+# Only one rebuild at a time. When App Scripts push 5 CSVs in rapid succession,
+# each commit triggers this workflow. The concurrency group cancels in-progress
+# runs so only the final state (all CSVs updated) produces the rebuilt JS.
+concurrency:
+  group: rebuild-shop-data
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -18,10 +28,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # Fetch full history so the push back won't diverge
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      # Wait briefly so any remaining rapid sequential commits can land,
+      # then pull the latest to ensure we build from the complete CSV state.
+      - name: Wait for sequential commits to settle, then pull latest
+        run: |
+          sleep 8
+          git pull --rebase origin main
 
       - name: Rebuild shop-data.js
         run: node build-shop-data.js
