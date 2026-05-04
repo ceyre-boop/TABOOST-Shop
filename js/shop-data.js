@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-05-04T19:32:01.073Z
+// Generated: 2026-05-04T23:06:17.288Z
 // Total Mapped: 207 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -67,7 +67,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 206151.87,
     "tapGoalQ": 0,
-    "tapTotalTQ": 33554.9,
+    "tapTotalTQ": 66260.92,
     "totalSV": 9,
     "totalTaP": 4,
     "totalLS": 0,
@@ -106,7 +106,7 @@ const allShopData = [
       63612.67,
       43890.42,
       36550.12,
-      0,
+      32706.02,
       7907.66
     ],
     "bonusHistory": [
@@ -246,7 +246,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 381696.55,
     "tapGoalQ": 0,
-    "tapTotalTQ": 67959.23,
+    "tapTotalTQ": 95719.48,
     "totalSV": 18,
     "totalTaP": 11,
     "totalLS": 0,
@@ -285,7 +285,7 @@ const allShopData = [
       45300.68,
       30142.460000000003,
       24684.97,
-      0,
+      27760.25,
       2927.2
     ],
     "bonusHistory": [
@@ -393,7 +393,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 634357.54,
     "tapGoalQ": 0,
-    "tapTotalTQ": 114307.64,
+    "tapTotalTQ": 157730.43,
     "totalSV": 9,
     "totalTaP": 0,
     "totalLS": 0,
@@ -432,7 +432,7 @@ const allShopData = [
       62183.86,
       51850.56,
       48046.91,
-      0,
+      43422.79,
       4773.48
     ],
     "bonusHistory": [
@@ -540,7 +540,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 785141.74,
     "tapGoalQ": 0,
-    "tapTotalTQ": 56259.45,
+    "tapTotalTQ": 67567.4,
     "totalSV": 6,
     "totalTaP": 5,
     "totalLS": 0,
@@ -579,7 +579,7 @@ const allShopData = [
       22408.39,
       10550.43,
       101713.40999999999,
-      0,
+      11307.95,
       1827.65
     ],
     "bonusHistory": [
@@ -687,7 +687,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 96009.68,
     "tapGoalQ": 0,
-    "tapTotalTQ": 48567.08,
+    "tapTotalTQ": 69221.37,
     "totalSV": 20,
     "totalTaP": 4,
     "totalLS": 0,
@@ -726,7 +726,7 @@ const allShopData = [
       19047.59,
       13456.1,
       17712.149999999998,
-      0,
+      20654.29,
       3607.36
     ],
     "bonusHistory": [
@@ -866,7 +866,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 485263.16,
     "tapGoalQ": 0,
-    "tapTotalTQ": 26855.18,
+    "tapTotalTQ": 119131.24,
     "totalSV": 36,
     "totalTaP": 3,
     "totalLS": 0,
@@ -905,7 +905,7 @@ const allShopData = [
       91497.47,
       99335.36,
       88015.93,
-      0,
+      92276.06,
       11641.89
     ],
     "bonusHistory": [
@@ -1013,7 +1013,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 559441.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 51619.52,
+    "tapTotalTQ": 108790.53,
     "totalSV": 15,
     "totalTaP": 0,
     "totalLS": 0,
@@ -1052,7 +1052,7 @@ const allShopData = [
       68572.28,
       56537.4,
       64934.05,
-      0,
+      57171.01,
       5132.06
     ],
     "bonusHistory": [
@@ -1128,7 +1128,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 607198.18,
     "tapGoalQ": 0,
-    "tapTotalTQ": 49221.9,
+    "tapTotalTQ": 60120.22,
     "totalSV": 16,
     "totalTaP": 8,
     "totalLS": 0,
@@ -1167,7 +1167,7 @@ const allShopData = [
       36188.62,
       42568.52,
       62753.01,
-      0,
+      10898.32,
       5417.7
     ],
     "bonusHistory": [
@@ -1243,7 +1243,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 59840.18,
     "tapGoalQ": 0,
-    "tapTotalTQ": 15269.24,
+    "tapTotalTQ": 18948.63,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -1282,7 +1282,7 @@ const allShopData = [
       2457.42,
       4747.73,
       5242.66,
-      0,
+      3679.39,
       369.89
     ],
     "bonusHistory": [
@@ -1358,7 +1358,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 112666.22,
     "tapGoalQ": 0,
-    "tapTotalTQ": 22257.69,
+    "tapTotalTQ": 32721.96,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -1397,7 +1397,7 @@ const allShopData = [
       20838.47,
       13519.19,
       11351.52,
-      0,
+      10464.27,
       1026.97
     ],
     "bonusHistory": [
@@ -1473,7 +1473,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 146247.7,
     "tapGoalQ": 0,
-    "tapTotalTQ": 31946.74,
+    "tapTotalTQ": 63425.71,
     "totalSV": 7,
     "totalTaP": 1,
     "totalLS": 0,
@@ -1512,7 +1512,7 @@ const allShopData = [
       25577.53,
       24298.46,
       43310.68,
-      0,
+      31478.97,
       3288.82
     ],
     "bonusHistory": [
@@ -1588,7 +1588,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 23036.98,
     "tapGoalQ": 0,
-    "tapTotalTQ": 325.79,
+    "tapTotalTQ": 9915.79,
     "totalSV": 56,
     "totalTaP": 0,
     "totalLS": 5,
@@ -1627,7 +1627,7 @@ const allShopData = [
       5234.49,
       5082.09,
       11425.78,
-      0,
+      9590,
       1914.84
     ],
     "bonusHistory": [
@@ -1735,7 +1735,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 139333.94,
     "tapGoalQ": 0,
-    "tapTotalTQ": 14429.52,
+    "tapTotalTQ": 18167.43,
     "totalSV": 10,
     "totalTaP": 0,
     "totalLS": 0,
@@ -1774,7 +1774,7 @@ const allShopData = [
       8507.62,
       9284.77,
       7401.68,
-      0,
+      3737.9100000000003,
       1335.85
     ],
     "bonusHistory": [
@@ -1850,7 +1850,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 153710.82,
     "tapGoalQ": 0,
-    "tapTotalTQ": 40824.6,
+    "tapTotalTQ": 58774.57,
     "totalSV": 20,
     "totalTaP": 1,
     "totalLS": 0,
@@ -1889,7 +1889,7 @@ const allShopData = [
       8405.52,
       10457.77,
       25345.74,
-      0,
+      17949.97,
       1324.77
     ],
     "bonusHistory": [
@@ -1965,7 +1965,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 67428.93,
     "tapGoalQ": 0,
-    "tapTotalTQ": 26199.88,
+    "tapTotalTQ": 44021.84,
     "totalSV": 14,
     "totalTaP": 2,
     "totalLS": 0,
@@ -2004,7 +2004,7 @@ const allShopData = [
       6058.71,
       6737.53,
       16297.87,
-      0,
+      17821.96,
       2259.28
     ],
     "bonusHistory": [
@@ -2112,7 +2112,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 275271.47,
     "tapGoalQ": 0,
-    "tapTotalTQ": 38366.22,
+    "tapTotalTQ": 131089.2,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -2151,7 +2151,7 @@ const allShopData = [
       74612.12,
       50440.840000000004,
       55232.18,
-      0,
+      92722.98,
       7177.74
     ],
     "bonusHistory": [
@@ -2227,7 +2227,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 11202.98,
     "tapGoalQ": 0,
-    "tapTotalTQ": 26.95,
+    "tapTotalTQ": 15070.35,
     "totalSV": 9,
     "totalTaP": 0,
     "totalLS": 4,
@@ -2266,7 +2266,7 @@ const allShopData = [
       1167.76,
       5042.48,
       4619.14,
-      0,
+      15043.4,
       958.3
     ],
     "bonusHistory": [
@@ -2374,7 +2374,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 306141.47,
     "tapGoalQ": 0,
-    "tapTotalTQ": 27069.35,
+    "tapTotalTQ": 49271.61,
     "totalSV": 15,
     "totalTaP": 0,
     "totalLS": 0,
@@ -2413,7 +2413,7 @@ const allShopData = [
       49108.3,
       33238.24,
       33275.07,
-      0,
+      22202.26,
       2550.7999999999997
     ],
     "bonusHistory": [
@@ -2521,7 +2521,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 151399.39,
     "tapGoalQ": 0,
-    "tapTotalTQ": 12647.54,
+    "tapTotalTQ": 36320.03,
     "totalSV": 24,
     "totalTaP": 0,
     "totalLS": 0,
@@ -2560,7 +2560,7 @@ const allShopData = [
       29982.76,
       25863.32,
       19946.45,
-      0,
+      23672.49,
       2693.8
     ],
     "bonusHistory": [
@@ -2636,7 +2636,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 227486.62,
     "tapGoalQ": 0,
-    "tapTotalTQ": 18957.05,
+    "tapTotalTQ": 23914.38,
     "totalSV": 18,
     "totalTaP": 4,
     "totalLS": 0,
@@ -2675,7 +2675,7 @@ const allShopData = [
       10340.86,
       3521.29,
       29606.4,
-      0,
+      4957.33,
       551.2
     ],
     "bonusHistory": [
@@ -2751,7 +2751,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 61822.14,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 8999.15,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 3,
@@ -2790,7 +2790,7 @@ const allShopData = [
       28419.91,
       15054.94,
       18295.09,
-      0,
+      8999.15,
       1191.81
     ],
     "bonusHistory": [
@@ -2866,7 +2866,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 42356.45,
     "tapGoalQ": 0,
-    "tapTotalTQ": 4150.81,
+    "tapTotalTQ": 11547.12,
     "totalSV": 15,
     "totalTaP": 9,
     "totalLS": 0,
@@ -2905,7 +2905,7 @@ const allShopData = [
       11417.14,
       9146.39,
       12262.33,
-      0,
+      7396.31,
       1060.16
     ],
     "bonusHistory": [
@@ -2981,7 +2981,7 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 168789.69,
     "tapGoalQ": 0,
-    "tapTotalTQ": 16864.9,
+    "tapTotalTQ": 31663.48,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -3020,7 +3020,7 @@ const allShopData = [
       26133.36,
       18424.91,
       19808.92,
-      0,
+      14798.58,
       1279.9
     ],
     "bonusHistory": [
@@ -3128,7 +3128,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 5258.24,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 30428.82,
     "totalSV": 30,
     "totalTaP": 0,
     "totalLS": 2,
@@ -3167,7 +3167,7 @@ const allShopData = [
       0,
       0,
       5258.24,
-      0,
+      30428.82,
       1629.79
     ],
     "bonusHistory": [
@@ -3243,7 +3243,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 38384.61,
     "tapGoalQ": 0,
-    "tapTotalTQ": 488.28,
+    "tapTotalTQ": 12549.97,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 2,
@@ -3282,7 +3282,7 @@ const allShopData = [
       9231.17,
       11660.92,
       14918.53,
-      0,
+      12061.69,
       1078.34
     ],
     "bonusHistory": [
@@ -3358,7 +3358,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 52432.44,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5867.36,
+    "tapTotalTQ": 22906.73,
     "totalSV": 14,
     "totalTaP": 1,
     "totalLS": 0,
@@ -3397,7 +3397,7 @@ const allShopData = [
       16064.35,
       12851,
       15470.03,
-      0,
+      17039.37,
       1936.72
     ],
     "bonusHistory": [
@@ -3473,7 +3473,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2584.41,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 804.76,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 2,
@@ -3512,7 +3512,7 @@ const allShopData = [
       534.73,
       914.12,
       1072.8,
-      0,
+      804.76,
       93.01
     ],
     "bonusHistory": [
@@ -3588,7 +3588,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 50095.1,
     "tapGoalQ": 0,
-    "tapTotalTQ": 6284.18,
+    "tapTotalTQ": 9673.24,
     "totalSV": 15,
     "totalTaP": 2,
     "totalLS": 0,
@@ -3627,7 +3627,7 @@ const allShopData = [
       7873.22,
       6807.51,
       4538.61,
-      0,
+      3389.06,
       988.08
     ],
     "bonusHistory": [
@@ -3703,7 +3703,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 624.44,
     "tapGoalQ": 0,
-    "tapTotalTQ": 54.99,
+    "tapTotalTQ": 460.28,
     "totalSV": 12,
     "totalTaP": 0,
     "totalLS": 2,
@@ -3742,7 +3742,7 @@ const allShopData = [
       195.28,
       143.68,
       222.49,
-      0,
+      405.29,
       14.06
     ],
     "bonusHistory": [
@@ -3818,7 +3818,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8590.55,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 25.66,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 2,
@@ -3857,7 +3857,7 @@ const allShopData = [
       2450.82,
       6052.68,
       67.05,
-      0,
+      25.66,
       316.52
     ],
     "bonusHistory": [
@@ -3933,7 +3933,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 54292.24,
     "tapGoalQ": 0,
-    "tapTotalTQ": 10569.47,
+    "tapTotalTQ": 20147.39,
     "totalSV": 29,
     "totalTaP": 2,
     "totalLS": 0,
@@ -3972,7 +3972,7 @@ const allShopData = [
       11482.99,
       10189.17,
       8578.05,
-      0,
+      9577.92,
       1028.88
     ],
     "bonusHistory": [
@@ -4080,7 +4080,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 119775.27,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8734.52,
+    "tapTotalTQ": 32557.99,
     "totalSV": 15,
     "totalTaP": 3,
     "totalLS": 0,
@@ -4119,7 +4119,7 @@ const allShopData = [
       17900.67,
       21707.81,
       25736.7,
-      0,
+      23823.47,
       2276.78
     ],
     "bonusHistory": [
@@ -4227,7 +4227,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 163972.78,
     "tapGoalQ": 0,
-    "tapTotalTQ": 433.19,
+    "tapTotalTQ": 89975.25,
     "totalSV": 11,
     "totalTaP": 0,
     "totalLS": 0,
@@ -4266,7 +4266,7 @@ const allShopData = [
       21890.35,
       24299.15,
       82024.54999999999,
-      0,
+      89542.06,
       16961.8
     ],
     "bonusHistory": [
@@ -4374,7 +4374,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2968.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 111,
+    "tapTotalTQ": 917.14,
     "totalSV": 14,
     "totalTaP": 0,
     "totalLS": 1,
@@ -4413,7 +4413,7 @@ const allShopData = [
       579.89,
       796.46,
       1516.5500000000002,
-      0,
+      806.14,
       49.29
     ],
     "bonusHistory": [
@@ -4521,7 +4521,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 24069.66,
     "tapGoalQ": 0,
-    "tapTotalTQ": 528.05,
+    "tapTotalTQ": 6845.92,
     "totalSV": 23,
     "totalTaP": 0,
     "totalLS": 1,
@@ -4560,7 +4560,7 @@ const allShopData = [
       8864.78,
       7317.05,
       6722.42,
-      0,
+      6317.87,
       632.6999999999999
     ],
     "bonusHistory": [
@@ -4636,7 +4636,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 81364.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8870.92,
+    "tapTotalTQ": 12274.15,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -4675,7 +4675,7 @@ const allShopData = [
       11883.56,
       4832.25,
       3365.98,
-      0,
+      3403.23,
       1113.37
     ],
     "bonusHistory": [
@@ -4751,7 +4751,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 231605.82,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8522.51,
+    "tapTotalTQ": 75408.23,
     "totalSV": 13,
     "totalTaP": 0,
     "totalLS": 0,
@@ -4790,7 +4790,7 @@ const allShopData = [
       51796.49,
       53235.5,
       69267.88,
-      0,
+      66885.72,
       6737.97
     ],
     "bonusHistory": [
@@ -4866,7 +4866,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 67760.97,
     "tapGoalQ": 0,
-    "tapTotalTQ": 3207.14,
+    "tapTotalTQ": 6046.77,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -4905,7 +4905,7 @@ const allShopData = [
       24271.47,
       14536.76,
       7616.34,
-      0,
+      2839.63,
       297.41
     ],
     "bonusHistory": [
@@ -4981,7 +4981,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 104200.05,
     "tapGoalQ": 0,
-    "tapTotalTQ": 3442.59,
+    "tapTotalTQ": 29512.59,
     "totalSV": 11,
     "totalTaP": 1,
     "totalLS": 0,
@@ -5020,7 +5020,7 @@ const allShopData = [
       32225.92,
       19441.33,
       26092.67,
-      0,
+      26070,
       2158.89
     ],
     "bonusHistory": [
@@ -5128,7 +5128,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 68342.14,
     "tapGoalQ": 0,
-    "tapTotalTQ": 9172.11,
+    "tapTotalTQ": 15217.99,
     "totalSV": 5,
     "totalTaP": 1,
     "totalLS": 0,
@@ -5167,7 +5167,7 @@ const allShopData = [
       3342.68,
       10843.53,
       6452.69,
-      0,
+      6045.88,
       497.46
     ],
     "bonusHistory": [
@@ -5243,7 +5243,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6515.68,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1814.27,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 1,
@@ -5282,7 +5282,7 @@ const allShopData = [
       2266.29,
       1909.27,
       2340.12,
-      0,
+      1814.27,
       202.6
     ],
     "bonusHistory": [
@@ -5358,7 +5358,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 31904.77,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 5478.25,
     "totalSV": 13,
     "totalTaP": 0,
     "totalLS": 1,
@@ -5397,7 +5397,7 @@ const allShopData = [
       6046.97,
       10086.05,
       15714.75,
-      0,
+      5478.25,
       357.06
     ],
     "bonusHistory": [
@@ -5473,7 +5473,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 10803.56,
     "tapGoalQ": 0,
-    "tapTotalTQ": 140.77,
+    "tapTotalTQ": 2929.97,
     "totalSV": 16,
     "totalTaP": 0,
     "totalLS": 1,
@@ -5512,7 +5512,7 @@ const allShopData = [
       3501.45,
       3176.71,
       4106.2,
-      0,
+      2789.2,
       306.76
     ],
     "bonusHistory": [
@@ -5652,7 +5652,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 73416.01,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5435.2,
+    "tapTotalTQ": 24534.77,
     "totalSV": 21,
     "totalTaP": 0,
     "totalLS": 0,
@@ -5691,7 +5691,7 @@ const allShopData = [
       14727.87,
       19528.75,
       19749.66,
-      0,
+      19099.57,
       1902.03
     ],
     "bonusHistory": [
@@ -5799,7 +5799,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 86451.48,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5446.5,
+    "tapTotalTQ": 17448.81,
     "totalSV": 19,
     "totalTaP": 3,
     "totalLS": 0,
@@ -5838,7 +5838,7 @@ const allShopData = [
       18267.64,
       13529.99,
       30038.71,
-      0,
+      12002.31,
       1100.4399999999998
     ],
     "bonusHistory": [
@@ -5914,7 +5914,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 55502.29,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1585.42,
+    "tapTotalTQ": 59193.32,
     "totalSV": 14,
     "totalTaP": 1,
     "totalLS": 0,
@@ -5953,7 +5953,7 @@ const allShopData = [
       16120.83,
       17779.26,
       20189.33,
-      0,
+      57607.9,
       6329.69
     ],
     "bonusHistory": [
@@ -6029,7 +6029,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 52452.87,
     "tapGoalQ": 0,
-    "tapTotalTQ": 6063.44,
+    "tapTotalTQ": 17360.22,
     "totalSV": 15,
     "totalTaP": 0,
     "totalLS": 0,
@@ -6068,7 +6068,7 @@ const allShopData = [
       10092.94,
       10801.01,
       12737.6,
-      0,
+      11296.78,
       904.11
     ],
     "bonusHistory": [
@@ -6144,7 +6144,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 0,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2215.31,
+    "tapTotalTQ": 11838.76,
     "totalSV": 45,
     "totalTaP": 3,
     "totalLS": 0,
@@ -6183,7 +6183,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      9623.45,
       860.81
     ],
     "bonusHistory": [
@@ -6291,7 +6291,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 82257.76,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2951.28,
+    "tapTotalTQ": 13483.67,
     "totalSV": 38,
     "totalTaP": 1,
     "totalLS": 0,
@@ -6330,7 +6330,7 @@ const allShopData = [
       26652.64,
       27938.17,
       18244.96,
-      0,
+      10532.39,
       2127.17
     ],
     "bonusHistory": [
@@ -6406,7 +6406,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 34991.26,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1231.17,
+    "tapTotalTQ": 16115.45,
     "totalSV": 8,
     "totalTaP": 3,
     "totalLS": 0,
@@ -6445,7 +6445,7 @@ const allShopData = [
       8913.59,
       8175.89,
       13255.77,
-      0,
+      14884.28,
       2115.84
     ],
     "bonusHistory": [
@@ -6521,7 +6521,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 28219.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5757.79,
+    "tapTotalTQ": 10980.69,
     "totalSV": 35,
     "totalTaP": 0,
     "totalLS": 0,
@@ -6560,7 +6560,7 @@ const allShopData = [
       3538.34,
       5195.25,
       7825.26,
-      0,
+      5222.9,
       446.28
     ],
     "bonusHistory": [
@@ -6636,7 +6636,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 10665.67,
     "tapGoalQ": 0,
-    "tapTotalTQ": 650.22,
+    "tapTotalTQ": 1490.94,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -6675,7 +6675,7 @@ const allShopData = [
       1892.3,
       1664.78,
       1153.02,
-      0,
+      840.72,
       85.58
     ],
     "bonusHistory": [
@@ -6751,7 +6751,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 93483.51,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8664.56,
+    "tapTotalTQ": 9975.21,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -6790,7 +6790,7 @@ const allShopData = [
       11908.85,
       1202.97,
       4573.81,
-      0,
+      1310.65,
       433.05
     ],
     "bonusHistory": [
@@ -6866,7 +6866,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 103117.48,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2341.48,
+    "tapTotalTQ": 21375.7,
     "totalSV": 16,
     "totalTaP": 1,
     "totalLS": 0,
@@ -6905,7 +6905,7 @@ const allShopData = [
       33103.74,
       31724.86,
       30401.59,
-      0,
+      19034.22,
       2076.93
     ],
     "bonusHistory": [
@@ -7013,7 +7013,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 64100.23,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1656.19,
+    "tapTotalTQ": 9706.08,
     "totalSV": 46,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7052,7 +7052,7 @@ const allShopData = [
       16669.33,
       13279.8,
       25837.96,
-      0,
+      8049.89,
       1003.4
     ],
     "bonusHistory": [
@@ -7192,7 +7192,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 37315.7,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5331.13,
+    "tapTotalTQ": 9640.55,
     "totalSV": 47,
     "totalTaP": 1,
     "totalLS": 0,
@@ -7231,7 +7231,7 @@ const allShopData = [
       10311.33,
       5159.630000000001,
       5525.18,
-      0,
+      4309.42,
       715.1700000000001
     ],
     "bonusHistory": [
@@ -7307,7 +7307,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 33784.82,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1587.67,
+    "tapTotalTQ": 12663.18,
     "totalSV": 10,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7346,7 +7346,7 @@ const allShopData = [
       11540.63,
       11968.58,
       8586.04,
-      0,
+      11075.51,
       2349.9
     ],
     "bonusHistory": [
@@ -7422,7 +7422,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 105021.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 332.19,
+    "tapTotalTQ": 48767.09,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7461,7 +7461,7 @@ const allShopData = [
       28019.51,
       26508.43,
       49793.14,
-      0,
+      48434.9,
       4676.79
     ],
     "bonusHistory": [
@@ -7537,7 +7537,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 41744.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1853.78,
+    "tapTotalTQ": 15483.96,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7576,7 +7576,7 @@ const allShopData = [
       10636.51,
       8653.97,
       13127.69,
-      0,
+      13630.18,
       1159.14
     ],
     "bonusHistory": [
@@ -7684,7 +7684,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 17453.32,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2022.08,
+    "tapTotalTQ": 6355.76,
     "totalSV": 35,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7723,7 +7723,7 @@ const allShopData = [
       5363.18,
       3055.84,
       4319.91,
-      0,
+      4333.68,
       1719.8600000000001
     ],
     "bonusHistory": [
@@ -7831,7 +7831,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 87648.83,
     "tapGoalQ": 0,
-    "tapTotalTQ": 471.86,
+    "tapTotalTQ": 29918.93,
     "totalSV": 36,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7870,7 +7870,7 @@ const allShopData = [
       13643.32,
       30240.42,
       38808.619999999995,
-      0,
+      29447.07,
       3762.82
     ],
     "bonusHistory": [
@@ -7946,7 +7946,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 52941.55,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2240.73,
+    "tapTotalTQ": 18584.62,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -7985,7 +7985,7 @@ const allShopData = [
       21654.81,
       14277.39,
       10489.02,
-      0,
+      16343.89,
       1192.88
     ],
     "bonusHistory": [
@@ -8093,7 +8093,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 39832.76,
     "tapGoalQ": 0,
-    "tapTotalTQ": 618.31,
+    "tapTotalTQ": 18442.82,
     "totalSV": 20,
     "totalTaP": 0,
     "totalLS": 0,
@@ -8132,7 +8132,7 @@ const allShopData = [
       14164.12,
       15882.85,
       8638.380000000001,
-      0,
+      17824.510000000002,
       3073.75
     ],
     "bonusHistory": [
@@ -8208,7 +8208,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 26702.14,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2270.95,
+    "tapTotalTQ": 6799.03,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -8247,7 +8247,7 @@ const allShopData = [
       2405.83,
       3873.22,
       6760.94,
-      0,
+      4528.08,
       455.91
     ],
     "bonusHistory": [
@@ -8323,7 +8323,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6558.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 300.6,
+    "tapTotalTQ": 948.05,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -8362,7 +8362,7 @@ const allShopData = [
       652.33,
       739.91,
       920.62,
-      0,
+      647.45,
       49.29
     ],
     "bonusHistory": [
@@ -8534,7 +8534,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 35533.78,
     "tapGoalQ": 0,
-    "tapTotalTQ": 76.22,
+    "tapTotalTQ": 4739.29,
     "totalSV": 13,
     "totalTaP": 0,
     "totalLS": 0,
@@ -8573,7 +8573,7 @@ const allShopData = [
       17565.14,
       9495.5,
       7408.910000000001,
-      0,
+      4663.07,
       437.21
     ],
     "bonusHistory": [
@@ -8681,7 +8681,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 10705.75,
     "tapGoalQ": 0,
-    "tapTotalTQ": 529.33,
+    "tapTotalTQ": 3657.49,
     "totalSV": 23,
     "totalTaP": 4,
     "totalLS": 0,
@@ -8720,7 +8720,7 @@ const allShopData = [
       3596.7999999999997,
       2185.3199999999997,
       3494.94,
-      0,
+      3128.16,
       224.86
     ],
     "bonusHistory": [
@@ -8796,7 +8796,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 25134.74,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1938.64,
+    "tapTotalTQ": 8317.87,
     "totalSV": 26,
     "totalTaP": 2,
     "totalLS": 0,
@@ -8835,7 +8835,7 @@ const allShopData = [
       7409.48,
       6332.73,
       7381.31,
-      0,
+      6379.23,
       868.31
     ],
     "bonusHistory": [
@@ -8911,7 +8911,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 10525.05,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1533.16,
+    "tapTotalTQ": 4682.7,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -8950,7 +8950,7 @@ const allShopData = [
       1739.65,
       2007.57,
       2453.71,
-      0,
+      3149.54,
       339.88
     ],
     "bonusHistory": [
@@ -9090,7 +9090,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6133.19,
     "tapGoalQ": 0,
-    "tapTotalTQ": 78.66,
+    "tapTotalTQ": 2310.11,
     "totalSV": 50,
     "totalTaP": 0,
     "totalLS": 0,
@@ -9129,7 +9129,7 @@ const allShopData = [
       1825.44,
       2252.17,
       1526.6,
-      0,
+      2231.45,
       254.24
     ],
     "bonusHistory": [
@@ -9237,7 +9237,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 26436.36,
     "tapGoalQ": 0,
-    "tapTotalTQ": 4072.16,
+    "tapTotalTQ": 8399.14,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -9276,7 +9276,7 @@ const allShopData = [
       9703.689999999999,
       6994.24,
       4817.95,
-      0,
+      4326.98,
       386.78
     ],
     "bonusHistory": [
@@ -9384,7 +9384,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 16074.84,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1339.84,
+    "tapTotalTQ": 4649.78,
     "totalSV": 16,
     "totalTaP": 0,
     "totalLS": 0,
@@ -9423,7 +9423,7 @@ const allShopData = [
       5705.07,
       5220.63,
       3477.75,
-      0,
+      3309.94,
       465.03000000000003
     ],
     "bonusHistory": [
@@ -9531,7 +9531,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 194999.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2367.93,
+    "tapTotalTQ": 5923.56,
     "totalSV": 10,
     "totalTaP": 5,
     "totalLS": 0,
@@ -9570,7 +9570,7 @@ const allShopData = [
       36140.85,
       5673.0599999999995,
       5248.12,
-      0,
+      3555.63,
       665.61
     ],
     "bonusHistory": [
@@ -9710,7 +9710,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 33991.79,
     "tapGoalQ": 0,
-    "tapTotalTQ": 238.77,
+    "tapTotalTQ": 8236.43,
     "totalSV": 9,
     "totalTaP": 0,
     "totalLS": 0,
@@ -9749,7 +9749,7 @@ const allShopData = [
       6819.08,
       11892.45,
       11097.98,
-      0,
+      7997.66,
       696.05
     ],
     "bonusHistory": [
@@ -9857,7 +9857,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 16533.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 450.37,
+    "tapTotalTQ": 10774.1,
     "totalSV": 29,
     "totalTaP": 4,
     "totalLS": 0,
@@ -9896,7 +9896,7 @@ const allShopData = [
       5168.62,
       3936.73,
       5597.49,
-      0,
+      10323.73,
       1270.62
     ],
     "bonusHistory": [
@@ -9972,7 +9972,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 39857.14,
     "tapGoalQ": 0,
-    "tapTotalTQ": 142.97,
+    "tapTotalTQ": 15345.94,
     "totalSV": 24,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10011,7 +10011,7 @@ const allShopData = [
       0,
       20068.53,
       18925.46,
-      0,
+      15202.97,
       2188.85
     ],
     "bonusHistory": [
@@ -10087,7 +10087,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 19650.31,
     "tapGoalQ": 0,
-    "tapTotalTQ": 783.39,
+    "tapTotalTQ": 2684.51,
     "totalSV": 5,
     "totalTaP": 2,
     "totalLS": 0,
@@ -10126,7 +10126,7 @@ const allShopData = [
       2982.85,
       2636.23,
       4026.96,
-      0,
+      1901.12,
       141.44
     ],
     "bonusHistory": [
@@ -10234,7 +10234,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 7970.85,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 5128.97,
     "totalSV": 13,
     "totalTaP": 1,
     "totalLS": 0,
@@ -10273,7 +10273,7 @@ const allShopData = [
       2391.93,
       2102.64,
       3386.3,
-      0,
+      5128.969999999999,
       372.22
     ],
     "bonusHistory": [
@@ -10349,7 +10349,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 9965.28,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 7807.23,
     "totalSV": 10,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10388,7 +10388,7 @@ const allShopData = [
       0,
       0,
       9965.28,
-      0,
+      7807.23,
       1499.64
     ],
     "bonusHistory": [
@@ -10464,7 +10464,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3533.29,
     "tapGoalQ": 0,
-    "tapTotalTQ": 39.64,
+    "tapTotalTQ": 1880.27,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10503,7 +10503,7 @@ const allShopData = [
       1629.06,
       645.44,
       1123.03,
-      0,
+      1840.63,
       176.74
     ],
     "bonusHistory": [
@@ -10579,7 +10579,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6859.13,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1186.41,
+    "tapTotalTQ": 3120.41,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10618,7 +10618,7 @@ const allShopData = [
       832.51,
       984.39,
       801.93,
-      0,
+      1934,
       77.41
     ],
     "bonusHistory": [
@@ -10694,7 +10694,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 44141.45,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 16403.5,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10733,7 +10733,7 @@ const allShopData = [
       10532.52,
       13333.65,
       16743.81,
-      0,
+      16403.5,
       1470.45
     ],
     "bonusHistory": [
@@ -10841,7 +10841,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3192.22,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 564.6,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10880,7 +10880,7 @@ const allShopData = [
       989.41,
       878.13,
       1064.93,
-      0,
+      564.5999999999999,
       50.63
     ],
     "bonusHistory": [
@@ -10956,7 +10956,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 23754.42,
     "tapGoalQ": 0,
-    "tapTotalTQ": 87.35,
+    "tapTotalTQ": 11451.78,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -10995,7 +10995,7 @@ const allShopData = [
       6843.83,
       6703.38,
       9342.51,
-      0,
+      11364.43,
       1555.75
     ],
     "bonusHistory": [
@@ -11071,7 +11071,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 33031.89,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 11607.55,
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11110,7 +11110,7 @@ const allShopData = [
       5633.55,
       11551.98,
       15846.36,
-      0,
+      11607.55,
       1244
     ],
     "bonusHistory": [
@@ -11186,7 +11186,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 28172.59,
     "tapGoalQ": 0,
-    "tapTotalTQ": 211.31,
+    "tapTotalTQ": 6262.83,
     "totalSV": 14,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11225,7 +11225,7 @@ const allShopData = [
       8841.59,
       12364.86,
       6907.46,
-      0,
+      6051.52,
       771.01
     ],
     "bonusHistory": [
@@ -11333,7 +11333,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 43476.37,
     "tapGoalQ": 0,
-    "tapTotalTQ": 974.93,
+    "tapTotalTQ": 6487.53,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11372,7 +11372,7 @@ const allShopData = [
       8451.56,
       11506.41,
       8958.47,
-      0,
+      5512.599999999999,
       364.27000000000004
     ],
     "bonusHistory": [
@@ -11448,7 +11448,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 54713.18,
     "tapGoalQ": 0,
-    "tapTotalTQ": 237.97,
+    "tapTotalTQ": 14415.79,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11487,7 +11487,7 @@ const allShopData = [
       15324.27,
       18131.64,
       18851.38,
-      0,
+      14177.82,
       1710.02
     ],
     "bonusHistory": [
@@ -11563,7 +11563,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 24621.8,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 9671.97,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11602,7 +11602,7 @@ const allShopData = [
       2874.4,
       3422.64,
       18283.12,
-      0,
+      9671.97,
       1035.5
     ],
     "bonusHistory": [
@@ -11710,7 +11710,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4730.16,
     "tapGoalQ": 0,
-    "tapTotalTQ": 968.87,
+    "tapTotalTQ": 1242.49,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11749,7 +11749,7 @@ const allShopData = [
       505.16,
       469.32,
       490.61,
-      0,
+      273.62,
       23.31
     ],
     "bonusHistory": [
@@ -11825,7 +11825,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 32331.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 135.96,
+    "tapTotalTQ": 17096.71,
     "totalSV": 31,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11864,7 +11864,7 @@ const allShopData = [
       7108.73,
       5478.22,
       18618.38,
-      0,
+      16960.75,
       1942.86
     ],
     "bonusHistory": [
@@ -11940,7 +11940,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4146.25,
     "tapGoalQ": 0,
-    "tapTotalTQ": 328.57,
+    "tapTotalTQ": 3585.44,
     "totalSV": 17,
     "totalTaP": 0,
     "totalLS": 0,
@@ -11979,7 +11979,7 @@ const allShopData = [
       2575.07,
       332.39,
       567.1,
-      0,
+      3256.87,
       344.37
     ],
     "bonusHistory": [
@@ -12087,7 +12087,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 5580.32,
     "tapGoalQ": 0,
-    "tapTotalTQ": 143.18,
+    "tapTotalTQ": 1813.85,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12126,7 +12126,7 @@ const allShopData = [
       1409.1200000000001,
       1347.21,
       1785.8500000000001,
-      0,
+      1670.67,
       143.10999999999999
     ],
     "bonusHistory": [
@@ -12202,7 +12202,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 23526.89,
     "tapGoalQ": 0,
-    "tapTotalTQ": 289.84,
+    "tapTotalTQ": 4394.33,
     "totalSV": 13,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12241,7 +12241,7 @@ const allShopData = [
       2523.84,
       14761.89,
       5223.54,
-      0,
+      4104.49,
       433.57
     ],
     "bonusHistory": [
@@ -12317,7 +12317,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4270.1,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 214.04,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12356,7 +12356,7 @@ const allShopData = [
       2818.77,
       805.03,
       646.3,
-      0,
+      214.04,
       35.71
     ],
     "bonusHistory": [
@@ -12432,7 +12432,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1893.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 348.65,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12471,7 +12471,7 @@ const allShopData = [
       710.28,
       762.53,
       421.07,
-      0,
+      348.65,
       13.01
     ],
     "bonusHistory": [
@@ -12579,7 +12579,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 548.15,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 169.9,
     "totalSV": 15,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12618,7 +12618,7 @@ const allShopData = [
       256.49,
       124.13000000000001,
       105.47999999999999,
-      0,
+      169.9,
       12.41
     ],
     "bonusHistory": [
@@ -12694,7 +12694,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 330.15,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 47.14,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12733,7 +12733,7 @@ const allShopData = [
       54.5,
       72.69,
       178.25,
-      0,
+      47.14,
       3.5
     ],
     "bonusHistory": [
@@ -12809,7 +12809,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 15992.11,
     "tapGoalQ": 0,
-    "tapTotalTQ": 55.98,
+    "tapTotalTQ": 6319.26,
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12848,7 +12848,7 @@ const allShopData = [
       5137.48,
       4680.7,
       6081.95,
-      0,
+      6263.28,
       695.15
     ],
     "bonusHistory": [
@@ -12924,7 +12924,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8188.28,
     "tapGoalQ": 0,
-    "tapTotalTQ": 47.96,
+    "tapTotalTQ": 2365.69,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -12963,7 +12963,7 @@ const allShopData = [
       467.52,
       2779.84,
       4379.45,
-      0,
+      2317.73,
       283.67
     ],
     "bonusHistory": [
@@ -13039,7 +13039,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 352.33,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 172.99,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13078,7 +13078,7 @@ const allShopData = [
       100.07,
       120.96,
       131.3,
-      0,
+      172.99,
       6.6
     ],
     "bonusHistory": [
@@ -13154,7 +13154,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4096.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 788.1,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13193,7 +13193,7 @@ const allShopData = [
       1545.89,
       1353.37,
       1197.55,
-      0,
+      788.1,
       125.98
     ],
     "bonusHistory": [
@@ -13269,7 +13269,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 21498.23,
     "tapGoalQ": 0,
-    "tapTotalTQ": 333.99,
+    "tapTotalTQ": 5569.12,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13308,7 +13308,7 @@ const allShopData = [
       8799.25,
       4855.7,
       6189.09,
-      0,
+      5235.13,
       201.09
     ],
     "bonusHistory": [
@@ -13499,7 +13499,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1889.97,
     "tapGoalQ": 0,
-    "tapTotalTQ": 32.52,
+    "tapTotalTQ": 474.84,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13538,7 +13538,7 @@ const allShopData = [
       589.41,
       682.03,
       479.39,
-      0,
+      442.32,
       51.1
     ],
     "bonusHistory": [
@@ -13614,7 +13614,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 100.5,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 32.01,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13653,7 +13653,7 @@ const allShopData = [
       58.45,
       12.26,
       29.79,
-      0,
+      32.01,
       6.78
     ],
     "bonusHistory": [
@@ -13729,7 +13729,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 35085.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 844.54,
+    "tapTotalTQ": 11955.93,
     "totalSV": 26,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13768,7 +13768,7 @@ const allShopData = [
       10964.96,
       7542.24,
       15821.88,
-      0,
+      11111.39,
       909.52
     ],
     "bonusHistory": [
@@ -13844,7 +13844,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 84708.82,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 18493.84,
     "totalSV": 5,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13883,7 +13883,7 @@ const allShopData = [
       5081.42,
       19237.56,
       59966.24,
-      0,
+      18493.84,
       533.89
     ],
     "bonusHistory": [
@@ -13959,7 +13959,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1314.44,
     "tapGoalQ": 0,
-    "tapTotalTQ": 23.72,
+    "tapTotalTQ": 1160.18,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -13998,7 +13998,7 @@ const allShopData = [
       288.27,
       316,
       710.17,
-      0,
+      1136.46,
       110.48
     ],
     "bonusHistory": [
@@ -14074,7 +14074,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2645.61,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1732.93,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14113,7 +14113,7 @@ const allShopData = [
       426.86,
       788.53,
       1397.48,
-      0,
+      1732.93,
       187.86
     ],
     "bonusHistory": [
@@ -14189,7 +14189,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1938.14,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 475.31,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14228,7 +14228,7 @@ const allShopData = [
       522.02,
       596.48,
       709.57,
-      0,
+      475.31,
       56.07
     ],
     "bonusHistory": [
@@ -14304,7 +14304,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 859.71,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 175.26,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14343,7 +14343,7 @@ const allShopData = [
       399.61,
       179.15,
       280.95,
-      0,
+      175.26,
       4.23
     ],
     "bonusHistory": [
@@ -14419,7 +14419,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2635.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 75.64,
+    "tapTotalTQ": 704.65,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14458,7 +14458,7 @@ const allShopData = [
       1109.97,
       496.13,
       765.82,
-      0,
+      629.01,
       57.22
     ],
     "bonusHistory": [
@@ -14534,7 +14534,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2524.67,
     "tapGoalQ": 0,
-    "tapTotalTQ": 53.89,
+    "tapTotalTQ": 741.36,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14573,7 +14573,7 @@ const allShopData = [
       1018.96,
       565.86,
       840.91,
-      0,
+      687.47,
       39.54
     ],
     "bonusHistory": [
@@ -14649,7 +14649,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3984.51,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1025.65,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14688,7 +14688,7 @@ const allShopData = [
       1255.6,
       1445.62,
       1224.88,
-      0,
+      1025.65,
       148.62
     ],
     "bonusHistory": [
@@ -14764,7 +14764,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2684.16,
     "tapGoalQ": 0,
-    "tapTotalTQ": 49.99,
+    "tapTotalTQ": 1146.23,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14803,7 +14803,7 @@ const allShopData = [
       1049.6,
       710.39,
       860.27,
-      0,
+      1096.24,
       102.71
     ],
     "bonusHistory": [
@@ -14879,7 +14879,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 19315.1,
     "tapGoalQ": 0,
-    "tapTotalTQ": 51.29,
+    "tapTotalTQ": 476.56,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -14918,7 +14918,7 @@ const allShopData = [
       8628.32,
       6138.22,
       1515.51,
-      0,
+      425.27,
       10.85
     ],
     "bonusHistory": [
@@ -14994,7 +14994,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 140.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 18.89,
     "totalSV": 14,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15033,7 +15033,7 @@ const allShopData = [
       38.99,
       69.84,
       31.26,
-      0,
+      18.89,
       2.4
     ],
     "bonusHistory": [
@@ -15109,7 +15109,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 376.46,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 47.13,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15148,7 +15148,7 @@ const allShopData = [
       192.09,
       108.43,
       75.94,
-      0,
+      47.13,
       2.64
     ],
     "bonusHistory": [
@@ -15224,7 +15224,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 85705.4,
     "tapGoalQ": 0,
-    "tapTotalTQ": 7717.44,
+    "tapTotalTQ": 18255.57,
     "totalSV": 16,
     "totalTaP": 1,
     "totalLS": 0,
@@ -15263,7 +15263,7 @@ const allShopData = [
       19994.35,
       12703.44,
       16343.96,
-      0,
+      10538.13,
       1079.22
     ],
     "bonusHistory": [
@@ -15339,7 +15339,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2642.35,
     "tapGoalQ": 0,
-    "tapTotalTQ": 57.6,
+    "tapTotalTQ": 490.19,
     "totalSV": 71,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15378,7 +15378,7 @@ const allShopData = [
       120.95,
       648.95,
       820.35,
-      0,
+      432.59,
       84.68
     ],
     "bonusHistory": [
@@ -15454,7 +15454,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 548.7,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 111.93,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15493,7 +15493,7 @@ const allShopData = [
       334.28,
       70.21,
       144.21,
-      0,
+      111.93,
       4.59
     ],
     "bonusHistory": [
@@ -15601,7 +15601,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 9960.44,
     "tapGoalQ": 0,
-    "tapTotalTQ": 621.73,
+    "tapTotalTQ": 7088.3,
     "totalSV": 29,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15640,7 +15640,7 @@ const allShopData = [
       2984.89,
       2704.14,
       3980.58,
-      0,
+      6466.57,
       653.6
     ],
     "bonusHistory": [
@@ -15716,7 +15716,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 0,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 221.86,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15755,7 +15755,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      221.86,
       81.44
     ],
     "bonusHistory": [
@@ -15831,7 +15831,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1498.13,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 222.16,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15870,7 +15870,7 @@ const allShopData = [
       306.64,
       411.87,
       422.8,
-      0,
+      222.16,
       34.96
     ],
     "bonusHistory": [
@@ -15946,7 +15946,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 12577.12,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 343.97,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -15985,7 +15985,7 @@ const allShopData = [
       4824.03,
       3723.12,
       4029.97,
-      0,
+      343.97,
       4.71
     ],
     "bonusHistory": [
@@ -16061,7 +16061,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 43.15,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 11.55,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16100,7 +16100,7 @@ const allShopData = [
       6.01,
       19.67,
       17.47,
-      0,
+      11.55,
       0.84
     ],
     "bonusHistory": [
@@ -16176,7 +16176,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6600.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 3036.16,
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16215,7 +16215,7 @@ const allShopData = [
       2503.59,
       1959.35,
       2137.87,
-      0,
+      3036.16,
       474.15
     ],
     "bonusHistory": [
@@ -16291,7 +16291,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4027.05,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 454.73,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16330,7 +16330,7 @@ const allShopData = [
       2986.88,
       656.2,
       383.97,
-      0,
+      454.73,
       24.49
     ],
     "bonusHistory": [
@@ -16406,7 +16406,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2807.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 247.64,
+    "tapTotalTQ": 994.91,
     "totalSV": 12,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16445,7 +16445,7 @@ const allShopData = [
       1105.67,
       619.31,
       1072.65,
-      0,
+      747.27,
       70.8
     ],
     "bonusHistory": [
@@ -16521,7 +16521,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2040.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 534.63,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16560,7 +16560,7 @@ const allShopData = [
       539.75,
       755.54,
       734.3,
-      0,
+      534.63,
       44.01
     ],
     "bonusHistory": [
@@ -16636,7 +16636,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 0,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 437.2,
     "totalSV": 18,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16675,7 +16675,7 @@ const allShopData = [
       0,
       0,
       0,
-      0,
+      437.2,
       82.21
     ],
     "bonusHistory": [
@@ -16751,7 +16751,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 18373.59,
     "tapGoalQ": 0,
-    "tapTotalTQ": 287.18,
+    "tapTotalTQ": 3993.7,
     "totalSV": 17,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16790,7 +16790,7 @@ const allShopData = [
       6931.91,
       6452.42,
       4535.3,
-      0,
+      3706.52,
       325.84
     ],
     "bonusHistory": [
@@ -16866,7 +16866,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1333.05,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 295.68,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -16905,7 +16905,7 @@ const allShopData = [
       416.06,
       486.67,
       430.32,
-      0,
+      295.68,
       21.89
     ],
     "bonusHistory": [
@@ -16981,7 +16981,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2016.94,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 278.02,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17020,7 +17020,7 @@ const allShopData = [
       853.82,
       643.67,
       519.45,
-      0,
+      278.02,
       16.27
     ],
     "bonusHistory": [
@@ -17096,7 +17096,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8030.16,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1131.53,
     "totalSV": 29,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17135,7 +17135,7 @@ const allShopData = [
       1567.34,
       1855.13,
       1856.15,
-      0,
+      1131.53,
       125.73
     ],
     "bonusHistory": [
@@ -17211,7 +17211,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 426.91,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 77.01,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17250,7 +17250,7 @@ const allShopData = [
       98.67,
       123.57,
       106.11,
-      0,
+      77.01,
       0.77
     ],
     "bonusHistory": [
@@ -17326,7 +17326,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 22537.1,
     "tapGoalQ": 0,
-    "tapTotalTQ": 3221.17,
+    "tapTotalTQ": 6735.83,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17365,7 +17365,7 @@ const allShopData = [
       1163.87,
       2463.5,
       3648.14,
-      0,
+      3514.66,
       68.34
     ],
     "bonusHistory": [
@@ -17441,7 +17441,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 19510.4,
     "tapGoalQ": 0,
-    "tapTotalTQ": 1905.46,
+    "tapTotalTQ": 7346.8,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17480,7 +17480,7 @@ const allShopData = [
       7346.78,
       5200.64,
       4249.14,
-      0,
+      5441.34,
       567.53
     ],
     "bonusHistory": [
@@ -17556,7 +17556,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2973.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1135.76,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17595,7 +17595,7 @@ const allShopData = [
       1097.82,
       798.33,
       1076.94,
-      0,
+      1135.76,
       158.55
     ],
     "bonusHistory": [
@@ -17671,7 +17671,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 179.94,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 61.54,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17710,7 +17710,7 @@ const allShopData = [
       78.04,
       38.28,
       63.62,
-      0,
+      61.54,
       49.51
     ],
     "bonusHistory": [
@@ -17786,7 +17786,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8102.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 674.92,
+    "tapTotalTQ": 2966.39,
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17825,7 +17825,7 @@ const allShopData = [
       1543.92,
       2049.65,
       2295.18,
-      0,
+      2291.47,
       188.14
     ],
     "bonusHistory": [
@@ -17901,7 +17901,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 130.9,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 181.63,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -17940,7 +17940,7 @@ const allShopData = [
       41.97,
       25.5,
       63.43,
-      0,
+      181.63,
       2.78
     ],
     "bonusHistory": [
@@ -18016,7 +18016,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 12.64,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 603.76,
     "totalSV": 15,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18055,7 +18055,7 @@ const allShopData = [
       0,
       0,
       12.64,
-      0,
+      603.76,
       38.31
     ],
     "bonusHistory": [
@@ -18131,7 +18131,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 72.53,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 35.8,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18170,7 +18170,7 @@ const allShopData = [
       26.44,
       23.25,
       22.84,
-      0,
+      35.8,
       2.14
     ],
     "bonusHistory": [
@@ -18246,7 +18246,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 918.84,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 185.67,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18285,7 +18285,7 @@ const allShopData = [
       229.77,
       112.11,
       238.47,
-      0,
+      185.67,
       13.4
     ],
     "bonusHistory": [
@@ -18361,7 +18361,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 455.78,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 294.69,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18400,7 +18400,7 @@ const allShopData = [
       31.86,
       129.56,
       294.36,
-      0,
+      294.69,
       8.53
     ],
     "bonusHistory": [
@@ -18476,7 +18476,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 23528.4,
     "tapGoalQ": 0,
-    "tapTotalTQ": 775.99,
+    "tapTotalTQ": 8797.51,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18515,7 +18515,7 @@ const allShopData = [
       6191.74,
       6011.01,
       11210.82,
-      0,
+      8021.52,
       919.62
     ],
     "bonusHistory": [
@@ -18591,7 +18591,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 864.08,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 135.6,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18630,7 +18630,7 @@ const allShopData = [
       235.13,
       413.88,
       215.07,
-      0,
+      135.6,
       65.64
     ],
     "bonusHistory": [
@@ -18706,7 +18706,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4619.61,
     "tapGoalQ": 0,
-    "tapTotalTQ": 14,
+    "tapTotalTQ": 912.21,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18745,7 +18745,7 @@ const allShopData = [
       1900.63,
       1340.9,
       1245.93,
-      0,
+      898.21,
       83.62
     ],
     "bonusHistory": [
@@ -18821,7 +18821,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2207.61,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 500.46,
     "totalSV": 5,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18860,7 +18860,7 @@ const allShopData = [
       426.41,
       596.78,
       1152.97,
-      0,
+      500.46,
       6.81
     ],
     "bonusHistory": [
@@ -18936,7 +18936,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3684.55,
     "tapGoalQ": 0,
-    "tapTotalTQ": 253.02,
+    "tapTotalTQ": 1443.22,
     "totalSV": 5,
     "totalTaP": 0,
     "totalLS": 0,
@@ -18975,7 +18975,7 @@ const allShopData = [
       1073.76,
       899.83,
       1272.47,
-      0,
+      1190.2,
       129.75
     ],
     "bonusHistory": [
@@ -19051,7 +19051,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 7307.13,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1874.74,
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19090,7 +19090,7 @@ const allShopData = [
       2961.32,
       1749.31,
       2596.5,
-      0,
+      1874.74,
       167.86
     ],
     "bonusHistory": [
@@ -19166,7 +19166,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1656.09,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 749.74,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19205,7 +19205,7 @@ const allShopData = [
       487.93,
       324.2,
       843.96,
-      0,
+      749.74,
       33.74
     ],
     "bonusHistory": [
@@ -19281,7 +19281,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 61.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 10.74,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19320,7 +19320,7 @@ const allShopData = [
       37.38,
       10.1,
       14.17,
-      0,
+      10.74,
       0
     ],
     "bonusHistory": [
@@ -19396,7 +19396,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4246.67,
     "tapGoalQ": 0,
-    "tapTotalTQ": 30.99,
+    "tapTotalTQ": 1051.19,
     "totalSV": 11,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19435,7 +19435,7 @@ const allShopData = [
       1444.34,
       1061.22,
       1499.61,
-      0,
+      1020.2,
       82.85
     ],
     "bonusHistory": [
@@ -19511,7 +19511,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 14583.06,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 4627.78,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19550,7 +19550,7 @@ const allShopData = [
       4849.47,
       4941.86,
       4697.26,
-      0,
+      4627.78,
       557.8
     ],
     "bonusHistory": [
@@ -19626,7 +19626,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 13770.74,
     "tapGoalQ": 0,
-    "tapTotalTQ": 25.98,
+    "tapTotalTQ": 3634.45,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19665,7 +19665,7 @@ const allShopData = [
       3137.36,
       5130.64,
       5223.94,
-      0,
+      3608.47,
       254.42
     ],
     "bonusHistory": [
@@ -19741,7 +19741,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 104.62,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 380.39,
     "totalSV": 38,
     "totalTaP": 3,
     "totalLS": 0,
@@ -19780,7 +19780,7 @@ const allShopData = [
       0,
       0,
       104.62,
-      0,
+      380.39,
       60.95
     ],
     "bonusHistory": [
@@ -19856,7 +19856,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 6362.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 375.03,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -19895,7 +19895,7 @@ const allShopData = [
       4136.75,
       1640.02,
       586.04,
-      0,
+      375.03,
       19.09
     ],
     "bonusHistory": [
@@ -19971,7 +19971,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 667.07,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 403.68,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20010,7 +20010,7 @@ const allShopData = [
       255.45,
       150.08,
       261.54,
-      0,
+      403.68,
       22.38
     ],
     "bonusHistory": [
@@ -20086,7 +20086,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4304.54,
     "tapGoalQ": 0,
-    "tapTotalTQ": 16.61,
+    "tapTotalTQ": 836.96,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20125,7 +20125,7 @@ const allShopData = [
       1030.12,
       2228.92,
       982.87,
-      0,
+      820.35,
       109.83
     ],
     "bonusHistory": [
@@ -20233,7 +20233,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1232.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 358.84,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20272,7 +20272,7 @@ const allShopData = [
       324.58,
       402.71000000000004,
       505.42999999999995,
-      0,
+      358.84,
       47.39
     ],
     "bonusHistory": [
@@ -20348,7 +20348,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3366.02,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 215.75,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20387,7 +20387,7 @@ const allShopData = [
       1678.29,
       1326.71,
       361.02,
-      0,
+      215.75,
       14.93
     ],
     "bonusHistory": [
@@ -20463,7 +20463,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1485.53,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 98.85,
     "totalSV": 12,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20502,7 +20502,7 @@ const allShopData = [
       740.26,
       280.28,
       224.4,
-      0,
+      98.85,
       20.8
     ],
     "bonusHistory": [
@@ -20578,7 +20578,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 11298.82,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 3232.95,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20617,7 +20617,7 @@ const allShopData = [
       2064.47,
       3772.14,
       4937.14,
-      0,
+      3232.95,
       270.17
     ],
     "bonusHistory": [
@@ -20693,7 +20693,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 17075.86,
     "tapGoalQ": 0,
-    "tapTotalTQ": 821.08,
+    "tapTotalTQ": 4801.29,
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20732,7 +20732,7 @@ const allShopData = [
       2249.77,
       4144.99,
       6525.64,
-      0,
+      3980.21,
       322.68
     ],
     "bonusHistory": [
@@ -20808,7 +20808,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3659.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 2658.2,
     "totalSV": 16,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20847,7 +20847,7 @@ const allShopData = [
       0,
       730.94,
       2928.87,
-      0,
+      2658.2,
       396.37
     ],
     "bonusHistory": [
@@ -20923,7 +20923,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 111.18,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 17.94,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -20962,7 +20962,7 @@ const allShopData = [
       31.13,
       48.55,
       31.5,
-      0,
+      17.94,
       6.4
     ],
     "bonusHistory": [
@@ -21038,7 +21038,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 19444.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 3804.79,
     "totalSV": 6,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21077,7 +21077,7 @@ const allShopData = [
       9530.78,
       4913.36,
       5000.74,
-      0,
+      3804.79,
       361.59
     ],
     "bonusHistory": [
@@ -21153,7 +21153,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 811.06,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 122.49,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21192,7 +21192,7 @@ const allShopData = [
       127.88,
       359.57,
       323.61,
-      0,
+      122.49,
       7.1
     ],
     "bonusHistory": [
@@ -21268,7 +21268,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 645.97,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 139.48,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21307,7 +21307,7 @@ const allShopData = [
       172.75,
       212.68,
       216.66,
-      0,
+      139.48,
       15.02
     ],
     "bonusHistory": [
@@ -21383,7 +21383,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2646.84,
     "tapGoalQ": 0,
-    "tapTotalTQ": 18.99,
+    "tapTotalTQ": 540.74,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21422,7 +21422,7 @@ const allShopData = [
       370.37,
       266.09,
       2010.38,
-      0,
+      521.75,
       80.21
     ],
     "bonusHistory": [
@@ -21498,7 +21498,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2652.78,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 384.25,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21537,7 +21537,7 @@ const allShopData = [
       521.65,
       1043.63,
       892.82,
-      0,
+      384.25,
       44.97
     ],
     "bonusHistory": [
@@ -21613,7 +21613,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 20268.95,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 8371.94,
     "totalSV": 6,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21652,7 +21652,7 @@ const allShopData = [
       6694.34,
       5210.72,
       8363.89,
-      0,
+      8371.94,
       594.09
     ],
     "bonusHistory": [
@@ -21728,7 +21728,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 769.1,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 185.42,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21767,7 +21767,7 @@ const allShopData = [
       241.91,
       273.97,
       253.22,
-      0,
+      185.42,
       58.42
     ],
     "bonusHistory": [
@@ -21843,7 +21843,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 16741.39,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 4606,
     "totalSV": 5,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21882,7 +21882,7 @@ const allShopData = [
       0,
       6060.79,
       10680.6,
-      0,
+      4606,
       398.19
     ],
     "bonusHistory": [
@@ -21958,7 +21958,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 488.62,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 57.56,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -21997,7 +21997,7 @@ const allShopData = [
       231.38,
       142.27,
       114.97,
-      0,
+      57.56,
       1.2
     ],
     "bonusHistory": [
@@ -22073,7 +22073,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 2447.39,
     "tapGoalQ": 0,
-    "tapTotalTQ": 89.94,
+    "tapTotalTQ": 497.52,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -22112,7 +22112,7 @@ const allShopData = [
       549.03,
       288.76,
       414.06,
-      0,
+      407.58,
       39.71
     ],
     "bonusHistory": [
@@ -22188,7 +22188,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 1236.98,
     "tapGoalQ": 0,
-    "tapTotalTQ": 750,
+    "tapTotalTQ": 1400,
     "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
@@ -22227,7 +22227,7 @@ const allShopData = [
       192.35,
       368.83,
       675.8,
-      0,
+      650,
       115.18
     ],
     "bonusHistory": [
@@ -22418,7 +22418,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 192.99,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 30.1,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -22457,7 +22457,7 @@ const allShopData = [
       24.96,
       59.43,
       108.6,
-      0,
+      30.1,
       0
     ],
     "bonusHistory": [
@@ -22533,7 +22533,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 233.63,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 5.25,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -22572,7 +22572,7 @@ const allShopData = [
       78.71,
       47.87,
       27.25,
-      0,
+      5.25,
       0
     ],
     "bonusHistory": [
@@ -22993,7 +22993,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 20.34,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 14.83,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -23032,7 +23032,7 @@ const allShopData = [
       2.8,
       0,
       17.54,
-      0,
+      14.83,
       0
     ],
     "bonusHistory": [
@@ -23338,7 +23338,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3.13,
     "tapGoalQ": 0,
-    "tapTotalTQ": 225,
+    "tapTotalTQ": 236.09,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -23377,7 +23377,7 @@ const allShopData = [
       1.65,
       0,
       1.48,
-      0,
+      11.09,
       0
     ],
     "bonusHistory": [
@@ -23453,7 +23453,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 35.24,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 13.92,
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
@@ -23492,7 +23492,7 @@ const allShopData = [
       7.49,
       8.71,
       19.04,
-      0,
+      13.92,
       0
     ],
     "bonusHistory": [
@@ -23568,7 +23568,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 96.08,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 40.5,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -23607,7 +23607,7 @@ const allShopData = [
       2.7,
       41.72,
       51.66,
-      0,
+      40.5,
       0
     ],
     "bonusHistory": [
@@ -23913,7 +23913,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 655.01,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 91.81,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -23952,7 +23952,7 @@ const allShopData = [
       197.28,
       160.02,
       258.63,
-      0,
+      91.81,
       0
     ],
     "bonusHistory": [
@@ -24143,7 +24143,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 22.35,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 0.92,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -24182,7 +24182,7 @@ const allShopData = [
       0.69,
       0,
       21.66,
-      0,
+      0.92,
       0
     ],
     "bonusHistory": [
@@ -24258,7 +24258,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 693.96,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 24.96,
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
@@ -24297,7 +24297,7 @@ const allShopData = [
       233.18,
       251.08,
       69.71,
-      0,
+      24.96,
       0
     ],
     "bonusHistory": [
@@ -24373,7 +24373,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 805.27,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 252.48,
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
@@ -24412,7 +24412,7 @@ const allShopData = [
       157.39,
       243.29,
       404.59,
-      0,
+      252.48,
       0
     ],
     "bonusHistory": [
@@ -24488,7 +24488,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 409.73,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 3.7,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -24527,7 +24527,7 @@ const allShopData = [
       158.17,
       197.27,
       54.29,
-      0,
+      3.7,
       0
     ],
     "bonusHistory": [
@@ -24603,7 +24603,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8395.29,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 2798.43,
     "totalSV": 28,
     "totalTaP": 0,
     "totalLS": 0,
@@ -24642,7 +24642,7 @@ const allShopData = [
       2798.43,
       2798.43,
       2798.43,
-      0,
+      2798.43,
       2798.43
     ],
     "bonusHistory": [
@@ -24718,7 +24718,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 4.52,
     "tapGoalQ": 0,
-    "tapTotalTQ": 36.55,
+    "tapTotalTQ": 74.64,
     "totalSV": 3,
     "totalTaP": 1,
     "totalLS": 0,
@@ -24757,7 +24757,7 @@ const allShopData = [
       0,
       3.2,
       1.32,
-      0,
+      38.09,
       0
     ],
     "bonusHistory": [
@@ -25178,7 +25178,7 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 3.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 0,
+    "tapTotalTQ": 1.31,
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
@@ -25217,7 +25217,7 @@ const allShopData = [
       0.5,
       1.65,
       1.57,
-      0,
+      1.31,
       0
     ],
     "bonusHistory": [
