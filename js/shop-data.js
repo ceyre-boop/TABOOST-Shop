@@ -25827,7 +25827,7 @@ const allShopData = [
   }
 ];
 
-window.SHOP_LAST_UPDATED = "TikTok Apr 30 at 11:59 PM PT";
+window.SHOP_LAST_UPDATED = "Apr 30 at 11:59 PM PT";
 if (typeof window !== "undefined") {
     window.TABOOST_SHOP_DATA = allShopData;
 }

@@ -2,6 +2,7 @@ import os
 import json
 import csv
 import sys
+import re
 from datetime import datetime
 
 # Configuration
@@ -53,7 +54,8 @@ def get_last_updated_date():
                 # Check if it looks like a month + day
                 months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
                 if any(month in potential_date for month in months):
-                    return potential_date
+                    # Strip "TikTok " prefix if present (Google Sheets column header format)
+                    return re.sub(r'^TikTok\s+', '', potential_date)
     except Exception as e:
         print(f"Error extracting date: {e}")
     return None

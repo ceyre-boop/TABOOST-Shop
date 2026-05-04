@@ -337,7 +337,7 @@ const todayLabel = (() => {
     const d = new Date();
     return d.toLocaleString('en-US', { month: 'long', day: 'numeric' }); // e.g. "April 7"
 })();
-const lastUpdatedStr = looksLikeDate ? rawC1 : todayLabel;
+const lastUpdatedStr = (looksLikeDate ? rawC1 : todayLabel).replace(/^TikTok\s+/, '');
 
 console.log(`✓ C1 raw value: "${rawC1}" → using label: "${lastUpdatedStr}"`);
 
