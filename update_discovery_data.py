@@ -244,10 +244,8 @@ for row in products_rows:
         continue
     is_priority = True  # All retained products have an active affiliate link
     
-    # Resolve Commission
-    comm = row.get('Total Commission Rate', '').strip()
-    if not comm:
-        comm = row.get('%', '').strip()
+    # Resolve Commission from tap-products.csv column K ("%" = creator-facing rate, excludes agency/platform portion)
+    comm = row.get('%', '').strip()
     
     # Get Rank
     try:
