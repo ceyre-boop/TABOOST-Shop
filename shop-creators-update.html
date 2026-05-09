@@ -270,7 +270,7 @@
             snap.forEach(doc => {
                 if (doc.id.includes('@')) existingEmails.add(doc.id.toLowerCase().trim());
                 const d = doc.data();
-                if (d.email && d.email.includes('@') && !d.email.includes('@taboost.me'))
+                if (d.email && d.email.includes('@'))
                     existingEmails.add(d.email.toLowerCase().trim());
             });
             log('Found ' + existingEmails.size + ' existing shop creators (email-keyed) in creatorRoster', 'l-success');
