@@ -955,20 +955,13 @@
         }
 
         function createProductCard(item) {
-            // Commission from CSV — parse the multi-line format: "20%\nvs. open collab 15%"
-            let fullComm = item.commission || "0%";
-            let commLines = fullComm.split('\n');
-            let commissionVal = commLines[0].trim();
+            let commissionVal = (item.commission || "0%").split('\n')[0].trim();
             if (!commissionVal.includes('%')) commissionVal += '%';
             const rawCommNum = parseFloat(commissionVal);
-            
-            // Use the REAL "vs. open collab" line from the CSV, never make up a comparison
-            let comparisonText = '';
-            let comparisonCol = '#888';
-            if (commLines.length > 1) {
-                comparisonText = commLines[1].trim(); // e.g. "vs. open collab 15%"
-                comparisonCol = '#00d4ff';
-            }
+
+            // Use vsText field from col O (clean "vs. open collab X%" line)
+            const comparisonText = (item.vsText || '').trim();
+            const comparisonCol = comparisonText ? '#00d4ff' : '#888';
 
             // Product image — use real image or client-side placeholder
             const hasRealImage = item.image && item.image.startsWith('http');

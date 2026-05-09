@@ -244,8 +244,12 @@ for row in products_rows:
         continue
     is_priority = True  # All retained products have an active affiliate link
     
-    # Resolve Commission from tap-products.csv column K ("%" = creator-facing rate, excludes agency/platform portion)
-    comm = row.get('%', '').strip()
+    # Resolve Commission — first line of col H (real TAP rate); col K was a hardcoded assumed value
+    comm_raw = row.get('Total Commission Rate', '').strip()
+    comm = comm_raw.split('\n')[0].strip() if comm_raw else row.get('%', '').strip()
+
+    # VS text from col O — clean "vs. open collab X%" comparison line
+    vs_text = row.get('VS', '').strip()
     
     # Get Rank
     try:
@@ -301,6 +305,7 @@ for row in products_rows:
         'creator': row.get('Shop Name', '').strip() or 'Unknown Shop',
         'price': price or '$0',
         'commission': comm or '0%',
+        'vsText': vs_text,
         'category': category,
         'type': 'campaign' if is_priority else 'product',
         'image': image_url,
