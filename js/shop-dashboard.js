@@ -282,34 +282,27 @@ function updateGMVStats() {
     const gmvLabel = document.querySelector('.stat-card.primary .stat-label');
     if (gmvLabel) gmvLabel.textContent = "Total GMV";
 
-    // Dynamic Growth Trend calculation (Defaulting to flat if missing history)
-    let prevTotalGMV = 0;
-    
-    let growthLabel = 'vs last month';
-    // Use pace to indicate growth if actual pacing data is available
-    if (myData.gmvPace && myData.gmvPace > totalGMV && totalGMV > 0) {
-        prevTotalGMV = totalGMV * 0.9; // Simulate a slight growth based on pace
-        growthLabel = 'Estimated pace';
-    } else {
-        prevTotalGMV = totalGMV; // Flat
-    }
-
+    // Estimated pace: project current GMV to end of month based on days elapsed
     const trendEl = document.getElementById('gmvTrend');
     if (trendEl) {
-        if (prevTotalGMV > 0) {
-            let growth = ((totalGMV - prevTotalGMV) / prevTotalGMV) * 100;
-            // Fallback for that "cool" vibe the user likes (hardcoded 11.2% if growth is effectively 0 or missing)
-            if (!growth || isNaN(growth) || Math.abs(growth) < 0.01) {
-                growth = 11.2;
-            }
-            const isUp = growth >= 0;
+        if (totalGMV > 0) {
+            const now = new Date();
+            const dayOfMonth = now.getDate();
+            const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+            const daysElapsed = Math.max(dayOfMonth, 1);
+            const projectedGMV = (totalGMV / daysElapsed) * daysInMonth;
+            const pacePercent = ((projectedGMV - totalGMV) / totalGMV) * 100;
+            const formattedPace = projectedGMV >= 1000000
+                ? '$' + (Math.floor(projectedGMV / 100000) / 10).toFixed(1) + 'M'
+                : '$' + Math.floor(projectedGMV).toLocaleString();
             trendEl.innerHTML = `
-                <span class="trend-indicator ${isUp ? 'up' : 'down'}">
-                    <i class="fas fa-arrow-${isUp ? 'up' : 'down'}"></i>
-                    ${Math.abs(growth).toFixed(1)}% ${growthLabel}
+                <span class="trend-indicator up" style="background: rgba(0,200,100,0.15); color: #00c864; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="fas fa-arrow-up"></i>
+                    ${pacePercent.toFixed(1)}% Estimated pace
                 </span>
+                <span style="display: block; font-size: 11px; color: #666; margin-top: 4px;">${formattedPace} projected this month</span>
             `;
-            myData.growthDirection = isUp ? 'up' : 'down';
+            myData.growthDirection = 'up';
         } else {
             trendEl.innerHTML = `<span class="trend-indicator">New Account</span>`;
         }
