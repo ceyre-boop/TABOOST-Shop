@@ -244,9 +244,8 @@ for row in products_rows:
         continue
     is_priority = True  # All retained products have an active affiliate link
     
-    # Resolve Commission — first line of col H (real TAP rate); col K was a hardcoded assumed value
-    comm_raw = row.get('Total Commission Rate', '').strip()
-    comm = comm_raw.split('\n')[0].strip() if comm_raw else row.get('%', '').strip()
+    # Resolve Commission — col K (%) is the creator-facing rate (excludes TABOOST's portion)
+    comm = row.get('%', '').strip() or row.get('Total Commission Rate', '').strip().split('\n')[0].strip()
 
     # VS text from col O — clean "vs. open collab X%" comparison line
     vs_text = row.get('VS', '').strip()
