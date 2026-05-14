@@ -383,9 +383,9 @@ function updateSalesStats() {
     if (lhEl) lhEl.textContent = (myData.livesHours || 0);
     
     // TAP Goals: Triple-milestone progress bars using tapYTD
-    // Goal 1: $100,000 TAP GMV → $1,000 Bonus
-    // Goal 2: $250,000 TAP GMV → Milestone Reward
-    // Goal 3: $1,000,000 TAP GMV → $5,000 Bonus
+    // Goal 1: $100,000 TAP GMV → $500 Bonus
+    // Goal 2: $250,000 TAP GMV → $1,500 Total Bonus
+    // Goal 3: $1,000,000 TAP GMV → $3,000 Total Bonus
     const tapYTD = myData.tapYTD || 0;
     const GOAL_1 = 100000;   
     const GOAL_2 = 250000;
@@ -409,6 +409,11 @@ function updateSalesStats() {
         const g1 = tapYTD >= GOAL_1;
         const g2 = tapYTD >= GOAL_2;
         const g3 = tapYTD >= GOAL_3;
+
+        const goal2AmountEl = document.getElementById('tapGoal2Amount');
+        const goal2BonusEl = document.getElementById('tapGoal2Bonus');
+        if (goal2AmountEl) goal2AmountEl.style.color = g2 ? '#00ff88' : '#fff';
+        if (goal2BonusEl) goal2BonusEl.style.color = g2 ? '#00ff88' : '#ccc';
         
         if (g3) {
             lbl.innerHTML = `
@@ -422,9 +427,9 @@ function updateSalesStats() {
                 </div>`;
         } else {
             let nextGoal, nextVal, bonus;
-            if (!g1) { nextGoal = "Goal 1"; nextVal = GOAL_1; bonus = "$500"; }
-            else if (!g2) { nextGoal = "Goal 2"; nextVal = GOAL_2; bonus = "$1,500 Bonus"; }
-            else { nextGoal = "Final Goal"; nextVal = GOAL_3; bonus = "$3,000"; }
+            if (!g1) { nextGoal = "Goal 1"; nextVal = GOAL_1; bonus = "$500 Bonus"; }
+            else if (!g2) { nextGoal = "Goal 2"; nextVal = GOAL_2; bonus = "$1,500 Total Bonus"; }
+            else { nextGoal = "Final Goal"; nextVal = GOAL_3; bonus = "$3,000 Total Bonus"; }
             
             const remaining = nextVal - tapYTD;
             lbl.innerHTML = `
