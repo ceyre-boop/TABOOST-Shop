@@ -383,13 +383,13 @@ function updateSalesStats() {
     if (lhEl) lhEl.textContent = (myData.livesHours || 0);
     
     // TAP Goals: Triple-milestone progress bars using tapYTD
-    // Goal 1: $100,000 TAP GMV → $500 Bonus
-    // Goal 2: $250,000 TAP GMV → $1,500 Total Bonus
-    // Goal 3: $1,000,000 TAP GMV → $3,000 Total Bonus
+    // Goal 1: $1,500 TAP GMV → $500 Bonus
+    // Goal 2: $3,000 TAP GMV → $1,500 Total Bonus
+    // Goal 3: $5,000 TAP GMV → $3,000 Total Bonus
     const tapYTD = myData.tapYTD || 0;
-    const GOAL_1 = 100000;   
-    const GOAL_2 = 250000;
-    const GOAL_3 = 1000000;  
+    const GOAL_1 = 1500;
+    const GOAL_2 = 3000;
+    const GOAL_3 = 5000;  
     
     // Update badge with current TAP YTD value
     const tapYTDDisplay = document.getElementById('tapYTDDisplay');
@@ -397,7 +397,7 @@ function updateSalesStats() {
         tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
     }
     
-    // Single Goal bar: tapYTD / $1M, clamped to 100%
+    // Single Goal bar: tapYTD / $5K, clamped to 100%
     const goalPct = Math.min(100, (tapYTD / GOAL_3) * 100);
     const mainBar = document.getElementById('tapGoalBar');
     if (mainBar) mainBar.style.width = goalPct.toFixed(2) + '%';
@@ -440,7 +440,7 @@ function updateSalesStats() {
                     </div>
                     <div style="display: flex; align-items: center; color: #444; font-size: 14px;">➔</div>
                     <div style="flex: 1; background: rgba(255,255,255,0.05); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">Next: $${Math.round(nextVal/1000)}K</div>
+                        <div style="font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">Next: ${(nextVal/1000) % 1 === 0 ? `$${nextVal/1000}K` : `$${(nextVal/1000).toFixed(1)}K`}</div>
                         <div style="font-size: 14px; color: #ccc; font-weight: 700; line-height: 1.2;">$${Math.round(remaining).toLocaleString()}</div>
                     </div>
                 </div>`;
