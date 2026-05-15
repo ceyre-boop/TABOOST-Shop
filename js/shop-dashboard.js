@@ -385,11 +385,11 @@ function updateSalesStats() {
     // TAP Goals: Triple-milestone progress bars using tapYTD
     // Goal 1: $1,500 TAP GMV → $500 Bonus
     // Goal 2: $3,000 TAP GMV → $1,500 Total Bonus
-    // Goal 3: $5,000 TAP GMV → $3,000 Total Bonus
+    // Goal 3: $1,000,000 TAP GMV → $3,000 Total Bonus
     const tapYTD = myData.tapYTD || 0;
-    const GOAL_1 = 1500;
-    const GOAL_2 = 3000;
-    const GOAL_3 = 5000;  
+    const GOAL_1 = 100000;
+    const GOAL_2 = 250000;
+    const GOAL_3 = 1000000;
     
     // Update badge with current TAP YTD value
     const tapYTDDisplay = document.getElementById('tapYTDDisplay');
