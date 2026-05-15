@@ -398,24 +398,24 @@
             <!-- Single TAP Goal Bar (0 to $5K) -->
             <div style="margin-bottom: 8px;">
                 <!-- Markers/Labels ABOVE the bar (no row above them to collide with) -->
-                <div class="tap-goal-container" style="position: relative; margin-top: 55px; margin-bottom: 8px;">
+                <div class="tap-goal-container" style="position: relative; margin-top: 70px; margin-bottom: 8px;">
                     <!-- Goal Markers/Labels above the bar -->
-                    <!-- $100K -->
+                    <!-- $100K — staggered lower on mobile via margin-bottom -->
                     <div class="goal-marker" style="position: absolute; left: 10%; bottom: 100%; transform: translateX(-50%); margin-bottom: 12px; text-align: center; white-space: nowrap;">
                         <span id="tapGoal1Amount" style="font-size: 10px; color: #00ff88; font-weight: bold; display: block;">$100K</span>
                         <span id="tapGoal1Bonus" style="font-size: 9px; color: #ccc;">$500 Bonus</span>
                     </div>
 
-                    <!-- $250K Middle Goal -->
-                    <div class="goal-marker" style="position: absolute; left: 25%; bottom: 100%; transform: translateX(-50%); margin-bottom: 12px; text-align: center; white-space: nowrap;">
+                    <!-- $250K — staggered higher to avoid overlap with $100K on mobile -->
+                    <div class="goal-marker" style="position: absolute; left: 25%; bottom: 100%; transform: translateX(-50%); margin-bottom: 44px; text-align: center; white-space: nowrap;">
                         <span id="tapGoal2Amount" style="font-size: 10px; color: #fff; font-weight: bold; display: block;">$250K</span>
-                        <span id="tapGoal2Bonus" style="font-size: 9px; color: #ccc;">$1,500 Bonus</span>
+                        <span id="tapGoal2Bonus" style="font-size: 9px; color: #ccc;">$1.5K Total Bonus</span>
                     </div>
 
                     <!-- $1M Final -->
                     <div class="goal-marker" style="position: absolute; right: 0; bottom: 100%; margin-bottom: 12px; text-align: right; white-space: nowrap;">
                         <span id="tapGoal3Amount" style="font-size: 10px; color: #ffd700; font-weight: bold; display: block;">$1M</span>
-                        <span id="tapGoal3Bonus" style="font-size: 9px; color: #ccc;">$3,000 Bonus</span>
+                        <span id="tapGoal3Bonus" style="font-size: 9px; color: #ccc;">$3K Total Bonus</span>
                     </div>
 
                     <!-- Progress Bar Background -->
@@ -606,12 +606,12 @@
         </div>
     </div>
 
-    <script src="js/rewards-data.js?v=202605152320"></script>
-    <script src="js/events-data.js?v=202605152320"></script>
-    <script src="js/weekly-calendar-data.js?v=202605152320"></script>
-    <script src="js/shop-data.js?v=202605152320"></script>
-    <script src="js/auth.js?v=202605152320"></script>
-    <script src="js/shop-dashboard.js?v=202605152320"></script>
+    <script src="js/rewards-data.js?v=202605152335"></script>
+    <script src="js/events-data.js?v=202605152335"></script>
+    <script src="js/weekly-calendar-data.js?v=202605152335"></script>
+    <script src="js/shop-data.js?v=202605152335"></script>
+    <script src="js/auth.js?v=202605152335"></script>
+    <script src="js/shop-dashboard.js?v=202605152335"></script>
     <script>
         function exportData(format) {
             const creatorName = document.getElementById('creatorName').textContent;
