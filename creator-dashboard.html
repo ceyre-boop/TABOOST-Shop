@@ -345,7 +345,7 @@
         <div class="stats-grid">
             <div class="stat-card primary">
                 <div class="stat-header">
-                    <span class="stat-label">This Month's Diamonds</span>
+                    <span class="stat-label">This Month's Diamonds <button class="tooltip-btn" onclick="openTooltip('diamonds')" aria-label="Learn more about Diamonds">ⓘ</button></span>
                 </div>
                 <div class="stat-value" id="currentDiamonds">--</div>
                 <div class="stat-usd" id="currentUSD" style="display: none;">--</div>
@@ -732,12 +732,12 @@
         </div>
     </div>
     
-    <script src="js/data.js?v=1774027606323"></script>
-    <script src="js/rewards-data.js?v=1774027606323"></script>
-    <script src="js/events-data.js?v=1774027606323"></script>
-    <script src="js/weekly-calendar-data.js?v=1774027606323"></script>
-    <script src="js/sheets-data.js?v=1774027606323"></script>
-    <script src="js/creator-dashboard.js?v=1774027606323"></script>
+    <script src="js/data.js?v=202605161425"></script>
+    <script src="js/rewards-data.js?v=202605161425"></script>
+    <script src="js/events-data.js?v=202605161425"></script>
+    <script src="js/weekly-calendar-data.js?v=202605161425"></script>
+    <script src="js/sheets-data.js?v=202605161425"></script>
+    <script src="js/creator-dashboard.js?v=202605161425"></script>
     <script type="module">
         // Initialize dashboard with Firebase user
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -864,6 +864,78 @@
     
     console.log('Anti-redirect safeguard active - cleared', keysToRemove.length + sessionKeysToRemove.length, 'keys');
 })();
+</script>
+
+<!-- ── Tooltip System ── -->
+<div id="tooltipOverlay" onclick="closeTooltip()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9000; backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);"></div>
+
+<div id="tooltipSheet" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9001; background:#111; border-radius:24px 24px 0 0; padding:0 0 env(safe-area-inset-bottom,16px); box-shadow:0 -8px 40px rgba(0,0,0,0.6); transform:translateY(100%); transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);">
+  <!-- drag handle -->
+  <div style="width:36px; height:4px; background:rgba(255,255,255,0.2); border-radius:2px; margin:12px auto 0;"></div>
+  <!-- header -->
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px 0;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div id="tooltipIcon" style="width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; background:rgba(0,198,255,0.15);"></div>
+      <span id="tooltipTitle" style="font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.3px;"></span>
+    </div>
+    <button onclick="closeTooltip()" style="background:rgba(255,255,255,0.08); border:none; border-radius:10px; width:32px; height:32px; color:#aaa; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
+  </div>
+  <!-- divider -->
+  <div style="height:1px; background:rgba(255,255,255,0.07); margin:14px 20px;"></div>
+  <!-- body -->
+  <div style="padding:0 20px 24px;">
+    <div style="font-size:10px; text-transform:uppercase; letter-spacing:1px; color:#666; font-weight:700; margin-bottom:8px;">Definition</div>
+    <p id="tooltipBody" style="font-size:14px; color:#ccc; line-height:1.65; margin:0;"></p>
+  </div>
+</div>
+
+<style>
+  .tooltip-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    padding: 0 0 0 4px;
+    vertical-align: middle;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .tooltip-btn:hover, .tooltip-btn:focus { color: rgba(255,255,255,0.8); outline: none; }
+</style>
+
+<script>
+const TOOLTIPS = {
+  diamonds: {
+    icon: '💎',
+    title: 'Diamonds',
+    body: 'The number of Diamonds received from Gifts and Star Comments based on the content popularity. In multi-guest LIVE streams, Diamonds include those received from Gifts based on the content popularity of the creator both as a host and as a guest, excluding those received based on the guests’ popularity.'
+  }
+};
+
+function openTooltip(key) {
+  const t = TOOLTIPS[key];
+  if (!t) return;
+  document.getElementById('tooltipIcon').textContent = t.icon;
+  document.getElementById('tooltipTitle').textContent = t.title;
+  document.getElementById('tooltipBody').textContent = t.body;
+  const overlay = document.getElementById('tooltipOverlay');
+  const sheet = document.getElementById('tooltipSheet');
+  overlay.style.display = 'block';
+  sheet.style.display = 'block';
+  requestAnimationFrame(() => { sheet.style.transform = 'translateY(0)'; });
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTooltip() {
+  const sheet = document.getElementById('tooltipSheet');
+  sheet.style.transform = 'translateY(100%)';
+  setTimeout(() => {
+    document.getElementById('tooltipOverlay').style.display = 'none';
+    sheet.style.display = 'none';
+    document.body.style.overflow = '';
+  }, 350);
+}
 </script>
 </body>
 </html>
