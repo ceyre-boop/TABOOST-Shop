@@ -292,15 +292,11 @@ function updateGMVStats() {
             const daysElapsed = Math.max(dayOfMonth, 1);
             const projectedGMV = (totalGMV / daysElapsed) * daysInMonth;
             const pacePercent = ((projectedGMV - totalGMV) / totalGMV) * 100;
-            const formattedPace = projectedGMV >= 1000000
-                ? '$' + (Math.floor(projectedGMV / 100000) / 10).toFixed(1) + 'M'
-                : '$' + Math.floor(projectedGMV).toLocaleString();
             trendEl.innerHTML = `
                 <span class="trend-indicator up" style="background: rgba(0,200,100,0.15); color: #00c864; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
                     <i class="fas fa-arrow-up"></i>
                     ${pacePercent.toFixed(1)}% Estimated pace
                 </span>
-                <span style="display: block; font-size: 11px; color: #666; margin-top: 4px;">${formattedPace} projected this month</span>
             `;
             myData.growthDirection = 'up';
         } else {
