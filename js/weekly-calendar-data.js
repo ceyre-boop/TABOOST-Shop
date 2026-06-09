@@ -96,6 +96,24 @@ function generateRollingCalendar() {
             startDate: new Date(2026, 6, 22),
             endDate: new Date(2026, 6, 26),
             color: "#f5a623"
+        },
+        {
+            id: 8,
+            title: "Deals For You Days",
+            type: "campaign",
+            time: "Promo",
+            startDate: new Date(2026, 5, 17), // June 17
+            endDate: new Date(2026, 6, 2),    // July 2
+            color: "#00d4ff"
+        },
+        {
+            id: 9,
+            title: "Sacheu Day (NYC)",
+            type: "event",
+            time: "Event",
+            startDate: new Date(2026, 5, 11), // June 11
+            endDate: new Date(2026, 5, 11),   // June 11
+            color: "#ff0050"
         }
     ];
     
