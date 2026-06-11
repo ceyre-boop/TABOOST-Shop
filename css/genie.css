@@ -287,6 +287,122 @@
 .genie-toast .genie-toast-body { font-size: 13px; color: var(--genie-text); line-height: 1.4; }
 .genie-toast .genie-toast-actions { display: flex; gap: 8px; margin-top: 8px; }
 
+/* ---------- Genie intro reveal (plays once per session) ---------- */
+#genie-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #06060c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+#genie-intro.genie-exit { animation: genieOverlayExit 0.55s cubic-bezier(0.55, 0, 1, 0.45) forwards; }
+@keyframes genieOverlayExit { 0% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
+
+.genie-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 0, 68, 0);
+    pointer-events: none;
+    animation: genieRingPop 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.genie-ring:nth-child(2) { width: 140px; height: 140px; animation-delay: 0.38s; }
+.genie-ring:nth-child(3) { width: 260px; height: 260px; animation-delay: 0.48s; }
+.genie-ring:nth-child(4) { width: 400px; height: 400px; animation-delay: 0.56s; }
+.genie-ring:nth-child(5) { width: 580px; height: 580px; animation-delay: 0.62s; }
+@keyframes genieRingPop {
+    0%   { border-color: rgba(255, 0, 68, 0);    transform: scale(0.3); }
+    30%  { border-color: rgba(255, 0, 68, 0.55); transform: scale(1.05); }
+    70%  { border-color: rgba(255, 0, 68, 0.18); transform: scale(1); }
+    100% { border-color: rgba(255, 0, 68, 0);    transform: scale(1.15); }
+}
+
+#genie-img-wrap {
+    position: relative;
+    z-index: 2;
+    animation: genieEntrance 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform-origin: center bottom;
+}
+@keyframes genieEntrance {
+    0%   { opacity: 0; transform: scale(0.12) translateY(60px); }
+    18%  { opacity: 1; transform: scale(1.18) translateY(-12px); }
+    28%  { opacity: 1; transform: scale(0.93) translateY(4px); }
+    40%  { opacity: 1; transform: scale(1.06) translateY(-6px); }
+    52%  { opacity: 1; transform: scale(0.98) translateY(0px); }
+    62%  { opacity: 1; transform: scale(1.0)  translateY(-10px); }
+    72%  { opacity: 1; transform: scale(1.0)  translateY(0px); }
+    80%  { opacity: 1; transform: scale(1.0)  translateY(-6px); }
+    100% { opacity: 0; transform: scale(9.0)  translateY(-20px); }
+}
+#genie-img-wrap img {
+    width: 130px;
+    height: 130px;
+    border-radius: 28px;
+    border: 3px solid rgba(255, 0, 68, 0.8);
+    box-shadow: 0 0 0 8px rgba(255, 0, 68, 0.12), 0 0 60px rgba(255, 0, 68, 0.45), 0 0 120px rgba(255, 0, 68, 0.20);
+    display: block;
+}
+
+#genie-tagline {
+    position: absolute;
+    bottom: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: genieTaglineAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes genieTaglineAnim {
+    0%   { opacity: 0; transform: translateX(-50%) translateY(12px); }
+    28%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+}
+
+#genie-logo-text {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff0044, #ff6b6b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    animation: genieLogoAnim 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes genieLogoAnim {
+    0%   { opacity: 0; transform: translateX(-50%) scale(0.7); }
+    22%  { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    35%  { opacity: 1; transform: translateX(-50%) scale(0.97); }
+    80%  { opacity: 1; transform: translateX(-50%) scale(1); }
+    100% { opacity: 0; transform: translateX(-50%) scale(1.3); }
+}
+
+#genie-bg-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255, 0, 68, 0.16) 0%, transparent 70%);
+    animation: genieGlow 1.65s ease-in-out forwards;
+}
+@keyframes genieGlow { 0% { opacity: 0; } 30% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+    #genie-intro { display: none; }
+}
+
 /* ---------- Hero value strip ---------- */
 .value-strip {
     max-width: 1000px;

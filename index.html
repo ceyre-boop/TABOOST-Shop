@@ -30,7 +30,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            background: #06060c;
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
@@ -155,29 +155,31 @@
         }
         
         .hero h1 {
-            font-size: 56px;
+            font-size: clamp(40px, 6vw, 76px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.78) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero h1 span {
-            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            background: linear-gradient(135deg, #ff0044 0%, #ff6060 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero p {
             font-size: 18px;
-            color: #aaa;
-            max-width: 700px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.68);
+            max-width: 620px;
             margin: 0 auto 30px;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* Search Bar */
@@ -842,6 +844,33 @@
     </style>
 </head>
 <body>
+    <!-- Genie intro reveal — plays once per browser session, then fades out -->
+    <div id="genie-intro">
+        <div id="genie-bg-glow"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div id="genie-logo-text">TABOOST</div>
+        <div id="genie-img-wrap">
+            <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
+        </div>
+        <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
+    <script>
+        // Self-contained so the overlay always clears even if other scripts fail.
+        (function () {
+            var overlay = document.getElementById('genie-intro');
+            if (!overlay) return;
+            if (sessionStorage.getItem('genie-shown')) { overlay.remove(); return; }
+            sessionStorage.setItem('genie-shown', '1');
+            setTimeout(function () {
+                overlay.classList.add('genie-exit');
+                setTimeout(function () { overlay.remove(); }, 580);
+            }, 1700);
+        })();
+    </script>
+
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
@@ -862,7 +891,7 @@
 
         <section class="hero" id="hero-section">
             <div style="display:inline-block; background:rgba(255,0,68,0.1); border:1px solid #ff0044; color:#ff0044; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Built for TikTok Shop Creators</div>
-            <h1><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
+            <h1><span style="background: linear-gradient(135deg, #ff0044 0%, #ff6060 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
             <p>We line up TikTok Shop products that pay you more — and the Genie writes the script so you know exactly what to film. No inventory, no guesswork.</p>
             <button onclick="window.Genie && Genie.open()" style="margin-top:18px; background:linear-gradient(135deg,#ff0044,#cc0033); color:#fff; border:none; padding:14px 26px; border-radius:30px; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 10px 30px rgba(255,0,68,0.3);">✨ Ask the Genie to find your first product</button>
 
