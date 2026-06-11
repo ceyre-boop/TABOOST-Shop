@@ -1,0 +1,322 @@
+/* ============================================================
+   TABOOST Genie — AI assistant UI
+   Brand: pink #ff0044 / green #00ff88 on dark glass.
+   z-index map: overlay 1000 · genie panel 1600 · floating btn 1500
+                · action-bar (product pop-up) 2000 (stays on top)
+   ============================================================ */
+
+:root {
+    --genie-pink: #ff0044;
+    --genie-pink-glow: rgba(255, 0, 68, 0.45);
+    --genie-green: #00ff88;
+    --genie-panel-bg: rgba(18, 18, 28, 0.98);
+    --genie-line: rgba(255, 255, 255, 0.08);
+    --genie-text: #fff;
+    --genie-text-dim: rgba(255, 255, 255, 0.62);
+}
+
+/* ---------- Floating button ---------- */
+.genie-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--genie-pink);
+    padding: 0;
+    cursor: pointer;
+    background: #15151f;
+    overflow: visible;
+    z-index: 1500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+.genie-fab img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+.genie-fab:hover { transform: scale(1.08); }
+.genie-fab.pulsing { animation: geniePulse 2.4s ease-in-out infinite; }
+@keyframes geniePulse {
+    0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 0 var(--genie-pink-glow); }
+    50%      { box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 14px rgba(255,0,68,0); }
+}
+/* little sparkle badge */
+.genie-fab .genie-fab-spark {
+    position: absolute;
+    top: -4px; right: -4px;
+    font-size: 14px;
+    filter: drop-shadow(0 0 4px var(--genie-pink));
+    pointer-events: none;
+}
+/* hover label */
+.genie-fab .genie-fab-label {
+    position: absolute;
+    right: 74px;
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    white-space: nowrap;
+    background: var(--genie-panel-bg);
+    color: var(--genie-text);
+    border: 1px solid var(--genie-line);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.genie-fab:hover .genie-fab-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+
+/* ---------- Panel ---------- */
+.genie-panel {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    max-height: min(640px, calc(100vh - 130px));
+    background: var(--genie-panel-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 0, 68, 0.35);
+    border-radius: 20px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 0, 68, 0.12);
+    z-index: 1600;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.98);
+    transform-origin: bottom right;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+.genie-panel.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+.genie-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--genie-line);
+    background: linear-gradient(135deg, rgba(255,0,68,0.12), rgba(255,0,68,0));
+}
+.genie-head img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--genie-pink); object-fit: cover; }
+.genie-head .genie-title { font-size: 15px; font-weight: 800; color: var(--genie-text); line-height: 1.2; }
+.genie-head .genie-sub { font-size: 11px; color: var(--genie-green); font-weight: 600; }
+.genie-head .genie-close {
+    margin-left: auto; background: none; border: none; color: var(--genie-text-dim);
+    font-size: 22px; cursor: pointer; line-height: 1; padding: 4px 6px; border-radius: 8px;
+}
+.genie-head .genie-close:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+.genie-body {
+    padding: 16px 18px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* message bubble */
+.genie-msg {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--genie-line);
+    border-radius: 14px;
+    border-top-left-radius: 4px;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--genie-text);
+    margin-bottom: 12px;
+    animation: genieFade 0.25s ease;
+}
+.genie-msg b { color: var(--genie-green); }
+@keyframes genieFade { from { opacity: 0; transform: translateY(6px);} to {opacity:1; transform:translateY(0);} }
+
+/* choice buttons / chips */
+.genie-choices { display: flex; flex-direction: column; gap: 10px; margin-bottom: 6px; }
+.genie-choice {
+    display: flex; align-items: center; gap: 10px;
+    text-align: left; width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--genie-line);
+    color: var(--genie-text);
+    padding: 13px 14px;
+    border-radius: 12px;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+.genie-choice:hover { border-color: var(--genie-pink); background: rgba(255,0,68,0.08); transform: translateY(-1px); }
+.genie-choice .genie-choice-emoji { font-size: 18px; }
+
+.genie-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.genie-chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--genie-line);
+    color: var(--genie-text);
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.genie-chip:hover, .genie-chip.active { border-color: var(--genie-pink); background: rgba(255,0,68,0.12); color: #fff; }
+
+/* primary / secondary buttons inside genie */
+.genie-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: linear-gradient(135deg, var(--genie-pink), #cc0033);
+    color: #fff; border: none; border-radius: 12px;
+    padding: 11px 16px; font-size: 14px; font-weight: 800; cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.genie-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(255,0,68,0.35); }
+.genie-btn.secondary { background: rgba(255,255,255,0.06); color: var(--genie-text); border: 1px solid var(--genie-line); }
+.genie-btn.secondary:hover { box-shadow: none; border-color: var(--genie-pink); }
+.genie-btn.green { background: linear-gradient(135deg, var(--genie-green), #00cc66); color: #000; }
+
+.genie-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+/* stepper dots */
+.genie-steps { display: flex; gap: 6px; margin-bottom: 14px; }
+.genie-step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+.genie-step-dot.active { background: var(--genie-pink); }
+
+/* footer quick row */
+.genie-foot {
+    border-top: 1px solid var(--genie-line);
+    padding: 10px 14px;
+    display: flex; gap: 8px; flex-wrap: wrap;
+}
+.genie-foot .genie-quick {
+    font-size: 12px; color: var(--genie-text-dim); background: none; border: none; cursor: pointer;
+    padding: 4px 6px; border-radius: 6px;
+}
+.genie-foot .genie-quick:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+/* ---------- Script framework (in product pop-up) ---------- */
+.genie-script-trigger {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 14px;
+}
+.genie-script-trigger .genie-script-label {
+    color: var(--genie-green); font-size: 13px; font-weight: 800;
+    display: flex; align-items: center; gap: 6px;
+}
+.genie-script-trigger .genie-gen-btn {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--genie-pink), #cc0033);
+    color: #fff; border: none; border-radius: 20px;
+    padding: 7px 16px; font-size: 13px; font-weight: 800; cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.genie-script-trigger .genie-gen-btn:hover { transform: scale(1.04); box-shadow: 0 8px 18px rgba(255,0,68,0.35); }
+
+.genie-script-content {
+    max-height: 0; opacity: 0; overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+.genie-script-content.expanded { max-height: 1200px; opacity: 1; margin-top: 12px; }
+
+.genie-script-divider { border: none; border-top: 1px solid var(--genie-line); margin: 0 0 12px; }
+
+.genie-angles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.genie-angle {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--genie-line); color: var(--genie-text-dim);
+    padding: 5px 11px; border-radius: 30px; font-size: 12px; font-weight: 600; cursor: pointer;
+    transition: all 0.15s ease;
+}
+.genie-angle:hover { color: #fff; border-color: rgba(255,0,68,0.5); }
+.genie-angle.active { background: rgba(255,0,68,0.15); border-color: var(--genie-pink); color: #fff; }
+
+.genie-block { margin-bottom: 12px; }
+.genie-block-title {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase;
+    color: var(--genie-pink); margin-bottom: 6px;
+}
+.genie-block-title .genie-block-hint { color: var(--genie-text-dim); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.genie-bullet { display: flex; gap: 8px; font-size: 13px; line-height: 1.45; color: var(--genie-text); margin-bottom: 5px; }
+.genie-bullet::before { content: "•"; color: var(--genie-green); flex-shrink: 0; }
+
+.genie-script-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.genie-script-actions button {
+    font-size: 12px; font-weight: 700; cursor: pointer; border-radius: 10px; padding: 8px 12px; border: 1px solid var(--genie-line);
+    background: rgba(255,255,255,0.05); color: var(--genie-text); transition: all 0.15s ease;
+}
+.genie-script-actions button:hover { border-color: var(--genie-pink); }
+.genie-script-actions .genie-copy.copied { background: rgba(0,255,136,0.15); border-color: var(--genie-green); color: var(--genie-green); }
+
+/* ---------- Card hover tooltip ---------- */
+.genie-card-tag {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    background: rgba(18,18,28,0.92);
+    border: 1px solid rgba(255,0,68,0.5);
+    color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 4px 8px; border-radius: 20px;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+.product-card:hover .genie-card-tag { opacity: 1; transform: translateY(0); }
+
+/* ---------- Toast (post-launch follow-up) ---------- */
+.genie-toast {
+    position: fixed;
+    bottom: 100px; right: 24px;
+    width: 320px; max-width: calc(100vw - 32px);
+    background: var(--genie-panel-bg);
+    border: 1px solid rgba(255,0,68,0.4);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    z-index: 1700;
+    display: flex; gap: 12px; align-items: flex-start;
+    opacity: 0; visibility: hidden; transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+.genie-toast.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.genie-toast img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--genie-pink); flex-shrink: 0; }
+.genie-toast .genie-toast-body { font-size: 13px; color: var(--genie-text); line-height: 1.4; }
+.genie-toast .genie-toast-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+/* ---------- Hero value strip ---------- */
+.value-strip {
+    max-width: 1000px;
+    margin: 8px auto 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 0 20px;
+}
+.value-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 18px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.value-item:hover { border-color: rgba(255, 0, 68, 0.3); transform: translateY(-3px); }
+.value-emoji { font-size: 24px; line-height: 1; }
+.value-title { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.value-text { font-size: 13px; color: rgba(255, 255, 255, 0.6); line-height: 1.5; }
+@media (max-width: 768px) {
+    .value-strip { grid-template-columns: 1fr; margin-bottom: 32px; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+    .genie-panel { right: 12px; left: 12px; width: auto; bottom: 88px; }
+    .genie-fab { bottom: 16px; right: 16px; width: 58px; height: 58px; }
+    .genie-toast { right: 12px; left: 12px; width: auto; }
+}

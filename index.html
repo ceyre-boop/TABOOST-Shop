@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- PREVIEW BUILD — keep unlisted. STRIP this noindex before merging to production/main. -->
+    <meta name="robots" content="noindex, nofollow">
     <title>TABOOST — Turn Your Hustle Into a Business</title>
     <meta name="description" content="The creator platform that turns your TikTok hustle into a real business. Track diamonds, earn rewards, grow your brand.">
     
@@ -22,6 +24,7 @@
     <meta name="twitter:image" content="https://live.taboost.me/images/taboost-genie.jpg">
     
     <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <link rel="stylesheet" href="css/genie.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -802,69 +805,6 @@
             flex: 1;
         }
 
-        /* AI Tip — expandable creator-strategy section */
-        .ai-tip-trigger {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 14px;
-            color: #00ff88;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            user-select: none;
-            width: fit-content;
-            transition: opacity 0.2s;
-        }
-
-        .ai-tip-trigger:hover { opacity: 0.85; }
-
-        .ai-tip-trigger .chevron {
-            font-size: 10px;
-            transition: transform 0.2s ease;
-        }
-
-        .ai-tip-trigger.expanded .chevron {
-            transform: rotate(180deg);
-        }
-
-        .ai-tip-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease, opacity 0.2s ease;
-        }
-
-        .ai-tip-content.expanded {
-            max-height: 360px;
-            opacity: 1;
-        }
-
-        .ai-tip-divider {
-            border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 12px 0;
-        }
-
-        .ai-tip-line {
-            display: flex;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 400;
-            line-height: 1.45;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .ai-tip-line:last-child { margin-bottom: 2px; }
-
-        .ai-tip-line .ai-tip-icon { flex-shrink: 0; }
-
-        .ai-tip-line b {
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 600;
-        }
-
         .action-count {
             font-size: 16px;
             font-weight: 700;
@@ -923,8 +863,9 @@
         <section class="hero" id="hero-section">
             <div style="display:inline-block; background:rgba(255,0,68,0.1); border:1px solid #ff0044; color:#ff0044; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Built for TikTok Shop Creators</div>
             <h1><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
-            <p>Access higher commission rates, proven products & exclusive campaigns!</p>
-            
+            <p>We line up TikTok Shop products that pay you more — and the Genie writes the script so you know exactly what to film. No inventory, no guesswork.</p>
+            <button onclick="window.Genie && Genie.open()" style="margin-top:18px; background:linear-gradient(135deg,#ff0044,#cc0033); color:#fff; border:none; padding:14px 26px; border-radius:30px; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 10px 30px rgba(255,0,68,0.3);">✨ Ask the Genie to find your first product</button>
+
             <div class="search-container">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="main-search" placeholder="Search for products, categories, or brands...">
@@ -944,6 +885,22 @@
                     <span class="quick-tag" data-cat="Food & Beverages">🍔 Food</span>
                     <span class="quick-tag" data-cat="Toys & Hobbies">🧸 Toys</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- Value strip — what TABOOST does for a creator (vs signing up on TikTok direct) -->
+        <section class="value-strip">
+            <div class="value-item">
+                <div class="value-emoji">💰</div>
+                <div><div class="value-title">Higher rates we broker</div><div class="value-text">Above-market commission we negotiate with brands. Same product, bigger cut for you.</div></div>
+            </div>
+            <div class="value-item">
+                <div class="value-emoji">✅</div>
+                <div><div class="value-title">Proven products</div><div class="value-text">Real sales data up front, so you promote winners — not guesses.</div></div>
+            </div>
+            <div class="value-item">
+                <div class="value-emoji">🧞</div>
+                <div><div class="value-title">The Genie writes your script</div><div class="value-text">Tap any product and get the exact hook, build, and close to film.</div></div>
             </div>
         </section>
 
@@ -989,7 +946,8 @@
 
         
         <footer>
-            <p>© 2025 TABOOST. All rights reserved.</p>
+            <p style="color:#888; font-size:14px; margin-bottom:6px;">Built for creators. Powered by the Genie. 🧞</p>
+            <p>© 2026 TABOOST. All rights reserved.</p>
         </footer>
     </div>
     <script src="js/product-data.js"></script>
@@ -1064,6 +1022,7 @@
                             <div class="product-price">${item.price}</div>
                         </div>
                     </div>
+                    <div class="genie-card-tag">🧞 Genie has a script ✨</div>
                 </div>
             `;
         }
@@ -1278,91 +1237,18 @@
                 }
                 estEl.textContent = `Commission Potential: ${potentialLevel}`;
 
-                // Populate AI tip for the selected product, reset to collapsed
-                const item = findProductById(selectedProductId);
-                if (item) {
-                    const tips = generateProductTips(item);
-                    document.getElementById('ai-tip-format').textContent = tips.format;
-                    document.getElementById('ai-tip-angle').textContent = tips.angle;
-                    document.getElementById('ai-tip-target').textContent = tips.target;
-                    document.getElementById('ai-tip-hook').textContent = tips.hook;
-                }
-                document.getElementById('ai-tip-content').classList.remove('expanded');
-                document.getElementById('ai-tip-trigger').classList.remove('expanded');
+                // Hand the selected product to the Genie for the in-pop-up Script Generator
+                if (window.Genie) Genie.onProductSelected(selectedProductId);
 
                 bar.classList.add('visible');
             } else {
+                if (window.Genie) Genie.onProductCleared();
                 bar.classList.remove('visible');
             }
         }
 
-        window.toggleAITip = function() {
-            document.getElementById('ai-tip-content').classList.toggle('expanded');
-            document.getElementById('ai-tip-trigger').classList.toggle('expanded');
-        };
-
-        function findProductById(id) {
-            return (window.PRODUCT_DATA || []).find(p => p.id === id)
-                || (window.CAMPAIGN_DATA || []).find(p => p.id === id)
-                || null;
-        }
-
-        // Client-side smart-tip engine — deterministic creator strategy from product signals.
-        function generateProductTips(item) {
-            // --- parse signals already on the product ---
-            const priceNum = parseFloat(String(item.price || '').replace(/[^0-9.]/g, '')) || 0;
-            const soldNum = parseInt(String(item.sold || '').replace(/[^0-9]/g, ''), 10) || 0;
-            const commNum = parseFloat(String(item.commission || '').replace(/[^0-9.]/g, '')) || 0;
-            const priceLabel = priceNum ? ('$' + Math.round(priceNum)) : 'this';
-
-            const priceBand = priceNum < 25 ? 'impulse' : priceNum <= 75 ? 'mid' : 'premium';
-            const soldBand = soldNum > 50000 ? 'bestseller' : soldNum >= 10000 ? 'proven'
-                : soldNum >= 1000 ? 'growing' : 'emerging';
-            const highComm = commNum >= 20;
-
-            // --- category map: format + audience + angle seeds ---
-            const CAT = {
-                'Beauty & Personal Care': { format: 'before/after transformation', audience: 'skincare & beauty lovers (18–34)', angle: '"I tried this for 2 weeks — here’s my skin now"' },
-                'Health':                 { format: 'routine / day-in-the-life', audience: 'wellness & self-improvement viewers', angle: '"Add this to your daily routine and watch what happens"' },
-                'Phones & Electronics':   { format: '"Problem/Solution" style videos', audience: 'WFH creators, commuters, students (18–34)', angle: '"I tried these for 30 days…" or a demo in a loud environment' },
-                'Computers & Office Equipment': { format: 'desk-setup / productivity demo', audience: 'students, remote workers, creators', angle: '"My setup wasn’t complete until I added this"' },
-                'Womenswear & Underwear': { format: 'try-on haul / styling', audience: 'fashion & outfit-inspo viewers (18–34)', angle: '"3 ways to style this" or a get-ready-with-me' },
-                'Shoes':                  { format: 'try-on / on-feet styling', audience: 'sneakerheads & outfit-inspo viewers', angle: '"On-feet review + how I’d style them"' },
-                'Fashion Accessories':    { format: 'styling / outfit-completer', audience: 'fashion & gift-shopping viewers', angle: '"The detail that makes the whole outfit"' },
-                'Sports & Outdoor':       { format: 'in-action demo', audience: 'fitness & outdoor enthusiasts', angle: '"Tested it on my hardest workout"' },
-                'Home Supplies':          { format: 'satisfying restock / organization', audience: 'home & cleantok viewers', angle: '"This fixed a problem I didn’t know I had"' },
-                'Household Appliances':   { format: 'demo / "is it worth it" review', audience: 'home upgraders & new-apartment viewers', angle: '"Worth it or waste? I tested it"' },
-                'Kitchenware':            { format: 'recipe / cooking demo', audience: 'foodies & home cooks', angle: '"Making dinner with this — game changer"' },
-                'Furniture':              { format: 'room makeover / assembly', audience: 'home & apartment-decor viewers', angle: '"My room before vs after this"' },
-                'Food & Beverages':       { format: 'taste-test / mukbang', audience: 'food & snack-haul viewers', angle: '"Trying this so you don’t have to"' },
-                'Automotive & Motorcycle':{ format: 'install / before-after', audience: 'car & DIY enthusiasts', angle: '"5-minute upgrade for your car"' },
-                'Toys & Hobbies':         { format: 'unboxing / play demo', audience: 'parents & gift shoppers', angle: '"The gift that actually got played with"' },
-                'Pet Supplies':           { format: 'reaction / pet demo', audience: 'pet parents', angle: '"My dog’s reaction says it all"' },
-                'Other':                  { format: 'unboxing / honest review', audience: 'deal-seekers & curious browsers', angle: '"Found this and had to share"' }
-            };
-            const c = CAT[item.category] || CAT['Other'];
-
-            // --- format: blend category with sold band for social proof ---
-            let format = c.format;
-            if (soldBand === 'bestseller') format += ' (lean into "everyone’s buying it")';
-            else if (soldBand === 'emerging') format += ' (be the first to review it)';
-
-            // --- hook: blend price + sold + commission ---
-            let hook;
-            if (soldBand === 'bestseller') hook = `"${soldNum.toLocaleString()} sold — here’s why everyone’s obsessed"`;
-            else if (priceBand === 'impulse') hook = `"You won’t believe this is only ${priceLabel}"`;
-            else if (priceBand === 'premium') hook = `"Is the ${priceLabel} version actually worth it? Watch before you buy"`;
-            else hook = `"Stop scrolling — this ${priceLabel} find is underrated"`;
-
-            // --- target & angle from category ---
-            const target = c.audience;
-            let angle = c.angle;
-            if (highComm) angle += ` — high payout, worth a dedicated video`;
-
-            return { format, angle, target, hook };
-        }
-
         window.launchCampaign = function() {
+            if (window.Genie && selectedProductId) Genie.onLaunch(selectedProductId);
             if (selectedProductLink) {
                 window.open(selectedProductLink, '_blank');
             }
@@ -1381,16 +1267,9 @@
             </div>
             <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
         </div>
-        <div class="ai-tip-trigger" id="ai-tip-trigger" onclick="toggleAITip()">
-            <span>✦ AI Tip</span><span class="chevron">▾</span>
-        </div>
-        <div class="ai-tip-content" id="ai-tip-content">
-            <hr class="ai-tip-divider">
-            <div class="ai-tip-line"><span class="ai-tip-icon">🎯</span><span><b>Best for:</b> <span id="ai-tip-format"></span></span></div>
-            <div class="ai-tip-line"><span class="ai-tip-icon">📣</span><span><b>Angle:</b> <span id="ai-tip-angle"></span></span></div>
-            <div class="ai-tip-line"><span class="ai-tip-icon">👥</span><span><b>Target:</b> <span id="ai-tip-target"></span></span></div>
-            <div class="ai-tip-line"><span class="ai-tip-icon">⚡</span><span><b>Hook:</b> <span id="ai-tip-hook"></span></span></div>
-        </div>
+        <!-- Genie Script section is injected here by js/genie.js (#genie-script-mount) -->
     </div>
+
+    <script src="js/genie.js"></script>
 </body>
 </html>
