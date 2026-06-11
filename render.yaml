@@ -5,7 +5,7 @@ services:
   - type: web
     name: taboost-genie-preview
     runtime: static
-    branch: staging
+    branch: genie-preview
     buildCommand: "echo 'static site — no build'"
     staticPublishPath: .
     pullRequestPreviewsEnabled: false
