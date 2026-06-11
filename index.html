@@ -771,8 +771,9 @@
             border-radius: 30px;
             padding: 25px 35px;
             display: flex;
-            align-items: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
             z-index: 2000;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 136, 0.2);
             opacity: 0;
@@ -788,11 +789,80 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
+        .action-top-row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         .action-stats {
             display: flex;
             flex-direction: column;
             gap: 4px;
             flex: 1;
+        }
+
+        /* AI Tip — expandable creator-strategy section */
+        .ai-tip-trigger {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+            width: fit-content;
+            transition: opacity 0.2s;
+        }
+
+        .ai-tip-trigger:hover { opacity: 0.85; }
+
+        .ai-tip-trigger .chevron {
+            font-size: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .ai-tip-trigger.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        .ai-tip-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease, opacity 0.2s ease;
+        }
+
+        .ai-tip-content.expanded {
+            max-height: 360px;
+            opacity: 1;
+        }
+
+        .ai-tip-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 12px 0;
+        }
+
+        .ai-tip-line {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.45;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .ai-tip-line:last-child { margin-bottom: 2px; }
+
+        .ai-tip-line .ai-tip-icon { flex-shrink: 0; }
+
+        .ai-tip-line b {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
         }
 
         .action-count {
@@ -1207,11 +1277,89 @@
                     potentialLevel = 'Medium';
                 }
                 estEl.textContent = `Commission Potential: ${potentialLevel}`;
-                
+
+                // Populate AI tip for the selected product, reset to collapsed
+                const item = findProductById(selectedProductId);
+                if (item) {
+                    const tips = generateProductTips(item);
+                    document.getElementById('ai-tip-format').textContent = tips.format;
+                    document.getElementById('ai-tip-angle').textContent = tips.angle;
+                    document.getElementById('ai-tip-target').textContent = tips.target;
+                    document.getElementById('ai-tip-hook').textContent = tips.hook;
+                }
+                document.getElementById('ai-tip-content').classList.remove('expanded');
+                document.getElementById('ai-tip-trigger').classList.remove('expanded');
+
                 bar.classList.add('visible');
             } else {
                 bar.classList.remove('visible');
             }
+        }
+
+        window.toggleAITip = function() {
+            document.getElementById('ai-tip-content').classList.toggle('expanded');
+            document.getElementById('ai-tip-trigger').classList.toggle('expanded');
+        };
+
+        function findProductById(id) {
+            return (window.PRODUCT_DATA || []).find(p => p.id === id)
+                || (window.CAMPAIGN_DATA || []).find(p => p.id === id)
+                || null;
+        }
+
+        // Client-side smart-tip engine — deterministic creator strategy from product signals.
+        function generateProductTips(item) {
+            // --- parse signals already on the product ---
+            const priceNum = parseFloat(String(item.price || '').replace(/[^0-9.]/g, '')) || 0;
+            const soldNum = parseInt(String(item.sold || '').replace(/[^0-9]/g, ''), 10) || 0;
+            const commNum = parseFloat(String(item.commission || '').replace(/[^0-9.]/g, '')) || 0;
+            const priceLabel = priceNum ? ('$' + Math.round(priceNum)) : 'this';
+
+            const priceBand = priceNum < 25 ? 'impulse' : priceNum <= 75 ? 'mid' : 'premium';
+            const soldBand = soldNum > 50000 ? 'bestseller' : soldNum >= 10000 ? 'proven'
+                : soldNum >= 1000 ? 'growing' : 'emerging';
+            const highComm = commNum >= 20;
+
+            // --- category map: format + audience + angle seeds ---
+            const CAT = {
+                'Beauty & Personal Care': { format: 'before/after transformation', audience: 'skincare & beauty lovers (18–34)', angle: '"I tried this for 2 weeks — here’s my skin now"' },
+                'Health':                 { format: 'routine / day-in-the-life', audience: 'wellness & self-improvement viewers', angle: '"Add this to your daily routine and watch what happens"' },
+                'Phones & Electronics':   { format: '"Problem/Solution" style videos', audience: 'WFH creators, commuters, students (18–34)', angle: '"I tried these for 30 days…" or a demo in a loud environment' },
+                'Computers & Office Equipment': { format: 'desk-setup / productivity demo', audience: 'students, remote workers, creators', angle: '"My setup wasn’t complete until I added this"' },
+                'Womenswear & Underwear': { format: 'try-on haul / styling', audience: 'fashion & outfit-inspo viewers (18–34)', angle: '"3 ways to style this" or a get-ready-with-me' },
+                'Shoes':                  { format: 'try-on / on-feet styling', audience: 'sneakerheads & outfit-inspo viewers', angle: '"On-feet review + how I’d style them"' },
+                'Fashion Accessories':    { format: 'styling / outfit-completer', audience: 'fashion & gift-shopping viewers', angle: '"The detail that makes the whole outfit"' },
+                'Sports & Outdoor':       { format: 'in-action demo', audience: 'fitness & outdoor enthusiasts', angle: '"Tested it on my hardest workout"' },
+                'Home Supplies':          { format: 'satisfying restock / organization', audience: 'home & cleantok viewers', angle: '"This fixed a problem I didn’t know I had"' },
+                'Household Appliances':   { format: 'demo / "is it worth it" review', audience: 'home upgraders & new-apartment viewers', angle: '"Worth it or waste? I tested it"' },
+                'Kitchenware':            { format: 'recipe / cooking demo', audience: 'foodies & home cooks', angle: '"Making dinner with this — game changer"' },
+                'Furniture':              { format: 'room makeover / assembly', audience: 'home & apartment-decor viewers', angle: '"My room before vs after this"' },
+                'Food & Beverages':       { format: 'taste-test / mukbang', audience: 'food & snack-haul viewers', angle: '"Trying this so you don’t have to"' },
+                'Automotive & Motorcycle':{ format: 'install / before-after', audience: 'car & DIY enthusiasts', angle: '"5-minute upgrade for your car"' },
+                'Toys & Hobbies':         { format: 'unboxing / play demo', audience: 'parents & gift shoppers', angle: '"The gift that actually got played with"' },
+                'Pet Supplies':           { format: 'reaction / pet demo', audience: 'pet parents', angle: '"My dog’s reaction says it all"' },
+                'Other':                  { format: 'unboxing / honest review', audience: 'deal-seekers & curious browsers', angle: '"Found this and had to share"' }
+            };
+            const c = CAT[item.category] || CAT['Other'];
+
+            // --- format: blend category with sold band for social proof ---
+            let format = c.format;
+            if (soldBand === 'bestseller') format += ' (lean into "everyone’s buying it")';
+            else if (soldBand === 'emerging') format += ' (be the first to review it)';
+
+            // --- hook: blend price + sold + commission ---
+            let hook;
+            if (soldBand === 'bestseller') hook = `"${soldNum.toLocaleString()} sold — here’s why everyone’s obsessed"`;
+            else if (priceBand === 'impulse') hook = `"You won’t believe this is only ${priceLabel}"`;
+            else if (priceBand === 'premium') hook = `"Is the ${priceLabel} version actually worth it? Watch before you buy"`;
+            else hook = `"Stop scrolling — this ${priceLabel} find is underrated"`;
+
+            // --- target & angle from category ---
+            const target = c.audience;
+            let angle = c.angle;
+            if (highComm) angle += ` — high payout, worth a dedicated video`;
+
+            return { format, angle, target, hook };
         }
 
         window.launchCampaign = function() {
@@ -1226,11 +1374,23 @@
     </script>
     
     <div id="action-bar" class="sticky-action-bar">
-        <div class="action-stats">
-            <span class="action-count" id="action-count">Add Product to Showcase</span>
-            <span class="action-est" id="action-est">Commission Potential: High</span>
+        <div class="action-top-row">
+            <div class="action-stats">
+                <span class="action-count" id="action-count">Add Product to Showcase</span>
+                <span class="action-est" id="action-est">Commission Potential: High</span>
+            </div>
+            <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
         </div>
-        <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
+        <div class="ai-tip-trigger" id="ai-tip-trigger" onclick="toggleAITip()">
+            <span>✦ AI Tip</span><span class="chevron">▾</span>
+        </div>
+        <div class="ai-tip-content" id="ai-tip-content">
+            <hr class="ai-tip-divider">
+            <div class="ai-tip-line"><span class="ai-tip-icon">🎯</span><span><b>Best for:</b> <span id="ai-tip-format"></span></span></div>
+            <div class="ai-tip-line"><span class="ai-tip-icon">📣</span><span><b>Angle:</b> <span id="ai-tip-angle"></span></span></div>
+            <div class="ai-tip-line"><span class="ai-tip-icon">👥</span><span><b>Target:</b> <span id="ai-tip-target"></span></span></div>
+            <div class="ai-tip-line"><span class="ai-tip-icon">⚡</span><span><b>Hook:</b> <span id="ai-tip-hook"></span></span></div>
+        </div>
     </div>
 </body>
 </html>
