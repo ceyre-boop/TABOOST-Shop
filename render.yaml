@@ -1,0 +1,16 @@
+# Render Blueprint — SECRET PREVIEW of the TABOOST Genie build.
+# Serves the `staging` branch as a static site (no build), separate from
+# production shop.taboost.me (GitHub Pages / main). Unlisted via noindex.
+services:
+  - type: web
+    name: taboost-genie-preview
+    runtime: static
+    branch: staging
+    buildCommand: "echo 'static site — no build'"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    autoDeploy: true
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: "noindex, nofollow"
