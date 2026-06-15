@@ -403,6 +403,44 @@
     #genie-intro { display: none; }
 }
 
+/* ---------- Freshness: "New drop" badge + "catalog refreshed" line ---------- */
+.genie-new-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, #00ff88, #00cc66);
+    color: #000;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    z-index: 6;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+    pointer-events: none;
+}
+.genie-fresh-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 1000px;
+    margin: 0 auto 22px;
+    padding: 0 20px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    font-weight: 600;
+}
+.genie-fresh-badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 8px #00ff88;
+    animation: geniePulse 2.4s ease-in-out infinite;
+}
+
 /* ---------- Hero value strip ---------- */
 .value-strip {
     max-width: 1000px;

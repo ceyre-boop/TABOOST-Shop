@@ -73,6 +73,13 @@
     'Automotive & Motorcycle': { fmt: 'install / before-after', who: 'car & DIY enthusiasts', pain: 'expensive shop upgrades', demo: 'do the quick install on camera' },
     'Toys & Hobbies': { fmt: 'unboxing / play demo', who: 'parents & gift shoppers', pain: 'gifts that get ignored', demo: 'show it actually being used/played with' },
     'Pet Supplies': { fmt: 'reaction / pet demo', who: 'pet parents', pain: 'stuff your pet ignores', demo: 'film your pet\'s real reaction' },
+    'Luggage & Bags': { fmt: 'travel / what-fits-in-my-bag demo', who: 'travelers, commuters & students', pain: 'bags that fall apart or never fit enough', demo: 'pack it on camera and show the real capacity' },
+    'Jewelry Accessories & Derivatives': { fmt: 'close-up sparkle / styling', who: 'jewelry lovers & gift shoppers', pain: 'cheap-looking pieces that tarnish fast', demo: 'close-ups in good light + how it looks on' },
+    'Menswear & Underwear': { fmt: 'fit check / try-on', who: 'guys & partners shopping for them', pain: 'clothes that fit weird or feel cheap', demo: 'fit check + a fabric close-up' },
+    'Home Improvement': { fmt: 'before/after upgrade', who: 'DIYers & new homeowners', pain: 'projects that look hard or pricey', demo: 'quick before-and-after of the fix' },
+    'Tools & Hardware': { fmt: '"does it actually work" demo', who: 'DIYers & handy viewers', pain: 'cheap tools that break on first use', demo: 'put it through a real task on camera' },
+    'Textiles & Soft Furnishings': { fmt: 'cozy restyle / texture close-up', who: 'home & cozy-aesthetic viewers', pain: 'a room that feels cold or unfinished', demo: 'show the texture + the room glow-up' },
+    'Baby & Maternity': { fmt: 'honest parent review', who: 'new & expecting parents', pain: 'overwhelming baby-gear choices', demo: 'show it in a real parent moment' },
     'Other': { fmt: 'honest review / unboxing', who: 'deal-seekers & curious browsers', pain: 'overpaying for the wrong thing', demo: 'show it in real use' }
   };
   function catInfo(cat) { return CAT[cat] || CAT['Other']; }
@@ -476,9 +483,39 @@
     }, 2500);
   }
 
+  // ---------- freshness: read "Generated:" date from product-data.js header ----------
+  function showFreshness() {
+    if (!window.fetch) return;
+    fetch('js/product-data.js').then(function (r) {
+      // Read only the first chunk (the header comment) — avoid pulling the whole 3.9MB file.
+      if (r.body && r.body.getReader) {
+        var reader = r.body.getReader();
+        return reader.read().then(function (res) {
+          try { reader.cancel(); } catch (e) {}
+          return new TextDecoder().decode(res.value || new Uint8Array());
+        });
+      }
+      return r.text();
+    }).then(function (t) {
+      if (!t) return;
+      var m = t.match(/Generated:\s*(\d{4})-(\d{2})-(\d{2})/);
+      if (!m) return;
+      var total = (t.match(/Total Products:\s*([0-9,]+)/) || [])[1];
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var label = months[parseInt(m[2], 10) - 1] + ' ' + parseInt(m[3], 10) + ', ' + m[1];
+      var badge = el('div', 'genie-fresh-badge');
+      badge.innerHTML = '<span class="dot"></span><span>Catalog refreshed ' + label + (total ? (' · ' + total + ' products') : '') + '</span>';
+      var anchor = document.getElementById('featured-section') || document.querySelector('.product-grid');
+      if (anchor && anchor.parentNode && !document.querySelector('.genie-fresh-badge')) {
+        anchor.parentNode.insertBefore(badge, anchor);
+      }
+    }).catch(function () {});
+  }
+
   // ---------- init ----------
   function init() {
     buildChrome();
+    showFreshness();
     maybeGreet();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
