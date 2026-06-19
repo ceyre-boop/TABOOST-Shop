@@ -1154,10 +1154,12 @@
         function renderPriorityCampaigns() {
             const featuredGrid = document.getElementById('featured-grid');
             if (!featuredGrid) return;
-            let list = (window.TAP_CAMPAIGNS || []);
-            const featured = list.filter(c => c.featured);
-            if (featured.length) list = featured;   // show the priority/featured campaigns
-            list = list.slice(0, 12);
+            // Tier-shuffle the tiles: featured campaigns grouped on top (shuffled), then the
+            // rest (shuffled), take top 12 — so the homepage rotates on each refresh.
+            const all = (window.TAP_CAMPAIGNS || []);
+            const featured = all.filter(c => c.featured);
+            const others = all.filter(c => !c.featured);
+            let list = shuffle(featured.slice()).concat(shuffle(others.slice())).slice(0, 12);
             if (!list.length) {
                 // Fallback: if no TAP campaigns are present, show top campaign products
                 featuredGrid.innerHTML = campaigns.slice(0, 8).map(createProductCard).join('');
