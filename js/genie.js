@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  var GENIE_IMG = 'images/taboost-genie.jpg';
+  var GENIE_IMG = 'images/genie-icon.png';
   var STATE_KEY = 'taboost_genie_state';
   var SAVED_KEY = 'taboost_genie_saved';
 
@@ -432,10 +432,10 @@
   function viewFaq() {
     addMsg("<b>TABOOST in 10 seconds:</b> we line up products from TikTok Shop with <b>higher commission rates</b> than you'd get on your own. You film, you tag, you earn — more per sale.");
     addMsg("<b>The Genie part:</b> tap any product and I write you a flexible <b>script framework</b> — hook, build, turn, close — tuned to that product's price, sales, and category. Bend it to your voice.");
-    addMsg("No account needed to browse. Sign up when you're ready to claim links.");
+    addMsg("No account needed to browse but if you want more Shop perks apply to join TABOOST!");
     var actions = el('div', 'genie-actions');
     var join = el('button', 'genie-btn green', 'Join TABOOST →');
-    join.addEventListener('click', function () { window.location.href = 'shop-signup.html'; });
+    join.addEventListener('click', function () { window.open('https://www.taboost.me/join', '_blank'); });
     actions.appendChild(join);
     panelBody.appendChild(actions);
   }
