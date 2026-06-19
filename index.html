@@ -1025,6 +1025,23 @@
                 campaigns = [];
             }
             renderInitialGrids();
+            restoreFromHash();
+        }
+
+        // Re-open a campaign/search product view after a refresh (so it re-shuffles).
+        function restoreFromHash() {
+            const h = location.hash || '';
+            const mc = h.match(/[#&]c=([^&]+)/);
+            const mq = h.match(/[#&]q=([^&]+)/);
+            if (mc) {
+                const cid = decodeURIComponent(mc[1]);
+                const camp = (window.TAP_CAMPAIGNS || []).filter(c => c.id === cid)[0];
+                if (camp) { showCampaign(cid, camp.name); return; }
+            }
+            if (mq) {
+                const input = document.getElementById('main-search');
+                if (input) { input.value = decodeURIComponent(mq[1]); handleSearch(); }
+            }
         }
 
         function getBadgeHtml(rank) {
@@ -1173,6 +1190,7 @@
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
             window.scrollTo({ top: Math.max(0, resultsSection.offsetTop - 80), behavior: 'smooth' });
+            if (window.history && history.replaceState) history.replaceState(null, '', '#c=' + encodeURIComponent(campaignId));
         };
 
         function renderInitialGrids() {
@@ -1255,6 +1273,7 @@
             
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
+            if (window.history && history.replaceState) history.replaceState(null, '', '#q=' + encodeURIComponent(query));
         }
 
         function loadMoreResults() {
@@ -1275,6 +1294,7 @@
             document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
             currentSearchResults = [];
             displayedCount = 0;
+            if (window.history && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
         }
 
         // Event Listeners
