@@ -132,13 +132,20 @@
       close: ['"I dropped the exact one I recommend in my shop"', 'CTA framed as "save yourself the research"']
     };
   }
-  function angleComparison(s, c) {
-    var pricier = s.priceBand === 'premium' ? 'the brand-name version' : 'the $' + Math.max(50, Math.round(s.priceNum * 4)) + ' version everyone buys';
+  function angleBeforeAfter(s, c) {
     return {
-      hook: ['"Stop overpaying — ' + s.priceLabel + ' vs ' + pricier + '"', 'Put both on screen in the first 2 seconds'],
-      build: ['Side-by-side the thing that matters most for ' + c.who, c.demo + ' on the cheaper one to show it holds up', 'Be fair — one honest "the expensive one wins at X" makes the rest believable'],
-      turn: ['Land the verdict: for most people, ' + s.name + ' is the smart buy', s.highComm ? '(high payout on this one — worth a dedicated comparison video)' : 'Make the value obvious, not salesy'],
-      close: ['"Cheaper pick is in my TikTok Shop"', 'Let the price gap do the closing']
+      hook: ['Open on the "before" — ' + c.pain, 'Tease the after: "wait til you see the difference ' + s.name + ' made"'],
+      build: ['Show a clear before shot, then ' + c.demo, 'Reveal the after — make the contrast impossible to miss', socialProof(s)],
+      turn: ['Hold on the side-by-side so the change actually lands', 'One honest "it won\'t fix everything" keeps it believable'],
+      close: ['"The exact one I used is in my TikTok Shop"', 'Let the transformation do the selling']
+    };
+  }
+  function angleProductDemo(s, c) {
+    return {
+      hook: ['Hands-on in the first 2 seconds: "here\'s exactly how ' + s.name + ' works"', s.priceBand === 'impulse' ? 'Drop the price early: "and it\'s only ' + s.priceLabel + '"' : 'Lead with the one feature people always ask about'],
+      build: [c.demo, 'Walk it step by step — show the feature that matters most for ' + c.who, socialProof(s)],
+      turn: ['Point out the detail a spec sheet won\'t tell you', 'Keep one honest limitation in so it feels real, not an ad'],
+      close: ['"Tap the link to grab it — TikTok Shop"', 'Recap the main benefit in one line']
     };
   }
   function angleUnboxing(s, c) {
@@ -158,10 +165,11 @@
     };
   }
   var ANGLES = [
-    { id: 'balanced', label: '⚖️ Balanced', fn: angleBalanced },
+    { id: 'balanced', label: '⚖️ Basic', fn: angleBalanced },
     { id: 'storytime', label: '🎬 Storytime', fn: angleStorytime },
     { id: 'educational', label: '🎓 Educational', fn: angleEducational },
-    { id: 'comparison', label: '⚔️ Comparison', fn: angleComparison },
+    { id: 'beforeafter', label: '🔄 Before & After', fn: angleBeforeAfter },
+    { id: 'demo', label: '🎥 Product Demo', fn: angleProductDemo },
     { id: 'unboxing', label: '📦 Unboxing', fn: angleUnboxing },
     { id: 'skit', label: '😂 Skit/Comedy', fn: angleSkit }
   ];
@@ -221,7 +229,6 @@
       '<div class="genie-body" id="genie-body"></div>' +
       '<div class="genie-foot">' +
         '<button class="genie-quick" data-view="menu">🏠 Menu</button>' +
-        '<button class="genie-quick" data-view="saved">📁 Saved scripts</button>' +
         '<button class="genie-quick" data-view="faq">❓ How it works</button>' +
       '</div>';
     document.body.appendChild(panel);
@@ -257,6 +264,8 @@
     if (view === 'greeter') return viewGreeter();
     if (view === 'orient') return viewOrient(data || 0);
     if (view === 'niche') return viewNiche();
+    if (view === 'findcat') return viewFindCat();
+    if (view === 'findsub') return viewFindSub(data);
     if (view === 'menu') return viewMenu();
     if (view === 'saved') return viewSaved();
     if (view === 'faq') return viewFaq();
@@ -329,15 +338,69 @@
     if (input && trigger) { input.value = niche; trigger.click(); }
   }
 
+  // ---------- two-step product finder (main category → data subcategory) ----------
+  // Main buckets mirror the page's main category options; subcategories are the
+  // granular data `category` values, pulled live from PRODUCT_DATA.
+  var MAIN_CATEGORY_MAP = {
+    'Beauty': ['Beauty & Personal Care'],
+    'Fashion': ['Womenswear & Underwear', 'Menswear & Underwear', 'Shoes', 'Fashion Accessories', 'Jewelry Accessories & Derivatives', 'Luggage & Bags'],
+    'Home': ['Home Supplies', 'Household Appliances', 'Kitchenware', 'Furniture', 'Home Improvement', 'Textiles & Soft Furnishings'],
+    'Electronics': ['Phones & Electronics', 'Computers & Office Equipment'],
+    'Health': ['Health'],
+    'Sports & Outdoor': ['Sports & Outdoor', 'Automotive & Motorcycle', 'Tools & Hardware'],
+    'Food': ['Food & Beverages'],
+    'Pets': ['Pet Supplies'],
+    'Toys & Baby': ['Toys & Hobbies', 'Baby & Maternity'],
+    'Other': ['Other']
+  };
+  var MAIN_ORDER = ['Beauty', 'Fashion', 'Home', 'Electronics', 'Health', 'Sports & Outdoor', 'Food', 'Pets', 'Toys & Baby', 'Other'];
+
+  function distinctCats() {
+    var seen = {};
+    (window.PRODUCT_DATA || []).forEach(function (p) { if (p.category) seen[p.category] = true; });
+    return seen;
+  }
+
+  function viewFindCat() {
+    addMsg("Nice — what are you into? Pick a <b>main category</b>:");
+    var have = distinctCats();
+    var chips = el('div', 'genie-chips');
+    MAIN_ORDER.forEach(function (main) {
+      var subs = (MAIN_CATEGORY_MAP[main] || []).filter(function (c) { return have[c]; });
+      if (!subs.length) return;
+      var b = el('button', 'genie-chip', esc(main));
+      b.addEventListener('click', function () { render('findsub', main); });
+      chips.appendChild(b);
+    });
+    panelBody.appendChild(chips);
+  }
+
+  function viewFindSub(main) {
+    main = main || MAIN_ORDER[0];
+    var have = distinctCats();
+    var subs = (MAIN_CATEGORY_MAP[main] || []).filter(function (c) { return have[c]; });
+    addMsg("<b>" + esc(main) + "</b> — pick a subcategory and I'll pull those products up:");
+    var chips = el('div', 'genie-chips');
+    subs.forEach(function (sub) {
+      var b = el('button', 'genie-chip', esc(sub));
+      b.addEventListener('click', function () { applyNiche(sub); closePanel(); });
+      chips.appendChild(b);
+    });
+    panelBody.appendChild(chips);
+    var actions = el('div', 'genie-actions');
+    var back = el('button', 'genie-btn secondary', '← Categories');
+    back.addEventListener('click', function () { render('findcat'); });
+    actions.appendChild(back);
+    panelBody.appendChild(actions);
+  }
+
   function viewMenu() {
-    var st = loadState();
     var hi = isLoggedIn() ? 'Welcome back! 👋' : 'What can I help with?';
-    addMsg(hi + (st.niche ? ' (showing more <b>' + esc(st.niche.split(' & ')[0]) + '</b> picks)' : ''));
+    addMsg(hi);
     choiceRow([
-      { emoji: '🛍️', label: 'Find me a product to promote', onClick: function () { closePanel(); window.scrollTo({ top: (document.getElementById('featured-section') || document.body).offsetTop - 80, behavior: 'smooth' }); } },
-      { emoji: '🎯', label: 'Pick / change my niche', onClick: function () { render('niche'); } },
-      { emoji: '📁', label: 'My saved scripts', onClick: function () { render('saved'); } },
-      { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } }
+      { emoji: '🛍️', label: 'Find a product to promote', onClick: function () { render('findcat'); } },
+      { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
+      { emoji: '✉️', label: 'Get in contact with TABOOST', onClick: function () { window.location.href = 'shop-signup.html'; } }
     ]);
     addMsg("Tip: tap any product, then hit <b>🧞 Genie Script</b> and I'll write your talking points.");
   }
@@ -359,6 +422,11 @@
     addMsg("<b>TABOOST in 10 seconds:</b> we line up products from TikTok Shop with <b>higher commission rates</b> than you'd get on your own. You film, you tag, you earn — more per sale.");
     addMsg("<b>The Genie part:</b> tap any product and I write you a flexible <b>script framework</b> — hook, build, turn, close — tuned to that product's price, sales, and category. Bend it to your voice.");
     addMsg("No account needed to browse. Sign up when you're ready to claim links.");
+    var actions = el('div', 'genie-actions');
+    var join = el('button', 'genie-btn green', 'Join TABOOST →');
+    join.addEventListener('click', function () { window.location.href = 'shop-signup.html'; });
+    actions.appendChild(join);
+    panelBody.appendChild(actions);
   }
 
   // ---------- product pop-up: Genie Script section ----------
