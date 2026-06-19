@@ -202,7 +202,8 @@ for row in links_rows:
     if cid and link:
         links_map[cid] = {
             'link': link,
-            'priority': priority
+            'priority': priority,
+            'name': row.get('Name', '').strip()
         }
 
 print(f"🔗 Active campaign links loaded: {len(links_map)} (expired filtered: {expired_links_skipped})")
@@ -223,6 +224,7 @@ products_rows = read_csv('tap-products.csv')
 all_products = []
 all_campaigns = []
 seen_names = {}  # Track unique product names to avoid excessive dupes
+name_campaigns = {}  # name_key -> set of campaign IDs the product appears under (active only)
 category_counts = {}
 
 for row in products_rows:
@@ -243,6 +245,9 @@ for row in products_rows:
     if product_link == '#':
         continue
     is_priority = True  # All retained products have an active affiliate link
+
+    # Track full campaign membership per product name (across all active campaigns)
+    name_campaigns.setdefault(name.lower().strip(), set()).add(cid)
     
     # Resolve Commission — col K (%) is the creator-facing rate (excludes TABOOST's portion)
     comm = row.get('%', '').strip() or row.get('Total Commission Rate', '').strip().split('\n')[0].strip()
@@ -311,9 +316,11 @@ for row in products_rows:
         'link': product_link,
         'rank': ranknum,
         'sold': sold,
-        'isAI': False
+        'isAI': False,
+        'campaignId': cid,
+        'campaignName': link_info.get('name', '')
     }
-    
+
     seen_names[name_key] = item
     
     # ALL products go into the main searchable list
@@ -332,6 +339,37 @@ if not all_products and not all_campaigns:
         "image": "images/taboost-genie.jpg", "link": "#", "rank": 99, "sold": "0", "isAI": False
     })
 
+# ─── 2b. Attach full campaign membership + build TAP_CAMPAIGNS (from TAP-Links tab) ───
+for it in all_products:
+    nk = it['name'].lower().strip()
+    cids = name_campaigns.get(nk)
+    it['campaignIds'] = sorted(cids) if cids else ([it['campaignId']] if it.get('campaignId') else [])
+
+# TAP_CAMPAIGNS = the campaigns themselves (not products), one tile per active TAP-Link campaign
+tap_campaigns = []
+for cid, info in links_map.items():
+    members = [it for it in all_products if cid in it.get('campaignIds', [])]
+    if not members:
+        continue
+    img = ''
+    for m in members:
+        if str(m.get('image', '')).startswith('http'):
+            img = m['image']
+            break
+    is_featured = info.get('priority', '').strip().lower() == '- featured -'
+    tap_campaigns.append({
+        'id': cid,
+        'name': info.get('name', ''),
+        'priority': info.get('priority', ''),
+        'link': info.get('link', '#'),
+        'productCount': len(members),
+        'image': img,
+        'featured': is_featured
+    })
+# Featured campaigns first, then by product count (desc)
+tap_campaigns.sort(key=lambda c: (0 if c['featured'] else 1, -c['productCount']))
+print(f"🎯 TAP campaigns built: {len(tap_campaigns)} ({sum(1 for c in tap_campaigns if c['featured'])} featured)")
+
 # Print category summary
 print(f"\n📊 Category Distribution:")
 for cat, count in sorted(category_counts.items(), key=lambda x: -x[1]):
@@ -341,12 +379,14 @@ for cat, count in sorted(category_counts.items(), key=lambda x: -x[1]):
 output_lines = [
     "// TABOOST Discovery Platform - Product & Campaign Data Pipeline",
     f"// Generated: {datetime.now().isoformat()}",
-    f"// Total Products: {len(all_products)} | Active Campaigns: {len(all_campaigns)}",
+    f"// Total Products: {len(all_products)} | Active Campaigns: {len(all_campaigns)} | TAP Campaigns: {len(tap_campaigns)}",
     f"// Unique de-duped names: {len(seen_names)}",
     "",
     "window.PRODUCT_DATA = " + json.dumps(all_products, indent=2) + ";",
     "",
-    "window.CAMPAIGN_DATA = " + json.dumps(all_campaigns, indent=2) + ";"
+    "window.CAMPAIGN_DATA = " + json.dumps(all_campaigns, indent=2) + ";",
+    "",
+    "window.TAP_CAMPAIGNS = " + json.dumps(tap_campaigns, indent=2) + ";"
 ]
 
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)

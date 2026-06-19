@@ -335,9 +335,24 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Priority Campaign tiles — brand-grouped, click opens the brand's products */
+        /* Priority Campaign tiles — sourced from the TAP-Links tab; click opens that campaign's products */
         .campaign-card { cursor: pointer; border-color: rgba(255, 0, 68, 0.25); }
         .campaign-card:hover { border-color: rgba(255, 0, 68, 0.55); }
+        .campaign-view-btn {
+            width: 100%;
+            margin-top: 4px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            border: none;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: filter 0.2s;
+        }
+        .campaign-card:hover .campaign-view-btn { filter: brightness(1.1); }
         .campaign-badge {
             position: absolute;
             top: 10px;
@@ -1070,59 +1085,27 @@
 
         function escHtml(t){ return String(t==null?'':t).replace(/[&<>"]/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]; }); }
 
-        // Group the campaign catalog by brand (creator) into "campaign" tiles.
-        // Data has no campaign→product grouping, so brand is the campaign unit.
-        function buildCampaigns() {
-            const byBrand = {};
-            campaigns.forEach(item => {
-                const brand = (item.creator || '').trim();
-                if (!brand || brand === 'Unknown Shop') return;
-                if (!byBrand[brand]) byBrand[brand] = { brand, items: [], totalSold: 0, bestComm: 0, catCount: {} };
-                const g = byBrand[brand];
-                g.items.push(item);
-                g.totalSold += parseInt(String(item.sold || '').replace(/[^0-9]/g, ''), 10) || 0;
-                const comm = parseFloat(String(item.commission || '').split('\n')[0]) || 0;
-                if (comm > g.bestComm) g.bestComm = comm;
-                const cat = item.category || 'Other';
-                g.catCount[cat] = (g.catCount[cat] || 0) + 1;
-            });
-            return Object.keys(byBrand).map(k => {
-                const g = byBrand[k];
-                let topCat = '', max = -1, img = '';
-                Object.keys(g.catCount).forEach(c => { if (g.catCount[c] > max) { max = g.catCount[c]; topCat = c; } });
-                for (let i = 0; i < g.items.length; i++) { if (g.items[i].image && g.items[i].image.indexOf('http') === 0) { img = g.items[i].image; break; } }
-                return { brand: g.brand, count: g.items.length, totalSold: g.totalSold, bestComm: g.bestComm, category: topCat, image: img };
-            }).sort((a, b) => (b.totalSold - a.totalSold) || (b.count - a.count)).slice(0, 12);
-        }
-
+        // Priority Campaigns come from the TAP-Links tab (window.TAP_CAMPAIGNS),
+        // NOT from individual products. Each tile = one campaign; click → its products.
         function createCampaignCard(c) {
-            const catIcons = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
-            const catIcon = catIcons[c.category] || '📦';
             const hasImg = c.image && c.image.indexOf('http') === 0;
-            const brandSafe = escHtml(c.brand);
+            const nameSafe = escHtml(c.name);
             const imgHtml = hasImg
-                ? `<img src="${c.image}" alt="${brandSafe}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;\\'>${catIcon}</div>';" loading="lazy">`
-                : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">${catIcon}</div>`;
-            const soldLabel = c.totalSold ? c.totalSold.toLocaleString() : '0';
+                ? `<img src="${c.image}" alt="${nameSafe}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;\\'>🎯</div>';" loading="lazy">`
+                : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">🎯</div>`;
             return `
-                <div class="product-card campaign-card" data-brand="${brandSafe}">
+                <div class="product-card campaign-card" data-cid="${escHtml(c.id)}" data-cname="${nameSafe}">
                     <div class="campaign-badge">🎯 Campaign</div>
                     <div class="product-image">${imgHtml}</div>
                     <div class="product-info">
-                        <div class="product-name">${brandSafe}</div>
-                        <div style="margin-bottom: 8px;">
-                            <div style="font-size: 22px; font-weight: 800; color: #00ff88; line-height: 1;">up to ${c.bestComm}%</div>
-                            <div style="font-size: 10px; font-weight: 600; color: #00d4ff; margin-top: 3px;">commission</div>
-                        </div>
+                        <div class="product-name">${nameSafe}</div>
                         <div class="product-stats">
-                            <span style="color: #888; font-size: 12px;">🔥 ${soldLabel} sold</span>
-                            <span style="color: #666; font-size: 11px;">${c.count} products</span>
+                            <span style="color: #888; font-size: 12px;">${c.productCount} product${c.productCount == 1 ? '' : 's'}</span>
                         </div>
                         <div class="product-bottom">
-                            <div class="product-price" style="font-size:13px;">View campaign →</div>
+                            <button class="campaign-view-btn" type="button">VIEW PRODUCTS →</button>
                         </div>
                     </div>
-                    <div class="genie-card-tag">🧞 Genie scripts inside ✨</div>
                 </div>
             `;
         }
@@ -1130,31 +1113,34 @@
         function renderPriorityCampaigns() {
             const featuredGrid = document.getElementById('featured-grid');
             if (!featuredGrid) return;
-            const camps = buildCampaigns();
-            if (!camps.length) {
-                // Fallback: if no brands resolve, show top campaign products
+            let list = (window.TAP_CAMPAIGNS || []);
+            const featured = list.filter(c => c.featured);
+            if (featured.length) list = featured;   // show the priority/featured campaigns
+            list = list.slice(0, 12);
+            if (!list.length) {
+                // Fallback: if no TAP campaigns are present, show top campaign products
                 featuredGrid.innerHTML = campaigns.slice(0, 8).map(createProductCard).join('');
                 return;
             }
-            featuredGrid.innerHTML = camps.map(createCampaignCard).join('');
+            featuredGrid.innerHTML = list.map(createCampaignCard).join('');
             featuredGrid.querySelectorAll('.campaign-card').forEach(card => {
-                card.addEventListener('click', () => showCampaign(card.getAttribute('data-brand')));
+                card.addEventListener('click', () => showCampaign(card.getAttribute('data-cid'), card.getAttribute('data-cname')));
             });
         }
 
-        // Click a campaign tile → open that brand's product listing in the results section.
-        window.showCampaign = function(brand) {
+        // Click a campaign tile → open that campaign's full product listing.
+        window.showCampaign = function(campaignId, campaignName) {
             const resultsSection = document.getElementById('search-results-container');
             const resultsGrid = document.getElementById('search-results-grid');
             const featuredSection = document.getElementById('featured-section');
             const resultsTitle = document.getElementById('search-results-title');
             const resultsCount = document.getElementById('results-count');
 
-            const results = allItems.filter(item => (item.creator || '') === brand).sort((a, b) => a.rank - b.rank);
+            const results = allItems.filter(item => (item.campaignIds || []).indexOf(campaignId) !== -1).sort((a, b) => a.rank - b.rank);
             currentSearchResults = results;
             displayedCount = Math.min(RESULTS_PER_PAGE, results.length);
             resultsGrid.innerHTML = results.slice(0, displayedCount).map(createProductCard).join('');
-            resultsTitle.textContent = '🎯 ' + brand + ' — Campaign';
+            resultsTitle.textContent = '🎯 ' + (campaignName || 'Campaign');
             resultsCount.textContent = `${results.length} products`;
 
             const loadMore = document.getElementById('load-more-container');
