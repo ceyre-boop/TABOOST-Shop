@@ -103,14 +103,19 @@
         }
         
         .nav-links a {
-            color: #888;
+            color: #fff;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.2s;
         }
-        
+
         .nav-links a:hover {
             color: #ff0044;
+        }
+        /* Keep the Login button text white (even on hover, over its red fill) */
+        .nav-links a.btn,
+        .nav-links a.btn:hover {
+            color: #fff;
         }
         
         .nav-guest {
