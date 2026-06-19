@@ -260,6 +260,12 @@ for row in products_rows:
         ranknum = int(row.get('Rank', 99))
     except:
         ranknum = 99
+
+    # Score (col 'Rating', 0–11) — drives the front-end tier-shuffle (rank is flat/all-1)
+    try:
+        scorenum = int(float(str(row.get('Rating', '0')).strip() or '0'))
+    except:
+        scorenum = 0
     
     # Price (Col E) - Support ranges like "$19.98-$24.98"
     price = row.get('Sale Price', '').strip()
@@ -317,6 +323,7 @@ for row in products_rows:
         'rank': ranknum,
         'sold': sold,
         'isAI': False,
+        'score': scorenum,
         'campaignId': cid,
         'campaignName': link_info.get('name', '')
     }

@@ -365,6 +365,17 @@
     addMsg("Nice — what are you into? Pick a <b>main category</b>:");
     var have = distinctCats();
     var chips = el('div', 'genie-chips');
+    // Match the top-bar pills: Priority Campaigns + High Commission first (no subcategory step)
+    var pc = el('button', 'genie-chip', '🎯 Priority Campaigns');
+    pc.addEventListener('click', function () {
+      closePanel();
+      var f = document.getElementById('featured-section');
+      if (f) window.scrollTo({ top: Math.max(0, f.offsetTop - 80), behavior: 'smooth' });
+    });
+    chips.appendChild(pc);
+    var hc = el('button', 'genie-chip', 'High Commission');
+    hc.addEventListener('click', function () { applyNiche('High Commission'); closePanel(); });
+    chips.appendChild(hc);
     MAIN_ORDER.forEach(function (main) {
       var subs = (MAIN_CATEGORY_MAP[main] || []).filter(function (c) { return have[c]; });
       if (!subs.length) return;
@@ -400,7 +411,7 @@
     choiceRow([
       { emoji: '🛍️', label: 'Find a product to promote', onClick: function () { render('findcat'); } },
       { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
-      { emoji: '✉️', label: 'Get in contact with TABOOST', onClick: function () { window.location.href = 'shop-signup.html'; } }
+      { emoji: '✉️', label: 'Get in contact with TABOOST', onClick: function () { window.location.href = 'mailto:info@taboost.me'; } }
     ]);
     addMsg("Tip: tap any product, then hit <b>🧞 Genie Script</b> and I'll write your talking points.");
   }
