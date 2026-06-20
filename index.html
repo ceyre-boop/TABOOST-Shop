@@ -1029,6 +1029,7 @@
         </footer>
     </div>
     <script src="js/product-data.js"></script>
+    <script src="js/scoring.js"></script>
     <script>
         // Data State
         let allItems = [];
@@ -1050,6 +1051,7 @@
                 ];
                 campaigns = [];
             }
+            if (window.CreatorScore) window.CreatorScore.init(allItems);
             renderInitialGrids();
             restoreFromHash();
         }
@@ -1139,6 +1141,12 @@
             return a;
         }
         function scoreTierShuffle(items) {
+            // Personalized path: Creator Revenue Score (js/scoring.js). Drives every
+            // product render (search + campaign). Falls back to the original static
+            // Sheet-score tiering if scoring.js failed to load.
+            if (window.CreatorScore) {
+                return window.CreatorScore.sortAndTier(items, window.CreatorScore.getSessionContext());
+            }
             const tiers = {};
             items.forEach(it => {
                 const s = (typeof it.score === 'number') ? it.score : (parseInt(it.score, 10) || 0);
@@ -1244,6 +1252,19 @@
             if (query === "") {
                 clearSearch();
                 return;
+            }
+
+            // Personalization signal: a search/category-pill that exactly matches a
+            // known category counts as interest in that category this session.
+            // (Category pills route their full name through here, so this one hook
+            // covers both pill taps and typed category names — no double counting.)
+            if (window.CreatorScore) {
+                if (!window._tbCatMap) {
+                    window._tbCatMap = {};
+                    allItems.forEach(it => { if (it.category) window._tbCatMap[it.category.toLowerCase()] = it.category; });
+                }
+                const matchCat = window._tbCatMap[query];
+                if (matchCat) window.CreatorScore.trackCategory(matchCat);
             }
 
             let results = [];
@@ -1380,6 +1401,11 @@
         const MEDIUM_POTENTIAL_THRESHOLD = 25;
 
         window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
+            // Personalization signal: tapping a product card = interest in its category.
+            if (window.CreatorScore) {
+                const _p = allItems.find(it => it.id === id);
+                if (_p) window.CreatorScore.trackCategory(_p.category);
+            }
             const isAlreadySelected = selectedProductId === id;
             
             // Clear previous selection if any
