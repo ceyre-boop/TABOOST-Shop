@@ -411,7 +411,7 @@
     choiceRow([
       { emoji: '🛍️', label: 'Find a product to promote', onClick: function () { render('findcat'); } },
       { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
-      { emoji: '✉️', label: 'Get in contact with TABOOST', onClick: function () { window.location.href = 'mailto:info@taboost.me'; } }
+      { emoji: '🚀', label: 'Join TABOOST', onClick: function () { window.open('https://www.taboost.me/join', '_blank'); } }
     ]);
     addMsg("Tip: tap any product, then hit <b>🧞 Genie Script</b> and I'll write your talking points.");
   }
