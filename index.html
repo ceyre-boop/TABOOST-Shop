@@ -1473,6 +1473,33 @@
             clearProductSelection();
         };
 
+        // --- Mobile only: hide the 3 intro feature boxes after the first interaction.
+        // Triggers: tapping the search bar, any category pill, or any product card.
+        // Resets on refresh (runtime only — no persistence). Desktop always shows them.
+        function isMobileViewport() { return window.innerWidth < 768; }
+        function hideFeatureBoxes() {
+            if (!isMobileViewport()) return;                 // desktop: never hide
+            const boxes = document.querySelector('.value-strip');
+            if (boxes) boxes.style.display = 'none';
+        }
+        // One delegated listener covers all three triggers (product cards render dynamically)
+        document.addEventListener('click', function (e) {
+            if (!isMobileViewport()) return;
+            if (e.target.closest('.search-wrapper') || e.target.closest('.quick-tag') || e.target.closest('.product-card')) {
+                hideFeatureBoxes();
+            }
+        }, true);
+        // Focusing the search field (tap that opens the keyboard) also counts
+        const _mobSearch = document.getElementById('main-search');
+        if (_mobSearch) _mobSearch.addEventListener('focus', hideFeatureBoxes);
+        // If the viewport grows to desktop, always restore the boxes
+        window.addEventListener('resize', function () {
+            if (!isMobileViewport()) {
+                const boxes = document.querySelector('.value-strip');
+                if (boxes) boxes.style.display = '';
+            }
+        });
+
         // Initialize
         loadAllData();
     </script>
