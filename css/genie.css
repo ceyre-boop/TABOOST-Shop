@@ -216,6 +216,18 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .genie-script-trigger .genie-gen-btn:hover { transform: scale(1.04); box-shadow: 0 8px 18px rgba(255,0,68,0.35); }
+.genie-script-trigger .genie-soon-pill {
+    margin-left: auto;
+    background: rgba(255,255,255,0.07);
+    color: var(--genie-text-dim, #9aa3b2);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
 
 .genie-script-content {
     max-height: 0; opacity: 0; overflow: hidden;

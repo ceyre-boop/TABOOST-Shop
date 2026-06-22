@@ -199,11 +199,13 @@ for row in links_rows:
     if link.startswith('https://www.tiktok.com/@https://'):
         link = 'https://' + link.split('https://www.tiktok.com/@https://')[1]
     priority = row.get('PRIORITY', '').strip()
+    start_date = parse_sheet_date(row.get('Start Date', ''))
     if cid and link:
         links_map[cid] = {
             'link': link,
             'priority': priority,
-            'name': row.get('Name', '').strip()
+            'name': row.get('Name', '').strip(),
+            'startDate': start_date.isoformat() if start_date else ''
         }
 
 print(f"🔗 Active campaign links loaded: {len(links_map)} (expired filtered: {expired_links_skipped})")
@@ -371,7 +373,8 @@ for cid, info in links_map.items():
         'link': info.get('link', '#'),
         'productCount': len(members),
         'image': img,
-        'featured': is_featured
+        'featured': is_featured,
+        'startDate': info.get('startDate', '')
     })
 # Featured campaigns first, then by product count (desc)
 tap_campaigns.sort(key=lambda c: (0 if c['featured'] else 1, -c['productCount']))

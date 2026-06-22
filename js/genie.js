@@ -296,7 +296,7 @@
   var ORIENT = [
     { t: "Quick version: <b>TikTok Shop affiliate</b> = you post a video, tag a product, and earn commission on every sale through your link. No inventory, no shipping. You just create." },
     { t: "Why come through <b>TABOOST</b> instead of TikTok direct? We broker <b>higher commission rates</b> with brands than the open rates — so the same video pays you more. Same products, better cut." },
-    { t: "Your first move: browse the products below, tap one, and hit <b>🧞 Genie Script</b> in the pop-up. I'll hand you the exact talking points to film. Pick something you'd actually use." }
+    { t: "Your first move: browse the products below and tap one to see the details. <b>Updated Genie scripts are coming soon</b> — they'll hand you the exact talking points to film. Pick something you'd actually use." }
   ];
   function viewOrient(step) {
     step = Math.max(0, Math.min(ORIENT.length - 1, step));
@@ -413,7 +413,7 @@
       { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
       { emoji: '🚀', label: 'Join TABOOST', onClick: function () { window.open('https://www.taboost.me/join', '_blank'); } }
     ]);
-    addMsg("Tip: tap any product, then hit <b>🧞 Genie Script</b> and I'll write your talking points.");
+    addMsg("Tip: tap any product to see its details — <b>updated Genie scripts are coming soon.</b> ✨");
   }
 
   function viewSaved() {
@@ -446,18 +446,13 @@
     if (!bar || document.getElementById('genie-script-mount')) return;
     var wrap = el('div');
     wrap.id = 'genie-script-mount';
+    // Updated Genie scripts are being reworked — show a "coming soon" state for now.
     wrap.innerHTML =
       '<div class="genie-script-trigger">' +
         '<span class="genie-script-label">🧞 Genie Script <span style="opacity:.8">✨</span></span>' +
-        '<button class="genie-gen-btn" id="genie-gen-btn">Generate</button>' +
-      '</div>' +
-      '<div class="genie-script-content" id="genie-script-content"></div>';
+        '<span class="genie-soon-pill">Updated scripts coming soon</span>' +
+      '</div>';
     bar.appendChild(wrap);
-    wrap.querySelector('#genie-gen-btn').addEventListener('click', function () {
-      currentAngle = 'balanced';
-      renderScript();
-      document.getElementById('genie-script-content').classList.add('expanded');
-    });
   }
 
   function renderScript() {
@@ -522,11 +517,8 @@
       var box = document.getElementById('genie-script-content');
       if (box) { box.classList.remove('expanded'); }
     },
-    onLaunch: function (id) {
-      var item = findProduct(id) || currentProduct;
-      if (!item) return;
-      var blocks = buildScript(item, currentAngle);
-      showFollowUp(item, blocks);
+    onLaunch: function () {
+      // Updated Genie scripts coming soon — no script generated, so no save-script prompt.
     }
   };
 
