@@ -747,6 +747,10 @@
                 padding-top: 20px;
             }
 
+            /* Once the intro boxes are hidden, reclaim the empty hero gap so products sit higher */
+            body.tb-boxes-hidden #hero-section { padding-bottom: 2px; }
+            body.tb-boxes-hidden .search-container { margin-bottom: 10px; }
+
             .hero h1 {
                 font-size: 26px;
                 white-space: nowrap;
@@ -1496,6 +1500,7 @@
             if (!isMobileViewport()) return;                 // desktop: never hide
             const boxes = document.querySelector('.value-strip');
             if (boxes) boxes.style.display = 'none';
+            document.body.classList.add('tb-boxes-hidden'); // collapse the leftover hero gap (mobile CSS)
         }
         // One delegated listener covers all three triggers (product cards render dynamically)
         document.addEventListener('click', function (e) {
@@ -1512,6 +1517,7 @@
             if (!isMobileViewport()) {
                 const boxes = document.querySelector('.value-strip');
                 if (boxes) boxes.style.display = '';
+                document.body.classList.remove('tb-boxes-hidden');
             }
         });
 
