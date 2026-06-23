@@ -751,6 +751,15 @@
             body.tb-boxes-hidden #hero-section { padding-bottom: 2px; }
             body.tb-boxes-hidden .search-container { margin-bottom: 10px; }
 
+            /* Mobile: drop the "Search Results for…" title; keep a compact Clear Search row */
+            #search-results-container #search-results-title { display: none; }
+            #search-results-container .section-header {
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+                border-bottom: none;
+                justify-content: flex-end;
+            }
+
             .hero h1 {
                 font-size: 26px;
                 white-space: nowrap;
