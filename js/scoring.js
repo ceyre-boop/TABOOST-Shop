@@ -20,32 +20,37 @@
   'use strict';
 
   // --- Tunable config -------------------------------------------------------
-  var WEIGHTS = { commission: 0.40, gmv: 0.30, category: 0.20, freshness: 0.10 };
+  // Marco's sheet rating (`score`, 0–11) IS the money signal — it already reflects
+  // both what TABOOST gets paid on and what's selling. So it carries 80% of the
+  // composite; the remaining 20% is a surfacing nudge: category match (show the
+  // creator what they're browsing) + a small new-drop bonus (give unproven products
+  // a chance to be seen). Commission/GMV are intentionally NOT separate signals —
+  // the rating subsumes them.
+  var WEIGHTS = { rating: 0.80, category: 0.15, freshness: 0.05 };
 
   // Tier bands are SELF-CALIBRATING — derived from the live catalog's cold-score
-  // distribution at init(), not hardcoded. Hardcoded absolute bands break here
-  // because a single 50%-commission / 2M-sold outlier compresses everyone else's
-  // absolute composite, and the data regenerates daily. Instead we band by
-  // percentile of the cold (no-session) composite, so the top slice always lands
-  // in Tier 1 and tiers stay populated regardless of how the raw numbers shift.
-  // A creator browsing a category adds up to +20, pushing those products up a tier.
+  // distribution at init(), not hardcoded. Absolute bands break here because the
+  // raw inputs cluster tightly and the data regenerates daily. Banding by percentile
+  // of the cold (no-session) composite keeps the top slice in Tier 1 and all tiers
+  // populated no matter how the numbers shift. With rating at 80% the cold composite
+  // tracks Marco's rating, so the bands map onto his rating tiers. A browsed category
+  // adds up to +15 (~2 rating levels), lifting those products ~1 tier — enough to
+  // personalize, not enough to flatten the rating ordering.
   var TIER1_PCTL = 80;  // cold composite >= 80th pctl -> Tier 1 (renders first, ~top 20%)
   var TIER2_PCTL = 45;  // cold composite >= 45th pctl -> Tier 2 (renders second)
                         // below                        -> Tier 3 (renders last)
 
-  var NEW_DROP_MAX_SOLD = 1000; // sold below this = "New drop" first-mover bonus
+  var NEW_DROP_MAX_SOLD = 1000; // sold below this = "New drop" bonus
 
-  // --- Cached dataset maxima + computed bands (set once via init) -----------
-  var maxCommission = 0;
-  var maxSold = 0;
+  // --- Cached dataset max + computed bands (set once via init) --------------
+  var maxRating = 0;
   var tier1Min = 0;     // composite threshold for Tier 1 (computed in init)
   var tier2Min = 0;     // composite threshold for Tier 2 (computed in init)
   var ready = false;
 
   // --- Parsing helpers (mirror index.html's existing parsing) ---------------
-  function parseCommission(p) {
-    var raw = String(p && p.commission != null ? p.commission : '0').split('\n')[0];
-    var n = parseFloat(raw.replace(/[^0-9.]/g, ''));
+  function parseRating(p) {
+    var n = parseInt(p && p.score != null ? p.score : 0, 10);
     return isFinite(n) ? n : 0;
   }
 
@@ -55,15 +60,9 @@
   }
 
   // --- Component scores (each returns 0–100) --------------------------------
-  function commissionScore(p) {
-    if (!maxCommission) return 0;
-    return Math.min(100, (parseCommission(p) / maxCommission) * 100);
-  }
-
-  function gmvScore(p) {
-    if (!maxSold) return 0;
-    // log scale so a 75k seller doesn't flatten everything below it
-    return Math.min(100, (Math.log(parseSold(p) + 1) / Math.log(maxSold + 1)) * 100);
+  function ratingScore(p) {
+    if (!maxRating) return 0;
+    return Math.min(100, (parseRating(p) / maxRating) * 100);
   }
 
   function categoryScore(p, ctx) {
@@ -81,8 +80,7 @@
   // tier bands so a creator's live category interest can lift products ABOVE
   // their cold tier rather than defining the bands themselves.
   function coldTotal(p) {
-    return WEIGHTS.commission * commissionScore(p) +
-           WEIGHTS.gmv * gmvScore(p) +
+    return WEIGHTS.rating * ratingScore(p) +
            WEIGHTS.freshness * freshnessScore(p);
   }
 
@@ -94,15 +92,12 @@
   // --- Public API -----------------------------------------------------------
   function init(products) {
     var list = products || (typeof window !== 'undefined' && window.PRODUCT_DATA) || [];
-    maxCommission = 0;
-    maxSold = 0;
+    maxRating = 0;
     for (var i = 0; i < list.length; i++) {
-      var c = parseCommission(list[i]);
-      var s = parseSold(list[i]);
-      if (c > maxCommission) maxCommission = c;
-      if (s > maxSold) maxSold = s;
+      var r = parseRating(list[i]);
+      if (r > maxRating) maxRating = r;
     }
-    ready = true; // maxima are set — coldTotal can be computed now
+    ready = true; // maxRating is set — coldTotal can be computed now
 
     // Self-calibrating tier bands from the cold-composite distribution.
     var colds = [];
@@ -112,26 +107,23 @@
     tier2Min = percentile(colds, TIER2_PCTL);
 
     return {
-      maxCommission: maxCommission, maxSold: maxSold, count: list.length,
+      maxRating: maxRating, count: list.length,
       tier1Min: Math.round(tier1Min), tier2Min: Math.round(tier2Min)
     };
   }
 
   function score(product, ctx) {
     if (!ready) init();
-    var commission = commissionScore(product);
-    var gmv = gmvScore(product);
+    var rating = ratingScore(product);
     var category = categoryScore(product, ctx);
     var freshness = freshnessScore(product);
     var total =
-      WEIGHTS.commission * commission +
-      WEIGHTS.gmv * gmv +
+      WEIGHTS.rating * rating +
       WEIGHTS.category * category +
       WEIGHTS.freshness * freshness;
     return {
       total: total,
-      commission: commission,
-      gmv: gmv,
+      rating: rating,
       category: category,
       freshness: freshness
     };
@@ -201,8 +193,7 @@
       if (breakdown.length < 5) {
         breakdown.push({
           name: String(p.name || '').slice(0, 32),
-          commission: Math.round(sc.commission),
-          gmv: Math.round(sc.gmv),
+          rating: Math.round(sc.rating),
           category: Math.round(sc.category),
           freshness: sc.freshness,
           total: Math.round(sc.total),
@@ -217,7 +208,7 @@
     if (debugEnabled() && typeof console !== 'undefined') {
       console.log('[CreatorScore] weights', WEIGHTS,
         '| bands', { tier1Min: Math.round(tier1Min), tier2Min: Math.round(tier2Min), pctl: [TIER1_PCTL, TIER2_PCTL] },
-        '| maxCommission', maxCommission, '| maxSold', maxSold,
+        '| maxRating', maxRating,
         '| session topCat', ctx.topCat, '(' + ctx.topCount + ')',
         '| tier sizes', { t1: buckets[1].length, t2: buckets[2].length, t3: buckets[3].length });
       if (console.table) console.table(breakdown);
