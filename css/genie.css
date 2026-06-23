@@ -165,7 +165,11 @@
     cursor: pointer;
     transition: all 0.15s ease;
 }
-.genie-chip:hover, .genie-chip.active { border-color: var(--genie-pink); background: rgba(255,0,68,0.12); color: #fff; }
+.genie-chip.active { border-color: var(--genie-pink); background: rgba(255,0,68,0.12); color: #fff; }
+/* Hover only on real pointers — prevents sticky :hover from "selecting" a chip after a tap on touch */
+@media (hover: hover) {
+  .genie-chip:hover { border-color: var(--genie-pink); background: rgba(255,0,68,0.12); color: #fff; }
+}
 
 /* primary / secondary buttons inside genie */
 .genie-btn {

@@ -336,6 +336,9 @@
     var input = document.getElementById('main-search');
     var trigger = document.getElementById('search-trigger');
     if (input && trigger) { input.value = niche; trigger.click(); }
+    // handleSearch runs synchronously on click, so results are now rendered — bring them into view
+    var results = document.getElementById('search-results-container');
+    if (results) window.scrollTo({ top: Math.max(0, results.offsetTop - 80), behavior: 'smooth' });
   }
 
   // ---------- two-step product finder (main category → data subcategory) ----------
@@ -369,8 +372,8 @@
     var pc = el('button', 'genie-chip', '🎯 Priority Campaigns');
     pc.addEventListener('click', function () {
       closePanel();
-      var f = document.getElementById('featured-section');
-      if (f) window.scrollTo({ top: Math.max(0, f.offsetTop - 80), behavior: 'smooth' });
+      // Call the exact same handler the homepage Priority Campaigns pill uses (clearSearch + scroll)
+      if (window.showPriorityCampaigns) window.showPriorityCampaigns();
     });
     chips.appendChild(pc);
     var hc = el('button', 'genie-chip', 'High Commission');

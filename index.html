@@ -1373,6 +1373,14 @@
             if (window.history && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
         }
 
+        // Priority Campaigns: clear any active search (un-hides #featured-section) then scroll to
+        // the campaign tiles. Global so the Genie's Priority Campaigns chip calls the SAME handler.
+        window.showPriorityCampaigns = function () {
+            clearSearch();
+            const f = document.getElementById('featured-section');
+            if (f) window.scrollTo({ top: Math.max(0, f.offsetTop - 80), behavior: 'smooth' });
+        };
+
         // Event Listeners
         document.getElementById('search-trigger').addEventListener('click', handleSearch);
         
@@ -1398,9 +1406,7 @@
             tag.addEventListener('click', () => {
                 // Priority Campaigns tag: return to the campaign tiles, no text search
                 if (tag.dataset.action === 'campaigns') {
-                    clearSearch();
-                    const f = document.getElementById('featured-section');
-                    if (f) window.scrollTo({ top: Math.max(0, f.offsetTop - 80), behavior: 'smooth' });
+                    showPriorityCampaigns();
                     return;
                 }
                 document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
