@@ -164,16 +164,54 @@
       close: ['Drop the "ok but for real it\'s in my shop" at the end', 'Comedy gets the views, the soft CTA gets the sales']
     };
   }
+  // Angles match Kyra's genie-scripts.md (no Unboxing). 'balanced' === her "Generic".
   var ANGLES = [
     { id: 'balanced', label: '⚖️ Basic', fn: angleBalanced },
     { id: 'storytime', label: '🎬 Storytime', fn: angleStorytime },
     { id: 'educational', label: '🎓 Educational', fn: angleEducational },
     { id: 'beforeafter', label: '🔄 Before & After', fn: angleBeforeAfter },
     { id: 'demo', label: '🎥 Product Demo', fn: angleProductDemo },
-    { id: 'unboxing', label: '📦 Unboxing', fn: angleUnboxing },
     { id: 'skit', label: '😂 Skit/Comedy', fn: angleSkit }
   ];
+
+  // Granular product category -> Kyra script bucket (window.GENIE_SCRIPTS keys).
+  // Uncovered categories (Automotive & Motorcycle, Baby & Maternity, Other) map to
+  // nothing and fall back to the generated angle functions below.
+  var CATEGORY_TO_BUCKET = {
+    'Beauty & Personal Care': 'Beauty',
+    'Womenswear & Underwear': 'Fashion', 'Menswear & Underwear': 'Fashion', 'Shoes': 'Fashion',
+    'Fashion Accessories': 'Accessories', 'Jewelry Accessories & Derivatives': 'Accessories', 'Luggage & Bags': 'Accessories',
+    'Phones & Electronics': 'Electronics', 'Computers & Office Equipment': 'Electronics',
+    'Home Supplies': 'Home', 'Household Appliances': 'Home', 'Furniture': 'Home',
+    'Home Improvement': 'Home', 'Textiles & Soft Furnishings': 'Home', 'Tools & Hardware': 'Home',
+    'Kitchenware': 'Kitchen',
+    'Health': 'Health',
+    'Sports & Outdoor': 'Sports',
+    'Food & Beverages': 'Food',
+    'Pet Supplies': 'Pets',
+    'Toys & Hobbies': 'Toys'
+  };
+
+  // Pick one random line from a section and drop in the real product name for [product].
+  function pickLine(arr, item) {
+    if (!arr || !arr.length) return '';
+    var line = arr[Math.floor(Math.random() * arr.length)];
+    return line.replace(/\[product\]/gi, shortName(item.name));
+  }
+
   function buildScript(item, angleId) {
+    // Kyra's curated copy where we have it; one random line per section.
+    var bucket = CATEGORY_TO_BUCKET[item.category];
+    var set = bucket && window.GENIE_SCRIPTS && window.GENIE_SCRIPTS[bucket] && window.GENIE_SCRIPTS[bucket][angleId];
+    if (set) {
+      return [
+        { title: 'HOOK', hint: 'first 2 seconds', bullets: [pickLine(set.hook, item)] },
+        { title: 'THE BUILD', hint: 'show, don\'t just tell', bullets: [pickLine(set.build, item)] },
+        { title: 'THE TURN', hint: 'why you specifically', bullets: [pickLine(set.turn, item)] },
+        { title: 'THE CLOSE', hint: 'soft sell, no pressure', bullets: [pickLine(set.close, item)] }
+      ];
+    }
+    // Fallback: generated script for categories Kyra didn't cover.
     var s = signals(item), c = catInfo(item.category);
     var angle = ANGLES.filter(function (a) { return a.id === angleId; })[0] || ANGLES[0];
     var b = angle.fn(s, c);
@@ -206,7 +244,7 @@
   function esc(t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (m) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[m]; }); }
 
   // ---------- build chrome (fab, panel, toast) ----------
-  var fab, panel, panelBody, toast, currentProduct = null, currentAngle = 'balanced';
+  var fab, panel, panelBody, toast, currentProduct = null, currentAngle = 'balanced', lastBlocks = null;
 
   function buildChrome() {
     // floating button
@@ -296,7 +334,7 @@
   var ORIENT = [
     { t: "Quick version: <b>TikTok Shop affiliate</b> = you post a video, tag a product, and earn commission on every sale through your link. No inventory, no shipping. You just create." },
     { t: "Why come through <b>TABOOST</b> instead of TikTok direct? We broker <b>higher commission rates</b> with brands than the open rates — so the same video pays you more. Same products, better cut." },
-    { t: "Your first move: browse the products below and tap one to see the details. <b>Updated Genie scripts are coming soon</b> — they'll hand you the exact talking points to film. Pick something you'd actually use." }
+    { t: "Your first move: browse the products below, tap one, and hit <b>🧞 Genie Script</b> — I'll hand you the exact talking points to film. Pick something you'd actually use." }
   ];
   function viewOrient(step) {
     step = Math.max(0, Math.min(ORIENT.length - 1, step));
@@ -416,7 +454,7 @@
       { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
       { emoji: '🚀', label: 'Join TABOOST', onClick: function () { window.open('https://www.taboost.me/join', '_blank'); } }
     ]);
-    addMsg("Tip: tap any product to see its details — <b>updated Genie scripts are coming soon.</b> ✨");
+    addMsg("Tip: tap any product and hit <b>🧞 Genie Script</b> for ready-to-film talking points. ✨");
   }
 
   function viewSaved() {
@@ -449,19 +487,26 @@
     if (!bar || document.getElementById('genie-script-mount')) return;
     var wrap = el('div');
     wrap.id = 'genie-script-mount';
-    // Updated Genie scripts are being reworked — show a "coming soon" state for now.
     wrap.innerHTML =
       '<div class="genie-script-trigger">' +
         '<span class="genie-script-label">🧞 Genie Script <span style="opacity:.8">✨</span></span>' +
-        '<span class="genie-soon-pill">Updated scripts coming soon</span>' +
-      '</div>';
+        '<button class="genie-gen-btn" id="genie-gen-btn">Get my script →</button>' +
+      '</div>' +
+      '<div class="genie-script-content" id="genie-script-content"></div>';
     bar.appendChild(wrap);
+    wrap.querySelector('#genie-gen-btn').addEventListener('click', function () {
+      var box = document.getElementById('genie-script-content');
+      if (!box) return;
+      var open = box.classList.toggle('expanded');
+      if (open) renderScript(); else box.innerHTML = '';
+    });
   }
 
   function renderScript() {
     var box = document.getElementById('genie-script-content');
     if (!box || !currentProduct) return;
     var blocks = buildScript(currentProduct, currentAngle);
+    lastBlocks = blocks;
     var html = '<hr class="genie-script-divider">';
     // angle chips
     html += '<div style="font-size:12px;color:var(--genie-text-dim);margin-bottom:6px;">Which fits your style?</div><div class="genie-angles">';
@@ -475,7 +520,8 @@
     });
     html += '<div class="genie-script-actions">' +
       '<button class="genie-copy" id="genie-copy">📋 Copy Script</button>' +
-      '<button id="genie-regen">🔀 Different angle</button>' +
+      '<button id="genie-shuffle">🔀 Shuffle lines</button>' +
+      '<button id="genie-regen">🎭 Different angle</button>' +
       '</div>';
     box.innerHTML = html;
     box.querySelectorAll('.genie-angle').forEach(function (b) {
@@ -483,6 +529,9 @@
     });
     box.querySelector('#genie-copy').addEventListener('click', function () {
       copyText(scriptToText(currentProduct, blocks), box.querySelector('#genie-copy'));
+    });
+    box.querySelector('#genie-shuffle').addEventListener('click', function () {
+      renderScript(); // fresh random line per section, same angle
     });
     box.querySelector('#genie-regen').addEventListener('click', function () {
       var idx = ANGLES.map(function (a) { return a.id; }).indexOf(currentAngle);
@@ -512,6 +561,7 @@
     onProductSelected: function (id) {
       currentProduct = findProduct(id);
       currentAngle = 'balanced';
+      lastBlocks = null;
       mountScriptSection();
       var box = document.getElementById('genie-script-content');
       if (box) { box.classList.remove('expanded'); box.innerHTML = ''; }
@@ -521,7 +571,8 @@
       if (box) { box.classList.remove('expanded'); }
     },
     onLaunch: function () {
-      // Updated Genie scripts coming soon — no script generated, so no save-script prompt.
+      // If they generated a script, offer to save it for filming.
+      if (currentProduct && lastBlocks) showFollowUp(currentProduct, lastBlocks);
     }
   };
 
