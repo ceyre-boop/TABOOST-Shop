@@ -209,17 +209,9 @@
     margin-top: 14px;
 }
 .genie-script-trigger .genie-script-label {
-    color: var(--genie-green); font-size: 13px; font-weight: 800;
+    color: #FF0055; font-size: 13px; font-weight: 800;
     display: flex; align-items: center; gap: 6px;
 }
-.genie-script-trigger .genie-gen-btn {
-    margin-left: auto;
-    background: linear-gradient(135deg, var(--genie-pink), #cc0033);
-    color: #fff; border: none; border-radius: 20px;
-    padding: 7px 16px; font-size: 13px; font-weight: 800; cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.genie-script-trigger .genie-gen-btn:hover { transform: scale(1.04); box-shadow: 0 8px 18px rgba(255,0,68,0.35); }
 .genie-script-trigger .genie-soon-pill {
     margin-left: auto;
     background: rgba(255,255,255,0.07);

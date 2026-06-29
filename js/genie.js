@@ -490,16 +490,9 @@
     wrap.innerHTML =
       '<div class="genie-script-trigger">' +
         '<span class="genie-script-label">🧞 Genie Script <span style="opacity:.8">✨</span></span>' +
-        '<button class="genie-gen-btn" id="genie-gen-btn">Get my script →</button>' +
       '</div>' +
       '<div class="genie-script-content" id="genie-script-content"></div>';
     bar.appendChild(wrap);
-    wrap.querySelector('#genie-gen-btn').addEventListener('click', function () {
-      var box = document.getElementById('genie-script-content');
-      if (!box) return;
-      var open = box.classList.toggle('expanded');
-      if (open) renderScript(); else box.innerHTML = '';
-    });
   }
 
   function renderScript() {
@@ -564,7 +557,7 @@
       lastBlocks = null;
       mountScriptSection();
       var box = document.getElementById('genie-script-content');
-      if (box) { box.classList.remove('expanded'); box.innerHTML = ''; }
+      if (box) { box.classList.add('expanded'); renderScript(); }
     },
     onProductCleared: function () {
       var box = document.getElementById('genie-script-content');
