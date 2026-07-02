@@ -1090,6 +1090,11 @@
             return '';
         }
 
+        // Genie Script — static badge, shown on every product card
+        function genieScriptBadgeHtml() {
+            return '<div class="genie-script-badge"><img src="images/genie-icon.png" alt=""><span>Genie Script ✨</span></div>';
+        }
+
         // NEW — only for products whose campaign started this calendar month (computed live)
         let _campStartYM = null;
         function campaignStartYM() {
@@ -1129,7 +1134,7 @@
             return `
                 <div class="product-card" id="card-${item.id}" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}', '${item.link}')">
                     ${getBadgeHtml(item)}
-                    ${newDropBadge}
+                    <div class="genie-badge-row">${newDropBadge}${genieScriptBadgeHtml()}</div>
                     <div class="product-image">
                         ${imgHtml}
                     </div>
