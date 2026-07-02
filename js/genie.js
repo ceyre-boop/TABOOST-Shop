@@ -490,7 +490,7 @@
     wrap.innerHTML =
       '<hr class="genie-script-divider">' +
       '<div class="genie-script-trigger">' +
-        '<span class="genie-script-label">🧞‍♀️ Genie Script <span style="opacity:.8">✨</span></span>' +
+        '<span class="genie-script-label"><span class="genie-script-emoji">🧞‍♀️</span> Genie Script <span style="opacity:.8">✨</span></span>' +
       '</div>' +
       '<div class="genie-script-content" id="genie-script-content"></div>';
     bar.appendChild(wrap);
