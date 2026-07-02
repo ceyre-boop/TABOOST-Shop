@@ -754,6 +754,7 @@
                the logo-text size explicitly by ID so they can't be out-specificity'd again. */
             #nav-login-link, #nav-signup-link {
                 font-size: 18px;
+                white-space: nowrap;
             }
 
             .hero {
@@ -1164,7 +1165,6 @@
                             <div class="product-price">${item.price}</div>
                         </div>
                     </div>
-                    <div class="genie-card-tag">🧞‍♀️ Genie has a script ✨</div>
                 </div>
             `;
         }
@@ -1578,7 +1578,7 @@
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                loginLink.textContent = 'YOUR DASHBOARD';
+                loginLink.textContent = 'Dashboard';
                 loginLink.href = 'shop-dashboard.html';
 
                 signupLink.textContent = 'Log Out';
