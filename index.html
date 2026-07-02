@@ -176,7 +176,7 @@
         /* Hero / Search Section */
         .hero {
             text-align: center;
-            padding: 40px 0 40px;
+            padding: 40px 0 8px;
         }
         
         .hero h1 {
@@ -210,9 +210,13 @@
         /* Search Bar */
         .search-container {
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto 8px;
             position: relative;
         }
+
+        /* Once the intro boxes are hidden (any screen size), reclaim the leftover hero gap */
+        body.tb-boxes-hidden #hero-section { padding-bottom: 2px; }
+        body.tb-boxes-hidden .search-container { margin-bottom: 4px; }
 
         .search-wrapper {
             display: flex;
@@ -747,10 +751,6 @@
                 padding-top: 20px;
             }
 
-            /* Once the intro boxes are hidden, reclaim the empty hero gap so products sit higher */
-            body.tb-boxes-hidden #hero-section { padding-bottom: 2px; }
-            body.tb-boxes-hidden .search-container { margin-bottom: 10px; }
-
             /* Mobile: drop the "Search Results for…" title; keep a compact Clear Search row */
             #search-results-container #search-results-title { display: none; }
             #search-results-container .section-header {
@@ -999,7 +999,7 @@
                 <div><div class="value-title">Proven Products</div><div class="value-text">Real sales data at your fingertips, less guessing more winning.</div></div>
             </div>
             <div class="value-item">
-                <div class="value-emoji">🧞</div>
+                <div class="value-emoji">🧞‍♀️</div>
                 <div><div class="value-title">The Genie Scripts</div><div class="value-text">Tap any product and get example hooks &amp; closes for your videos!</div></div>
             </div>
         </section>
@@ -1036,7 +1036,7 @@
         
         <footer>
             <a href="https://www.taboost.me/join" target="_blank" rel="noopener" class="btn login-glow" style="display:inline-block; margin-bottom:16px;">✨ Join TABOOST</a>
-            <p style="color:#888; font-size:14px; margin-bottom:6px;">Built for creators. Powered by the Genie. 🧞</p>
+            <p style="color:#888; font-size:14px; margin-bottom:6px;">Built for creators. Powered by the Genie. 🧞‍♀️</p>
             <p>© 2026 TABOOST. All rights reserved.</p>
         </footer>
     </div>
@@ -1090,6 +1090,11 @@
             return '';
         }
 
+        // Genie Script — static badge, shown on every product card
+        function genieScriptBadgeHtml() {
+            return '<div class="genie-script-badge"><img src="images/genie-icon.png" alt=""><span>Genie Script ✨</span></div>';
+        }
+
         // NEW — only for products whose campaign started this calendar month (computed live)
         let _campStartYM = null;
         function campaignStartYM() {
@@ -1129,7 +1134,7 @@
             return `
                 <div class="product-card" id="card-${item.id}" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}', '${item.link}')">
                     ${getBadgeHtml(item)}
-                    ${newDropBadge}
+                    <div class="genie-badge-row">${newDropBadge}${genieScriptBadgeHtml()}</div>
                     <div class="product-image">
                         ${imgHtml}
                     </div>
@@ -1150,7 +1155,7 @@
                             <div class="product-price">${item.price}</div>
                         </div>
                     </div>
-                    <div class="genie-card-tag">🧞 Genie has a script ✨</div>
+                    <div class="genie-card-tag">🧞‍♀️ Genie has a script ✨</div>
                 </div>
             `;
         }
@@ -1507,19 +1512,16 @@
             clearProductSelection();
         };
 
-        // --- Mobile only: hide the 3 intro feature boxes after the first interaction.
+        // --- Hide the 3 intro feature boxes after the first interaction, any screen size.
         // Triggers: tapping the search bar, any category pill, or any product card.
-        // Resets on refresh (runtime only — no persistence). Desktop always shows them.
-        function isMobileViewport() { return window.innerWidth < 768; }
+        // Resets on refresh (runtime only — no persistence).
         function hideFeatureBoxes() {
-            if (!isMobileViewport()) return;                 // desktop: never hide
             const boxes = document.querySelector('.value-strip');
             if (boxes) boxes.style.display = 'none';
-            document.body.classList.add('tb-boxes-hidden'); // collapse the leftover hero gap (mobile CSS)
+            document.body.classList.add('tb-boxes-hidden'); // collapse the leftover hero gap
         }
         // One delegated listener covers all three triggers (product cards render dynamically)
         document.addEventListener('click', function (e) {
-            if (!isMobileViewport()) return;
             if (e.target.closest('.search-wrapper') || e.target.closest('.quick-tag') || e.target.closest('.product-card')) {
                 hideFeatureBoxes();
             }
@@ -1527,14 +1529,6 @@
         // Focusing the search field (tap that opens the keyboard) also counts
         const _mobSearch = document.getElementById('main-search');
         if (_mobSearch) _mobSearch.addEventListener('focus', hideFeatureBoxes);
-        // If the viewport grows to desktop, always restore the boxes
-        window.addEventListener('resize', function () {
-            if (!isMobileViewport()) {
-                const boxes = document.querySelector('.value-strip');
-                if (boxes) boxes.style.display = '';
-                document.body.classList.remove('tb-boxes-hidden');
-            }
-        });
 
         // Initialize
         loadAllData();

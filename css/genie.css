@@ -227,7 +227,7 @@
 
 .genie-script-content {
     max-height: 0; opacity: 0; overflow: hidden;
-    transition: max-height 0.25s ease, opacity 0.25s ease;
+    transition: opacity 0.25s ease;
 }
 .genie-script-content.expanded { max-height: 1200px; opacity: 1; margin-top: 12px; }
 
@@ -412,10 +412,17 @@
 }
 
 /* ---------- Freshness: "New drop" badge + "catalog refreshed" line ---------- */
-.genie-new-badge {
+.genie-badge-row {
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+}
+.genie-new-badge {
     background: linear-gradient(135deg, #00ff88, #00cc66);
     color: #000;
     padding: 4px 9px;
@@ -424,9 +431,30 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    z-index: 6;
     box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
     pointer-events: none;
+}
+.genie-script-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid var(--genie-pink);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+}
+.genie-script-badge img {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 .genie-fresh-badge {
     display: flex;

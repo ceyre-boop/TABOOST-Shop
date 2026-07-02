@@ -223,7 +223,7 @@
     ];
   }
   function scriptToText(item, blocks) {
-    var out = '🧞 TABOOST Genie script — ' + shortName(item.name) + '\n';
+    var out = '🧞‍♀️ TABOOST Genie script — ' + shortName(item.name) + '\n';
     blocks.forEach(function (bl) {
       out += '\n' + bl.title + ' (' + bl.hint + ')\n';
       bl.bullets.forEach(function (x) { out += '• ' + x + '\n'; });
@@ -322,7 +322,7 @@
   }
 
   function viewGreeter() {
-    addMsg("Hey! I'm the <b>TABOOST Genie</b>. 🧞");
+    addMsg("Hey! I'm the <b>TABOOST Genie</b>. 🧞‍♀️");
     addMsg("I help TikTok creators find hot products <b>and</b> know exactly what to say to sell them. What describes you?");
     choiceRow([
       { emoji: '🌱', label: "I'm new to TikTok Shop", onClick: function () { setSegment('new'); render('orient', 0); } },
@@ -334,7 +334,7 @@
   var ORIENT = [
     { t: "Quick version: <b>TikTok Shop affiliate</b> = you post a video, tag a product, and earn commission on every sale through your link. No inventory, no shipping. You just create." },
     { t: "Why come through <b>TABOOST</b> instead of TikTok direct? We broker <b>higher commission rates</b> with brands than the open rates — so the same video pays you more. Same products, better cut." },
-    { t: "Your first move: browse the products below, tap one, and hit <b>🧞 Genie Script</b> — I'll hand you the exact talking points to film. Pick something you'd actually use." }
+    { t: "Your first move: browse the products below, tap one, and hit <b>🧞‍♀️ Genie Script</b> — I'll hand you the exact talking points to film. Pick something you'd actually use." }
   ];
   function viewOrient(step) {
     step = Math.max(0, Math.min(ORIENT.length - 1, step));
@@ -454,7 +454,7 @@
       { emoji: '❓', label: 'How does TABOOST work?', onClick: function () { render('faq'); } },
       { emoji: '🚀', label: 'Join TABOOST', onClick: function () { window.open('https://www.taboost.me/join', '_blank'); } }
     ]);
-    addMsg("Tip: tap any product and hit <b>🧞 Genie Script</b> for ready-to-film talking points. ✨");
+    addMsg("Tip: tap any product and hit <b>🧞‍♀️ Genie Script</b> for ready-to-film talking points. ✨");
   }
 
   function viewSaved() {
@@ -490,7 +490,7 @@
     wrap.innerHTML =
       '<hr class="genie-script-divider">' +
       '<div class="genie-script-trigger">' +
-        '<span class="genie-script-label">🧞 Genie Script <span style="opacity:.8">✨</span></span>' +
+        '<span class="genie-script-label">🧞‍♀️ Genie Script <span style="opacity:.8">✨</span></span>' +
       '</div>' +
       '<div class="genie-script-content" id="genie-script-content"></div>';
     bar.appendChild(wrap);
