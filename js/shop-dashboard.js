@@ -282,23 +282,37 @@ function updateGMVStats() {
     const gmvLabel = document.querySelector('.stat-card.primary .stat-label');
     if (gmvLabel) gmvLabel.textContent = "Total GMV";
 
-    // Estimated pace: project current GMV to end of month based on days elapsed
+    // Estimated pace: project current GMV to end of month based on days elapsed.
+    // Projecting off very few elapsed days massively amplifies the result (e.g. day 1
+    // of a 31-day month always shows exactly 3000%, regardless of GMV) — that's not
+    // a data bug, it's this ratio being undefined that early. Two guards, once and for all:
+    // withhold the badge for the first couple days (not enough data to project at all),
+    // then cap the displayed number so it can never show an absurd triple/quadruple-digit
+    // figure even while the projection is still naturally volatile mid-ramp.
+    const MIN_DAYS_FOR_PACE = 3;
+    const PACE_CAP = 200;
     const trendEl = document.getElementById('gmvTrend');
     if (trendEl) {
-        if (totalGMV > 0) {
-            const now = new Date();
-            const dayOfMonth = now.getDate();
-            const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-            const daysElapsed = Math.max(dayOfMonth, 1);
+        const now = new Date();
+        const dayOfMonth = now.getDate();
+        const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+        const daysElapsed = Math.max(dayOfMonth, 1);
+        if (totalGMV > 0 && daysElapsed >= MIN_DAYS_FOR_PACE) {
             const projectedGMV = (totalGMV / daysElapsed) * daysInMonth;
-            const pacePercent = ((projectedGMV - totalGMV) / totalGMV) * 100;
+            const rawPacePercent = ((projectedGMV - totalGMV) / totalGMV) * 100;
+            const isCapped = rawPacePercent > PACE_CAP;
+            const paceLabel = isCapped
+                ? Math.round(PACE_CAP) + '%+'
+                : rawPacePercent.toFixed(1) + '%';
             trendEl.innerHTML = `
                 <span class="trend-indicator up" style="background: rgba(0,200,100,0.15); color: #00c864; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
                     <i class="fas fa-arrow-up"></i>
-                    ${pacePercent.toFixed(1)}% Estimated pace
+                    ${paceLabel} Estimated pace
                 </span>
             `;
             myData.growthDirection = 'up';
+        } else if (totalGMV > 0) {
+            trendEl.innerHTML = `<span class="trend-indicator">New month — pace updates in a few days</span>`;
         } else {
             trendEl.innerHTML = `<span class="trend-indicator">New Account</span>`;
         }
