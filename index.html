@@ -954,8 +954,8 @@
             </div>
             <nav class="nav-links">
                 <div class="nav-guest">
-                    <a href="shop-signup.html">Sign Up</a>
-                    <a href="shop-login.html" class="btn login-glow">Login</a>
+                    <a href="shop-signup.html" id="nav-signup-link">Sign Up</a>
+                    <a href="shop-login.html" class="btn login-glow" id="nav-login-link">Login</a>
                 </div>
             </nav>
         </header>
@@ -1547,5 +1547,46 @@
 
     <script src="js/genie-scripts-data.js?v=20260626"></script>
     <script src="js/genie.js?v=20260701"></script>
+
+    <!-- Nav: reflect signed-in state (Login -> Your Dashboard, Sign Up -> Log Out) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
+            authDomain: "taboost-platform.firebaseapp.com",
+            databaseURL: "https://taboost-platform-default-rtdb.firebaseio.com",
+            projectId: "taboost-platform",
+            storageBucket: "taboost-platform.firebasestorage.app",
+            messagingSenderId: "379293685859",
+            appId: "1:379293685859:web:d89592adbf67360b574056"
+        };
+
+        const auth = getAuth(initializeApp(firebaseConfig));
+        const signupLink = document.getElementById('nav-signup-link');
+        const loginLink = document.getElementById('nav-login-link');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loginLink.textContent = 'YOUR DASHBOARD';
+                loginLink.href = 'shop-dashboard.html';
+
+                signupLink.textContent = 'Log Out';
+                signupLink.href = '#';
+                signupLink.onclick = (e) => {
+                    e.preventDefault();
+                    signOut(auth).then(() => window.location.reload());
+                };
+            } else {
+                loginLink.textContent = 'Login';
+                loginLink.href = 'shop-login.html';
+
+                signupLink.textContent = 'Sign Up';
+                signupLink.href = 'shop-signup.html';
+                signupLink.onclick = null;
+            }
+        });
+    </script>
 </body>
 </html>
