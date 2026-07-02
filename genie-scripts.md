@@ -1,5 +1,4 @@
 BEAUTY
-
 Generic:
 HOOK:
 “I hate when beauty products look amazing online and then do nothing in real life.”
@@ -18,91 +17,91 @@ THE TURN:
 “I thought I’d use it once just to test it, but this is the kind of product I’d actually reach for again.”
 “I’m not saying it’s magic, but I do understand why people are curious about it.”
 THE CLOSE:
-“I linked it in TikTok Shop. Check the current price there because it can move.”
-“I linked it in TikTok Shop so you can see if it fits your routine.”
-“No pressure, but I get why this one is getting attention.”
-“It’s linked here if you want to compare the details yourself.”
+“I added the link below so go check it out right now before it sells out”
+“I linked it below so you can try it for yourself & see if it fits your routine.”
+“No pressure to check it out, but I get why this one is getting attention.”
+“It’s linked to this video if you want to check the details yourself.”
 Storytime:
 HOOK:
-“I was getting ready in five minutes and realized my usual routine was doing too much.”
+“I only had five minutes to get ready yesterday and realized my usual routine was doing too much.”
 “I was getting ready and realized I kept avoiding this step because it took too long.”
-“I was running late and this accidentally became the product I reached for.”
+“Someone stopped and asked me what [product] i was wearing today”
 THE BUILD:
-“I grabbed [product] because the Shop App details said [feature], and I wanted to see how it looked in normal lighting.”
-“So I tried it on a normal day — not for a full glam moment, not with perfect lighting, just regular getting ready.”
+“I grabbed [product] because someone on my FYP said it [feature], and I wanted to see how it looked in normal lighting.”
+“So I tried it on a normal day, not for a full glam moment, not with perfect lighting, just regular getting ready.”
 “I used it before [work / class / errands / dinner / filming] because that’s when I actually need beauty products to be easy.”
-“I wasn’t expecting a full routine change. I just wanted to see if it made one part easier.” 
+“I wasn’t expecting a full routine change. I just wanted to see if it made one part easier.”
 THE TURN:
 “The surprise was how easy it was to work into what I already do. Not a magic fix, just a really convenient step.”
 “The funny part is, I reached for it again the next day without even thinking about it.”
 “What surprised me was that it didn’t feel like a trend once I used it — it felt practical.”
 THE CLOSE:
-“It’s in TikTok Shop if you want to check it out.”
-“I linked it in TikTok Shop if you want to see the product details.”
+“It’s linked below if you want to check it out.”
+“I added the link to this video if you want to look into it more.”
 “If your routine feels like too much, this might be worth looking at.”
-“If you want a follow-up after using it more, comment and I’ll test it again.”
+“If you want a follow-up after more usage, leave a comment and I’ll test it again.”
 Educational:
 HOOK:
 “Before you buy beauty products, look for this one thing.”
 “Here’s a simple way to test if a beauty product is worth keeping in your routine.”
-“Here’s what I look for before trusting a TikTok Shop beauty product.”
+“Here’s what I look for before trusting a beauty product.”
 “This is how I decide if a beauty product is just trendy or actually practical.”
-“If everyone is buying it, I still want to know why.” 
+“If everyone is buying it, I still want to know why.”
 THE BUILD:
 “Don’t just look at the pretty packaging. Check the texture, how it’s meant to be used, and whether the product details actually match your routine.”
 “Here’s what I’m checking: texture, application, finish, how much product you need, and whether it works in normal lighting.”
 “Before buying, I’d always check the product card for instructions, ingredients / materials, size, shade, and intended use.”
 THE TURN:
-“That’s why I liked [product] — the Shop App info made it clear what it’s for, so I knew how to use it correctly.”
+“That’s why I liked [product] — I was able to easily find the best way it worked for my skin to make a true difference in my routine”
 “That’s the difference between buying because of hype and buying because a product actually fits your needs.”
 THE CLOSE:
-“I linked it in TikTok Shop so you can read the details yourself.”
+“I linked it below so you can check out the product details yourself.”
+“Check the link below for ingredients & more product info!”
 “Let me know if you want me to test this in a full routine next.”
 Before/After:
 HOOK:
 “Here’s the difference between rushing my routine and using one product intentionally.”
-“Here’s the before, here’s the product, and here’s what changed.”
+“Here’s the after, here’s the product, and here’s the before.”
 “Watch this texture / finish / application because that’s what sold me.”
 THE BUILD:
 “Before: I was layering too much and hoping it worked. After: I used [product] exactly how the listing says and kept the rest simple.”
-“Here’s the before in normal lighting. I’m not changing the angle, and I’m not adding a beauty filter.”
+“Here’s the product in normal lighting before & after I apply. I’m not changing the angle, and I’m not adding a beauty filter.”
 “This is a realistic before and after — no lighting tricks, no pretending one product changes everything.”
 “I want to show the difference in texture / shine / smoothness / definition because that’s what this product is designed for.”
 THE TURN:
 “The biggest difference for me was the finish / feel / ease — not some overnight transformation.”
 “This is the kind of before and after I trust because it still looks real.”
 “The biggest change for me was how polished it made the final look feel.”
-“The after still looks natural, which is exactly what I wanted.” 
+“The after still looks natural, which is exactly what I wanted.”
 THE CLOSE:
-“Check the product card in TikTok Shop for the details.”
-“Would you count this as a noticeable difference?”
-“If you want a longer wear test, comment and I’ll do one.”
+“Check the linked product below to see if they have your shade”
+“Would you count this as a noticeable difference? If so, grab it from the link below”
+“I linked it below so it’s easy for you to have your own makeover.”
 Product Demo:
 HOOK:
 “Let’s test this beauty product in real time.”
 “I’m testing this the way I’d actually use it on a normal day.”
-“I’m testing this with no beauty filter so you can see the real finish.”
-“I’m going to show the application without any cuts.”
-
+“I’m showing this with no beauty filter so you can see the real finish.”
+“No editing, cuts. Just pure application.”
 THE BUILD:
 “Here’s the packaging, here’s the texture, here’s how much I’m using, and here’s what it looks like applied with no filter.”
-“Here’s what it looks like straight out of the container, and here’s how it moves / blends / applies.”
-“I’m applying it without any cuts so you can see the process.”
+“Here’s what it looks like straight out of the packaging, and here’s how it moves / blends / applies.”
+“I’m applying it without any cuts so you can see the full process.”
 THE TURN:
 “What surprised me was [feature from Shop App] — I didn’t expect that part to matter as much as it did.”
 “I like that it’s simple. I don’t need a product to be complicated to be useful.”
-“This is the point where I understood the hype/attention” 
+“This is the point where I understood the hype/attention”
 THE CLOSE:
-“I linked it in TikTok Shop if you want to compare the details.”
-“Would you try this based on the demo?”
-“I linked it so you can see the full listing.”
+“I linked it below if you want to grab one for yourself.”
+“Girl you need to RUN to grab this product before everyone else hops on the trend”
+“I wanted to gatekeep but for you guys, I linked it below”
 Skit/Comedy:
 HOOK:
 “Me: I’m not buying another beauty product. Also me two seconds later…”
 “This product said ‘trust the process’ and I unfortunately did.”
-“I wanted to hate how useful this was.” 
+“I wanted to hate how useful this was.”
 THE BUILD:
-“Wait, why does this actually fit my routine? Why is the texture nice? Why did the Shop App details convince me?”
+“Wait, why does this actually fit my routine? Why is the texture nice? Why did the influencers actually convince me to buy?”
 “My routine said, ‘Please keep it simple.’ Then this product showed up and made a very convincing argument.”
 “This is me pretending I’m not influenced while literally doing a full demo.”
 “My brain said no. My beauty routine said, ‘Actually, wait.’”
@@ -112,11 +111,10 @@ THE TURN:
 “I wanted to call it unnecessary, but then I used it.”
 “I fear the product is useful.”
 THE CLOSE:
-“It’s in TikTok Shop. Go look before I talk myself into a backup.”
-“It’s in TikTok Shop if you want to judge it with me.”
-“Would you try this, or are you stronger than me?”
+“It’s linked below. Go look before I talk myself into a backup.”
+“You gotta try it out for yourself before you judge me. Link below so we can twin”
+“Say sorry wallet & click the link below to grab one for yourself”
 FASHION
-
 Generic:
 HOOK:
 “This is your sign to stop buying pieces you only wear once.”
@@ -126,7 +124,7 @@ HOOK:
 “This looked cute online, but I needed to see the fit for myself.”
 THE BUILD:
 “I’m showing the fit, fabric, stretch, and how it looks styled casually versus dressed up.”
-“The Shop App details mention [insert feature: stretch fabric / oversized fit / adjustable straps / soft material / structured shape], so that’s the first thing I wanted to test.”
+“The description mentions [insert feature: stretch fabric / oversized fit / adjustable straps / soft material / structured shape], so that’s the first thing I wanted to test.”
 “I styled this with pieces I already own because the real question is whether it works in an actual closet.”
 “Instead of just saying it’s cute, I’m showing how it fits into a real outfit.”
 THE TURN:
@@ -135,29 +133,29 @@ THE TURN:
 “This made the outfit feel more intentional without making it look like I tried too hard.”
 “This is the kind of piece I can see myself reaching for more than once.”
 THE CLOSE:
-“It’s linked in TikTok Shop if you want to check sizing and current price.”
-“I linked it in TikTok Shop so you can compare the details yourself.”
-“If this fits your style, check TikTok Shop for the listing.”
+“I’m a size _ so check the link below to see if they have your size in stock”
+“I linked the product below so you can grab one for yourself”
+“You need this for your closet, check out the sizes & colors in the orange shopping cart”
 Storytime:
 HOOK:
-“I needed an outfit that looked planned, but I had five minutes.”
+“Everytime I wear this item, people stop and ask me where i got it”
 “I was running late, and this ended up being the piece that saved the outfit.”
 “I needed something easy to style, because I was not in the mood to overthink.”
 “I had an event / dinner / errands day and needed one piece that could work.”
-THE BUILD:
-“I grabbed [product], checked the Shop App details for sizing and material, and styled it with basics.”
 “I was getting ready and realized my outfit looked fine, but not finished.”
+THE BUILD:
+“I grabbed [product], threw it together with some jeans & BAM it was starting to look like an outfit.”
 “At first, I thought it would only work for one outfit, so I tested it with a few different basics.”
 “I was running late, so this had to be simple: put it on, check the fit, and see if the outfit worked.”
- THE TURN:
+THE TURN:
 “The surprise was that it didn’t feel like a one-outfit piece. I could wear it multiple ways.”
 “The funny part is, this ended up being the piece that pulled the whole outfit together.”
 “I thought it would be a one-time look, but it actually worked with more than I expected.”
 “I started with one outfit, then immediately thought of two more ways to wear it.”
 THE CLOSE:
-“Tap the TikTok Shop product card to see the details.”
-“If your closet has pieces but no outfits, this might be worth looking at.”
-“Product card is linked if your outfit also needs a finishing piece.”
+“Tap the link below to see if they have it in your size, you won’t regret it”
+“If your closet has pieces but no outfits, this might be worth looking at. Check the link below”
+“Shop the orange cart if your outfit also needs a finishing piece.”
 Educational:
 HOOK:
 “Here’s how I decide if fashion items are worth adding to cart.”
@@ -176,8 +174,8 @@ THE TURN:
 “This piece makes more sense when you think about how many outfits it can work with.”
 THE CLOSE:
 “I linked it so you can check the size info yourself.”
-“Let me know if you want this styled three different ways.”
-“Save this if you like fashion reviews that actually explain the fit.”
+“Let me know if you want this styled in more ways & i’ll do some follow up vids.”
+“If you’re looking for quality pieces to add to your wardrobe, click the link below to shop”
 Before/After:
 HOOK:
 “Watch how one piece changes the whole outfit.”
@@ -196,17 +194,16 @@ THE TURN:
 “This is the difference between putting clothes on and styling them.”
 “It didn’t change the whole outfit — it just pulled everything together.”
 THE CLOSE:
-“The product card is in TikTok Shop.”
-“Would you wear the before or the after?”
-“Comment if you want me to style this with another outfit.”
-“Save this if you like easy outfit upgrades.”
-
+“Click the link below to complete your outfits”
+“Why not have a cute new piece to spruce up your wardrobe? Shop below to grab yours!”
+“Elevating your style shouldn’t be hard, grab yours now so we can twin & elevate together”
+“I got you on the easy outfit upgrades, click the link below before they sell out”
 Product Demo:
 HOOK:
-“Let’s do a real fit check.”
+“Let’s do a real fit check of my fav TikTok Shop fashion purchases.”
 “Product photos are one thing — let’s see it on a real body.”
 “Let’s see if this is actually comfortable or just cute.”
-“I’m going to style this three ways so we can see if it’s versatile.” 
+“I’m going to style this three ways so we can see if it’s versatile.”
 THE BUILD:
 “Front, side, back, movement test, sitting test, and close-up of the material.”
 “I’m trying this on with basics first, then styling it into a complete look.”
@@ -219,9 +216,9 @@ THE TURN:
 “This is the kind of fit that works for more than just standing still.”
 “It feels comfortable enough to actually wear outside the house.”
 THE CLOSE:
-“Check TikTok Shop for sizing and availability.”
-“Would you style it casually or dress it up?”
-“Comment if you want me to style it three ways.”
+“Check the link below to see if they have your size & if they do, grab it while you can!!.”
+“Run to the link attached to grab one for yourself”
+“You need to try this one for yourself, trust me & click the link below”
 Skit/Comedy:
 HOOK:
 “My closet: you have nothing to wear. Also my closet: full.”
@@ -236,15 +233,13 @@ THE TURN:
 “The plot twist is it actually goes with the basics I already own.”
 “I was ready to judge it, but it kind of ate.”
 “The outfit went from ‘I tried’ to ‘I planned this.’
-“I fear this piece made several good points.” 
+“I fear this piece made several good points.”
 THE CLOSE:
-“It’s linked in TikTok Shop if your closet is also dramatic.”
-“I’m not saying you need it. I’m saying I understand why people want it.”
-“Tap the product card before I convince myself to get another color.”
+“It’s linked below if your closet is also dramatic.”
+“I’m not saying you need it. I’m saying I understand why people want it. Shop the orange cart”
+“Tap the link to buy it before I convince myself to get another color.”
 “I linked it so you can see why I lost the argument.”
-
 ELECTRONICS
-
 Generic:
 HOOK:
 “I love tech that solves one annoying problem without needing a manual.”
@@ -252,18 +247,18 @@ HOOK:
 “This is the kind of gadget that makes you wonder why you didn’t get it sooner.”
 “If a tech product needs a 40-minute setup, I’m already out.”
 “I’m testing whether this is useful or just another gadget taking up space.”
- THE BUILD:
-“Here’s what comes in the box, how it connects / charges / works, and the feature that stood out from the Shop App listing.”
+THE BUILD:
+“Here’s what comes in the box, how it connects / charges / works, and the feature that stood out from the product description."
 “I’m setting it up in real time so you can see whether it’s actually simple to use.”
 “I wanted to test this with the devices I already use instead of creating a perfect setup just for the video
- THE TURN:
+THE TURN:
 “I expected it to be extra, but it actually made my desk / travel / daily setup cleaner.”
 “The part that surprised me is how simple it was to set up.”
 “I didn’t think I’d care about [insert feature], but that ended up being the best part.”
 THE CLOSE:
-“I linked it in TikTok Shop so you can check specs and compatibility.”
-“I linked it so you can check the current listing.”
-“It’s in the TikTok Shop if you want to check the current price and features.”
+“I linked it below so you can check specs and compatibility.”
+“Click the link to see if it would be a fit for your lifestyle ”
+“Click the orange cart to check the current price and read the product features yourself.”
 Storytime:
 HOOK:
 “I realized my setup was chaotic when I had three cords and zero patience.”
@@ -272,7 +267,7 @@ HOOK:
 “This was supposed to be a simple test, but now it might stay in my setup.”
 “I bought this because I kept saying, ‘I need a better system,’ and doing nothing about it.”
 THE BUILD:
-“So I tried [product]. The Shop App details said [feature], and I wanted to see if it made daily use easier.”
+“So I tried [product]. The description said it [feature], and I wanted to see if it made daily use easier.”
 “The listing mentioned [insert feature], which sounded like it could fix the exact problem I kept having.”
 “I wanted to see if this would actually make my routine easier or just become another thing I forget about.”
 THE TURN:
@@ -280,28 +275,27 @@ THE TURN:
 “This is usually how I know a gadget is useful — when I stop thinking about it and just use it.”
 “It made my setup feel more organized without needing a full reset.”
 THE CLOSE:
-“Tap the product card in TikTok Shop to see the details.”
-“If your setup has the same problem, this might be worth looking at.”
-“I linked it in TikTok Shop if you want to read the details.”
+“Get it now if you want to make your life easier.”
+“If your setup has the same problem, this might be worth looking at. Check out the link below”
+“Get your card ready, because you need this. I went ahead and added the link below to make it easier for you!”
 Educational:
 HOOK:
-“Before buying electronics, check this first.”
-“Before you buy electronics online, check this first.”
+“Before buying electronics, check for these crucial details.”
+“Before you blindly buy electronics online, let me give you a real review”
 “Here’s how I decide if a tech product is useful or just clutter.”
 THE BUILD:
 “Look at compatibility, charging type, dimensions, power needs, and what’s actually included.”
 “I’m looking at whether this saves time, saves space, reduces clutter, or makes one task easier.”
-“I’m using it exactly how the product card says so we can see what it’s designed to do.”
+“I’m using it exactly how the product description says so we can see what it’s designed to do.”
 THE TURN:
 “[Product] stood out because the listing clearly shows [spec / feature], so you know what you’re getting.”
 “The useful part is how clearly it fits into one daily task.”
 “This is the difference between buying a gadget because it’s trendy and buying one because it’s practical.”
 “For me, the best electronics are the ones that make the setup simpler.”
 THE CLOSE:
-“I linked it so you can double-check the specs.”
-“Save this if you like tech reviews that actually explain the setup.”
-“Comment if you want me to test this with another setup.”
-“Always check the listing first, especially with electronics.”
+“I linked it below so you can double-check the specs.”
+“Check the link to make sure it will work for you & shop now if it does!”
+“Always check the listing first, especially with electronics. I linked this exact one so you can buy with confidence ”
 Before/After:
 HOOK:
 “Before: messy setup. After: way cleaner.”
@@ -310,33 +304,33 @@ HOOK:
 THE BUILD:
 “Here’s my desk / bag / nightstand before. Now here it is with [product] added.”
 “Before, I had [insert issue: tangled cords / no space / bad angle / too many devices]. Now I’m testing if this makes it easier.”
-“I’m testing if this actually reduces one daily annoyance.” 
+“I’m testing if this actually reduces one daily annoyance.”
 THE TURN:
 “It didn’t reinvent my life, but it did remove one daily annoyance.”
 “Sometimes the best tech upgrade is just having fewer annoying steps.”
-“I like that it makes the space feel more organized without adding more clutter.” 
+“I like that it makes the space feel more organized without adding more clutter.”
 THE CLOSE:
-“Check the TikTok Shop card for compatibility and price.”
-“Comment if you want me to test it in another setup.”
-“Would this help your setup too?”
+“Check the link before for compatibility and the current price.”
+“Grab yours & let me know what you’re most excited for”
+“Would this help your setup too? If so click the link to buy one for yourself”
 Product Demo:
 HOOK:
-“Let’s see how this tech actually works.”
-“Let’s see if this tech product is actually easy to use.”
+“Let’s see how this [product] actually works.”
+“Let’s see if these [products] are actually easy to use.”
 “Let’s see if this tech find solves the problem it’s supposed to.”
- THE BUILD:
+THE BUILD:
 “Unbox it, plug it in, connect it, test the main feature, and show the result in real time.”
-“The Shop App details mention [insert feature], so I’m testing that part during the demo”
+“The product details mention [insert feature], so I’m testing that part during the demo”
 “Here’s how long it takes to get started, what you need to plug in, and how it works once it’s ready.”
 THE TURN:
 “The part that impressed me was [feature] because that’s the thing I’d actually use every day.”
 “The setup was easier than I expected.”
 “I didn’t expect [insert feature] to matter this much, but it does.”
 THE CLOSE:
-“It’s linked in TikTok Shop if you want the specs.”
-“Would this fit into your setup?”
+“It’s linked below so you can check out all of the specs.”
+“Would this fit into your setup? If so grab one from the link below”
 “I linked it so you can compare the details before buying.”
-“Save this if you like seeing the full demo before adding tech to cart.”
+“Add to cart now before it sells out, because this is worth buying!”
 Skit/Comedy:
 HOOK:
 “Me: I don’t need more gadgets. Also me when one gadget fixes my setup…”
@@ -346,57 +340,55 @@ THE BUILD:
 “Cue me acting like a tech reviewer because [product] made one small problem disappear.”
 “Here’s me pretending this isn’t useful while immediately plugging it in.”
 “This gadget said ‘convenience,’ and my patience said ‘say less.’”
-“I was ready to judge it, but the feature started making a very strong argument.” 
+“I was ready to judge it, but the feature started making a very strong argument.”
 THE TURN:
 “It’s not unnecessary if I use it every day, right?”
 “Unfortunately for my self-control, it worked.”
 “The plot twist is that my setup actually looks better now.”
-“The gadget won. I can admit that.” 
+“The gadget won. I can admit that.”
 THE CLOSE:
-“Product card is in TikTok Shop for my fellow gadget people.”
-“TikTok Shop has the details if your setup needs backup too.”
+“The product info is linked below for my fellow gadget people to check out.”
+“The link below has the details if your setup needs backup too.”
 “I linked it so you can see why I lost the argument.”
-“Product card is here if your cords are also living their own life.”
-
+“Check out now if your cords are also living their own life.”
 HOME
-
 Generic:
 HOOK:
 “Tiny home upgrades are my weakness.”
 “This is your sign to fix that one annoying corner of your home.”
 “I found a home find that might solve one very specific problem.”
 “This is for anyone who has one area of their home that always feels messy.”
- THE BUILD:
+THE BUILD:
 “Here’s the space before, here’s [product], and here’s how it looks once it’s actually being used.”
-“The Shop App details mention [insert feature: compact design / washable material / space-saving shape / easy setup / multi-use design], so that’s what I wanted to test first.”
+“The product details mention [insert feature: compact design / washable material / space-saving shape / easy setup / multi-use design], so that’s what I wanted to test first.”
 “I’m testing whether this actually solves the clutter / storage / comfort / decor problem I bought it for.”
 THE TURN:
 “What got me was how much cleaner / cozier / easier the space felt without a huge change.”
 “I expected this to be cute, but it actually made the area more useful.”
-“The biggest win is that it fits into the space without adding more clutter.” 
+“The biggest win is that it fits into the space without adding more clutter.”
 THE CLOSE:
-“I linked it in TikTok Shop if you want to check dimensions.”
-“I linked it so you can check the current listing.”
-“It’s in TikTok Shop if you want to check the current price and features.”
+“I linked it below if you want to check the dimensions to see if it would fir your space.”
+“I linked it below so you can get it for your home too”
+“Shop below to upgrade your home”
 Storytime:
 HOOK:
 “I was tired of this one corner looking messy no matter what I did.”
 “I finally got tired of this one corner looking messy no matter what I did.”
 “I kept saying I needed to organize this area, and then I found this.”
 “My room / kitchen / bathroom / desk area had been annoying me for weeks.”
- THE BUILD:
-“I found [product], checked the measurements in the Shop App, and tried it in the actual space.”
+THE BUILD:
+“I found [product], checked the measurements in the description, and tried it in the actual space.”
 “The listing mentioned [insert feature], which sounded like it could fix the exact problem I kept having.”
 “The real test was whether the area still felt better after the camera was off.”
 THE TURN:
 “The surprise was that it didn’t just look better — it made the area easier to use.”
 “The funny part is, this solved a problem I had just gotten used to ignoring.”
 “This is one of those small upgrades that makes sense once you see it in your home.”
-“It made the space feel more organized without needing to redo everything.” 
+“It made the space feel more organized without needing to redo everything.”
 THE CLOSE:
-“Check out the link below for more details.”
-“Check out the link to see the current price and measurements.”
-“If your space has the same problem, this might be worth looking at.”
+“Check out the link below for more details like measurements & more.”
+“Shop below to add this to your home.”
+“If your space has the same problem, this might be worth looking at. Check the link below”
 “I linked it below if your space also needs a little help.”
 Educational:
 HOOK:
@@ -404,27 +396,27 @@ HOOK:
 “Before you buy home products online, check this first.”
 “Here’s how I decide if a home product is useful or just clutter.”
 “A home product is only useful if it solves a problem you actually have.”
- THE BUILD:
+THE BUILD:
 “Check size, material, cleaning instructions, storage, and whether you’ll actually use it daily.”
-“For this product, the Shop App details mention [insert feature], so I’m testing that specific use in a real space.”
+“For this product, the details mention [insert feature], so I’m testing that specific use in a real space.”
 “I’m testing this in the place I’d actually use it: kitchen, bathroom, bedroom, closet, desk, or entryway.”
- THE TURN:
+THE TURN:
 “[Product] makes sense because [insert feature] solves a specific home problem.”
 “The feature sounds simple, but in daily use it can make the space feel easier.”
 “For me, the best home finds are the ones that make the space simpler.”
 “The measurements matter, but how it works in your actual home matters too.”
 THE CLOSE:
 “I linked it so you can check the measurements before buying.”
-“If you’re curious, compare the measurements in TikTok Shop before buying.”
-“Tap the link below for the full listing and current availability.”
-“Comment if you want me to test this in another room.”
+“Compare the measurements below to your space then check out now.”
+“Tap the link below for the full details and current pricing.”
+“I think it’s time to spoil your home with an upgrade, click below to get it now”
 Before/After:
 HOOK:
 “Before: cluttered. After: calmer.”
 “Watch how one home product changes this space.”
 “This is the difference between a space that annoys me and one that actually works.”
 “Here’s the before, here’s the home find, and here’s the after.”
- THE BUILD:
+THE BUILD:
 “Here’s the space before. Now here’s the same spot after adding [product].”
 “Now I’m adding [product] and keeping everything else the same so you can see the actual difference.”
 “I’m testing if this actually reduces one daily home annoyance.”
@@ -433,54 +425,52 @@ THE TURN:
 “The difference is small, but the space feels much easier to use.”
 “The main change is convenience.”
 “Sometimes the best home upgrade is just having fewer annoying little messes.”
- THE CLOSE:
-“It’s linked below if you want to check it out.”
-“Would this help your space too?”
+THE CLOSE:
+“It’s linked below so grab it now to elevate your space”
+“Would this help your space too? If so click the orange cart & buy now”
 “I linked it below so you can see if it would work in your home too.”
 Product Demo:
 HOOK:
 “Let’s see if this home find is actually useful.”
 “Let’s see if this home product is actually easy to use.”
 “Product photos are one thing, let’s see this in a real home.”
-“Let’s see if this passes the real-space test.”
+“Let’s see if this passes the IRL test.”
 THE BUILD:
 “I’m showing setup, size, how it fits in the space, and how I’d use it on a normal day.”
 “I’m using it in my real space so you can see a realistic setup.”
-“The Shop App details mention [insert feature], so I’m testing that part during the demo.”
-
+“The product details mention [insert feature], so I’m testing that part during the demo.”
 THE TURN:
 “The detail I didn’t expect to care about was [feature], but it makes a difference.”
 “The setup was easier than I expected.”
 “The demo made the product make more sense than the photos did.”
 “It’s simple, but that’s what makes it useful.”
 THE CLOSE:
-“Check the product card in TikTok Shop.”
-“It’s linked in TikTok Shop if you want the full product details.”
-“I linked it so you can compare the details before buying.”
+“Check it out below and buy it before it sells out”
+“I’ll be for real, it’s a must have. Check out now so you can have it too”
+“I linked it so you can check out the details before buying.”
 Skit/Comedy:
 HOOK:
 “Me: my home is fine. Also my home: one corner absolutely fighting for its life.”
 “My kitchen / bathroom / bedroom said, ‘Please help.’ So I bought this.”
 “I said I was done buying home stuff. Anyway, here’s what came in the box.”
- THE BUILD:
+THE BUILD:
 “Watch this messy corner get upgraded with [product].”
 “Here’s me pretending this isn’t useful while immediately finding the perfect spot for it.”
-“I tried it in my actual home because if it can’t survive my daily routine, what are we doing?” THE TURN:
+“I tried it in my actual home because if it can’t survive my daily routine, what are we doing?”
+THE TURN:
 “I fear this actually worked, and now I’m looking at every corner suspiciously.”
 “I hate when a product proves me wrong.”
 “This is exactly how people become home organization people.”
 THE CLOSE:
-“It’s linked in TikTok Shop if your home also has a problem corner.”
-“Would this help your space, or are you more organized than me?”
-“The link has the details if your space needs help too.”
-
+“It’s linked below if your home also has a problem corner.”
+“Yeah, you need it. Click the link to add it to your cart now”
+“The link attached has the sizing & more details if your space needs help too.”
 HEALTH
-
 Generic:
 HOOK:
 “I’m trying to build a routine I can actually stick to.”
 “I love a health find that makes one small part of my day easier.”
-“If a wellness product adds stress to my routine, I’m not using it.” 
+“If a wellness product adds stress to my routine, I’m not using it.”
 THE BUILD:
 “Here’s [product], what it’s designed for, and how I use it as part of my normal day.”
 “Here’s how I’d use it before work / after the gym / during a reset / before bed.”
@@ -489,32 +479,31 @@ THE TURN:
 “The surprise was that it made the routine feel easier, not more complicated.”
 “The useful part is not that it does everything — it supports one specific habit.”
 “This made more sense once I used it in my actual routine.”
-“The biggest win is that it doesn’t make wellness feel complicated.” 
+“The biggest win is that it doesn’t make wellness feel complicated.”
 THE CLOSE:
-“Check the link below for the full details.”
-“If this is something you think you need, click the link below”
-“If you have this same problem, I’d suggest trying it out”
-“It’s not a magic solution, but it did make a difference"
+“Check the link below to grab yours now”
+“If this is something you think you need, click the link below & join me in my wellness journey”
+“If you have this same problem, I’d suggest trying it out. I linked it right here for ya”
+“It’s not a magic solution, but it did make a difference. Try it for yourself!"
 Storytime:
 HOOK:
 “I used to overcomplicate my wellness routine and then quit by day three.”
 “I bought this because I wanted one small habit that felt realistic.”
 “This started because I kept saying I wanted a better routine and then doing too much.”
-“My routine was not the problem — the problem was that it had too many steps.” 
-
+“My routine was not the problem — the problem was that it had too many steps.”
 THE BUILD:
-“So I tried keeping it simple with [product]. I checked the Shop App details first so I knew exactly what it was intended for.”
+“So I tried keeping it simple with [product]. I checked the product details first so I knew exactly what it was intended for.”
 “The listing mentioned [insert feature], which sounded like it could help with the exact routine problem I kept having.”
 “I wanted to see if this would actually make the habit easier or just become another product I forget about.”
 “I used it during a normal day, because that’s when wellness products prove whether they’re realistic.”
-“The real test was whether I’d use it again after the first try.” 
+“The real test was whether I’d use it again after the first try.”
 THE TURN:
 “The win for me was convenience. No big claims, just something that fits into my day.”
 “This is one of those small routine upgrades that makes sense once you actually use it.”
-“I didn’t realize how much I avoided this step until this made it simpler 
+“I didn’t realize how much I avoided this step until this made it simpler
 THE CLOSE:
-“It’s linked in TikTok Shop if you want to read the product info.”
-“If your routine has the same problem, this might be worth looking at.”
+“It’s linked below if you want learn more about it”
+“If your routine has the same problem, I linked it below for you”
 “ I linked it here if your wellness routine also needs to be simpler.”
 Educational:
 HOOK:
@@ -524,23 +513,23 @@ HOOK:
 “A wellness product is only useful if it fits a routine you’ll actually do.”
 THE BUILD:
 “I look for clear ingredients / materials / intended use, simple instructions, and realistic product details.”
-“For this product, the Shop App details mention [insert feature], so I’m testing that specific use in a normal routine.”
+“For this product, the details mention [insert feature], so I’m testing that specific use in a normal routine.”
 “The key thing with wellness products is making sure the item matches your actual habits and needs.”
 THE TURN:
 “[Product] works for this kind of content because we can talk about features without making medical claims.”
 “The feature sounds simple, but in daily use it can make the routine feel easier.”
 “The useful part is how clearly it fits into one daily habit.”
-“This is the difference between buying because of wellness hype and buying because something is practical.” 
+“This is the difference between buying because of wellness hype and buying because something is practical.”
 THE CLOSE:
-“Tap the product card to review the details yourself.”
+“Tap the product description to review the details yourself.”
 “Check the link below and make sure it fits your routine.”
-“I linked it in TikTok Shop so you can see if this works for you.”
+“I linked it below so you can try it for yourself”
 Before/After:
 HOOK:
 “Before: my routine was scattered. After: I made it easier to follow.”
 “Before this, my wellness routine felt like too many steps.”
 “Before: I kept skipping this step. After: it finally felt doable.”
-“This is the difference between a routine that feels overwhelming and one that feels more realistic.” 
+“This is the difference between a routine that feels overwhelming and one that feels more realistic.”
 THE BUILD:
 “I’m not showing a body transformation or making health promises. I’m showing the setup before and after adding [product].”
 “Before, I had [insert issue: messy bag / no system / skipped step / too many products]. Now I’m testing if this makes it easier.”
@@ -550,9 +539,9 @@ THE TURN:
 “The difference is small, but the routine feels easier to follow.”
 “It’s not dramatic, but the routine feels better.”
 THE CLOSE:
-“Check TikTok Shop for product details and usage info.”
-“Would this help your routine too?”
-“Tap the link below to check out the price and details”
+“Check the link below for product details and usage info.”
+“I linked the product so you can try it for yourself”
+“Tap the link below to check if it’s still in stock”
 Product Demo:
 HOOK:
 “Let’s demo this wellness product the responsible way.”
@@ -568,9 +557,9 @@ THE TURN:
 “This is practical in a way that is easy to overlook until you try it.”
 “It’s simple, but that’s what makes it useful.”
 THE CLOSE:
-“It’s linked in TikTok Shop if you want to read the listing.”
-“Would this fit into your routine?”
-“Check out the link below to see the current price and listing.”
+“It’s linked below if you want to read more about it.”
+“Would this fit into your routine? If so, grab it today & comment any questions you have”
+“Check out the link below for more info & so you can buy ASAP”
 Skit/Comedy:
 HOOK:
 “Me: I’m going to build a wellness routine. Also me: immediately making it too complicated.”
@@ -580,19 +569,17 @@ THE BUILD:
 “I add [product] and suddenly act like I have my life together.”
 “My routine had too many steps, so I tested whether [product] could make one part easier.”
 “I tried it in my actual routine because if it can’t survive my real day, what are we doing?”
-“This wellness find said ‘simple,’ and my patience said ‘say less.’” 
+“This wellness find said ‘simple,’ and my patience said ‘say less.’”
 THE TURN:
 “Realistically, it just makes one part of my day easier, and I’ll take that.”
 “The plot twist is that my routine actually feels easier now.”
-“This product made me understand why people stick to a routine”  
+“This product made me understand why people stick to a routine”
 THE CLOSE:
-“Product card is in TikTok Shop.”
+“You’ve heard it a million times but it’s linked below”
 “Get one for yourself before I sell them out.”
-“TikTok Shop has the details if your routine needs backup too.”
-“Check the current price in TikTok Shop and tell me if I’m being dramatic.”
+“I added the link so you can try it for yourself and tell me if I’m being dramatic.”
 SPORTS
-
-Generic
+Generic:
 HOOK:
 “You don’t need a complicated setup to make movement easier.”
 “I love fitness finds that make getting moving feel easier.”
@@ -610,27 +597,27 @@ THE TURN:
 “The biggest win is that it fits into my day without making movement feel complicated.”
 “The comfort / convenience is what makes this work for me.”
 THE CLOSE:
-“I linked it in TikTok Shop so you can check the specs.”
-“If this fits your routine, click on the link below”
-“It’s in TikTok Shop if you want to check the current price and features.”
-Storytime
+“I linked it below so you can try it for yourself”
+“You know you want it, so I went ahead and added the link for you”
+“It’s linked below so grab it while they’re still in stock”
+Storytime:
 HOOK:
 “I kept skipping workouts because setting up felt like a chore.”
 “I kept saying I wanted to move more, but I needed it to feel easier to start.”
 “This started because I wanted workout gear I could use at home without overthinking.”
 THE BUILD:
-“So I tried [product]. The Shop App details said [feature], and I wanted something simple.”
+“So I tried [product]. The product details said [feature], and I wanted something simple.”
 “The listing mentioned [insert feature], which sounded like it could help with the exact routine problem I kept having.”
-“The real test was whether I’d reach for it again after the first wear/ try.” 
+“The real test was whether I’d reach for it again after the first wear/ try.”
 THE TURN:
 “It didn’t promise anything extreme, it just made getting started easier.”
 “The funny part is, this helped with a routine problem I had gotten used to ignoring.”
 “I didn’t realize how much I avoided this step until this made it simpler.”
 THE CLOSE:
-“Tap the TikTok Shop card for details.”
-“If your routine has the same problem, this might be worth looking at.”
-“Check out the link below and see if it would work for your routine.”
-Educational
+“Tap the orange shopping cart to get one for yourself”
+“I’ll say it again, I would buy this again so you should get one! Link is below”
+“Tap the orange cart for more info & grab one if you’re curious”
+Educational:
 HOOK:
 “When buying sports gear, don’t just look at the hype.”
 “A fitness product is only useful if it fits a routine you’ll actually do.”
@@ -639,17 +626,16 @@ HOOK:
 THE BUILD:
 “Check size, material, grip, adjustability, storage, and whether it fits your activity.”
 “I’m checking whether the product is easy to understand, easy to store, and realistic to use regularly.”
-“I’m looking at whether this saves time, reduces friction, adds comfort, or makes one routine step easier.” 
+“I’m looking at whether this saves time, reduces friction, adds comfort, or makes one routine step easier.”
 THE TURN:
 “[Product] makes sense because [feature] is actually useful for [sport / routine].”
 “Fitness gear does not need to promise huge results to be useful. It just needs to support the right habit.”
 “For me, the best workout finds are the ones that make consistency feel easier.”
 THE CLOSE:
-“I linked it so you can review the details.”
+“I linked it below so you can review the details.”
 “I linked it so you can try it for yourself”
-“If you’re looking for something to add to your routine, click the link below”
-
-Before/After
+“If you’re looking for something that’s game changing, click the link below”
+Before/After:
 HOOK:
 “Before: awkward setup. After: smoother routine.”
 “Before this, my routine felt like too many steps.”
@@ -657,7 +643,7 @@ HOOK:
 THE BUILD:
 “Here’s what I was using before. Now here’s how [product] changes the setup.”
 “Here’s the before: the clutter, the skipped step, or the part of my routine that felt annoying.”
-Before, I had [insert issue: messy gym bag / no walking setup / awkward storage / uncomfortable outfit]. Now I’m testing if this makes it easier.”
+“Before, I had [insert issue: messy gym bag / no walking setup / awkward storage / uncomfortable outfit]. Now I’m testing if this makes it easier.””
 “I’m testing if this actually reduces one daily workout / walking / practice annoyance.”
 THE TURN:
 “The difference is convenience, not a promise that it changes your body or performance overnight.”
@@ -665,11 +651,11 @@ THE TURN:
 “I like that it makes movement feel more manageable without adding more pressure.”
 “Sometimes the best fitness upgrade is just having fewer reasons to skip a step.”
 THE CLOSE:
-“Check the product card in TikTok Shop.”
-“Would this help your routine too?”
+“Check the link below to see if it’s still in stock”
+“Let’s step up our fitness game, link below”
 “Save this if your workout setup needs a small, realistic upgrade.”
-If your workout routine/ outfit needs an upgrade, check out the link below.”
-Product Demo
+“If your workout routine/ outfit needs an upgrade, check out the link below.”
+Product Demo:
 HOOK:
 “Let’s test this sports/workout/ fitness find.”
 “Let’s see if this activewear / fitness product is actually easy to use.”
@@ -677,27 +663,27 @@ HOOK:
 “Let’s see if this passes the real-routine test.”
 THE BUILD:
 “I’m showing size, grip, setup, movement, storage, and how it handles normal use.”
-“The Shop App details mention [insert feature], so I’m testing that part during the demo.”
+“The product details mention [insert feature], so I’m testing that part during the demo.”
 “I’m using it in my real routine so you can see a realistic setup.”
 “I’m not skipping the setup or fit test because that’s the part people actually need to see.”
 THE TURN:
 “The setup was easier than I expected.”
 “I like that it works without making the routine feel complicated.”
-“The standout is [feature] because it’s the part I’d actually notice during practice.” 
+“The standout is [feature] because it’s the part I’d actually notice during practice.”
 THE CLOSE:
-“It’s in TikTok Shop if you want the details."
-“If this demo convinced you,I linked it below”
-“Save this if you like seeing the full demo before adding fitness gear to cart.”
-Skit/Comedy
+“All of the details are linked below, grab one before they’re gone”
+“If this demo convinced you, I linked it below so you can have one too”
+“It’s a no brainer, you need it! Product linked below”
+Skit/Comedy:
 HOOK:
 “I bought this for ‘fitness research,’ obviously.”
 “POV: one fitness find fixes the step you kept skipping for months.”
 “Me buying sports gear: this will make me disciplined. Also me: still needs motivation.”
-“Me: I’m going to be a workout person. Also me: immediately making it too complicated.” 
+“Me: I’m going to be a workout person. Also me: immediately making it too complicated.”
 THE BUILD:
 “But [product] does make the setup easier, so I have fewer excuses.”
 “Here’s me pretending this isn’t useful while immediately adding it to my routine.”
-“I tried it in my actual routine because if it can’t survive my real day, what are we doing?” 
+“I tried it in my actual routine because if it can’t survive my real day, what are we doing?”
 THE TURN:
 “Not magic. Just helpful. Which is honestly better.”
 “The plot twist is that my routine actually feels easier now.”
@@ -705,10 +691,8 @@ THE TURN:
 THE CLOSE:
 “If this would fix your routine, I linked it below”
 “I linked it so you can try it for yourself”
-“Would this help your routine, or are you more organized than me?”
-
+“Run, don’t skip, or whatever they say hahahah. Link is below”
 KITCHEN
-
 Generic:
 HOOK:
 “Kitchen tools that save me tiny amounts of effort? I’m listening.”
@@ -719,24 +703,23 @@ THE BUILD:
 “Here’s [product], how it works, how much space it takes up, and how I’d use it during a real meal.”
 “I’m showing the product up close, how it works, and how I’d use it during a normal meal or snack.”
 “I’m testing whether this feels simple enough to use more than once.”
-“The real test is whether this saves effort without creating more cleanup.” 
+“The real test is whether this saves effort without creating more cleanup.”
 THE TURN:
 “The surprise was that it made one annoying step feel easier.”
 “The part that surprised me is how easy it was to use.”
-“I expected this to feel extra, but it actually made the step simpler.” 
+“I expected this to feel extra, but it actually made the step simpler.”
 THE CLOSE:
-“I linked it in TikTok Shop so you can check size and details.”
-“I linked it below so you can check it out for yourself”
-“It’s in TikTok Shop if you want to check the current price and features.”
+“I linked it below so you can grab one for your kitchen”
+“Your kitchen will thank you!! Grab one now, I added the link so you can easily find it”
+“Tap the orange cart for other sizes & colors, you def need it”
 Storytime:
 HOOK:
 “I was making dinner and got annoyed by the same step again.”
 “I was trying to make meal prep feel less chaotic, and this caught my attention.”
 “I didn’t think one simple kitchen find would make much of a difference until I tried it.”
-This started because my kitchen drawer was full, but somehow I still didn’t have the right tool.” 
-
+“This started because my kitchen drawer was full, but somehow I still didn’t have the right tool.””
 THE BUILD:
-“So I tried [product]. The Shop App listing showed [feature], and I wanted to see if it was practical.”
+“So I tried [product]. The product listing showed [feature], and I wanted to see if it was practical.”
 “The listing mentioned [insert feature], which sounded like it could help with the exact kitchen problem I kept having.”
 “I wanted to see if this would actually make the task easier or just become another thing I forget in a drawer.”
 “I used it during a normal cooking / snack / coffee / cleanup moment, because that’s when kitchen products prove whether they’re useful.”
@@ -744,12 +727,12 @@ THE BUILD:
 THE TURN:
 “It’s not a chef-level transformation. It just makes the kitchen flow better.”
 “The funny part is, this helped with a kitchen problem I had gotten used to ignoring.”
-“It made cooking / prep / cleanup feel more manageable without needing to redo everything.” 
+“It made cooking / prep / cleanup feel more manageable without needing to redo everything.”
 THE CLOSE:
 “If this sounds like a problem you have, check the link below”
 “If your kitchen has the same problem, this might be worth looking at.”
 “I linked the product here if your cooking / prep / cleanup setup also needs to feel simpler.”
-Educational
+Educational:
 HOOK:
 “Before buying kitchen gadgets, ask this.”
 “Before you buy kitchen gadgets online, check this first.”
@@ -758,39 +741,38 @@ HOOK:
 THE BUILD:
 “Will I use it weekly? Is it easy to clean? Does it fit my drawer? Does it solve a real step?”
 “Instead of just saying it’s convenient, I’m showing what the product is, how it works, and where it fits.”
-“I’m looking at whether this saves time, reduces mess, improves storage, or makes one cooking step easier.” 
+“I’m looking at whether this saves time, reduces mess, improves storage, or makes one cooking step easier.”
 THE TURN:
 “[Product] makes sense because [feature] is actually useful, not just cute.”
 “The feature sounds simple, but in daily use it can make the kitchen feel easier.”
-“Kitchen tools do not need to do everything to be useful. They just need to solve the right problem.” 
+“Kitchen tools do not need to do everything to be useful. They just need to solve the right problem.”
 THE CLOSE:
 “I linked it so you can check the details.”
 “I linked it below so you can read the product details yourself.”
 “Comment if you want me to test this in another kitchen task.”
-Before/After
+Before/After:
 HOOK:
 “Before: messy prep. After: smoother prep.”
 “Watch how one kitchen product changes this setup.”
 “This is what my kitchen setup looked like before, and this is what changed after.”
-“My counter / drawer / fridge / sink / pantry setup needed help, so I tested this. 
+“My counter / drawer / fridge / sink / pantry setup needed help, so I tested this.
 THE BUILD:
 “Here’s how I did it before. Now here’s the same task using [product].”
 “Here’s the before: the clutter, the mess, or the part of cooking that was annoying me.”
-[insert issue: messy counter / hard-to-store leftovers / awkward prep / annoying cleanup] 
+“[insert issue: messy counter / hard-to-store leftovers / awkward prep / annoying cleanup]”
 THE TURN:
 “The difference is convenience and cleanup. No exaggerated claims needed.”
 “The main change is that I’m less annoyed by this step.”
 “Sometimes the best kitchen upgrade is just having fewer reasons to avoid one step.”
 THE CLOSE:
-“Would this help your kitchen too?”
-“Click the link for the product info.”
-“Save this if your kitchen setup/ [issue] needs a small, realistic upgrade.”
-Product Demo
+“Would this help your kitchen too? If so, grab one from this video now”
+“Click the link to get one for your kitchen”
+“Buy one if your kitchen setup/ [issue] needs a small, realistic upgrade.”
+Product Demo:
 HOOK:
 “Let’s test this kitchen find in real time.”
 “Let’s test this kitchen gadget with a real task.”
 “Let’s test the feature everyone actually cares about.”
-
 THE BUILD:
 “I’ll show setup, use, cleanup, storage, and whether it feels sturdy.”
 “I’m not skipping the cleanup because that’s the part people actually need to see.”
@@ -798,31 +780,30 @@ THE BUILD:
 THE TURN:
 “The part I liked most was [feature], because that’s the thing that saves time in real life.”
 “This is practical in a way that is easy to overlook until you try it.”
-“It’s simple, but that’s what makes it useful.” 
+“It’s simple, but that’s what makes it useful.”
 THE CLOSE:
-“I linked it below if you think this would help your kitchen too”
-“Would this fit into your kitchen routine?”
-“Check out the link to see the current price and listing.”
-Skit/Comedy
+“I linked it below so grab it if you think this would help your kitchen too”
+“Would this fit into your kitchen routine? If so, why wait? Buy it now!”
+“This gets my stamp of approval. Click the link so you can try it too”
+Skit/Comedy:
 HOOK:
 “Me: I don’t need another [insert kitchen gadget]. Also me when it saves one annoying step…”
 “Me: I’m going to cook at home more. Also me: immediately making it too complicated.”
-“My counter situation was a little chaotic, so I had to intervene.” 
+“My counter situation was a little chaotic, so I had to intervene.”
 THE BUILD:
 “Suddenly I’m a meal-prep influencer with [product].”
 “I tried it in my actual kitchen because if it can’t survive my real cooking routine, what are we doing?”
-“This kitchen find said ‘easy cleanup,’ and my patience said ‘say less.’” 
+“This kitchen find said ‘easy cleanup,’ and my patience said ‘say less.’”
 THE TURN:
 “Okay, it’s actually useful. I hate when the internet is right.”
 “The plot twist is that my kitchen actually feels easier now.”
-“I wanted to call it unnecessary, but then it fixed the annoying step.” 
+“I wanted to call it unnecessary, but then it fixed the annoying step.”
 THE CLOSE:
-“I put the link below for you”
-“Check the current price in TikTok Shop and tell me if I’m being dramatic.”
-“Clink on the link for details if your kitchen needs backup too.”
+“I made it easy and added the link to this video for you so you can shop now”
+“Check the current price on the link below bc I thinkkkk you’re gonna want it”
+“I would grab another if I could. So get one for me too when you get yours, thanks!!”
 PETS
-
-Generic
+Generic:
 HOOK:
 “Pet products have to pass the real-life test.”
 “Pet products have to pass the real-life test.”
@@ -832,43 +813,40 @@ THE BUILD:
 “Here’s [product], the size, material, how it works, and how my pet reacts to it.”
 “Here’s the size, how it works, how easy it is to set up, and how my pet responds to it.”
 “I wanted to see if this made feeding / grooming / walking / playtime / cleanup easier.”
-“Here’s how I’d use it for everyday pet care, not just for a cute video.” 
+“Here’s how I’d use it for everyday pet care, not just for a cute video.”
 THE TURN:
 “The surprise was [pet reaction / ease of use / cleanup], which matters more than the listing photos.”
 “It’s simple, but that’s why it works.”
-“The biggest win is that it fits into pet life without creating more cleanup or chaos.” 
+“The biggest win is that it fits into pet life without creating more cleanup or chaos.”
 THE CLOSE:
-“Check the TikTok Shop product card for details and sizing.”
-“I’d read the details first so you know exactly what it’s designed for.”
-“If this solves a problem in your pet routine, the details are in the link.”
-Storytime
+“Check the orange cart for details and sizing.”
+“Your furry friend will thank you, grab one now”
+“If this solves a problem in your pet routine, the link is on this video”
+Storytime:
 HOOK:
 “My pet has strong opinions, so I was not expecting this to be easy.”
 “I kept avoiding this one pet-care task because it was annoying.”
 “I realized my pet routine needed a better system.”
 “I wanted something that made feeding / grooming / walking / cleanup feel easier.”
-
- 
-
 THE BUILD:
 “I tried [product] because the Shop App details said [feature]. I introduced it slowly and watched how they responded.”
 “The details mentioned [insert feature], which sounded like it could help with the exact problem I kept having.”
-“I tested it during a normal feeding / grooming / walking / playtime / cleanup moment.” 
+“I tested it during a normal feeding / grooming / walking / playtime / cleanup moment.”
 THE TURN:
 “The win was that it fit into our routine without a struggle.”
 “This is one of those small pet upgrades that makes sense once you actually use it.”
 “I didn’t realize how annoying the old setup was until this made it simpler.”
 THE CLOSE:
-“It’s linked below if you want to check the details.”
-“If your pet routine has the same problem, this might be worth looking at.”
+“Your pet deserves an upgrade, shop the link now”
+“If your pet routine has the same problem, you def some grab one for yourself”
 “Tap the link and see if it would work for your pet’s routine.”
-Educational
+Educational:
 HOOK:
 “Pet parents, check this before buying.”
 “Don’t buy a pet product just because it looks cute — check if it actually fits your pet’s routine.”
 “Here’s how I decide if a pet product is useful or just clutter.”
 “A pet product is only useful if it solves a problem you actually have.”
- THE BUILD:
+THE BUILD:
 “Look at size, materials, cleaning instructions, age/weight guidance, and how it fits your pet’s routine.”
 “For this product, the details mention [insert feature], so I’m testing that specific use in a normal pet routine.”
 “I’m looking at whether this saves time, reduces mess, improves storage, or makes one pet-care step easier.”
@@ -877,12 +855,11 @@ THE TURN:
 “[Product] is worth showing because [feature] is easy to explain and demonstrate.”
 “Pet products do not need to do everything to be useful. They just need to solve the right problem.”
 “The biggest thing to check is whether it fits your pet’s size, habits, and routine.”
-
 THE CLOSE:
-“Tap the product card for the full listing.”
-“The link has the current price, product details, and usage info.”
-“Check the details and make sure it fits your pet’s routine.”
-Before/After
+“You know you need it, buy now. I added the link so we can twin”
+“Just tap the link & tell me your pet wouldn’t thank you. Like they need it!!”
+“Your pet’s routine needs an upgrade, click the link below to give them that refresh”
+Before/After:
 HOOK:
 “Before: pet area chaos. After: a little more manageable.”
 “This is what our pet routine looked like before, and this is what changed after.”
@@ -891,16 +868,16 @@ HOOK:
 THE BUILD:
 “Here’s the setup before. Now here’s how it looks with [product].”
 “The details mention [insert feature], so I’m checking whether that helps with this specific pet-care problem.”
-“Before, I had [insert issue: messy feeding area / annoying cleanup / awkward grooming setup / scattered toys]. Now I’m testing if this makes it easier.” 
+“Before, I had [insert issue: messy feeding area / annoying cleanup / awkward grooming setup / scattered toys]. Now I’m testing if this makes it easier.”
 THE TURN:
 “No promises that every pet will react the same. I’m just showing our real experience.”
 “This is the kind of before and after that matters because it shows convenience, not an unrealistic result.”
-“I like that it makes feeding / grooming / walking / cleanup feel more manageable.” 
+“I like that it makes feeding / grooming / walking / cleanup feel more manageable.”
 THE CLOSE:
-“Check out the link for size and product details.”
-“Would this help your pet routine too?”
+“Don’t wait until it’s too late, grab it now to make a difference for your pet”
+“Why not make your life easier & your pets life better? Buy now!”
 “The link is here if your feeding / grooming / walking / cleanup routine needs to feel easier.”
-Product Demo
+Product Demo:
 HOOK:
 “Let’s pet-test this.”
 “I’m going to show you exactly how this works with my pet.”
@@ -908,17 +885,17 @@ HOOK:
 THE BUILD:
 “I’m showing the packaging, size, material, how to use it, and my pet’s real reaction.”
 “The details mention [insert feature], so I’m testing that part during the demo.”
-“I’m using it in our real routine so you can see a realistic setup.” 
+“I’m using it in our real routine so you can see a realistic setup.”
 THE TURN:
 “The best part for me was [feature], because it makes cleanup / playtime / feeding easier.”
 “This is the kind of pet product that feels useful because it solves a specific problem.”
 “It’s simple, but that’s what makes it useful.”
-“This is one of those products where cleaning and setup matter as much as the feature.” 
+“This is one of those products where cleaning and setup matter as much as the feature.”
 THE CLOSE:
-“Would this fit into your pet routine?”
-“I linked it so you can compare the details before buying.”
-“Save this if you like seeing the full demo before adding pet products to cart.”
-Skit/Comedy
+“Would this fit into your pet routine? I think it would, grab one from the link on this video”
+“I linked it so you can check the details before buying.”
+“Your pet says yes, get it now!”
+Skit/Comedy:
 HOOK:
 “Me: I bought this for my pet. My pet: I will be the judge.”
 “My pet has entered the chat, and they have opinions.”
@@ -933,13 +910,11 @@ THE TURN:
 “Honestly, their approval matters more than mine.”
 “The plot twist is that our routine actually feels easier now.”
 THE CLOSE:
-“Check the current price in the link and tell me if I’m being dramatic.”
-“Would this help your pet routine, or is your pet less dramatic than mine?”
+“Just check out already!! Your pet will thank you, and so will I!”
+“All dramatic pets need this. Click the link for more info”
 “The link is here if your pet setup is also living its own life.”
-
 ACCESSORIES
-
-Generic
+Generic:
 HOOK:
 “The right accessory makes a basic outfit look intentional.”
 “Accessories are the easiest way to make a basic outfit look intentional.”
@@ -950,15 +925,15 @@ THE BUILD:
 “The details mention [insert feature: lightweight feel / adjustable fit / gold-tone finish / polarized lenses / structured shape], so that’s what I wanted to test first.”
 “I’m styling this with basics first because that’s the easiest way to see if it actually adds something.”
 “I’m keeping the outfit simple so you can actually see what this accessory changes.”
-“Here’s how I’d style it for errands, brunch, work, vacation, or a casual day out.” 
+“Here’s how I’d style it for errands, brunch, work, vacation, or a casual day out.”
 THE TURN:
 “The surprise was how easily it changed the outfit without trying too hard.”
 “The part that surprised me is how much it changed the outfit.”
 “I expected this to be cute, but it actually made the whole look feel more styled.”
 “This is one of those accessories that feels small until you realize it pulls everything together.”
-“It didn’t change my whole outfit, but it made it look more intentional.” 
+“It didn’t change my whole outfit, but it made it look more intentional.”
 THE CLOSE:
-“I linked it in TikTok Shop if you want to check colors and details.”
+“I linked it below if you want to check colors and details.”
 “It’s in the link if you want to see the details.”
 “If this fits your wardrobe, the details are in the link.”
 “If you feel like your outfits are missing something, click the link below”
@@ -967,12 +942,11 @@ HOOK:
 “I had an outfit that looked fine, but kind of unfinished.”
 “I wanted a piece that could work with more than one look.”
 “I wanted an accessory that made getting dressed feel easier, not more complicated.”
-
 THE BUILD:
 “I added [product], and the Shop App details made me curious because of [feature].”
 “I styled it with a simple outfit first because that’s where accessories really prove themselves.”
 “I wanted to see if this would actually make the outfit feel finished or just look cute by itself.”
-“I tried it with pieces I already own because I didn’t want to build a whole new outfit around one accessory.” 
+“I tried it with pieces I already own because I didn’t want to build a whole new outfit around one accessory.”
 THE TURN:
 “It ended up being the piece that made the outfit feel styled.”
 “The funny part is, this was exactly what the outfit needed.”
@@ -982,7 +956,7 @@ THE CLOSE:
 “Check out the link if you think this would spice up your wardrobe”
 “If your outfits feel like they’re missing something, this might be worth looking at.”
 “The link is here if your outfits need a finishing piece too.”
-Educational
+Educational:
 HOOK:
 “Accessories are where outfits get personal.”
 “Before you buy accessories online, check this first.”
@@ -991,26 +965,26 @@ HOOK:
 THE BUILD:
 “Look at size, material, clasp/closure, adjustability, color, and how many outfits it works with.”
 “I’m checking whether the piece is easy to style, comfortable to wear, and realistic for everyday outfits.”
-“I’m testing this with outfits I’d actually wear: casual, dressed-up, errands, work, or vacation.” 
+“I’m testing this with outfits I’d actually wear: casual, dressed-up, errands, work, or vacation.”
 THE TURN:
 “[Product] works because it adds detail without taking over the whole look.”
 “Accessories do not need to be dramatic to be useful. They just need to finish the look.”
 “The biggest thing to check is whether it fits your style, your outfits, and how often you’d wear it.”
-“For me, the best accessories are the ones I can rewear without overthinking.” 
+“For me, the best accessories are the ones I can rewear without overthinking.”
 THE CLOSE:
 “I linked it so you can check the product details.”
 “Check the link below and see if it fits in your wardrobe.”
 “Comment if you want me to style this with another outfit.”
-Before/After
+Before/After:
 HOOK:
 “Before: basic. After: styled.”
 “Before: cute but plain. After: way more intentional.”
-“This is the difference between wearing an outfit and styling one.” 
+“This is the difference between wearing an outfit and styling one.”
 THE BUILD:
 “Here’s the outfit without [product]. Now here it is with the accessory added.”
 “Before, I had [insert issue: plain outfit / no focal point / missing shape / not enough polish]. Now I’m testing if this makes it feel more styled.”
 “I’m not changing the whole outfit. I’m just adding this one accessory and seeing what improves.”
-“I’m testing if this actually makes one basic outfit feel more intentional.” 
+“I’m testing if this actually makes one basic outfit feel more intentional.”
 THE TURN:
 “It’s a small detail, but it changes the whole feel.”
 “The difference is small, but the outfit feels more finished.”
@@ -1020,10 +994,10 @@ THE CLOSE:
 “Would you wear the before or the after?”
 “I linked it so you can see if it would work with your wardrobe.”
 “Save this if your outfits need a small, realistic upgrade.”
-Product Demo
+Product Demo:
 HOOK:
 “Let’s style this accessory three ways.”
-Let’s style-test this accessory in real time.”
+“Let’s style-test this accessory in real time.””
 “I’m going to show you exactly how this looks on.”
 “Let’s see if this accessory is actually easy to style.”
 THE BUILD:
@@ -1035,11 +1009,11 @@ THE TURN:
 “I like that it works without making the outfit feel overdone.”
 “The best part is that I can see exactly how I’d wear it.”
 THE CLOSE:
-“Check TikTok Shop for colors and availability.”
+“Check the link below for colors and availability.”
 “It’s linked if you want the full details.”
 “Check the details for what’s included, sizing, and availability.”
 “Would this fit into your style?”
-Skit/Comedy
+Skit/Comedy:
 HOOK:
 “Me wearing a plain outfit: something is missing. Me adding one accessory: I’m a fashion person now.”
 “Me: this outfit is fine. Also me: it needs one tiny accessory or I can’t leave.”
@@ -1053,40 +1027,37 @@ THE TURN:
 “I fear the accessory was the main character.”
 “The plot twist is that the outfit actually looks better now.”
 “Now I’m acting like I planned this outfit days ago.”
-“Now I understand why people accessorize."  
+“Now I understand why people accessorize."
 THE CLOSE:
-Tap the link before I convince myself to get another color.”
+“Tap the link before I convince myself to get another color.”
 “I linked it so you can see why I love it so much”
 “Would this help your outfit, or are you more fashionable than me?”
-
 FOOD
-
-Generic
+Generic:
 HOOK:
 “I’m always looking for snacks / pantry finds that are actually easy to use.”
 “This is for anyone who wants a quick pantry or routine upgrade.”
 “This looked interesting online, but I wanted to see how it tastes and fits into a real routine.”
-“I’m always looking for simple food finds I can use for breakfast, snacks, drinks, or quick meals.” 
+“I’m always looking for simple food finds I can use for breakfast, snacks, drinks, or quick meals.”
 THE BUILD:
 “Here’s [product], the flavor / texture / serving idea, and how I’d use it in a normal day.”
 “The details mention [insert feature: flavor / serving size / ingredients / protein amount / no added sugar / easy mix], so that’s what I wanted to test first.”
 “I’m using this the way I actually would in breakfast, a snack, a smoothie, toast, yogurt, or a quick drink.”
-“Here’s the packaging, texture, smell, taste test, and how easy it is to mix or serve.” 
+“Here’s the packaging, texture, smell, taste test, and how easy it is to mix or serve.”
 THE TURN:
 “The surprise was [taste / convenience / packaging], not any wild health claim.”
 “The biggest win is that it fits into my day without making food feel complicated.”
-“The part that surprised me is how easy it was to add into my routine.” 
+“The part that surprised me is how easy it was to add into my routine.”
 THE CLOSE:
 “Tap the link to check the flavor, ingredients, and current price.”
 “It’s in the link if you want to read the details.”
 “Check ingredients, serving size, and allergen info before buying food products.”
-Storytime
+Storytime:
 HOOK:
 “I needed something quick and didn’t want to overthink it.”
 “I realized I kept skipping breakfast / snacks because I didn’t have an easy option.”
 “I kept reaching for the same boring snack, so I wanted to try something different.”
-“I wanted something that made breakfast, smoothies, snacks, or drinks feel easier.” 
-
+“I wanted something that made breakfast, smoothies, snacks, or drinks feel easier.”
 THE BUILD:
 “I tried [product] because the Shop App details mentioned [flavor / format / pack size].”
 “I tested it during a normal breakfast / smoothie / snack / drink moment.”
@@ -1100,14 +1071,13 @@ THE CLOSE:
 “I linked it below if you want to check ingredients.”
 “If your routine has the same problem, this might be worth looking at.”
 “I’d check the details first to make sure the flavor, ingredients, and serving info work for you.”
-
-Educational
+Educational:
 HOOK:
 “Before buying food on TikTok Shop, read the listing.”
 “Don’t buy a food product just because it looks aesthetic — check the details.”
 “Here’s how I decide if a food find actually fits my routine.”
 “The most important part of buying vitamins, protein powder, or pantry items is reading the label.”
-“Here’s what I look for before trusting a pantry or wellness-adjacent food find.” 
+“Here’s what I look for before trusting a pantry or wellness-adjacent food find.”
 THE BUILD:
 “Check ingredients, allergens, serving info, storage instructions, flavor notes, and quantity.”
 “The first things I check are ingredients, serving size, flavor, directions, allergens, and how it fits into a normal routine.”
@@ -1121,11 +1091,11 @@ THE CLOSE:
 “Click the link to read the full info.”
 “Tap the link and read the ingredients, serving info, and flavor details before deciding.”
 “I linked it so you can read the details yourself.”
-Before/After
+Before/After:
 HOOK:
 “Before: boring breakfast. After: way more fun.”
 “This is what my snack routine looked like before, and this is what changed after.”
-“Before this, my morning routine was giving chaos.” 
+“Before this, my morning routine was giving chaos.”
 THE BUILD:
 “Here’s what I had before. Now I’m adding [product] for flavor / crunch / convenience.”
 “This is a realistic before and after: same routine, same day, just one simple addition.”
@@ -1135,11 +1105,11 @@ THE TURN:
 “The difference is small, but the routine feels easier.”
 “It didn’t change my whole day, but it made this part more enjoyable.”
 THE CLOSE:
-“Check TikTok Shop for the product details.”
+“Check the link for all the product details.”
 “Tap the link to check ingredients, serving info, and flavor details.”
 “It’s linked if you want to see the details.”
 “Would this help your routine too?”
-Product Demo
+Product Demo:
 HOOK:
 “Let’s taste-test this.”
 “Let’s see if this passes the real-routine taste test.”
@@ -1150,12 +1120,12 @@ THE BUILD:
 “I’m not skipping the taste or texture check because that’s the part people actually need to see.”
 THE TURN:
 “The part that stood out was [flavor / texture / convenience], which is what I actually care about with food.”
-“The taste was better than I expected.” 
+“The taste was better than I expected.”
 THE CLOSE:
-“It’s linked in TikTok Shop so you can check ingredients.”
+“It’s linked below so you can check the ingredients.”
 “Would this fit into your routine?”
 “I linked it so you can compare the details before buying.”
-Skit/Comedy
+Skit/Comedy:
 HOOK:
 “Me opening a snack and saying I’ll just try one.”
 “I bought this for ‘taste-test research,’ obviously.”
@@ -1167,35 +1137,33 @@ THE BUILD:
 “I tried it in my actual routine because if it can’t survive my real day, what are we doing?”
 THE TURN:
 “The plot twist is I actually get why people like this.”
-‘This might be my new favorite snack/ [insert product].
+“‘This might be my new favorite snack/ [insert product].”
 “This was supposed to be a quick taste test, not a pantry upgrade.”
 THE CLOSE:
 “Would this help your routine, or are you less snack-motivated than me?”
 “The link is here if your breakfast or snack routine is also living its own life.”
 “I’m not saying you need it. I’m saying I understand why people want it.”
-
 TOYS
-
 Generic:
 HOOK:
 “This is the kind of toy that keeps hands busy and imagination moving.”
 “This is for anyone who likes activities that are simple, fun, and easy to set up.”
-“A good activity find should be easy to open, easy to understand, and actually enjoyable.” 
+“A good activity find should be easy to open, easy to understand, and actually enjoyable.”
 THE BUILD:
 “Here’s [product], what’s included, how it works, and what age range / use info the listing shows.”
 “The details mention [insert feature: washable colors / smooth pigment / included pieces / easy storage / beginner-friendly setup], so that’s what I wanted to test first.”
 “I’m using this the way I actually would, for coloring, crafting, playtime, a gift idea, or a screen-free activity.”
 “Here’s how I’d use it for coloring, crafts, playtime, gifting, travel, or a rainy-day activity.”
-“The real test is whether this is easy to start and easy to clean up or put away.” 
+“The real test is whether this is easy to start and easy to clean up or put away.”
 THE TURN:
 “The surprise was how simple it was to set up and play with.”
 “It didn’t need a complicated setup, and that’s what I liked.”
 “The biggest win is that it feels easy to use without making a huge mess or project.”
 THE CLOSE:
-“Adults can check the TikTok Shop product card for details.”
+“Adults can check the product info for more details, then you can spoil your little ones”
 “Tap the link to check what’s included, the size, and current price.”
-“It’s in the link if you want to read the details.”
-Storytime
+“Check the link if you want to read the details.”
+Storytime:
 HOOK:
 “I needed a gift idea that wasn’t just another random thing.”
 “I bought this because I wanted an easy activity that didn’t take forever to set up.”
@@ -1210,7 +1178,7 @@ THE TURN:
 THE CLOSE:
 “Check the link for age guidance and details.”
 “If you need an easy activity or gift idea, this might be worth looking at.”
-Educational
+Educational:
 HOOK:
 “When choosing toys, check more than just the photos.”
 “Here’s how I decide if a toy, craft set, or art supply is actually useful.”
@@ -1231,8 +1199,7 @@ Before/After:
 HOOK:
 “Before: no plan for playtime. After: instant activity idea.”
 “Before: no activity planned. After: instant creative time.”
-“This is the difference between a project I avoid and one that feels easy to start.” 
-
+“This is the difference between a project I avoid and one that feels easy to start.”
 THE BUILD:
 “Here’s the setup before. Now here’s [product] opened, arranged, and ready to use.”
 “Here’s the before: the empty setup, scattered supplies, or the part of the activity that felt annoying.”
@@ -1241,16 +1208,16 @@ THE BUILD:
 THE TURN:
 “It’s not about promising hours of entertainment. I'm just showing what’s included and how it works.”
 “I like that it makes coloring / crafting / playtime / game time feel more manageable.”
-“It didn’t change the whole setup, but it made this part more fun.” 
+“It didn’t change the whole setup, but it made this part more fun.”
 THE CLOSE:
 “It’s linked if you want to see the details.”
 “Would this help your activity setup too?”
 “Check the details for product info, pieces included, and current price.”
-Product Demo
+Product Demo:
 HOOK:
 “Let’s open this toy and see what’s inside.”
 “Let’s see if this toy or creative set is actually easy to use.”
-“Let’s see if this passes the real-use test.” 
+“Let’s see if this passes the real-use test.”
 THE BUILD:
 “I’ll show the box, pieces, setup, how it works, and the size close-up.”
 “I’m using it for a realistic activity so you can see how it works outside of the product photo.”
@@ -1258,9 +1225,9 @@ THE BUILD:
 THE TURN:
 “The detail I liked was [feature], because it makes play / gifting / storage easier.”
 “It’s simple, but that’s what makes it useful.”
-“This is one of those products where setup and storage matter as much as the activity.” 
+“This is one of those products where setup and storage matter as much as the activity.”
 THE CLOSE:
-“It’s linked in TikTok Shop for adults to review.”
+“It’s linked below for adults to review before grabbing one for the kiddos.”
 “Would this fit into your activity routine?”
 “I linked it so you can compare the details before buying.”
 “Save this if you like seeing the full demo before adding toys or creative sets to cart.”
@@ -1268,7 +1235,7 @@ Skit/Comedy:
 HOOK:
 “Me buying a toy as a gift. Also me: wait, this is actually fun to set up.”
 “Me pretending this is for someone else while fully testing it myself.”
-“POV: one creative find fixes the boring afternoon you almost gave up on.” 
+“POV: one creative find fixes the boring afternoon you almost gave up on.”
 THE BUILD:
 “Unboxing [product] and immediately getting too invested in the pieces.”
 “Here’s me pretending this isn’t fun while immediately testing every color / piece.”
@@ -1277,7 +1244,7 @@ THE BUILD:
 THE TURN:
 “The adult review: easy setup, clear pieces, and giftable.”
 “The plot twist is that this activity is actually fun.”
-“What can I say, the kiddos loved it. And I can admit I liked it too” 
+“What can I say, the kiddos loved it. And I can admit I liked it too”
 THE CLOSE:
 “Check the current price in the link and tell me if I’m being dramatic.”
 “Would this make your activity setup more fun, or are you more responsible than me?”
