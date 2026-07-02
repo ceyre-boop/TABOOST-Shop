@@ -488,6 +488,7 @@
     var wrap = el('div');
     wrap.id = 'genie-script-mount';
     wrap.innerHTML =
+      '<hr class="genie-script-divider">' +
       '<div class="genie-script-trigger">' +
         '<span class="genie-script-label">🧞 Genie Script <span style="opacity:.8">✨</span></span>' +
       '</div>' +
@@ -500,7 +501,7 @@
     if (!box || !currentProduct) return;
     var blocks = buildScript(currentProduct, currentAngle);
     lastBlocks = blocks;
-    var html = '<hr class="genie-script-divider">';
+    var html = '';
     // angle chips
     html += '<div style="font-size:12px;color:var(--genie-text-dim);margin-bottom:6px;">Which fits your style?</div><div class="genie-angles">';
     ANGLES.forEach(function (a) { html += '<button class="genie-angle' + (a.id === currentAngle ? ' active' : '') + '" data-angle="' + a.id + '">' + a.label + '</button>'; });

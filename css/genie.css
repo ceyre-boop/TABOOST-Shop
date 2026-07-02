@@ -206,7 +206,7 @@
 /* ---------- Script framework (in product pop-up) ---------- */
 .genie-script-trigger {
     display: flex; align-items: center; gap: 8px;
-    margin-top: 14px;
+    margin-top: 10px;
 }
 .genie-script-trigger .genie-script-label {
     color: #FF0055; font-size: 13px; font-weight: 800;
@@ -231,7 +231,7 @@
 }
 .genie-script-content.expanded { max-height: 1200px; opacity: 1; margin-top: 12px; }
 
-.genie-script-divider { border: none; border-top: 1px solid var(--genie-line); margin: 0 0 12px; }
+.genie-script-divider { border: none; border-top: 1px solid var(--genie-line); margin: 14px 0 0; }
 
 .genie-angles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .genie-angle {
