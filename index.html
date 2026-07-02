@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- PREVIEW BUILD — keep unlisted. STRIP this noindex before merging to production/main. -->
+    <meta name="robots" content="noindex, nofollow">
     <title>TABOOST — Turn Your Hustle Into a Business</title>
     <meta name="description" content="The creator platform that turns your TikTok hustle into a real business. Track diamonds, earn rewards, grow your brand.">
     
@@ -22,12 +24,13 @@
     <meta name="twitter:image" content="https://live.taboost.me/images/taboost-genie.jpg">
     
     <link rel="icon" type="image/jpeg" href="images/taboost-genie.jpg">
+    <link rel="stylesheet" href="css/genie.css?v=20260701">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            background: #06060c;
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
@@ -100,14 +103,19 @@
         }
         
         .nav-links a {
-            color: #888;
+            color: #fff;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.2s;
         }
-        
+
         .nav-links a:hover {
             color: #ff0044;
+        }
+        /* Keep the Login button text white (even on hover, over its red fill) */
+        .nav-links a.btn,
+        .nav-links a.btn:hover {
+            color: #fff;
         }
         
         .nav-guest {
@@ -144,7 +152,27 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(255, 0, 68, 0.3);
         }
-        
+
+        /* LOGIN — TABOOST hot-red glow, pulsing to grab attention */
+        .login-glow {
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff0044, #ff2d6a);
+            animation: loginPulse 1.8s ease-in-out infinite;
+        }
+        .login-glow:hover {
+            animation: none;
+            transform: translateY(-2px);
+            box-shadow: 0 0 26px rgba(255, 0, 68, 0.95), 0 0 48px rgba(255, 0, 68, 0.5);
+        }
+        @keyframes loginPulse {
+            0%   { box-shadow: 0 0 8px rgba(255, 0, 68, 0.55); }
+            50%  { box-shadow: 0 0 22px rgba(255, 0, 68, 0.95), 0 0 40px rgba(255, 0, 68, 0.55); }
+            100% { box-shadow: 0 0 8px rgba(255, 0, 68, 0.55); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .login-glow { animation: none; box-shadow: 0 0 20px rgba(255, 0, 68, 0.8); }
+        }
+
         /* Hero / Search Section */
         .hero {
             text-align: center;
@@ -152,29 +180,31 @@
         }
         
         .hero h1 {
-            font-size: 56px;
+            font-size: clamp(40px, 6vw, 76px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.78) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero h1 span {
-            background: linear-gradient(135deg, #ff0044, #ff6b6b);
+            background: linear-gradient(135deg, #00ff88, #00cc66);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero p {
             font-size: 18px;
-            color: #aaa;
-            max-width: 700px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.68);
+            max-width: 620px;
             margin: 0 auto 30px;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         /* Search Bar */
@@ -328,6 +358,39 @@
             border-color: rgba(255, 0, 68, 0.3);
             background: rgba(255, 255, 255, 0.05);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Priority Campaign tiles — sourced from the TAP-Links tab; click opens that campaign's products */
+        .campaign-card { cursor: pointer; border-color: rgba(255, 0, 68, 0.25); }
+        .campaign-card:hover { border-color: rgba(255, 0, 68, 0.55); }
+        .campaign-view-btn {
+            width: 100%;
+            margin-top: 4px;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            border: none;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: filter 0.2s;
+        }
+        .campaign-card:hover .campaign-view-btn { filter: brightness(1.1); }
+        .campaign-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 3;
+            background: linear-gradient(135deg, #ff0044, #cc0033);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(255, 0, 68, 0.35);
         }
 
         .product-image {
@@ -684,6 +747,19 @@
                 padding-top: 20px;
             }
 
+            /* Once the intro boxes are hidden, reclaim the empty hero gap so products sit higher */
+            body.tb-boxes-hidden #hero-section { padding-bottom: 2px; }
+            body.tb-boxes-hidden .search-container { margin-bottom: 10px; }
+
+            /* Mobile: drop the "Search Results for…" title; keep a compact Clear Search row */
+            #search-results-container #search-results-title { display: none; }
+            #search-results-container .section-header {
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+                border-bottom: none;
+                justify-content: flex-end;
+            }
+
             .hero h1 {
                 font-size: 26px;
                 white-space: nowrap;
@@ -771,8 +847,9 @@
             border-radius: 30px;
             padding: 25px 35px;
             display: flex;
-            align-items: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
             z-index: 2000;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0, 255, 136, 0.2);
             opacity: 0;
@@ -786,6 +863,12 @@
             opacity: 1;
             visibility: visible;
             transform: translate(-50%, -50%) scale(1);
+        }
+
+        .action-top-row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .action-stats {
@@ -832,6 +915,33 @@
     </style>
 </head>
 <body>
+    <!-- Genie intro reveal — plays once per browser session, then fades out -->
+    <div id="genie-intro">
+        <div id="genie-bg-glow"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div class="genie-ring"></div>
+        <div id="genie-logo-text">TABOOST</div>
+        <div id="genie-img-wrap">
+            <img src="images/taboost-genie.jpg" alt="TABOOST Genie">
+        </div>
+        <div id="genie-tagline">Your Hustle. Amplified.</div>
+    </div>
+    <script>
+        // Self-contained so the overlay always clears even if other scripts fail.
+        (function () {
+            var overlay = document.getElementById('genie-intro');
+            if (!overlay) return;
+            if (sessionStorage.getItem('genie-shown')) { overlay.remove(); return; }
+            sessionStorage.setItem('genie-shown', '1');
+            setTimeout(function () {
+                overlay.classList.add('genie-exit');
+                setTimeout(function () { overlay.remove(); }, 580);
+            }, 1700);
+        })();
+    </script>
+
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
     <div id="selection-overlay" class="selection-overlay" onclick="clearProductSelection()"></div>
@@ -845,7 +955,7 @@
             <nav class="nav-links">
                 <div class="nav-guest">
                     <a href="shop-signup.html">Sign Up</a>
-                    <a href="shop-login.html" class="btn">Login</a>
+                    <a href="shop-login.html" class="btn login-glow">Login</a>
                 </div>
             </nav>
         </header>
@@ -853,27 +963,44 @@
         <section class="hero" id="hero-section">
             <div style="display:inline-block; background:rgba(255,0,68,0.1); border:1px solid #ff0044; color:#ff0044; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Built for TikTok Shop Creators</div>
             <h1><span style="background: linear-gradient(135deg, #00ff88, #00cc66); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Higher Commission.</span><br>Better Products. Faster Wins.</h1>
-            <p>Access higher commission rates, proven products & exclusive campaigns!</p>
-            
+            <button onclick="window.Genie && Genie.open()" style="margin:0 0 28px; background:linear-gradient(135deg,#ff0044,#cc0033); color:#fff; border:none; padding:14px 26px; border-radius:30px; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 10px 30px rgba(255,0,68,0.3);">✨ Ask the Genie to find your first product</button>
+
             <div class="search-container">
                 <div class="search-wrapper">
                     <input type="text" class="search-input" id="main-search" placeholder="Search for products, categories, or brands...">
                     <button class="search-btn" id="search-trigger">Search</button>
                 </div>
                 <div class="search-quick-tags">
+                    <span class="quick-tag" data-action="campaigns">🎯 Priority Campaigns</span>
+                    <span class="quick-tag">High Commission</span>
                     <span class="quick-tag" data-cat="Beauty & Personal Care">💄 Beauty</span>
-                    <span class="quick-tag" data-cat="Phones & Electronics">📱 Electronics</span>
                     <span class="quick-tag" data-cat="Womenswear & Underwear">👗 Fashion</span>
-                    <span class="quick-tag" data-cat="Health">💊 Health</span>
                     <span class="quick-tag" data-cat="Home Supplies">🏠 Home</span>
+                    <span class="quick-tag" data-cat="Phones & Electronics">📱 Electronics</span>
+                    <span class="quick-tag" data-cat="Health">💊 Health</span>
                     <span class="quick-tag" data-cat="Sports & Outdoor">⚽ Sports</span>
                     <span class="quick-tag" data-cat="Kitchenware">🍳 Kitchen</span>
                     <span class="quick-tag" data-cat="Pet Supplies">🐾 Pets</span>
-                    <span class="quick-tag">High Commission</span>
                     <span class="quick-tag" data-cat="Fashion Accessories">💍 Accessories</span>
                     <span class="quick-tag" data-cat="Food & Beverages">🍔 Food</span>
                     <span class="quick-tag" data-cat="Toys & Hobbies">🧸 Toys</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- Value strip — what TABOOST does for a creator (vs signing up on TikTok direct) -->
+        <section class="value-strip">
+            <div class="value-item">
+                <div class="value-emoji">💰</div>
+                <div><div class="value-title">Higher-Rates</div><div class="value-text">Commissions above open-plan that we've negotiated with brands.</div></div>
+            </div>
+            <div class="value-item">
+                <div class="value-emoji">✅</div>
+                <div><div class="value-title">Proven Products</div><div class="value-text">Real sales data at your fingertips, less guessing more winning.</div></div>
+            </div>
+            <div class="value-item">
+                <div class="value-emoji">🧞</div>
+                <div><div class="value-title">The Genie Scripts</div><div class="value-text">Tap any product and get example hooks &amp; closes for your videos!</div></div>
             </div>
         </section>
 
@@ -905,24 +1032,16 @@
             </div>
         </div>
 
-        <!-- Suggested Section -->
-        <div id="suggested-section">
-            <div class="section-header">
-                <h2 class="section-title">Suggested for You</h2>
-                <a href="#" class="section-view-all">See More</a>
-            </div>
-            <div class="product-grid" id="suggested-grid">
-                <!-- Suggested products will be injected here -->
-            </div>
-        </div>
-        
 
         
         <footer>
-            <p>© 2025 TABOOST. All rights reserved.</p>
+            <a href="https://www.taboost.me/join" target="_blank" rel="noopener" class="btn login-glow" style="display:inline-block; margin-bottom:16px;">✨ Join TABOOST</a>
+            <p style="color:#888; font-size:14px; margin-bottom:6px;">Built for creators. Powered by the Genie. 🧞</p>
+            <p>© 2026 TABOOST. All rights reserved.</p>
         </footer>
     </div>
     <script src="js/product-data.js"></script>
+    <script src="js/scoring.js?v=20260625"></script>
     <script>
         // Data State
         let allItems = [];
@@ -944,14 +1063,48 @@
                 ];
                 campaigns = [];
             }
+            if (window.CreatorScore) window.CreatorScore.init(allItems);
             renderInitialGrids();
+            restoreFromHash();
         }
 
-        function getBadgeHtml(rank) {
-            if (rank == 1) return '<div class="rank-badge taboost-pick">🏆 TABOOST Top Pick</div>';
-            if (rank == 2) return '<div class="rank-badge creator-pick">⭐ Creator Top Pick</div>';
-            if (rank == 3) return '<div class="rank-badge best-overall">💎 Best Overall</div>';
+        // Re-open a campaign/search product view after a refresh (so it re-shuffles).
+        function restoreFromHash() {
+            const h = location.hash || '';
+            const mc = h.match(/[#&]c=([^&]+)/);
+            const mq = h.match(/[#&]q=([^&]+)/);
+            if (mc) {
+                const cid = decodeURIComponent(mc[1]);
+                const camp = (window.TAP_CAMPAIGNS || []).filter(c => c.id === cid)[0];
+                if (camp) { showCampaign(cid, camp.name); return; }
+            }
+            if (mq) {
+                const input = document.getElementById('main-search');
+                if (input) { input.value = decodeURIComponent(mq[1]); handleSearch(); }
+            }
+        }
+
+        // TABOOST Top Pick — only for products with a Rating (score) of 5+
+        function getBadgeHtml(item) {
+            if ((item.score || 0) >= 5) return '<div class="rank-badge taboost-pick">TABOOST Top Pick</div>';
             return '';
+        }
+
+        // NEW — only for products whose campaign started this calendar month (computed live)
+        let _campStartYM = null;
+        function campaignStartYM() {
+            if (_campStartYM) return _campStartYM;
+            _campStartYM = {};
+            (window.TAP_CAMPAIGNS || []).forEach(c => {
+                if (c.startDate) _campStartYM[c.id] = String(c.startDate).slice(0, 7); // YYYY-MM
+            });
+            return _campStartYM;
+        }
+        function isNewThisMonth(item) {
+            const map = campaignStartYM();
+            const d = new Date();
+            const nowYM = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+            return (item.campaignIds || []).some(cid => map[cid] === nowYM);
         }
 
         function createProductCard(item) {
@@ -967,13 +1120,16 @@
             const hasRealImage = item.image && item.image.startsWith('http');
             const catIcons = {'Beauty & Personal Care':'💄','Health':'💊','Phones & Electronics':'📱','Womenswear & Underwear':'👗','Sports & Outdoor':'⚽','Home Supplies':'🏠','Kitchenware':'🍳','Furniture':'🪑','Fashion Accessories':'💍','Food & Beverages':'🍔','Automotive & Motorcycle':'🚗','Household Appliances':'🔌','Toys & Hobbies':'🧸','Pet Supplies':'🐾','Shoes':'👟','Computers & Office Equipment':'💻','Other':'📦'};
             const catIcon = catIcons[item.category] || '📦';
+            // "New drop" badge — only for products whose campaign started this month
+            const newDropBadge = isNewThisMonth(item) ? '<div class="genie-new-badge">New drop</div>' : '';
             const imgHtml = hasRealImage 
                 ? `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;\\'>${catIcon}</div>';" loading="lazy">`
                 : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">${catIcon}</div>`;
 
             return `
                 <div class="product-card" id="card-${item.id}" onclick="toggleProductSelection('${item.id}', this, ${rawCommNum || 0}, '${item.price}', '${item.link}')">
-                    ${getBadgeHtml(item.rank)}
+                    ${getBadgeHtml(item)}
+                    ${newDropBadge}
                     <div class="product-image">
                         ${imgHtml}
                     </div>
@@ -994,22 +1150,114 @@
                             <div class="product-price">${item.price}</div>
                         </div>
                     </div>
+                    <div class="genie-card-tag">🧞 Genie has a script ✨</div>
                 </div>
             `;
         }
 
-        function renderInitialGrids() {
+        function escHtml(t){ return String(t==null?'':t).replace(/[&<>"]/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]; }); }
+
+        // Score-tier shuffle: group products by score into tiers (highest score on top),
+        // shuffle within each tier, on every render — so order varies each refresh while
+        // top-scored products stay grouped at the top. (rank is flat; score = Rating 0–11.)
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const t = a[i]; a[i] = a[j]; a[j] = t;
+            }
+            return a;
+        }
+        function scoreTierShuffle(items) {
+            // Personalized path: Creator Revenue Score (js/scoring.js). Drives every
+            // product render (search + campaign). Falls back to the original static
+            // Sheet-score tiering if scoring.js failed to load.
+            if (window.CreatorScore) {
+                return window.CreatorScore.sortAndTier(items, window.CreatorScore.getSessionContext());
+            }
+            const tiers = {};
+            items.forEach(it => {
+                const s = (typeof it.score === 'number') ? it.score : (parseInt(it.score, 10) || 0);
+                (tiers[s] = tiers[s] || []).push(it);
+            });
+            const out = [];
+            Object.keys(tiers).map(Number).sort((a, b) => b - a).forEach(k => {
+                shuffle(tiers[k]);
+                for (let i = 0; i < tiers[k].length; i++) out.push(tiers[k][i]);
+            });
+            return out;
+        }
+
+        // Priority Campaigns come from the TAP-Links tab (window.TAP_CAMPAIGNS),
+        // NOT from individual products. Each tile = one campaign; click → its products.
+        function createCampaignCard(c) {
+            const hasImg = c.image && c.image.indexOf('http') === 0;
+            const nameSafe = escHtml(c.name);
+            const imgHtml = hasImg
+                ? `<img src="${c.image}" alt="${nameSafe}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;\\'>🎯</div>';" loading="lazy">`
+                : `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#151520;font-size:50px;">🎯</div>`;
+            return `
+                <div class="product-card campaign-card" data-cid="${escHtml(c.id)}" data-cname="${nameSafe}">
+                    <div class="campaign-badge">🎯 Campaign</div>
+                    <div class="product-image">${imgHtml}</div>
+                    <div class="product-info">
+                        <div class="product-name">${nameSafe}</div>
+                        <div class="product-stats">
+                            <span style="color: #888; font-size: 12px;">${c.productCount} product${c.productCount == 1 ? '' : 's'}</span>
+                        </div>
+                        <div class="product-bottom">
+                            <button class="campaign-view-btn" type="button">VIEW PRODUCTS →</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPriorityCampaigns() {
             const featuredGrid = document.getElementById('featured-grid');
-            const suggestedGrid = document.getElementById('suggested-grid');
-            
-            // Render Featured Campaigns (Priority) — show 8
-            const featured = campaigns.sort((a,b) => a.rank - b.rank).slice(0, 8);
-            featuredGrid.innerHTML = featured.map(createProductCard).join('');
-            
-            // Render Suggested Products — show top 24 by rank
-            const suggested = allItems.sort((a,b) => a.rank - b.rank).slice(0, 24);
-            suggestedGrid.innerHTML = suggested.map(createProductCard).join('');
-            
+            if (!featuredGrid) return;
+            // Tier-shuffle the tiles: featured campaigns grouped on top (shuffled), then the
+            // rest (shuffled), take top 12 — so the homepage rotates on each refresh.
+            const all = (window.TAP_CAMPAIGNS || []);
+            const featured = all.filter(c => c.featured);
+            const others = all.filter(c => !c.featured);
+            let list = shuffle(featured.slice()).concat(shuffle(others.slice())).slice(0, 12);
+            if (!list.length) {
+                // Fallback: if no TAP campaigns are present, show top campaign products
+                featuredGrid.innerHTML = campaigns.slice(0, 8).map(createProductCard).join('');
+                return;
+            }
+            featuredGrid.innerHTML = list.map(createCampaignCard).join('');
+            featuredGrid.querySelectorAll('.campaign-card').forEach(card => {
+                card.addEventListener('click', () => showCampaign(card.getAttribute('data-cid'), card.getAttribute('data-cname')));
+            });
+        }
+
+        // Click a campaign tile → open that campaign's full product listing.
+        window.showCampaign = function(campaignId, campaignName) {
+            const resultsSection = document.getElementById('search-results-container');
+            const resultsGrid = document.getElementById('search-results-grid');
+            const featuredSection = document.getElementById('featured-section');
+            const resultsTitle = document.getElementById('search-results-title');
+            const resultsCount = document.getElementById('results-count');
+
+            const results = scoreTierShuffle(allItems.filter(item => (item.campaignIds || []).indexOf(campaignId) !== -1));
+            currentSearchResults = results;
+            displayedCount = Math.min(RESULTS_PER_PAGE, results.length);
+            resultsGrid.innerHTML = results.slice(0, displayedCount).map(createProductCard).join('');
+            resultsTitle.textContent = '🎯 ' + (campaignName || 'Campaign');
+            resultsCount.textContent = `${results.length} products`;
+
+            const loadMore = document.getElementById('load-more-container');
+            loadMore.style.display = results.length > displayedCount ? 'block' : 'none';
+
+            resultsSection.style.display = 'block';
+            featuredSection.style.display = 'none';
+            window.scrollTo({ top: Math.max(0, resultsSection.offsetTop - 80), behavior: 'smooth' });
+            if (window.history && history.replaceState) history.replaceState(null, '', '#c=' + encodeURIComponent(campaignId));
+        };
+
+        function renderInitialGrids() {
+            renderPriorityCampaigns();
             // Show total product count
             const totalEl = document.getElementById('results-count');
             if (totalEl) totalEl.textContent = `${allItems.length} products available`;
@@ -1025,13 +1273,25 @@
             const resultsSection = document.getElementById('search-results-container');
             const resultsGrid = document.getElementById('search-results-grid');
             const featuredSection = document.getElementById('featured-section');
-            const suggestedSection = document.getElementById('suggested-section');
             const resultsTitle = document.getElementById('search-results-title');
             const resultsCount = document.getElementById('results-count');
 
             if (query === "") {
                 clearSearch();
                 return;
+            }
+
+            // Personalization signal: a search/category-pill that exactly matches a
+            // known category counts as interest in that category this session.
+            // (Category pills route their full name through here, so this one hook
+            // covers both pill taps and typed category names — no double counting.)
+            if (window.CreatorScore) {
+                if (!window._tbCatMap) {
+                    window._tbCatMap = {};
+                    allItems.forEach(it => { if (it.category) window._tbCatMap[it.category.toLowerCase()] = it.category; });
+                }
+                const matchCat = window._tbCatMap[query];
+                if (matchCat) window.CreatorScore.trackCategory(matchCat);
             }
 
             let results = [];
@@ -1073,6 +1333,9 @@
                 }
             }
 
+            // Score-tier shuffle so order varies each refresh (top-scored grouped on top)
+            results = scoreTierShuffle(results);
+
             // Store for Load More
             currentSearchResults = results;
             displayedCount = Math.min(RESULTS_PER_PAGE, results.length);
@@ -1086,7 +1349,7 @@
             
             resultsSection.style.display = 'block';
             featuredSection.style.display = 'none';
-            suggestedSection.style.display = 'none';
+            if (window.history && history.replaceState) history.replaceState(null, '', '#q=' + encodeURIComponent(query));
         }
 
         function loadMoreResults() {
@@ -1104,11 +1367,19 @@
             document.getElementById('main-search').value = "";
             document.getElementById('search-results-container').style.display = 'none';
             document.getElementById('featured-section').style.display = 'block';
-            document.getElementById('suggested-section').style.display = 'block';
             document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
             currentSearchResults = [];
             displayedCount = 0;
+            if (window.history && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
         }
+
+        // Priority Campaigns: clear any active search (un-hides #featured-section) then scroll to
+        // the campaign tiles. Global so the Genie's Priority Campaigns chip calls the SAME handler.
+        window.showPriorityCampaigns = function () {
+            clearSearch();
+            const f = document.getElementById('featured-section');
+            if (f) window.scrollTo({ top: Math.max(0, f.offsetTop - 80), behavior: 'smooth' });
+        };
 
         // Event Listeners
         document.getElementById('search-trigger').addEventListener('click', handleSearch);
@@ -1133,6 +1404,11 @@
         // Quick Tags - support data-cat attribute for category filtering
         document.querySelectorAll('.quick-tag').forEach(tag => {
             tag.addEventListener('click', () => {
+                // Priority Campaigns tag: return to the campaign tiles, no text search
+                if (tag.dataset.action === 'campaigns') {
+                    showPriorityCampaigns();
+                    return;
+                }
                 document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
                 tag.classList.add('active');
                 const cat = tag.dataset.cat;
@@ -1158,6 +1434,11 @@
         const MEDIUM_POTENTIAL_THRESHOLD = 25;
 
         window.toggleProductSelection = function(id, element, commPct, priceStr, link) {
+            // Personalization signal: tapping a product card = interest in its category.
+            if (window.CreatorScore) {
+                const _p = allItems.find(it => it.id === id);
+                if (_p) window.CreatorScore.trackCategory(_p.category);
+            }
             const isAlreadySelected = selectedProductId === id;
             
             // Clear previous selection if any
@@ -1207,30 +1488,70 @@
                     potentialLevel = 'Medium';
                 }
                 estEl.textContent = `Commission Potential: ${potentialLevel}`;
-                
+
+                // Hand the selected product to the Genie for the in-pop-up Script Generator
+                if (window.Genie) Genie.onProductSelected(selectedProductId);
+
                 bar.classList.add('visible');
             } else {
+                if (window.Genie) Genie.onProductCleared();
                 bar.classList.remove('visible');
             }
         }
 
         window.launchCampaign = function() {
+            if (window.Genie && selectedProductId) Genie.onLaunch(selectedProductId);
             if (selectedProductLink) {
                 window.open(selectedProductLink, '_blank');
             }
             clearProductSelection();
         };
 
+        // --- Mobile only: hide the 3 intro feature boxes after the first interaction.
+        // Triggers: tapping the search bar, any category pill, or any product card.
+        // Resets on refresh (runtime only — no persistence). Desktop always shows them.
+        function isMobileViewport() { return window.innerWidth < 768; }
+        function hideFeatureBoxes() {
+            if (!isMobileViewport()) return;                 // desktop: never hide
+            const boxes = document.querySelector('.value-strip');
+            if (boxes) boxes.style.display = 'none';
+            document.body.classList.add('tb-boxes-hidden'); // collapse the leftover hero gap (mobile CSS)
+        }
+        // One delegated listener covers all three triggers (product cards render dynamically)
+        document.addEventListener('click', function (e) {
+            if (!isMobileViewport()) return;
+            if (e.target.closest('.search-wrapper') || e.target.closest('.quick-tag') || e.target.closest('.product-card')) {
+                hideFeatureBoxes();
+            }
+        }, true);
+        // Focusing the search field (tap that opens the keyboard) also counts
+        const _mobSearch = document.getElementById('main-search');
+        if (_mobSearch) _mobSearch.addEventListener('focus', hideFeatureBoxes);
+        // If the viewport grows to desktop, always restore the boxes
+        window.addEventListener('resize', function () {
+            if (!isMobileViewport()) {
+                const boxes = document.querySelector('.value-strip');
+                if (boxes) boxes.style.display = '';
+                document.body.classList.remove('tb-boxes-hidden');
+            }
+        });
+
         // Initialize
         loadAllData();
     </script>
     
     <div id="action-bar" class="sticky-action-bar">
-        <div class="action-stats">
-            <span class="action-count" id="action-count">Add Product to Showcase</span>
-            <span class="action-est" id="action-est">Commission Potential: High</span>
+        <div class="action-top-row">
+            <div class="action-stats">
+                <span class="action-count" id="action-count">Add Product to Showcase</span>
+                <span class="action-est" id="action-est">Commission Potential: High</span>
+            </div>
+            <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
         </div>
-        <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
+        <!-- Genie Script section is injected here by js/genie.js (#genie-script-mount) -->
     </div>
+
+    <script src="js/genie-scripts-data.js?v=20260626"></script>
+    <script src="js/genie.js?v=20260701"></script>
 </body>
 </html>
