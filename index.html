@@ -1035,7 +1035,7 @@
         <div id="featured-section">
             <div class="section-header">
                 <h2 class="section-title">Priority Campaigns</h2>
-                <a href="#" class="section-view-all">View All Campaigns</a>
+                <a href="#" class="section-view-all" id="view-all-campaigns">View All Campaigns</a>
             </div>
             <div class="product-grid" id="featured-grid">
                 <!-- Featured campaigns will be injected here -->
@@ -1413,6 +1413,13 @@
         document.getElementById('clear-search').addEventListener('click', (e) => {
             e.preventDefault();
             clearSearch();
+        });
+        // "View All Campaigns" was a dead href="#" link — jumped to the very top of the
+        // page instead of showing the creator the campaigns. Wire it to the same handler
+        // the search bar's Priority Campaigns chip already uses correctly.
+        document.getElementById('view-all-campaigns').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPriorityCampaigns();
         });
 
         // Quick Tags - support data-cat attribute for category filtering
