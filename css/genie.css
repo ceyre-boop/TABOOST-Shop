@@ -209,12 +209,27 @@
     margin-top: 10px;
     margin-bottom: 4px;
 }
-.genie-script-trigger .genie-script-label {
-    color: #FF0055; font-size: 18px; font-weight: 800;
+.genie-script-trigger .genie-script-pill {
     display: flex; align-items: center; gap: 8px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid var(--genie-pink);
+    border-radius: 30px;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
-.genie-script-trigger .genie-script-label .genie-script-emoji {
-    font-size: 22px;
+.genie-script-trigger .genie-script-pill-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.genie-script-trigger .genie-script-pill-sparkle {
+    opacity: 0.85;
 }
 .genie-script-trigger .genie-soon-pill {
     margin-left: auto;
