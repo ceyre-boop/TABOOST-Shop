@@ -382,9 +382,9 @@
         <div class="section-header tap-goals-header">
             <h2 class="tap-goals-title"><i class="fas fa-bullseye" style="color: #00ff88;"></i> TAP Goals</h2>
             
-            <!-- Centered GMV Value -->
+            <!-- Centered GMV Value / Opt-in / Claim CTA -->
             <div class="tap-goals-center">
-                <span class="level-badge tap-value-badge" id="tapYTDDisplay">$0</span>
+                <button type="button" class="level-badge tap-value-badge" id="tapYTDDisplay">$0</button>
             </div>
 
             <!-- Right-aligned Search Link -->
@@ -396,7 +396,7 @@
         </div>
         <div style="padding: 0 16px 24px;">
             <!-- Single TAP Goal Bar (0 to $5K) -->
-            <div style="margin-bottom: 8px;">
+            <div style="margin-bottom: 8px;" id="tapGoalsLocked">
                 <!-- Markers/Labels ABOVE the bar -->
                 <div class="tap-goal-container" style="position: relative; margin-top: 55px; margin-bottom: 8px;">
                     <!-- $100K -->
@@ -620,7 +620,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBrApQHC1Fvbjm9EVTptt2kNG2mDb1PzXE",
@@ -636,6 +636,10 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
+        // TAP bonus opt-in/claim (js/shop-dashboard.js) needs Firestore access, but it's a
+        // classic script (not a module) so it can't `import` — expose what it needs here.
+        window.__tapFirestore = { db, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs };
+
         const urlParams = new URLSearchParams(window.location.search);
         const testEmail = urlParams.get('test_email');
 
@@ -646,6 +650,8 @@
             } else if (testEmail) {
                 user = { uid: 'test_user', email: testEmail, displayName: testEmail.split('@')[0], isTest: true };
             }
+
+            window.__tapFirestore.uid = user.uid;
 
             try {
                 // Initialize dashboard — welcome title & message are set inside initCreatorDashboard

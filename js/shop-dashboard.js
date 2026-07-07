@@ -13,6 +13,27 @@ window.CAMPAIGN_ANNOUNCEMENT = {
     postText: ""
 };
 
+// ==========================================
+// TAP BONUS opt-in / claim configuration
+// Goal 1: $100K TAP GMV -> $500 Bonus
+// Goal 2: $250K TAP GMV -> $1,000 more (cumulative $1,500)
+// Goal 3: $1M TAP GMV -> $1,500 more (cumulative $3,000)
+// Claiming a tier writes a Firestore record (no dollar amount stored client-side —
+// the amount always comes from this table) and POSTs a notification to the Apps
+// Script web app below, which emails marco@taboost.me. See scripts/tap-bonus-email.gs.
+// ==========================================
+const TAP_BONUS_TIERS = [
+    { key: 'tier1', threshold: 100000, amount: 500 },
+    { key: 'tier2', threshold: 250000, amount: 1000 },
+    { key: 'tier3', threshold: 1000000, amount: 1500 }
+];
+// PASTE the deployed Apps Script web app URL here (Extensions > Apps Script > Deploy >
+// New deployment > Web app). Until this is set, claims still record in Firestore but no
+// email is sent.
+const TAP_BONUS_WEBHOOK_URL = '';
+// Must match the secret set in the Apps Script's Script Properties (see the .gs file).
+const TAP_BONUS_WEBHOOK_SECRET = '';
+
 let myData = null;
 let allCreators = [];
 let performanceChart = null;
@@ -379,6 +400,180 @@ function updateRank() {
     document.getElementById('rankBar').style.width = progress + '%';
 }
 
+// ---------- TAP bonus opt-in / claim ----------
+// Renders one of three states into #tapYTDDisplay + the goal bar/labels:
+//   1. Not opted in       -> "OPT-IN FOR BONUS" CTA, milestone bar greyed out
+//   2. Opted in, no        -> plain "$X" display, full-color bar (today's behavior)
+//      unclaimed tier reached
+//   3. Opted in, tier      -> "CLAIM $X BONUS" CTA for the lowest unclaimed reached tier
+//      reached & unclaimed
+async function renderTapGoalsSection(tapYTD) {
+    const tapYTDDisplay = document.getElementById('tapYTDDisplay');
+    const lockedWrap = document.getElementById('tapGoalsLocked');
+    if (!tapYTDDisplay) return;
+
+    const fs = window.__tapFirestore;
+    if (!fs || !fs.uid) {
+        // Auth/Firestore not ready yet — show the plain read-only state, no CTA, so the
+        // dashboard still renders something sensible while auth resolves.
+        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
+        tapYTDDisplay.className = 'level-badge tap-value-badge';
+        tapYTDDisplay.onclick = null;
+        renderTapGoalsPlain(tapYTD);
+        return;
+    }
+
+    let optedIn = false;
+    const claimedTiers = new Set();
+    try {
+        const userSnap = await fs.getDoc(fs.doc(fs.db, 'users', fs.uid));
+        optedIn = !!(userSnap.exists() && userSnap.data().tapBonusOptIn);
+
+        const claimsQ = fs.query(fs.collection(fs.db, 'tapBonusClaims'), fs.where('uid', '==', fs.uid));
+        const claimsSnap = await fs.getDocs(claimsQ);
+        claimsSnap.forEach(function (d) { claimedTiers.add(d.data().tier); });
+    } catch (e) {
+        console.warn('TAP bonus opt-in/claim state check failed (showing plain display):', e.message);
+        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
+        tapYTDDisplay.className = 'level-badge tap-value-badge';
+        tapYTDDisplay.onclick = null;
+        renderTapGoalsPlain(tapYTD);
+        return;
+    }
+
+    if (!optedIn) {
+        tapYTDDisplay.textContent = 'OPT-IN FOR BONUS';
+        tapYTDDisplay.className = 'level-badge tap-value-badge tap-optin-cta';
+        tapYTDDisplay.onclick = handleTapBonusOptIn;
+        if (lockedWrap) lockedWrap.classList.add('tap-goals-greyed');
+        const mainBar = document.getElementById('tapGoalBar');
+        if (mainBar) mainBar.style.width = '0%';
+        const lbl = document.getElementById('tapGoalLabel');
+        if (lbl) lbl.innerHTML = '<div style="text-align:center; color:#888; font-size:12px; padding:8px 0;">Opt in above to start tracking your TAP bonus progress.</div>';
+        return;
+    }
+
+    if (lockedWrap) lockedWrap.classList.remove('tap-goals-greyed');
+
+    const nextClaim = TAP_BONUS_TIERS.find(function (t) { return tapYTD >= t.threshold && !claimedTiers.has(t.key); });
+    if (nextClaim) {
+        tapYTDDisplay.textContent = 'CLAIM $' + nextClaim.amount.toLocaleString() + ' BONUS';
+        tapYTDDisplay.className = 'level-badge tap-value-badge tap-claim-cta';
+        tapYTDDisplay.onclick = function () { handleTapBonusClaim(nextClaim); };
+    } else {
+        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
+        tapYTDDisplay.className = 'level-badge tap-value-badge';
+        tapYTDDisplay.onclick = null;
+    }
+
+    renderTapGoalsPlain(tapYTD);
+}
+
+// Milestone bar fill + marker colors + summary boxes — unchanged from the original
+// always-on implementation, just no longer responsible for #tapYTDDisplay's text.
+function renderTapGoalsPlain(tapYTD) {
+    const GOAL_1 = TAP_BONUS_TIERS[0].threshold;
+    const GOAL_2 = TAP_BONUS_TIERS[1].threshold;
+    const GOAL_3 = TAP_BONUS_TIERS[2].threshold;
+
+    const goalPct = Math.min(100, (tapYTD / GOAL_3) * 100);
+    const mainBar = document.getElementById('tapGoalBar');
+    if (mainBar) mainBar.style.width = goalPct.toFixed(2) + '%';
+
+    const lbl = document.getElementById('tapGoalLabel');
+    if (!lbl) return;
+
+    const formattedYTD = '$' + Math.round(tapYTD).toLocaleString();
+    const g1 = tapYTD >= GOAL_1;
+    const g2 = tapYTD >= GOAL_2;
+    const g3 = tapYTD >= GOAL_3;
+
+    const goal2AmountEl = document.getElementById('tapGoal2Amount');
+    const goal2BonusEl = document.getElementById('tapGoal2Bonus');
+    if (goal2AmountEl) goal2AmountEl.style.color = g2 ? '#00ff88' : '#fff';
+    if (goal2BonusEl) goal2BonusEl.style.color = g2 ? '#00ff88' : '#ccc';
+
+    if (g3) {
+        lbl.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.15)); padding: 12px 20px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 4px 15px rgba(255,215,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 24px;">🎖️</span>
+                        <span style="font-size: 14px; font-weight: 800; color: #ffd700; text-transform: uppercase; letter-spacing: 0.5px;">Ultimate Goal Reached! ${formattedYTD} TAP YTD</span>
+                    </div>
+                </div>
+            </div>`;
+    } else {
+        let nextVal;
+        if (!g1) { nextVal = GOAL_1; }
+        else if (!g2) { nextVal = GOAL_2; }
+        else { nextVal = GOAL_3; }
+
+        const remaining = nextVal - tapYTD;
+        lbl.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: stretch; gap: 8px;">
+                <div style="flex: 1; background: rgba(0,255,136,0.1); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(0,255,136,0.3); text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 9px; color: #00ff88; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">YTD TAP GMV</div>
+                    <div style="font-size: 14px; color: #fff; font-weight: 800; white-space: nowrap;">${formattedYTD}</div>
+                </div>
+                <div style="display: flex; align-items: center; color: #444; font-size: 14px;">➔</div>
+                <div style="flex: 1; background: rgba(255,255,255,0.05); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">Next: ${(nextVal/1000) % 1 === 0 ? `$${nextVal/1000}K` : `$${(nextVal/1000).toFixed(1)}K`}</div>
+                    <div style="font-size: 14px; color: #ccc; font-weight: 700; line-height: 1.2;">$${Math.round(remaining).toLocaleString()}</div>
+                </div>
+            </div>`;
+    }
+}
+
+async function handleTapBonusOptIn() {
+    const fs = window.__tapFirestore;
+    if (!fs || !fs.uid) return;
+    const btn = document.getElementById('tapYTDDisplay');
+    if (btn) { btn.disabled = true; btn.textContent = 'Opting in...'; }
+    try {
+        await fs.updateDoc(fs.doc(fs.db, 'users', fs.uid), {
+            tapBonusOptIn: true,
+            tapBonusOptInAt: fs.serverTimestamp()
+        });
+    } catch (e) {
+        console.error('TAP bonus opt-in failed:', e);
+        alert('Could not save your opt-in right now. Please try again.');
+    }
+    if (btn) btn.disabled = false;
+    renderTapGoalsSection(myData.tapYTD || 0);
+}
+
+async function handleTapBonusClaim(tier) {
+    const fs = window.__tapFirestore;
+    if (!fs || !fs.uid) return;
+    const btn = document.getElementById('tapYTDDisplay');
+    const creatorName = (myData && (myData.name || myData.username)) || 'Unknown creator';
+    if (btn) { btn.disabled = true; btn.textContent = 'Claiming...'; }
+    try {
+        const claimId = fs.uid + '_' + tier.key;
+        await fs.setDoc(fs.doc(fs.db, 'tapBonusClaims', claimId), {
+            uid: fs.uid,
+            tier: tier.key,
+            creatorName: creatorName,
+            claimedAt: fs.serverTimestamp()
+        });
+        if (TAP_BONUS_WEBHOOK_URL) {
+            fetch(TAP_BONUS_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ secret: TAP_BONUS_WEBHOOK_SECRET, creatorName: creatorName, tier: tier.key })
+            }).catch(function (e) { console.warn('TAP bonus email notification failed (claim was still recorded in Firestore):', e); });
+        } else {
+            console.warn('TAP_BONUS_WEBHOOK_URL not configured yet — claim recorded in Firestore, but no email was sent.');
+        }
+    } catch (e) {
+        console.error('TAP bonus claim failed:', e);
+        alert('Could not record your claim right now. Please try again, or contact your manager if this keeps happening.');
+    }
+    if (btn) btn.disabled = false;
+    renderTapGoalsSection(myData.tapYTD || 0);
+}
+
 function updateSalesStats() {
     // SV
     const svEl = document.getElementById('currentSV');
@@ -392,71 +587,11 @@ function updateSalesStats() {
     const lhEl = document.getElementById('currentLH');
     if (lhEl) lhEl.textContent = (myData.livesHours || 0);
     
-    // TAP Goals: Triple-milestone progress bars using tapYTD
-    // Goal 1: $1,500 TAP GMV → $500 Bonus
-    // Goal 2: $3,000 TAP GMV → $1,500 Total Bonus
-    // Goal 3: $1,000,000 TAP GMV → $3,000 Total Bonus
+    // TAP Goals: Triple-milestone progress bars using tapYTD, gated by opt-in/claim state
+    // (see renderTapGoalsSection / TAP_BONUS_TIERS above).
     const tapYTD = myData.tapYTD || 0;
-    const GOAL_1 = 100000;
-    const GOAL_2 = 250000;
-    const GOAL_3 = 1000000;
-    
-    // Update badge with current TAP YTD value
-    const tapYTDDisplay = document.getElementById('tapYTDDisplay');
-    if (tapYTDDisplay) {
-        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
-    }
-    
-    // Single Goal bar: tapYTD / $5K, clamped to 100%
-    const goalPct = Math.min(100, (tapYTD / GOAL_3) * 100);
-    const mainBar = document.getElementById('tapGoalBar');
-    if (mainBar) mainBar.style.width = goalPct.toFixed(2) + '%';
-    
-    // Summary label with contextual status
-    const lbl = document.getElementById('tapGoalLabel');
-    if (lbl) {
-        const formattedYTD = '$' + Math.round(tapYTD).toLocaleString();
-        const g1 = tapYTD >= GOAL_1;
-        const g2 = tapYTD >= GOAL_2;
-        const g3 = tapYTD >= GOAL_3;
+    renderTapGoalsSection(tapYTD);
 
-        const goal2AmountEl = document.getElementById('tapGoal2Amount');
-        const goal2BonusEl = document.getElementById('tapGoal2Bonus');
-        if (goal2AmountEl) goal2AmountEl.style.color = g2 ? '#00ff88' : '#fff';
-        if (goal2BonusEl) goal2BonusEl.style.color = g2 ? '#00ff88' : '#ccc';
-        
-        if (g3) {
-            lbl.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                    <div style="background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.15)); padding: 12px 20px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 4px 15px rgba(255,215,0,0.1);">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 24px;">🎖️</span>
-                            <span style="font-size: 14px; font-weight: 800; color: #ffd700; text-transform: uppercase; letter-spacing: 0.5px;">Ultimate Goal Reached! ${formattedYTD} TAP YTD</span>
-                        </div>
-                    </div>
-                </div>`;
-        } else {
-            let nextGoal, nextVal, bonus;
-            if (!g1) { nextGoal = "Goal 1"; nextVal = GOAL_1; bonus = "$500 Bonus"; }
-            else if (!g2) { nextGoal = "Goal 2"; nextVal = GOAL_2; bonus = "$1,500 Total Bonus"; }
-            else { nextGoal = "Final Goal"; nextVal = GOAL_3; bonus = "$3,000 Total Bonus"; }
-            
-            const remaining = nextVal - tapYTD;
-            lbl.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: stretch; gap: 8px;">
-                    <div style="flex: 1; background: rgba(0,255,136,0.1); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(0,255,136,0.3); text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="font-size: 9px; color: #00ff88; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">YTD TAP GMV</div>
-                        <div style="font-size: 14px; color: #fff; font-weight: 800; white-space: nowrap;">${formattedYTD}</div>
-                    </div>
-                    <div style="display: flex; align-items: center; color: #444; font-size: 14px;">➔</div>
-                    <div style="flex: 1; background: rgba(255,255,255,0.05); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 2px;">Next: ${(nextVal/1000) % 1 === 0 ? `$${nextVal/1000}K` : `$${(nextVal/1000).toFixed(1)}K`}</div>
-                        <div style="font-size: 14px; color: #ccc; font-weight: 700; line-height: 1.2;">$${Math.round(remaining).toLocaleString()}</div>
-                    </div>
-                </div>`;
-        }
-    }
-    
     renderAccountsBreakdown();
 }
 

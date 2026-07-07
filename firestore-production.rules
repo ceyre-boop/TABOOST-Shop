@@ -106,10 +106,27 @@ service cloud.firestore {
     // Payouts
     match /payouts/{docId} {
       // Creator can read their own payouts
-      allow read: if isAuthenticated() 
+      allow read: if isAuthenticated()
         && resource.data.uid == request.auth.uid;
-      
+
       // Admin can manage all payouts
+      allow read, write: if isAdmin();
+    }
+
+    // TAP bonus claims — one doc per (creator, tier), doc ID is "{uid}_{tier}".
+    // Deliberately create-only: since the doc ID is deterministic, attempting to
+    // "claim" the same tier twice is an update (doc already exists), which no rule
+    // below permits — so re-claims are rejected by the rules engine itself, no
+    // application logic needed. No dollar amount field is ever allowed here; the
+    // amount is looked up server-side (Apps Script) from the tier name only.
+    match /tapBonusClaims/{claimId} {
+      allow read: if isAuthenticated() && resource.data.uid == request.auth.uid;
+
+      allow create: if isAuthenticated()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['uid', 'tier', 'creatorName', 'claimedAt'])
+        && request.resource.data.tier in ['tier1', 'tier2', 'tier3'];
+
       allow read, write: if isAdmin();
     }
   }
