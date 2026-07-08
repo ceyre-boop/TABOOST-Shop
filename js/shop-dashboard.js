@@ -7,9 +7,9 @@
 // ==========================================
 window.CAMPAIGN_ANNOUNCEMENT = {
     enabled: true,
-    text: "Enjoy the new Shop App! Report any bugs to Marco",
+    text: "Our TAP Search is updated, search for products",
     linkText: "HERE",
-    linkUrl: "https://discord.com/users/953756920823562310",
+    linkUrl: "https://shop.taboost.me",
     postText: ""
 };
 
