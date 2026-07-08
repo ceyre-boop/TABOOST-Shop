@@ -449,7 +449,7 @@ async function renderTapGoalsSection(tapYTD) {
         const mainBar = document.getElementById('tapGoalBar');
         if (mainBar) mainBar.style.width = '0%';
         const lbl = document.getElementById('tapGoalLabel');
-        if (lbl) lbl.innerHTML = '<div style="text-align:center; color:#888; font-size:12px; padding:8px 0;">Opt in above to start tracking your TAP bonus progress.</div>';
+        if (lbl) lbl.innerHTML = '<div style="text-align:center; color:#888; font-size:12px; padding:8px 0;">Opt-in to start tracking your TAP Cash Bonus progress</div>';
         return;
     }
 
@@ -558,9 +558,13 @@ async function handleTapBonusClaim(tier) {
             claimedAt: fs.serverTimestamp()
         });
         if (TAP_BONUS_WEBHOOK_URL) {
+            // Content-Type must be 'text/plain' here, NOT 'application/json' — Apps Script
+            // web apps don't handle CORS preflight (OPTIONS) requests, and 'application/json'
+            // triggers one, silently failing the fetch with no email ever sent. Apps Script's
+            // doPost still JSON.parses the body fine regardless of the declared Content-Type.
             fetch(TAP_BONUS_WEBHOOK_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({ secret: TAP_BONUS_WEBHOOK_SECRET, creatorName: creatorName, tier: tier.key })
             }).catch(function (e) { console.warn('TAP bonus email notification failed (claim was still recorded in Firestore):', e); });
         } else {
