@@ -23,9 +23,9 @@ window.CAMPAIGN_ANNOUNCEMENT = {
 // Script web app below, which emails marco@taboost.me. See scripts/tap-bonus-email.gs.
 // ==========================================
 const TAP_BONUS_TIERS = [
-    { key: 'tier1', threshold: 100000, amount: 500 },
-    { key: 'tier2', threshold: 250000, amount: 1000 },
-    { key: 'tier3', threshold: 1000000, amount: 1500 }
+    { key: 'tier1', threshold: 100000, amount: 500, goal: 'GOAL 1' },
+    { key: 'tier2', threshold: 250000, amount: 1000, goal: 'GOAL 2' },
+    { key: 'tier3', threshold: 1000000, amount: 1500, goal: 'GOAL 3' }
 ];
 // PASTE the deployed Apps Script web app URL here (Extensions > Apps Script > Deploy >
 // New deployment > Web app). Until this is set, claims still record in Firestore but no
@@ -401,12 +401,15 @@ function updateRank() {
 }
 
 // ---------- TAP bonus opt-in / claim ----------
-// Renders one of three states into #tapYTDDisplay + the goal bar/labels:
-//   1. Not opted in       -> "OPT-IN FOR BONUS" CTA, milestone bar greyed out
-//   2. Opted in, no        -> plain "$X" display, full-color bar (today's behavior)
-//      unclaimed tier reached
-//   3. Opted in, tier      -> "CLAIM $X BONUS" CTA for the lowest unclaimed reached tier
-//      reached & unclaimed
+// Renders one of four states into #tapYTDDisplay + the goal bar/labels:
+//   1. Not opted in        -> "OPT-IN FOR BONUS" CTA, milestone bar greyed out
+//   2. Opted in, nothing    -> hidden entirely (YTD figure already shows in the
+//      reached/claimed yet     summary box below)
+//   3. Opted in, tier       -> "GOAL N: CLAIM $X BONUS" CTA for the lowest
+//      reached & unclaimed     unclaimed reached tier
+//   4. Opted in, tier just  -> "$X CLAIMED" confirmation for the highest
+//      claimed, no newer       claimed tier, until a newer tier is reached
+//      tier reached yet
 async function renderTapGoalsSection(tapYTD) {
     const tapYTDDisplay = document.getElementById('tapYTDDisplay');
     const lockedWrap = document.getElementById('tapGoalsLocked');
@@ -456,13 +459,21 @@ async function renderTapGoalsSection(tapYTD) {
     if (lockedWrap) lockedWrap.classList.remove('tap-goals-greyed');
 
     const nextClaim = TAP_BONUS_TIERS.find(function (t) { return tapYTD >= t.threshold && !claimedTiers.has(t.key); });
+    const lastClaimed = TAP_BONUS_TIERS.slice().reverse().find(function (t) { return claimedTiers.has(t.key); });
     if (nextClaim) {
         tapYTDDisplay.style.display = '';
-        tapYTDDisplay.textContent = 'CLAIM $' + nextClaim.amount.toLocaleString() + ' BONUS';
+        tapYTDDisplay.textContent = nextClaim.goal + ': CLAIM $' + nextClaim.amount.toLocaleString() + ' BONUS';
         tapYTDDisplay.className = 'level-badge tap-value-badge tap-claim-cta';
         tapYTDDisplay.onclick = function () { handleTapBonusClaim(nextClaim); };
+    } else if (lastClaimed) {
+        // Just claimed (or claimed previously) with no newer tier reached yet —
+        // confirm the claim instead of silently disappearing.
+        tapYTDDisplay.style.display = '';
+        tapYTDDisplay.textContent = '$' + lastClaimed.amount.toLocaleString() + ' CLAIMED';
+        tapYTDDisplay.className = 'level-badge tap-value-badge';
+        tapYTDDisplay.onclick = null;
     } else {
-        // Opted in, nothing to claim yet — the $ YTD figure already shows in the
+        // Opted in, nothing reached/claimed yet — the $ YTD figure already shows in the
         // "YTD TAP GMV" box below, so hide this pill entirely until a bonus is earned.
         tapYTDDisplay.style.display = 'none';
         tapYTDDisplay.onclick = null;
