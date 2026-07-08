@@ -2881,12 +2881,45 @@
 
 /* 50% Larger Badges on Desktop */
 .tap-value-badge {
-    background: rgba(0,255,136,0.15); 
-    color: #00ff88; 
-    padding: 8px 18px; 
-    border-radius: 20px; 
-    font-size: 16px; 
+    background: rgba(0,255,136,0.15);
+    color: #00ff88;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 16px;
     font-weight: 800;
+    border: none;
+    font-family: inherit;
+    cursor: default;
+}
+
+/* TAP bonus opt-in CTA — same green pill, just clickable/inviting */
+.tap-value-badge.tap-optin-cta {
+    cursor: pointer;
+    animation: tapOptinPulse 1.8s ease-in-out infinite;
+}
+@keyframes tapOptinPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(0,255,136,0); }
+    50% { box-shadow: 0 0 16px rgba(0,255,136,0.6); }
+}
+
+/* TAP bonus claim CTA — bigger, brighter, unmissable */
+.tap-value-badge.tap-claim-cta {
+    cursor: pointer;
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    color: #001a0d;
+    font-size: 18px;
+    padding: 10px 22px;
+    box-shadow: 0 0 20px rgba(0,255,136,0.5);
+}
+.tap-value-badge.tap-claim-cta:hover {
+    transform: scale(1.05);
+}
+
+/* Milestone bar + markers, greyed out until the creator opts in */
+#tapGoalsLocked.tap-goals-greyed {
+    opacity: 0.4;
+    filter: grayscale(0.6);
+    pointer-events: none;
 }
 
 .tap-search-badge {
