@@ -457,12 +457,14 @@ async function renderTapGoalsSection(tapYTD) {
 
     const nextClaim = TAP_BONUS_TIERS.find(function (t) { return tapYTD >= t.threshold && !claimedTiers.has(t.key); });
     if (nextClaim) {
+        tapYTDDisplay.style.display = '';
         tapYTDDisplay.textContent = 'CLAIM $' + nextClaim.amount.toLocaleString() + ' BONUS';
         tapYTDDisplay.className = 'level-badge tap-value-badge tap-claim-cta';
         tapYTDDisplay.onclick = function () { handleTapBonusClaim(nextClaim); };
     } else {
-        tapYTDDisplay.textContent = '$' + Math.round(tapYTD).toLocaleString();
-        tapYTDDisplay.className = 'level-badge tap-value-badge';
+        // Opted in, nothing to claim yet — the $ YTD figure already shows in the
+        // "YTD TAP GMV" box below, so hide this pill entirely until a bonus is earned.
+        tapYTDDisplay.style.display = 'none';
         tapYTDDisplay.onclick = null;
     }
 
