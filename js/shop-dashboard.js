@@ -95,7 +95,7 @@ async function initCreatorDashboard(user) {
         const welcomeMsg = document.getElementById('welcomeMessage');
         const camp = window.CAMPAIGN_ANNOUNCEMENT;
         if (welcomeMsg && camp && camp.enabled) {
-            welcomeMsg.innerHTML = `${camp.text} <a href="${camp.linkUrl}" target="_blank" style="color: #ffd700; text-decoration: underline; font-weight: 600;">${camp.linkText}</a> ${camp.postText}`;
+            welcomeMsg.innerHTML = `${camp.text} <a href="${camp.linkUrl}" style="color: #ffd700; text-decoration: underline; font-weight: 600;">${camp.linkText}</a> ${camp.postText}`;
         }
     } catch (e) {
         console.warn("Welcome rendering issue:", e);
