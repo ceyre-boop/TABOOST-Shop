@@ -34,7 +34,7 @@
     })();
     </script>
     <link rel="stylesheet" href="css/styles.css?v=20250305">
-    <link rel="stylesheet" href="css/creator-dashboard.css?v=20250305">
+    <link rel="stylesheet" href="css/creator-dashboard.css?v=202607092226">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* FORCE REMOVE RED BAR - OVERRIDE ALL */
@@ -77,9 +77,6 @@
                 </div>
                 <button class="settings-btn" onclick="openSettings()">
                     <i class="fas fa-cog"></i> Settings
-                </button>
-                <button class="logout-btn" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
             </div>
         </header>
@@ -416,6 +413,9 @@
         <footer class="creator-footer">
             <p>Questions? Contact <span id="footerManager">your manager</span> or <a href="mailto:support@taboost.me">support@taboost.me</a></p>
             <p>© 2026 Taboost Agency. All rights reserved.</p>
+            <button class="footer-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Log out
+            </button>
         </footer>
     </div>
     
