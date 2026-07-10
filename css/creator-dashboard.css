@@ -1477,6 +1477,26 @@
     color: var(--taboost-red);
 }
 
+.footer-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: #888;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.footer-logout:hover {
+    border-color: var(--taboost-red);
+    color: var(--taboost-red);
+}
+
 /* MOBILE-FIRST RESPONSIVE DESIGN */
 
 /* Large tablets and small laptops */
@@ -2070,6 +2090,7 @@
     .chart-tab,
     .export-btn,
     .logout-btn,
+    .footer-logout,
     .period-btn {
         min-height: 44px;
     }
