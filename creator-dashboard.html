@@ -84,7 +84,7 @@
         };
     </script>
     <link rel="stylesheet" href="css/styles.css?v=202503092112">
-    <link rel="stylesheet" href="css/creator-dashboard.css?v=202503092112">
+    <link rel="stylesheet" href="css/creator-dashboard.css?v=202607102027">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -323,9 +323,6 @@
                 </a>
                 <button class="settings-btn" onclick="openSettings()">
                     <i class="fas fa-cog"></i> Settings
-                </button>
-                <button class="logout-btn" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
             </div>
         </header>
@@ -680,6 +677,9 @@
             <p>Questions? Contact <span id="footerManager">your manager</span>, <a href="mailto:info@taboost.me">info@taboost.me</a>, or <a href="https://discord.gg/Akfwz536BW" target="_blank"><i class="fab fa-discord"></i> Discord</a></p>
             <p>© 2026 Taboost Agency. All rights reserved.</p>
             <p style="font-size: 11px; color: var(--text-secondary); margin-top: 10px; opacity: 0.7;">All diamond revenue calculations are estimates based on standard TikTok Live conversion, exact amounts will vary per creator</p>
+            <button class="footer-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Log out
+            </button>
         </footer>
     </div>
     
