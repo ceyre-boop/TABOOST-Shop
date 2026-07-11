@@ -42,10 +42,17 @@ jobs:
           sleep 8
           git pull --rebase origin main
 
-      - name: Rebuild shop-data.js
+      - name: Rebuild shop-data.js (creator dashboards)
         run: node build-shop-data.js
+
+      # TAP storefront pipeline (index.html renders js/product-data.js dynamically).
+      # Ported from update_discovery_data.py — reads the committed product-images.json
+      # cache only (image scraping stays a manual/local step, never in CI). Also stamps
+      # the ?v= cache-bust on the product-data.js tag in index.html from a data hash.
+      - name: Rebuild product-data.js (TAP storefront)
+        run: node build-product-data.js data/shop
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'Auto-rebuild: shop-data.js from CSV'
-          file_pattern: 'js/shop-data.js'
+          commit_message: 'Auto-rebuild: shop-data.js + product-data.js from CSV'
+          file_pattern: 'js/shop-data.js js/product-data.js index.html'
