@@ -276,9 +276,6 @@
             <button class="settings-btn" onclick="openSettings()">
                 <i class="fas fa-cog"></i> Settings
             </button>
-            <button class="logout-btn" onclick="logout()">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </button>
         </div>
     </header>
 
@@ -546,6 +543,9 @@
 
 
     <footer class="creator-footer">
+        <button class="logout-btn" onclick="logout()" style="display:inline-flex; margin-bottom:18px;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
         <p>Questions?</p>
         <p>Contact <span id="footerManager">your manager</span>, <a
                 href="mailto:info@taboost.me">info@taboost.me</a>, or <a
