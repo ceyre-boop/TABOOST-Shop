@@ -1049,6 +1049,7 @@
             <a href="https://www.taboost.me/join" target="_blank" rel="noopener" class="btn login-glow" style="display:inline-block; margin-bottom:16px;">✨ Join TABOOST</a>
             <p style="color:#888; font-size:14px; margin-bottom:6px;">Built for creators. Powered by the Genie. 🧞‍♀️</p>
             <p>© 2026 TABOOST. All rights reserved.</p>
+            <button id="footer-logout" type="button" style="display:none; margin-top:18px; padding:10px 22px; background:transparent; border:1px solid rgba(255,255,255,0.2); border-radius:8px; color:#ccc; font-size:14px; font-weight:600; cursor:pointer;">↪ Log out</button>
         </footer>
     </div>
     <script src="js/product-data.js?v=20260710"></script>
@@ -1583,25 +1584,36 @@
         const auth = getAuth(initializeApp(firebaseConfig));
         const signupLink = document.getElementById('nav-signup-link');
         const loginLink = document.getElementById('nav-login-link');
+        const footerLogout = document.getElementById('footer-logout');
+
+        const doLogout = (e) => {
+            if (e) e.preventDefault();
+            signOut(auth).then(() => window.location.reload());
+        };
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 loginLink.textContent = 'Dashboard';
                 loginLink.href = 'shop-dashboard.html';
 
-                signupLink.textContent = 'Log Out';
-                signupLink.href = '#';
-                signupLink.onclick = (e) => {
-                    e.preventDefault();
-                    signOut(auth).then(() => window.location.reload());
-                };
+                // Log Out lives at the bottom of the page (footer), like Live — hide the header link
+                signupLink.style.display = 'none';
+                signupLink.onclick = null;
+
+                if (footerLogout) {
+                    footerLogout.style.display = 'inline-block';
+                    footerLogout.onclick = doLogout;
+                }
             } else {
                 loginLink.textContent = 'Login';
                 loginLink.href = 'shop-login.html';
 
                 signupLink.textContent = 'Sign Up';
                 signupLink.href = 'shop-signup.html';
+                signupLink.style.display = '';
                 signupLink.onclick = null;
+
+                if (footerLogout) footerLogout.style.display = 'none';
             }
         });
     </script>
