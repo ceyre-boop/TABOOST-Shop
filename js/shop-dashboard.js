@@ -303,37 +303,49 @@ function updateGMVStats() {
     const gmvLabel = document.querySelector('.stat-card.primary .stat-label');
     if (gmvLabel) gmvLabel.textContent = "Total GMV";
 
-    // Estimated pace: project current GMV to end of month based on days elapsed.
-    // Projecting off very few elapsed days massively amplifies the result (e.g. day 1
-    // of a 31-day month always shows exactly 3000%, regardless of GMV) — that's not
-    // a data bug, it's this ratio being undefined that early. Two guards, once and for all:
-    // withhold the badge for the first couple days (not enough data to project at all),
-    // then cap the displayed number so it can never show an absurd triple/quadruple-digit
-    // figure even while the projection is still naturally volatile mid-ramp.
-    const MIN_DAYS_FOR_PACE = 3;
-    const PACE_CAP = 200;
+    // 6-month GMV momentum: compare the most recent completed months to the prior
+    // equal-length window (up to 3-vs-3 over the last 6 months). Uses only COMPLETED
+    // months — the partial current month is dropped — which is what removed the old
+    // day-of-month "3000% Estimated pace" artifact (that ratio was calendar-driven,
+    // not GMV-driven). The 3-vs-3 split smooths single-month spikes; the window shrinks
+    // gracefully for creators with less than 6 months of history.
     const trendEl = document.getElementById('gmvTrend');
     if (trendEl) {
-        const now = new Date();
-        const dayOfMonth = now.getDate();
-        const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-        const daysElapsed = Math.max(dayOfMonth, 1);
-        if (totalGMV > 0 && daysElapsed >= MIN_DAYS_FOR_PACE) {
-            const projectedGMV = (totalGMV / daysElapsed) * daysInMonth;
-            const rawPacePercent = ((projectedGMV - totalGMV) / totalGMV) * 100;
-            const isCapped = rawPacePercent > PACE_CAP;
-            const paceLabel = isCapped
-                ? Math.round(PACE_CAP) + '%+'
-                : rawPacePercent.toFixed(1) + '%';
-            trendEl.innerHTML = `
-                <span class="trend-indicator up" style="background: rgba(0,200,100,0.15); color: #00c864; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
-                    <i class="fas fa-arrow-up"></i>
-                    ${paceLabel} Estimated pace
-                </span>
-            `;
+        // Monthly GMV summed across all of the creator's accounts, completed months only.
+        const acctHistories = myData.accountsHistory || [];
+        const maxLen = acctHistories.reduce((m, a) => Math.max(m, (a.gmv || []).length), 0);
+        const monthsCount = Math.max(maxLen - 1, 0); // drop the partial "Current" month
+        const monthly = Array.from({ length: monthsCount }, (_, i) => {
+            let t = 0;
+            acctHistories.forEach(a => { if (a.gmv && a.gmv[i] != null) t += a.gmv[i]; });
+            return t;
+        });
+        const series = monthly.slice(-6);            // up to the last 6 completed months
+        const n = series.length;
+        const half = Math.floor(n / 2);
+        const sum = arr => arr.reduce((x, y) => x + y, 0);
+        const prior = half > 0 ? sum(series.slice(0, half)) : 0;       // earlier window
+        const recent = half > 0 ? sum(series.slice(n - half)) : 0;      // most-recent window
+
+        const renderBadge = (up, text) => `
+            <span class="trend-indicator ${up ? 'up' : 'down'}" style="background: ${up ? 'rgba(0,200,100,0.15)' : 'rgba(255,0,68,0.15)'}; color: ${up ? '#00c864' : '#ff3b5c'}; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                <i class="fas fa-arrow-${up ? 'up' : 'down'}"></i>
+                ${text}
+            </span>`;
+
+        if (half >= 1 && prior > 0) {
+            const pct = ((recent - prior) / prior) * 100;
+            const up = pct >= 0;
+            const shown = Math.min(Math.abs(Math.round(pct)), 999);
+            const mark = Math.abs(pct) > 999 ? '+' : '';
+            trendEl.innerHTML = renderBadge(up, `${shown}%${mark} vs prior ${half} mo`);
+            myData.growthDirection = up ? 'up' : 'down';
+        } else if (recent > 0) {
+            // GMV only in the recent window (no earlier baseline) — creator is ramping up.
+            trendEl.innerHTML = renderBadge(true, 'New — ramping up');
             myData.growthDirection = 'up';
         } else if (totalGMV > 0) {
-            trendEl.innerHTML = `<span class="trend-indicator">New month — pace updates in a few days</span>`;
+            trendEl.innerHTML = `<span class="trend-indicator"><i class="fas fa-chart-line"></i> Building trend&hellip;</span>`;
         } else {
             trendEl.innerHTML = `<span class="trend-indicator">New Account</span>`;
         }
