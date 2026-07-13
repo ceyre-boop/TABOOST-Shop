@@ -1522,13 +1522,60 @@
             }
         }
 
+        // Mobile (iOS/Android) has the TikTok app, so affiliate links open there.
+        // On desktop those links 404, so we copy the link instead. iPadOS 13+ reports
+        // its UA as "Macintosh", so also treat touch-Macs as mobile.
+        function isMobileDevice() {
+            const ua = navigator.userAgent;
+            return /Android|iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+        }
+
+        function copyLink(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text).catch(function () { fallbackCopyLink(text); });
+            }
+            fallbackCopyLink(text);
+            return Promise.resolve();
+        }
+
+        function fallbackCopyLink(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+        }
+
         window.launchCampaign = function() {
             if (window.Genie && selectedProductId) Genie.onLaunch(selectedProductId);
-            if (selectedProductLink) {
+            if (!selectedProductLink) { clearProductSelection(); return; }
+
+            if (isMobileDevice()) {
                 window.open(selectedProductLink, '_blank');
+                clearProductSelection();
+            } else {
+                // Desktop: copy the affiliate link so the creator can paste/text it to themselves.
+                copyLink(selectedProductLink);
+                const btn = document.getElementById('launch-btn');
+                if (btn) {
+                    btn.textContent = '✓ Copied!';
+                    setTimeout(function () { btn.textContent = 'Copy Link'; clearProductSelection(); }, 1600);
+                } else {
+                    clearProductSelection();
+                }
             }
-            clearProductSelection();
         };
+
+        // On desktop, relabel the action button to reflect the copy behavior.
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!isMobileDevice()) {
+                const btn = document.getElementById('launch-btn');
+                if (btn) btn.textContent = 'Copy Link';
+            }
+        });
 
         // --- Hide the 3 intro feature boxes after the first interaction, any screen size.
         // Triggers: tapping the search bar, any category pill, or any product card.
@@ -1558,7 +1605,7 @@
                 <span class="action-count" id="action-count">Add Product to Showcase</span>
                 <span class="action-est" id="action-est">Commission Potential: High</span>
             </div>
-            <button class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
+            <button id="launch-btn" class="launch-btn" onclick="launchCampaign()">Open in TikTok</button>
         </div>
         <!-- Genie Script section is injected here by js/genie.js (#genie-script-mount) -->
     </div>
