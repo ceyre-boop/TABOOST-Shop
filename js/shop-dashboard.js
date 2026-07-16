@@ -1240,9 +1240,9 @@ function updateScoreAndLevels() {
                 proBonusRevenueItem.classList.add('pro-revenue-active');
             }
         } else {
-            proBonusRevenueValue.textContent = 'Score 70+ to Unlock';
-            proBonusRevenueValue.style.color = '#888'; // Gray color
-            proBonusRevenueNote.textContent = `${scoreValue}/70 Score`;
+            proBonusRevenueValue.textContent = '$0';
+            proBonusRevenueValue.style.color = ''; // Default color
+            proBonusRevenueNote.textContent = 'TABOOST Benefit';
             
             // Remove highlight effect
             if (proBonusRevenueItem) {

@@ -259,7 +259,7 @@
     <!-- Header -->
     <header class="creator-header">
         <div class="creator-profile">
-            <a href="https://shop.taboost.me/" class="creator-avatar-link" style="display:inline-flex; text-decoration:none; cursor:pointer;" title="Go to products"><img src="images/creator-avatar.jpg" alt="Creator" class="creator-avatar-img" id="creatorAvatar"></a>
+            <img src="images/creator-avatar.jpg" alt="Creator" class="creator-avatar-img" id="creatorAvatar">
             <div class="creator-info">
                 <h1 id="creatorName">Loading...</h1>
                 <p id="joinDate" class="member-since"><i class="fas fa-clock"></i> Member since --</p>
@@ -275,6 +275,9 @@
             </a>
             <button class="settings-btn" onclick="openSettings()">
                 <i class="fas fa-cog"></i> Settings
+            </button>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
             </button>
         </div>
     </header>
@@ -367,7 +370,7 @@
                 </div>
                 <div class="revenue-info">
                     <span class="revenue-name">Agency Cash Bonus</span>
-                    <span class="revenue-value" id="proBonusRevenueValue">Score 70+ to Unlock</span>
+                    <span class="revenue-value" id="proBonusRevenueValue">$0</span>
                 </div>
                 <span class="revenue-note" id="proBonusRevenueNote">TABOOST Benefit</span>
             </div>
@@ -550,9 +553,6 @@
                 target="_blank" id="footerDiscordLink"><i class="fab fa-discord"></i> More info on Discord</a></p>
         <p>© 2026 TABOOST Agency. All rights reserved.</p>
         <p style="font-size: 11px; color: var(--text-secondary); margin-top: 10px; opacity: 0.7;">All commission calculations are estimates based on TikTok Shop data, exact amounts will vary per creator</p>
-        <button class="logout-btn" onclick="logout()" style="display:inline-flex; margin-top:28px;">
-            <i class="fas fa-sign-out-alt"></i> Log out
-        </button>
     </footer>
     </div>
 
@@ -605,12 +605,12 @@
         </div>
     </div>
 
-    <script src="js/rewards-data.js?v=202607082351"></script>
-    <script src="js/events-data.js?v=202607082351"></script>
-    <script src="js/weekly-calendar-data.js?v=202607082351"></script>
-    <script src="js/shop-data.js?v=202607082351"></script>
-    <script src="js/auth.js?v=202607082351"></script>
-    <script src="js/shop-dashboard.js?v=202607131700"></script>
+    <script src="js/rewards-data.js?v=202607162343"></script>
+    <script src="js/events-data.js?v=202607162343"></script>
+    <script src="js/weekly-calendar-data.js?v=202607162343"></script>
+    <script src="js/shop-data.js?v=202607162343"></script>
+    <script src="js/auth.js?v=202607162343"></script>
+    <script src="js/shop-dashboard.js?v=202607162343"></script>
     <script>
         function exportData(format) {
             const creatorName = document.getElementById('creatorName').textContent;
