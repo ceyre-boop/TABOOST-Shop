@@ -14,3 +14,16 @@ services:
       - path: /*
         name: X-Robots-Tag
         value: "noindex, nofollow"
+
+  # Shop Account Audit AI proxy — holds OPENAI_API_KEY server-side (site is static).
+  # Key is set as a Render secret env var, never committed. See api/shop-audit/README.md.
+  - type: web
+    name: taboost-shop-audit
+    runtime: node
+    branch: genie-preview
+    buildCommand: "echo 'no build'"
+    startCommand: "node api/shop-audit/server.js"
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false

@@ -189,7 +189,20 @@ const SHOP_AUDIT_ENDPOINT = '';
         };
     }
 
-    async function saGenerate() {
+    // Cache one AI result per creator+variant+data-refresh so the key is used minimally.
+    // "Regenerate" passes force=true to bypass.
+    function saCacheKey(m, v) {
+        return 'shopAudit:' + (m.handles[0] ? m.handles[0].handle : m.name) + ':' + v + ':' + (window.SHOP_LAST_UPDATED || '');
+    }
+    function saCacheGet(key) {
+        try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; }
+        catch (e) { return null; }
+    }
+    function saCacheSet(key, ai) {
+        try { localStorage.setItem(key, JSON.stringify(ai)); } catch (e) { /* full/blocked */ }
+    }
+
+    async function saGenerate(force) {
         const v = saState.variant;
         saState.loading = true; saState.error = false; saState.ai = null;
         saRender();
@@ -197,6 +210,15 @@ const SHOP_AUDIT_ENDPOINT = '';
         const m = saMetrics(v);
 
         if (saAbort) saAbort.abort();
+
+        if (force !== true) {
+            const cached = saCacheGet(saCacheKey(m, v));
+            if (cached && cached.coreIssues && cached.tips) {
+                saState.ai = cached; saState.loading = false; saState.error = false;
+                saRender();
+                return;
+            }
+        }
 
         if (!SHOP_AUDIT_ENDPOINT) {
             console.info('Shop Audit: SHOP_AUDIT_ENDPOINT not set — using offline fallback copy.');
@@ -234,6 +256,7 @@ const SHOP_AUDIT_ENDPOINT = '';
             if (!ai || !ai.coreIssues || !ai.tips) throw new Error('bad audit payload');
             if (saState.variant !== v) return;
             saState.ai = ai; saState.loading = false; saState.error = false;
+            saCacheSet(saCacheKey(m, v), ai);
         } catch (e) {
             if (e.name === 'AbortError') return;
             console.warn('Shop Audit: AI call failed, using fallback copy.', e);
@@ -420,7 +443,7 @@ const SHOP_AUDIT_ENDPOINT = '';
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && saState.open) closeShopAudit(); });
         overlay.querySelector('#saMidBtn').addEventListener('click', () => saSetVariant('mid'));
         overlay.querySelector('#saEndBtn').addEventListener('click', () => saSetVariant('end'));
-        overlay.querySelector('#saRegen').addEventListener('click', saGenerate);
+        overlay.querySelector('#saRegen').addEventListener('click', () => saGenerate(true));
     }
 
     function saSetVariant(v) {
