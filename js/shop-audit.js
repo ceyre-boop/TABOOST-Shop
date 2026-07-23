@@ -1,9 +1,13 @@
-// Shop Account Audit — AI-generated mid-month / month-end recap modal.
-// Replaces the manual Canva recap. Spec: design_handoff_shop_ai_audit README.
+// Shop Account Audit — AI-generated mid-month / month-end recap modal (v2, per-account).
+// Replaces the manual Canva recap. Spec: design_handoff_shop_ai_audit README (v2).
+//
+// The audit is scoped to ONE TikTok Shop account at a time; creators with several linked
+// accounts pick which one via the account switcher.
 //
 // Data sources:
-//   - myData (resolved by js/shop-dashboard.js from allShopData / Firebase user)
-//   - data/shop/sugg-products.csv  (Creator handle -> 5 suggested products + category GMV)
+//   - myData (resolved by js/shop-dashboard.js from allShopData / Firebase user), read per account
+//   - data/shop/sugg-products.csv   (handle -> 5 suggested products + category GMV)
+//   - data/shop/top-products.csv    (handle -> top 5 products [cols B,D,F,H,J] + top 2 categories [L,N])
 //   - AI text via SHOP_AUDIT_ENDPOINT serverless proxy; supportive fallback copy if unset/down.
 
 // Serverless proxy that holds the API key (see api/shop-audit/). Leave '' to always use
@@ -13,8 +17,9 @@ const SHOP_AUDIT_ENDPOINT = '';
 (function () {
     'use strict';
 
-    let saState = { variant: 'mid', loading: true, ai: null, error: false, open: false };
-    let saSuggested = null; // rows from sugg-products.csv, keyed by handle
+    let saState = { variant: 'mid', account: null, loading: true, ai: null, error: false, open: false };
+    let saSuggested = null;   // handle -> [{rank,name,gmv}]
+    let saTopProducts = null; // handle -> { categories:[{name,gmv}], products:[{rank,name,gmv}] }
     let saAbort = null;
 
     function saFmt(n) { return '$' + Math.round(n || 0).toLocaleString('en-US'); }
@@ -29,7 +34,16 @@ const SHOP_AUDIT_ENDPOINT = '';
         return window.myData || null;
     }
 
-    // ---------- suggested-products CSV ----------
+    function saAccounts() { return (saMe() || {}).accounts || []; }
+
+    function saActiveAccount() {
+        const accounts = saAccounts();
+        if (!accounts.length) return null;
+        const found = accounts.find(a => (a.handle || '').toLowerCase() === saState.account);
+        return found || accounts[0];
+    }
+
+    // ---------- CSV feeds ----------
 
     function saParseCSV(text) {
         const rows = [];
@@ -51,41 +65,67 @@ const SHOP_AUDIT_ENDPOINT = '';
         return rows;
     }
 
-    async function saLoadSuggested() {
-        if (saSuggested) return saSuggested;
-        saSuggested = {};
+    async function saFetchCSV(path) {
         try {
-            const res = await fetch('data/shop/sugg-products.csv');
-            if (!res.ok) return saSuggested;
-            const rows = saParseCSV(await res.text());
-            for (let i = 1; i < rows.length; i++) {
-                const r = rows[i];
-                const handle = (r[0] || '').trim().toLowerCase();
-                if (!handle) continue;
-                const items = [];
-                for (let k = 0; k < 5; k++) {
-                    const name = (r[1 + k * 2] || '').trim();
-                    const gmv = (r[2 + k * 2] || '').trim();
-                    if (name) items.push({ rank: k + 1, name: name, gmv: gmv });
-                }
-                if (items.length) saSuggested[handle] = items;
-            }
+            const res = await fetch(path);
+            if (!res.ok) return null;
+            return saParseCSV(await res.text());
         } catch (e) {
-            console.warn('Shop Audit: could not load sugg-products.csv', e);
+            console.warn('Shop Audit: could not load ' + path, e);
+            return null;
         }
-        return saSuggested;
     }
 
-    function saMySuggested(me) {
-        const accounts = me.accounts || [];
-        for (const a of accounts) {
-            const h = (a.handle || '').toLowerCase();
-            if (h && saSuggested && saSuggested[h]) return saSuggested[h];
+    async function saLoadSuggested() {
+        if (saSuggested) return;
+        saSuggested = {};
+        const rows = await saFetchCSV('data/shop/sugg-products.csv');
+        if (!rows) return;
+        for (let i = 1; i < rows.length; i++) {
+            const r = rows[i];
+            const handle = (r[0] || '').trim().toLowerCase();
+            if (!handle) continue;
+            const items = [];
+            for (let k = 0; k < 5; k++) {
+                const name = (r[1 + k * 2] || '').trim();
+                const gmv = (r[2 + k * 2] || '').trim();
+                if (name) items.push({ rank: k + 1, name: name, gmv: gmv });
+            }
+            if (items.length) saSuggested[handle] = items;
         }
-        return [];
     }
 
-    // ---------- metrics ----------
+    // Top-Products sheet export: col A handle; products in B,D,F,H,J (GMV in C,E,G,I,K);
+    // top 2 categories in L,N (GMV in M,O). GMV cells optional.
+    async function saLoadTopProducts() {
+        if (saTopProducts) return;
+        saTopProducts = {};
+        const rows = await saFetchCSV('data/shop/top-products.csv');
+        if (!rows) return;
+        for (let i = 1; i < rows.length; i++) {
+            const r = rows[i];
+            const handle = (r[0] || '').trim().toLowerCase();
+            if (!handle) continue;
+            const products = [];
+            for (let k = 0; k < 5; k++) {
+                const name = (r[1 + k * 2] || '').trim();   // B, D, F, H, J
+                const gmv = (r[2 + k * 2] || '').trim();    // C, E, G, I, K
+                if (name) products.push({ rank: k + 1, name: name, gmv: gmv });
+            }
+            const categories = [];
+            [[11, 12], [13, 14]].forEach(([ci, gi]) => {    // L/M, N/O
+                const name = (r[ci] || '').trim();
+                if (name) categories.push({ name: name, gmv: (r[gi] || '').trim() });
+            });
+            if (products.length || categories.length) saTopProducts[handle] = { products: products, categories: categories };
+        }
+    }
+
+    function saForHandle(map, handle) {
+        return (map && handle && map[handle.toLowerCase()]) || null;
+    }
+
+    // ---------- metrics (per selected account) ----------
 
     function saMonthLabel(offset) {
         // Anchor to the data timestamp, not the wall clock, so labels match the numbers.
@@ -102,18 +142,13 @@ const SHOP_AUDIT_ENDPOINT = '';
         return d.toLocaleString('en-US', { month: 'long', year: 'numeric' });
     }
 
-    function saSum(accounts, key) {
-        return (accounts || []).reduce((t, a) => t + (parseFloat(a[key]) || 0), 0);
-    }
-
-    function saHistTotals(me, idx) {
-        // accountsHistory gmv arrays are oldest -> newest; idx counts back from the end (0 = current).
-        let total = 0, found = false;
-        (me.accountsHistory || []).forEach(h => {
-            const arr = h.gmv || [];
-            if (arr.length > idx) { total += parseFloat(arr[arr.length - 1 - idx]) || 0; found = true; }
-        });
-        return found ? total : null;
+    // Per-account GMV history (oldest -> newest); idx counts back from the end (0 = current).
+    function saAcctHist(handle, idx) {
+        const me = saMe() || {};
+        const h = (me.accountsHistory || []).find(x => (x.handle || '').toLowerCase() === handle.toLowerCase());
+        const arr = (h && h.gmv) || [];
+        if (arr.length > idx) return parseFloat(arr[arr.length - 1 - idx]) || 0;
+        return null;
     }
 
     function saTrend(cur, prev, suffix) {
@@ -124,41 +159,40 @@ const SHOP_AUDIT_ENDPOINT = '';
 
     function saMetrics(variant) {
         const me = saMe() || {};
-        const accounts = me.accounts || [];
+        const acct = saActiveAccount() || {};
+        const handle = acct.handle || '';
         const name = me.name || me.username || 'Creator';
         const firstName = name.split(' ')[0];
-        const suggested = saMySuggested(me);
+        const commPct = acct.commPct ? String(acct.commPct).replace(/[^0-9.%-]/g, '') : null;
+        const top = saForHandle(saTopProducts, handle);
 
         const base = {
-            name: name, firstName: firstName,
-            handles: accounts.slice(0, 3).map(a => ({
-                handle: a.handle || '', gmv: parseFloat(a.gmv) || 0
-            })),
-            avgComm: me.avgComm != null ? (parseFloat(me.avgComm).toFixed(1) + '%') : null,
-            suggested: suggested
+            name: name, firstName: firstName, handle: handle,
+            accountTabs: saAccounts().map(a => a.handle).filter(Boolean),
+            avgComm: commPct,
+            topCategories: (top && top.categories) || [],
+            topProducts: (top && top.products) || [],
+            suggested: saForHandle(saSuggested, handle) || []
         };
 
         if (variant === 'end') {
-            const endGMV = saHistTotals(me, 1);
-            const prevGMV = saHistTotals(me, 2);
-            const tapHist = me.tapHistory || [];
-            const endTap = tapHist.length > 1 ? parseFloat(tapHist[tapHist.length - 2]) || 0 : null;
+            const endGMV = saAcctHist(handle, 1);
+            const prevGMV = saAcctHist(handle, 2);
             return Object.assign(base, {
                 period: saMonthLabel(-1), recapTag: 'MONTH-END RECAP', statsPillLabel: 'Month-End Stats',
-                totalGmv: endGMV != null ? endGMV : (parseFloat(me.tapLM) || 0),
-                tapGmv: endTap != null ? endTap : (parseFloat(me.tapLM) || 0),
-                shopPosts: null, tapPosts: null, // per-month post counts not kept in history
+                accountGmv: endGMV,
+                tapGmv: null, shopPosts: null, tapPosts: null, // per-account/month TAP + post history not kept
                 gmvTrend: saTrend(endGMV, prevGMV, 'vs prior month')
             });
         }
-        const curGMV = parseFloat(me.totalGMV) || 0;
-        const lmGMV = saHistTotals(me, 1);
+        const curGMV = parseFloat(acct.gmv) || 0;
+        const lmGMV = parseFloat(acct.gmvLM) || saAcctHist(handle, 1);
         return Object.assign(base, {
             period: saMonthLabel(0), recapTag: 'MID-MONTH RECAP', statsPillLabel: 'Mid-Month Stats',
-            totalGmv: curGMV,
-            tapGmv: saSum(accounts, 'tapGMV'),
-            shopPosts: saSum(accounts, 'sv') || null,
-            tapPosts: saSum(accounts, 'tap') || null,
+            accountGmv: curGMV,
+            tapGmv: parseFloat(acct.tapGMV) || 0,
+            shopPosts: acct.sv != null ? parseFloat(acct.sv) || 0 : null,
+            tapPosts: acct.tap != null ? parseFloat(acct.tap) || 0 : null,
             gmvTrend: saTrend(curGMV, lmGMV, 'vs last month')
         });
     }
@@ -170,29 +204,32 @@ const SHOP_AUDIT_ENDPOINT = '';
         const winnerLine = winners.length
             ? 'The proven winners below — like ' + winners[0] + ' — are already thriving in your lane and could be an easy, exciting add.'
             : 'Keep an eye on the proven winners list — top sellers in your lane will appear there as the feed grows.';
+        const laneLine = m.topCategories.length
+            ? 'Leaning ~70% of posts into ' + m.topCategories[0].name + ' gives each product room to build momentum.'
+            : 'Leaning ~70% of posts into one category gives each product room to build momentum.';
         const trendUp = (m.gmvTrend || '').startsWith('+');
         return {
             grade: trendUp ? 'A-' : 'B+',
             verdict: trendUp
-                ? 'Great momentum — ' + m.firstName + '’s GMV is trending up, and there’s a clear runway to grow even more.'
-                : 'You’ve built a great foundation — a couple of small tweaks could unlock your next level.',
+                ? 'Great momentum — @' + m.handle + '’s GMV is trending up, and there’s a clear runway to grow even more.'
+                : 'You’ve built a great foundation on @' + m.handle + ' — a couple of small tweaks could unlock your next level.',
             coreIssues: [
-                { title: 'Space for a new hero', detail: 'Finding your next signature product is a fun opportunity to build fresh momentum.' },
+                { title: 'Space for a new hero', detail: 'Finding this account’s next signature product is a fun opportunity to build fresh momentum.' },
                 { title: 'A chance to focus your feed', detail: 'Zeroing in on a few favorite products could help one really take off.' },
                 { title: 'Content ready for a refresh', detail: 'A fresh hook or clearer call-to-action could lift conversion on every post.' }
             ],
             tips: [
                 { title: 'Celebrate your winners again', detail: 'Give a proven product 4-5 fresh posts instead of one — winners deserve repeat features.' },
-                { title: 'Pick a lane you love', detail: 'Leaning ~70% of posts into one category gives each product room to build momentum.' },
+                { title: 'Pick a lane you love', detail: laneLine },
                 { title: 'Try the proven winners below', detail: winnerLine }
             ]
         };
     }
 
-    // Cache one AI result per creator+variant+data-refresh so the key is used minimally.
+    // Cache one AI result per account+variant+data-refresh so the key is used minimally.
     // "Regenerate" passes force=true to bypass.
     function saCacheKey(m, v) {
-        return 'shopAudit:' + (m.handles[0] ? m.handles[0].handle : m.name) + ':' + v + ':' + (window.SHOP_LAST_UPDATED || '');
+        return 'shopAudit:' + (m.handle || m.name) + ':' + v + ':' + (window.SHOP_LAST_UPDATED || '');
     }
     function saCacheGet(key) {
         try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; }
@@ -206,10 +243,13 @@ const SHOP_AUDIT_ENDPOINT = '';
         const v = saState.variant;
         saState.loading = true; saState.error = false; saState.ai = null;
         saRender();
-        await saLoadSuggested();
+        await Promise.all([saLoadSuggested(), saLoadTopProducts()]);
         const m = saMetrics(v);
+        const acct = saState.account;
 
         if (saAbort) saAbort.abort();
+
+        const stale = () => saState.variant !== v || saState.account !== acct;
 
         if (force !== true) {
             const cached = saCacheGet(saCacheKey(m, v));
@@ -223,23 +263,26 @@ const SHOP_AUDIT_ENDPOINT = '';
         if (!SHOP_AUDIT_ENDPOINT) {
             console.info('Shop Audit: SHOP_AUDIT_ENDPOINT not set — using offline fallback copy.');
             setTimeout(() => {
-                if (saState.variant !== v) return;
+                if (stale()) return;
                 saState.ai = saFallback(m); saState.loading = false; saState.error = true;
                 saRender();
             }, 700);
             return;
         }
 
+        // Payload for the SELECTED account only (README v2).
         const payload = {
             creator: m.firstName,
+            account_handle: m.handle,
             period: m.period,
             recap_type: v === 'end' ? 'month-end (full month closed)' : 'mid-month (month in progress)',
-            total_gmv: Math.round(m.totalGmv || 0),
-            tap_gmv: Math.round(m.tapGmv || 0),
+            account_gmv: m.accountGmv != null ? Math.round(m.accountGmv) : null,
+            avg_commission: m.avgComm,
+            tap_gmv: m.tapGmv != null ? Math.round(m.tapGmv) : null,
             shop_posts: m.shopPosts, tap_posts: m.tapPosts,
             gmv_trend: m.gmvTrend || 'n/a',
-            avg_commission_pct: m.avgComm,
-            // top_categories / top_selling_products: pending per-creator product feed (see README)
+            top_categories: m.topCategories.map(c => ({ name: c.name, gmv: c.gmv || undefined })),
+            top_selling_products: m.topProducts.map(p => p.name),
             proven_winners_not_yet_posted: (m.suggested || []).map(s => ({ product: s.name, category_gmv: s.gmv }))
         };
 
@@ -254,13 +297,13 @@ const SHOP_AUDIT_ENDPOINT = '';
             if (!res.ok) throw new Error('audit endpoint ' + res.status);
             const ai = await res.json();
             if (!ai || !ai.coreIssues || !ai.tips) throw new Error('bad audit payload');
-            if (saState.variant !== v) return;
+            if (stale()) return;
             saState.ai = ai; saState.loading = false; saState.error = false;
             saCacheSet(saCacheKey(m, v), ai);
         } catch (e) {
             if (e.name === 'AbortError') return;
             console.warn('Shop Audit: AI call failed, using fallback copy.', e);
-            if (saState.variant !== v) return;
+            if (stale()) return;
             saState.ai = saFallback(m); saState.loading = false; saState.error = true;
         }
         saRender();
@@ -281,31 +324,48 @@ const SHOP_AUDIT_ENDPOINT = '';
         overlay.querySelector('#saMidBtn').classList.toggle('active', saState.variant === 'mid');
         overlay.querySelector('#saEndBtn').classList.toggle('active', saState.variant === 'end');
         overlay.querySelector('#saName').textContent = m.name;
+        overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
         overlay.querySelector('#saPeriod').textContent = m.period;
         overlay.querySelector('#saRecapTag').textContent = m.recapTag;
         overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
-        overlay.querySelector('#saTapGmv').textContent = saFmt(m.tapGmv);
+        overlay.querySelector('#saTapGmv').textContent = m.tapGmv != null ? saFmt(m.tapGmv) : '—';
         overlay.querySelector('#saTapPosts').textContent = m.tapPosts != null ? m.tapPosts : '—';
-        overlay.querySelector('#saTotalGmv').textContent = saFmt(m.totalGmv);
+        overlay.querySelector('#saAcctGmv').textContent = m.accountGmv != null ? saFmt(m.accountGmv) : '—';
         overlay.querySelector('#saShopPosts').textContent = m.shopPosts != null ? m.shopPosts : '—';
-        overlay.querySelector('#saTrend').textContent = m.gmvTrend || '';
         overlay.querySelector('#saAvgComm').textContent = m.avgComm || '—';
-        overlay.querySelector('#saLoadingName').textContent = m.firstName;
+        overlay.querySelector('#saTrendNote').textContent = m.gmvTrend || '';
+        overlay.querySelector('#saLoadingName').textContent = '@' + m.handle;
         overlay.querySelector('#saSuggSub').textContent =
-            'Top sellers in ' + m.firstName + '’s lane not posted yet — ranked by category GMV.';
+            'Top sellers in @' + m.handle + '’s lane not posted yet — ranked by category GMV.';
         overlay.querySelector('#saFootNote').textContent =
-            '✦ Generated by TABOOST AI from ' + m.firstName + '’s live Shop data · not manual';
+            '✦ Generated by TABOOST AI from @' + m.handle + '’s live Shop data · not manual';
 
-        // Essentials: per-account handle chips + account GMV (PSS feed not available yet)
-        const handlesEl = overlay.querySelector('#saHandles');
-        if (m.handles.length) {
-            handlesEl.innerHTML = m.handles.map((h, i) =>
-                '<div class="' + (i === Math.min(1, m.handles.length - 1) ? 'primary' : '') + '" style="text-align:center;">' +
-                '<div class="sa-handle-chip">' + saEsc(h.handle) + '</div>' +
-                '<div class="sa-handle-score">' + saEsc(saFmt(h.gmv).replace('$', '$')) + '</div></div>'
+        // Account switcher
+        const tabs = overlay.querySelector('#saTabs');
+        tabs.innerHTML = m.accountTabs.map(h =>
+            '<button type="button" data-handle="' + saEsc(h.toLowerCase()) + '"' +
+            ((h.toLowerCase() === (m.handle || '').toLowerCase()) ? ' class="active"' : '') + '>@' + saEsc(h) + '</button>'
+        ).join('');
+        tabs.querySelectorAll('button').forEach(b =>
+            b.addEventListener('click', () => saSetAccount(b.dataset.handle)));
+
+        // Top categories + top 5 products (per account, from top-products.csv)
+        const catList = overlay.querySelector('#saCatList');
+        if (m.topCategories.length) {
+            catList.innerHTML = m.topCategories.map(c =>
+                '<div class="sa-cat-row"><span class="name">' + saEsc(c.name) + '</span>' +
+                (c.gmv ? '<span class="gmv">' + saEsc(c.gmv) + '</span>' : '') + '</div>'
             ).join('');
         } else {
-            handlesEl.innerHTML = '<div class="sa-prod-pending">No linked accounts found</div>';
+            catList.innerHTML = '<div class="sa-prod-pending">Category breakdown connects in the next data update.</div>';
+        }
+        const prodList = overlay.querySelector('#saProdList');
+        if (m.topProducts.length) {
+            prodList.innerHTML = m.topProducts.map(p =>
+                '<div class="sa-prod-item"><span class="sa-prod-rank">' + p.rank + '</span> ' + saEsc(p.name) + '</div>'
+            ).join('');
+        } else {
+            prodList.innerHTML = '<div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div>';
         }
 
         // Suggested products
@@ -319,7 +379,7 @@ const SHOP_AUDIT_ENDPOINT = '';
                 '<div class="label">CATEGORY GMV</div></div></div>'
             ).join('');
         } else {
-            suggList.innerHTML = '<div class="sa-prod-pending">Personalized picks are being prepared for your account — check back after the next data update.</div>';
+            suggList.innerHTML = '<div class="sa-prod-pending">Personalized picks are being prepared for this account — check back after the next data update.</div>';
         }
 
         // Audit states
@@ -358,14 +418,21 @@ const SHOP_AUDIT_ENDPOINT = '';
               '<button id="saClose" class="sa-close" type="button" title="Close">✕</button>' +
             '</div>' +
           '</div>' +
+          '<div class="sa-switch">' +
+            '<span class="sa-switch-label">Auditing account</span>' +
+            '<div class="sa-switch-tabs" id="saTabs"></div>' +
+          '</div>' +
           '<div class="sa-card">' +
             '<div class="sa-head">' +
               '<div style="min-width:240px;">' +
                 '<div class="sa-head-name" id="saName"></div>' +
-                '<div class="sa-head-period" id="saPeriod"></div>' +
+                '<div class="sa-head-sub">' +
+                  '<span class="sa-handle-pill" id="saHandleChip"></span>' +
+                  '<span class="sa-head-period" id="saPeriod"></span>' +
+                '</div>' +
               '</div>' +
-              '<div style="text-align:right; padding-top:4px;">' +
-                '<div class="sa-wordmark">TABOOST</div>' +
+              '<div class="sa-head-right">' +
+                '<img class="sa-logo" src="images/taboost-logo.jpg" alt="TABOOST">' +
                 '<div class="sa-recap-tag" id="saRecapTag"></div>' +
               '</div>' +
             '</div>' +
@@ -379,25 +446,28 @@ const SHOP_AUDIT_ENDPOINT = '';
               '</div>' +
               '<div class="sa-inner">' +
                 '<div class="sa-pill-outline" id="saStatsPill"></div>' +
-                '<div class="sa-big-num" id="saTotalGmv"></div>' +
-                '<div class="sa-num-label">Total GMV</div>' +
+                '<div class="sa-big-num" id="saAcctGmv"></div>' +
+                '<div class="sa-num-label">Account GMV</div>' +
                 '<div class="sa-mid-num" id="saShopPosts"></div>' +
                 '<div class="sa-mid-label">Shop Posts</div>' +
               '</div>' +
               '<div class="sa-inner">' +
-                '<div class="sa-pill-filled">Creator Essentials</div>' +
-                '<div class="sa-handles" id="saHandles"></div>' +
-                '<div class="sa-handles-label">Account GMV</div>' +
-                '<div class="sa-mid-num" id="saAvgComm"></div>' +
-                '<div class="sa-mid-label">Avg Commission</div>' +
+                '<div class="sa-pill-filled">Account Essentials</div>' +
+                '<div class="sa-big-num" id="saAvgComm"></div>' +
+                '<div class="sa-num-label">Avg Commission</div>' +
+                '<div class="sa-mid-num" id="saTrendNote" style="font-size:24px;"></div>' +
+                '<div class="sa-mid-label">GMV Trend</div>' +
               '</div>' +
             '</div>' +
             '<div class="sa-row">' +
               '<div class="sa-inner sa-products">' +
                 '<div class="sa-pill-wrap"><span class="sa-pill-outline" style="font-size:15px; padding:9px 20px;">Top Selling Products</span></div>' +
-                '<div class="sa-cat-main"><span class="star">★</span> <span id="saTrend"></span></div>' +
-                '<div class="sa-cat-second">GMV trend this period</div>' +
-                '<div class="sa-prod-list"><div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div></div>' +
+                '<div class="sa-mini-title"><span class="star">★</span> Top Categories</div>' +
+                '<div class="sa-cat-list" id="saCatList"></div>' +
+                '<div class="sa-prod-block">' +
+                  '<div class="sa-mini-title"><span class="star">★</span> Top 5 Products</div>' +
+                  '<div class="sa-prod-list" id="saProdList"></div>' +
+                '</div>' +
               '</div>' +
               '<div class="sa-inner sa-audit">' +
                 '<div class="sa-pill-wrap"><span class="sa-pill-white">✦ Shop Account Audit</span></div>' +
@@ -452,8 +522,18 @@ const SHOP_AUDIT_ENDPOINT = '';
         saGenerate();
     }
 
+    function saSetAccount(handle) {
+        if (handle === saState.account) return;
+        saState.account = handle;
+        saGenerate();
+    }
+
     function openShopAudit() {
         if (!document.getElementById('shopAuditOverlay')) saBuildModal();
+        if (!saState.account) {
+            const first = saAccounts()[0];
+            saState.account = first ? (first.handle || '').toLowerCase() : null;
+        }
         saState.open = true;
         saGenerate();
     }
