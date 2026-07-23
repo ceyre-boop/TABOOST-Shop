@@ -464,17 +464,18 @@ const SHOP_AUDIT_ENDPOINT = '';
     window.openShopAudit = openShopAudit;
     window.closeShopAudit = closeShopAudit;
 
-    // Launcher: insert into the dashboard after the accounts grid.
+    // Launcher: discreet footer link while the feature awaits approval.
+    // Swap back to the pink .sa-launcher button after sign-off.
     function saInsertLauncher() {
         if (document.getElementById('saLauncher')) return;
-        const anchor = document.getElementById('accountsGrid');
-        const wrap = document.createElement('div');
-        wrap.style.cssText = 'text-align:center; margin: 24px 0;';
-        wrap.innerHTML = '<button id="saLauncher" class="sa-launcher" type="button">' +
-            '<span class="spark">✦</span> Open Shop Account Audit</button>';
-        if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor.nextSibling);
+        const footer = document.querySelector('.creator-footer');
+        const wrap = document.createElement('p');
+        wrap.style.cssText = 'text-align:center; margin-top:8px;';
+        wrap.innerHTML = '<a id="saLauncher" href="#" style="font-size:11px; color:#555; ' +
+            'text-decoration:none; opacity:.7;">✦ account audit (beta)</a>';
+        if (footer) footer.appendChild(wrap);
         else document.querySelector('.creator-layout, main, body').appendChild(wrap);
-        wrap.querySelector('#saLauncher').addEventListener('click', openShopAudit);
+        wrap.querySelector('#saLauncher').addEventListener('click', e => { e.preventDefault(); openShopAudit(); });
     }
 
     if (document.readyState === 'loading') {
