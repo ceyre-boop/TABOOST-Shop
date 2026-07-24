@@ -10,7 +10,14 @@ const SHEET_CONFIG = [
   { tabName: 'Current',      outputPath: 'data/shop/current.csv' },
   { tabName: 'History',      outputPath: 'data/shop/history.csv' },
   { tabName: 'TAP-Links',    outputPath: 'data/shop/tap-links.csv' },
-  { tabName: 'TAP-Products', outputPath: 'data/shop/tap-products.csv' }
+  { tabName: 'TAP-Products', outputPath: 'data/shop/tap-products.csv' },
+  // Shop Account Audit feeds (popup reads these at runtime; optional tabs — sync
+  // skips any tab that doesn't exist in the sheet):
+  //   Top-Products:  col A = account handle; top 5 products in B,D,F,H,J (GMV in C,E,G,I,K);
+  //                  top 2 categories in L,N (GMV in M,O)
+  //   Sugg-Products: Creator, Suggested Product 1, Total GMV 1, ... Suggested Product 5, Total GMV 5
+  { tabName: 'Top-Products',  outputPath: 'data/shop/top-products.csv',  optional: true },
+  { tabName: 'Sugg-Products', outputPath: 'data/shop/sugg-products.csv', optional: true }
 ];
 
 // ── MAIN SYNC ───────────────────────────────────────────────────────────────
@@ -44,6 +51,11 @@ function syncShopSheetsToGitHub() {
       // Get GID for this tab
       var gid = getGidForSheet_(sheet.tabName);
       if (gid === null) {
+        if (sheet.optional) {
+          Logger.log('⏭️ Skipping optional tab "' + sheet.tabName + '" — not found in this spreadsheet');
+          results.push({ sheet: sheet.tabName, path: sheet.outputPath, status: 'skipped' });
+          continue;
+        }
         throw new Error('Sheet tab "' + sheet.tabName + '" not found in this spreadsheet');
       }
 
@@ -76,9 +88,10 @@ function syncShopSheetsToGitHub() {
   }
 
   var duration = (new Date() - startTime) / 1000;
-  var successCount = 0;
+  var successCount = 0, skippedCount = 0;
   for (var r = 0; r < results.length; r++) {
     if (results[r].status === 'success') successCount++;
+    if (results[r].status === 'skipped') skippedCount++;
   }
 
   Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's');
@@ -91,7 +104,7 @@ function syncShopSheetsToGitHub() {
   Logger.log('ℹ️ shop-data.js regeneration skipped — handled by GitHub Actions');
 
   return {
-    success: successCount === SHEET_CONFIG.length,
+    success: successCount + skippedCount === SHEET_CONFIG.length,
     timestamp: new Date().toISOString(),
     duration: duration,
     results: results
