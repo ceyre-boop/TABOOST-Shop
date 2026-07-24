@@ -12,7 +12,7 @@
 
 // Serverless proxy that holds the API key (see api/shop-audit/). Leave '' to always use
 // the built-in fallback copy (modal still works, marked "offline copy" in console).
-const SHOP_AUDIT_ENDPOINT = '';
+const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
 (function () {
     'use strict';
