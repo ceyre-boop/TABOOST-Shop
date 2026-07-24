@@ -302,6 +302,22 @@
 }
 .sa-prod-list { display: flex; flex-direction: column; gap: 11px; }
 .sa-prod-item { display: flex; gap: 9px; color: #3a3835; font-size: 14px; line-height: 1.3; }
+/* Long TikTok titles: clamp to 2 lines, reveal the full name on hover */
+.sa-prod-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: default;
+    border-radius: 6px;
+    margin: -2px -4px;
+    padding: 2px 4px;
+    transition: background .18s;
+}
+.sa-prod-item:hover .sa-prod-name {
+    -webkit-line-clamp: unset;
+    background: rgba(255,13,94,.06);
+}
 .sa-prod-rank {
     flex-shrink: 0;
     width: 19px;
@@ -429,7 +445,19 @@
     align-items: center;
     justify-content: center;
 }
-.sa-sugg-name { flex: 1; color: #2a2825; font-size: 14px; font-weight: 600; line-height: 1.3; }
+.sa-sugg-name {
+    flex: 1;
+    color: #2a2825;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: default;
+}
+.sa-sugg-row:hover .sa-sugg-name { -webkit-line-clamp: unset; }
 .sa-sugg-gmv { flex-shrink: 0; text-align: right; }
 .sa-sugg-gmv .amount { font-family: 'Anton', sans-serif; color: #ff0d5e; font-size: 19px; line-height: 1; }
 .sa-sugg-gmv .label { color: #8a8478; font-size: 10px; letter-spacing: .3px; }

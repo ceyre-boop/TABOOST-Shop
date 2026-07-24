@@ -362,7 +362,8 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const prodList = overlay.querySelector('#saProdList');
         if (m.topProducts.length) {
             prodList.innerHTML = m.topProducts.map(p =>
-                '<div class="sa-prod-item"><span class="sa-prod-rank">' + p.rank + '</span> ' + saEsc(p.name) + '</div>'
+                '<div class="sa-prod-item"><span class="sa-prod-rank">' + p.rank + '</span>' +
+                '<span class="sa-prod-name" title="' + saEsc(p.name) + '">' + saEsc(p.name) + '</span></div>'
             ).join('');
         } else {
             prodList.innerHTML = '<div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div>';
