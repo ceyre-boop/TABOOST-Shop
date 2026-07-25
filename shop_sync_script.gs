@@ -94,7 +94,8 @@ function syncShopSheetsToGitHub() {
     if (results[r].status === 'skipped') skippedCount++;
   }
 
-  Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's');
+  Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's' +
+             (skippedCount ? ' (' + skippedCount + ' optional skipped)' : ''));
   logResults_(results, duration);
 
   // shop-data.js is now rebuilt by GitHub Actions (rebuild-shop-data.yml) whenever
@@ -656,7 +657,9 @@ function setupShopSync() {
 
   // Verify all required tabs exist
   var names = ss.getSheets().map(function(s) { return s.getName(); });
-  var missing = SHEET_CONFIG.filter(function(cfg) { return names.indexOf(cfg.tabName) === -1; });
+  var missing = SHEET_CONFIG.filter(function(cfg) {
+    return !cfg.optional && names.indexOf(cfg.tabName) === -1;
+  });
 
   if (missing.length > 0) {
     ui.alert('⚠️ Missing tabs: ' + missing.map(function(m) { return m.tabName; }).join(', ') +
