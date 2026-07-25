@@ -32,7 +32,7 @@ const TAP_BONUS_TIERS = [
 // email is sent.
 const TAP_BONUS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyNH_uApaRxVyOd4oq_ExLL5U2g-gZ68sIX6DwB5cTXeyapgxtne6OAsbPiFAwZEqID-Q/exec';
 // Must match the secret set in the Apps Script's Script Properties (see the .gs file).
-const TAP_BONUS_WEBHOOK_SECRET = 'eecc54cf-5062-4dce-98e7-4f27dc1b0dad';
+const TAP_BONUS_WEBHOOK_SECRET = 'fa043c7c-25a2-474c-ba57-875b4554fc76';
 
 let myData = null;
 let allCreators = [];
@@ -473,10 +473,15 @@ async function renderTapGoalsSection(tapYTD) {
         tapYTDDisplay.className = 'level-badge tap-value-badge';
         tapYTDDisplay.onclick = null;
     } else {
-        // Opted in, nothing reached/claimed yet — the $ YTD figure already shows in the
-        // "YTD TAP GMV" box below, so hide this pill entirely until a bonus is earned.
-        tapYTDDisplay.style.display = 'none';
-        tapYTDDisplay.onclick = null;
+        // Opted in, nothing reached/claimed yet — keep the pill visible for every user
+        // so the bonus program stays discoverable. Clicking confirms they're already in.
+        tapYTDDisplay.style.display = '';
+        tapYTDDisplay.textContent = 'OPT-IN FOR BONUS';
+        tapYTDDisplay.className = 'level-badge tap-value-badge tap-optin-cta';
+        tapYTDDisplay.onclick = function () {
+            tapYTDDisplay.textContent = '✓ YOU\'RE OPTED IN';
+            setTimeout(function () { tapYTDDisplay.textContent = 'OPT-IN FOR BONUS'; }, 1600);
+        };
     }
 
     renderTapGoalsPlain(tapYTD);
