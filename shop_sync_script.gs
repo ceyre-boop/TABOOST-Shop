@@ -66,6 +66,8 @@ function syncShopSheetsToGitHub() {
       // Cache it in memory (keyed by tab name)
       csvCache[sheet.tabName] = csvContent;
 
+      Utilities.sleep(1500); // pace exports so Google doesn't rate-limit the later tabs
+
       // Push to GitHub
       var result = pushToGitHub_(csvContent, config, sheet.outputPath, sheet.tabName);
 
@@ -117,24 +119,31 @@ function testShopSync() {
   return syncShopSheetsToGitHub();
 }
 
-// ── EXPORT CSV (raw from Google, preserves all formatting) ──────────────────
+// ── EXPORT CSV (with retry — Google throttles rapid exports with HTTP 429) ──
 function exportSheetAsCSV_(sheetId, gid) {
-  // Add cache buster to prevent Google Sheets from serving a stale CSV
-  var cacheBuster = '&t=' + new Date().getTime();
-  var exportUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/export?format=csv&gid=' + gid + cacheBuster;
+  var attempts = 0, maxAttempts = 4;
+  while (true) {
+    attempts++;
+    var cacheBuster = '&t=' + new Date().getTime();
+    var exportUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/export?format=csv&gid=' + gid + cacheBuster;
 
-  var response = UrlFetchApp.fetch(exportUrl, {
-    headers: {
-      'Authorization': 'Bearer ' + ScriptApp.getOAuthToken()
-    },
-    muteHttpExceptions: true
-  });
+    var response = UrlFetchApp.fetch(exportUrl, {
+      headers: { 'Authorization': 'Bearer ' + ScriptApp.getOAuthToken() },
+      muteHttpExceptions: true
+    });
 
-  if (response.getResponseCode() !== 200) {
-    throw new Error('Export failed (HTTP ' + response.getResponseCode() + '): ' + response.getContentText().substring(0, 200));
+    var code = response.getResponseCode();
+    if (code === 200) return response.getContentText();
+
+    if (code === 429 && attempts < maxAttempts) {
+      var waitMs = 3000 * attempts; // 3s, 6s, 9s
+      Logger.log('\u23f3 Rate-limited (429), retry ' + attempts + '/' + (maxAttempts - 1) + ' in ' + (waitMs / 1000) + 's\u2026');
+      Utilities.sleep(waitMs);
+      continue;
+    }
+
+    throw new Error('Export failed (HTTP ' + code + '): ' + response.getContentText().substring(0, 200));
   }
-
-  return response.getContentText();
 }
 
 // ── GITHUB PUSH ─────────────────────────────────────────────────────────────
