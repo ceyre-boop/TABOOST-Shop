@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-07-29T15:35:12.827Z
+// Generated: 2026-07-30T22:33:29.012Z
 // Total Mapped: 212 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -23,10 +23,10 @@ const allShopData = [
         "views": 0,
         "sold": 5646,
         "gmv": 165215.08,
-        "commDollars": 5639,
+        "commDollars": 33373.97,
         "bonus": 0,
         "gmvLM": 235712.89,
-        "commPct": "3.41%",
+        "commPct": "20.20%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -56,8 +56,8 @@ const allShopData = [
     ],
     "points": 4467,
     "totalGMV": 165215.08,
-    "totalComm": 5639,
-    "avgComm": 3.41,
+    "totalComm": 33373.97,
+    "avgComm": 20.2,
     "levelLabel": "L5",
     "productRank": "1",
     "cashBonus": 0,
@@ -107,7 +107,7 @@ const allShopData = [
       10898.32,
       26399.05,
       48045.34,
-      5639
+      33373.97
     ],
     "bonusHistory": [
       0,
@@ -138,10 +138,10 @@ const allShopData = [
         "views": 0,
         "sold": 2860,
         "gmv": 103965.22,
-        "commDollars": 3317,
+        "commDollars": 18735.73,
         "bonus": 0,
         "gmvLM": 111333.27,
-        "commPct": "3.19%",
+        "commPct": "18.02%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -171,8 +171,8 @@ const allShopData = [
     ],
     "points": 1633,
     "totalGMV": 103965.22,
-    "totalComm": 3317,
-    "avgComm": 3.19,
+    "totalComm": 18735.73,
+    "avgComm": 18.02,
     "levelLabel": "L4",
     "productRank": "2",
     "cashBonus": 0,
@@ -222,7 +222,7 @@ const allShopData = [
       14798.58,
       11454.97,
       19907.02,
-      3317
+      18735.73
     ],
     "bonusHistory": [
       0,
@@ -253,10 +253,10 @@ const allShopData = [
         "views": 0,
         "sold": 2374,
         "gmv": 136850.07,
-        "commDollars": 3478,
+        "commDollars": 11409.73,
         "bonus": 0,
         "gmvLM": 139467.82,
-        "commPct": "2.54%",
+        "commPct": "8.34%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -286,8 +286,8 @@ const allShopData = [
     ],
     "points": 1514,
     "totalGMV": 136850.07,
-    "totalComm": 3478,
-    "avgComm": 2.54,
+    "totalComm": 11409.73,
+    "avgComm": 8.34,
     "levelLabel": "L4",
     "productRank": "3",
     "cashBonus": 0,
@@ -337,7 +337,7 @@ const allShopData = [
       17949.97,
       13188.02,
       12958.1,
-      3478
+      11409.73
     ],
     "bonusHistory": [
       0,
@@ -368,10 +368,10 @@ const allShopData = [
         "views": 0,
         "sold": 4501,
         "gmv": 175143.79,
-        "commDollars": 5386,
+        "commDollars": 26517.55,
         "bonus": 0,
         "gmvLM": 324032.09,
-        "commPct": "3.08%",
+        "commPct": "15.14%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -401,8 +401,8 @@ const allShopData = [
     ],
     "points": 1055,
     "totalGMV": 175143.79,
-    "totalComm": 5386,
-    "avgComm": 3.08,
+    "totalComm": 26517.55,
+    "avgComm": 15.14,
     "levelLabel": "L5",
     "productRank": "4",
     "cashBonus": 0,
@@ -452,7 +452,7 @@ const allShopData = [
       57607.9,
       68964.08,
       50716.79,
-      5386
+      26517.55
     ],
     "bonusHistory": [
       0,
@@ -483,10 +483,10 @@ const allShopData = [
         "views": 0,
         "sold": 4924,
         "gmv": 136828.4,
-        "commDollars": 5189,
+        "commDollars": 21556.12,
         "bonus": 0,
         "gmvLM": 213081.04,
-        "commPct": "3.79%",
+        "commPct": "15.75%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -548,8 +548,8 @@ const allShopData = [
     ],
     "points": 781,
     "totalGMV": 136828.4,
-    "totalComm": 5189,
-    "avgComm": 3.79,
+    "totalComm": 21556.12,
+    "avgComm": 15.75,
     "levelLabel": "L5",
     "productRank": "5",
     "cashBonus": 0,
@@ -599,7 +599,7 @@ const allShopData = [
       43422.79,
       31818.94,
       32515.49,
-      5189
+      21556.12
     ],
     "bonusHistory": [
       0,
@@ -630,10 +630,10 @@ const allShopData = [
         "views": 0,
         "sold": 4601,
         "gmv": 93187.64,
-        "commDollars": 4029,
+        "commDollars": 16157.38,
         "bonus": 0,
         "gmvLM": 48378.3,
-        "commPct": "4.32%",
+        "commPct": "17.34%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -650,10 +650,10 @@ const allShopData = [
         "views": 0,
         "sold": 3,
         "gmv": 64.35,
-        "commDollars": 6,
+        "commDollars": 4.45,
         "bonus": 0,
         "gmvLM": 27.62,
-        "commPct": "9.32%",
+        "commPct": "6.92%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -695,8 +695,8 @@ const allShopData = [
     ],
     "points": 714,
     "totalGMV": 93251.99,
-    "totalComm": 4035,
-    "avgComm": 4.33,
+    "totalComm": 16161.83,
+    "avgComm": 17.33,
     "levelLabel": "L4",
     "productRank": "6",
     "cashBonus": 0,
@@ -746,7 +746,7 @@ const allShopData = [
       11307.95,
       10427.36,
       8614.24,
-      4035
+      16161.83
     ],
     "bonusHistory": [
       0,
@@ -777,10 +777,10 @@ const allShopData = [
         "views": 0,
         "sold": 5633,
         "gmv": 191374.97,
-        "commDollars": 6111,
+        "commDollars": 22564.67,
         "bonus": 0,
         "gmvLM": 247533.4,
-        "commPct": "3.19%",
+        "commPct": "11.79%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -810,8 +810,8 @@ const allShopData = [
     ],
     "points": 695,
     "totalGMV": 191374.97,
-    "totalComm": 6111,
-    "avgComm": 3.19,
+    "totalComm": 22564.67,
+    "avgComm": 11.79,
     "levelLabel": "L5",
     "productRank": "7",
     "cashBonus": 0,
@@ -861,7 +861,7 @@ const allShopData = [
       32706.02,
       47410.9,
       29418.05,
-      6111
+      22564.67
     ],
     "bonusHistory": [
       0,
@@ -892,10 +892,10 @@ const allShopData = [
         "views": 0,
         "sold": 11019,
         "gmv": 379232.46,
-        "commDollars": 13569,
+        "commDollars": 42793.78,
         "bonus": 0,
         "gmvLM": 488841.29,
-        "commPct": "3.58%",
+        "commPct": "11.28%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -912,10 +912,10 @@ const allShopData = [
         "views": 0,
         "sold": 46,
         "gmv": 1681.16,
-        "commDollars": 61,
+        "commDollars": 387.34,
         "bonus": 0,
         "gmvLM": 3005.92,
-        "commPct": "3.63%",
+        "commPct": "23.04%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -957,8 +957,8 @@ const allShopData = [
     ],
     "points": 579,
     "totalGMV": 380913.62,
-    "totalComm": 13630,
-    "avgComm": 3.58,
+    "totalComm": 43181.12,
+    "avgComm": 11.34,
     "levelLabel": "L6",
     "productRank": "8",
     "cashBonus": 0,
@@ -1008,7 +1008,7 @@ const allShopData = [
       57171.01,
       55091.72,
       55715.52,
-      13630
+      43181.119999999995
     ],
     "bonusHistory": [
       0,
@@ -1039,10 +1039,10 @@ const allShopData = [
         "views": 0,
         "sold": 5748,
         "gmv": 210025.77,
-        "commDollars": 6596,
+        "commDollars": 26918.6,
         "bonus": 0,
         "gmvLM": 361786.52,
-        "commPct": "3.14%",
+        "commPct": "12.82%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -1059,10 +1059,10 @@ const allShopData = [
         "views": 0,
         "sold": 3321,
         "gmv": 117378.19,
-        "commDollars": 3836,
+        "commDollars": 13505.47,
         "bonus": 0,
         "gmvLM": 261546.58,
-        "commPct": "3.27%",
+        "commPct": "11.51%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -1079,10 +1079,10 @@ const allShopData = [
         "views": 0,
         "sold": 1454,
         "gmv": 51323.05,
-        "commDollars": 1650,
+        "commDollars": 5944.99,
         "bonus": 0,
         "gmvLM": 111672.08,
-        "commPct": "3.21%",
+        "commPct": "11.58%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -1136,8 +1136,8 @@ const allShopData = [
     ],
     "points": 407,
     "totalGMV": 378727.01,
-    "totalComm": 12082,
-    "avgComm": 3.19,
+    "totalComm": 46369.06,
+    "avgComm": 12.24,
     "levelLabel": "L5",
     "productRank": "9",
     "cashBonus": 0,
@@ -1187,7 +1187,7 @@ const allShopData = [
       92276.06,
       94726.35,
       84925.13,
-      12082
+      46369.06
     ],
     "bonusHistory": [
       0,
@@ -1218,10 +1218,10 @@ const allShopData = [
         "views": 0,
         "sold": 4441,
         "gmv": 128920.55,
-        "commDollars": 4173,
+        "commDollars": 15123.41,
         "bonus": 0,
         "gmvLM": 136149.8,
-        "commPct": "3.24%",
+        "commPct": "11.73%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -1238,10 +1238,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 246.35,
-        "commDollars": 3,
+        "commDollars": 16.27,
         "bonus": 0,
         "gmvLM": 226.8,
-        "commPct": "1.22%",
+        "commPct": "6.60%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -1283,8 +1283,8 @@ const allShopData = [
     ],
     "points": 379,
     "totalGMV": 129166.9,
-    "totalComm": 4176,
-    "avgComm": 3.23,
+    "totalComm": 15139.68,
+    "avgComm": 11.72,
     "levelLabel": "L4",
     "productRank": "10",
     "cashBonus": 0,
@@ -1334,7 +1334,7 @@ const allShopData = [
       20654.29,
       27985.49,
       16347.14,
-      4176
+      15139.68
     ],
     "bonusHistory": [
       0,
@@ -1365,10 +1365,10 @@ const allShopData = [
         "views": 0,
         "sold": 3255,
         "gmv": 52093.15,
-        "commDollars": 3671,
+        "commDollars": 7934.51,
         "bonus": 0,
         "gmvLM": 68775.56,
-        "commPct": "7.05%",
+        "commPct": "15.23%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -1385,10 +1385,10 @@ const allShopData = [
         "views": 0,
         "sold": 468,
         "gmv": 8665.39,
-        "commDollars": 511,
+        "commDollars": 1126.23,
         "bonus": 0,
         "gmvLM": 13882.38,
-        "commPct": "5.90%",
+        "commPct": "13.00%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -1430,8 +1430,8 @@ const allShopData = [
     ],
     "points": 363,
     "totalGMV": 60758.54,
-    "totalComm": 4182,
-    "avgComm": 6.88,
+    "totalComm": 9060.74,
+    "avgComm": 14.91,
     "levelLabel": "L4",
     "productRank": "11",
     "cashBonus": 0,
@@ -1481,7 +1481,7 @@ const allShopData = [
       27717.18,
       34615.08,
       12119.939999999999,
-      4182
+      9060.74
     ],
     "bonusHistory": [
       0,
@@ -1512,10 +1512,10 @@ const allShopData = [
         "views": 0,
         "sold": 2540,
         "gmv": 38386.65,
-        "commDollars": 2714,
+        "commDollars": 7147.83,
         "bonus": 0,
         "gmvLM": 69999.12,
-        "commPct": "7.07%",
+        "commPct": "18.62%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -1545,8 +1545,8 @@ const allShopData = [
     ],
     "points": 289,
     "totalGMV": 38386.65,
-    "totalComm": 2714,
-    "avgComm": 7.07,
+    "totalComm": 7147.83,
+    "avgComm": 18.62,
     "levelLabel": "L4",
     "productRank": "12",
     "cashBonus": 0,
@@ -1596,7 +1596,7 @@ const allShopData = [
       3403.23,
       8583.85,
       16350.16,
-      2714
+      7147.83
     ],
     "bonusHistory": [
       0,
@@ -1627,10 +1627,10 @@ const allShopData = [
         "views": 0,
         "sold": 22,
         "gmv": 67149.71,
-        "commDollars": 2721,
+        "commDollars": 9260.78,
         "bonus": 0,
         "gmvLM": 166095.67,
-        "commPct": "4.05%",
+        "commPct": "13.79%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -1660,8 +1660,8 @@ const allShopData = [
     ],
     "points": 267,
     "totalGMV": 67149.71,
-    "totalComm": 2721,
-    "avgComm": 4.05,
+    "totalComm": 9260.78,
+    "avgComm": 13.79,
     "levelLabel": "L5",
     "productRank": "13",
     "cashBonus": 0,
@@ -1711,7 +1711,7 @@ const allShopData = [
       9590,
       19781.1,
       29702.39,
-      2721
+      9260.78
     ],
     "bonusHistory": [
       0,
@@ -1742,10 +1742,10 @@ const allShopData = [
         "views": 0,
         "sold": 1114,
         "gmv": 201696.55,
-        "commDollars": 7323,
+        "commDollars": 31560.69,
         "bonus": 0,
         "gmvLM": 188094.16,
-        "commPct": "3.63%",
+        "commPct": "15.65%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -1762,10 +1762,10 @@ const allShopData = [
         "views": 0,
         "sold": 81,
         "gmv": 2694.82,
-        "commDollars": 87,
+        "commDollars": 280.88,
         "bonus": 0,
         "gmvLM": 6550.77,
-        "commPct": "3.23%",
+        "commPct": "10.42%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -1807,8 +1807,8 @@ const allShopData = [
     ],
     "points": 252,
     "totalGMV": 204391.37,
-    "totalComm": 7410,
-    "avgComm": 3.63,
+    "totalComm": 31841.57,
+    "avgComm": 15.58,
     "levelLabel": "L5",
     "productRank": "14",
     "cashBonus": 0,
@@ -1858,7 +1858,7 @@ const allShopData = [
       30216.09,
       35631.92,
       29973.94,
-      7410
+      31841.57
     ],
     "bonusHistory": [
       0,
@@ -1889,10 +1889,10 @@ const allShopData = [
         "views": 0,
         "sold": 204,
         "gmv": 22291.57,
-        "commDollars": 3834,
+        "commDollars": 3601.98,
         "bonus": 0,
         "gmvLM": 19883.09,
-        "commPct": "17.20%",
+        "commPct": "16.16%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -1922,8 +1922,8 @@ const allShopData = [
     ],
     "points": 203,
     "totalGMV": 22291.57,
-    "totalComm": 3834,
-    "avgComm": 17.2,
+    "totalComm": 3601.98,
+    "avgComm": 16.16,
     "levelLabel": "L2",
     "productRank": "15",
     "cashBonus": 0,
@@ -1973,7 +1973,7 @@ const allShopData = [
       2789.2,
       2988.58,
       3596.46,
-      3834
+      3601.98
     ],
     "bonusHistory": [
       0,
@@ -2004,10 +2004,10 @@ const allShopData = [
         "views": 0,
         "sold": 5295,
         "gmv": 314186.88,
-        "commDollars": 5962,
+        "commDollars": 36048.5,
         "bonus": 0,
         "gmvLM": 369047.38,
-        "commPct": "1.90%",
+        "commPct": "11.47%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -2024,10 +2024,10 @@ const allShopData = [
         "views": 0,
         "sold": 43,
         "gmv": 2779.74,
-        "commDollars": 68,
+        "commDollars": 234.91,
         "bonus": 0,
         "gmvLM": 2784.38,
-        "commPct": "2.45%",
+        "commPct": "8.45%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -2069,8 +2069,8 @@ const allShopData = [
     ],
     "points": 193,
     "totalGMV": 316966.62,
-    "totalComm": 6030,
-    "avgComm": 1.9,
+    "totalComm": 36283.41,
+    "avgComm": 11.45,
     "levelLabel": "L5",
     "productRank": "16",
     "cashBonus": 0,
@@ -2120,7 +2120,7 @@ const allShopData = [
       92722.98,
       59468.92,
       43463.049999999996,
-      6030
+      36283.41
     ],
     "bonusHistory": [
       0,
@@ -2151,10 +2151,10 @@ const allShopData = [
         "views": 0,
         "sold": 217,
         "gmv": 12873.85,
-        "commDollars": 287,
+        "commDollars": 1945.39,
         "bonus": 0,
         "gmvLM": 18062.69,
-        "commPct": "2.23%",
+        "commPct": "15.11%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -2184,8 +2184,8 @@ const allShopData = [
     ],
     "points": 191,
     "totalGMV": 12873.85,
-    "totalComm": 287,
-    "avgComm": 2.23,
+    "totalComm": 1945.39,
+    "avgComm": 15.11,
     "levelLabel": "L2",
     "productRank": "17",
     "cashBonus": 0,
@@ -2235,7 +2235,7 @@ const allShopData = [
       3679.39,
       3132.44,
       2760.46,
-      287
+      1945.39
     ],
     "bonusHistory": [
       0,
@@ -2266,10 +2266,10 @@ const allShopData = [
         "views": 0,
         "sold": 2716,
         "gmv": 88441.64,
-        "commDollars": 3220,
+        "commDollars": 8675.48,
         "bonus": 0,
         "gmvLM": 77652.38,
-        "commPct": "3.64%",
+        "commPct": "9.81%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -2286,10 +2286,10 @@ const allShopData = [
         "views": 0,
         "sold": 10,
         "gmv": 700.83,
-        "commDollars": 11,
+        "commDollars": 40.3,
         "bonus": 0,
         "gmvLM": 1509.55,
-        "commPct": "1.57%",
+        "commPct": "5.75%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -2331,8 +2331,8 @@ const allShopData = [
     ],
     "points": 186,
     "totalGMV": 89142.47,
-    "totalComm": 3231,
-    "avgComm": 3.62,
+    "totalComm": 8715.78,
+    "avgComm": 9.78,
     "levelLabel": "L4",
     "productRank": "18",
     "cashBonus": 0,
@@ -2382,7 +2382,7 @@ const allShopData = [
       3555.63,
       10006.98,
       9424.17,
-      3231
+      8715.779999999999
     ],
     "bonusHistory": [
       0,
@@ -2413,10 +2413,10 @@ const allShopData = [
         "views": 0,
         "sold": 8166,
         "gmv": 126545.15,
-        "commDollars": 8293,
+        "commDollars": 18349.36,
         "bonus": 0,
         "gmvLM": 182639.82,
-        "commPct": "6.55%",
+        "commPct": "14.50%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -2446,13 +2446,13 @@ const allShopData = [
     ],
     "points": 180,
     "totalGMV": 126545.15,
-    "totalComm": 8293,
-    "avgComm": 6.55,
+    "totalComm": 18349.36,
+    "avgComm": 14.5,
     "levelLabel": "L5",
     "productRank": "19",
     "cashBonus": 0,
-    "bonusMTD": 2100,
-    "bonusYTD": 7538,
+    "bonusMTD": 3200,
+    "bonusYTD": 8638,
     "tapLM": 13957.34,
     "tapGoalM": 50000,
     "tapLQ": 169202.52,
@@ -2497,7 +2497,7 @@ const allShopData = [
       31478.97,
       41594.37,
       25229.03,
-      8293
+      18349.36
     ],
     "bonusHistory": [
       0,
@@ -2506,7 +2506,7 @@ const allShopData = [
       800,
       100,
       3400,
-      2100
+      3200
     ]
   },
   {
@@ -2528,10 +2528,10 @@ const allShopData = [
         "views": 0,
         "sold": 3912,
         "gmv": 74170.76,
-        "commDollars": 3490,
+        "commDollars": 11828.49,
         "bonus": 0,
         "gmvLM": 53520.77,
-        "commPct": "4.71%",
+        "commPct": "15.95%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -2561,8 +2561,8 @@ const allShopData = [
     ],
     "points": 155,
     "totalGMV": 74170.76,
-    "totalComm": 3490,
-    "avgComm": 4.71,
+    "totalComm": 11828.49,
+    "avgComm": 15.95,
     "levelLabel": "L4",
     "productRank": "20",
     "cashBonus": 0,
@@ -2612,7 +2612,7 @@ const allShopData = [
       10464.27,
       8657.01,
       8549.32,
-      3490
+      11828.49
     ],
     "bonusHistory": [
       0,
@@ -2643,10 +2643,10 @@ const allShopData = [
         "views": 0,
         "sold": 837,
         "gmv": 45908.9,
-        "commDollars": 1047,
+        "commDollars": 5779.36,
         "bonus": 0,
         "gmvLM": 71120.41,
-        "commPct": "2.28%",
+        "commPct": "12.59%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -2708,8 +2708,8 @@ const allShopData = [
     ],
     "points": 146,
     "totalGMV": 45908.9,
-    "totalComm": 1047,
-    "avgComm": 2.28,
+    "totalComm": 5779.36,
+    "avgComm": 12.59,
     "levelLabel": "L4",
     "productRank": "21",
     "cashBonus": 0,
@@ -2759,7 +2759,7 @@ const allShopData = [
       23672.49,
       14935.61,
       9546.43,
-      1047
+      5779.36
     ],
     "bonusHistory": [
       0,
@@ -2790,10 +2790,10 @@ const allShopData = [
         "views": 0,
         "sold": 1495,
         "gmv": 43526.75,
-        "commDollars": 1749,
+        "commDollars": 5565,
         "bonus": 0,
         "gmvLM": 67701.63,
-        "commPct": "4.02%",
+        "commPct": "12.79%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -2855,8 +2855,8 @@ const allShopData = [
     ],
     "points": 133,
     "totalGMV": 43526.75,
-    "totalComm": 1749,
-    "avgComm": 4.02,
+    "totalComm": 5565,
+    "avgComm": 12.79,
     "levelLabel": "L4",
     "productRank": "22",
     "cashBonus": 0,
@@ -2906,7 +2906,7 @@ const allShopData = [
       6045.88,
       4972.86,
       7981.36,
-      1749
+      5565
     ],
     "bonusHistory": [
       0,
@@ -2937,10 +2937,10 @@ const allShopData = [
         "views": 0,
         "sold": 4380,
         "gmv": 166284.75,
-        "commDollars": 5266,
+        "commDollars": 19944.29,
         "bonus": 0,
         "gmvLM": 132033.68,
-        "commPct": "3.17%",
+        "commPct": "11.99%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -2957,10 +2957,10 @@ const allShopData = [
         "views": 0,
         "sold": 3,
         "gmv": 141.02,
-        "commDollars": 5,
+        "commDollars": 13.44,
         "bonus": 0,
         "gmvLM": 197.01,
-        "commPct": "3.55%",
+        "commPct": "9.53%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -3002,8 +3002,8 @@ const allShopData = [
     ],
     "points": 131,
     "totalGMV": 166425.77,
-    "totalComm": 5271,
-    "avgComm": 3.17,
+    "totalComm": 19957.73,
+    "avgComm": 11.99,
     "levelLabel": "L5",
     "productRank": "23",
     "cashBonus": 0,
@@ -3053,7 +3053,7 @@ const allShopData = [
       22202.26,
       23727.359999999997,
       16564.06,
-      5271
+      19957.73
     ],
     "bonusHistory": [
       0,
@@ -3084,10 +3084,10 @@ const allShopData = [
         "views": 0,
         "sold": 1696,
         "gmv": 72647.75,
-        "commDollars": 1908,
+        "commDollars": 8899.73,
         "bonus": 0,
         "gmvLM": 96068.02,
-        "commPct": "2.63%",
+        "commPct": "12.25%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -3117,13 +3117,13 @@ const allShopData = [
     ],
     "points": 131,
     "totalGMV": 72647.75,
-    "totalComm": 1908,
-    "avgComm": 2.63,
+    "totalComm": 8899.73,
+    "avgComm": 12.25,
     "levelLabel": "L4",
     "productRank": "24",
     "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 3500,
+    "bonusMTD": 900,
+    "bonusYTD": 4400,
     "tapLM": 9608.03,
     "tapGoalM": 10000,
     "tapLQ": 55743.37,
@@ -3168,7 +3168,7 @@ const allShopData = [
       8021.52,
       12365.88,
       11706.33,
-      1908
+      8899.73
     ],
     "bonusHistory": [
       0,
@@ -3177,7 +3177,7 @@ const allShopData = [
       600,
       700,
       2200,
-      0
+      900
     ]
   },
   {
@@ -3199,10 +3199,10 @@ const allShopData = [
         "views": 0,
         "sold": 1518,
         "gmv": 71764.38,
-        "commDollars": 1718,
+        "commDollars": 6950.65,
         "bonus": 0,
         "gmvLM": 82631.31,
-        "commPct": "2.39%",
+        "commPct": "9.69%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -3232,8 +3232,8 @@ const allShopData = [
     ],
     "points": 123,
     "totalGMV": 71764.38,
-    "totalComm": 1718,
-    "avgComm": 2.39,
+    "totalComm": 6950.65,
+    "avgComm": 9.69,
     "levelLabel": "L4",
     "productRank": "25",
     "cashBonus": 0,
@@ -3283,7 +3283,7 @@ const allShopData = [
       7396.31,
       11238.45,
       8635.83,
-      1718
+      6950.65
     ],
     "bonusHistory": [
       0,
@@ -3314,10 +3314,10 @@ const allShopData = [
         "views": 0,
         "sold": 2000,
         "gmv": 90729.84,
-        "commDollars": 2144,
+        "commDollars": 10814.56,
         "bonus": 0,
         "gmvLM": 102977.11,
-        "commPct": "2.36%",
+        "commPct": "11.92%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -3347,8 +3347,8 @@ const allShopData = [
     ],
     "points": 121,
     "totalGMV": 90729.84,
-    "totalComm": 2144,
-    "avgComm": 2.36,
+    "totalComm": 10814.56,
+    "avgComm": 11.92,
     "levelLabel": "L4",
     "productRank": "26",
     "cashBonus": 0,
@@ -3398,7 +3398,7 @@ const allShopData = [
       17821.96,
       14973.69,
       12909.86,
-      2144
+      10814.56
     ],
     "bonusHistory": [
       0,
@@ -3429,10 +3429,10 @@ const allShopData = [
         "views": 0,
         "sold": 91,
         "gmv": 3202.89,
-        "commDollars": 108,
+        "commDollars": 274.06,
         "bonus": 0,
         "gmvLM": 3106.93,
-        "commPct": "3.37%",
+        "commPct": "8.56%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -3462,8 +3462,8 @@ const allShopData = [
     ],
     "points": 111,
     "totalGMV": 3202.89,
-    "totalComm": 108,
-    "avgComm": 3.37,
+    "totalComm": 274.06,
+    "avgComm": 8.56,
     "levelLabel": "L1",
     "productRank": "27",
     "cashBonus": 0,
@@ -3513,7 +3513,7 @@ const allShopData = [
       0,
       467.69,
       337.14,
-      108
+      274.06
     ],
     "bonusHistory": [
       0,
@@ -3544,10 +3544,10 @@ const allShopData = [
         "views": 0,
         "sold": 4261,
         "gmv": 98898.42,
-        "commDollars": 3558,
+        "commDollars": 14624.33,
         "bonus": 0,
         "gmvLM": 185949.3,
-        "commPct": "3.60%",
+        "commPct": "14.79%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -3577,8 +3577,8 @@ const allShopData = [
     ],
     "points": 110,
     "totalGMV": 98898.42,
-    "totalComm": 3558,
-    "avgComm": 3.6,
+    "totalComm": 14624.33,
+    "avgComm": 14.79,
     "levelLabel": "L5",
     "productRank": "28",
     "cashBonus": 0,
@@ -3628,7 +3628,7 @@ const allShopData = [
       0,
       18004.22,
       30443.88,
-      3558
+      14624.33
     ],
     "bonusHistory": [
       0,
@@ -3659,10 +3659,10 @@ const allShopData = [
         "views": 0,
         "sold": 221,
         "gmv": 8481.3,
-        "commDollars": 287,
+        "commDollars": 1798.29,
         "bonus": 0,
         "gmvLM": 12434.63,
-        "commPct": "3.38%",
+        "commPct": "21.20%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -3679,10 +3679,10 @@ const allShopData = [
         "views": 0,
         "sold": 39,
         "gmv": 1068.82,
-        "commDollars": 44,
+        "commDollars": 106.86,
         "bonus": 0,
         "gmvLM": 1585.81,
-        "commPct": "4.12%",
+        "commPct": "10.00%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -3724,8 +3724,8 @@ const allShopData = [
     ],
     "points": 109,
     "totalGMV": 9550.12,
-    "totalComm": 331,
-    "avgComm": 3.47,
+    "totalComm": 1905.15,
+    "avgComm": 19.95,
     "levelLabel": "L2",
     "productRank": "29",
     "cashBonus": 0,
@@ -3775,7 +3775,7 @@ const allShopData = [
       3737.9100000000003,
       7999.650000000001,
       2903.01,
-      331
+      1905.1499999999999
     ],
     "bonusHistory": [
       0,
@@ -3806,10 +3806,10 @@ const allShopData = [
         "views": 0,
         "sold": 23392,
         "gmv": 674466.1,
-        "commDollars": 26901,
+        "commDollars": 102702,
         "bonus": 0,
         "gmvLM": 762130.38,
-        "commPct": "3.99%",
+        "commPct": "15.23%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -3826,10 +3826,10 @@ const allShopData = [
         "views": 0,
         "sold": 3657,
         "gmv": 110992.91,
-        "commDollars": 4102,
+        "commDollars": 19131.87,
         "bonus": 0,
         "gmvLM": 208381.46,
-        "commPct": "3.70%",
+        "commPct": "17.24%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -3871,8 +3871,8 @@ const allShopData = [
     ],
     "points": 97,
     "totalGMV": 785459.01,
-    "totalComm": 31003,
-    "avgComm": 3.95,
+    "totalComm": 121833.87,
+    "avgComm": 15.51,
     "levelLabel": "L6",
     "productRank": "30",
     "cashBonus": 0,
@@ -3922,7 +3922,7 @@ const allShopData = [
       89542.06,
       154996.26,
       145891.45,
-      31003
+      121833.87
     ],
     "bonusHistory": [
       0,
@@ -3953,10 +3953,10 @@ const allShopData = [
         "views": 0,
         "sold": 2043,
         "gmv": 56517.6,
-        "commDollars": 2538,
+        "commDollars": 7487.99,
         "bonus": 0,
         "gmvLM": 74772.77,
-        "commPct": "4.49%",
+        "commPct": "13.25%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -3986,8 +3986,8 @@ const allShopData = [
     ],
     "points": 95,
     "totalGMV": 56517.6,
-    "totalComm": 2538,
-    "avgComm": 4.49,
+    "totalComm": 7487.99,
+    "avgComm": 13.25,
     "levelLabel": "L4",
     "productRank": "31",
     "cashBonus": 0,
@@ -4037,7 +4037,7 @@ const allShopData = [
       6379.23,
       6573.57,
       10153.18,
-      2538
+      7487.99
     ],
     "bonusHistory": [
       0,
@@ -4068,10 +4068,10 @@ const allShopData = [
         "views": 0,
         "sold": 1,
         "gmv": 5372.53,
-        "commDollars": 211,
+        "commDollars": 875.01,
         "bonus": 0,
         "gmvLM": 2034.1,
-        "commPct": "3.93%",
+        "commPct": "16.29%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -4133,8 +4133,8 @@ const allShopData = [
     ],
     "points": 91,
     "totalGMV": 5372.53,
-    "totalComm": 211,
-    "avgComm": 3.93,
+    "totalComm": 875.01,
+    "avgComm": 16.29,
     "levelLabel": "L2",
     "productRank": "32",
     "cashBonus": 0,
@@ -4184,7 +4184,7 @@ const allShopData = [
       806.14,
       360.15,
       270.67,
-      211
+      875.01
     ],
     "bonusHistory": [
       0,
@@ -4215,10 +4215,10 @@ const allShopData = [
         "views": 0,
         "sold": 2273,
         "gmv": 89285.24,
-        "commDollars": 2552,
+        "commDollars": 10813.63,
         "bonus": 0,
         "gmvLM": 161358.65,
-        "commPct": "2.86%",
+        "commPct": "12.11%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -4235,10 +4235,10 @@ const allShopData = [
         "views": 0,
         "sold": 47,
         "gmv": 2694.78,
-        "commDollars": 62,
+        "commDollars": 159.7,
         "bonus": 0,
         "gmvLM": 2090.17,
-        "commPct": "2.30%",
+        "commPct": "5.93%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -4280,8 +4280,8 @@ const allShopData = [
     ],
     "points": 86,
     "totalGMV": 91980.02,
-    "totalComm": 2614,
-    "avgComm": 2.84,
+    "totalComm": 10973.33,
+    "avgComm": 11.93,
     "levelLabel": "L5",
     "productRank": "33",
     "cashBonus": 0,
@@ -4331,7 +4331,7 @@ const allShopData = [
       23823.47,
       26344.14,
       18196.77,
-      2614
+      10973.33
     ],
     "bonusHistory": [
       0,
@@ -4362,10 +4362,10 @@ const allShopData = [
         "views": 0,
         "sold": 564,
         "gmv": 16947.86,
-        "commDollars": 713,
+        "commDollars": 2858.26,
         "bonus": 0,
         "gmvLM": 38341.98,
-        "commPct": "4.21%",
+        "commPct": "16.87%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -4395,8 +4395,8 @@ const allShopData = [
     ],
     "points": 75,
     "totalGMV": 16947.86,
-    "totalComm": 713,
-    "avgComm": 4.21,
+    "totalComm": 2858.26,
+    "avgComm": 16.87,
     "levelLabel": "L3",
     "productRank": "34",
     "cashBonus": 0,
@@ -4446,7 +4446,7 @@ const allShopData = [
       3389.06,
       8159.83,
       5542.41,
-      713
+      2858.26
     ],
     "bonusHistory": [
       0,
@@ -4477,10 +4477,10 @@ const allShopData = [
         "views": 0,
         "sold": 12,
         "gmv": 3849.35,
-        "commDollars": 96,
+        "commDollars": 555.27,
         "bonus": 0,
         "gmvLM": 17280.76,
-        "commPct": "2.49%",
+        "commPct": "14.43%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -4510,8 +4510,8 @@ const allShopData = [
     ],
     "points": 71,
     "totalGMV": 3849.35,
-    "totalComm": 96,
-    "avgComm": 2.49,
+    "totalComm": 555.27,
+    "avgComm": 14.43,
     "levelLabel": "L2",
     "productRank": "35",
     "cashBonus": 0,
@@ -4561,7 +4561,7 @@ const allShopData = [
       3514.66,
       2044.98,
       2460.29,
-      96
+      555.27
     ],
     "bonusHistory": [
       0,
@@ -4592,10 +4592,10 @@ const allShopData = [
         "views": 0,
         "sold": 356,
         "gmv": 14651.61,
-        "commDollars": 398,
+        "commDollars": 2466.55,
         "bonus": 0,
         "gmvLM": 31528.76,
-        "commPct": "2.72%",
+        "commPct": "16.83%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -4625,8 +4625,8 @@ const allShopData = [
     ],
     "points": 71,
     "totalGMV": 14651.61,
-    "totalComm": 398,
-    "avgComm": 2.72,
+    "totalComm": 2466.55,
+    "avgComm": 16.83,
     "levelLabel": "L3",
     "productRank": "36",
     "cashBonus": 0,
@@ -4676,7 +4676,7 @@ const allShopData = [
       2839.63,
       2470.06,
       6351.97,
-      398
+      2466.55
     ],
     "bonusHistory": [
       0,
@@ -4707,10 +4707,10 @@ const allShopData = [
         "views": 0,
         "sold": 948,
         "gmv": 33625.14,
-        "commDollars": 1138,
+        "commDollars": 4941.51,
         "bonus": 0,
         "gmvLM": 37085.24,
-        "commPct": "3.38%",
+        "commPct": "14.70%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -4740,8 +4740,8 @@ const allShopData = [
     ],
     "points": 70,
     "totalGMV": 33625.14,
-    "totalComm": 1138,
-    "avgComm": 3.38,
+    "totalComm": 4941.51,
+    "avgComm": 14.7,
     "levelLabel": "L3",
     "productRank": "37",
     "cashBonus": 0,
@@ -4791,7 +4791,7 @@ const allShopData = [
       4957.33,
       5861.16,
       4904.63,
-      1138
+      4941.51
     ],
     "bonusHistory": [
       0,
@@ -4822,10 +4822,10 @@ const allShopData = [
         "views": 0,
         "sold": 1598,
         "gmv": 127791.39,
-        "commDollars": 1928,
+        "commDollars": 15395.7,
         "bonus": 0,
         "gmvLM": 172836.9,
-        "commPct": "1.51%",
+        "commPct": "12.05%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -4842,10 +4842,10 @@ const allShopData = [
         "views": 0,
         "sold": 671,
         "gmv": 27070.19,
-        "commDollars": 752,
+        "commDollars": 4146.66,
         "bonus": 0,
         "gmvLM": 30929.97,
-        "commPct": "2.78%",
+        "commPct": "15.32%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -4887,8 +4887,8 @@ const allShopData = [
     ],
     "points": 68,
     "totalGMV": 154861.58,
-    "totalComm": 2680,
-    "avgComm": 1.73,
+    "totalComm": 19542.36,
+    "avgComm": 12.62,
     "levelLabel": "L5",
     "productRank": "38",
     "cashBonus": 0,
@@ -4938,7 +4938,7 @@ const allShopData = [
       18515.84,
       15448.34,
       26768.379999999997,
-      2680
+      19542.36
     ],
     "bonusHistory": [
       0,
@@ -4969,10 +4969,10 @@ const allShopData = [
         "views": 0,
         "sold": 1994,
         "gmv": 55536.42,
-        "commDollars": 2480,
+        "commDollars": 9678.57,
         "bonus": 0,
         "gmvLM": 71235.04,
-        "commPct": "4.47%",
+        "commPct": "17.43%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -5002,8 +5002,8 @@ const allShopData = [
     ],
     "points": 65,
     "totalGMV": 55536.42,
-    "totalComm": 2480,
-    "avgComm": 4.47,
+    "totalComm": 9678.57,
+    "avgComm": 17.43,
     "levelLabel": "L4",
     "productRank": "39",
     "cashBonus": 0,
@@ -5053,7 +5053,7 @@ const allShopData = [
       17039.37,
       14520.44,
       13027.69,
-      2480
+      9678.57
     ],
     "bonusHistory": [
       0,
@@ -5084,10 +5084,10 @@ const allShopData = [
         "views": 0,
         "sold": 4641,
         "gmv": 142012.52,
-        "commDollars": 5328,
+        "commDollars": 14187.58,
         "bonus": 0,
         "gmvLM": 158094.98,
-        "commPct": "3.75%",
+        "commPct": "9.99%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -5117,8 +5117,8 @@ const allShopData = [
     ],
     "points": 62,
     "totalGMV": 142012.52,
-    "totalComm": 5328,
-    "avgComm": 3.75,
+    "totalComm": 14187.58,
+    "avgComm": 9.99,
     "levelLabel": "L5",
     "productRank": "40",
     "cashBonus": 0,
@@ -5168,7 +5168,7 @@ const allShopData = [
       9577.92,
       15714.48,
       16885.46,
-      5328
+      14187.58
     ],
     "bonusHistory": [
       0,
@@ -5199,10 +5199,10 @@ const allShopData = [
         "views": 0,
         "sold": 2826,
         "gmv": 68866.85,
-        "commDollars": 3668,
+        "commDollars": 9459.48,
         "bonus": 0,
         "gmvLM": 116632.6,
-        "commPct": "5.33%",
+        "commPct": "13.74%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -5232,8 +5232,8 @@ const allShopData = [
     ],
     "points": 59,
     "totalGMV": 68866.85,
-    "totalComm": 3668,
-    "avgComm": 5.33,
+    "totalComm": 9459.48,
+    "avgComm": 13.74,
     "levelLabel": "L4",
     "productRank": "41",
     "cashBonus": 0,
@@ -5283,7 +5283,7 @@ const allShopData = [
       9623.45,
       8847.23,
       15485.9,
-      3668
+      9459.48
     ],
     "bonusHistory": [
       0,
@@ -5314,10 +5314,10 @@ const allShopData = [
         "views": 0,
         "sold": 8820,
         "gmv": 207468.66,
-        "commDollars": 9240,
+        "commDollars": 33502.34,
         "bonus": 0,
         "gmvLM": 180307.97,
-        "commPct": "4.45%",
+        "commPct": "16.15%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -5347,8 +5347,8 @@ const allShopData = [
     ],
     "points": 54,
     "totalGMV": 207468.66,
-    "totalComm": 9240,
-    "avgComm": 4.45,
+    "totalComm": 33502.34,
+    "avgComm": 16.15,
     "levelLabel": "L5",
     "productRank": "42",
     "cashBonus": 0,
@@ -5398,7 +5398,7 @@ const allShopData = [
       11075.51,
       21426.79,
       24738.12,
-      9240
+      33502.34
     ],
     "bonusHistory": [
       0,
@@ -5429,10 +5429,10 @@ const allShopData = [
         "views": 0,
         "sold": 8875,
         "gmv": 272536.8,
-        "commDollars": 10225,
+        "commDollars": 29723.91,
         "bonus": 0,
         "gmvLM": 351875.3,
-        "commPct": "3.75%",
+        "commPct": "10.91%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -5462,8 +5462,8 @@ const allShopData = [
     ],
     "points": 52,
     "totalGMV": 272536.8,
-    "totalComm": 10225,
-    "avgComm": 3.75,
+    "totalComm": 29723.91,
+    "avgComm": 10.91,
     "levelLabel": "L5",
     "productRank": "43",
     "cashBonus": 0,
@@ -5513,7 +5513,7 @@ const allShopData = [
       66885.72,
       58122.46,
       38572,
-      10225
+      29723.91
     ],
     "bonusHistory": [
       0,
@@ -5544,10 +5544,10 @@ const allShopData = [
         "views": 0,
         "sold": 642,
         "gmv": 23234.62,
-        "commDollars": 744,
+        "commDollars": 2488.17,
         "bonus": 0,
         "gmvLM": 31558.59,
-        "commPct": "3.20%",
+        "commPct": "10.71%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -5597,8 +5597,8 @@ const allShopData = [
     ],
     "points": 45,
     "totalGMV": 23234.62,
-    "totalComm": 744,
-    "avgComm": 3.2,
+    "totalComm": 2488.17,
+    "avgComm": 10.71,
     "levelLabel": "L3",
     "productRank": "44",
     "cashBonus": 0,
@@ -5648,7 +5648,7 @@ const allShopData = [
       5222.9,
       4397.35,
       4176.52,
-      744
+      2488.17
     ],
     "bonusHistory": [
       0,
@@ -5679,10 +5679,10 @@ const allShopData = [
         "views": 0,
         "sold": 3632,
         "gmv": 154782.7,
-        "commDollars": 4686,
+        "commDollars": 17523.19,
         "bonus": 0,
         "gmvLM": 204861.49,
-        "commPct": "3.03%",
+        "commPct": "11.32%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -5712,8 +5712,8 @@ const allShopData = [
     ],
     "points": 41,
     "totalGMV": 154782.7,
-    "totalComm": 4686,
-    "avgComm": 3.03,
+    "totalComm": 17523.19,
+    "avgComm": 11.32,
     "levelLabel": "L5",
     "productRank": "45",
     "cashBonus": 0,
@@ -5763,7 +5763,7 @@ const allShopData = [
       26070,
       32678.1,
       24840.12,
-      4686
+      17523.19
     ],
     "bonusHistory": [
       0,
@@ -5794,10 +5794,10 @@ const allShopData = [
         "views": 0,
         "sold": 5963,
         "gmv": 81996.2,
-        "commDollars": 6272,
+        "commDollars": 14759.64,
         "bonus": 0,
         "gmvLM": 100973.87,
-        "commPct": "7.65%",
+        "commPct": "18.00%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -5827,8 +5827,8 @@ const allShopData = [
     ],
     "points": 38,
     "totalGMV": 81996.2,
-    "totalComm": 6272,
-    "avgComm": 7.65,
+    "totalComm": 14759.64,
+    "avgComm": 18,
     "levelLabel": "L4",
     "productRank": "46",
     "cashBonus": 0,
@@ -5878,7 +5878,7 @@ const allShopData = [
       0,
       20366.94,
       18206.33,
-      6272
+      14759.64
     ],
     "bonusHistory": [
       0,
@@ -5909,10 +5909,10 @@ const allShopData = [
         "views": 0,
         "sold": 1029,
         "gmv": 48187.28,
-        "commDollars": 1318,
+        "commDollars": 5612.45,
         "bonus": 0,
         "gmvLM": 68527.85,
-        "commPct": "2.74%",
+        "commPct": "11.65%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -5942,8 +5942,8 @@ const allShopData = [
     ],
     "points": 38,
     "totalGMV": 48187.28,
-    "totalComm": 1318,
-    "avgComm": 2.74,
+    "totalComm": 5612.45,
+    "avgComm": 11.65,
     "levelLabel": "L4",
     "productRank": "47",
     "cashBonus": 0,
@@ -5993,7 +5993,7 @@ const allShopData = [
       4528.08,
       6394.8,
       7402.93,
-      1318
+      5612.45
     ],
     "bonusHistory": [
       0,
@@ -6024,10 +6024,10 @@ const allShopData = [
         "views": 0,
         "sold": 3097,
         "gmv": 122882.36,
-        "commDollars": 3497,
+        "commDollars": 15213.06,
         "bonus": 0,
         "gmvLM": 40060.38,
-        "commPct": "2.85%",
+        "commPct": "12.38%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -6057,8 +6057,8 @@ const allShopData = [
     ],
     "points": 37,
     "totalGMV": 122882.36,
-    "totalComm": 3497,
-    "avgComm": 2.85,
+    "totalComm": 15213.06,
+    "avgComm": 12.38,
     "levelLabel": "L4",
     "productRank": "48",
     "cashBonus": 0,
@@ -6108,7 +6108,7 @@ const allShopData = [
       0,
       0,
       5070.68,
-      3497
+      15213.06
     ],
     "bonusHistory": [
       0,
@@ -6139,10 +6139,10 @@ const allShopData = [
         "views": 0,
         "sold": 1070,
         "gmv": 36402.16,
-        "commDollars": 1271,
+        "commDollars": 3815.24,
         "bonus": 0,
         "gmvLM": 56068.57,
-        "commPct": "3.49%",
+        "commPct": "10.48%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -6159,10 +6159,10 @@ const allShopData = [
         "views": 0,
         "sold": 296,
         "gmv": 15133.94,
-        "commDollars": 378,
+        "commDollars": 1371.44,
         "bonus": 0,
         "gmvLM": 15793.53,
-        "commPct": "2.50%",
+        "commPct": "9.06%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -6179,10 +6179,10 @@ const allShopData = [
         "views": 0,
         "sold": 210,
         "gmv": 5985.26,
-        "commDollars": 226,
+        "commDollars": 799.57,
         "bonus": 0,
         "gmvLM": 9743.85,
-        "commPct": "3.78%",
+        "commPct": "13.36%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -6236,8 +6236,8 @@ const allShopData = [
     ],
     "points": 37,
     "totalGMV": 57521.36,
-    "totalComm": 1875,
-    "avgComm": 3.26,
+    "totalComm": 5986.25,
+    "avgComm": 10.41,
     "levelLabel": "L3",
     "productRank": "49",
     "cashBonus": 0,
@@ -6287,7 +6287,7 @@ const allShopData = [
       4309.42,
       6128.589999999999,
       8359.25,
-      1875
+      5986.25
     ],
     "bonusHistory": [
       0,
@@ -6318,10 +6318,10 @@ const allShopData = [
         "views": 0,
         "sold": 4957,
         "gmv": 163486.66,
-        "commDollars": 5867,
+        "commDollars": 25428.54,
         "bonus": 0,
         "gmvLM": 313015.17,
-        "commPct": "3.59%",
+        "commPct": "15.55%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -6338,10 +6338,10 @@ const allShopData = [
         "views": 0,
         "sold": 3537,
         "gmv": 123341.92,
-        "commDollars": 4255,
+        "commDollars": 19259.82,
         "bonus": 0,
         "gmvLM": 149069.75,
-        "commPct": "3.45%",
+        "commPct": "15.61%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -6383,8 +6383,8 @@ const allShopData = [
     ],
     "points": 36,
     "totalGMV": 286828.58,
-    "totalComm": 10122,
-    "avgComm": 3.53,
+    "totalComm": 44688.36,
+    "avgComm": 15.58,
     "levelLabel": "L5",
     "productRank": "50",
     "cashBonus": 0,
@@ -6434,7 +6434,7 @@ const allShopData = [
       29447.07,
       49265.32,
       72200.87,
-      10122
+      44688.36
     ],
     "bonusHistory": [
       0,
@@ -6465,10 +6465,10 @@ const allShopData = [
         "views": 0,
         "sold": 809,
         "gmv": 27764.28,
-        "commDollars": 832,
+        "commDollars": 4441.13,
         "bonus": 0,
         "gmvLM": 43343.13,
-        "commPct": "3.00%",
+        "commPct": "16.00%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -6485,10 +6485,10 @@ const allShopData = [
         "views": 0,
         "sold": 864,
         "gmv": 25061.09,
-        "commDollars": 994,
+        "commDollars": 3532.99,
         "bonus": 0,
         "gmvLM": 27235.96,
-        "commPct": "3.97%",
+        "commPct": "14.10%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -6530,8 +6530,8 @@ const allShopData = [
     ],
     "points": 36,
     "totalGMV": 52825.37,
-    "totalComm": 1826,
-    "avgComm": 3.46,
+    "totalComm": 7974.12,
+    "avgComm": 15.1,
     "levelLabel": "L3",
     "productRank": "51",
     "cashBonus": 0,
@@ -6581,7 +6581,7 @@ const allShopData = [
       8049.89,
       10599.17,
       11211.16,
-      1826
+      7974.12
     ],
     "bonusHistory": [
       0,
@@ -6612,10 +6612,10 @@ const allShopData = [
         "views": 0,
         "sold": 1378,
         "gmv": 51572.63,
-        "commDollars": 1732,
+        "commDollars": 6490.43,
         "bonus": 0,
         "gmvLM": 71496.92,
-        "commPct": "3.36%",
+        "commPct": "12.59%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -6645,8 +6645,8 @@ const allShopData = [
     ],
     "points": 36,
     "totalGMV": 51572.63,
-    "totalComm": 1732,
-    "avgComm": 3.36,
+    "totalComm": 6490.43,
+    "avgComm": 12.59,
     "levelLabel": "L4",
     "productRank": "52",
     "cashBonus": 0,
@@ -6696,7 +6696,7 @@ const allShopData = [
       13630.18,
       11952.3,
       9303.92,
-      1732
+      6490.43
     ],
     "bonusHistory": [
       0,
@@ -6727,10 +6727,10 @@ const allShopData = [
         "views": 0,
         "sold": 495,
         "gmv": 14931.56,
-        "commDollars": 577,
+        "commDollars": 1520.33,
         "bonus": 0,
         "gmvLM": 2229.06,
-        "commPct": "3.86%",
+        "commPct": "10.18%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -6760,8 +6760,8 @@ const allShopData = [
     ],
     "points": 32,
     "totalGMV": 14931.56,
-    "totalComm": 577,
-    "avgComm": 3.86,
+    "totalComm": 1520.33,
+    "avgComm": 10.18,
     "levelLabel": "L2",
     "productRank": "53",
     "cashBonus": 0,
@@ -6811,7 +6811,7 @@ const allShopData = [
       0,
       0,
       207.12,
-      577
+      1520.33
     ],
     "bonusHistory": [
       0,
@@ -6842,10 +6842,10 @@ const allShopData = [
         "views": 0,
         "sold": 2752,
         "gmv": 94111.61,
-        "commDollars": 3233,
+        "commDollars": 13465.68,
         "bonus": 0,
         "gmvLM": 143372.77,
-        "commPct": "3.44%",
+        "commPct": "14.31%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -6875,8 +6875,8 @@ const allShopData = [
     ],
     "points": 31,
     "totalGMV": 94111.61,
-    "totalComm": 3233,
-    "avgComm": 3.44,
+    "totalComm": 13465.68,
+    "avgComm": 14.31,
     "levelLabel": "L4",
     "productRank": "54",
     "cashBonus": 0,
@@ -6926,7 +6926,7 @@ const allShopData = [
       19034.22,
       23574.67,
       20642.4,
-      3233
+      13465.68
     ],
     "bonusHistory": [
       0,
@@ -6957,10 +6957,10 @@ const allShopData = [
         "views": 0,
         "sold": 470,
         "gmv": 8721.69,
-        "commDollars": 516,
+        "commDollars": 1495.75,
         "bonus": 0,
         "gmvLM": 15197.91,
-        "commPct": "5.92%",
+        "commPct": "17.15%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -6990,8 +6990,8 @@ const allShopData = [
     ],
     "points": 28,
     "totalGMV": 8721.69,
-    "totalComm": 516,
-    "avgComm": 5.92,
+    "totalComm": 1495.75,
+    "avgComm": 17.15,
     "levelLabel": "L2",
     "productRank": "55",
     "cashBonus": 0,
@@ -7041,7 +7041,7 @@ const allShopData = [
       3149.54,
       3432.21,
       2380.36,
-      516
+      1495.75
     ],
     "bonusHistory": [
       0,
@@ -7072,10 +7072,10 @@ const allShopData = [
         "views": 0,
         "sold": 4094,
         "gmv": 82049.57,
-        "commDollars": 4403,
+        "commDollars": 13380.94,
         "bonus": 0,
         "gmvLM": 95404.01,
-        "commPct": "5.37%",
+        "commPct": "16.31%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -7092,10 +7092,10 @@ const allShopData = [
         "views": 0,
         "sold": 10,
         "gmv": 176.08,
-        "commDollars": 13,
+        "commDollars": 21.14,
         "bonus": 0,
         "gmvLM": 324.77,
-        "commPct": "7.38%",
+        "commPct": "12.01%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -7137,8 +7137,8 @@ const allShopData = [
     ],
     "points": 27,
     "totalGMV": 82225.65,
-    "totalComm": 4416,
-    "avgComm": 5.37,
+    "totalComm": 13402.08,
+    "avgComm": 16.3,
     "levelLabel": "L4",
     "productRank": "56",
     "cashBonus": 0,
@@ -7188,7 +7188,7 @@ const allShopData = [
       12002.31,
       13070.42,
       13373.76,
-      4416
+      13402.08
     ],
     "bonusHistory": [
       0,
@@ -7219,10 +7219,10 @@ const allShopData = [
         "views": 0,
         "sold": 1634,
         "gmv": 56965.62,
-        "commDollars": 1797,
+        "commDollars": 6833.98,
         "bonus": 0,
         "gmvLM": 76747.25,
-        "commPct": "3.15%",
+        "commPct": "12.00%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -7239,10 +7239,10 @@ const allShopData = [
         "views": 0,
         "sold": 1010,
         "gmv": 46379.34,
-        "commDollars": 1165,
+        "commDollars": 5300.17,
         "bonus": 0,
         "gmvLM": 29945.99,
-        "commPct": "2.51%",
+        "commPct": "11.43%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -7284,8 +7284,8 @@ const allShopData = [
     ],
     "points": 27,
     "totalGMV": 103344.96,
-    "totalComm": 2962,
-    "avgComm": 2.87,
+    "totalComm": 12134.15,
+    "avgComm": 11.74,
     "levelLabel": "L4",
     "productRank": "57",
     "cashBonus": 0,
@@ -7335,7 +7335,7 @@ const allShopData = [
       10532.39,
       16717.73,
       13599.380000000001,
-      2962
+      12134.15
     ],
     "bonusHistory": [
       0,
@@ -7366,10 +7366,10 @@ const allShopData = [
         "views": 0,
         "sold": 1540,
         "gmv": 47859.82,
-        "commDollars": 1730,
+        "commDollars": 7928.22,
         "bonus": 0,
         "gmvLM": 57027.19,
-        "commPct": "3.61%",
+        "commPct": "16.57%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -7386,10 +7386,10 @@ const allShopData = [
         "views": 0,
         "sold": 24,
         "gmv": 3283.49,
-        "commDollars": 28,
+        "commDollars": 192.72,
         "bonus": 0,
         "gmvLM": 2570.04,
-        "commPct": "0.85%",
+        "commPct": "5.87%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -7431,8 +7431,8 @@ const allShopData = [
     ],
     "points": 26,
     "totalGMV": 51143.31,
-    "totalComm": 1758,
-    "avgComm": 3.44,
+    "totalComm": 8120.94,
+    "avgComm": 15.88,
     "levelLabel": "L3",
     "productRank": "58",
     "cashBonus": 0,
@@ -7482,7 +7482,7 @@ const allShopData = [
       6317.87,
       7737.22,
       10234.76,
-      1758
+      8120.9400000000005
     ],
     "bonusHistory": [
       0,
@@ -7513,10 +7513,10 @@ const allShopData = [
         "views": 0,
         "sold": 5509,
         "gmv": 151665.33,
-        "commDollars": 6171,
+        "commDollars": 18957.77,
         "bonus": 0,
         "gmvLM": 163035.6,
-        "commPct": "4.07%",
+        "commPct": "12.50%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -7546,8 +7546,8 @@ const allShopData = [
     ],
     "points": 26,
     "totalGMV": 151665.33,
-    "totalComm": 6171,
-    "avgComm": 4.07,
+    "totalComm": 18957.77,
+    "avgComm": 12.5,
     "levelLabel": "L5",
     "productRank": "59",
     "cashBonus": 0,
@@ -7597,7 +7597,7 @@ const allShopData = [
       16960.75,
       31269.48,
       19836.3,
-      6171
+      18957.77
     ],
     "bonusHistory": [
       0,
@@ -7628,10 +7628,10 @@ const allShopData = [
         "views": 0,
         "sold": 257,
         "gmv": 8117.7,
-        "commDollars": 292,
+        "commDollars": 845.09,
         "bonus": 0,
         "gmvLM": 14936.3,
-        "commPct": "3.60%",
+        "commPct": "10.41%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -7661,8 +7661,8 @@ const allShopData = [
     ],
     "points": 24,
     "totalGMV": 8117.7,
-    "totalComm": 292,
-    "avgComm": 3.6,
+    "totalComm": 845.09,
+    "avgComm": 10.41,
     "levelLabel": "L2",
     "productRank": "60",
     "cashBonus": 0,
@@ -7712,7 +7712,7 @@ const allShopData = [
       1901.12,
       2116.33,
       2027.21,
-      292
+      845.09
     ],
     "bonusHistory": [
       0,
@@ -7743,10 +7743,10 @@ const allShopData = [
         "views": 0,
         "sold": 524,
         "gmv": 9380.4,
-        "commDollars": 562,
+        "commDollars": 1610.02,
         "bonus": 0,
         "gmvLM": 12980.49,
-        "commPct": "5.99%",
+        "commPct": "17.16%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -7776,8 +7776,8 @@ const allShopData = [
     ],
     "points": 22,
     "totalGMV": 9380.4,
-    "totalComm": 562,
-    "avgComm": 5.99,
+    "totalComm": 1610.02,
+    "avgComm": 17.16,
     "levelLabel": "L2",
     "productRank": "61",
     "cashBonus": 0,
@@ -7827,7 +7827,7 @@ const allShopData = [
       5441.34,
       3543.85,
       2285.38,
-      562
+      1610.02
     ],
     "bonusHistory": [
       0,
@@ -7858,10 +7858,10 @@ const allShopData = [
         "views": 0,
         "sold": 3297,
         "gmv": 92237.95,
-        "commDollars": 3875,
+        "commDollars": 13750.34,
         "bonus": 0,
         "gmvLM": 38691.1,
-        "commPct": "4.20%",
+        "commPct": "14.91%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -7891,8 +7891,8 @@ const allShopData = [
     ],
     "points": 20,
     "totalGMV": 92237.95,
-    "totalComm": 3875,
-    "avgComm": 4.2,
+    "totalComm": 13750.34,
+    "avgComm": 14.91,
     "levelLabel": "L4",
     "productRank": "62",
     "cashBonus": 0,
@@ -7942,7 +7942,7 @@ const allShopData = [
       3980.21,
       6418.94,
       6278.24,
-      3875
+      13750.34
     ],
     "bonusHistory": [
       0,
@@ -7973,10 +7973,10 @@ const allShopData = [
         "views": 0,
         "sold": 1180,
         "gmv": 51410,
-        "commDollars": 1400,
+        "commDollars": 8846.62,
         "bonus": 0,
         "gmvLM": 103982.47,
-        "commPct": "2.72%",
+        "commPct": "17.21%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -7993,10 +7993,10 @@ const allShopData = [
         "views": 0,
         "sold": 81,
         "gmv": 2175.1,
-        "commDollars": 91,
+        "commDollars": 375.14,
         "bonus": 0,
         "gmvLM": 7536.25,
-        "commPct": "4.18%",
+        "commPct": "17.25%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -8038,8 +8038,8 @@ const allShopData = [
     ],
     "points": 20,
     "totalGMV": 53585.1,
-    "totalComm": 1491,
-    "avgComm": 2.78,
+    "totalComm": 9221.76,
+    "avgComm": 17.21,
     "levelLabel": "L4",
     "productRank": "63",
     "cashBonus": 0,
@@ -8089,7 +8089,7 @@ const allShopData = [
       17824.510000000002,
       22950,
       18603.629999999997,
-      1491
+      9221.76
     ],
     "bonusHistory": [
       0,
@@ -8120,10 +8120,10 @@ const allShopData = [
         "views": 0,
         "sold": 4883,
         "gmv": 126433.23,
-        "commDollars": 5478,
+        "commDollars": 18874.69,
         "bonus": 0,
         "gmvLM": 261600.56,
-        "commPct": "4.33%",
+        "commPct": "14.93%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -8140,10 +8140,10 @@ const allShopData = [
         "views": 0,
         "sold": 10,
         "gmv": 424.28,
-        "commDollars": 11,
+        "commDollars": 53.63,
         "bonus": 0,
         "gmvLM": 1521.68,
-        "commPct": "2.59%",
+        "commPct": "12.64%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -8185,8 +8185,8 @@ const allShopData = [
     ],
     "points": 19,
     "totalGMV": 126857.51,
-    "totalComm": 5489,
-    "avgComm": 4.33,
+    "totalComm": 18928.32,
+    "avgComm": 14.92,
     "levelLabel": "L5",
     "productRank": "64",
     "cashBonus": 0,
@@ -8236,7 +8236,7 @@ const allShopData = [
       5512.599999999999,
       24939.82,
       40778.869999999995,
-      5489
+      18928.32
     ],
     "bonusHistory": [
       0,
@@ -8267,10 +8267,10 @@ const allShopData = [
         "views": 0,
         "sold": 1484,
         "gmv": 71435.96,
-        "commDollars": 2976,
+        "commDollars": 7415.44,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "4.17%",
+        "commPct": "10.38%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -8287,10 +8287,10 @@ const allShopData = [
         "views": 0,
         "sold": 45,
         "gmv": 1125.55,
-        "commDollars": 53,
+        "commDollars": 140.37,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "4.71%",
+        "commPct": "12.47%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -8332,8 +8332,8 @@ const allShopData = [
     ],
     "points": 19,
     "totalGMV": 72561.51,
-    "totalComm": 3029,
-    "avgComm": 4.17,
+    "totalComm": 7555.81,
+    "avgComm": 10.41,
     "levelLabel": "L4",
     "productRank": "65",
     "cashBonus": 0,
@@ -8383,7 +8383,7 @@ const allShopData = [
       0,
       0,
       0,
-      3029
+      7555.8099999999995
     ],
     "bonusHistory": [
       0,
@@ -8414,10 +8414,10 @@ const allShopData = [
         "views": 0,
         "sold": 930,
         "gmv": 32681.22,
-        "commDollars": 1061,
+        "commDollars": 4448.59,
         "bonus": 0,
         "gmvLM": 47451.35,
-        "commPct": "3.25%",
+        "commPct": "13.61%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -8447,8 +8447,8 @@ const allShopData = [
     ],
     "points": 16,
     "totalGMV": 32681.22,
-    "totalComm": 1061,
-    "avgComm": 3.25,
+    "totalComm": 4448.59,
+    "avgComm": 13.61,
     "levelLabel": "L3",
     "productRank": "66",
     "cashBonus": 0,
@@ -8498,7 +8498,7 @@ const allShopData = [
       11296.78,
       7490.09,
       6077.11,
-      1061
+      4448.59
     ],
     "bonusHistory": [
       0,
@@ -8529,10 +8529,10 @@ const allShopData = [
         "views": 0,
         "sold": 3382,
         "gmv": 149481.73,
-        "commDollars": 3677,
+        "commDollars": 13783.54,
         "bonus": 0,
         "gmvLM": 165582.79,
-        "commPct": "2.46%",
+        "commPct": "9.22%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -8562,8 +8562,8 @@ const allShopData = [
     ],
     "points": 15,
     "totalGMV": 149481.73,
-    "totalComm": 3677,
-    "avgComm": 2.46,
+    "totalComm": 13783.54,
+    "avgComm": 9.22,
     "levelLabel": "L5",
     "productRank": "67",
     "cashBonus": 0,
@@ -8613,7 +8613,7 @@ const allShopData = [
       14177.82,
       14023.2,
       16500.5,
-      3677
+      13783.54
     ],
     "bonusHistory": [
       0,
@@ -8644,10 +8644,10 @@ const allShopData = [
         "views": 0,
         "sold": 4562,
         "gmv": 142018.38,
-        "commDollars": 5407,
+        "commDollars": 18226.11,
         "bonus": 0,
         "gmvLM": 211382.27,
-        "commPct": "3.81%",
+        "commPct": "12.83%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -8677,8 +8677,8 @@ const allShopData = [
     ],
     "points": 15,
     "totalGMV": 142018.38,
-    "totalComm": 5407,
-    "avgComm": 3.81,
+    "totalComm": 18226.11,
+    "avgComm": 12.83,
     "levelLabel": "L5",
     "productRank": "68",
     "cashBonus": 0,
@@ -8728,7 +8728,7 @@ const allShopData = [
       48434.9,
       34844.87,
       27264.38,
-      5407
+      18226.11
     ],
     "bonusHistory": [
       0,
@@ -8759,10 +8759,10 @@ const allShopData = [
         "views": 0,
         "sold": 9798,
         "gmv": 134070.34,
-        "commDollars": 11122,
+        "commDollars": 20413.21,
         "bonus": 0,
         "gmvLM": 23574.09,
-        "commPct": "8.30%",
+        "commPct": "15.23%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -8792,8 +8792,8 @@ const allShopData = [
     ],
     "points": 14,
     "totalGMV": 134070.34,
-    "totalComm": 11122,
-    "avgComm": 8.3,
+    "totalComm": 20413.21,
+    "avgComm": 15.23,
     "levelLabel": "L4",
     "productRank": "69",
     "cashBonus": 0,
@@ -8843,7 +8843,7 @@ const allShopData = [
       3706.52,
       3721.03,
       2757.89,
-      11122
+      20413.21
     ],
     "bonusHistory": [
       0,
@@ -8874,10 +8874,10 @@ const allShopData = [
         "views": 0,
         "sold": 838,
         "gmv": 26759.14,
-        "commDollars": 919,
+        "commDollars": 3466.66,
         "bonus": 0,
         "gmvLM": 50674.64,
-        "commPct": "3.43%",
+        "commPct": "12.96%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -8894,10 +8894,10 @@ const allShopData = [
         "views": 0,
         "sold": 289,
         "gmv": 7399.26,
-        "commDollars": 280,
+        "commDollars": 1155.61,
         "bonus": 0,
         "gmvLM": 7540.96,
-        "commPct": "3.78%",
+        "commPct": "15.62%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -8939,8 +8939,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 34158.4,
-    "totalComm": 1199,
-    "avgComm": 3.51,
+    "totalComm": 4622.27,
+    "avgComm": 13.53,
     "levelLabel": "L3",
     "productRank": "70",
     "cashBonus": 0,
@@ -8990,7 +8990,7 @@ const allShopData = [
       4333.68,
       10260.1,
       9815.310000000001,
-      1199
+      4622.2699999999995
     ],
     "bonusHistory": [
       0,
@@ -9021,10 +9021,10 @@ const allShopData = [
         "views": 0,
         "sold": 227,
         "gmv": 5083.71,
-        "commDollars": 276,
+        "commDollars": 1135.39,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "5.43%",
+        "commPct": "22.33%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9054,8 +9054,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 5083.71,
-    "totalComm": 276,
-    "avgComm": 5.43,
+    "totalComm": 1135.39,
+    "avgComm": 22.33,
     "levelLabel": "L2",
     "productRank": "71",
     "cashBonus": 0,
@@ -9105,7 +9105,7 @@ const allShopData = [
       0,
       0,
       0,
-      276
+      1135.39
     ],
     "bonusHistory": [
       0,
@@ -9136,10 +9136,10 @@ const allShopData = [
         "views": 0,
         "sold": 5174,
         "gmv": 125996.43,
-        "commDollars": 5872,
+        "commDollars": 13882.74,
         "bonus": 0,
         "gmvLM": 114084.51,
-        "commPct": "4.66%",
+        "commPct": "11.02%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9169,8 +9169,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 125996.43,
-    "totalComm": 5872,
-    "avgComm": 4.66,
+    "totalComm": 13882.74,
+    "avgComm": 11.02,
     "levelLabel": "L4",
     "productRank": "72",
     "cashBonus": 0,
@@ -9220,7 +9220,7 @@ const allShopData = [
       16403.5,
       12744.2,
       11480.44,
-      5872
+      13882.74
     ],
     "bonusHistory": [
       0,
@@ -9251,10 +9251,10 @@ const allShopData = [
         "views": 0,
         "sold": 761,
         "gmv": 70234.18,
-        "commDollars": 851,
+        "commDollars": 9841.11,
         "bonus": 0,
         "gmvLM": 12976.82,
-        "commPct": "1.21%",
+        "commPct": "14.01%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -9284,8 +9284,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 70234.18,
-    "totalComm": 851,
-    "avgComm": 1.21,
+    "totalComm": 9841.11,
+    "avgComm": 14.01,
     "levelLabel": "L4",
     "productRank": "73",
     "cashBonus": 0,
@@ -9335,7 +9335,7 @@ const allShopData = [
       2291.47,
       2480.68,
       1964.11,
-      851
+      9841.11
     ],
     "bonusHistory": [
       0,
@@ -9366,10 +9366,10 @@ const allShopData = [
         "views": 0,
         "sold": 5385,
         "gmv": 127497.19,
-        "commDollars": 6162,
+        "commDollars": 13270.84,
         "bonus": 0,
         "gmvLM": 110396.53,
-        "commPct": "4.83%",
+        "commPct": "10.41%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -9399,8 +9399,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 127497.19,
-    "totalComm": 6162,
-    "avgComm": 4.83,
+    "totalComm": 13270.84,
+    "avgComm": 10.41,
     "levelLabel": "L4",
     "productRank": "74",
     "cashBonus": 0,
@@ -9450,7 +9450,7 @@ const allShopData = [
       0,
       0,
       10971.6,
-      6162
+      13270.84
     ],
     "bonusHistory": [
       0,
@@ -9481,10 +9481,10 @@ const allShopData = [
         "views": 0,
         "sold": 374,
         "gmv": 9617.45,
-        "commDollars": 460,
+        "commDollars": 1068.85,
         "bonus": 0,
         "gmvLM": 18847.61,
-        "commPct": "4.78%",
+        "commPct": "11.11%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -9501,10 +9501,10 @@ const allShopData = [
         "views": 0,
         "sold": 412,
         "gmv": 11565.33,
-        "commDollars": 482,
+        "commDollars": 1152.26,
         "bonus": 0,
         "gmvLM": 16318.56,
-        "commPct": "4.17%",
+        "commPct": "9.96%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -9521,10 +9521,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 69.03,
-        "commDollars": 2,
+        "commDollars": 6.86,
         "bonus": 0,
         "gmvLM": 88.5,
-        "commPct": "2.90%",
+        "commPct": "9.94%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9578,8 +9578,8 @@ const allShopData = [
     ],
     "points": 13,
     "totalGMV": 21251.81,
-    "totalComm": 944,
-    "avgComm": 4.44,
+    "totalComm": 2227.97,
+    "avgComm": 10.48,
     "levelLabel": "L2",
     "productRank": "75",
     "cashBonus": 0,
@@ -9629,7 +9629,7 @@ const allShopData = [
       7997.66,
       5704.25,
       3933.8999999999996,
-      944
+      2227.97
     ],
     "bonusHistory": [
       0,
@@ -9660,10 +9660,10 @@ const allShopData = [
         "views": 0,
         "sold": 1166,
         "gmv": 47120.94,
-        "commDollars": 1319,
+        "commDollars": 5377.89,
         "bonus": 0,
         "gmvLM": 56761.54,
-        "commPct": "2.80%",
+        "commPct": "11.41%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -9680,10 +9680,10 @@ const allShopData = [
         "views": 0,
         "sold": 1050,
         "gmv": 68321.59,
-        "commDollars": 1262,
+        "commDollars": 7514.65,
         "bonus": 0,
         "gmvLM": 5653.15,
-        "commPct": "1.85%",
+        "commPct": "11.00%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9725,8 +9725,8 @@ const allShopData = [
     ],
     "points": 12,
     "totalGMV": 115442.53,
-    "totalComm": 2581,
-    "avgComm": 2.24,
+    "totalComm": 12892.54,
+    "avgComm": 11.17,
     "levelLabel": "L4",
     "productRank": "76",
     "cashBonus": 0,
@@ -9776,7 +9776,7 @@ const allShopData = [
       6051.52,
       6118.28,
       7078.69,
-      2581
+      12892.54
     ],
     "bonusHistory": [
       0,
@@ -9807,10 +9807,10 @@ const allShopData = [
         "views": 0,
         "sold": 441,
         "gmv": 13299.58,
-        "commDollars": 458,
+        "commDollars": 1649.17,
         "bonus": 0,
         "gmvLM": 17831.16,
-        "commPct": "3.44%",
+        "commPct": "12.40%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -9827,10 +9827,10 @@ const allShopData = [
         "views": 0,
         "sold": 362,
         "gmv": 11374.35,
-        "commDollars": 375,
+        "commDollars": 1252.03,
         "bonus": 0,
         "gmvLM": 4314.56,
-        "commPct": "3.30%",
+        "commPct": "11.01%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -9872,8 +9872,8 @@ const allShopData = [
     ],
     "points": 12,
     "totalGMV": 24673.93,
-    "totalComm": 833,
-    "avgComm": 3.38,
+    "totalComm": 2901.2,
+    "avgComm": 11.76,
     "levelLabel": "L2",
     "productRank": "77",
     "cashBonus": 0,
@@ -9923,7 +9923,7 @@ const allShopData = [
       4326.98,
       3310.42,
       2801.38,
-      833
+      2901.2
     ],
     "bonusHistory": [
       0,
@@ -9954,10 +9954,10 @@ const allShopData = [
         "views": 0,
         "sold": 1497,
         "gmv": 40104.77,
-        "commDollars": 1741,
+        "commDollars": 4855.38,
         "bonus": 0,
         "gmvLM": 123506.91,
-        "commPct": "4.34%",
+        "commPct": "12.11%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9987,8 +9987,8 @@ const allShopData = [
     ],
     "points": 11,
     "totalGMV": 40104.77,
-    "totalComm": 1741,
-    "avgComm": 4.34,
+    "totalComm": 4855.38,
+    "avgComm": 12.11,
     "levelLabel": "L4",
     "productRank": "78",
     "cashBonus": 0,
@@ -10038,7 +10038,7 @@ const allShopData = [
       4104.49,
       4412.5,
       5752.13,
-      1741
+      4855.38
     ],
     "bonusHistory": [
       0,
@@ -10069,10 +10069,10 @@ const allShopData = [
         "views": 0,
         "sold": 2016,
         "gmv": 44500,
-        "commDollars": 2127,
+        "commDollars": 6477.18,
         "bonus": 0,
         "gmvLM": 28450.21,
-        "commPct": "4.78%",
+        "commPct": "14.56%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -10089,10 +10089,10 @@ const allShopData = [
         "views": 0,
         "sold": 330,
         "gmv": 12954.89,
-        "commDollars": 418,
+        "commDollars": 1552.23,
         "bonus": 0,
         "gmvLM": 14737.14,
-        "commPct": "3.23%",
+        "commPct": "11.98%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -10134,8 +10134,8 @@ const allShopData = [
     ],
     "points": 10,
     "totalGMV": 57454.89,
-    "totalComm": 2545,
-    "avgComm": 4.43,
+    "totalComm": 8029.41,
+    "avgComm": 13.98,
     "levelLabel": "L3",
     "productRank": "79",
     "cashBonus": 0,
@@ -10185,7 +10185,7 @@ const allShopData = [
       3309.94,
       6218.1900000000005,
       5172.68,
-      2545
+      8029.41
     ],
     "bonusHistory": [
       0,
@@ -10216,10 +10216,10 @@ const allShopData = [
         "views": 0,
         "sold": 1432,
         "gmv": 38217.44,
-        "commDollars": 1486,
+        "commDollars": 4113.9,
         "bonus": 0,
         "gmvLM": 72297.17,
-        "commPct": "3.89%",
+        "commPct": "10.76%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10249,8 +10249,8 @@ const allShopData = [
     ],
     "points": 8,
     "totalGMV": 38217.44,
-    "totalComm": 1486,
-    "avgComm": 3.89,
+    "totalComm": 4113.9,
+    "avgComm": 10.76,
     "levelLabel": "L4",
     "productRank": "80",
     "cashBonus": 0,
@@ -10300,7 +10300,7 @@ const allShopData = [
       11364.43,
       8310.42,
       7966.58,
-      1486
+      4113.9
     ],
     "bonusHistory": [
       0,
@@ -10331,10 +10331,10 @@ const allShopData = [
         "views": 0,
         "sold": 1133,
         "gmv": 71107.23,
-        "commDollars": 1556,
+        "commDollars": 7828.45,
         "bonus": 0,
         "gmvLM": 52790.15,
-        "commPct": "2.19%",
+        "commPct": "11.01%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10364,8 +10364,8 @@ const allShopData = [
     ],
     "points": 8,
     "totalGMV": 71107.23,
-    "totalComm": 1556,
-    "avgComm": 2.19,
+    "totalComm": 7828.45,
+    "avgComm": 11.01,
     "levelLabel": "L4",
     "productRank": "81",
     "cashBonus": 0,
@@ -10415,7 +10415,7 @@ const allShopData = [
       4606,
       4799.69,
       6044.2,
-      1556
+      7828.45
     ],
     "bonusHistory": [
       0,
@@ -10446,10 +10446,10 @@ const allShopData = [
         "views": 0,
         "sold": 1374,
         "gmv": 44374.45,
-        "commDollars": 1807,
+        "commDollars": 7175.24,
         "bonus": 0,
         "gmvLM": 30993.56,
-        "commPct": "4.07%",
+        "commPct": "16.17%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -10466,10 +10466,10 @@ const allShopData = [
         "views": 0,
         "sold": 618,
         "gmv": 15565.84,
-        "commDollars": 677,
+        "commDollars": 2785.35,
         "bonus": 0,
         "gmvLM": 13477.48,
-        "commPct": "4.35%",
+        "commPct": "17.89%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10511,8 +10511,8 @@ const allShopData = [
     ],
     "points": 7,
     "totalGMV": 59940.29,
-    "totalComm": 2484,
-    "avgComm": 4.14,
+    "totalComm": 9960.59,
+    "avgComm": 16.62,
     "levelLabel": "L3",
     "productRank": "82",
     "cashBonus": 0,
@@ -10562,7 +10562,7 @@ const allShopData = [
       5235.13,
       2791.83,
       7086.35,
-      2484
+      9960.59
     ],
     "bonusHistory": [
       0,
@@ -10593,10 +10593,10 @@ const allShopData = [
         "views": 0,
         "sold": 2492,
         "gmv": 63786.04,
-        "commDollars": 2721,
+        "commDollars": 6915.39,
         "bonus": 0,
         "gmvLM": 57192.7,
-        "commPct": "4.27%",
+        "commPct": "10.84%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10626,8 +10626,8 @@ const allShopData = [
     ],
     "points": 7,
     "totalGMV": 63786.04,
-    "totalComm": 2721,
-    "avgComm": 4.27,
+    "totalComm": 6915.39,
+    "avgComm": 10.84,
     "levelLabel": "L4",
     "productRank": "83",
     "cashBonus": 0,
@@ -10677,7 +10677,7 @@ const allShopData = [
       9671.97,
       6856.93,
       6003.54,
-      2721
+      6915.39
     ],
     "bonusHistory": [
       0,
@@ -10708,10 +10708,10 @@ const allShopData = [
         "views": 0,
         "sold": 627,
         "gmv": 14561.37,
-        "commDollars": 511,
+        "commDollars": 2309.99,
         "bonus": 0,
         "gmvLM": 19320.13,
-        "commPct": "3.51%",
+        "commPct": "15.86%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -10728,10 +10728,10 @@ const allShopData = [
         "views": 0,
         "sold": 6,
         "gmv": 272.44,
-        "commDollars": 6,
+        "commDollars": 21.88,
         "bonus": 0,
         "gmvLM": 546.77,
-        "commPct": "2.20%",
+        "commPct": "8.03%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -10748,10 +10748,10 @@ const allShopData = [
         "views": 0,
         "sold": 40,
         "gmv": 1449.15,
-        "commDollars": 63,
+        "commDollars": 215.05,
         "bonus": 0,
         "gmvLM": 327.93,
-        "commPct": "4.35%",
+        "commPct": "14.84%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -10768,10 +10768,10 @@ const allShopData = [
         "views": 0,
         "sold": 0,
         "gmv": 50.2,
-        "commDollars": 2,
+        "commDollars": 6.02,
         "bonus": 0,
         "gmvLM": 178.62,
-        "commPct": "3.98%",
+        "commPct": "11.99%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -10837,8 +10837,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 16333.16,
-    "totalComm": 582,
-    "avgComm": 3.56,
+    "totalComm": 2552.94,
+    "avgComm": 15.63,
     "levelLabel": "L2",
     "productRank": "84",
     "cashBonus": 0,
@@ -10888,7 +10888,7 @@ const allShopData = [
       4663.07,
       4792.799999999999,
       3544.26,
-      582
+      2552.94
     ],
     "bonusHistory": [
       0,
@@ -10919,10 +10919,10 @@ const allShopData = [
         "views": 0,
         "sold": 205,
         "gmv": 9074.52,
-        "commDollars": 233,
+        "commDollars": 1115.35,
         "bonus": 0,
         "gmvLM": 13968.16,
-        "commPct": "2.57%",
+        "commPct": "12.29%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10952,8 +10952,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 9074.52,
-    "totalComm": 233,
-    "avgComm": 2.57,
+    "totalComm": 1115.35,
+    "avgComm": 12.29,
     "levelLabel": "L2",
     "productRank": "85",
     "cashBonus": 0,
@@ -11003,7 +11003,7 @@ const allShopData = [
       3098.27,
       2599.6,
       1606.79,
-      233
+      1115.35
     ],
     "bonusHistory": [
       0,
@@ -11034,10 +11034,10 @@ const allShopData = [
         "views": 0,
         "sold": 865,
         "gmv": 36317.56,
-        "commDollars": 1062,
+        "commDollars": 4318.44,
         "bonus": 0,
         "gmvLM": 79317.86,
-        "commPct": "2.92%",
+        "commPct": "11.89%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -11067,8 +11067,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 36317.56,
-    "totalComm": 1062,
-    "avgComm": 2.92,
+    "totalComm": 4318.44,
+    "avgComm": 11.89,
     "levelLabel": "L4",
     "productRank": "86",
     "cashBonus": 0,
@@ -11118,7 +11118,7 @@ const allShopData = [
       11111.39,
       9595.12,
       9807.41,
-      1062
+      4318.44
     ],
     "bonusHistory": [
       0,
@@ -11149,10 +11149,10 @@ const allShopData = [
         "views": 0,
         "sold": 1047,
         "gmv": 25117.57,
-        "commDollars": 1120,
+        "commDollars": 3091.66,
         "bonus": 0,
         "gmvLM": 33165.55,
-        "commPct": "4.46%",
+        "commPct": "12.31%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -11169,10 +11169,10 @@ const allShopData = [
         "views": 0,
         "sold": 32,
         "gmv": 613.02,
-        "commDollars": 30,
+        "commDollars": 102.21,
         "bonus": 0,
         "gmvLM": 1317.63,
-        "commPct": "4.89%",
+        "commPct": "16.67%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11214,8 +11214,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 25730.59,
-    "totalComm": 1150,
-    "avgComm": 4.47,
+    "totalComm": 3193.87,
+    "avgComm": 12.41,
     "levelLabel": "L3",
     "productRank": "87",
     "cashBonus": 0,
@@ -11265,7 +11265,7 @@ const allShopData = [
       425.27,
       990.31,
       4307.19,
-      1150
+      3193.87
     ],
     "bonusHistory": [
       0,
@@ -11296,10 +11296,10 @@ const allShopData = [
         "views": 0,
         "sold": 815,
         "gmv": 33658.38,
-        "commDollars": 1066,
+        "commDollars": 4731.4,
         "bonus": 0,
         "gmvLM": 26537.28,
-        "commPct": "3.17%",
+        "commPct": "14.06%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -11316,10 +11316,10 @@ const allShopData = [
         "views": 0,
         "sold": 0,
         "gmv": 38.15,
-        "commDollars": 1,
+        "commDollars": 4.3,
         "bonus": 0,
         "gmvLM": 112.85,
-        "commPct": "2.62%",
+        "commPct": "11.27%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11361,8 +11361,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 33696.53,
-    "totalComm": 1067,
-    "avgComm": 3.17,
+    "totalComm": 4735.7,
+    "avgComm": 14.05,
     "levelLabel": "L3",
     "productRank": "88",
     "cashBonus": 0,
@@ -11412,7 +11412,7 @@ const allShopData = [
       6466.57,
       6011.4,
       3833.91,
-      1067
+      4735.7
     ],
     "bonusHistory": [
       0,
@@ -11443,10 +11443,10 @@ const allShopData = [
         "views": 0,
         "sold": 193,
         "gmv": 8399.22,
-        "commDollars": 257,
+        "commDollars": 816.59,
         "bonus": 0,
         "gmvLM": 4846.5,
-        "commPct": "3.06%",
+        "commPct": "9.72%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -11476,8 +11476,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 8399.22,
-    "totalComm": 257,
-    "avgComm": 3.06,
+    "totalComm": 816.59,
+    "avgComm": 9.72,
     "levelLabel": "L2",
     "productRank": "89",
     "cashBonus": 0,
@@ -11527,7 +11527,7 @@ const allShopData = [
       1934,
       873.66,
       672.78,
-      257
+      816.59
     ],
     "bonusHistory": [
       0,
@@ -11558,10 +11558,10 @@ const allShopData = [
         "views": 0,
         "sold": 1861,
         "gmv": 47190.7,
-        "commDollars": 2284,
+        "commDollars": 5451.61,
         "bonus": 0,
         "gmvLM": 64869.23,
-        "commPct": "4.84%",
+        "commPct": "11.55%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11591,8 +11591,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 47190.7,
-    "totalComm": 2284,
-    "avgComm": 4.84,
+    "totalComm": 5451.61,
+    "avgComm": 11.55,
     "levelLabel": "L4",
     "productRank": "90",
     "cashBonus": 0,
@@ -11642,7 +11642,7 @@ const allShopData = [
       3036.16,
       5169.91,
       6755.41,
-      2284
+      5451.61
     ],
     "bonusHistory": [
       0,
@@ -11673,10 +11673,10 @@ const allShopData = [
         "views": 0,
         "sold": 852,
         "gmv": 47787.17,
-        "commDollars": 942,
+        "commDollars": 4417.58,
         "bonus": 0,
         "gmvLM": 69394.36,
-        "commPct": "1.97%",
+        "commPct": "9.24%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11706,8 +11706,8 @@ const allShopData = [
     ],
     "points": 5,
     "totalGMV": 47787.17,
-    "totalComm": 942,
-    "avgComm": 1.97,
+    "totalComm": 4417.58,
+    "avgComm": 9.24,
     "levelLabel": "L4",
     "productRank": "91",
     "cashBonus": 0,
@@ -11757,7 +11757,7 @@ const allShopData = [
       0,
       8018.77,
       6170.69,
-      942
+      4417.58
     ],
     "bonusHistory": [
       0,
@@ -11788,10 +11788,10 @@ const allShopData = [
         "views": 0,
         "sold": 83,
         "gmv": 3745.74,
-        "commDollars": 99,
+        "commDollars": 390.46,
         "bonus": 0,
         "gmvLM": 5675.61,
-        "commPct": "2.64%",
+        "commPct": "10.42%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11821,8 +11821,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 3745.74,
-    "totalComm": 99,
-    "avgComm": 2.64,
+    "totalComm": 390.46,
+    "avgComm": 10.42,
     "levelLabel": "L2",
     "productRank": "92",
     "cashBonus": 0,
@@ -11872,7 +11872,7 @@ const allShopData = [
       647.45,
       462.13,
       467.06,
-      99
+      390.46
     ],
     "bonusHistory": [
       0,
@@ -11903,10 +11903,10 @@ const allShopData = [
         "views": 0,
         "sold": 1760,
         "gmv": 31890.63,
-        "commDollars": 1883,
+        "commDollars": 2970.51,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "5.90%",
+        "commPct": "9.31%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11936,8 +11936,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 31890.63,
-    "totalComm": 1883,
-    "avgComm": 5.9,
+    "totalComm": 2970.51,
+    "avgComm": 9.31,
     "levelLabel": "L3",
     "productRank": "93",
     "cashBonus": 0,
@@ -11987,7 +11987,7 @@ const allShopData = [
       0,
       0,
       0,
-      1883
+      2970.51
     ],
     "bonusHistory": [
       0,
@@ -12018,10 +12018,10 @@ const allShopData = [
         "views": 0,
         "sold": 53,
         "gmv": 1317.07,
-        "commDollars": 48,
+        "commDollars": 245.55,
         "bonus": 0,
         "gmvLM": 2461.89,
-        "commPct": "3.64%",
+        "commPct": "18.64%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12051,8 +12051,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 1317.07,
-    "totalComm": 48,
-    "avgComm": 3.64,
+    "totalComm": 245.55,
+    "avgComm": 18.64,
     "levelLabel": "L1",
     "productRank": "94",
     "cashBonus": 0,
@@ -12102,7 +12102,7 @@ const allShopData = [
       1310.65,
       2041.31,
       535.5,
-      48
+      245.55
     ],
     "bonusHistory": [
       0,
@@ -12133,10 +12133,10 @@ const allShopData = [
         "views": 0,
         "sold": 821,
         "gmv": 29902.24,
-        "commDollars": 901,
+        "commDollars": 3950.59,
         "bonus": 0,
         "gmvLM": 78870.7,
-        "commPct": "3.01%",
+        "commPct": "13.21%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -12166,8 +12166,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 29902.24,
-    "totalComm": 901,
-    "avgComm": 3.01,
+    "totalComm": 3950.59,
+    "avgComm": 13.21,
     "levelLabel": "L4",
     "productRank": "95",
     "cashBonus": 0,
@@ -12217,7 +12217,7 @@ const allShopData = [
       10538.13,
       10499.55,
       11528.19,
-      901
+      3950.59
     ],
     "bonusHistory": [
       0,
@@ -12248,10 +12248,10 @@ const allShopData = [
         "views": 0,
         "sold": 1062,
         "gmv": 33967.75,
-        "commDollars": 1399,
+        "commDollars": 3886.22,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "4.12%",
+        "commPct": "11.44%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12281,8 +12281,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 33967.75,
-    "totalComm": 1399,
-    "avgComm": 4.12,
+    "totalComm": 3886.22,
+    "avgComm": 11.44,
     "levelLabel": "L3",
     "productRank": "96",
     "cashBonus": 0,
@@ -12332,7 +12332,7 @@ const allShopData = [
       0,
       0,
       0,
-      1399
+      3886.22
     ],
     "bonusHistory": [
       0,
@@ -12363,10 +12363,10 @@ const allShopData = [
         "views": 0,
         "sold": 692,
         "gmv": 33298.87,
-        "commDollars": 767,
+        "commDollars": 3647.55,
         "bonus": 0,
         "gmvLM": 50275.72,
-        "commPct": "2.30%",
+        "commPct": "10.95%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12396,8 +12396,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 33298.87,
-    "totalComm": 767,
-    "avgComm": 2.3,
+    "totalComm": 3647.55,
+    "avgComm": 10.95,
     "levelLabel": "L3",
     "productRank": "97",
     "cashBonus": 0,
@@ -12447,7 +12447,7 @@ const allShopData = [
       11607.55,
       9797.78,
       4952.59,
-      767
+      3647.55
     ],
     "bonusHistory": [
       0,
@@ -12478,10 +12478,10 @@ const allShopData = [
         "views": 0,
         "sold": 1670,
         "gmv": 31242.4,
-        "commDollars": 1802,
+        "commDollars": 3307.14,
         "bonus": 0,
         "gmvLM": 37473.92,
-        "commPct": "5.77%",
+        "commPct": "10.59%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -12543,8 +12543,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 31242.4,
-    "totalComm": 1802,
-    "avgComm": 5.77,
+    "totalComm": 3307.14,
+    "avgComm": 10.59,
     "levelLabel": "L3",
     "productRank": "98",
     "cashBonus": 0,
@@ -12594,7 +12594,7 @@ const allShopData = [
       10323.73,
       7570.68,
       4617.17,
-      1802
+      3307.14
     ],
     "bonusHistory": [
       0,
@@ -12625,10 +12625,10 @@ const allShopData = [
         "views": 0,
         "sold": 1290,
         "gmv": 31023.65,
-        "commDollars": 1424,
+        "commDollars": 2293.62,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "4.59%",
+        "commPct": "7.39%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12658,8 +12658,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 31023.65,
-    "totalComm": 1424,
-    "avgComm": 4.59,
+    "totalComm": 2293.62,
+    "avgComm": 7.39,
     "levelLabel": "L3",
     "productRank": "99",
     "cashBonus": 0,
@@ -12709,7 +12709,7 @@ const allShopData = [
       0,
       0,
       0,
-      1424
+      2293.62
     ],
     "bonusHistory": [
       0,
@@ -12740,10 +12740,10 @@ const allShopData = [
         "views": 0,
         "sold": 894,
         "gmv": 26171.66,
-        "commDollars": 1067,
+        "commDollars": 3845.17,
         "bonus": 0,
         "gmvLM": 51202.51,
-        "commPct": "4.08%",
+        "commPct": "14.69%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12773,8 +12773,8 @@ const allShopData = [
     ],
     "points": 4,
     "totalGMV": 26171.66,
-    "totalComm": 1067,
-    "avgComm": 4.08,
+    "totalComm": 3845.17,
+    "avgComm": 14.69,
     "levelLabel": "L3",
     "productRank": "100",
     "cashBonus": 0,
@@ -12824,7 +12824,7 @@ const allShopData = [
       3256.87,
       3723.17,
       8566,
-      1067
+      3845.17
     ],
     "bonusHistory": [
       0,
@@ -12855,10 +12855,10 @@ const allShopData = [
         "views": 0,
         "sold": 789,
         "gmv": 20753.36,
-        "commDollars": 899,
+        "commDollars": 2331.7,
         "bonus": 0,
         "gmvLM": 38595.76,
-        "commPct": "4.33%",
+        "commPct": "11.24%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12888,8 +12888,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 20753.36,
-    "totalComm": 899,
-    "avgComm": 4.33,
+    "totalComm": 2331.7,
+    "avgComm": 11.24,
     "levelLabel": "L3",
     "productRank": "101",
     "cashBonus": 0,
@@ -12939,7 +12939,7 @@ const allShopData = [
       6263.28,
       4692.71,
       4593.74,
-      899
+      2331.7
     ],
     "bonusHistory": [
       0,
@@ -12970,10 +12970,10 @@ const allShopData = [
         "views": 0,
         "sold": 406,
         "gmv": 13594.98,
-        "commDollars": 484,
+        "commDollars": 1769.02,
         "bonus": 0,
         "gmvLM": 18712.71,
-        "commPct": "3.56%",
+        "commPct": "13.01%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -12990,10 +12990,10 @@ const allShopData = [
         "views": 0,
         "sold": 36,
         "gmv": 1400.68,
-        "commDollars": 40,
+        "commDollars": 152.04,
         "bonus": 0,
         "gmvLM": 406.83,
-        "commPct": "2.86%",
+        "commPct": "10.85%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -13067,8 +13067,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 14995.66,
-    "totalComm": 524,
-    "avgComm": 3.49,
+    "totalComm": 1921.06,
+    "avgComm": 12.81,
     "levelLabel": "L2",
     "productRank": "102",
     "cashBonus": 0,
@@ -13118,7 +13118,7 @@ const allShopData = [
       5128.969999999999,
       2914.73,
       2054.66,
-      524
+      1921.06
     ],
     "bonusHistory": [
       0,
@@ -13149,10 +13149,10 @@ const allShopData = [
         "views": 0,
         "sold": 935,
         "gmv": 20765.48,
-        "commDollars": 974,
+        "commDollars": 3868.36,
         "bonus": 0,
         "gmvLM": 10160.63,
-        "commPct": "4.69%",
+        "commPct": "18.63%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13182,8 +13182,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 20765.48,
-    "totalComm": 974,
-    "avgComm": 4.69,
+    "totalComm": 3868.36,
+    "avgComm": 18.63,
     "levelLabel": "L2",
     "productRank": "103",
     "cashBonus": 0,
@@ -13233,7 +13233,7 @@ const allShopData = [
       0,
       0,
       1797.88,
-      974
+      3868.36
     ],
     "bonusHistory": [
       0,
@@ -13264,10 +13264,10 @@ const allShopData = [
         "views": 0,
         "sold": 544,
         "gmv": 24210.13,
-        "commDollars": 612,
+        "commDollars": 2253.92,
         "bonus": 0,
         "gmvLM": 34257.2,
-        "commPct": "2.53%",
+        "commPct": "9.31%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13297,8 +13297,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 24210.13,
-    "totalComm": 612,
-    "avgComm": 2.53,
+    "totalComm": 2253.92,
+    "avgComm": 9.31,
     "levelLabel": "L3",
     "productRank": "104",
     "cashBonus": 0,
@@ -13348,7 +13348,7 @@ const allShopData = [
       18493.84,
       3778.49,
       4850.03,
-      612
+      2253.92
     ],
     "bonusHistory": [
       0,
@@ -13379,10 +13379,10 @@ const allShopData = [
         "views": 0,
         "sold": 112,
         "gmv": 2732.32,
-        "commDollars": 167,
+        "commDollars": 364.94,
         "bonus": 0,
         "gmvLM": 2972.78,
-        "commPct": "6.11%",
+        "commPct": "13.36%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -13412,8 +13412,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 2732.32,
-    "totalComm": 167,
-    "avgComm": 6.11,
+    "totalComm": 364.94,
+    "avgComm": 13.36,
     "levelLabel": "L1",
     "productRank": "105",
     "cashBonus": 0,
@@ -13463,7 +13463,7 @@ const allShopData = [
       629.01,
       916.59,
       429.71,
-      167
+      364.94
     ],
     "bonusHistory": [
       0,
@@ -13494,10 +13494,10 @@ const allShopData = [
         "views": 0,
         "sold": 141,
         "gmv": 5136.37,
-        "commDollars": 194,
+        "commDollars": 508.45,
         "bonus": 0,
         "gmvLM": 9498.06,
-        "commPct": "3.78%",
+        "commPct": "9.90%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13527,8 +13527,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 5136.37,
-    "totalComm": 194,
-    "avgComm": 3.78,
+    "totalComm": 508.45,
+    "avgComm": 9.9,
     "levelLabel": "L2",
     "productRank": "106",
     "cashBonus": 0,
@@ -13578,7 +13578,7 @@ const allShopData = [
       1190.2,
       1107.08,
       990.33,
-      194
+      508.45
     ],
     "bonusHistory": [
       0,
@@ -13609,10 +13609,10 @@ const allShopData = [
         "views": 0,
         "sold": 1166,
         "gmv": 28134.1,
-        "commDollars": 1268,
+        "commDollars": 3038.89,
         "bonus": 0,
         "gmvLM": 41243.96,
-        "commPct": "4.51%",
+        "commPct": "10.80%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13642,8 +13642,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 28134.1,
-    "totalComm": 1268,
-    "avgComm": 4.51,
+    "totalComm": 3038.89,
+    "avgComm": 10.8,
     "levelLabel": "L3",
     "productRank": "107",
     "cashBonus": 0,
@@ -13693,7 +13693,7 @@ const allShopData = [
       4627.78,
       4651.66,
       4741.93,
-      1268
+      3038.89
     ],
     "bonusHistory": [
       0,
@@ -13724,10 +13724,10 @@ const allShopData = [
         "views": 0,
         "sold": 481,
         "gmv": 20108.7,
-        "commDollars": 522,
+        "commDollars": 2687.13,
         "bonus": 0,
         "gmvLM": 19004.59,
-        "commPct": "2.60%",
+        "commPct": "13.36%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13757,8 +13757,8 @@ const allShopData = [
     ],
     "points": 3,
     "totalGMV": 20108.7,
-    "totalComm": 522,
-    "avgComm": 2.6,
+    "totalComm": 2687.13,
+    "avgComm": 13.36,
     "levelLabel": "L2",
     "productRank": "108",
     "cashBonus": 0,
@@ -13808,7 +13808,7 @@ const allShopData = [
       8371.94,
       3524.47,
       2117.38,
-      522
+      2687.13
     ],
     "bonusHistory": [
       0,
@@ -13839,10 +13839,10 @@ const allShopData = [
         "views": 0,
         "sold": 874,
         "gmv": 17505.95,
-        "commDollars": 647,
+        "commDollars": 2858.52,
         "bonus": 0,
         "gmvLM": 48291.48,
-        "commPct": "3.70%",
+        "commPct": "16.33%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13872,8 +13872,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 17505.95,
-    "totalComm": 647,
-    "avgComm": 3.7,
+    "totalComm": 2858.52,
+    "avgComm": 16.33,
     "levelLabel": "L3",
     "productRank": "109",
     "cashBonus": 0,
@@ -13923,7 +13923,7 @@ const allShopData = [
       214.04,
       732.85,
       7114.52,
-      647
+      2858.52
     ],
     "bonusHistory": [
       0,
@@ -13954,10 +13954,10 @@ const allShopData = [
         "views": 0,
         "sold": 320,
         "gmv": 10056.03,
-        "commDollars": 360,
+        "commDollars": 1102.27,
         "bonus": 0,
         "gmvLM": 4420.53,
-        "commPct": "3.58%",
+        "commPct": "10.96%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13987,8 +13987,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 10056.03,
-    "totalComm": 360,
-    "avgComm": 3.58,
+    "totalComm": 1102.27,
+    "avgComm": 10.96,
     "levelLabel": "L2",
     "productRank": "110",
     "cashBonus": 0,
@@ -14038,7 +14038,7 @@ const allShopData = [
       348.65,
       378.53,
       924.43,
-      360
+      1102.27
     ],
     "bonusHistory": [
       0,
@@ -14069,10 +14069,10 @@ const allShopData = [
         "views": 0,
         "sold": 694,
         "gmv": 19254.09,
-        "commDollars": 766,
+        "commDollars": 2473.04,
         "bonus": 0,
         "gmvLM": 37725.82,
-        "commPct": "3.98%",
+        "commPct": "12.84%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -14102,8 +14102,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 19254.09,
-    "totalComm": 766,
-    "avgComm": 3.98,
+    "totalComm": 2473.04,
+    "avgComm": 12.84,
     "levelLabel": "L3",
     "productRank": "111",
     "cashBonus": 0,
@@ -14153,7 +14153,7 @@ const allShopData = [
       7807.23,
       6998.56,
       4684.89,
-      766
+      2473.04
     ],
     "bonusHistory": [
       0,
@@ -14184,10 +14184,10 @@ const allShopData = [
         "views": 0,
         "sold": 34,
         "gmv": 1140.66,
-        "commDollars": 38,
+        "commDollars": 170.35,
         "bonus": 0,
         "gmvLM": 2226.13,
-        "commPct": "3.33%",
+        "commPct": "14.93%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14217,8 +14217,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 1140.66,
-    "totalComm": 38,
-    "avgComm": 3.33,
+    "totalComm": 170.35,
+    "avgComm": 14.93,
     "levelLabel": "L1",
     "productRank": "112",
     "cashBonus": 0,
@@ -14268,7 +14268,7 @@ const allShopData = [
       432.59,
       651.37,
       299,
-      38
+      170.35
     ],
     "bonusHistory": [
       0,
@@ -14299,10 +14299,10 @@ const allShopData = [
         "views": 0,
         "sold": 524,
         "gmv": 10169.38,
-        "commDollars": 575,
+        "commDollars": 1380.86,
         "bonus": 0,
         "gmvLM": 14881.73,
-        "commPct": "5.65%",
+        "commPct": "13.58%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14332,8 +14332,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 10169.38,
-    "totalComm": 575,
-    "avgComm": 5.65,
+    "totalComm": 1380.86,
+    "avgComm": 13.58,
     "levelLabel": "L2",
     "productRank": "113",
     "cashBonus": 0,
@@ -14383,7 +14383,7 @@ const allShopData = [
       747.27,
       3157.17,
       2032.66,
-      575
+      1380.86
     ],
     "bonusHistory": [
       0,
@@ -14414,10 +14414,10 @@ const allShopData = [
         "views": 0,
         "sold": 49,
         "gmv": 1289.37,
-        "commDollars": 54,
+        "commDollars": 153.25,
         "bonus": 0,
         "gmvLM": 1843.88,
-        "commPct": "4.19%",
+        "commPct": "11.89%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -14434,10 +14434,10 @@ const allShopData = [
         "views": 0,
         "sold": 17,
         "gmv": 709.48,
-        "commDollars": 24,
+        "commDollars": 81.12,
         "bonus": 0,
         "gmvLM": 312.6,
-        "commPct": "3.38%",
+        "commPct": "11.43%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14479,8 +14479,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 1998.85,
-    "totalComm": 78,
-    "avgComm": 3.9,
+    "totalComm": 234.37,
+    "avgComm": 11.73,
     "levelLabel": "L1",
     "productRank": "114",
     "cashBonus": 0,
@@ -14530,7 +14530,7 @@ const allShopData = [
       564.5999999999999,
       401.5,
       271.98,
-      78
+      234.37
     ],
     "bonusHistory": [
       0,
@@ -14561,10 +14561,10 @@ const allShopData = [
         "views": 0,
         "sold": 308,
         "gmv": 11976.11,
-        "commDollars": 372,
+        "commDollars": 1636.83,
         "bonus": 0,
         "gmvLM": 19358.6,
-        "commPct": "3.11%",
+        "commPct": "13.67%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14594,8 +14594,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 11976.11,
-    "totalComm": 372,
-    "avgComm": 3.11,
+    "totalComm": 1636.83,
+    "avgComm": 13.67,
     "levelLabel": "L2",
     "productRank": "115",
     "cashBonus": 0,
@@ -14645,7 +14645,7 @@ const allShopData = [
       0,
       0,
       2613.93,
-      372
+      1636.83
     ],
     "bonusHistory": [
       0,
@@ -14676,10 +14676,10 @@ const allShopData = [
         "views": 0,
         "sold": 135,
         "gmv": 8741.08,
-        "commDollars": 163,
+        "commDollars": 753.77,
         "bonus": 0,
         "gmvLM": 26103.23,
-        "commPct": "1.86%",
+        "commPct": "8.62%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14709,8 +14709,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 8741.08,
-    "totalComm": 163,
-    "avgComm": 1.86,
+    "totalComm": 753.77,
+    "avgComm": 8.62,
     "levelLabel": "L3",
     "productRank": "116",
     "cashBonus": 0,
@@ -14760,7 +14760,7 @@ const allShopData = [
       0,
       475.11,
       2693.17,
-      163
+      753.77
     ],
     "bonusHistory": [
       0,
@@ -14791,10 +14791,10 @@ const allShopData = [
         "views": 0,
         "sold": 431,
         "gmv": 7716.56,
-        "commDollars": 466,
+        "commDollars": 655.4,
         "bonus": 0,
         "gmvLM": 11745.91,
-        "commPct": "6.04%",
+        "commPct": "8.49%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -14811,10 +14811,10 @@ const allShopData = [
         "views": 0,
         "sold": 189,
         "gmv": 4832.62,
-        "commDollars": 219,
+        "commDollars": 568.82,
         "bonus": 0,
         "gmvLM": 8384.24,
-        "commPct": "4.53%",
+        "commPct": "11.77%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14856,8 +14856,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 12549.18,
-    "totalComm": 685,
-    "avgComm": 5.46,
+    "totalComm": 1224.22,
+    "avgComm": 9.76,
     "levelLabel": "L2",
     "productRank": "117",
     "cashBonus": 0,
@@ -14907,7 +14907,7 @@ const allShopData = [
       2221.06,
       2066.1400000000003,
       2053.46,
-      685
+      1224.22
     ],
     "bonusHistory": [
       0,
@@ -14938,10 +14938,10 @@ const allShopData = [
         "views": 0,
         "sold": 429,
         "gmv": 15237.92,
-        "commDollars": 481,
+        "commDollars": 1947.73,
         "bonus": 0,
         "gmvLM": 20574.44,
-        "commPct": "3.16%",
+        "commPct": "12.78%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14971,8 +14971,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 15237.92,
-    "totalComm": 481,
-    "avgComm": 3.16,
+    "totalComm": 1947.73,
+    "avgComm": 12.78,
     "levelLabel": "L2",
     "productRank": "118",
     "cashBonus": 0,
@@ -15022,7 +15022,7 @@ const allShopData = [
       3608.47,
       2400.91,
       2103.02,
-      481
+      1947.73
     ],
     "bonusHistory": [
       0,
@@ -15053,10 +15053,10 @@ const allShopData = [
         "views": 0,
         "sold": 66,
         "gmv": 1074.96,
-        "commDollars": 70,
+        "commDollars": 174.45,
         "bonus": 0,
         "gmvLM": 2288.02,
-        "commPct": "6.51%",
+        "commPct": "16.23%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -15073,10 +15073,10 @@ const allShopData = [
         "views": 0,
         "sold": 4,
         "gmv": 125.37,
-        "commDollars": 5,
+        "commDollars": 19.9,
         "bonus": 0,
         "gmvLM": 1033.1,
-        "commPct": "3.99%",
+        "commPct": "15.87%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15118,8 +15118,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 1200.33,
-    "totalComm": 75,
-    "avgComm": 6.25,
+    "totalComm": 194.35,
+    "avgComm": 16.19,
     "levelLabel": "L1",
     "productRank": "119",
     "cashBonus": 0,
@@ -15169,7 +15169,7 @@ const allShopData = [
       110.1,
       147.43,
       449.86,
-      75
+      194.35
     ],
     "bonusHistory": [
       0,
@@ -15200,10 +15200,10 @@ const allShopData = [
         "views": 0,
         "sold": 419,
         "gmv": 13637.76,
-        "commDollars": 484,
+        "commDollars": 1453.74,
         "bonus": 0,
         "gmvLM": 12598.72,
-        "commPct": "3.55%",
+        "commPct": "10.66%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15233,8 +15233,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 13637.76,
-    "totalComm": 484,
-    "avgComm": 3.55,
+    "totalComm": 1453.74,
+    "avgComm": 10.66,
     "levelLabel": "L2",
     "productRank": "120",
     "cashBonus": 0,
@@ -15284,7 +15284,7 @@ const allShopData = [
       2658.2,
       2307.03,
       1409.61,
-      484
+      1453.74
     ],
     "bonusHistory": [
       0,
@@ -15315,10 +15315,10 @@ const allShopData = [
         "views": 0,
         "sold": 45,
         "gmv": 1431.78,
-        "commDollars": 55,
+        "commDollars": 147.83,
         "bonus": 0,
         "gmvLM": 2195.74,
-        "commPct": "3.84%",
+        "commPct": "10.32%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -15335,10 +15335,10 @@ const allShopData = [
         "views": 0,
         "sold": 69,
         "gmv": 1078.98,
-        "commDollars": 84,
+        "commDollars": 119.52,
         "bonus": 0,
         "gmvLM": 795.6,
-        "commPct": "7.79%",
+        "commPct": "11.08%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15380,8 +15380,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 2510.76,
-    "totalComm": 139,
-    "avgComm": 5.54,
+    "totalComm": 267.35,
+    "avgComm": 10.65,
     "levelLabel": "L1",
     "productRank": "121",
     "cashBonus": 0,
@@ -15431,7 +15431,7 @@ const allShopData = [
       0,
       197.65,
       280.96000000000004,
-      139
+      267.35
     ],
     "bonusHistory": [
       0,
@@ -15462,10 +15462,10 @@ const allShopData = [
         "views": 0,
         "sold": 352,
         "gmv": 9427.36,
-        "commDollars": 461,
+        "commDollars": 1351.73,
         "bonus": 0,
         "gmvLM": 10199.22,
-        "commPct": "4.89%",
+        "commPct": "14.34%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -15482,10 +15482,10 @@ const allShopData = [
         "views": 0,
         "sold": 86,
         "gmv": 1134.85,
-        "commDollars": 86,
+        "commDollars": 189,
         "bonus": 0,
         "gmvLM": 1403.44,
-        "commPct": "7.58%",
+        "commPct": "16.65%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -15527,8 +15527,8 @@ const allShopData = [
     ],
     "points": 2,
     "totalGMV": 10562.21,
-    "totalComm": 547,
-    "avgComm": 5.18,
+    "totalComm": 1540.73,
+    "avgComm": 14.59,
     "levelLabel": "L2",
     "productRank": "122",
     "cashBonus": 0,
@@ -15578,7 +15578,7 @@ const allShopData = [
       1670.67,
       1311.44,
       1221.35,
-      547
+      1540.73
     ],
     "bonusHistory": [
       0,
@@ -15609,10 +15609,10 @@ const allShopData = [
         "views": 0,
         "sold": 3,
         "gmv": 55.48,
-        "commDollars": 4,
+        "commDollars": 6.13,
         "bonus": 0,
         "gmvLM": 93.49,
-        "commPct": "7.21%",
+        "commPct": "11.05%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15642,8 +15642,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 55.48,
-    "totalComm": 4,
-    "avgComm": 7.21,
+    "totalComm": 6.13,
+    "avgComm": 11.05,
     "levelLabel": "L1",
     "productRank": "123",
     "cashBonus": 0,
@@ -15693,7 +15693,7 @@ const allShopData = [
       0,
       7.49,
       7.75,
-      4
+      6.13
     ],
     "bonusHistory": [
       0,
@@ -15724,10 +15724,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 76.4,
-        "commDollars": 4,
+        "commDollars": 7.12,
         "bonus": 0,
         "gmvLM": 78.37,
-        "commPct": "5.24%",
+        "commPct": "9.32%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15757,8 +15757,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 76.4,
-    "totalComm": 4,
-    "avgComm": 5.24,
+    "totalComm": 7.12,
+    "avgComm": 9.32,
     "levelLabel": "L1",
     "productRank": "124",
     "cashBonus": 0,
@@ -15808,7 +15808,7 @@ const allShopData = [
       30.1,
       8.17,
       8.39,
-      4
+      7.12
     ],
     "bonusHistory": [
       0,
@@ -15839,10 +15839,10 @@ const allShopData = [
         "views": 0,
         "sold": 1,
         "gmv": 21.25,
-        "commDollars": 1,
+        "commDollars": 3.33,
         "bonus": 0,
         "gmvLM": 17.98,
-        "commPct": "4.71%",
+        "commPct": "15.67%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15872,8 +15872,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 21.25,
-    "totalComm": 1,
-    "avgComm": 4.71,
+    "totalComm": 3.33,
+    "avgComm": 15.67,
     "levelLabel": "L1",
     "productRank": "125",
     "cashBonus": 0,
@@ -15923,7 +15923,7 @@ const allShopData = [
       4.47,
       8.38,
       1.2,
-      1
+      3.33
     ],
     "bonusHistory": [
       0,
@@ -15954,10 +15954,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 29.91,
-        "commDollars": 1,
+        "commDollars": 7.87,
         "bonus": 0,
         "gmvLM": 70.74,
-        "commPct": "3.34%",
+        "commPct": "26.31%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15987,8 +15987,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 29.91,
-    "totalComm": 1,
-    "avgComm": 3.34,
+    "totalComm": 7.87,
+    "avgComm": 26.31,
     "levelLabel": "L1",
     "productRank": "126",
     "cashBonus": 0,
@@ -16038,7 +16038,7 @@ const allShopData = [
       47.14,
       25.52,
       6.7,
-      1
+      7.87
     ],
     "bonusHistory": [
       0,
@@ -16069,10 +16069,10 @@ const allShopData = [
         "views": 0,
         "sold": 107,
         "gmv": 3455.29,
-        "commDollars": 134,
+        "commDollars": 407.13,
         "bonus": 0,
         "gmvLM": 28.22,
-        "commPct": "3.88%",
+        "commPct": "11.78%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16102,8 +16102,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 3455.29,
-    "totalComm": 134,
-    "avgComm": 3.88,
+    "totalComm": 407.13,
+    "avgComm": 11.78,
     "levelLabel": "L1",
     "productRank": "127",
     "cashBonus": 0,
@@ -16153,7 +16153,7 @@ const allShopData = [
       0,
       0,
       2.64,
-      134
+      407.13
     ],
     "bonusHistory": [
       0,
@@ -16184,10 +16184,10 @@ const allShopData = [
         "views": 0,
         "sold": 223,
         "gmv": 5639.3,
-        "commDollars": 261,
+        "commDollars": 483.94,
         "bonus": 0,
         "gmvLM": 11749.36,
-        "commPct": "4.63%",
+        "commPct": "8.58%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16217,8 +16217,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 5639.3,
-    "totalComm": 261,
-    "avgComm": 4.63,
+    "totalComm": 483.94,
+    "avgComm": 8.58,
     "levelLabel": "L2",
     "productRank": "128",
     "cashBonus": 0,
@@ -16268,7 +16268,7 @@ const allShopData = [
       2317.73,
       1895.71,
       1136.79,
-      261
+      483.94
     ],
     "bonusHistory": [
       0,
@@ -16299,10 +16299,10 @@ const allShopData = [
         "views": 0,
         "sold": 78,
         "gmv": 1075.3,
-        "commDollars": 96,
+        "commDollars": 67.58,
         "bonus": 0,
         "gmvLM": 1256.66,
-        "commPct": "8.93%",
+        "commPct": "6.28%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16332,8 +16332,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1075.3,
-    "totalComm": 96,
-    "avgComm": 8.93,
+    "totalComm": 67.58,
+    "avgComm": 6.28,
     "levelLabel": "L1",
     "productRank": "129",
     "cashBonus": 0,
@@ -16383,7 +16383,7 @@ const allShopData = [
       172.99,
       105.23,
       86.98,
-      96
+      67.58
     ],
     "bonusHistory": [
       0,
@@ -16414,10 +16414,10 @@ const allShopData = [
         "views": 0,
         "sold": 132,
         "gmv": 6509.55,
-        "commDollars": 167,
+        "commDollars": 618.09,
         "bonus": 0,
         "gmvLM": 7415.62,
-        "commPct": "2.57%",
+        "commPct": "9.50%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16447,8 +16447,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 6509.55,
-    "totalComm": 167,
-    "avgComm": 2.57,
+    "totalComm": 618.09,
+    "avgComm": 9.5,
     "levelLabel": "L2",
     "productRank": "130",
     "cashBonus": 0,
@@ -16498,7 +16498,7 @@ const allShopData = [
       788.1,
       1369.77,
       820.69,
-      167
+      618.09
     ],
     "bonusHistory": [
       0,
@@ -16529,10 +16529,10 @@ const allShopData = [
         "views": 0,
         "sold": 37,
         "gmv": 2359.05,
-        "commDollars": 58,
+        "commDollars": 255.36,
         "bonus": 0,
         "gmvLM": 1831.03,
-        "commPct": "2.46%",
+        "commPct": "10.82%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16562,8 +16562,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2359.05,
-    "totalComm": 58,
-    "avgComm": 2.46,
+    "totalComm": 255.36,
+    "avgComm": 10.82,
     "levelLabel": "L1",
     "productRank": "131",
     "cashBonus": 0,
@@ -16613,7 +16613,7 @@ const allShopData = [
       442.32,
       292.39,
       235.22,
-      58
+      255.36
     ],
     "bonusHistory": [
       0,
@@ -16644,10 +16644,10 @@ const allShopData = [
         "views": 0,
         "sold": 308,
         "gmv": 6373.02,
-        "commDollars": 364,
+        "commDollars": 436.73,
         "bonus": 0,
         "gmvLM": 10496.06,
-        "commPct": "5.71%",
+        "commPct": "6.85%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16677,8 +16677,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 6373.02,
-    "totalComm": 364,
-    "avgComm": 5.71,
+    "totalComm": 436.73,
+    "avgComm": 6.85,
     "levelLabel": "L2",
     "productRank": "132",
     "cashBonus": 0,
@@ -16728,7 +16728,7 @@ const allShopData = [
       1840.63,
       1693.98,
       748.81,
-      364
+      436.73
     ],
     "bonusHistory": [
       0,
@@ -16759,10 +16759,10 @@ const allShopData = [
         "views": 0,
         "sold": 19,
         "gmv": 308.08,
-        "commDollars": 24,
+        "commDollars": 40.97,
         "bonus": 0,
         "gmvLM": 114.18,
-        "commPct": "7.79%",
+        "commPct": "13.30%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16792,8 +16792,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 308.08,
-    "totalComm": 24,
-    "avgComm": 7.79,
+    "totalComm": 40.97,
+    "avgComm": 13.3,
     "levelLabel": "L1",
     "productRank": "133",
     "cashBonus": 0,
@@ -16843,7 +16843,7 @@ const allShopData = [
       32.01,
       37.5,
       7.21,
-      24
+      40.97
     ],
     "bonusHistory": [
       0,
@@ -16874,10 +16874,10 @@ const allShopData = [
         "views": 0,
         "sold": 96,
         "gmv": 3071.94,
-        "commDollars": 108,
+        "commDollars": 377.67,
         "bonus": 0,
         "gmvLM": 6080.03,
-        "commPct": "3.52%",
+        "commPct": "12.29%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16907,8 +16907,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 3071.94,
-    "totalComm": 108,
-    "avgComm": 3.52,
+    "totalComm": 377.67,
+    "avgComm": 12.29,
     "levelLabel": "L2",
     "productRank": "134",
     "cashBonus": 0,
@@ -16958,7 +16958,7 @@ const allShopData = [
       1136.46,
       569.66,
       795.27,
-      108
+      377.67
     ],
     "bonusHistory": [
       0,
@@ -16989,10 +16989,10 @@ const allShopData = [
         "views": 0,
         "sold": 48,
         "gmv": 1051.82,
-        "commDollars": 76,
+        "commDollars": 141.57,
         "bonus": 0,
         "gmvLM": 2623.46,
-        "commPct": "7.23%",
+        "commPct": "13.46%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17022,8 +17022,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1051.82,
-    "totalComm": 76,
-    "avgComm": 7.23,
+    "totalComm": 141.57,
+    "avgComm": 13.46,
     "levelLabel": "L1",
     "productRank": "135",
     "cashBonus": 0,
@@ -17073,7 +17073,7 @@ const allShopData = [
       1732.93,
       846.49,
       308.82,
-      76
+      141.57
     ],
     "bonusHistory": [
       0,
@@ -17104,10 +17104,10 @@ const allShopData = [
         "views": 0,
         "sold": 91,
         "gmv": 3734.16,
-        "commDollars": 105,
+        "commDollars": 358.94,
         "bonus": 0,
         "gmvLM": 3057.11,
-        "commPct": "2.81%",
+        "commPct": "9.61%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17137,8 +17137,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 3734.16,
-    "totalComm": 105,
-    "avgComm": 2.81,
+    "totalComm": 358.94,
+    "avgComm": 9.61,
     "levelLabel": "L1",
     "productRank": "136",
     "cashBonus": 0,
@@ -17188,7 +17188,7 @@ const allShopData = [
       475.31,
       467.95,
       323.11,
-      105
+      358.94
     ],
     "bonusHistory": [
       0,
@@ -17219,10 +17219,10 @@ const allShopData = [
         "views": 0,
         "sold": 13,
         "gmv": 583.07,
-        "commDollars": 15,
+        "commDollars": 37.58,
         "bonus": 0,
         "gmvLM": 1083.27,
-        "commPct": "2.57%",
+        "commPct": "6.45%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17252,8 +17252,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 583.07,
-    "totalComm": 15,
-    "avgComm": 2.57,
+    "totalComm": 37.58,
+    "avgComm": 6.45,
     "levelLabel": "L1",
     "productRank": "137",
     "cashBonus": 0,
@@ -17303,7 +17303,7 @@ const allShopData = [
       175.26,
       164.87,
       85.25,
-      15
+      37.58
     ],
     "bonusHistory": [
       0,
@@ -17334,10 +17334,10 @@ const allShopData = [
         "views": 0,
         "sold": 81,
         "gmv": 2382.94,
-        "commDollars": 92,
+        "commDollars": 197.59,
         "bonus": 0,
         "gmvLM": 3770.76,
-        "commPct": "3.86%",
+        "commPct": "8.29%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17367,8 +17367,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2382.94,
-    "totalComm": 92,
-    "avgComm": 3.86,
+    "totalComm": 197.59,
+    "avgComm": 8.29,
     "levelLabel": "L1",
     "productRank": "138",
     "cashBonus": 0,
@@ -17418,7 +17418,7 @@ const allShopData = [
       687.47,
       713.1,
       292.53,
-      92
+      197.59
     ],
     "bonusHistory": [
       0,
@@ -17449,10 +17449,10 @@ const allShopData = [
         "views": 0,
         "sold": 257,
         "gmv": 5416.74,
-        "commDollars": 275,
+        "commDollars": 857.34,
         "bonus": 0,
         "gmvLM": 6738.78,
-        "commPct": "5.08%",
+        "commPct": "15.83%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -17482,8 +17482,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 5416.74,
-    "totalComm": 275,
-    "avgComm": 5.08,
+    "totalComm": 857.34,
+    "avgComm": 15.83,
     "levelLabel": "L2",
     "productRank": "139",
     "cashBonus": 0,
@@ -17533,7 +17533,7 @@ const allShopData = [
       1025.65,
       1737.99,
       810.82,
-      275
+      857.34
     ],
     "bonusHistory": [
       0,
@@ -17564,10 +17564,10 @@ const allShopData = [
         "views": 0,
         "sold": 6,
         "gmv": 307.33,
-        "commDollars": 11,
+        "commDollars": 29.42,
         "bonus": 0,
         "gmvLM": 262.04,
-        "commPct": "3.58%",
+        "commPct": "9.57%",
         "tier": "STAFF",
         "acctRank": 1
       }
@@ -17597,8 +17597,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 307.33,
-    "totalComm": 11,
-    "avgComm": 3.58,
+    "totalComm": 29.42,
+    "avgComm": 9.57,
     "levelLabel": "L1",
     "productRank": "140",
     "cashBonus": 0,
@@ -17648,7 +17648,7 @@ const allShopData = [
       63.42,
       73.73,
       30.73,
-      11
+      29.42
     ],
     "bonusHistory": [
       0,
@@ -17679,10 +17679,10 @@ const allShopData = [
         "views": 0,
         "sold": 388,
         "gmv": 7728.8,
-        "commDollars": 328,
+        "commDollars": 679.18,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "4.24%",
+        "commPct": "8.79%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17712,8 +17712,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 7728.8,
-    "totalComm": 328,
-    "avgComm": 4.24,
+    "totalComm": 679.18,
+    "avgComm": 8.79,
     "levelLabel": "L2",
     "productRank": "141",
     "cashBonus": 0,
@@ -17763,7 +17763,7 @@ const allShopData = [
       0,
       0,
       0,
-      328
+      679.18
     ],
     "bonusHistory": [
       0,
@@ -17794,10 +17794,10 @@ const allShopData = [
         "views": 0,
         "sold": 104,
         "gmv": 4746.91,
-        "commDollars": 152,
+        "commDollars": 518.07,
         "bonus": 0,
         "gmvLM": 7880.31,
-        "commPct": "3.20%",
+        "commPct": "10.91%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17827,8 +17827,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4746.91,
-    "totalComm": 152,
-    "avgComm": 3.2,
+    "totalComm": 518.07,
+    "avgComm": 10.91,
     "levelLabel": "L2",
     "productRank": "142",
     "cashBonus": 0,
@@ -17878,7 +17878,7 @@ const allShopData = [
       1096.24,
       617.1,
       867.05,
-      152
+      518.07
     ],
     "bonusHistory": [
       0,
@@ -17909,10 +17909,10 @@ const allShopData = [
         "views": 0,
         "sold": 9,
         "gmv": 300.59,
-        "commDollars": 16,
+        "commDollars": 35.26,
         "bonus": 0,
         "gmvLM": 1155.4,
-        "commPct": "5.32%",
+        "commPct": "11.73%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17942,8 +17942,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 300.59,
-    "totalComm": 16,
-    "avgComm": 5.32,
+    "totalComm": 35.26,
+    "avgComm": 11.73,
     "levelLabel": "L1",
     "productRank": "143",
     "cashBonus": 0,
@@ -17993,7 +17993,7 @@ const allShopData = [
       0,
       79.83,
       124.17,
-      16
+      35.26
     ],
     "bonusHistory": [
       0,
@@ -18024,10 +18024,10 @@ const allShopData = [
         "views": 0,
         "sold": 7,
         "gmv": 494.62,
-        "commDollars": 11,
+        "commDollars": 42.51,
         "bonus": 0,
         "gmvLM": 316.49,
-        "commPct": "2.22%",
+        "commPct": "8.59%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18057,8 +18057,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 494.62,
-    "totalComm": 11,
-    "avgComm": 2.22,
+    "totalComm": 42.51,
+    "avgComm": 8.59,
     "levelLabel": "L1",
     "productRank": "144",
     "cashBonus": 0,
@@ -18108,7 +18108,7 @@ const allShopData = [
       18.89,
       29.46,
       24.8,
-      11
+      42.51
     ],
     "bonusHistory": [
       0,
@@ -18139,10 +18139,10 @@ const allShopData = [
         "views": 0,
         "sold": 5,
         "gmv": 134.59,
-        "commDollars": 8,
+        "commDollars": 15.85,
         "bonus": 0,
         "gmvLM": 83.85,
-        "commPct": "5.94%",
+        "commPct": "11.78%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18172,8 +18172,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 134.59,
-    "totalComm": 8,
-    "avgComm": 5.94,
+    "totalComm": 15.85,
+    "avgComm": 11.78,
     "levelLabel": "L1",
     "productRank": "145",
     "cashBonus": 0,
@@ -18223,7 +18223,7 @@ const allShopData = [
       47.13,
       12.22,
       7.29,
-      8
+      15.85
     ],
     "bonusHistory": [
       0,
@@ -18254,10 +18254,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 15.03,
-        "commDollars": 1,
+        "commDollars": 1.8,
         "bonus": 0,
         "gmvLM": 300.99,
-        "commPct": "6.65%",
+        "commPct": "11.98%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18287,8 +18287,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 15.03,
-    "totalComm": 1,
-    "avgComm": 6.65,
+    "totalComm": 1.8,
+    "avgComm": 11.98,
     "levelLabel": "L1",
     "productRank": "146",
     "cashBonus": 0,
@@ -18338,7 +18338,7 @@ const allShopData = [
       111.93,
       36.88,
       33.34,
-      1
+      1.8
     ],
     "bonusHistory": [
       0,
@@ -18369,10 +18369,10 @@ const allShopData = [
         "views": 0,
         "sold": 4,
         "gmv": 158.08,
-        "commDollars": 8,
+        "commDollars": 19.11,
         "bonus": 0,
         "gmvLM": 181.58,
-        "commPct": "5.06%",
+        "commPct": "12.09%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18402,8 +18402,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 158.08,
-    "totalComm": 8,
-    "avgComm": 5.06,
+    "totalComm": 19.11,
+    "avgComm": 12.09,
     "levelLabel": "L1",
     "productRank": "147",
     "cashBonus": 0,
@@ -18453,7 +18453,7 @@ const allShopData = [
       221.86,
       162.34,
       23.8,
-      8
+      19.11
     ],
     "bonusHistory": [
       0,
@@ -18484,10 +18484,10 @@ const allShopData = [
         "views": 0,
         "sold": 7,
         "gmv": 2248.32,
-        "commDollars": 21,
+        "commDollars": 102.77,
         "bonus": 0,
         "gmvLM": 1675.44,
-        "commPct": "0.93%",
+        "commPct": "4.57%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18517,8 +18517,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2248.32,
-    "totalComm": 21,
-    "avgComm": 0.93,
+    "totalComm": 102.77,
+    "avgComm": 4.57,
     "levelLabel": "L1",
     "productRank": "148",
     "cashBonus": 0,
@@ -18568,7 +18568,7 @@ const allShopData = [
       222.16,
       190.79,
       126.81,
-      21
+      102.77
     ],
     "bonusHistory": [
       0,
@@ -18599,10 +18599,10 @@ const allShopData = [
         "views": 0,
         "sold": 46,
         "gmv": 1881.49,
-        "commDollars": 42,
+        "commDollars": 249.44,
         "bonus": 0,
         "gmvLM": 2965.06,
-        "commPct": "2.23%",
+        "commPct": "13.26%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18632,8 +18632,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1881.49,
-    "totalComm": 42,
-    "avgComm": 2.23,
+    "totalComm": 249.44,
+    "avgComm": 13.26,
     "levelLabel": "L1",
     "productRank": "149",
     "cashBonus": 0,
@@ -18683,7 +18683,7 @@ const allShopData = [
       343.97,
       236.12,
       565.84,
-      42
+      249.44
     ],
     "bonusHistory": [
       0,
@@ -18714,10 +18714,10 @@ const allShopData = [
         "views": 0,
         "sold": 43,
         "gmv": 1522.9,
-        "commDollars": 54,
+        "commDollars": 179.69,
         "bonus": 0,
         "gmvLM": 2597.11,
-        "commPct": "3.55%",
+        "commPct": "11.80%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18747,8 +18747,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1522.9,
-    "totalComm": 54,
-    "avgComm": 3.55,
+    "totalComm": 179.69,
+    "avgComm": 11.8,
     "levelLabel": "L1",
     "productRank": "150",
     "cashBonus": 0,
@@ -18798,7 +18798,7 @@ const allShopData = [
       534.63,
       482.89,
       337.15,
-      54
+      179.69
     ],
     "bonusHistory": [
       0,
@@ -18829,10 +18829,10 @@ const allShopData = [
         "views": 0,
         "sold": 179,
         "gmv": 4077.05,
-        "commDollars": 200,
+        "commDollars": 414.14,
         "bonus": 0,
         "gmvLM": 4597.98,
-        "commPct": "4.91%",
+        "commPct": "10.16%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18862,8 +18862,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4077.05,
-    "totalComm": 200,
-    "avgComm": 4.91,
+    "totalComm": 414.14,
+    "avgComm": 10.16,
     "levelLabel": "L1",
     "productRank": "151",
     "cashBonus": 0,
@@ -18913,7 +18913,7 @@ const allShopData = [
       437.2,
       653.65,
       517.09,
-      200
+      414.14
     ],
     "bonusHistory": [
       0,
@@ -18944,10 +18944,10 @@ const allShopData = [
         "views": 0,
         "sold": 1,
         "gmv": 30.8,
-        "commDollars": 1,
+        "commDollars": 2.46,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "3.25%",
+        "commPct": "7.99%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18977,8 +18977,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 30.8,
-    "totalComm": 1,
-    "avgComm": 3.25,
+    "totalComm": 2.46,
+    "avgComm": 7.99,
     "levelLabel": "L1",
     "productRank": "152",
     "cashBonus": 0,
@@ -19028,7 +19028,7 @@ const allShopData = [
       11.09,
       1.43,
       0,
-      1
+      2.46
     ],
     "bonusHistory": [
       0,
@@ -19059,10 +19059,10 @@ const allShopData = [
         "views": 0,
         "sold": 142,
         "gmv": 5524.67,
-        "commDollars": 167,
+        "commDollars": 606.64,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "3.02%",
+        "commPct": "10.98%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19092,8 +19092,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 5524.67,
-    "totalComm": 167,
-    "avgComm": 3.02,
+    "totalComm": 606.64,
+    "avgComm": 10.98,
     "levelLabel": "L2",
     "productRank": "153",
     "cashBonus": 0,
@@ -19143,7 +19143,7 @@ const allShopData = [
       0,
       0,
       0,
-      167
+      606.64
     ],
     "bonusHistory": [
       0,
@@ -19174,10 +19174,10 @@ const allShopData = [
         "views": 0,
         "sold": 1,
         "gmv": 274.99,
-        "commDollars": 1,
+        "commDollars": 22,
         "bonus": 0,
         "gmvLM": 332.74,
-        "commPct": "0.36%",
+        "commPct": "8.00%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19207,8 +19207,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 274.99,
-    "totalComm": 1,
-    "avgComm": 0.36,
+    "totalComm": 22,
+    "avgComm": 8,
     "levelLabel": "L1",
     "productRank": "154",
     "cashBonus": 0,
@@ -19258,7 +19258,7 @@ const allShopData = [
       40.5,
       0,
       45.62,
-      1
+      22
     ],
     "bonusHistory": [
       0,
@@ -19289,10 +19289,10 @@ const allShopData = [
         "views": 0,
         "sold": 36,
         "gmv": 816.34,
-        "commDollars": 38,
+        "commDollars": 74.09,
         "bonus": 0,
         "gmvLM": 1432.42,
-        "commPct": "4.65%",
+        "commPct": "9.08%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19322,8 +19322,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 816.34,
-    "totalComm": 38,
-    "avgComm": 4.65,
+    "totalComm": 74.09,
+    "avgComm": 9.08,
     "levelLabel": "L1",
     "productRank": "155",
     "cashBonus": 0,
@@ -19373,7 +19373,7 @@ const allShopData = [
       278.02,
       193.72,
       128.09,
-      38
+      74.09
     ],
     "bonusHistory": [
       0,
@@ -19404,10 +19404,10 @@ const allShopData = [
         "views": 0,
         "sold": 143,
         "gmv": 3513.1,
-        "commDollars": 110,
+        "commDollars": 414.07,
         "bonus": 0,
         "gmvLM": 6047.3,
-        "commPct": "3.13%",
+        "commPct": "11.79%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19437,8 +19437,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 3513.1,
-    "totalComm": 110,
-    "avgComm": 3.13,
+    "totalComm": 414.07,
+    "avgComm": 11.79,
     "levelLabel": "L2",
     "productRank": "156",
     "cashBonus": 0,
@@ -19488,7 +19488,7 @@ const allShopData = [
       1131.53,
       1165.97,
       845.55,
-      110
+      414.07
     ],
     "bonusHistory": [
       0,
@@ -19519,10 +19519,10 @@ const allShopData = [
         "views": 0,
         "sold": 3,
         "gmv": 145.3,
-        "commDollars": 5,
+        "commDollars": 29.42,
         "bonus": 0,
         "gmvLM": 712.46,
-        "commPct": "3.44%",
+        "commPct": "20.25%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19552,8 +19552,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 145.3,
-    "totalComm": 5,
-    "avgComm": 3.44,
+    "totalComm": 29.42,
+    "avgComm": 20.25,
     "levelLabel": "L1",
     "productRank": "157",
     "cashBonus": 0,
@@ -19603,7 +19603,7 @@ const allShopData = [
       91.81,
       108.38,
       102.11,
-      5
+      29.42
     ],
     "bonusHistory": [
       0,
@@ -19634,10 +19634,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 96.1,
-        "commDollars": 3,
+        "commDollars": 10.62,
         "bonus": 0,
         "gmvLM": 253.16,
-        "commPct": "3.12%",
+        "commPct": "11.05%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19667,8 +19667,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 96.1,
-    "totalComm": 3,
-    "avgComm": 3.12,
+    "totalComm": 10.62,
+    "avgComm": 11.05,
     "levelLabel": "L1",
     "productRank": "158",
     "cashBonus": 0,
@@ -19718,7 +19718,7 @@ const allShopData = [
       0,
       1.06,
       26.1,
-      3
+      10.62
     ],
     "bonusHistory": [
       0,
@@ -19749,10 +19749,10 @@ const allShopData = [
         "views": 0,
         "sold": 4,
         "gmv": 72.92,
-        "commDollars": 4,
+        "commDollars": 10.17,
         "bonus": 0,
         "gmvLM": 45.95,
-        "commPct": "5.49%",
+        "commPct": "13.95%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19782,8 +19782,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 72.92,
-    "totalComm": 4,
-    "avgComm": 5.49,
+    "totalComm": 10.17,
+    "avgComm": 13.95,
     "levelLabel": "L1",
     "productRank": "159",
     "cashBonus": 0,
@@ -19833,7 +19833,7 @@ const allShopData = [
       0,
       0,
       5,
-      4
+      10.17
     ],
     "bonusHistory": [
       0,
@@ -19864,10 +19864,10 @@ const allShopData = [
         "views": 0,
         "sold": 47,
         "gmv": 2380.82,
-        "commDollars": 71,
+        "commDollars": 331.49,
         "bonus": 0,
         "gmvLM": 4095.24,
-        "commPct": "2.98%",
+        "commPct": "13.92%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19897,8 +19897,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2380.82,
-    "totalComm": 71,
-    "avgComm": 2.98,
+    "totalComm": 331.49,
+    "avgComm": 13.92,
     "levelLabel": "L1",
     "productRank": "160",
     "cashBonus": 0,
@@ -19948,7 +19948,7 @@ const allShopData = [
       1135.76,
       1256.88,
       636.5,
-      71
+      331.49
     ],
     "bonusHistory": [
       0,
@@ -19979,10 +19979,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 4.56,
-        "commDollars": 2,
+        "commDollars": 0.34,
         "bonus": 0,
         "gmvLM": 11.69,
-        "commPct": "43.86%",
+        "commPct": "7.46%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20012,8 +20012,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4.56,
-    "totalComm": 2,
-    "avgComm": 43.86,
+    "totalComm": 0.34,
+    "avgComm": 7.46,
     "levelLabel": "L1",
     "productRank": "161",
     "cashBonus": 0,
@@ -20063,7 +20063,7 @@ const allShopData = [
       3.5,
       22.35,
       2.52,
-      2
+      0.34
     ],
     "bonusHistory": [
       0,
@@ -20094,10 +20094,10 @@ const allShopData = [
         "views": 0,
         "sold": 22,
         "gmv": 578.58,
-        "commDollars": 24,
+        "commDollars": 65.7,
         "bonus": 0,
         "gmvLM": 3020.34,
-        "commPct": "4.15%",
+        "commPct": "11.36%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20127,8 +20127,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 578.58,
-    "totalComm": 24,
-    "avgComm": 4.15,
+    "totalComm": 65.7,
+    "avgComm": 11.36,
     "levelLabel": "L1",
     "productRank": "162",
     "cashBonus": 0,
@@ -20178,7 +20178,7 @@ const allShopData = [
       0,
       30.68,
       272.64,
-      24
+      65.7
     ],
     "bonusHistory": [
       0,
@@ -20209,10 +20209,10 @@ const allShopData = [
         "views": 0,
         "sold": 5,
         "gmv": 208.04,
-        "commDollars": 8,
+        "commDollars": 19.29,
         "bonus": 0,
         "gmvLM": 540.21,
-        "commPct": "3.85%",
+        "commPct": "9.27%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20242,8 +20242,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 208.04,
-    "totalComm": 8,
-    "avgComm": 3.85,
+    "totalComm": 19.29,
+    "avgComm": 9.27,
     "levelLabel": "L1",
     "productRank": "163",
     "cashBonus": 0,
@@ -20293,7 +20293,7 @@ const allShopData = [
       181.63,
       121.1,
       47.79,
-      8
+      19.29
     ],
     "bonusHistory": [
       0,
@@ -20324,10 +20324,10 @@ const allShopData = [
         "views": 0,
         "sold": 49,
         "gmv": 1804.29,
-        "commDollars": 47,
+        "commDollars": 173.39,
         "bonus": 0,
         "gmvLM": 3052.54,
-        "commPct": "2.60%",
+        "commPct": "9.61%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20357,8 +20357,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1804.29,
-    "totalComm": 47,
-    "avgComm": 2.6,
+    "totalComm": 173.39,
+    "avgComm": 9.61,
     "levelLabel": "L1",
     "productRank": "164",
     "cashBonus": 0,
@@ -20408,7 +20408,7 @@ const allShopData = [
       1814.27,
       773.66,
       313.83,
-      47
+      173.39
     ],
     "bonusHistory": [
       0,
@@ -20439,10 +20439,10 @@ const allShopData = [
         "views": 0,
         "sold": 34,
         "gmv": 624.03,
-        "commDollars": 41,
+        "commDollars": 55,
         "bonus": 0,
         "gmvLM": 524.25,
-        "commPct": "6.57%",
+        "commPct": "8.81%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20472,8 +20472,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 624.03,
-    "totalComm": 41,
-    "avgComm": 6.57,
+    "totalComm": 55,
+    "avgComm": 8.81,
     "levelLabel": "L1",
     "productRank": "165",
     "cashBonus": 0,
@@ -20523,7 +20523,7 @@ const allShopData = [
       24.96,
       804.99,
       60.39,
-      41
+      55
     ],
     "bonusHistory": [
       0,
@@ -20554,10 +20554,10 @@ const allShopData = [
         "views": 0,
         "sold": 14,
         "gmv": 746.41,
-        "commDollars": 21,
+        "commDollars": 80.26,
         "bonus": 0,
         "gmvLM": 1947.1,
-        "commPct": "2.81%",
+        "commPct": "10.75%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20587,8 +20587,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 746.41,
-    "totalComm": 21,
-    "avgComm": 2.81,
+    "totalComm": 80.26,
+    "avgComm": 10.75,
     "levelLabel": "L1",
     "productRank": "166",
     "cashBonus": 0,
@@ -20638,7 +20638,7 @@ const allShopData = [
       603.76,
       373.08,
       195.23,
-      21
+      80.26
     ],
     "bonusHistory": [
       0,
@@ -20669,10 +20669,10 @@ const allShopData = [
         "views": 0,
         "sold": 236,
         "gmv": 8216.33,
-        "commDollars": 252,
+        "commDollars": 880.34,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "3.07%",
+        "commPct": "10.71%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20702,8 +20702,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 8216.33,
-    "totalComm": 252,
-    "avgComm": 3.07,
+    "totalComm": 880.34,
+    "avgComm": 10.71,
     "levelLabel": "L2",
     "productRank": "167",
     "cashBonus": 0,
@@ -20753,7 +20753,7 @@ const allShopData = [
       0,
       0,
       0,
-      252
+      880.34
     ],
     "bonusHistory": [
       0,
@@ -20784,10 +20784,10 @@ const allShopData = [
         "views": 0,
         "sold": 3,
         "gmv": 99.49,
-        "commDollars": 4,
+        "commDollars": 10.16,
         "bonus": 0,
         "gmvLM": 300.25,
-        "commPct": "4.02%",
+        "commPct": "10.21%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20817,8 +20817,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 99.49,
-    "totalComm": 4,
-    "avgComm": 4.02,
+    "totalComm": 10.16,
+    "avgComm": 10.21,
     "levelLabel": "L1",
     "productRank": "168",
     "cashBonus": 0,
@@ -20868,7 +20868,7 @@ const allShopData = [
       185.67,
       100.21,
       41.22,
-      4
+      10.16
     ],
     "bonusHistory": [
       0,
@@ -20899,10 +20899,10 @@ const allShopData = [
         "views": 0,
         "sold": 95,
         "gmv": 4734.7,
-        "commDollars": 124,
+        "commDollars": 485.01,
         "bonus": 0,
         "gmvLM": 1669.63,
-        "commPct": "2.62%",
+        "commPct": "10.24%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -20932,8 +20932,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4734.7,
-    "totalComm": 124,
-    "avgComm": 2.62,
+    "totalComm": 485.01,
+    "avgComm": 10.24,
     "levelLabel": "L1",
     "productRank": "169",
     "cashBonus": 0,
@@ -20983,7 +20983,7 @@ const allShopData = [
       294.69,
       201.53,
       168.19,
-      124
+      485.01
     ],
     "bonusHistory": [
       0,
@@ -21014,10 +21014,10 @@ const allShopData = [
         "views": 0,
         "sold": 297,
         "gmv": 9500.57,
-        "commDollars": 360,
+        "commDollars": 950.32,
         "bonus": 0,
         "gmvLM": 6801.12,
-        "commPct": "3.79%",
+        "commPct": "10.00%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21047,8 +21047,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 9500.57,
-    "totalComm": 360,
-    "avgComm": 3.79,
+    "totalComm": 950.32,
+    "avgComm": 10,
     "levelLabel": "L2",
     "productRank": "170",
     "cashBonus": 0,
@@ -21098,7 +21098,7 @@ const allShopData = [
       898.21,
       864.52,
       732.63,
-      360
+      950.32
     ],
     "bonusHistory": [
       0,
@@ -21129,10 +21129,10 @@ const allShopData = [
         "views": 0,
         "sold": 100,
         "gmv": 2794.75,
-        "commDollars": 120,
+        "commDollars": 345.95,
         "bonus": 0,
         "gmvLM": 3111.63,
-        "commPct": "4.29%",
+        "commPct": "12.38%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21162,8 +21162,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2794.75,
-    "totalComm": 120,
-    "avgComm": 4.29,
+    "totalComm": 345.95,
+    "avgComm": 12.38,
     "levelLabel": "L1",
     "productRank": "171",
     "cashBonus": 0,
@@ -21213,7 +21213,7 @@ const allShopData = [
       500.46,
       277.82,
       404.44,
-      120
+      345.95
     ],
     "bonusHistory": [
       0,
@@ -21244,10 +21244,10 @@ const allShopData = [
         "views": 0,
         "sold": 112,
         "gmv": 4268.03,
-        "commDollars": 148,
+        "commDollars": 609.66,
         "bonus": 0,
         "gmvLM": 7254.11,
-        "commPct": "3.47%",
+        "commPct": "14.28%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21277,8 +21277,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4268.03,
-    "totalComm": 148,
-    "avgComm": 3.47,
+    "totalComm": 609.66,
+    "avgComm": 14.28,
     "levelLabel": "L2",
     "productRank": "172",
     "cashBonus": 0,
@@ -21328,7 +21328,7 @@ const allShopData = [
       1874.74,
       2358.61,
       825.36,
-      148
+      609.66
     ],
     "bonusHistory": [
       0,
@@ -21359,10 +21359,10 @@ const allShopData = [
         "views": 0,
         "sold": 41,
         "gmv": 1109.3,
-        "commDollars": 43,
+        "commDollars": 166.61,
         "bonus": 0,
         "gmvLM": 1680.69,
-        "commPct": "3.88%",
+        "commPct": "15.02%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21392,8 +21392,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 1109.3,
-    "totalComm": 43,
-    "avgComm": 3.88,
+    "totalComm": 166.61,
+    "avgComm": 15.02,
     "levelLabel": "L1",
     "productRank": "173",
     "cashBonus": 0,
@@ -21443,7 +21443,7 @@ const allShopData = [
       0,
       522.55,
       269.3,
-      43
+      166.61
     ],
     "bonusHistory": [
       0,
@@ -21474,10 +21474,10 @@ const allShopData = [
         "views": 0,
         "sold": 0,
         "gmv": 20.38,
-        "commDollars": 2,
+        "commDollars": 1.64,
         "bonus": 0,
         "gmvLM": 25.05,
-        "commPct": "9.81%",
+        "commPct": "8.05%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21507,8 +21507,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 20.38,
-    "totalComm": 2,
-    "avgComm": 9.81,
+    "totalComm": 1.64,
+    "avgComm": 8.05,
     "levelLabel": "L1",
     "productRank": "174",
     "cashBonus": 0,
@@ -21558,7 +21558,7 @@ const allShopData = [
       10.74,
       0,
       1.52,
-      2
+      1.64
     ],
     "bonusHistory": [
       0,
@@ -21589,10 +21589,10 @@ const allShopData = [
         "views": 0,
         "sold": 243,
         "gmv": 8431.9,
-        "commDollars": 284,
+        "commDollars": 728.57,
         "bonus": 0,
         "gmvLM": 10654.11,
-        "commPct": "3.37%",
+        "commPct": "8.64%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21622,8 +21622,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 8431.9,
-    "totalComm": 284,
-    "avgComm": 3.37,
+    "totalComm": 728.57,
+    "avgComm": 8.64,
     "levelLabel": "L2",
     "productRank": "175",
     "cashBonus": 0,
@@ -21673,7 +21673,7 @@ const allShopData = [
       1020.2,
       1168.54,
       930.89,
-      284
+      728.57
     ],
     "bonusHistory": [
       0,
@@ -21704,10 +21704,10 @@ const allShopData = [
         "views": 0,
         "sold": 4,
         "gmv": 835.05,
-        "commDollars": 9,
+        "commDollars": 83.08,
         "bonus": 0,
         "gmvLM": 82872.44,
-        "commPct": "1.08%",
+        "commPct": "9.95%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21737,8 +21737,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 835.05,
-    "totalComm": 9,
-    "avgComm": 1.08,
+    "totalComm": 83.08,
+    "avgComm": 9.95,
     "levelLabel": "L4",
     "productRank": "176",
     "cashBonus": 0,
@@ -21788,7 +21788,7 @@ const allShopData = [
       5478.25,
       4813.49,
       13040.74,
-      9
+      83.08
     ],
     "bonusHistory": [
       0,
@@ -21819,10 +21819,10 @@ const allShopData = [
         "views": 0,
         "sold": 201,
         "gmv": 6730.27,
-        "commDollars": 226,
+        "commDollars": 836.3,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "3.36%",
+        "commPct": "12.43%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21852,8 +21852,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 6730.27,
-    "totalComm": 226,
-    "avgComm": 3.36,
+    "totalComm": 836.3,
+    "avgComm": 12.43,
     "levelLabel": "L2",
     "productRank": "177",
     "cashBonus": 0,
@@ -21903,7 +21903,7 @@ const allShopData = [
       0,
       0,
       0,
-      226
+      836.3
     ],
     "bonusHistory": [
       0,
@@ -21934,10 +21934,10 @@ const allShopData = [
         "views": 0,
         "sold": 0,
         "gmv": 2.07,
-        "commDollars": 1,
+        "commDollars": 0.17,
         "bonus": 0,
         "gmvLM": 13.82,
-        "commPct": "48.31%",
+        "commPct": "8.21%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -21967,8 +21967,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2.07,
-    "totalComm": 1,
-    "avgComm": 48.31,
+    "totalComm": 0.17,
+    "avgComm": 8.21,
     "levelLabel": "L1",
     "productRank": "178",
     "cashBonus": 0,
@@ -22018,7 +22018,7 @@ const allShopData = [
       3.7,
       14.72,
       0.51,
-      1
+      0.17
     ],
     "bonusHistory": [
       0,
@@ -22049,10 +22049,10 @@ const allShopData = [
         "views": 0,
         "sold": 39,
         "gmv": 2521.72,
-        "commDollars": 67,
+        "commDollars": 290.72,
         "bonus": 0,
         "gmvLM": 893.98,
-        "commPct": "2.66%",
+        "commPct": "11.53%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22082,8 +22082,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 2521.72,
-    "totalComm": 67,
-    "avgComm": 2.66,
+    "totalComm": 290.72,
+    "avgComm": 11.53,
     "levelLabel": "L1",
     "productRank": "179",
     "cashBonus": 0,
@@ -22133,7 +22133,7 @@ const allShopData = [
       375.03,
       155.76,
       100.58,
-      67
+      290.72
     ],
     "bonusHistory": [
       0,
@@ -22164,10 +22164,10 @@ const allShopData = [
         "views": 0,
         "sold": 26,
         "gmv": 885.65,
-        "commDollars": 34,
+        "commDollars": 129.9,
         "bonus": 0,
         "gmvLM": 1351.27,
-        "commPct": "3.84%",
+        "commPct": "14.67%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22197,8 +22197,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 885.65,
-    "totalComm": 34,
-    "avgComm": 3.84,
+    "totalComm": 129.9,
+    "avgComm": 14.67,
     "levelLabel": "L1",
     "productRank": "180",
     "cashBonus": 0,
@@ -22248,7 +22248,7 @@ const allShopData = [
       403.68,
       226.22,
       162.5,
-      34
+      129.9
     ],
     "bonusHistory": [
       0,
@@ -22279,10 +22279,10 @@ const allShopData = [
         "views": 0,
         "sold": 169,
         "gmv": 5424.52,
-        "commDollars": 201,
+        "commDollars": 710.52,
         "bonus": 0,
         "gmvLM": 7697.02,
-        "commPct": "3.71%",
+        "commPct": "13.10%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22312,8 +22312,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 5424.52,
-    "totalComm": 201,
-    "avgComm": 3.71,
+    "totalComm": 710.52,
+    "avgComm": 13.1,
     "levelLabel": "L2",
     "productRank": "181",
     "cashBonus": 0,
@@ -22363,7 +22363,7 @@ const allShopData = [
       820.35,
       807.24,
       1002.75,
-      201
+      710.52
     ],
     "bonusHistory": [
       0,
@@ -22394,10 +22394,10 @@ const allShopData = [
         "views": 0,
         "sold": 118,
         "gmv": 1750.96,
-        "commDollars": 117,
+        "commDollars": 199.34,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "6.68%",
+        "commPct": "11.38%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22406,8 +22406,8 @@ const allShopData = [
     "tapHistory": [],
     "points": 1,
     "totalGMV": 1750.96,
-    "totalComm": 117,
-    "avgComm": 6.68,
+    "totalComm": 199.34,
+    "avgComm": 11.38,
     "levelLabel": "L1",
     "productRank": "182",
     "cashBonus": 0,
@@ -22461,10 +22461,10 @@ const allShopData = [
         "views": 0,
         "sold": 414,
         "gmv": 8415,
-        "commDollars": 327,
+        "commDollars": 1064.4,
         "bonus": 0,
         "gmvLM": 10979.57,
-        "commPct": "3.89%",
+        "commPct": "12.65%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22494,8 +22494,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 8415,
-    "totalComm": 327,
-    "avgComm": 3.89,
+    "totalComm": 1064.4,
+    "avgComm": 12.65,
     "levelLabel": "L2",
     "productRank": "183",
     "cashBonus": 0,
@@ -22545,7 +22545,7 @@ const allShopData = [
       3232.95,
       11677.21,
       1762.93,
-      327
+      1064.4
     ],
     "bonusHistory": [
       0,
@@ -22576,10 +22576,10 @@ const allShopData = [
         "views": 0,
         "sold": 2,
         "gmv": 32.38,
-        "commDollars": 2,
+        "commDollars": 4.2,
         "bonus": 0,
         "gmvLM": 130.28,
-        "commPct": "6.18%",
+        "commPct": "12.97%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22609,8 +22609,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 32.38,
-    "totalComm": 2,
-    "avgComm": 6.18,
+    "totalComm": 4.2,
+    "avgComm": 12.97,
     "levelLabel": "L1",
     "productRank": "184",
     "cashBonus": 0,
@@ -22660,7 +22660,7 @@ const allShopData = [
       17.94,
       22.86,
       14.85,
-      2
+      4.2
     ],
     "bonusHistory": [
       0,
@@ -22691,10 +22691,10 @@ const allShopData = [
         "views": 0,
         "sold": 9,
         "gmv": 416.14,
-        "commDollars": 22,
+        "commDollars": 46.42,
         "bonus": 0,
         "gmvLM": 1022.19,
-        "commPct": "5.29%",
+        "commPct": "11.15%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22724,8 +22724,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 416.14,
-    "totalComm": 22,
-    "avgComm": 5.29,
+    "totalComm": 46.42,
+    "avgComm": 11.15,
     "levelLabel": "L1",
     "productRank": "185",
     "cashBonus": 0,
@@ -22775,7 +22775,7 @@ const allShopData = [
       38.09,
       42.12,
       95.95,
-      22
+      46.42
     ],
     "bonusHistory": [
       0,
@@ -22806,10 +22806,10 @@ const allShopData = [
         "views": 0,
         "sold": 20,
         "gmv": 554.35,
-        "commDollars": 27,
+        "commDollars": 63.95,
         "bonus": 0,
         "gmvLM": 485.82,
-        "commPct": "4.87%",
+        "commPct": "11.54%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22839,8 +22839,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 554.35,
-    "totalComm": 27,
-    "avgComm": 4.87,
+    "totalComm": 63.95,
+    "avgComm": 11.54,
     "levelLabel": "L1",
     "productRank": "186",
     "cashBonus": 0,
@@ -22890,7 +22890,7 @@ const allShopData = [
       122.49,
       124.21,
       33.78,
-      27
+      63.95
     ],
     "bonusHistory": [
       0,
@@ -22921,10 +22921,10 @@ const allShopData = [
         "views": 0,
         "sold": 34,
         "gmv": 3010.34,
-        "commDollars": 36,
+        "commDollars": 187.33,
         "bonus": 0,
         "gmvLM": 4311.47,
-        "commPct": "1.20%",
+        "commPct": "6.22%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -22954,8 +22954,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 3010.34,
-    "totalComm": 36,
-    "avgComm": 1.2,
+    "totalComm": 187.33,
+    "avgComm": 6.22,
     "levelLabel": "L1",
     "productRank": "187",
     "cashBonus": 0,
@@ -23005,7 +23005,7 @@ const allShopData = [
       139.48,
       184.01,
       200.43,
-      36
+      187.33
     ],
     "bonusHistory": [
       0,
@@ -23036,10 +23036,10 @@ const allShopData = [
         "views": 0,
         "sold": 338,
         "gmv": 9311.42,
-        "commDollars": 385,
+        "commDollars": 1023.56,
         "bonus": 0,
         "gmvLM": 8759.76,
-        "commPct": "4.13%",
+        "commPct": "10.99%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -23069,8 +23069,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 9311.42,
-    "totalComm": 385,
-    "avgComm": 4.13,
+    "totalComm": 1023.56,
+    "avgComm": 10.99,
     "levelLabel": "L2",
     "productRank": "188",
     "cashBonus": 0,
@@ -23120,7 +23120,7 @@ const allShopData = [
       0,
       0,
       1065.19,
-      385
+      1023.56
     ],
     "bonusHistory": [
       0,
@@ -23151,10 +23151,10 @@ const allShopData = [
         "views": 0,
         "sold": 19,
         "gmv": 842.06,
-        "commDollars": 18,
+        "commDollars": 151.15,
         "bonus": 0,
         "gmvLM": 973.43,
-        "commPct": "2.14%",
+        "commPct": "17.95%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -23184,8 +23184,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 842.06,
-    "totalComm": 18,
-    "avgComm": 2.14,
+    "totalComm": 151.15,
+    "avgComm": 17.95,
     "levelLabel": "L1",
     "productRank": "189",
     "cashBonus": 0,
@@ -23235,7 +23235,7 @@ const allShopData = [
       185.42,
       422.18,
       209.63,
-      18
+      151.15
     ],
     "bonusHistory": [
       0,
@@ -23266,10 +23266,10 @@ const allShopData = [
         "views": 0,
         "sold": 238,
         "gmv": 8216.42,
-        "commDollars": 278,
+        "commDollars": 1028.08,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "3.38%",
+        "commPct": "12.51%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -23299,8 +23299,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 8216.42,
-    "totalComm": 278,
-    "avgComm": 3.38,
+    "totalComm": 1028.08,
+    "avgComm": 12.51,
     "levelLabel": "L2",
     "productRank": "190",
     "cashBonus": 0,
@@ -23350,7 +23350,7 @@ const allShopData = [
       0,
       0,
       0,
-      278
+      1028.08
     ],
     "bonusHistory": [
       0,
@@ -23381,10 +23381,10 @@ const allShopData = [
         "views": 0,
         "sold": 0,
         "gmv": 149.82,
-        "commDollars": 3,
+        "commDollars": 1.26,
         "bonus": 0,
         "gmvLM": 0,
-        "commPct": "2.00%",
+        "commPct": "0.84%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -23414,8 +23414,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 149.82,
-    "totalComm": 3,
-    "avgComm": 2,
+    "totalComm": 1.26,
+    "avgComm": 0.84,
     "levelLabel": "L1",
     "productRank": "191",
     "cashBonus": 0,
@@ -23465,7 +23465,7 @@ const allShopData = [
       1.31,
       0,
       0,
-      3
+      1.26
     ],
     "bonusHistory": [
       0,
@@ -23496,10 +23496,10 @@ const allShopData = [
         "views": 0,
         "sold": 14,
         "gmv": 4458.5,
-        "commDollars": 20,
+        "commDollars": 685.65,
         "bonus": 0,
         "gmvLM": 2606.95,
-        "commPct": "0.45%",
+        "commPct": "15.38%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -23529,8 +23529,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4458.5,
-    "totalComm": 20,
-    "avgComm": 0.45,
+    "totalComm": 685.65,
+    "avgComm": 15.38,
     "levelLabel": "L1",
     "productRank": "192",
     "cashBonus": 0,
@@ -23580,7 +23580,7 @@ const allShopData = [
       57.56,
       126.49,
       371.77,
-      20
+      685.65
     ],
     "bonusHistory": [
       0,
@@ -23611,10 +23611,10 @@ const allShopData = [
         "views": 0,
         "sold": 149,
         "gmv": 4029.94,
-        "commDollars": 184,
+        "commDollars": 387.16,
         "bonus": 0,
         "gmvLM": 4588.45,
-        "commPct": "4.57%",
+        "commPct": "9.61%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -23644,8 +23644,8 @@ const allShopData = [
     ],
     "points": 1,
     "totalGMV": 4029.94,
-    "totalComm": 184,
-    "avgComm": 4.57,
+    "totalComm": 387.16,
+    "avgComm": 9.61,
     "levelLabel": "L1",
     "productRank": "193",
     "cashBonus": 0,
@@ -23695,7 +23695,7 @@ const allShopData = [
       407.58,
       414.49,
       549.56,
-      184
+      387.16
     ],
     "bonusHistory": [
       0,
@@ -25336,7 +25336,7 @@ const allShopData = [
         "views": 0,
         "sold": 860,
         "gmv": 0,
-        "commDollars": 2798.43,
+        "commDollars": 0,
         "bonus": 0,
         "gmvLM": 112.49,
         "commPct": "12.05%",
@@ -25369,7 +25369,7 @@ const allShopData = [
     ],
     "points": 0,
     "totalGMV": 0,
-    "totalComm": 2798.43,
+    "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
     "productRank": "208",
@@ -25420,7 +25420,7 @@ const allShopData = [
       2798.43,
       2798.43,
       2798.43,
-      2798.43
+      0
     ],
     "bonusHistory": [
       0,
