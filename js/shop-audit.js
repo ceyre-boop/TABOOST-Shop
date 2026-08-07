@@ -22,7 +22,47 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     let saTopProducts = null; // handle -> { categories:[{name,gmv}], products:[{rank,name,gmv}] }
     let saAbort = null;
 
+    // Month-End flags any account averaging below this commission rate.
+    const SA_COMM_TARGET = 12.5;
+
     function saFmt(n) { return '$' + Math.round(n || 0).toLocaleString('en-US'); }
+
+    // Compact form for chart labels — full figures don't fit above a bar.
+    function saFmtShort(n) {
+        n = Math.round(n || 0);
+        if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        if (n >= 1000) return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return '$' + n;
+    }
+
+    // "25.16%" -> 25.16. Returns null when there's no usable number.
+    function saCommNum(raw) {
+        const n = parseFloat(String(raw == null ? '' : raw).replace(/[^0-9.]/g, ''));
+        return isFinite(n) ? n : null;
+    }
+
+    // Only Month-End flags this, and only when there's real commission data —
+    // a 0% account had no sales that month, so "raise your rate" would be noise.
+    function saCommBelowTarget(m, variant) {
+        if (variant !== 'end') return false;
+        const n = saCommNum(m.avgComm);
+        return n != null && n > 0 && n < SA_COMM_TARGET;
+    }
+
+    // Closed months only (oldest -> newest). historyMonths runs 1:1 with each
+    // account's gmv array, and its last entry is the month still in progress.
+    function saGmvSeries(handle, maxPoints) {
+        const me = saMe() || {};
+        const months = me.historyMonths || [];
+        const h = (me.accountsHistory || []).find(x => (x.handle || '').toLowerCase() === (handle || '').toLowerCase());
+        const arr = (h && h.gmv) || [];
+        const n = Math.min(months.length, arr.length);
+        const pts = [];
+        for (let i = 0; i < n - 1; i++) {
+            pts.push({ label: String(months[i] || '').split(/\s+/)[0], gmv: parseFloat(arr[i]) || 0 });
+        }
+        return pts.slice(-(maxPoints || 6));
+    }
     function saEsc(s) {
         return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
             '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -199,11 +239,19 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
     // ---------- AI ----------
 
-    function saFallback(m) {
+    function saFallback(m, variant) {
+        // Month-End hides Proven Winners in favour of the GMV chart, so its copy
+        // must never point "below" at a list that isn't on the page.
+        const isEnd = variant === 'end';
         const winners = (m.suggested || []).slice(0, 2).map(s => s.name.split(/[|,–-]/)[0].trim());
-        const winnerLine = winners.length
-            ? 'The proven winners below — like ' + winners[0] + ' — are already thriving in your lane and could be an easy, exciting add.'
-            : 'Keep an eye on the proven winners list — top sellers in your lane will appear there as the feed grows.';
+        const winnerTitle = isEnd ? 'Line up next month’s winners' : 'Try the proven winners below';
+        const winnerLine = isEnd
+            ? (winners.length
+                ? 'Proven sellers in your lane — like ' + winners[0] + ' — are worth lining up for next month.'
+                : 'Check the Mid-Month recap for proven sellers in your lane to line up for next month.')
+            : (winners.length
+                ? 'The proven winners below — like ' + winners[0] + ' — are already thriving in your lane and could be an easy, exciting add.'
+                : 'Keep an eye on the proven winners list — top sellers in your lane will appear there as the feed grows.');
         const laneLine = m.topCategories.length
             ? 'Leaning ~70% of posts into ' + m.topCategories[0].name + ' gives each product room to build momentum.'
             : 'Leaning ~70% of posts into one category gives each product room to build momentum.';
@@ -221,7 +269,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             tips: [
                 { title: 'Celebrate your winners again', detail: 'Give a proven product 4-5 fresh posts instead of one — winners deserve repeat features.' },
                 { title: 'Pick a lane you love', detail: laneLine },
-                { title: 'Try the proven winners below', detail: winnerLine }
+                { title: winnerTitle, detail: winnerLine }
             ]
         };
     }
@@ -229,7 +277,9 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     // Cache one AI result per account+variant+data-refresh so the key is used minimally.
     // "Regenerate" passes force=true to bypass.
     function saCacheKey(m, v) {
-        return 'shopAudit:' + (m.handle || m.name) + ':' + v + ':' + (window.SHOP_LAST_UPDATED || '');
+        // v2 namespace: Month-End copy changed when Proven Winners moved off that
+        // page, so previously cached Month-End text must not be reused.
+        return 'shopAudit2:' + (m.handle || m.name) + ':' + v + ':' + (window.SHOP_LAST_UPDATED || '');
     }
     function saCacheGet(key) {
         try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; }
@@ -264,7 +314,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             console.info('Shop Audit: SHOP_AUDIT_ENDPOINT not set — using offline fallback copy.');
             setTimeout(() => {
                 if (stale()) return;
-                saState.ai = saFallback(m); saState.loading = false; saState.error = true;
+                saState.ai = saFallback(m, v); saState.loading = false; saState.error = true;
                 saRender();
             }, 700);
             return;
@@ -278,12 +328,17 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             recap_type: v === 'end' ? 'month-end (full month closed)' : 'mid-month (month in progress)',
             account_gmv: m.accountGmv != null ? Math.round(m.accountGmv) : null,
             avg_commission: m.avgComm,
+            commission_target: SA_COMM_TARGET,
+            avg_commission_below_target: saCommBelowTarget(m, v),
             tap_gmv: m.tapGmv != null ? Math.round(m.tapGmv) : null,
             shop_posts: m.shopPosts, tap_posts: m.tapPosts,
             gmv_trend: m.gmvTrend || 'n/a',
             top_categories: m.topCategories.map(c => ({ name: c.name, gmv: c.gmv || undefined })),
             top_selling_products: m.topProducts.map(p => p.name),
-            proven_winners_not_yet_posted: (m.suggested || []).map(s => ({ product: s.name, category_gmv: s.gmv }))
+            proven_winners_not_yet_posted: (m.suggested || []).map(s => ({ product: s.name, category_gmv: s.gmv })),
+            // Month-End replaces the Proven Winners list with the GMV chart, so copy
+            // must not point "below" at it.
+            proven_winners_list_visible: v !== 'end'
         };
 
         saAbort = new AbortController();
@@ -304,7 +359,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             if (e.name === 'AbortError') return;
             console.warn('Shop Audit: AI call failed, using fallback copy.', e);
             if (stale()) return;
-            saState.ai = saFallback(m); saState.loading = false; saState.error = true;
+            saState.ai = saFallback(m, v); saState.loading = false; saState.error = true;
         }
         saRender();
     }
@@ -398,6 +453,25 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             prodList.innerHTML = '<div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div>';
         }
 
+        // Month-End swaps Proven Winners for the closed-month GMV chart.
+        const isEnd = saState.variant === 'end';
+        const chartEl = overlay.querySelector('#saChart');
+        overlay.querySelector('#saSuggested').style.display = isEnd ? 'none' : '';
+        chartEl.style.display = isEnd ? '' : 'none';
+        if (isEnd) saRenderChart(overlay, m);
+
+        // Commission alert (Month-End only) — deterministic, not AI-generated.
+        const belowTarget = saCommBelowTarget(m, saState.variant);
+        const alertEl = overlay.querySelector('#saAlert');
+        alertEl.style.display = belowTarget ? 'flex' : 'none';
+        if (belowTarget) {
+            alertEl.innerHTML =
+                '<span class="sa-alert-icon" aria-hidden="true">!</span>' +
+                '<div><strong>Avg commission is ' + saEsc(m.avgComm) + ' — under the ' +
+                SA_COMM_TARGET + '% target.</strong> Leaning into higher-commission products is ' +
+                'the fastest way to earn more on the same GMV.</div>';
+        }
+
         // Suggested products
         const suggList = overlay.querySelector('#saSuggList');
         if (m.suggested && m.suggested.length) {
@@ -418,7 +492,18 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (!saState.loading && ai.coreIssues) {
             overlay.querySelector('#saGrade').textContent = ai.grade || '';
             overlay.querySelector('#saVerdict').textContent = ai.verdict || '';
-            overlay.querySelector('#saIssues').innerHTML = (ai.coreIssues || []).map(c =>
+            // The commission gap is measured, so it leads the list rather than
+            // depending on the model to notice it.
+            let issues = (ai.coreIssues || []).slice();
+            if (belowTarget) {
+                issues.unshift({
+                    title: 'Commission rate below target',
+                    detail: '@' + m.handle + ' averaged ' + m.avgComm + ' against the ' +
+                        SA_COMM_TARGET + '% target. Swapping a few posts toward higher-commission ' +
+                        'products in your best category lifts earnings without needing more GMV.'
+                });
+            }
+            overlay.querySelector('#saIssues').innerHTML = issues.map(c =>
                 '<div><div class="sa-item-title"><span>•</span> ' + saEsc(c.title) + '</div>' +
                 '<div class="sa-item-detail">' + saEsc(c.detail) + '</div></div>'
             ).join('');
@@ -427,6 +512,40 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                 '<div class="sa-item-detail starred">' + saEsc(t.detail) + '</div></div>'
             ).join('');
         }
+    }
+
+    // Closed-month GMV bars. Plain divs rather than a chart library — the modal
+    // mounts and resizes inside a scroll container, where canvas sizing is fiddly.
+    function saRenderChart(overlay, m) {
+        const pts = saGmvSeries(m.handle, 6);
+        const bars = overlay.querySelector('#saBars');
+        const note = overlay.querySelector('#saChartNote');
+        const sub = overlay.querySelector('#saChartSub');
+
+        if (!pts.length) {
+            bars.innerHTML = '<div class="sa-prod-pending">Monthly history connects in the next data update.</div>';
+            note.textContent = '';
+            sub.textContent = '';
+            return;
+        }
+
+        const max = Math.max.apply(null, pts.map(p => p.gmv));
+        const best = pts.reduce((a, b) => (b.gmv > a.gmv ? b : a), pts[0]);
+        const last = pts[pts.length - 1];
+
+        sub.textContent = 'Closed months for @' + m.handle + ' — ' + pts.length +
+            (pts.length === 1 ? ' month' : ' months') + ' of GMV.';
+        note.textContent = 'Best month: ' + best.label + ' ' + saFmtShort(best.gmv);
+
+        bars.innerHTML = pts.map(p => {
+            const pct = max > 0 ? Math.max(2, Math.round((p.gmv / max) * 100)) : 2;
+            const isLast = p === last;
+            return '<div class="sa-bar-col' + (isLast ? ' current' : '') + '">' +
+                '<div class="sa-bar-val">' + saEsc(saFmtShort(p.gmv)) + '</div>' +
+                '<div class="sa-bar-track"><div class="sa-bar-fill" style="height:' + pct + '%;"></div></div>' +
+                '<div class="sa-bar-lab">' + saEsc(p.label) + '</div>' +
+                '</div>';
+        }).join('');
     }
 
     // ---------- modal shell ----------
@@ -501,6 +620,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
               '</div>' +
               '<div class="sa-inner sa-audit">' +
                 '<div class="sa-pill-wrap"><span class="sa-pill-white">✦ Shop Account Audit</span></div>' +
+                '<div class="sa-alert" id="saAlert" style="display:none;"></div>' +
                 '<div id="saLoading">' +
                   '<div class="sa-loading-line"><span class="sa-spinner"></span> TABOOST AI is reading <span id="saLoadingName"></span>’s numbers…</div>' +
                   '<div class="sa-skeletons">' +
@@ -522,7 +642,16 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                 '</div>' +
               '</div>' +
             '</div>' +
-            '<div class="sa-inner sa-suggested">' +
+            // Month-End shows the closed-month GMV chart here; Mid-Month shows Proven Winners.
+            '<div class="sa-inner sa-chart" id="saChart" style="display:none;">' +
+              '<div class="sa-sugg-head">' +
+                '<div class="sa-sugg-title"><span class="star">★</span> GMV By Month</div>' +
+                '<div class="sa-sugg-soon" id="saChartNote"></div>' +
+              '</div>' +
+              '<div class="sa-sugg-sub" id="saChartSub"></div>' +
+              '<div class="sa-bars" id="saBars"></div>' +
+            '</div>' +
+            '<div class="sa-inner sa-suggested" id="saSuggested">' +
               '<div class="sa-sugg-head">' +
                 '<div class="sa-sugg-title"><span class="star">★</span> Proven Winners To Add</div>' +
                 '<div class="sa-sugg-soon">TAP-linked picks coming soon</div>' +
