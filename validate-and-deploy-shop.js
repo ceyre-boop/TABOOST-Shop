@@ -75,8 +75,14 @@ function updateCacheVersions() {
             /\.js\?v=\d+/g,
             `.js?v=${now}`
         );
+        // Stylesheets need busting too — a CSS-only deploy used to ship new JS
+        // against a cached stylesheet.
+        htmlContent = htmlContent.replace(
+            /\.css\?v=\d+/g,
+            `.css?v=${now}`
+        );
         fs.writeFileSync(htmlPath, htmlContent);
-        console.log('✅ Updated JS cache versions in shop-dashboard.html');
+        console.log('✅ Updated JS + CSS cache versions in shop-dashboard.html');
     }
     
     return now;
