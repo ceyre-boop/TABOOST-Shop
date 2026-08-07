@@ -162,6 +162,7 @@
     gap: 24px;
     flex-wrap: wrap;
 }
+.sa-head-left { min-width: 240px; }
 .sa-head-name {
     font-family: 'Anton', sans-serif;
     font-size: clamp(34px, 5.4vw, 60px);
@@ -302,7 +303,8 @@
 }
 .sa-prod-list { display: flex; flex-direction: column; gap: 11px; }
 .sa-prod-item { display: flex; gap: 9px; color: #3a3835; font-size: 14px; line-height: 1.3; }
-/* Long TikTok titles: clamp to 2 lines, reveal the full name on hover */
+/* Long TikTok titles: clamp to 2 lines. Full name reveals on hover (pointer) or
+   tap (touch — .sa-expanded is toggled by the delegated handler in shop-audit.js). */
 .sa-prod-name {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -314,7 +316,13 @@
     padding: 2px 4px;
     transition: background .18s;
 }
-.sa-prod-item:hover .sa-prod-name {
+@media (hover: hover) {
+    .sa-prod-item:hover .sa-prod-name {
+        -webkit-line-clamp: unset;
+        background: rgba(255,13,94,.06);
+    }
+}
+.sa-prod-name.sa-expanded {
     -webkit-line-clamp: unset;
     background: rgba(255,13,94,.06);
 }
@@ -457,7 +465,10 @@
     overflow: hidden;
     cursor: default;
 }
-.sa-sugg-row:hover .sa-sugg-name { -webkit-line-clamp: unset; }
+@media (hover: hover) {
+    .sa-sugg-row:hover .sa-sugg-name { -webkit-line-clamp: unset; }
+}
+.sa-sugg-name.sa-expanded { -webkit-line-clamp: unset; }
 .sa-sugg-gmv { flex-shrink: 0; text-align: right; }
 .sa-sugg-gmv .amount { font-family: 'Anton', sans-serif; color: #ff0d5e; font-size: 19px; line-height: 1; }
 .sa-sugg-gmv .label { color: #8a8478; font-size: 10px; letter-spacing: .3px; }
@@ -511,4 +522,118 @@
     .sa-row { grid-template-columns: 1fr; }
     .sa-cols { grid-template-columns: 1fr; }
     .sa-head { padding: 26px 24px; }
+
+    /* Control bar stays ONE row. Left to itself it wraps the recap toggle onto its
+       own line and drops the badge + ✕ underneath, which reads as two loose clusters.
+       The segmented control takes the slack; badge and ✕ hold their size. */
+    .sa-controls { flex-wrap: nowrap; gap: 10px; }
+    .sa-seg { flex: 1 1 auto; min-width: 0; display: flex; }
+    .sa-seg button { flex: 1 1 0; min-width: 0; padding: 11px 12px; }
+    .sa-controls-right { flex: 0 0 auto; gap: 10px; }
+    .sa-close { width: 44px; height: 44px; font-size: 19px; }
+
+    /* Switcher: label above the pills instead of colliding with them */
+    .sa-switch { gap: 8px; }
+    .sa-switch-label { width: 100%; }
+    .sa-switch-tabs { width: 100%; }
+}
+
+/* ---------- Phones ----------
+   Most creators open this on a phone. Two rules drive everything below:
+   1. Never hide a product name behind a hover state — touch has no hover.
+   2. Close + recap toggle stay reachable; the card is ~4 screens tall on a phone,
+      so a top-anchored ✕ with no Esc key is a trap. */
+@media (max-width: 600px) {
+    /* Reclaim horizontal space — every px here goes to product names. */
+    .sa-overlay { padding: 0 10px calc(40px + env(safe-area-inset-bottom, 0px)); }
+    .sa-card { padding: 14px; border-radius: 20px; }
+    .sa-inner { padding: 16px 14px; }
+    .sa-products, .sa-audit, .sa-suggested { padding: 18px 14px; }
+    /* Sticky needs an untransformed ancestor; the entry animation would break it. */
+    .sa-modal { animation: none; }
+
+    /* Control bar rides along with the scroll */
+    .sa-controls {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -10px 12px;
+        padding: calc(10px + env(safe-area-inset-top, 0px)) 10px 10px;
+        background: rgba(12,11,10,.94);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    .sa-seg button { padding: 12px 6px; font-size: 12.5px; }
+    .sa-ai-badge { display: none; }  /* "TABOOST AI" already reads in the audit pill + footer */
+    .sa-close { font-size: 20px; }
+
+    /* Account switcher — 44px tap targets */
+    .sa-switch { margin-bottom: 12px; }
+    .sa-switch-label { font-size: 11px; }
+    .sa-switch-tabs button { padding: 11px 18px; min-height: 44px; }
+
+    /* Header — the logo and recap tag share one row instead of stacking */
+    .sa-head { padding: 18px 16px; gap: 12px; border-radius: 16px; }
+    .sa-head-left { min-width: 0; width: 100%; }
+    .sa-head-name { font-size: clamp(26px, 8vw, 34px); }
+    .sa-head-period { font-size: 15px; }
+    .sa-head-right {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+    .sa-logo { height: 40px; }
+    .sa-recap-tag { font-size: 15px; }
+
+    /* Stats — same three cards, less vertical bulk */
+    .sa-stats { gap: 12px; margin-top: 14px; }
+    .sa-big-num { font-size: 40px; margin-top: 12px; }
+    .sa-num-label { font-size: 14px; }
+    .sa-mid-num { font-size: 28px; margin-top: 10px; }
+    .sa-row { gap: 12px; margin-top: 12px; }
+
+    /* Top products — 3 lines before clamping, tap to expand */
+    .sa-prod-name { -webkit-line-clamp: 3; }
+    .sa-prod-item { cursor: pointer; }
+    .sa-cat-row { padding: 10px 12px; }
+    .sa-cat-row .name { font-size: 13.5px; }
+
+    /* Verdict — stop squeezing one sentence into a 126px column */
+    .sa-verdict { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+    .sa-grade { width: 44px; height: 44px; font-size: 22px; }
+    .sa-verdict-text { font-size: 14.5px; }
+    .sa-cols { gap: 20px; }
+
+    /* Proven winners — GMV drops to its own line so the name gets the full row */
+    .sa-sugg-row { flex-wrap: wrap; row-gap: 6px; gap: 12px; padding: 12px 14px; cursor: pointer; }
+    /* flex-basis 0 keeps the name beside the rank badge instead of wrapping below it */
+    .sa-sugg-name { flex: 1 1 0; min-width: 0; -webkit-line-clamp: 3; font-size: 13.5px; }
+    .sa-sugg-gmv {
+        flex: 0 0 100%;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        text-align: left;
+        padding-left: 40px;
+    }
+    .sa-sugg-gmv .amount { font-size: 17px; }
+    .sa-sugg-title { font-size: 16px; }
+    .sa-sugg-sub { font-size: 13px; }
+
+    /* Footer — full-width regenerate button */
+    .sa-foot { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 14px; }
+    .sa-regen { justify-content: center; padding: 13px 18px; font-size: 14px; }
+    .sa-foot-note { order: 2; text-align: center; font-size: 12px; }
+}
+
+/* Very narrow phones (SE / older Androids) — keep the recap labels on one line
+   so the sticky bar doesn't eat a third of the screen. */
+@media (max-width: 370px) {
+    .sa-seg button { font-size: 11.5px; padding: 12px 4px; letter-spacing: -.1px; }
+    .sa-sugg-gmv { padding-left: 0; }
+    .sa-card { padding: 12px; }
 }

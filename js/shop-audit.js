@@ -311,11 +311,40 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
     // ---------- render ----------
 
+    // iOS Safari ignores body{overflow:hidden} — the page rubber-bands behind the modal.
+    // Pin the body and restore the scroll position on close.
+    let saScrollY = 0;
+    function saLockScroll(lock) {
+        const b = document.body;
+        if (lock) {
+            if (b.dataset.saLocked) return;
+            saScrollY = window.scrollY || window.pageYOffset || 0;
+            b.dataset.saLocked = '1';
+            b.style.position = 'fixed';
+            b.style.top = (-saScrollY) + 'px';
+            b.style.left = '0';
+            b.style.right = '0';
+            b.style.width = '100%';
+            b.style.overflow = 'hidden';
+        } else {
+            if (!b.dataset.saLocked) return;
+            delete b.dataset.saLocked;
+            b.style.position = ''; b.style.top = ''; b.style.left = '';
+            b.style.right = ''; b.style.width = ''; b.style.overflow = '';
+            window.scrollTo(0, saScrollY);
+        }
+    }
+
+    function saScrollToTop() {
+        const overlay = document.getElementById('shopAuditOverlay');
+        if (overlay) overlay.scrollTop = 0;
+    }
+
     function saRender() {
         const overlay = document.getElementById('shopAuditOverlay');
         if (!overlay) return;
         overlay.classList.toggle('open', saState.open);
-        document.body.style.overflow = saState.open ? 'hidden' : '';
+        saLockScroll(saState.open);
         if (!saState.open) return;
 
         const m = saMetrics(saState.variant);
@@ -425,7 +454,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
           '</div>' +
           '<div class="sa-card">' +
             '<div class="sa-head">' +
-              '<div style="min-width:240px;">' +
+              '<div class="sa-head-left">' +
                 '<div class="sa-head-name" id="saName"></div>' +
                 '<div class="sa-head-sub">' +
                   '<span class="sa-handle-pill" id="saHandleChip"></span>' +
@@ -512,6 +541,14 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         overlay.querySelector('#saClose').addEventListener('click', closeShopAudit);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeShopAudit(); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && saState.open) closeShopAudit(); });
+        // Touch has no hover, so long product names need a tap to expand. The whole
+        // row is the target, not just the clamped text.
+        overlay.addEventListener('click', e => {
+            const row = e.target.closest && e.target.closest('.sa-sugg-row, .sa-prod-item');
+            if (!row) return;
+            const name = row.querySelector('.sa-sugg-name, .sa-prod-name');
+            if (name) name.classList.toggle('sa-expanded');
+        });
         overlay.querySelector('#saMidBtn').addEventListener('click', () => saSetVariant('mid'));
         overlay.querySelector('#saEndBtn').addEventListener('click', () => saSetVariant('end'));
         overlay.querySelector('#saRegen').addEventListener('click', () => saGenerate(true));
@@ -520,12 +557,14 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     function saSetVariant(v) {
         if (v === saState.variant) return;
         saState.variant = v;
+        saScrollToTop();
         saGenerate();
     }
 
     function saSetAccount(handle) {
         if (handle === saState.account) return;
         saState.account = handle;
+        saScrollToTop();
         saGenerate();
     }
 
@@ -537,6 +576,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         }
         saState.open = true;
         saGenerate();
+        saScrollToTop();
     }
     function closeShopAudit() {
         saState.open = false;
@@ -552,7 +592,9 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const footer = document.querySelector('.creator-footer');
         const wrap = document.createElement('p');
         wrap.style.cssText = 'text-align:center; margin-top:8px;';
-        wrap.innerHTML = '<a id="saLauncher" href="#" style="font-size:11px; color:#555; ' +
+        // Padded to a real tap target — the bare 11px link was ~13px tall on a phone.
+        wrap.innerHTML = '<a id="saLauncher" href="#" style="display:inline-block; ' +
+            'padding:12px 18px; font-size:12px; line-height:1; color:#555; ' +
             'text-decoration:none; opacity:.7;">✦ account audit (beta)</a>';
         if (footer) footer.appendChild(wrap);
         else document.querySelector('.creator-layout, main, body').appendChild(wrap);
