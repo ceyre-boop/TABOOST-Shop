@@ -616,9 +616,10 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (m.suggested && m.suggested.length) {
             suggList.innerHTML = m.suggested.map((s, i) => {
                 const p = saProductFor(s.name);
-                // referrerpolicy: the TikTok CDN 403s some hotlinks when a referrer is sent.
+                // Eager, not lazy: there are at most 5 thumbnails at 44px, and inside the
+                // modal's scroll container lazy loading just delayed them visibly.
                 const thumb = p && p.image
-                    ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" loading="lazy" ' +
+                    ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" ' +
                       'referrerpolicy="no-referrer" onerror="this.classList.add(\'sa-thumb-failed\')">'
                     : '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
                 return '<div class="sa-sugg-row" data-idx="' + i + '" role="button" tabindex="0">' +

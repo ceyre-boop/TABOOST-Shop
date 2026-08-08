@@ -111,12 +111,19 @@ for (let i = 1; i < tp.rows.length; i++) {
 
     const id = (r[pId] || '').trim();
     const camp = campaigns[(r[pCid] || '').trim()] || {};
+    // "Total Commission Rate" is a multiline cell — "20%\nvs. open collab 15%" — and its
+    // second line duplicates the VS column. Keep only the rate, or the stat tile renders
+    // the comparison twice and leaks a newline.
+    const commission = (r[pComm] || '').split('\n')[0].trim();
+    // Campaign names carry a year suffix ("medicube 2026"); the popup reads as a brand.
+    const brand = (camp.brand || (pCname >= 0 ? (r[pCname] || '') : ''))
+        .trim().replace(/\s+20\d{2}$/, '');
     const rec = [
         decodeEntities(images[id] || ''),
         camp.link || '',
-        (r[pComm] || '').trim(),
-        camp.brand || (pCname >= 0 ? (r[pCname] || '').trim() : ''),
-        pVs >= 0 ? (r[pVs] || '').trim() : ''
+        commission,
+        brand,
+        pVs >= 0 ? (r[pVs] || '').split('\n')[0].trim() : ''
     ];
 
     if (truncated) prefixes.push({ key, rec });
