@@ -281,18 +281,21 @@ for (let h = 1; h < histLines.length; h++) {
     const cr = creatorsMap[email];
     const handle = cols[1] || '';
 
-    // GMV history
-    const gmvArr = chronGmvIdx.map(i => toNum(cols[i] || '0'));
-    cr.accountsHistory.push({ handle, gmv: gmvArr });
+    // History rows are per-account (col 1 = handle), so TAP and COMM are kept
+    // per-account alongside GMV as well as aggregated to the creator below.
+    // The Month-End recap needs the per-account closed-month figures.
+    const gmvArr  = chronGmvIdx.map(i => toNum(cols[i] || '0'));
+    const tapArr  = chronTapIdx.map(i => toNum(cols[i] || '0'));
+    const commArr = chronCommIdx.map(i => toNum(cols[i] || '0'));
+    cr.accountsHistory.push({ handle, gmv: gmvArr, tap: tapArr, comm: commArr });
 
     // Month labels (stored once per creator)
     if (!cr.historyMonths) cr.historyMonths = chronLabels;
 
     // TAP history (aggregate per creator)
     if (chronTapIdx.length > 0) {
-        const tapArr = chronTapIdx.map(i => toNum(cols[i] || '0'));
         if (!cr.tapHistory || cr.tapHistory.length === 0) {
-            cr.tapHistory = tapArr;
+            cr.tapHistory = tapArr.slice();
         } else {
             tapArr.forEach((v, i) => { cr.tapHistory[i] = (cr.tapHistory[i] || 0) + v; });
         }
@@ -300,9 +303,8 @@ for (let h = 1; h < histLines.length; h++) {
 
     // COMM history
     if (chronCommIdx.length > 0) {
-        const commArr = chronCommIdx.map(i => toNum(cols[i] || '0'));
         if (!cr.commHistory) {
-            cr.commHistory = commArr;
+            cr.commHistory = commArr.slice();
         } else {
             commArr.forEach((v, i) => { cr.commHistory[i] = (cr.commHistory[i] || 0) + v; });
         }

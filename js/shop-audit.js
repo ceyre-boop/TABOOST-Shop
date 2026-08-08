@@ -182,11 +182,13 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return d.toLocaleString('en-US', { month: 'long', year: 'numeric' });
     }
 
-    // Per-account GMV history (oldest -> newest); idx counts back from the end (0 = current).
-    function saAcctHist(handle, idx) {
+    // Per-account history (oldest -> newest); idx counts back from the end (0 = current).
+    // field is 'gmv' | 'tap' | 'comm'. Returns null when that series is absent, so a
+    // shop-data.js built before per-account tap/comm existed degrades to "--", not $0.
+    function saAcctHist(handle, idx, field) {
         const me = saMe() || {};
         const h = (me.accountsHistory || []).find(x => (x.handle || '').toLowerCase() === handle.toLowerCase());
-        const arr = (h && h.gmv) || [];
+        const arr = (h && h[field || 'gmv']) || [];
         if (arr.length > idx) return parseFloat(arr[arr.length - 1 - idx]) || 0;
         return null;
     }
@@ -218,10 +220,19 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (variant === 'end') {
             const endGMV = saAcctHist(handle, 1);
             const prevGMV = saAcctHist(handle, 2);
+            const endTap = saAcctHist(handle, 1, 'tap');
+            const endComm = saAcctHist(handle, 1, 'comm');
+            // base.avgComm is the *live* month's rate, which would be wrong on a
+            // closed-month card. Recompute from that month's own comm / GMV.
+            const endCommPct = (endComm != null && endGMV)
+                ? (endComm / endGMV * 100).toFixed(2) + '%'
+                : null;
             return Object.assign(base, {
                 period: saMonthLabel(-1), recapTag: 'MONTH-END RECAP', statsPillLabel: 'Month-End Stats',
                 accountGmv: endGMV,
-                tapGmv: null, shopPosts: null, tapPosts: null, // per-account/month TAP + post history not kept
+                avgComm: endCommPct,
+                tapGmv: endTap,
+                shopPosts: null, tapPosts: null, // post counts aren't kept per month in history.csv
                 gmvTrend: saTrend(endGMV, prevGMV, 'vs prior month')
             });
         }
