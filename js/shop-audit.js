@@ -213,6 +213,19 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return { image: rec[0] || '', link: rec[1] || '', commission: rec[2] || '', brand: rec[3] || '', vs: rec[4] || '' };
     }
 
+    // Shared row furniture so "Top 5 Products" and "Proven Winners" stay identical.
+    // Both take the SAME record, and read image and link independently — a product may
+    // have either, both, or neither.
+    function saThumb(p) {
+        return p && p.image
+            ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" ' +
+              'referrerpolicy="no-referrer" onerror="this.classList.add(\'sa-thumb-failed\')">'
+            : '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
+    }
+    function saTapChip(p) {
+        return p && p.link ? '<div class="sa-sugg-tap" title="TAP campaign available">TAP</div>' : '';
+    }
+
     function saForHandle(map, handle) {
         return (map && handle && map[handle.toLowerCase()]) || null;
     }
@@ -243,7 +256,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return pop;
     }
 
-    function saOpenPop(item) {
+    function saOpenPop(item, gmvLabel) {
         if (!item) return;
         const pop = saBuildPop();
         const p = saProductFor(item.name) || {};
@@ -256,7 +269,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         pop.querySelector('#saPopName').textContent = item.name;
 
         const stats = [];
-        if (item.gmv) stats.push(['Category GMV', item.gmv]);
+        if (item.gmv) stats.push([gmvLabel || 'Category GMV', item.gmv]);
         if (p.commission) stats.push(['Commission', p.commission]);
         pop.querySelector('#saPopStats').innerHTML = stats.map(([k, v]) =>
             '<div class="sa-pop-stat"><div class="k">' + saEsc(k) + '</div>' +
@@ -585,8 +598,11 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const prodList = overlay.querySelector('#saProdList');
         if (m.topProducts.length) {
             prodList.innerHTML = m.topProducts.map(p =>
-                '<div class="sa-prod-item"><span class="sa-prod-rank">' + p.rank + '</span>' +
-                '<span class="sa-prod-name" title="' + saEsc(p.name) + '">' + saEsc(p.name) + '</span></div>'
+                '<div class="sa-prod-item" data-idx="' + (p.rank - 1) + '" role="button" tabindex="0">' +
+                '<span class="sa-prod-rank">' + p.rank + '</span>' +
+                saThumb(saProductFor(p.name)) +
+                '<span class="sa-prod-name">' + saEsc(p.name) + '</span>' +
+                (saTapChip(saProductFor(p.name))) + '</div>'
             ).join('');
         } else {
             prodList.innerHTML = '<div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div>';
@@ -616,19 +632,13 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (m.suggested && m.suggested.length) {
             suggList.innerHTML = m.suggested.map((s, i) => {
                 const p = saProductFor(s.name);
-                // Eager, not lazy: there are at most 5 thumbnails at 44px, and inside the
-                // modal's scroll container lazy loading just delayed them visibly.
-                const thumb = p && p.image
-                    ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" ' +
-                      'referrerpolicy="no-referrer" onerror="this.classList.add(\'sa-thumb-failed\')">'
-                    : '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
                 return '<div class="sa-sugg-row" data-idx="' + i + '" role="button" tabindex="0">' +
                     '<div class="sa-rank">' + s.rank + '</div>' +
-                    thumb +
+                    saThumb(p) +
                     '<div class="sa-sugg-name">' + saEsc(s.name) + '</div>' +
                     '<div class="sa-sugg-gmv"><div class="amount">' + saEsc(s.gmv) + '</div>' +
                     '<div class="label">CATEGORY GMV</div></div>' +
-                    (p && p.link ? '<div class="sa-sugg-tap" title="TAP campaign available">TAP</div>' : '') +
+                    saTapChip(p) +
                     '</div>';
             }).join('');
         } else {
@@ -826,27 +836,28 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && saState.open) closeShopAudit(); });
         // Touch has no hover, so long product names need a tap to expand. The whole
         // row is the target, not just the clamped text.
-        // Top 5 Products keeps tap-to-expand. Proven Winners rows now open the popup
-        // instead — it shows the full name, which serves the same need better.
-        overlay.addEventListener('click', e => {
-            const item = e.target.closest && e.target.closest('.sa-prod-item');
-            if (!item) return;
-            const name = item.querySelector('.sa-prod-name');
-            if (name) name.classList.toggle('sa-expanded');
-        });
-        overlay.addEventListener('click', e => {
-            const row = e.target.closest && e.target.closest('.sa-sugg-row');
-            if (!row) return;
+        // Both lists open the product popup. It shows the full name, so it replaces the
+        // old tap-to-expand entirely — and lets the hover rule drop the reflow that made
+        // rows jump under the cursor.
+        function saRowTarget(el) {
+            const row = el.closest && el.closest('.sa-sugg-row, .sa-prod-item');
+            if (!row) return null;
             const m = saMetrics(saState.variant);
-            saOpenPop((m.suggested || [])[parseInt(row.dataset.idx, 10)]);
+            const list = row.classList.contains('sa-sugg-row') ? (m.suggested || []) : (m.topProducts || []);
+            const item = list[parseInt(row.dataset.idx, 10)];
+            // Proven Winners GMV is the category's; Top 5 Products GMV is the product's.
+            return item ? { item: item, gmvLabel: row.classList.contains('sa-sugg-row') ? 'Category GMV' : 'Product GMV' } : null;
+        }
+        overlay.addEventListener('click', e => {
+            const t = saRowTarget(e.target);
+            if (t) saOpenPop(t.item, t.gmvLabel);
         });
         overlay.addEventListener('keydown', e => {
             if (e.key !== 'Enter' && e.key !== ' ') return;
-            const row = e.target.closest && e.target.closest('.sa-sugg-row');
-            if (!row) return;
+            const t = saRowTarget(e.target);
+            if (!t) return;
             e.preventDefault();
-            const m = saMetrics(saState.variant);
-            saOpenPop((m.suggested || [])[parseInt(row.dataset.idx, 10)]);
+            saOpenPop(t.item, t.gmvLabel);
         });
         overlay.querySelector('#saMidBtn').addEventListener('click', () => saSetVariant('mid'));
         overlay.querySelector('#saEndBtn').addEventListener('click', () => saSetVariant('end'));

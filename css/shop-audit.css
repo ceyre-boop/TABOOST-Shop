@@ -303,30 +303,34 @@
     padding-top: 14px;
 }
 .sa-prod-list { display: flex; flex-direction: column; gap: 11px; }
-.sa-prod-item { display: flex; gap: 9px; color: #3a3835; font-size: 14px; line-height: 1.3; }
-/* Long TikTok titles: clamp to 2 lines. Full name reveals on hover (pointer) or
-   tap (touch — .sa-expanded is toggled by the delegated handler in shop-audit.js). */
+.sa-prod-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #3a3835;
+    font-size: 14px;
+    line-height: 1.3;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: -3px -5px;
+    padding: 3px 5px;
+    transition: background .18s;
+}
+/* Clamped at ALL times. Un-clamping on hover grew the row in place and shoved the rows
+   below it down, so they jumped under the cursor — the popup shows the full name now. */
 .sa-prod-name {
+    flex: 1;
+    min-width: 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    cursor: default;
-    border-radius: 6px;
-    margin: -2px -4px;
-    padding: 2px 4px;
-    transition: background .18s;
 }
 @media (hover: hover) {
-    .sa-prod-item:hover .sa-prod-name {
-        -webkit-line-clamp: unset;
-        background: rgba(255,13,94,.06);
-    }
+    .sa-prod-item:hover { background: rgba(255,13,94,.06); }
 }
-.sa-prod-name.sa-expanded {
-    -webkit-line-clamp: unset;
-    background: rgba(255,13,94,.06);
-}
+.sa-prod-item:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
+.sa-prod-item .sa-sugg-thumb { width: 34px; height: 34px; border-radius: 7px; }
 .sa-prod-rank {
     flex-shrink: 0;
     width: 19px;

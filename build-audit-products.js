@@ -165,33 +165,59 @@ function lookup(name) {
 // ── keep only products the audit can actually surface ───────────────────────
 // Suggestions repeat heavily (129 unique products across 259 creators), so scoping the
 // output to referenced names keeps this at a few KB instead of ~1.1 MB.
-const sp = readCSV('sugg-products.csv');
+// Both product lists in the modal get the same treatment:
+//   sugg-products.csv = "Proven Winners To Add" (curated shortlist, 129 unique products)
+//   top-products.csv  = "Top 5 Products"        (what each creator actually sells, 1025 unique)
+// The second is a long tail, so its TAP coverage is far lower — that is a property of the
+// TAP catalog's size, not of the matcher.
 const out = {};
-const stats = { cells: 0, tapMatched: 0, tapUrl: 0, imaged: 0, unmatched: 0, byMethod: {} };
 const unmatchedNames = new Map();
+const perCreator = [];
+const feeds = {};
 
-for (let i = 1; i < sp.rows.length; i++) {
-    const r = sp.rows[i];
-    for (let k = 0; k < 5; k++) {
-        const name = (r[1 + k * 2] || '').trim();
-        if (!name) continue;
-        stats.cells++;
-        const n = norm(name);
-        const hit = lookup(name);
-        if (!hit) {
-            stats.unmatched++;
-            if (!unmatchedNames.has(n)) unmatchedNames.set(n, name);
-            continue;
+function auditFeed(file, label) {
+    const src = readCSV(file);
+    const st = { label, cells: 0, tapMatched: 0, tapUrl: 0, imaged: 0, unmatched: 0,
+                 imagedTap: 0, imagedNonTap: 0, byMethod: {}, creatorsWithTap: 0, creators: 0 };
+    for (let i = 1; i < src.rows.length; i++) {
+        const r = src.rows[i];
+        const handle = (r[0] || '').trim();
+        if (!handle) continue;
+        st.creators++;
+        let cTap = 0, cImg = 0, cCount = 0;
+        for (let k = 0; k < 5; k++) {
+            const name = (r[1 + k * 2] || '').trim();
+            if (!name) continue;
+            st.cells++; cCount++;
+            const n = norm(name);
+            const hit = lookup(name);
+            if (!hit) {
+                st.unmatched++;
+                if (!unmatchedNames.has(n)) unmatchedNames.set(n, name);
+                continue;
+            }
+            st.tapMatched++;
+            st.byMethod[hit.how] = (st.byMethod[hit.how] || 0) + 1;
+            if (hit.rec.link) { st.tapUrl++; cTap++; }
+            if (hit.rec.image) {
+                st.imaged++; cImg++;
+                // Image coverage split by TAP membership — if these two ever move together
+                // perfectly it means TAP is being used as an image proxy again.
+                if (hit.rec.link) st.imagedTap++; else st.imagedNonTap++;
+            }
+            // Serialised as an array to keep the payload small; index 0 (image) may be ""
+            // while index 1 (TAP link) is populated — treat them independently.
+            if (!out[n]) out[n] = [hit.rec.image, hit.rec.link, hit.rec.commission, hit.rec.brand, hit.rec.vs];
         }
-        stats.tapMatched++;
-        stats.byMethod[hit.how] = (stats.byMethod[hit.how] || 0) + 1;
-        if (hit.rec.link) stats.tapUrl++;
-        if (hit.rec.image) stats.imaged++;
-        // Serialised as an array to keep the payload small; index 0 (image) may be "" while
-        // index 1 (TAP link) is populated — the client must treat them independently.
-        if (!out[n]) out[n] = [hit.rec.image, hit.rec.link, hit.rec.commission, hit.rec.brand, hit.rec.vs];
+        if (cTap) st.creatorsWithTap++;
+        perCreator.push({ handle, feed: label, recommendations: cCount, tap: cTap, images: cImg });
     }
+    feeds[label] = st;
+    return st;
 }
+
+const suggStats = auditFeed('sugg-products.csv', 'provenWinners');
+const topStats  = auditFeed('top-products.csv', 'topProducts');
 
 // Prefix resolution happens HERE, at build time — a name that only matched a truncated
 // catalog entry is still stored under its full normalised name. So the client does a plain
@@ -199,21 +225,30 @@ for (let i = 1; i < sp.rows.length; i++) {
 // (400 prefix records carry a full image URL each). CI rebuilds this alongside
 // sugg-products.csv, so a name can only miss between a CSV push and that rebuild — and the
 // modal already renders a placeholder for unmatched products.
-const uniqWithImg  = Object.values(out).filter(v => v[0]).length;
-const uniqWithLink = Object.values(out).filter(v => v[1]).length;
 const pct = (a, b) => (b ? (a / b * 100).toFixed(1) : '0') + '%';
+const totals = ['cells','tapMatched','tapUrl','imaged','unmatched','imagedTap','imagedNonTap']
+    .reduce((o, k) => (o[k] = suggStats[k] + topStats[k], o), {});
+const nonTapCells = totals.cells - totals.tapUrl;
 
 const diagnostics = {
-    displayedProducts: stats.cells,
-    tapCampaignMatched: stats.tapMatched,
-    tapUrlPresent: stats.tapUrl,
-    imageMatched: stats.imaged,
-    unmatchedProducts: stats.unmatched,
-    matchedWithoutImage: stats.tapMatched - stats.imaged,
-    matchedWithoutTapUrl: stats.tapMatched - stats.tapUrl,
+    displayedProducts: totals.cells,
+    tapCampaignMatched: totals.tapMatched,
+    tapUrlPresent: totals.tapUrl,
+    imageMatched: totals.imaged,
+    unmatchedProducts: totals.unmatched,
+    matchedWithoutImage: totals.tapMatched - totals.imaged,
+    matchedWithoutTapUrl: totals.tapMatched - totals.tapUrl,
+    // The headline check: if non-TAP image coverage stays 0%, images are still coming
+    // only from the TAP catalog — i.e. TAP membership is acting as an image proxy.
+    imageCoverageTapProducts: pct(totals.imagedTap, totals.tapUrl),
+    imageCoverageNonTapProducts: pct(totals.imagedNonTap, nonTapCells),
+    byFeed: Object.fromEntries(Object.entries(feeds).map(([k, s]) => [k, {
+        recommendations: s.cells, tap: s.tapUrl, images: s.imaged,
+        tapPct: pct(s.tapUrl, s.cells), imagePct: pct(s.imaged, s.cells),
+        creators: s.creators, creatorsWithTap: s.creatorsWithTap
+    }])),
     uniqueProducts: Object.keys(out).length,
     uniqueUnmatched: unmatchedNames.size,
-    matchMethods: stats.byMethod,
     unmatchedSample: [...unmatchedNames.values()].slice(0, 10)
 };
 
@@ -221,18 +256,31 @@ const payload = { products: out, diagnostics: diagnostics };
 const outPath = path.join(shopDir, 'audit-products.json');
 fs.writeFileSync(outPath, JSON.stringify(payload));
 
-console.log('✓ audit-products.json written — ' + (fs.statSync(outPath).size / 1024).toFixed(1) + ' KB');
-console.log('  displayed products    : ' + stats.cells);
-console.log('  TAP campaign matched  : ' + stats.tapMatched + ' ' + pct(stats.tapMatched, stats.cells));
-console.log('  TAP URL present       : ' + stats.tapUrl + ' ' + pct(stats.tapUrl, stats.cells));
-console.log('  image matched         : ' + stats.imaged + ' ' + pct(stats.imaged, stats.cells));
-console.log('  unmatched products    : ' + stats.unmatched + ' ' + pct(stats.unmatched, stats.cells));
-console.log('  matched w/o image     : ' + diagnostics.matchedWithoutImage + '   (must still show TAP link)');
-console.log('  matched w/o TAP url   : ' + diagnostics.matchedWithoutTapUrl);
-console.log('  match methods         : ' + JSON.stringify(stats.byMethod));
-console.log('  unique products kept  : ' + diagnostics.uniqueProducts + ' (image: ' + uniqWithImg + ', TAP link: ' + uniqWithLink + ')');
-if (diagnostics.matchedWithoutTapUrl > 0) {
-    console.log('  ⚠ some matched products have a campaign but no TAP URL — check tap-links.csv');
-}
+console.log('✓ audit-products.json written — ' + (fs.statSync(outPath).size / 1024).toFixed(1) + ' KB\n');
+[suggStats, topStats].forEach(s => {
+    console.log('  ' + s.label + ':  ' + s.cells + ' recommendations | TAP ' + s.tapUrl + ' (' +
+        pct(s.tapUrl, s.cells) + ') | images ' + s.imaged + ' (' + pct(s.imaged, s.cells) + ')' +
+        ' | creators with >=1 TAP: ' + s.creatorsWithTap + '/' + s.creators);
+    console.log('      match methods: ' + JSON.stringify(s.byMethod));
+});
+console.log('\n  AGGREGATE');
+console.log('    displayed recommendations      : ' + totals.cells);
+console.log('    TAP campaign matched           : ' + totals.tapMatched + ' ' + pct(totals.tapMatched, totals.cells));
+console.log('    TAP URL present                : ' + totals.tapUrl + ' ' + pct(totals.tapUrl, totals.cells));
+console.log('    image matched                  : ' + totals.imaged + ' ' + pct(totals.imaged, totals.cells));
+console.log('    unmatched                      : ' + totals.unmatched + ' ' + pct(totals.unmatched, totals.cells));
+console.log('    matched w/o image              : ' + diagnostics.matchedWithoutImage);
+console.log('    TAP products image coverage    : ' + diagnostics.imageCoverageTapProducts);
+console.log('    non-TAP products image coverage: ' + diagnostics.imageCoverageNonTapProducts +
+    (totals.imagedNonTap === 0 ? '   <- images still come ONLY from the TAP catalog' : ''));
+
+console.log('\n  PER-CREATOR (first 8 of each feed)');
+['provenWinners', 'topProducts'].forEach(f => {
+    perCreator.filter(c => c.feed === f).slice(0, 8).forEach(c =>
+        console.log('    @' + c.handle.padEnd(22) + ' [' + f + '] ' + c.recommendations +
+            ' recommendations | TAP ' + c.tap + '/' + c.recommendations +
+            ' | images ' + c.images + '/' + c.recommendations));
+});
+
 console.log('\n  sample unmatched (no TAP campaign found):');
 diagnostics.unmatchedSample.forEach((n, i) => console.log('   ' + (i + 1) + '. ' + n.slice(0, 78)));
