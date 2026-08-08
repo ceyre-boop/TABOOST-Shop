@@ -27,6 +27,16 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
     function saFmt(n) { return '$' + Math.round(n || 0).toLocaleString('en-US'); }
 
+    // Every figure we show is an estimate off a lagging export, so cents imply a
+    // precision the data doesn't have. Feed cells arrive as "$175,316.52" — round
+    // on ingest so display AND the AI payload are covered in one place.
+    function saMoneyStr(raw) {
+        const s = String(raw == null ? '' : raw).trim();
+        if (!s) return '';
+        const n = parseFloat(s.replace(/[^0-9.-]/g, ''));
+        return isNaN(n) ? s : '$' + Math.round(n).toLocaleString('en-US');
+    }
+
     // Compact form for chart labels — full figures don't fit above a bar.
     function saFmtShort(n) {
         n = Math.round(n || 0);
@@ -128,7 +138,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             const items = [];
             for (let k = 0; k < 5; k++) {
                 const name = (r[1 + k * 2] || '').trim();
-                const gmv = (r[2 + k * 2] || '').trim();
+                const gmv = saMoneyStr(r[2 + k * 2]);
                 if (name) items.push({ rank: k + 1, name: name, gmv: gmv });
             }
             if (items.length) saSuggested[handle] = items;
@@ -149,13 +159,13 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             const products = [];
             for (let k = 0; k < 5; k++) {
                 const name = (r[1 + k * 2] || '').trim();   // B, D, F, H, J
-                const gmv = (r[2 + k * 2] || '').trim();    // C, E, G, I, K
+                const gmv = saMoneyStr(r[2 + k * 2]);    // C, E, G, I, K
                 if (name) products.push({ rank: k + 1, name: name, gmv: gmv });
             }
             const categories = [];
             [[11, 12], [13, 14]].forEach(([ci, gi]) => {    // L/M, N/O
                 const name = (r[ci] || '').trim();
-                if (name) categories.push({ name: name, gmv: (r[gi] || '').trim() });
+                if (name) categories.push({ name: name, gmv: saMoneyStr(r[gi]) });
             });
             if (products.length || categories.length) saTopProducts[handle] = { products: products, categories: categories };
         }
