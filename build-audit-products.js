@@ -118,24 +118,47 @@ for (let i = 1; i < tp.rows.length; i++) {
     // Campaign names carry a year suffix ("medicube 2026"); the popup reads as a brand.
     const brand = (camp.brand || (pCname >= 0 ? (r[pCname] || '') : ''))
         .trim().replace(/\s+20\d{2}$/, '');
-    const rec = [
-        decodeEntities(images[id] || ''),
-        camp.link || '',
-        commission,
-        brand,
-        pVs >= 0 ? (r[pVs] || '').split('\n')[0].trim() : ''
-    ];
+    // Image and TAP campaign are INDEPENDENT joins: name -> campaign (link) and
+    // product id -> image. A product with a campaign but no cached image must still
+    // surface its TAP link, so an empty image never suppresses the rest of the record.
+    const rec = {
+        image: decodeEntities(images[id] || ''),
+        link: camp.link || '',
+        commission: commission,
+        brand: brand,
+        vs: pVs >= 0 ? (r[pVs] || '').split('\n')[0].trim() : '',
+        productId: id,
+        campaignId: (r[pCid] || '').trim()
+    };
 
     if (truncated) prefixes.push({ key, rec });
     else if (!exact.has(key)) exact.set(key, rec);
 }
 prefixes.sort((a, b) => b.key.length - a.key.length);
 
+// Minimum catalog-key length before we'll accept a mid-string match. The suggestions feed
+// sometimes carries a marketing/brand prefix the TAP export doesn't ("sacheu LIP LINER
+// STAY-N..." vs "LIP LINER STAY-N..."), so a strict startsWith misses a product we do have
+// a campaign for. 40 chars of exact text is long enough that a collision is implausible,
+// and we still refuse the match if it resolves to more than one campaign — a missing image
+// is fine, a wrong TAP link is not.
+const MIN_CONTAINS_KEY = 40;
+
 function lookup(name) {
     const n = norm(name);
     if (!n) return null;
-    if (exact.has(n)) return exact.get(n);
-    for (const p of prefixes) if (n.startsWith(p.key)) return p.rec;
+    if (exact.has(n)) return { rec: exact.get(n), how: 'exact' };
+    for (const p of prefixes) if (n.startsWith(p.key)) return { rec: p.rec, how: 'prefix' };
+
+    // Widened, still conservative: unique long substring.
+    const hits = [];
+    for (const [key, rec] of exact) if (key.length >= MIN_CONTAINS_KEY && n.includes(key)) hits.push(rec);
+    for (const p of prefixes) if (p.key.length >= MIN_CONTAINS_KEY && n.includes(p.key)) hits.push(p.rec);
+    if (hits.length) {
+        const links = new Set(hits.map(h => h.link));
+        if (links.size === 1) return { rec: hits[0], how: 'contains' };
+        return null;   // ambiguous across campaigns — refuse rather than guess
+    }
     return null;
 }
 
@@ -144,19 +167,29 @@ function lookup(name) {
 // output to referenced names keeps this at a few KB instead of ~1.1 MB.
 const sp = readCSV('sugg-products.csv');
 const out = {};
-let cells = 0, matched = 0;
+const stats = { cells: 0, tapMatched: 0, tapUrl: 0, imaged: 0, unmatched: 0, byMethod: {} };
+const unmatchedNames = new Map();
 
 for (let i = 1; i < sp.rows.length; i++) {
     const r = sp.rows[i];
     for (let k = 0; k < 5; k++) {
         const name = (r[1 + k * 2] || '').trim();
         if (!name) continue;
-        cells++;
-        const rec = lookup(name);
-        if (!rec) continue;
-        matched++;
+        stats.cells++;
         const n = norm(name);
-        if (!out[n]) out[n] = rec;
+        const hit = lookup(name);
+        if (!hit) {
+            stats.unmatched++;
+            if (!unmatchedNames.has(n)) unmatchedNames.set(n, name);
+            continue;
+        }
+        stats.tapMatched++;
+        stats.byMethod[hit.how] = (stats.byMethod[hit.how] || 0) + 1;
+        if (hit.rec.link) stats.tapUrl++;
+        if (hit.rec.image) stats.imaged++;
+        // Serialised as an array to keep the payload small; index 0 (image) may be "" while
+        // index 1 (TAP link) is populated — the client must treat them independently.
+        if (!out[n]) out[n] = [hit.rec.image, hit.rec.link, hit.rec.commission, hit.rec.brand, hit.rec.vs];
     }
 }
 
@@ -166,15 +199,40 @@ for (let i = 1; i < sp.rows.length; i++) {
 // (400 prefix records carry a full image URL each). CI rebuilds this alongside
 // sugg-products.csv, so a name can only miss between a CSV push and that rebuild — and the
 // modal already renders a placeholder for unmatched products.
-const payload = { products: out };
+const uniqWithImg  = Object.values(out).filter(v => v[0]).length;
+const uniqWithLink = Object.values(out).filter(v => v[1]).length;
+const pct = (a, b) => (b ? (a / b * 100).toFixed(1) : '0') + '%';
+
+const diagnostics = {
+    displayedProducts: stats.cells,
+    tapCampaignMatched: stats.tapMatched,
+    tapUrlPresent: stats.tapUrl,
+    imageMatched: stats.imaged,
+    unmatchedProducts: stats.unmatched,
+    matchedWithoutImage: stats.tapMatched - stats.imaged,
+    matchedWithoutTapUrl: stats.tapMatched - stats.tapUrl,
+    uniqueProducts: Object.keys(out).length,
+    uniqueUnmatched: unmatchedNames.size,
+    matchMethods: stats.byMethod,
+    unmatchedSample: [...unmatchedNames.values()].slice(0, 10)
+};
+
+const payload = { products: out, diagnostics: diagnostics };
 const outPath = path.join(shopDir, 'audit-products.json');
 fs.writeFileSync(outPath, JSON.stringify(payload));
 
-const size = fs.statSync(outPath).size;
-const withImg = Object.values(out).filter(v => v[0]).length;
-const withLink = Object.values(out).filter(v => v[1]).length;
-
-console.log('✓ audit-products.json written — ' + (size / 1024).toFixed(1) + ' KB');
-console.log('  suggestion cells:   ' + cells);
-console.log('  matched cells:      ' + matched + ' (' + (cells ? (matched / cells * 100).toFixed(1) : '0') + '%)');
-console.log('  unique products:    ' + Object.keys(out).length + '  (image: ' + withImg + ', TAP link: ' + withLink + ')');
+console.log('✓ audit-products.json written — ' + (fs.statSync(outPath).size / 1024).toFixed(1) + ' KB');
+console.log('  displayed products    : ' + stats.cells);
+console.log('  TAP campaign matched  : ' + stats.tapMatched + ' ' + pct(stats.tapMatched, stats.cells));
+console.log('  TAP URL present       : ' + stats.tapUrl + ' ' + pct(stats.tapUrl, stats.cells));
+console.log('  image matched         : ' + stats.imaged + ' ' + pct(stats.imaged, stats.cells));
+console.log('  unmatched products    : ' + stats.unmatched + ' ' + pct(stats.unmatched, stats.cells));
+console.log('  matched w/o image     : ' + diagnostics.matchedWithoutImage + '   (must still show TAP link)');
+console.log('  matched w/o TAP url   : ' + diagnostics.matchedWithoutTapUrl);
+console.log('  match methods         : ' + JSON.stringify(stats.byMethod));
+console.log('  unique products kept  : ' + diagnostics.uniqueProducts + ' (image: ' + uniqWithImg + ', TAP link: ' + uniqWithLink + ')');
+if (diagnostics.matchedWithoutTapUrl > 0) {
+    console.log('  ⚠ some matched products have a campaign but no TAP URL — check tap-links.csv');
+}
+console.log('\n  sample unmatched (no TAP campaign found):');
+diagnostics.unmatchedSample.forEach((n, i) => console.log('   ' + (i + 1) + '. ' + n.slice(0, 78)));
