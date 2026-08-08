@@ -119,9 +119,14 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return rows;
     }
 
+    // These feeds are rebuilt by CI without the HTML's ?v= being bumped, so a plain
+    // fetch() serves whatever the browser cached and creators see stale numbers.
+    // 'no-cache' revalidates against the server every time (cheap 304 when unchanged).
+    const SA_FETCH_OPTS = { cache: 'no-cache' };
+
     async function saFetchCSV(path) {
         try {
-            const res = await fetch(path);
+            const res = await fetch(path, SA_FETCH_OPTS);
             if (!res.ok) return null;
             return saParseCSV(await res.text());
         } catch (e) {
@@ -182,7 +187,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (saAuditProducts) return;
         saAuditProducts = {};
         try {
-            const res = await fetch('data/shop/audit-products.json');
+            const res = await fetch('data/shop/audit-products.json', SA_FETCH_OPTS);
             if (!res.ok) return;
             const json = await res.json();
             saAuditProducts = (json && json.products) || {};
