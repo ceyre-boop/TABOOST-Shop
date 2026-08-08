@@ -10,6 +10,7 @@ on:
       - 'data/shop/tap-links.csv'
       - 'data/shop/tap-products.csv'
       - 'data/shop/shop-current.csv'
+      - 'data/shop/sugg-products.csv'
 
 # Only one rebuild at a time. When App Scripts push 5 CSVs in rapid succession,
 # each commit triggers this workflow. The concurrency group cancels in-progress
@@ -52,7 +53,13 @@ jobs:
       - name: Rebuild product-data.js (TAP storefront)
         run: node build-product-data.js data/shop
 
+      # Product image + brand TAP campaign lookup behind the audit modal's Proven Winners
+      # popup. Same feeds as the storefront, but scoped to products actually suggested to
+      # creators, so it stays a few KB rather than shipping the whole catalog to the modal.
+      - name: Rebuild audit-products.json (audit modal popup)
+        run: node build-audit-products.js
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Auto-rebuild: shop-data.js + product-data.js from CSV'
-          file_pattern: 'js/shop-data.js js/product-data.js index.html'
+          file_pattern: 'js/shop-data.js js/product-data.js index.html data/shop/audit-products.json'

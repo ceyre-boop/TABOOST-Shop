@@ -44,6 +44,7 @@
 @keyframes auditSpin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
     .sa-modal { animation: none; }
+    .sa-pop-card { animation: none; }
     .sa-shimmer, .sa-spinner { animation: none; }
 }
 
@@ -538,15 +539,158 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    cursor: default;
 }
+/* The name stays clamped at ALL times. Un-clamping on hover used to grow the row in
+   place, shoving the rows below it down and making them jump under the cursor. The
+   popup shows the full name instead, so hover only needs to signal "clickable" —
+   a tint, which costs no reflow. */
+.sa-sugg-row { cursor: pointer; transition: background .18s, border-color .18s; }
 @media (hover: hover) {
-    .sa-sugg-row:hover .sa-sugg-name { -webkit-line-clamp: unset; }
+    .sa-sugg-row:hover { background: #fff6f9; border-color: rgba(255,13,94,.34); }
 }
-.sa-sugg-name.sa-expanded { -webkit-line-clamp: unset; }
+.sa-sugg-row:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
+
+/* Product thumbnail in the row */
+.sa-sugg-thumb {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+    object-fit: cover;
+    background: #f4efe7;
+    border: 1px solid rgba(255,13,94,.12);
+}
+.sa-sugg-thumb.sa-thumb-none,
+.sa-sugg-thumb.sa-thumb-failed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,13,94,.42);
+    font-size: 19px;
+}
+/* A broken <img> would show the browser's torn-page glyph; repaint it as the placeholder. */
+.sa-sugg-thumb.sa-thumb-failed { content: none; }
+
+/* "TAP" chip — only rendered when that product's brand has a TAP campaign */
+.sa-sugg-tap {
+    flex-shrink: 0;
+    align-self: flex-start;
+    background: #ff0d5e;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    font-size: 10px;
+    letter-spacing: .6px;
+    padding: 3px 7px;
+    border-radius: 5px;
+}
+
 .sa-sugg-gmv { flex-shrink: 0; text-align: right; }
 .sa-sugg-gmv .amount { font-family: 'Anton', sans-serif; color: #ff0d5e; font-size: 19px; line-height: 1; }
 .sa-sugg-gmv .label { color: #8a8478; font-size: 10px; letter-spacing: .3px; }
+
+/* ---------- Product popup ---------- */
+/* Sits on document.body above .sa-overlay (z-index 4000), because .sa-modal's
+   auditFadeUp transform would otherwise contain a position:fixed child. */
+.sa-pop {
+    position: fixed;
+    inset: 0;
+    z-index: 4100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 18px;
+    background: rgba(12,11,10,.94);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+.sa-pop.open { display: flex; }
+.sa-pop-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border: 1px solid rgba(255,13,94,.12);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
+    animation: auditFadeUp .28s cubic-bezier(.22,1,.36,1);
+}
+.sa-pop-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(12,11,10,.55);
+    color: #fff;
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+}
+.sa-pop-close:hover { background: rgba(12,11,10,.78); }
+.sa-pop-media {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 300px;
+    background: #f4efe7;
+}
+.sa-pop-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sa-pop-noimg {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+    color: rgba(255,13,94,.3);
+    background: #f4efe7;
+}
+.sa-pop-body { padding: 18px 20px 22px; text-align: left; }
+.sa-pop-name {
+    color: #2a2825;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 14px;
+}
+.sa-pop-stats { display: flex; gap: 22px; flex-wrap: wrap; }
+.sa-pop-stat .k { color: #8a8478; font-size: 10px; letter-spacing: .4px; text-transform: uppercase; }
+.sa-pop-stat .v { font-family: 'Anton', sans-serif; color: #ff0d5e; font-size: 21px; line-height: 1.1; }
+.sa-pop-tap {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #fff6f9;
+    border: 1px solid rgba(255,13,94,.22);
+}
+.sa-pop-tap-head {
+    color: #ff0d5e;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    margin-bottom: 7px;
+}
+.sa-pop-tap-head .star { font-size: 12px; }
+.sa-pop-brand { color: #2a2825; font-size: 15px; font-weight: 700; }
+.sa-pop-rate { color: #2a2825; font-size: 13.5px; font-weight: 600; margin-top: 2px; }
+.sa-pop-rate .vs { color: #8a8478; font-weight: 500; font-size: 12px; }
+.sa-pop-cta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #ff0d5e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+}
+.sa-pop-cta:hover { background: #e00b53; }
 
 /* Footer */
 .sa-foot {
@@ -687,6 +831,12 @@
     .sa-sugg-row { flex-wrap: wrap; row-gap: 6px; gap: 12px; padding: 12px 14px; cursor: pointer; }
     /* flex-basis 0 keeps the name beside the rank badge instead of wrapping below it */
     .sa-sugg-name { flex: 1 1 0; min-width: 0; -webkit-line-clamp: 3; font-size: 13.5px; }
+    .sa-sugg-thumb { width: 38px; height: 38px; }
+    /* Full-width sheet pinned to the bottom — easier to reach one-handed than a
+       centred dialog, and the close control stays clear of the thumb zone. */
+    .sa-pop { align-items: flex-end; padding: 0; }
+    .sa-pop-card { max-width: none; border-radius: 18px 18px 0 0; max-height: 92vh; overflow-y: auto; }
+    .sa-pop-media { max-height: 230px; }
     .sa-sugg-gmv {
         flex: 0 0 100%;
         display: flex;
