@@ -35,3 +35,42 @@ Without proper invalidation, Edge CDN caches and end-user browsers will stubborn
    - `shop-dashboard.html` (for CSS and JS links)
    - `js/shop-dashboard.js` (for the internal `recent-orders.csv` fetch string).
 5. Committing these timestamp changes globally triggers Github Pages cache wipe, so any user visiting the platform forces a fresh redownload.
+
+---
+
+## 4. OPEN DATA REQUIREMENT — `Product ID` on the product exports
+
+**Ask:** add `Product ID` to the exports that generate **Top 5 Products** and **Suggested
+Products**.
+
+```
+Current:  Creator | Product Name | GMV
+Needed:   Creator | Product Name | Product ID | GMV
+```
+
+**Why.** The Shop Account Audit modal shows a product thumbnail per row. Images are resolved by
+**TikTok product ID** — `fetch_product_images.py` reads `tiktok.com/view/product/{id}` and caches
+the result in `data/shop/product-images.json`. Those exports carry only a product *name*, so the
+only dataset that can bridge name → ID is the TAP campaign catalog (`tap-products.csv`).
+
+Consequences today, measured:
+
+| | |
+|---|---|
+| Image coverage, TAP-catalog products | **98.9%** |
+| Image coverage, non-TAP products | **0.0%** |
+| Cached images orphaned (no dataset maps the ID back to a name) | **2,135** |
+
+So a creator whose recommendations are mostly non-TAP products sees the ★ placeholder on every
+row. That is an honest data limitation, **not** a UI bug — and it must not be "fixed" with looser
+title matching, which would risk attaching the wrong product or the wrong TAP campaign.
+
+**Once the column exists**, no new tooling is needed:
+- join images by **exact product ID** — `resolveFeedColumns()` in `build-audit-products.js` and
+  `saResolveColumns()` in `js/shop-audit.js` already detect an optional per-slot id column and
+  will use it automatically
+- keep **TAP campaign matching independent and title-based** (SKU-level). A product ID must never
+  influence which campaign is attached to a row.
+
+Both parsers resolve their columns from the CSV **header**, not fixed offsets, so inserting the
+new column will not shift-corrupt the parse. Until it appears, output is unchanged.

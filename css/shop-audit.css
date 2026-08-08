@@ -564,16 +564,16 @@
     background: #f4efe7;
     border: 1px solid rgba(255,13,94,.12);
 }
-.sa-sugg-thumb.sa-thumb-none,
-.sa-sugg-thumb.sa-thumb-failed {
+/* Deliberate "exact SKU unknown" state — same box as a real thumbnail, no animation, no
+   broken-image glyph. A failed <img> is swapped for this same element in shop-audit.js
+   (saWatchThumbs), so the two states are pixel-identical. */
+.sa-sugg-thumb.sa-thumb-none {
     display: flex;
     align-items: center;
     justify-content: center;
     color: rgba(255,13,94,.42);
     font-size: 19px;
 }
-/* A broken <img> would show the browser's torn-page glyph; repaint it as the placeholder. */
-.sa-sugg-thumb.sa-thumb-failed { content: none; }
 
 /* "TAP" chip — only rendered when that product's brand has a TAP campaign */
 .sa-sugg-tap {

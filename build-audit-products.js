@@ -62,6 +62,43 @@ function decodeEntities(url) {
         .replace(/&#39;/g, "'");
 }
 
+// Both product feeds are laid out as repeating slots:
+//   Creator, <name 1>, <gmv 1>, <name 2>, <gmv 2>, ...
+// Historically these were read positionally with a hardcoded stride of 2. Adding a
+// "Product ID" column upstream would shift every index and silently corrupt the parse, so
+// resolve the columns from the HEADER instead and treat an id column as optional.
+// Today no feed has one, and this must produce byte-identical output until one appears.
+function resolveFeedColumns(headers) {
+    const h = (headers || []).map(x => String(x || '').trim());
+    const slots = [], categories = [];
+
+    for (let k = 1; k <= 5; k++) {
+        // "Top 3 Product" / "Suggested Product 3" — but NOT "Top 3 Product GMV" or a category
+        const nameIdx = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*product|suggested\\s*product\\s*' + k + ')$', 'i').test(x));
+        if (nameIdx < 0) continue;
+        const gmvIdx = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*product\\s*gmv|total\\s*gmv\\s*' + k + ')$', 'i').test(x));
+        const idIdx = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*)?(product\\s*_?id|sku(\\s*id)?)(\\s*' + k + ')?$', 'i').test(x));
+        slots.push({ name: nameIdx, gmv: gmvIdx, id: idIdx >= 0 ? idIdx : null });
+    }
+
+    for (let k = 1; k <= 2; k++) {
+        const nameIdx = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category$', 'i').test(x));
+        if (nameIdx < 0) continue;
+        const gmvIdx = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category\\s*gmv$', 'i').test(x));
+        categories.push({ name: nameIdx, gmv: gmvIdx });
+    }
+
+    // Unrecognised header — fall back to the legacy fixed layout rather than dropping rows.
+    if (!slots.length) {
+        for (let k = 0; k < 5; k++) slots.push({ name: 1 + k * 2, gmv: 2 + k * 2, id: null });
+        categories.push({ name: 11, gmv: 12 }, { name: 13, gmv: 14 });
+    }
+    return { slots, categories };
+}
+
 function readCSV(name) {
     const p = path.join(shopDir, name);
     if (!fs.existsSync(p)) throw new Error('missing feed: data/shop/' + name);
@@ -177,29 +214,43 @@ const feeds = {};
 
 function auditFeed(file, label) {
     const src = readCSV(file);
+    const cols = resolveFeedColumns(src.headers);
     const st = { label, cells: 0, tapMatched: 0, tapUrl: 0, imaged: 0, unmatched: 0,
-                 imagedTap: 0, imagedNonTap: 0, byMethod: {}, creatorsWithTap: 0, creators: 0 };
+                 imagedTap: 0, imagedNonTap: 0, byMethod: {}, creatorsWithTap: 0, creators: 0,
+                 hasProductId: cols.slots.some(s => s.id != null), imagedById: 0 };
     for (let i = 1; i < src.rows.length; i++) {
         const r = src.rows[i];
         const handle = (r[0] || '').trim();
         if (!handle) continue;
         st.creators++;
         let cTap = 0, cImg = 0, cCount = 0;
-        for (let k = 0; k < 5; k++) {
-            const name = (r[1 + k * 2] || '').trim();
+        for (const slot of cols.slots) {
+            const name = (r[slot.name] || '').trim();
             if (!name) continue;
             st.cells++; cCount++;
             const n = norm(name);
+
+            // IMAGE JOIN — independent of TAP. An exact product id, when the export ever
+            // carries one, is authoritative and needs no title matching.
+            const productId = slot.id != null ? (r[slot.id] || '').trim() : '';
+            let image = productId && images[productId] ? decodeEntities(images[productId]) : '';
+            if (image) st.imagedById++;
+
+            // TAP JOIN — title-based, SKU-level, deliberately unaffected by any product id.
             const hit = lookup(name);
             if (!hit) {
                 st.unmatched++;
                 if (!unmatchedNames.has(n)) unmatchedNames.set(n, name);
+                // A product can still have an image without a TAP campaign.
+                if (image && !out[n]) out[n] = [image, '', '', '', ''];
+                if (image) { st.imaged++; cImg++; st.imagedNonTap++; }
                 continue;
             }
             st.tapMatched++;
             st.byMethod[hit.how] = (st.byMethod[hit.how] || 0) + 1;
             if (hit.rec.link) { st.tapUrl++; cTap++; }
-            if (hit.rec.image) {
+            if (!image) image = hit.rec.image;
+            if (image) {
                 st.imaged++; cImg++;
                 // Image coverage split by TAP membership — if these two ever move together
                 // perfectly it means TAP is being used as an image proxy again.
@@ -207,7 +258,7 @@ function auditFeed(file, label) {
             }
             // Serialised as an array to keep the payload small; index 0 (image) may be ""
             // while index 1 (TAP link) is populated — treat them independently.
-            if (!out[n]) out[n] = [hit.rec.image, hit.rec.link, hit.rec.commission, hit.rec.brand, hit.rec.vs];
+            if (!out[n]) out[n] = [image, hit.rec.link, hit.rec.commission, hit.rec.brand, hit.rec.vs];
         }
         if (cTap) st.creatorsWithTap++;
         perCreator.push({ handle, feed: label, recommendations: cCount, tap: cTap, images: cImg });

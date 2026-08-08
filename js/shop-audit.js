@@ -135,21 +135,54 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         }
     }
 
+    // Both feeds are repeating "name, gmv" slots. Resolve the columns from the header rather
+    // than a hardcoded stride, so adding an upstream "Product ID" column shifts indices safely
+    // instead of silently corrupting the parse. Mirrors resolveFeedColumns() in
+    // build-audit-products.js — keep the two in step.
+    function saResolveColumns(headers) {
+        const h = (headers || []).map(x => String(x || '').trim());
+        const slots = [], categories = [];
+        for (let k = 1; k <= 5; k++) {
+            const name = h.findIndex(x =>
+                new RegExp('^(top\\s*' + k + '\\s*product|suggested\\s*product\\s*' + k + ')$', 'i').test(x));
+            if (name < 0) continue;
+            const gmv = h.findIndex(x =>
+                new RegExp('^(top\\s*' + k + '\\s*product\\s*gmv|total\\s*gmv\\s*' + k + ')$', 'i').test(x));
+            const id = h.findIndex(x =>
+                new RegExp('^(top\\s*' + k + '\\s*)?(product\\s*_?id|sku(\\s*id)?)(\\s*' + k + ')?$', 'i').test(x));
+            slots.push({ name: name, gmv: gmv, id: id >= 0 ? id : null });
+        }
+        for (let k = 1; k <= 2; k++) {
+            const name = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category$', 'i').test(x));
+            if (name < 0) continue;
+            const gmv = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category\\s*gmv$', 'i').test(x));
+            categories.push({ name: name, gmv: gmv });
+        }
+        if (!slots.length) {
+            for (let k = 0; k < 5; k++) slots.push({ name: 1 + k * 2, gmv: 2 + k * 2, id: null });
+            categories.push({ name: 11, gmv: 12 }, { name: 13, gmv: 14 });
+        }
+        return { slots: slots, categories: categories };
+    }
+
     async function saLoadSuggested() {
         if (saSuggested) return;
         saSuggested = {};
         const rows = await saFetchCSV('data/shop/sugg-products.csv');
         if (!rows) return;
+        const cols = saResolveColumns(rows[0]);
         for (let i = 1; i < rows.length; i++) {
             const r = rows[i];
             const handle = (r[0] || '').trim().toLowerCase();
             if (!handle) continue;
             const items = [];
-            for (let k = 0; k < 5; k++) {
-                const name = (r[1 + k * 2] || '').trim();
-                const gmv = saMoneyStr(r[2 + k * 2]);
-                if (name) items.push({ rank: k + 1, name: name, gmv: gmv });
-            }
+            cols.slots.forEach((slot, k) => {
+                const name = (r[slot.name] || '').trim();
+                if (!name) return;
+                // productId is null today; carried through so it isn't dropped once it exists.
+                items.push({ rank: k + 1, name: name, gmv: saMoneyStr(r[slot.gmv]),
+                             productId: slot.id != null ? (r[slot.id] || '').trim() : '' });
+            });
             if (items.length) saSuggested[handle] = items;
         }
     }
@@ -161,20 +194,22 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         saTopProducts = {};
         const rows = await saFetchCSV('data/shop/top-products.csv');
         if (!rows) return;
+        const cols = saResolveColumns(rows[0]);
         for (let i = 1; i < rows.length; i++) {
             const r = rows[i];
             const handle = (r[0] || '').trim().toLowerCase();
             if (!handle) continue;
             const products = [];
-            for (let k = 0; k < 5; k++) {
-                const name = (r[1 + k * 2] || '').trim();   // B, D, F, H, J
-                const gmv = saMoneyStr(r[2 + k * 2]);    // C, E, G, I, K
-                if (name) products.push({ rank: k + 1, name: name, gmv: gmv });
-            }
+            cols.slots.forEach((slot, k) => {
+                const name = (r[slot.name] || '').trim();
+                if (!name) return;
+                products.push({ rank: k + 1, name: name, gmv: saMoneyStr(r[slot.gmv]),
+                                productId: slot.id != null ? (r[slot.id] || '').trim() : '' });
+            });
             const categories = [];
-            [[11, 12], [13, 14]].forEach(([ci, gi]) => {    // L/M, N/O
-                const name = (r[ci] || '').trim();
-                if (name) categories.push({ name: name, gmv: saMoneyStr(r[gi]) });
+            cols.categories.forEach(c => {
+                const name = (r[c.name] || '').trim();
+                if (name) categories.push({ name: name, gmv: saMoneyStr(r[c.gmv]) });
             });
             if (products.length || categories.length) saTopProducts[handle] = { products: products, categories: categories };
         }
@@ -216,11 +251,27 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     // Shared row furniture so "Top 5 Products" and "Proven Winners" stay identical.
     // Both take the SAME record, and read image and link independently — a product may
     // have either, both, or neither.
+    // The ★ tile is a deliberate "we can't identify this exact SKU" state, not a failure —
+    // most products aren't in the TAP catalog and no other dataset maps a product name to an
+    // image. A failed <img> must therefore collapse into the SAME tile: styling the <img>
+    // alone left an empty tinted square (an <img> has no text child), which read as broken.
+    const SA_THUMB_NONE = '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
+
     function saThumb(p) {
         return p && p.image
-            ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" ' +
-              'referrerpolicy="no-referrer" onerror="this.classList.add(\'sa-thumb-failed\')">'
-            : '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
+            ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" referrerpolicy="no-referrer">'
+            : SA_THUMB_NONE;
+    }
+
+    // error doesn't bubble, so this listens in the capture phase rather than inline onerror
+    // (which would need the placeholder markup escaped into an HTML attribute).
+    function saWatchThumbs(root) {
+        root.addEventListener('error', e => {
+            const img = e.target;
+            if (img && img.tagName === 'IMG' && img.classList.contains('sa-sugg-thumb')) {
+                img.outerHTML = SA_THUMB_NONE;
+            }
+        }, true);
     }
     function saTapChip(p) {
         return p && p.link ? '<div class="sa-sugg-tap" title="TAP campaign available">TAP</div>' : '';
@@ -813,7 +864,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             '<div class="sa-inner sa-suggested" id="saSuggested">' +
               '<div class="sa-sugg-head">' +
                 '<div class="sa-sugg-title"><span class="star">★</span> Proven Winners To Add</div>' +
-                '<div class="sa-sugg-soon">TAP-linked picks coming soon</div>' +
               '</div>' +
               '<div class="sa-sugg-sub" id="saSuggSub"></div>' +
               '<div class="sa-sugg-list" id="saSuggList"></div>' +
@@ -825,6 +875,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
           '</div>' +
         '</div>';
         document.body.appendChild(overlay);
+        saWatchThumbs(overlay);
 
         overlay.querySelector('#saClose').addEventListener('click', closeShopAudit);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeShopAudit(); });
