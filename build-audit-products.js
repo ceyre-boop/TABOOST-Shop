@@ -49,6 +49,19 @@ function norm(s) {
         .trim();
 }
 
+// product-images.json was scraped from HTML, so its URLs carry entity-encoded separators
+// ("...?dr=12190&amp;t=555f072d"). The client renders the thumbnail through innerHTML with
+// saEsc(), which escapes the "&" again — the browser then decodes ONE level and the URL
+// keeps a literal "&amp;", which the TikTok CDN rejects. Decode here so what we store is a
+// clean URL and saEsc round-trips correctly.
+function decodeEntities(url) {
+    return String(url || '')
+        .replace(/&amp;/g, '&')
+        .replace(/&#38;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+}
+
 function readCSV(name) {
     const p = path.join(shopDir, name);
     if (!fs.existsSync(p)) throw new Error('missing feed: data/shop/' + name);
@@ -99,7 +112,7 @@ for (let i = 1; i < tp.rows.length; i++) {
     const id = (r[pId] || '').trim();
     const camp = campaigns[(r[pCid] || '').trim()] || {};
     const rec = [
-        images[id] || '',
+        decodeEntities(images[id] || ''),
         camp.link || '',
         (r[pComm] || '').trim(),
         camp.brand || (pCname >= 0 ? (r[pCname] || '').trim() : ''),
