@@ -23,7 +23,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     let saSuggested = null;   // handle -> [{rank,name,gmv}]
     let saTopProducts = null; // handle -> { categories:[{name,gmv}], products:[{rank,name,gmv}] }
     let saAuditProducts = null; // normalised product name -> [image, link, commission, brand, vs]
-    let saPopOpen = false;
     let saAbort = null;
 
     // Month-End flags any account averaging below this commission rate.
@@ -277,84 +276,21 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return p && p.link ? '<div class="sa-sugg-tap" title="TAP campaign available">TAP</div>' : '';
     }
 
+    // A row is a link ONLY when that exact product has a TAP campaign — it goes straight to
+    // TikTok, no intermediate step. Without a campaign there is nothing to open, so the row
+    // stays a plain div: not focusable, no pointer, no hover affordance.
+    function saRowOpen(p, cls) {
+        return p && p.link
+            ? '<a class="' + cls + ' sa-row-link" href="' + saEsc(p.link) + '" ' +
+              'target="_blank" rel="noopener noreferrer">'
+            : '<div class="' + cls + '">';
+    }
+    function saRowClose(p) {
+        return p && p.link ? '</a>' : '</div>';
+    }
+
     function saForHandle(map, handle) {
         return (map && handle && map[handle.toLowerCase()]) || null;
-    }
-
-    // ---------- product popup ----------
-    // Lives on document.body, NOT inside .sa-modal: the modal's auditFadeUp transform
-    // would contain a position:fixed child, and the mobile control bar sits at z-index 20.
-
-    function saBuildPop() {
-        let pop = document.getElementById('saPop');
-        if (pop) return pop;
-        pop = document.createElement('div');
-        pop.id = 'saPop';
-        pop.className = 'sa-pop';
-        pop.innerHTML =
-            '<div class="sa-pop-card" role="dialog" aria-modal="true" aria-labelledby="saPopName">' +
-              '<button class="sa-pop-close" id="saPopClose" type="button" aria-label="Close product">&times;</button>' +
-              '<div class="sa-pop-media" id="saPopMedia"></div>' +
-              '<div class="sa-pop-body">' +
-                '<div class="sa-pop-name" id="saPopName"></div>' +
-                '<div class="sa-pop-stats" id="saPopStats"></div>' +
-                '<div class="sa-pop-tap" id="saPopTap"></div>' +
-              '</div>' +
-            '</div>';
-        document.body.appendChild(pop);
-        pop.querySelector('#saPopClose').addEventListener('click', saClosePop);
-        pop.addEventListener('click', e => { if (e.target === pop) saClosePop(); });
-        return pop;
-    }
-
-    function saOpenPop(item, gmvLabel) {
-        if (!item) return;
-        const pop = saBuildPop();
-        const p = saProductFor(item.name) || {};
-
-        pop.querySelector('#saPopMedia').innerHTML = p.image
-            ? '<img src="' + saEsc(p.image) + '" alt="" referrerpolicy="no-referrer" ' +
-              'onerror="this.parentNode.innerHTML=\'<div class=&quot;sa-pop-noimg&quot;>&#9733;</div>\'">'
-            : '<div class="sa-pop-noimg" aria-hidden="true">&#9733;</div>';
-
-        pop.querySelector('#saPopName').textContent = item.name;
-
-        const stats = [];
-        if (item.gmv) stats.push([gmvLabel || 'Category GMV', item.gmv]);
-        if (p.commission) stats.push(['Commission', p.commission]);
-        pop.querySelector('#saPopStats').innerHTML = stats.map(([k, v]) =>
-            '<div class="sa-pop-stat"><div class="k">' + saEsc(k) + '</div>' +
-            '<div class="v">' + saEsc(v) + '</div></div>'
-        ).join('');
-
-        // TAP deals are brokered per BRAND, not per product — one link covers every product
-        // in that campaign. Say so plainly rather than implying a product-specific link.
-        const tapEl = pop.querySelector('#saPopTap');
-        if (p.link) {
-            tapEl.style.display = '';
-            tapEl.innerHTML =
-                '<div class="sa-pop-tap-head"><span class="star">★</span> TAP CAMPAIGN AVAILABLE</div>' +
-                (p.brand ? '<div class="sa-pop-brand">' + saEsc(p.brand) + '</div>' : '') +
-                (p.commission
-                    ? '<div class="sa-pop-rate">' + saEsc(p.commission) +
-                      (p.vs ? ' <span class="vs">' + saEsc(p.vs) + '</span>' : '') + '</div>'
-                    : '') +
-                '<a class="sa-pop-cta" href="' + saEsc(p.link) + '" target="_blank" rel="noopener noreferrer">' +
-                'Get TAP Link <span aria-hidden="true">&rarr;</span></a>';
-        } else {
-            tapEl.style.display = 'none';
-            tapEl.innerHTML = '';
-        }
-
-        saPopOpen = true;
-        pop.classList.add('open');
-        pop.querySelector('#saPopClose').focus();
-    }
-
-    function saClosePop() {
-        const pop = document.getElementById('saPop');
-        if (pop) pop.classList.remove('open');
-        saPopOpen = false;
     }
 
     // ---------- metrics (per selected account) ----------
@@ -420,7 +356,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                 ? (endComm / endGMV * 100).toFixed(2) + '%'
                 : null;
             return Object.assign(base, {
-                period: saMonthLabel(-1), recapTag: 'MONTH-END RECAP', statsPillLabel: 'Month-End Stats',
+                period: saMonthLabel(-1), statsPillLabel: 'Month-End Stats',
                 accountGmv: endGMV,
                 avgComm: endCommPct,
                 tapGmv: endTap,
@@ -431,7 +367,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const curGMV = parseFloat(acct.gmv) || 0;
         const lmGMV = parseFloat(acct.gmvLM) || saAcctHist(handle, 1);
         return Object.assign(base, {
-            period: saMonthLabel(0), recapTag: 'MID-MONTH RECAP', statsPillLabel: 'Mid-Month Stats',
+            period: saMonthLabel(0), statsPillLabel: 'Mid-Month Stats',
             accountGmv: curGMV,
             tapGmv: parseFloat(acct.tapGMV) || 0,
             shopPosts: acct.sv != null ? parseFloat(acct.sv) || 0 : null,
@@ -612,9 +548,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         overlay.querySelector('#saEndBtn').classList.toggle('active', saState.variant === 'end');
         overlay.querySelector('#saName').textContent = m.name;
         overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
-        overlay.querySelector('#saPeriod').textContent = m.period;
-        overlay.querySelector('#saRecapTag').textContent = m.recapTag;
-        overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
+        overlay.querySelector('#saPeriod').textContent = m.period;        overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
         overlay.querySelector('#saTapGmv').textContent = m.tapGmv != null ? saFmt(m.tapGmv) : '—';
         overlay.querySelector('#saTapPosts').textContent = m.tapPosts != null ? m.tapPosts : '—';
         overlay.querySelector('#saAcctGmv').textContent = m.accountGmv != null ? saFmt(m.accountGmv) : '—';
@@ -649,11 +583,12 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const prodList = overlay.querySelector('#saProdList');
         if (m.topProducts.length) {
             prodList.innerHTML = m.topProducts.map(p =>
-                '<div class="sa-prod-item" data-idx="' + (p.rank - 1) + '" role="button" tabindex="0">' +
+                saRowOpen(saProductFor(p.name), 'sa-prod-item') +
                 '<span class="sa-prod-rank">' + p.rank + '</span>' +
                 saThumb(saProductFor(p.name)) +
                 '<span class="sa-prod-name">' + saEsc(p.name) + '</span>' +
-                (saTapChip(saProductFor(p.name))) + '</div>'
+                saTapChip(saProductFor(p.name)) +
+                saRowClose(saProductFor(p.name))
             ).join('');
         } else {
             prodList.innerHTML = '<div class="sa-prod-pending">Your per-product breakdown is on its way — the product feed connects in the next data update.</div>';
@@ -683,14 +618,14 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         if (m.suggested && m.suggested.length) {
             suggList.innerHTML = m.suggested.map((s, i) => {
                 const p = saProductFor(s.name);
-                return '<div class="sa-sugg-row" data-idx="' + i + '" role="button" tabindex="0">' +
+                return saRowOpen(p, 'sa-sugg-row') +
                     '<div class="sa-rank">' + s.rank + '</div>' +
                     saThumb(p) +
                     '<div class="sa-sugg-name">' + saEsc(s.name) + '</div>' +
                     '<div class="sa-sugg-gmv"><div class="amount">' + saEsc(s.gmv) + '</div>' +
                     '<div class="label">CATEGORY GMV</div></div>' +
                     saTapChip(p) +
-                    '</div>';
+                    saRowClose(p);
             }).join('');
         } else {
             suggList.innerHTML = '<div class="sa-prod-pending">Personalized picks are being prepared for this account — check back after the next data update.</div>';
@@ -791,9 +726,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                 '</div>' +
               '</div>' +
               '<div class="sa-head-right">' +
-                '<img class="sa-logo" src="images/taboost-logo.jpg" alt="TABOOST">' +
-                '<div class="sa-recap-tag" id="saRecapTag"></div>' +
-              '</div>' +
+                '<img class="sa-logo" src="images/taboost-logo.jpg" alt="TABOOST">' +              '</div>' +
             '</div>' +
             '<div class="sa-stats">' +
               '<div class="sa-inner">' +
@@ -879,37 +812,10 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
         overlay.querySelector('#saClose').addEventListener('click', closeShopAudit);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeShopAudit(); });
-        // Capture phase so Escape closes the product popup FIRST and stops there — the
-        // audit's own Escape handler below would otherwise close the whole modal under it.
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && saPopOpen) { e.stopPropagation(); saClosePop(); }
-        }, true);
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && saState.open) closeShopAudit(); });
-        // Touch has no hover, so long product names need a tap to expand. The whole
-        // row is the target, not just the clamped text.
-        // Both lists open the product popup. It shows the full name, so it replaces the
-        // old tap-to-expand entirely — and lets the hover rule drop the reflow that made
-        // rows jump under the cursor.
-        function saRowTarget(el) {
-            const row = el.closest && el.closest('.sa-sugg-row, .sa-prod-item');
-            if (!row) return null;
-            const m = saMetrics(saState.variant);
-            const list = row.classList.contains('sa-sugg-row') ? (m.suggested || []) : (m.topProducts || []);
-            const item = list[parseInt(row.dataset.idx, 10)];
-            // Proven Winners GMV is the category's; Top 5 Products GMV is the product's.
-            return item ? { item: item, gmvLabel: row.classList.contains('sa-sugg-row') ? 'Category GMV' : 'Product GMV' } : null;
-        }
-        overlay.addEventListener('click', e => {
-            const t = saRowTarget(e.target);
-            if (t) saOpenPop(t.item, t.gmvLabel);
-        });
-        overlay.addEventListener('keydown', e => {
-            if (e.key !== 'Enter' && e.key !== ' ') return;
-            const t = saRowTarget(e.target);
-            if (!t) return;
-            e.preventDefault();
-            saOpenPop(t.item, t.gmvLabel);
-        });
+        // Rows with a TAP campaign are plain anchors straight to the TikTok TAP link —
+        // no intermediate popup. Rows without one are inert by design: nothing to click
+        // through to, so they get no cursor, no hover affordance and no focus stop.
         overlay.querySelector('#saMidBtn').addEventListener('click', () => saSetVariant('mid'));
         overlay.querySelector('#saEndBtn').addEventListener('click', () => saSetVariant('end'));
         overlay.querySelector('#saRegen').addEventListener('click', () => saGenerate(true));
@@ -918,7 +824,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     function saSetVariant(v) {
         if (v === saState.variant) return;
         saState.variant = v;
-        saClosePop();   // re-render replaces #saSuggList, so an open popup would be stale
         saScrollToTop();
         saGenerate();
     }
@@ -926,7 +831,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     function saSetAccount(handle) {
         if (handle === saState.account) return;
         saState.account = handle;
-        saClosePop();
         saScrollToTop();
         saGenerate();
     }
@@ -942,7 +846,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         saScrollToTop();
     }
     function closeShopAudit() {
-        saClosePop();   // never leave the popup floating over the dashboard
         saState.open = false;
         saRender();
     }
