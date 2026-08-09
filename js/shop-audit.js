@@ -250,30 +250,15 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     // Shared row furniture so "Top 5 Products" and "Proven Winners" stay identical.
     // Both take the SAME record, and read image and link independently — a product may
     // have either, both, or neither.
-    // The ★ tile is a deliberate "we can't identify this exact SKU" state, not a failure —
-    // most products aren't in the TAP catalog and no other dataset maps a product name to an
-    // image. A failed <img> must therefore collapse into the SAME tile: styling the <img>
-    // alone left an empty tinted square (an <img> has no text child), which read as broken.
-    const SA_THUMB_NONE = '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
-
+    // The tile carries the row's TAP status rather than a product photo: a pink TAP square
+    // when that exact product has a campaign, otherwise the ★ tile — a deliberate "no TAP
+    // campaign for this SKU" state, not a failed image. Product images are no longer rendered
+    // (coverage was structurally capped at the TAP catalog, so most rows had none anyway);
+    // audit-products.json still carries the image field if we ever bring photos back.
     function saThumb(p) {
-        return p && p.image
-            ? '<img class="sa-sugg-thumb" src="' + saEsc(p.image) + '" alt="" referrerpolicy="no-referrer">'
-            : SA_THUMB_NONE;
-    }
-
-    // error doesn't bubble, so this listens in the capture phase rather than inline onerror
-    // (which would need the placeholder markup escaped into an HTML attribute).
-    function saWatchThumbs(root) {
-        root.addEventListener('error', e => {
-            const img = e.target;
-            if (img && img.tagName === 'IMG' && img.classList.contains('sa-sugg-thumb')) {
-                img.outerHTML = SA_THUMB_NONE;
-            }
-        }, true);
-    }
-    function saTapChip(p) {
-        return p && p.link ? '<div class="sa-sugg-tap" title="TAP campaign available">TAP</div>' : '';
+        return p && p.link
+            ? '<div class="sa-sugg-thumb sa-thumb-tap" title="TAP campaign available">TAP</div>'
+            : '<div class="sa-sugg-thumb sa-thumb-none" aria-hidden="true">★</div>';
     }
 
     // A row is a link ONLY when that exact product has a TAP campaign — it goes straight to
@@ -587,7 +572,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                 '<span class="sa-prod-rank">' + p.rank + '</span>' +
                 saThumb(saProductFor(p.name)) +
                 '<span class="sa-prod-name">' + saEsc(p.name) + '</span>' +
-                saTapChip(saProductFor(p.name)) +
                 saRowClose(saProductFor(p.name))
             ).join('');
         } else {
@@ -624,7 +608,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
                     '<div class="sa-sugg-name">' + saEsc(s.name) + '</div>' +
                     '<div class="sa-sugg-gmv"><div class="amount">' + saEsc(s.gmv) + '</div>' +
                     '<div class="label">CATEGORY GMV</div></div>' +
-                    saTapChip(p) +
                     saRowClose(p);
             }).join('');
         } else {
@@ -808,7 +791,6 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
           '</div>' +
         '</div>';
         document.body.appendChild(overlay);
-        saWatchThumbs(overlay);
 
         overlay.querySelector('#saClose').addEventListener('click', closeShopAudit);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeShopAudit(); });

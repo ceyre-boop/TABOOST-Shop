@@ -320,6 +320,8 @@
     a.sa-prod-item.sa-row-link:hover { background: rgba(255,13,94,.06); }
 }
 .sa-prod-item .sa-sugg-thumb { width: 34px; height: 34px; border-radius: 7px; }
+.sa-prod-item .sa-thumb-tap { font-size: 11px; letter-spacing: .3px; }
+.sa-prod-item .sa-thumb-none { font-size: 16px; }
 .sa-prod-rank {
     flex-shrink: 0;
     width: 19px;
@@ -546,38 +548,32 @@ a.sa-row-link { text-decoration: none; color: inherit; cursor: pointer; }
 }
 a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
 
-/* Product thumbnail in the row */
+/* Row tile — carries TAP status, not a product photo. Both states share one box so the
+   list never shifts between rows. */
 .sa-sugg-thumb {
     flex-shrink: 0;
     width: 44px;
     height: 44px;
     border-radius: 9px;
-    object-fit: cover;
-    background: #f4efe7;
-    border: 1px solid rgba(255,13,94,.12);
-}
-/* Deliberate "exact SKU unknown" state — same box as a real thumbnail, no animation, no
-   broken-image glyph. A failed <img> is swapped for this same element in shop-audit.js
-   (saWatchThumbs), so the two states are pixel-identical. */
-.sa-sugg-thumb.sa-thumb-none {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,13,94,.42);
-    font-size: 19px;
+    background: #f4efe7;
+    border: 1px solid rgba(255,13,94,.12);
 }
-
-/* "TAP" chip — only rendered when that product's brand has a TAP campaign */
-.sa-sugg-tap {
-    flex-shrink: 0;
-    align-self: flex-start;
+/* Has a TAP campaign — the row is also a link straight to it. */
+.sa-sugg-thumb.sa-thumb-tap {
     background: #ff0d5e;
+    border-color: #ff0d5e;
     color: #fff;
     font-family: 'Anton', sans-serif;
-    font-size: 10px;
-    letter-spacing: .6px;
-    padding: 3px 7px;
-    border-radius: 5px;
+    font-size: 13px;
+    letter-spacing: .5px;
+}
+/* No TAP campaign for this exact SKU — deliberate neutral state, not a failure. */
+.sa-sugg-thumb.sa-thumb-none {
+    color: rgba(255,13,94,.42);
+    font-size: 19px;
 }
 
 .sa-sugg-gmv { flex-shrink: 0; text-align: right; }
@@ -723,6 +719,7 @@ a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
     /* flex-basis 0 keeps the name beside the rank badge instead of wrapping below it */
     .sa-sugg-name { flex: 1 1 0; min-width: 0; -webkit-line-clamp: 3; font-size: 13.5px; }
     .sa-sugg-thumb { width: 38px; height: 38px; }
+    .sa-thumb-tap { font-size: 12px; }
     .sa-sugg-gmv {
         flex: 0 0 100%;
         display: flex;
