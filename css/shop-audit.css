@@ -542,7 +542,12 @@
 .sa-sugg-row { transition: background .18s, border-color .18s; }
 /* Interactive ONLY when the row is a TAP link (<a class="... sa-row-link">). A row with no
    campaign has nothing to open, so it gets no pointer and no hover response. */
-a.sa-row-link { text-decoration: none; color: inherit; cursor: pointer; }
+/* Restate the row's own text colour per list: "color: inherit" here outranks
+   .sa-prod-item's colour (0,2,0 vs 0,1,0) and made linked rows inherit white from the
+   overlay — invisible on the cream card. */
+a.sa-row-link { text-decoration: none; cursor: pointer; }
+a.sa-prod-item.sa-row-link { color: #3a3835; }
+a.sa-sugg-row.sa-row-link { color: #2a2825; }
 @media (hover: hover) {
     a.sa-sugg-row.sa-row-link:hover { background: #fff6f9; border-color: rgba(255,13,94,.34); }
 }
