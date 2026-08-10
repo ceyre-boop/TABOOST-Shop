@@ -217,7 +217,7 @@ function auditFeed(file, label) {
     const cols = resolveFeedColumns(src.headers);
     const st = { label, cells: 0, tapMatched: 0, tapUrl: 0, imaged: 0, unmatched: 0,
                  imagedTap: 0, imagedNonTap: 0, byMethod: {}, creatorsWithTap: 0, creators: 0,
-                 hasProductId: cols.slots.some(s => s.id != null), imagedById: 0 };
+                 hasProductId: cols.slots.some(s => s.id != null), imagedById: 0, tapNoImage: 0 };
     for (let i = 1; i < src.rows.length; i++) {
         const r = src.rows[i];
         const handle = (r[0] || '').trim();
@@ -250,6 +250,7 @@ function auditFeed(file, label) {
             st.byMethod[hit.how] = (st.byMethod[hit.how] || 0) + 1;
             if (hit.rec.link) { st.tapUrl++; cTap++; }
             if (!image) image = hit.rec.image;
+            if (hit.rec.link && !image) st.tapNoImage++;
             if (image) {
                 st.imaged++; cImg++;
                 // Image coverage split by TAP membership — if these two ever move together
@@ -277,7 +278,7 @@ const topStats  = auditFeed('top-products.csv', 'topProducts');
 // sugg-products.csv, so a name can only miss between a CSV push and that rebuild — and the
 // modal already renders a placeholder for unmatched products.
 const pct = (a, b) => (b ? (a / b * 100).toFixed(1) : '0') + '%';
-const totals = ['cells','tapMatched','tapUrl','imaged','unmatched','imagedTap','imagedNonTap']
+const totals = ['cells','tapMatched','tapUrl','imaged','unmatched','imagedTap','imagedNonTap','imagedById','tapNoImage']
     .reduce((o, k) => (o[k] = suggStats[k] + topStats[k], o), {});
 const nonTapCells = totals.cells - totals.tapUrl;
 
@@ -287,7 +288,11 @@ const diagnostics = {
     tapUrlPresent: totals.tapUrl,
     imageMatched: totals.imaged,
     unmatchedProducts: totals.unmatched,
-    matchedWithoutImage: totals.tapMatched - totals.imaged,
+    // TAP rows with no image. Since the ID join now finds images for non-TAP products
+    // too, image count can EXCEED tap count — never derive this by subtraction.
+    tapWithoutImage: totals.tapNoImage,
+    imagesResolvedByProductId: totals.imagedById,
+    imagesResolvedByTapCatalog: totals.imaged - totals.imagedById,
     matchedWithoutTapUrl: totals.tapMatched - totals.tapUrl,
     // The headline check: if non-TAP image coverage stays 0%, images are still coming
     // only from the TAP catalog — i.e. TAP membership is acting as an image proxy.
@@ -320,7 +325,9 @@ console.log('    TAP campaign matched           : ' + totals.tapMatched + ' ' + 
 console.log('    TAP URL present                : ' + totals.tapUrl + ' ' + pct(totals.tapUrl, totals.cells));
 console.log('    image matched                  : ' + totals.imaged + ' ' + pct(totals.imaged, totals.cells));
 console.log('    unmatched                      : ' + totals.unmatched + ' ' + pct(totals.unmatched, totals.cells));
-console.log('    matched w/o image              : ' + diagnostics.matchedWithoutImage);
+console.log('    TAP rows without an image      : ' + diagnostics.tapWithoutImage);
+console.log('    images via Product ID          : ' + diagnostics.imagesResolvedByProductId);
+console.log('    images via TAP catalog         : ' + diagnostics.imagesResolvedByTapCatalog);
 console.log('    TAP products image coverage    : ' + diagnostics.imageCoverageTapProducts);
 console.log('    non-TAP products image coverage: ' + diagnostics.imageCoverageNonTapProducts +
     (totals.imagedNonTap === 0 ? '   <- images still come ONLY from the TAP catalog' : ''));
