@@ -95,7 +95,12 @@ async function initCreatorDashboard(user) {
         const welcomeMsg = document.getElementById('welcomeMessage');
         const camp = window.CAMPAIGN_ANNOUNCEMENT;
         if (welcomeMsg && camp && camp.enabled) {
-            welcomeMsg.innerHTML = `${camp.text} <a href="${camp.linkUrl}" style="color: #ffd700; text-decoration: underline; font-weight: 600;">${camp.linkText}</a> ${camp.postText}`;
+            // shop-audit.js swaps in a day-aware line and clears linkText, because every
+            // message now points at the action bar below. Skip the anchor when there's no
+            // link text, otherwise this emits a stray empty <a href="">.
+            welcomeMsg.innerHTML = camp.linkText
+                ? `${camp.text} <a href="${camp.linkUrl}" style="color: #ffd700; text-decoration: underline; font-weight: 600;">${camp.linkText}</a> ${camp.postText}`
+                : `${camp.text}${camp.postText ? ' ' + camp.postText : ''}`;
         }
     } catch (e) {
         console.warn("Welcome rendering issue:", e);

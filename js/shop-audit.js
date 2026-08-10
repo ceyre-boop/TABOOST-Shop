@@ -16,9 +16,9 @@
 // the built-in fallback copy (modal still works, marked "offline copy" in console).
 const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
-// TAP storefront — same destination as the welcome banner's "HERE" link
-// (window.CAMPAIGN_ANNOUNCEMENT.linkUrl in js/shop-dashboard.js).
+// TAP storefront — the destination behind the "TAP Product Search" button.
 const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
+
 
 (function () {
     'use strict';
@@ -886,9 +886,26 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     // data through the 12th actually exists, instead of the day the calendar rolls over.
     const SA_MIDMONTH_FROM_DAY = 12;
 
-    function saMidMonthAvailable() {
+    // Day-of-month from the DATA timestamp, so the welcome line and the buttons can never
+    // disagree — e.g. "Mid-Month Recap is ready" while that button is still hidden.
+    function saDataDay() {
         const m = String(window.SHOP_LAST_UPDATED || '').match(/^[A-Za-z]{3}\s+(\d{1,2})/);
-        return m ? parseInt(m[1], 10) >= SA_MIDMONTH_FROM_DAY : true;
+        return m ? parseInt(m[1], 10) : null;
+    }
+
+    function saMidMonthAvailable() {
+        const day = saDataDay();
+        return day == null ? true : day >= SA_MIDMONTH_FROM_DAY;
+    }
+
+    // Welcome-banner subline. Every message points "below" at the action bar, so the line
+    // and the visible buttons always describe the same thing.
+    function saWelcomeLine() {
+        const day = saDataDay();
+        if (day == null) return 'Search for new TAP links below';
+        if (day <= 2) return 'Start the month off right, search for new TAP links below';
+        if (day < SA_MIDMONTH_FROM_DAY) return 'Month-End Recap is ready, click below';
+        return 'Mid-Month Recap is ready, click below';
     }
 
     function openShopAudit(variant) {
@@ -919,6 +936,22 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         if (document.getElementById('saActions')) return;
         const banner = document.getElementById('welcomeBanner');
         if (!banner) return;
+
+        // This file loads AFTER js/shop-dashboard.js, which only DEFINES
+        // window.CAMPAIGN_ANNOUNCEMENT at parse time and renders it later from the auth
+        // callback — so updating it here is picked up with no change to that render path.
+        // Also write the element directly, in case the banner rendered first. The trailing
+        // "HERE" link is dropped: every message now points at the buttons below, and TAP
+        // search is one of them.
+        const line = saWelcomeLine();
+        if (window.CAMPAIGN_ANNOUNCEMENT) {
+            window.CAMPAIGN_ANNOUNCEMENT.text = line;
+            window.CAMPAIGN_ANNOUNCEMENT.linkText = '';
+            window.CAMPAIGN_ANNOUNCEMENT.linkUrl = '';
+            window.CAMPAIGN_ANNOUNCEMENT.postText = '';
+        }
+        const msgEl = document.getElementById('welcomeMessage');
+        if (msgEl) msgEl.textContent = line;
 
         const bar = document.createElement('div');
         bar.className = 'sa-actions';
