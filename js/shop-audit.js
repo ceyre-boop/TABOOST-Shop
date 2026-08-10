@@ -23,6 +23,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     let saSuggested = null;   // handle -> [{rank,name,gmv}]
     let saTopProducts = null; // handle -> { categories:[{name,gmv}], products:[{rank,name,gmv}] }
     let saAuditProducts = null; // normalised product name -> [image, link, commission, brand, vs]
+    let saMonthlyData = null; // { months: { 'YYYY-MM': { handle: {shopPosts, tapPosts, ...} } } }
     let saAbort = null;
 
     // Month-End flags any account averaging below this commission rate.
@@ -217,6 +218,21 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
     // Product image + brand TAP campaign for the Proven Winners popup, built by
     // build-audit-products.js. Only TAP catalog products are in here (~40% of
     // suggestions) — the rest render a placeholder, which is expected, not an error.
+    // Month-end report snapshots (data/shop/monthly/YYYY-MM.csv -> monthly-stats.json).
+    // The only source of per-month post counts.
+    async function saLoadMonthly() {
+        if (saMonthlyData) return;
+        saMonthlyData = { months: {} };
+        try {
+            const res = await fetch('data/shop/monthly-stats.json', SA_FETCH_OPTS);
+            if (!res.ok) return;
+            const json = await res.json();
+            if (json && json.months) saMonthlyData = json;
+        } catch (e) {
+            console.warn('Shop Audit: could not load monthly-stats.json', e);
+        }
+    }
+
     async function saLoadAuditProducts() {
         if (saAuditProducts) return;
         saAuditProducts = {};
@@ -295,6 +311,30 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         return d.toLocaleString('en-US', { month: 'long', year: 'numeric' });
     }
 
+    // Same anchoring as saMonthLabel, but as the "YYYY-MM" key used by monthly-stats.json.
+    function saMonthKey(offset) {
+        const raw = window.SHOP_LAST_UPDATED || '';
+        let d = new Date();
+        const m = raw.match(/^([A-Za-z]{3})\s+(\d{1,2})/);
+        if (m) {
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            const mi = months.indexOf(m[1]);
+            if (mi >= 0) { d = new Date(); d.setDate(1); d.setMonth(mi); }
+        }
+        d.setDate(1);
+        d.setMonth(d.getMonth() + offset);
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+    }
+
+    // Closed-month figures the history CSV doesn't carry — post counts above all.
+    // Returns null when that month hasn't been exported yet, so the card shows "—"
+    // rather than a misleading zero.
+    function saMonthlyStats(handle, offset) {
+        const months = saMonthlyData && saMonthlyData.months;
+        const month = months && months[saMonthKey(offset)];
+        return (month && month[(handle || '').toLowerCase()]) || null;
+    }
+
     // Per-account history (oldest -> newest); idx counts back from the end (0 = current).
     // field is 'gmv' | 'tap' | 'comm'. Returns null when that series is absent, so a
     // shop-data.js built before per-account tap/comm existed degrades to "--", not $0.
@@ -340,24 +380,39 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
             const endCommPct = (endComm != null && endGMV)
                 ? (endComm / endGMV * 100).toFixed(2) + '%'
                 : null;
+            // The month-end report snapshot is the source of truth for a closed month —
+            // it is the same export the numbers are reconciled against, and it is the ONLY
+            // source of post counts (history.csv keeps GMV/TAP/COMM/BONUS and nothing else).
+            // history.csv is the fallback for months not yet exported; post counts stay null
+            // (not 0) there so the card shows "—" rather than a false zero.
+            const snap = saMonthlyStats(handle, -1);
+            const gmv = snap ? snap.gmv : endGMV;
             return Object.assign(base, {
                 period: saMonthLabel(-1), statsPillLabel: 'Month-End Stats',
-                accountGmv: endGMV,
-                avgComm: endCommPct,
-                tapGmv: endTap,
-                shopPosts: null, tapPosts: null, // post counts aren't kept per month in history.csv
-                gmvTrend: saTrend(endGMV, prevGMV, 'vs prior month')
+                accountGmv: gmv,
+                avgComm: snap && snap.commPct ? snap.commPct : endCommPct,
+                tapGmv: snap ? snap.tapGmv : endTap,
+                shopPosts: snap ? snap.shopPosts : null,
+                tapPosts: snap ? snap.tapPosts : null,
+                gmvTrend: saTrend(gmv, prevGMV, 'vs prior month')
             });
         }
         const curGMV = parseFloat(acct.gmv) || 0;
         const lmGMV = parseFloat(acct.gmvLM) || saAcctHist(handle, 1);
+        // Mid-month GMV is partial, so comparing it against a FULL prior month made every
+        // creator look catastrophic on the 6th. Compare the sheet's own full-month
+        // projection (GMV Pace = MTD / day-of-month * days-in-month) instead, and label it
+        // as a pace so the number isn't mistaken for booked GMV.
+        const pace = parseFloat(acct.gmvPace) || 0;
         return Object.assign(base, {
             period: saMonthLabel(0), statsPillLabel: 'Mid-Month Stats',
             accountGmv: curGMV,
             tapGmv: parseFloat(acct.tapGMV) || 0,
             shopPosts: acct.sv != null ? parseFloat(acct.sv) || 0 : null,
             tapPosts: acct.tap != null ? parseFloat(acct.tap) || 0 : null,
-            gmvTrend: saTrend(curGMV, lmGMV, 'vs last month')
+            gmvTrend: pace > 0
+                ? saTrend(pace, lmGMV, 'pace vs last month')
+                : saTrend(curGMV, lmGMV, 'vs last month')
         });
     }
 
@@ -417,7 +472,7 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const v = saState.variant;
         saState.loading = true; saState.error = false; saState.ai = null;
         saRender();
-        await Promise.all([saLoadSuggested(), saLoadTopProducts(), saLoadAuditProducts()]);
+        await Promise.all([saLoadSuggested(), saLoadTopProducts(), saLoadAuditProducts(), saLoadMonthly()]);
         const m = saMetrics(v);
         const acct = saState.account;
 

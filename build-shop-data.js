@@ -168,6 +168,10 @@ for (const row of currentRows) {
         commDollars:  toNum(getVal(row, ' Comm $ ') || getVal(row, 'Comm $')),
         bonus:        toNum(getVal(row, '$$$')),
         gmvLM:        toNum(getVal(row, ' GMV LM ') || getVal(row, 'GMV LM')),
+        // Sheet-computed full-month projection (MTD GMV / day-of-month * days-in-month).
+        // Mid-month trend must compare this against gmvLM — comparing raw MTD GMV to a
+        // FULL prior month makes every creator look catastrophic early in the month.
+        gmvPace:      toNum(getVal(row, ' GMV Pace ') || getVal(row, 'GMV Pace')),
         commPct:      getVal(row, 'Comm %') || '0%',
         tier:         getVal(row, 'Tier') || '',
         acctRank:     toNum(getVal(row, 'Acct Rank')),

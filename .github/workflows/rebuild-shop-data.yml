@@ -11,6 +11,7 @@ on:
       - 'data/shop/tap-products.csv'
       - 'data/shop/shop-current.csv'
       - 'data/shop/sugg-products.csv'
+      - 'data/shop/monthly/**.csv'
 
 # Only one rebuild at a time. When App Scripts push 5 CSVs in rapid succession,
 # each commit triggers this workflow. The concurrency group cancels in-progress
@@ -59,7 +60,12 @@ jobs:
       - name: Rebuild audit-products.json (audit modal popup)
         run: node build-audit-products.js
 
+      # Month-end report snapshots -> per-account post counts for the Month-End recap.
+      # history.csv has no post counts, so this is their only source.
+      - name: Rebuild monthly-stats.json (month-end snapshots)
+        run: node build-monthly-snapshots.js
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Auto-rebuild: shop-data.js + product-data.js from CSV'
-          file_pattern: 'js/shop-data.js js/product-data.js index.html data/shop/audit-products.json'
+          file_pattern: 'js/shop-data.js js/product-data.js index.html data/shop/audit-products.json data/shop/monthly-stats.json'

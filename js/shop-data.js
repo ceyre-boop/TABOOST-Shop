@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-08-08T23:36:13.972Z
+// Generated: 2026-08-10T00:11:07.582Z
 // Total Mapped: 204 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -26,6 +26,7 @@ const allShopData = [
         "commDollars": 3021.27,
         "bonus": 0,
         "gmvLM": 170348.97,
+        "gmvPace": 68098.32,
         "commPct": "22.92%",
         "tier": "VIP",
         "acctRank": 1
@@ -159,6 +160,7 @@ const allShopData = [
         "commDollars": 4705.93,
         "bonus": 0,
         "gmvLM": 187562.1,
+        "gmvPace": 192531.13,
         "commPct": "12.63%",
         "tier": "Select",
         "acctRank": 1
@@ -292,6 +294,7 @@ const allShopData = [
         "commDollars": 1972.32,
         "bonus": 0,
         "gmvLM": 151463.49,
+        "gmvPace": 127284.71,
         "commPct": "8.01%",
         "tier": "Core",
         "acctRank": 1
@@ -425,6 +428,7 @@ const allShopData = [
         "commDollars": 2339.58,
         "bonus": 0,
         "gmvLM": 111439.75,
+        "gmvPace": 65811.5,
         "commPct": "18.37%",
         "tier": "Select",
         "acctRank": 1
@@ -558,6 +562,7 @@ const allShopData = [
         "commDollars": 2950.9,
         "bonus": 0,
         "gmvLM": 105392.72,
+        "gmvPace": 83587.83,
         "commPct": "18.24%",
         "tier": "Select",
         "acctRank": 1
@@ -578,6 +583,7 @@ const allShopData = [
         "commDollars": 2.8,
         "bonus": 0,
         "gmvLM": 64.35,
+        "gmvPace": 157.58,
         "commPct": "9.18%",
         "tier": "Select",
         "acctRank": 1
@@ -741,6 +747,7 @@ const allShopData = [
         "commDollars": 3853.72,
         "bonus": 0,
         "gmvLM": 148483.53,
+        "gmvPace": 174135.99,
         "commPct": "11.43%",
         "tier": "Select+",
         "acctRank": 1
@@ -761,6 +768,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 246.35,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Select+",
         "acctRank": 1
@@ -924,6 +932,7 @@ const allShopData = [
         "commDollars": 4625.82,
         "bonus": 0,
         "gmvLM": 153904.48,
+        "gmvPace": 148494.86,
         "commPct": "16.09%",
         "tier": "Select",
         "acctRank": 1
@@ -944,6 +953,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Select",
         "acctRank": 1
@@ -1107,6 +1117,7 @@ const allShopData = [
         "commDollars": 7292.82,
         "bonus": 0,
         "gmvLM": 237439.78,
+        "gmvPace": 307078.77,
         "commPct": "12.27%",
         "tier": "Talent",
         "acctRank": 1
@@ -1127,6 +1138,7 @@ const allShopData = [
         "commDollars": 3900.84,
         "bonus": 0,
         "gmvLM": 128644.84,
+        "gmvPace": 154798.97,
         "commPct": "13.02%",
         "tier": "Talent",
         "acctRank": 1
@@ -1147,6 +1159,7 @@ const allShopData = [
         "commDollars": 1443.44,
         "bonus": 0,
         "gmvLM": 57428.65,
+        "gmvPace": 67859.1,
         "commPct": "10.99%",
         "tier": "Talent",
         "acctRank": 1
@@ -1340,6 +1353,7 @@ const allShopData = [
         "commDollars": 3352.87,
         "bonus": 0,
         "gmvLM": 208912.06,
+        "gmvPace": 155900.86,
         "commPct": "11.11%",
         "tier": "Select+",
         "acctRank": 1
@@ -1473,6 +1487,7 @@ const allShopData = [
         "commDollars": 900.1,
         "bonus": 0,
         "gmvLM": 7588.88,
+        "gmvPace": 32466.09,
         "commPct": "14.32%",
         "tier": "Core",
         "acctRank": 1
@@ -1493,6 +1508,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -1656,6 +1672,7 @@ const allShopData = [
         "commDollars": 1610.59,
         "bonus": 0,
         "gmvLM": 39552.53,
+        "gmvPace": 53333.12,
         "commPct": "15.60%",
         "tier": "VIP",
         "acctRank": 1
@@ -1789,6 +1806,7 @@ const allShopData = [
         "commDollars": 7725.67,
         "bonus": 0,
         "gmvLM": 416709.03,
+        "gmvPace": 358384.65,
         "commPct": "11.14%",
         "tier": "Talent",
         "acctRank": 1
@@ -1809,6 +1827,7 @@ const allShopData = [
         "commDollars": 95.41,
         "bonus": 0,
         "gmvLM": 1711.86,
+        "gmvPace": 2518.18,
         "commPct": "19.58%",
         "tier": "Talent",
         "acctRank": 1
@@ -1972,6 +1991,7 @@ const allShopData = [
         "commDollars": 3378.52,
         "bonus": 0,
         "gmvLM": 82040.03,
+        "gmvPace": 125920.24,
         "commPct": "13.86%",
         "tier": "Select",
         "acctRank": 1
@@ -2105,6 +2125,7 @@ const allShopData = [
         "commDollars": 3803.66,
         "bonus": 0,
         "gmvLM": 87257.48,
+        "gmvPace": 131345.86,
         "commPct": "14.96%",
         "tier": "Select",
         "acctRank": 1
@@ -2238,6 +2259,7 @@ const allShopData = [
         "commDollars": 7975.7,
         "bonus": 0,
         "gmvLM": 358499.75,
+        "gmvPace": 357069.06,
         "commPct": "11.54%",
         "tier": "Talent",
         "acctRank": 1
@@ -2258,6 +2280,7 @@ const allShopData = [
         "commDollars": 59.11,
         "bonus": 0,
         "gmvLM": 3220.47,
+        "gmvPace": 3544.85,
         "commPct": "8.62%",
         "tier": "Talent",
         "acctRank": 1
@@ -2421,6 +2444,7 @@ const allShopData = [
         "commDollars": 1581.67,
         "bonus": 0,
         "gmvLM": 28200.05,
+        "gmvPace": 49657.09,
         "commPct": "16.46%",
         "tier": "Core",
         "acctRank": 1
@@ -2554,6 +2578,7 @@ const allShopData = [
         "commDollars": 1544.28,
         "bonus": 0,
         "gmvLM": 72727.41,
+        "gmvPace": 57286.66,
         "commPct": "13.93%",
         "tier": "VIP",
         "acctRank": 1
@@ -2687,6 +2712,7 @@ const allShopData = [
         "commDollars": 4243.36,
         "bonus": 0,
         "gmvLM": 71287.13,
+        "gmvPace": 134624.32,
         "commPct": "16.29%",
         "tier": "Talent",
         "acctRank": 1
@@ -2707,6 +2733,7 @@ const allShopData = [
         "commDollars": 233.08,
         "bonus": 0,
         "gmvLM": 9774.53,
+        "gmvPace": 8852.67,
         "commPct": "13.60%",
         "tier": "Talent",
         "acctRank": 1
@@ -2870,6 +2897,7 @@ const allShopData = [
         "commDollars": 4744.59,
         "bonus": 0,
         "gmvLM": 143951.91,
+        "gmvPace": 162496.83,
         "commPct": "15.09%",
         "tier": "Select",
         "acctRank": 1
@@ -3003,6 +3031,7 @@ const allShopData = [
         "commDollars": 7715.52,
         "bonus": 0,
         "gmvLM": 192257.21,
+        "gmvPace": 344919.02,
         "commPct": "11.56%",
         "tier": "Talent",
         "acctRank": 1
@@ -3023,6 +3052,7 @@ const allShopData = [
         "commDollars": 2.8,
         "bonus": 0,
         "gmvLM": 141.02,
+        "gmvPace": 142.91,
         "commPct": "10.12%",
         "tier": "Talent",
         "acctRank": 1
@@ -3186,6 +3216,7 @@ const allShopData = [
         "commDollars": 748.82,
         "bonus": 0,
         "gmvLM": 40589.11,
+        "gmvPace": 23359.43,
         "commPct": "16.56%",
         "tier": "Talent",
         "acctRank": 1
@@ -3319,6 +3350,7 @@ const allShopData = [
         "commDollars": 404.4,
         "bonus": 0,
         "gmvLM": 16807.38,
+        "gmvPace": 14020.53,
         "commPct": "14.90%",
         "tier": "Core",
         "acctRank": 1
@@ -3452,6 +3484,7 @@ const allShopData = [
         "commDollars": 2915.23,
         "bonus": 0,
         "gmvLM": 22756.49,
+        "gmvPace": 121209.02,
         "commPct": "12.43%",
         "tier": "Core",
         "acctRank": 1
@@ -3472,6 +3505,7 @@ const allShopData = [
         "commDollars": 137.75,
         "bonus": 0,
         "gmvLM": 2798.01,
+        "gmvPace": 6888.25,
         "commPct": "10.33%",
         "tier": "Core",
         "acctRank": 1
@@ -3635,6 +3669,7 @@ const allShopData = [
         "commDollars": 3252.1,
         "bonus": 0,
         "gmvLM": 222252.38,
+        "gmvPace": 115748.52,
         "commPct": "14.52%",
         "tier": "Select+",
         "acctRank": 1
@@ -3655,6 +3690,7 @@ const allShopData = [
         "commDollars": 42.9,
         "bonus": 0,
         "gmvLM": 2841.94,
+        "gmvPace": 2129.34,
         "commPct": "10.41%",
         "tier": "Select+",
         "acctRank": 1
@@ -3818,6 +3854,7 @@ const allShopData = [
         "commDollars": 197.49,
         "bonus": 0,
         "gmvLM": 9280.81,
+        "gmvPace": 9423.85,
         "commPct": "10.83%",
         "tier": "Core",
         "acctRank": 1
@@ -3951,6 +3988,7 @@ const allShopData = [
         "commDollars": 25050.04,
         "bonus": 0,
         "gmvLM": 760727.1,
+        "gmvPace": 875676.63,
         "commPct": "14.78%",
         "tier": "Select",
         "acctRank": 1
@@ -3971,6 +4009,7 @@ const allShopData = [
         "commDollars": 3273.81,
         "bonus": 0,
         "gmvLM": 119895.61,
+        "gmvPace": 105395.3,
         "commPct": "16.05%",
         "tier": "Select",
         "acctRank": 1
@@ -4134,6 +4173,7 @@ const allShopData = [
         "commDollars": 1280.62,
         "bonus": 0,
         "gmvLM": 96805.53,
+        "gmvPace": 69525.04,
         "commPct": "9.52%",
         "tier": "Select+",
         "acctRank": 1
@@ -4154,6 +4194,7 @@ const allShopData = [
         "commDollars": 14.42,
         "bonus": 0,
         "gmvLM": 798.75,
+        "gmvPace": 922.72,
         "commPct": "8.07%",
         "tier": "Select+",
         "acctRank": 1
@@ -4317,6 +4358,7 @@ const allShopData = [
         "commDollars": 4363.27,
         "bonus": 0,
         "gmvLM": 163794.75,
+        "gmvPace": 233807.27,
         "commPct": "9.64%",
         "tier": "Select",
         "acctRank": 1
@@ -4450,6 +4492,7 @@ const allShopData = [
         "commDollars": 1581.83,
         "bonus": 0,
         "gmvLM": 62594.96,
+        "gmvPace": 63298.69,
         "commPct": "12.91%",
         "tier": "VIP",
         "acctRank": 1
@@ -4583,6 +4626,7 @@ const allShopData = [
         "commDollars": 1231.49,
         "bonus": 0,
         "gmvLM": 79934.22,
+        "gmvPace": 50359.35,
         "commPct": "12.63%",
         "tier": "Select",
         "acctRank": 1
@@ -4716,6 +4760,7 @@ const allShopData = [
         "commDollars": 1900.65,
         "bonus": 0,
         "gmvLM": 100480.53,
+        "gmvPace": 78394.14,
         "commPct": "12.53%",
         "tier": "Core",
         "acctRank": 1
@@ -4849,6 +4894,7 @@ const allShopData = [
         "commDollars": 2646.98,
         "bonus": 0,
         "gmvLM": 141191.77,
+        "gmvPace": 123466.13,
         "commPct": "11.08%",
         "tier": "Select",
         "acctRank": 1
@@ -4869,6 +4915,7 @@ const allShopData = [
         "commDollars": 879.96,
         "bonus": 0,
         "gmvLM": 30098.1,
+        "gmvPace": 31389.36,
         "commPct": "14.48%",
         "tier": "Select",
         "acctRank": 1
@@ -5032,6 +5079,7 @@ const allShopData = [
         "commDollars": 486.59,
         "bonus": 0,
         "gmvLM": 15168.7,
+        "gmvPace": 18067.32,
         "commPct": "13.91%",
         "tier": "Select",
         "acctRank": 1
@@ -5165,6 +5213,7 @@ const allShopData = [
         "commDollars": 1583.67,
         "bonus": 0,
         "gmvLM": 50833.99,
+        "gmvPace": 69367,
         "commPct": "11.80%",
         "tier": "Talent",
         "acctRank": 1
@@ -5185,6 +5234,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Talent",
         "acctRank": 1
@@ -5348,6 +5398,7 @@ const allShopData = [
         "commDollars": 1822.21,
         "bonus": 0,
         "gmvLM": 59848.58,
+        "gmvPace": 54388.98,
         "commPct": "17.31%",
         "tier": "Core",
         "acctRank": 1
@@ -5481,6 +5532,7 @@ const allShopData = [
         "commDollars": 1108.35,
         "bonus": 0,
         "gmvLM": 50270.29,
+        "gmvPace": 57902.94,
         "commPct": "9.89%",
         "tier": "Select",
         "acctRank": 1
@@ -5501,6 +5553,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Select",
         "acctRank": 1
@@ -5664,6 +5717,7 @@ const allShopData = [
         "commDollars": 4346.05,
         "bonus": 0,
         "gmvLM": 171379.18,
+        "gmvPace": 214152.65,
         "commPct": "10.49%",
         "tier": "Talent",
         "acctRank": 1
@@ -5797,6 +5851,7 @@ const allShopData = [
         "commDollars": 2375.9,
         "bonus": 0,
         "gmvLM": 98648.74,
+        "gmvPace": 110867.68,
         "commPct": "11.07%",
         "tier": "Talent",
         "acctRank": 1
@@ -5817,6 +5872,7 @@ const allShopData = [
         "commDollars": 38.05,
         "bonus": 0,
         "gmvLM": 3109.91,
+        "gmvPace": 3787.27,
         "commPct": "5.19%",
         "tier": "Talent",
         "acctRank": 1
@@ -5980,6 +6036,7 @@ const allShopData = [
         "commDollars": 1764.01,
         "bonus": 0,
         "gmvLM": 75859.6,
+        "gmvPace": 69322.25,
         "commPct": "13.15%",
         "tier": "Select",
         "acctRank": 1
@@ -6113,6 +6170,7 @@ const allShopData = [
         "commDollars": 378.94,
         "bonus": 0,
         "gmvLM": 9308.4,
+        "gmvPace": 8826.99,
         "commPct": "22.18%",
         "tier": "Select",
         "acctRank": 1
@@ -6133,6 +6191,7 @@ const allShopData = [
         "commDollars": 16.42,
         "bonus": 0,
         "gmvLM": 1256.11,
+        "gmvPace": 795.2,
         "commPct": "10.67%",
         "tier": "Select",
         "acctRank": 1
@@ -6296,6 +6355,7 @@ const allShopData = [
         "commDollars": 689.04,
         "bonus": 0,
         "gmvLM": 19108.01,
+        "gmvPace": 22440.44,
         "commPct": "15.86%",
         "tier": "VIP",
         "acctRank": 1
@@ -6429,6 +6489,7 @@ const allShopData = [
         "commDollars": 8646.3,
         "bonus": 0,
         "gmvLM": 224897.14,
+        "gmvPace": 277435.12,
         "commPct": "16.10%",
         "tier": "Core",
         "acctRank": 1
@@ -6562,6 +6623,7 @@ const allShopData = [
         "commDollars": 455.12,
         "bonus": 0,
         "gmvLM": 16875.93,
+        "gmvPace": 23057.39,
         "commPct": "10.20%",
         "tier": "Core",
         "acctRank": 1
@@ -6695,6 +6757,7 @@ const allShopData = [
         "commDollars": 255.85,
         "bonus": 0,
         "gmvLM": 5294.49,
+        "gmvPace": 6624.13,
         "commPct": "19.96%",
         "tier": "Core",
         "acctRank": 1
@@ -6828,6 +6891,7 @@ const allShopData = [
         "commDollars": 2981.09,
         "bonus": 0,
         "gmvLM": 110962.2,
+        "gmvPace": 104843.76,
         "commPct": "14.69%",
         "tier": "Select",
         "acctRank": 1
@@ -6961,6 +7025,7 @@ const allShopData = [
         "commDollars": 8.91,
         "bonus": 0,
         "gmvLM": 425.13,
+        "gmvPace": 244.75,
         "commPct": "18.81%",
         "tier": "Core",
         "acctRank": 1
@@ -7094,6 +7159,7 @@ const allShopData = [
         "commDollars": 30.9,
         "bonus": 0,
         "gmvLM": 3352.03,
+        "gmvPace": 1517.66,
         "commPct": "10.52%",
         "tier": "Core",
         "acctRank": 1
@@ -7227,6 +7293,7 @@ const allShopData = [
         "commDollars": 3186.39,
         "bonus": 0,
         "gmvLM": 63338.19,
+        "gmvPace": 130351.75,
         "commPct": "12.63%",
         "tier": "Core",
         "acctRank": 1
@@ -7360,6 +7427,7 @@ const allShopData = [
         "commDollars": 3321.66,
         "bonus": 0,
         "gmvLM": 138303.81,
+        "gmvPace": 147009.23,
         "commPct": "11.67%",
         "tier": "Core",
         "acctRank": 1
@@ -7493,6 +7561,7 @@ const allShopData = [
         "commDollars": 7668.22,
         "bonus": 0,
         "gmvLM": 309830.64,
+        "gmvPace": 372242.42,
         "commPct": "10.64%",
         "tier": "Select+",
         "acctRank": 1
@@ -7626,6 +7695,7 @@ const allShopData = [
         "commDollars": 3897.99,
         "bonus": 0,
         "gmvLM": 90895.75,
+        "gmvPace": 98663.96,
         "commPct": "20.41%",
         "tier": "Select",
         "acctRank": 1
@@ -7759,6 +7829,7 @@ const allShopData = [
         "commDollars": 673.35,
         "bonus": 0,
         "gmvLM": 31139.21,
+        "gmvPace": 23117.17,
         "commPct": "15.05%",
         "tier": "VIP",
         "acctRank": 1
@@ -7779,6 +7850,7 @@ const allShopData = [
         "commDollars": 462.5,
         "bonus": 0,
         "gmvLM": 28078.09,
+        "gmvPace": 18999.8,
         "commPct": "12.58%",
         "tier": "VIP",
         "acctRank": 1
@@ -7942,6 +8014,7 @@ const allShopData = [
         "commDollars": 451.6,
         "bonus": 0,
         "gmvLM": 26512.94,
+        "gmvPace": 19577.02,
         "commPct": "11.92%",
         "tier": "Core",
         "acctRank": 1
@@ -7962,6 +8035,7 @@ const allShopData = [
         "commDollars": 2.73,
         "bonus": 0,
         "gmvLM": 26.28,
+        "gmvPace": 117.75,
         "commPct": "11.98%",
         "tier": "Core",
         "acctRank": 1
@@ -8125,6 +8199,7 @@ const allShopData = [
         "commDollars": 3764.4,
         "bonus": 0,
         "gmvLM": 67389.09,
+        "gmvPace": 143820.11,
         "commPct": "13.52%",
         "tier": "VIP",
         "acctRank": 1
@@ -8145,6 +8220,7 @@ const allShopData = [
         "commDollars": 1426.99,
         "bonus": 0,
         "gmvLM": 51770.2,
+        "gmvPace": 63062.89,
         "commPct": "11.69%",
         "tier": "VIP",
         "acctRank": 1
@@ -8308,6 +8384,7 @@ const allShopData = [
         "commDollars": 941.48,
         "bonus": 0,
         "gmvLM": 85098.52,
+        "gmvPace": 39993.57,
         "commPct": "12.16%",
         "tier": "Core",
         "acctRank": 1
@@ -8328,6 +8405,7 @@ const allShopData = [
         "commDollars": 36.36,
         "bonus": 0,
         "gmvLM": 1184.55,
+        "gmvPace": 1193.35,
         "commPct": "15.74%",
         "tier": "Core",
         "acctRank": 1
@@ -8491,6 +8569,7 @@ const allShopData = [
         "commDollars": 807.2,
         "bonus": 0,
         "gmvLM": 40230,
+        "gmvPace": 38349.43,
         "commPct": "10.88%",
         "tier": "Select+",
         "acctRank": 1
@@ -8511,6 +8590,7 @@ const allShopData = [
         "commDollars": 278.5,
         "bonus": 0,
         "gmvLM": 17071.02,
+        "gmvPace": 16146.76,
         "commPct": "8.91%",
         "tier": "Select+",
         "acctRank": 1
@@ -8531,6 +8611,7 @@ const allShopData = [
         "commDollars": 148.62,
         "bonus": 0,
         "gmvLM": 6513.33,
+        "gmvPace": 6092.64,
         "commPct": "12.60%",
         "tier": "Select+",
         "acctRank": 1
@@ -8724,6 +8805,7 @@ const allShopData = [
         "commDollars": 76.51,
         "bonus": 0,
         "gmvLM": 4241.1,
+        "gmvPace": 4654.13,
         "commPct": "8.49%",
         "tier": "Core",
         "acctRank": 1
@@ -8857,6 +8939,7 @@ const allShopData = [
         "commDollars": 4371.54,
         "bonus": 0,
         "gmvLM": 178578.56,
+        "gmvPace": 153786.71,
         "commPct": "14.69%",
         "tier": "Select",
         "acctRank": 1
@@ -8877,6 +8960,7 @@ const allShopData = [
         "commDollars": 2694.85,
         "bonus": 0,
         "gmvLM": 133398.34,
+        "gmvPace": 106757.96,
         "commPct": "13.04%",
         "tier": "Select",
         "acctRank": 1
@@ -9040,6 +9124,7 @@ const allShopData = [
         "commDollars": 3120.76,
         "bonus": 0,
         "gmvLM": 104555.56,
+        "gmvPace": 111577.73,
         "commPct": "14.45%",
         "tier": "Talent",
         "acctRank": 1
@@ -9173,6 +9258,7 @@ const allShopData = [
         "commDollars": 336.35,
         "bonus": 0,
         "gmvLM": 10253.01,
+        "gmvPace": 11097.59,
         "commPct": "15.66%",
         "tier": "Select",
         "acctRank": 1
@@ -9306,6 +9392,7 @@ const allShopData = [
         "commDollars": 1997.94,
         "bonus": 0,
         "gmvLM": 85091.13,
+        "gmvPace": 75672.03,
         "commPct": "13.64%",
         "tier": "VIP",
         "acctRank": 1
@@ -9439,6 +9526,7 @@ const allShopData = [
         "commDollars": 1939.33,
         "bonus": 0,
         "gmvLM": 138855.58,
+        "gmvPace": 67446.55,
         "commPct": "14.86%",
         "tier": "Select",
         "acctRank": 1
@@ -9459,6 +9547,7 @@ const allShopData = [
         "commDollars": 30.43,
         "bonus": 0,
         "gmvLM": 462.18,
+        "gmvPace": 1638.76,
         "commPct": "9.59%",
         "tier": "Select",
         "acctRank": 1
@@ -9622,6 +9711,7 @@ const allShopData = [
         "commDollars": 453.35,
         "bonus": 0,
         "gmvLM": 15368.92,
+        "gmvPace": 18711.65,
         "commPct": "12.52%",
         "tier": "VIP",
         "acctRank": 1
@@ -9642,6 +9732,7 @@ const allShopData = [
         "commDollars": 448.91,
         "bonus": 0,
         "gmvLM": 13351.1,
+        "gmvPace": 17798.19,
         "commPct": "13.03%",
         "tier": "VIP",
         "acctRank": 1
@@ -9805,6 +9896,7 @@ const allShopData = [
         "commDollars": 2897.25,
         "bonus": 0,
         "gmvLM": 164616.56,
+        "gmvPace": 172447.78,
         "commPct": "8.68%",
         "tier": "Core",
         "acctRank": 1
@@ -9938,6 +10030,7 @@ const allShopData = [
         "commDollars": 2777.44,
         "bonus": 0,
         "gmvLM": 89144,
+        "gmvPace": 94067.12,
         "commPct": "15.26%",
         "tier": "Select",
         "acctRank": 1
@@ -9958,6 +10051,7 @@ const allShopData = [
         "commDollars": 6,
         "bonus": 0,
         "gmvLM": 186.07,
+        "gmvPace": 237.41,
         "commPct": "13.06%",
         "tier": "Select",
         "acctRank": 1
@@ -10121,6 +10215,7 @@ const allShopData = [
         "commDollars": 3248.49,
         "bonus": 0,
         "gmvLM": 83765.65,
+        "gmvPace": 157040.52,
         "commPct": "10.69%",
         "tier": "Core",
         "acctRank": 1
@@ -10254,6 +10349,7 @@ const allShopData = [
         "commDollars": 1282.42,
         "bonus": 0,
         "gmvLM": 58063.9,
+        "gmvPace": 50179.39,
         "commPct": "13.20%",
         "tier": "Talent",
         "acctRank": 1
@@ -10387,6 +10483,7 @@ const allShopData = [
         "commDollars": 3105.35,
         "bonus": 0,
         "gmvLM": 141893.46,
+        "gmvPace": 148717.13,
         "commPct": "10.79%",
         "tier": "Core",
         "acctRank": 1
@@ -10520,6 +10617,7 @@ const allShopData = [
         "commDollars": 2343.86,
         "bonus": 0,
         "gmvLM": 142886.85,
+        "gmvPace": 111332.94,
         "commPct": "10.88%",
         "tier": "Select+",
         "acctRank": 1
@@ -10653,6 +10751,7 @@ const allShopData = [
         "commDollars": 1283.12,
         "bonus": 0,
         "gmvLM": 37370.54,
+        "gmvPace": 54623.34,
         "commPct": "12.14%",
         "tier": "Select",
         "acctRank": 1
@@ -10786,6 +10885,7 @@ const allShopData = [
         "commDollars": 1636.93,
         "bonus": 0,
         "gmvLM": 72171.15,
+        "gmvPace": 70447.4,
         "commPct": "12.01%",
         "tier": "Core",
         "acctRank": 1
@@ -10806,6 +10906,7 @@ const allShopData = [
         "commDollars": 856.4,
         "bonus": 0,
         "gmvLM": 53124.75,
+        "gmvPace": 49191.01,
         "commPct": "9.00%",
         "tier": "Core",
         "acctRank": 1
@@ -10969,6 +11070,7 @@ const allShopData = [
         "commDollars": 2186.83,
         "bonus": 0,
         "gmvLM": 139406.98,
+        "gmvPace": 118553.15,
         "commPct": "9.53%",
         "tier": "Talent",
         "acctRank": 1
@@ -11102,6 +11204,7 @@ const allShopData = [
         "commDollars": 2405.13,
         "bonus": 0,
         "gmvLM": 49018.75,
+        "gmvPace": 116446.85,
         "commPct": "10.67%",
         "tier": "Core",
         "acctRank": 1
@@ -11235,6 +11338,7 @@ const allShopData = [
         "commDollars": 3295.02,
         "bonus": 0,
         "gmvLM": 166256.86,
+        "gmvPace": 143698.43,
         "commPct": "11.85%",
         "tier": "Core",
         "acctRank": 1
@@ -11368,6 +11472,7 @@ const allShopData = [
         "commDollars": 1764.81,
         "bonus": 0,
         "gmvLM": 58847.03,
+        "gmvPace": 56381.92,
         "commPct": "16.17%",
         "tier": "Core",
         "acctRank": 1
@@ -11388,6 +11493,7 @@ const allShopData = [
         "commDollars": 13.18,
         "bonus": 0,
         "gmvLM": 2364.06,
+        "gmvPace": 434.98,
         "commPct": "15.66%",
         "tier": "Core",
         "acctRank": 1
@@ -11551,6 +11657,7 @@ const allShopData = [
         "commDollars": 2880.57,
         "bonus": 0,
         "gmvLM": 155268.09,
+        "gmvPace": 119334.76,
         "commPct": "12.47%",
         "tier": "VIP",
         "acctRank": 1
@@ -11684,6 +11791,7 @@ const allShopData = [
         "commDollars": 685.83,
         "bonus": 0,
         "gmvLM": 30870.71,
+        "gmvPace": 25604.35,
         "commPct": "13.84%",
         "tier": "Core",
         "acctRank": 1
@@ -11704,6 +11812,7 @@ const allShopData = [
         "commDollars": 576.2,
         "bonus": 0,
         "gmvLM": 9022.18,
+        "gmvPace": 20980.75,
         "commPct": "14.19%",
         "tier": "Core",
         "acctRank": 1
@@ -11867,6 +11976,7 @@ const allShopData = [
         "commDollars": 950.63,
         "bonus": 0,
         "gmvLM": 48992.24,
+        "gmvPace": 32029.46,
         "commPct": "15.33%",
         "tier": "Core",
         "acctRank": 1
@@ -11887,6 +11997,7 @@ const allShopData = [
         "commDollars": 249.73,
         "bonus": 0,
         "gmvLM": 17074.98,
+        "gmvPace": 9749.4,
         "commPct": "13.23%",
         "tier": "Core",
         "acctRank": 1
@@ -12050,6 +12161,7 @@ const allShopData = [
         "commDollars": 263.71,
         "bonus": 0,
         "gmvLM": 15036.62,
+        "gmvPace": 10830.47,
         "commPct": "12.58%",
         "tier": "Core",
         "acctRank": 1
@@ -12070,6 +12182,7 @@ const allShopData = [
         "commDollars": 20.11,
         "bonus": 0,
         "gmvLM": 1529.85,
+        "gmvPace": 997.37,
         "commPct": "10.42%",
         "tier": "Core",
         "acctRank": 1
@@ -12233,6 +12346,7 @@ const allShopData = [
         "commDollars": 279.01,
         "bonus": 0,
         "gmvLM": 15799.83,
+        "gmvPace": 9887.09,
         "commPct": "14.58%",
         "tier": "VIP",
         "acctRank": 1
@@ -12253,6 +12367,7 @@ const allShopData = [
         "commDollars": 9.4,
         "bonus": 0,
         "gmvLM": 1496.96,
+        "gmvPace": 242.73,
         "commPct": "20.01%",
         "tier": "VIP",
         "acctRank": 1
@@ -12273,6 +12388,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 272.44,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "VIP",
         "acctRank": 1
@@ -12293,6 +12409,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 50.2,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "VIP",
         "acctRank": 1
@@ -12516,6 +12633,7 @@ const allShopData = [
         "commDollars": 1045.06,
         "bonus": 0,
         "gmvLM": 40350.83,
+        "gmvPace": 46572.18,
         "commPct": "11.59%",
         "tier": "Select",
         "acctRank": 1
@@ -12649,6 +12767,7 @@ const allShopData = [
         "commDollars": 997.43,
         "bonus": 0,
         "gmvLM": 52251.18,
+        "gmvPace": 34929.61,
         "commPct": "14.75%",
         "tier": "Core",
         "acctRank": 1
@@ -12669,6 +12788,7 @@ const allShopData = [
         "commDollars": 32.92,
         "bonus": 0,
         "gmvLM": 3631.85,
+        "gmvPace": 3858.88,
         "commPct": "4.41%",
         "tier": "Core",
         "acctRank": 1
@@ -12832,6 +12952,7 @@ const allShopData = [
         "commDollars": 761.14,
         "bonus": 0,
         "gmvLM": 27140.9,
+        "gmvPace": 30752.47,
         "commPct": "12.79%",
         "tier": "Core",
         "acctRank": 1
@@ -12852,6 +12973,7 @@ const allShopData = [
         "commDollars": 28.7,
         "bonus": 0,
         "gmvLM": 642.35,
+        "gmvPace": 671.36,
         "commPct": "22.09%",
         "tier": "Core",
         "acctRank": 1
@@ -13015,6 +13137,7 @@ const allShopData = [
         "commDollars": 1116.34,
         "bonus": 0,
         "gmvLM": 56929.33,
+        "gmvPace": 52029.73,
         "commPct": "11.09%",
         "tier": "Core",
         "acctRank": 1
@@ -13148,6 +13271,7 @@ const allShopData = [
         "commDollars": 36.26,
         "bonus": 0,
         "gmvLM": 1346.07,
+        "gmvPace": 1122.92,
         "commPct": "16.68%",
         "tier": "Core",
         "acctRank": 1
@@ -13168,6 +13292,7 @@ const allShopData = [
         "commDollars": 1.95,
         "bonus": 0,
         "gmvLM": 763.86,
+        "gmvPace": 97.24,
         "commPct": "10.36%",
         "tier": "Core",
         "acctRank": 1
@@ -13331,6 +13456,7 @@ const allShopData = [
         "commDollars": 275.01,
         "bonus": 0,
         "gmvLM": 10102.95,
+        "gmvPace": 11233.26,
         "commPct": "12.65%",
         "tier": "Core",
         "acctRank": 1
@@ -13464,6 +13590,7 @@ const allShopData = [
         "commDollars": 146.46,
         "bonus": 0,
         "gmvLM": 8903.55,
+        "gmvPace": 6735.06,
         "commPct": "11.24%",
         "tier": "Core",
         "acctRank": 1
@@ -13484,6 +13611,7 @@ const allShopData = [
         "commDollars": 121.69,
         "bonus": 0,
         "gmvLM": 5344.44,
+        "gmvPace": 5626.91,
         "commPct": "11.17%",
         "tier": "Core",
         "acctRank": 1
@@ -13647,6 +13775,7 @@ const allShopData = [
         "commDollars": 1174.93,
         "bonus": 0,
         "gmvLM": 49339.76,
+        "gmvPace": 42006.03,
         "commPct": "14.45%",
         "tier": "Select+",
         "acctRank": 1
@@ -13667,6 +13796,7 @@ const allShopData = [
         "commDollars": 290.26,
         "bonus": 0,
         "gmvLM": 14314.37,
+        "gmvPace": 12582.8,
         "commPct": "11.92%",
         "tier": "Select+",
         "acctRank": 1
@@ -13830,6 +13960,7 @@ const allShopData = [
         "commDollars": 1308.41,
         "bonus": 0,
         "gmvLM": 71994.7,
+        "gmvPace": 61870.68,
         "commPct": "10.93%",
         "tier": "Core",
         "acctRank": 1
@@ -13963,6 +14094,7 @@ const allShopData = [
         "commDollars": 1129.06,
         "bonus": 0,
         "gmvLM": 55348.49,
+        "gmvPace": 62098.63,
         "commPct": "9.39%",
         "tier": "Core",
         "acctRank": 1
@@ -14096,6 +14228,7 @@ const allShopData = [
         "commDollars": 945.17,
         "bonus": 0,
         "gmvLM": 39181,
+        "gmvPace": 61918.06,
         "commPct": "7.89%",
         "tier": "Core",
         "acctRank": 1
@@ -14229,6 +14362,7 @@ const allShopData = [
         "commDollars": 1398.25,
         "bonus": 0,
         "gmvLM": 30008.25,
+        "gmvPace": 53604.12,
         "commPct": "13.48%",
         "tier": "Core",
         "acctRank": 1
@@ -14362,6 +14496,7 @@ const allShopData = [
         "commDollars": 117.05,
         "bonus": 0,
         "gmvLM": 1543.82,
+        "gmvPace": 5412.76,
         "commPct": "11.17%",
         "tier": "Core",
         "acctRank": 1
@@ -14382,6 +14517,7 @@ const allShopData = [
         "commDollars": 30.37,
         "bonus": 0,
         "gmvLM": 1520.86,
+        "gmvPace": 1251.16,
         "commPct": "12.54%",
         "tier": "Core",
         "acctRank": 1
@@ -14545,6 +14681,7 @@ const allShopData = [
         "commDollars": 157.82,
         "bonus": 0,
         "gmvLM": 9242.42,
+        "gmvPace": 8216.45,
         "commPct": "9.92%",
         "tier": "Core",
         "acctRank": 1
@@ -14678,6 +14815,7 @@ const allShopData = [
         "commDollars": 236.96,
         "bonus": 0,
         "gmvLM": 10560.31,
+        "gmvPace": 9512.71,
         "commPct": "12.87%",
         "tier": "Talent",
         "acctRank": 1
@@ -14698,6 +14836,7 @@ const allShopData = [
         "commDollars": 25.49,
         "bonus": 0,
         "gmvLM": 1252.57,
+        "gmvPace": 730.72,
         "commPct": "18.02%",
         "tier": "Talent",
         "acctRank": 1
@@ -14861,6 +15000,7 @@ const allShopData = [
         "commDollars": 430.12,
         "bonus": 0,
         "gmvLM": 48876.79,
+        "gmvPace": 26055.86,
         "commPct": "8.53%",
         "tier": "Core",
         "acctRank": 1
@@ -14994,6 +15134,7 @@ const allShopData = [
         "commDollars": 240.87,
         "bonus": 0,
         "gmvLM": 17938.4,
+        "gmvPace": 5027.27,
         "commPct": "24.75%",
         "tier": "Core",
         "acctRank": 1
@@ -15127,6 +15268,7 @@ const allShopData = [
         "commDollars": 132.6,
         "bonus": 0,
         "gmvLM": 10528.74,
+        "gmvPace": 6403,
         "commPct": "10.70%",
         "tier": "Core",
         "acctRank": 1
@@ -15260,6 +15402,7 @@ const allShopData = [
         "commDollars": 1.2,
         "bonus": 0,
         "gmvLM": 21.25,
+        "gmvPace": 92.9,
         "commPct": "6.67%",
         "tier": "Core",
         "acctRank": 1
@@ -15393,6 +15536,7 @@ const allShopData = [
         "commDollars": 344.09,
         "bonus": 0,
         "gmvLM": 36299.17,
+        "gmvPace": 18077.39,
         "commPct": "9.83%",
         "tier": "Core",
         "acctRank": 1
@@ -15526,6 +15670,7 @@ const allShopData = [
         "commDollars": 77.94,
         "bonus": 0,
         "gmvLM": 3831.5,
+        "gmvPace": 2862.33,
         "commPct": "14.07%",
         "tier": "Core",
         "acctRank": 1
@@ -15659,6 +15804,7 @@ const allShopData = [
         "commDollars": 471.99,
         "bonus": 0,
         "gmvLM": 22493.74,
+        "gmvPace": 20020.42,
         "commPct": "12.18%",
         "tier": "Core",
         "acctRank": 1
@@ -15792,6 +15938,7 @@ const allShopData = [
         "commDollars": 71.86,
         "bonus": 0,
         "gmvLM": 6294.79,
+        "gmvPace": 3157.3,
         "commPct": "11.76%",
         "tier": "Core",
         "acctRank": 1
@@ -15925,6 +16072,7 @@ const allShopData = [
         "commDollars": 17.4,
         "bonus": 0,
         "gmvLM": 1118.05,
+        "gmvPace": 1050.28,
         "commPct": "8.56%",
         "tier": "Core",
         "acctRank": 1
@@ -16058,6 +16206,7 @@ const allShopData = [
         "commDollars": 112.36,
         "bonus": 0,
         "gmvLM": 7073.21,
+        "gmvPace": 5638.8,
         "commPct": "10.30%",
         "tier": "Core",
         "acctRank": 1
@@ -16191,6 +16340,7 @@ const allShopData = [
         "commDollars": 488.36,
         "bonus": 0,
         "gmvLM": 21285.98,
+        "gmvPace": 21317.15,
         "commPct": "11.84%",
         "tier": "Select+",
         "acctRank": 1
@@ -16324,6 +16474,7 @@ const allShopData = [
         "commDollars": 306.49,
         "bonus": 0,
         "gmvLM": 5609.04,
+        "gmvPace": 6584.25,
         "commPct": "24.05%",
         "tier": "Core",
         "acctRank": 1
@@ -16457,6 +16608,7 @@ const allShopData = [
         "commDollars": 418.25,
         "bonus": 0,
         "gmvLM": 9644,
+        "gmvPace": 18408.99,
         "commPct": "11.74%",
         "tier": "Core",
         "acctRank": 1
@@ -16590,6 +16742,7 @@ const allShopData = [
         "commDollars": 37.64,
         "bonus": 0,
         "gmvLM": 2701.96,
+        "gmvPace": 1613.03,
         "commPct": "12.06%",
         "tier": "Core",
         "acctRank": 1
@@ -16723,6 +16876,7 @@ const allShopData = [
         "commDollars": 170.19,
         "bonus": 0,
         "gmvLM": 7961.32,
+        "gmvPace": 14579.04,
         "commPct": "6.03%",
         "tier": "Core",
         "acctRank": 1
@@ -16856,6 +17010,7 @@ const allShopData = [
         "commDollars": 1.2,
         "bonus": 0,
         "gmvLM": 339.97,
+        "gmvPace": 115.68,
         "commPct": "5.36%",
         "tier": "Core",
         "acctRank": 1
@@ -16989,6 +17144,7 @@ const allShopData = [
         "commDollars": 427.95,
         "bonus": 0,
         "gmvLM": 22513.94,
+        "gmvPace": 12514.86,
         "commPct": "17.67%",
         "tier": "Core",
         "acctRank": 1
@@ -17122,6 +17278,7 @@ const allShopData = [
         "commDollars": 514.97,
         "bonus": 0,
         "gmvLM": 26153.67,
+        "gmvPace": 32747.47,
         "commPct": "8.12%",
         "tier": "Core",
         "acctRank": 1
@@ -17255,6 +17412,7 @@ const allShopData = [
         "commDollars": 177.61,
         "bonus": 0,
         "gmvLM": 3542.5,
+        "gmvPace": 6536.4,
         "commPct": "14.04%",
         "tier": "Core",
         "acctRank": 1
@@ -17388,6 +17546,7 @@ const allShopData = [
         "commDollars": 42.17,
         "bonus": 0,
         "gmvLM": 1175.87,
+        "gmvPace": 1994.18,
         "commPct": "10.93%",
         "tier": "Core",
         "acctRank": 1
@@ -17521,6 +17680,7 @@ const allShopData = [
         "commDollars": 163.8,
         "bonus": 0,
         "gmvLM": 4568.64,
+        "gmvPace": 9136.79,
         "commPct": "9.26%",
         "tier": "Core",
         "acctRank": 1
@@ -17654,6 +17814,7 @@ const allShopData = [
         "commDollars": 25.43,
         "bonus": 0,
         "gmvLM": 654.69,
+        "gmvPace": 1313.88,
         "commPct": "10.00%",
         "tier": "Core",
         "acctRank": 1
@@ -17787,6 +17948,7 @@ const allShopData = [
         "commDollars": 68.62,
         "bonus": 0,
         "gmvLM": 3137.57,
+        "gmvPace": 3089.31,
         "commPct": "11.48%",
         "tier": "Select",
         "acctRank": 1
@@ -17920,6 +18082,7 @@ const allShopData = [
         "commDollars": 53.03,
         "bonus": 0,
         "gmvLM": 2459.26,
+        "gmvPace": 2820.28,
         "commPct": "9.71%",
         "tier": "Core",
         "acctRank": 1
@@ -18053,6 +18216,7 @@ const allShopData = [
         "commDollars": 573.45,
         "bonus": 0,
         "gmvLM": 6487.28,
+        "gmvPace": 13545.24,
         "commPct": "21.87%",
         "tier": "VIP",
         "acctRank": 1
@@ -18186,6 +18350,7 @@ const allShopData = [
         "commDollars": 40.16,
         "bonus": 0,
         "gmvLM": 1352.24,
+        "gmvPace": 1101.17,
         "commPct": "18.84%",
         "tier": "Core",
         "acctRank": 1
@@ -18319,6 +18484,7 @@ const allShopData = [
         "commDollars": 7.22,
         "bonus": 0,
         "gmvLM": 452.82,
+        "gmvPace": 354.33,
         "commPct": "10.53%",
         "tier": "STAFF",
         "acctRank": 1
@@ -18452,6 +18618,7 @@ const allShopData = [
         "commDollars": 149.47,
         "bonus": 0,
         "gmvLM": 8662.76,
+        "gmvPace": 8251.79,
         "commPct": "9.36%",
         "tier": "Core",
         "acctRank": 1
@@ -18585,6 +18752,7 @@ const allShopData = [
         "commDollars": 202.12,
         "bonus": 0,
         "gmvLM": 5303.65,
+        "gmvPace": 9365,
         "commPct": "11.15%",
         "tier": "Core",
         "acctRank": 1
@@ -18718,6 +18886,7 @@ const allShopData = [
         "commDollars": 32.42,
         "bonus": 0,
         "gmvLM": 411.13,
+        "gmvPace": 1521.69,
         "commPct": "11.01%",
         "tier": "Core",
         "acctRank": 1
@@ -18851,6 +19020,7 @@ const allShopData = [
         "commDollars": 635.97,
         "bonus": 0,
         "gmvLM": 34200.61,
+        "gmvPace": 32500.35,
         "commPct": "10.11%",
         "tier": "VIP",
         "acctRank": 1
@@ -18984,6 +19154,7 @@ const allShopData = [
         "commDollars": 33.88,
         "bonus": 0,
         "gmvLM": 1236.83,
+        "gmvPace": 1428.33,
         "commPct": "12.26%",
         "tier": "Core",
         "acctRank": 1
@@ -19117,6 +19288,7 @@ const allShopData = [
         "commDollars": 969.06,
         "bonus": 0,
         "gmvLM": 37762.28,
+        "gmvPace": 38618.56,
         "commPct": "12.96%",
         "tier": "Core",
         "acctRank": 1
@@ -19137,6 +19309,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 38.15,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -19300,6 +19473,7 @@ const allShopData = [
         "commDollars": 105.06,
         "bonus": 0,
         "gmvLM": 9268.2,
+        "gmvPace": 3917.37,
         "commPct": "13.86%",
         "tier": "Select+",
         "acctRank": 1
@@ -19433,6 +19607,7 @@ const allShopData = [
         "commDollars": 2.97,
         "bonus": 0,
         "gmvLM": 204.07,
+        "gmvPace": 139.35,
         "commPct": "11.01%",
         "tier": "Core",
         "acctRank": 1
@@ -19566,6 +19741,7 @@ const allShopData = [
         "commDollars": 11.87,
         "bonus": 0,
         "gmvLM": 2248.32,
+        "gmvPace": 637.88,
         "commPct": "9.61%",
         "tier": "Core",
         "acctRank": 1
@@ -19699,6 +19875,7 @@ const allShopData = [
         "commDollars": 50.59,
         "bonus": 0,
         "gmvLM": 1881.49,
+        "gmvPace": 1128.5,
         "commPct": "23.16%",
         "tier": "Core",
         "acctRank": 1
@@ -19832,6 +20009,7 @@ const allShopData = [
         "commDollars": 406.81,
         "bonus": 0,
         "gmvLM": 12294.02,
+        "gmvPace": 16231.19,
         "commPct": "12.95%",
         "tier": "Core",
         "acctRank": 1
@@ -19965,6 +20143,7 @@ const allShopData = [
         "commDollars": 34.09,
         "bonus": 0,
         "gmvLM": 1605.38,
+        "gmvPace": 1477.36,
         "commPct": "11.92%",
         "tier": "Core",
         "acctRank": 1
@@ -20098,6 +20277,7 @@ const allShopData = [
         "commDollars": 875.76,
         "bonus": 0,
         "gmvLM": 37646.09,
+        "gmvPace": 41671.23,
         "commPct": "10.86%",
         "tier": "Core",
         "acctRank": 1
@@ -20231,6 +20411,7 @@ const allShopData = [
         "commDollars": 295.59,
         "bonus": 0,
         "gmvLM": 4516.1,
+        "gmvPace": 14782.3,
         "commPct": "10.33%",
         "tier": "Core",
         "acctRank": 1
@@ -20364,6 +20545,7 @@ const allShopData = [
         "commDollars": 49.37,
         "bonus": 0,
         "gmvLM": 699.78,
+        "gmvPace": 3188.76,
         "commPct": "8.00%",
         "tier": "Core",
         "acctRank": 1
@@ -20497,6 +20679,7 @@ const allShopData = [
         "commDollars": 775.83,
         "bonus": 0,
         "gmvLM": 42588.59,
+        "gmvPace": 36919.76,
         "commPct": "10.86%",
         "tier": "Core",
         "acctRank": 1
@@ -20630,6 +20813,7 @@ const allShopData = [
         "commDollars": 325.77,
         "bonus": 0,
         "gmvLM": 13638.91,
+        "gmvPace": 12794.42,
         "commPct": "13.16%",
         "tier": "Core",
         "acctRank": 1
@@ -20763,6 +20947,7 @@ const allShopData = [
         "commDollars": 63.8,
         "bonus": 0,
         "gmvLM": 3983.15,
+        "gmvPace": 2494.88,
         "commPct": "13.21%",
         "tier": "Core",
         "acctRank": 1
@@ -20896,6 +21081,7 @@ const allShopData = [
         "commDollars": 10.99,
         "bonus": 0,
         "gmvLM": 145.3,
+        "gmvPace": 480.24,
         "commPct": "11.82%",
         "tier": "Core",
         "acctRank": 1
@@ -21029,6 +21215,7 @@ const allShopData = [
         "commDollars": 887.48,
         "bonus": 0,
         "gmvLM": 37923.21,
+        "gmvPace": 40348.26,
         "commPct": "11.36%",
         "tier": "Core",
         "acctRank": 1
@@ -21162,6 +21349,7 @@ const allShopData = [
         "commDollars": 1.2,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 55.7,
         "commPct": "11.13%",
         "tier": "Core",
         "acctRank": 1
@@ -21295,6 +21483,7 @@ const allShopData = [
         "commDollars": 89.16,
         "bonus": 0,
         "gmvLM": 2779.21,
+        "gmvPace": 2919.94,
         "commPct": "15.78%",
         "tier": "Core",
         "acctRank": 1
@@ -21428,6 +21617,7 @@ const allShopData = [
         "commDollars": 20,
         "bonus": 0,
         "gmvLM": 674.28,
+        "gmvPace": 751.96,
         "commPct": "13.74%",
         "tier": "Core",
         "acctRank": 1
@@ -21561,6 +21751,7 @@ const allShopData = [
         "commDollars": 27.2,
         "bonus": 0,
         "gmvLM": 208.04,
+        "gmvPace": 987.61,
         "commPct": "14.23%",
         "tier": "Core",
         "acctRank": 1
@@ -21694,6 +21885,7 @@ const allShopData = [
         "commDollars": 115.55,
         "bonus": 0,
         "gmvLM": 2429.68,
+        "gmvPace": 5172.3,
         "commPct": "11.54%",
         "tier": "Core",
         "acctRank": 1
@@ -21827,6 +22019,7 @@ const allShopData = [
         "commDollars": 26.55,
         "bonus": 0,
         "gmvLM": 746.41,
+        "gmvPace": 1291.41,
         "commPct": "10.62%",
         "tier": "Core",
         "acctRank": 1
@@ -21960,6 +22153,7 @@ const allShopData = [
         "commDollars": 94.51,
         "bonus": 0,
         "gmvLM": 5182.93,
+        "gmvPace": 4217.5,
         "commPct": "11.58%",
         "tier": "Core",
         "acctRank": 1
@@ -22093,6 +22287,7 @@ const allShopData = [
         "commDollars": 259.33,
         "bonus": 0,
         "gmvLM": 10791.89,
+        "gmvPace": 11474.5,
         "commPct": "11.68%",
         "tier": "Core",
         "acctRank": 1
@@ -22226,6 +22421,7 @@ const allShopData = [
         "commDollars": 18.99,
         "bonus": 0,
         "gmvLM": 2903.07,
+        "gmvPace": 1446.56,
         "commPct": "6.78%",
         "tier": "Core",
         "acctRank": 1
@@ -22359,6 +22555,7 @@ const allShopData = [
         "commDollars": 90.12,
         "bonus": 0,
         "gmvLM": 5486.76,
+        "gmvPace": 4726.88,
         "commPct": "9.85%",
         "tier": "Core",
         "acctRank": 1
@@ -22492,6 +22689,7 @@ const allShopData = [
         "commDollars": 100.92,
         "bonus": 0,
         "gmvLM": 4835.01,
+        "gmvPace": 4579.37,
         "commPct": "11.39%",
         "tier": "Core",
         "acctRank": 1
@@ -22625,6 +22823,7 @@ const allShopData = [
         "commDollars": 48.42,
         "bonus": 0,
         "gmvLM": 1132.29,
+        "gmvPace": 1695.29,
         "commPct": "14.76%",
         "tier": "Core",
         "acctRank": 1
@@ -22758,6 +22957,7 @@ const allShopData = [
         "commDollars": 574.95,
         "bonus": 0,
         "gmvLM": 9293.17,
+        "gmvPace": 25211.63,
         "commPct": "11.78%",
         "tier": "Core",
         "acctRank": 1
@@ -22891,6 +23091,7 @@ const allShopData = [
         "commDollars": 594.2,
         "bonus": 0,
         "gmvLM": 32306.52,
+        "gmvPace": 30780.16,
         "commPct": "9.97%",
         "tier": "Core",
         "acctRank": 1
@@ -23024,6 +23225,7 @@ const allShopData = [
         "commDollars": 130.36,
         "bonus": 0,
         "gmvLM": 7919.8,
+        "gmvPace": 6357.58,
         "commPct": "10.59%",
         "tier": "Core",
         "acctRank": 1
@@ -23157,6 +23359,7 @@ const allShopData = [
         "commDollars": 392.46,
         "bonus": 0,
         "gmvLM": 17230.7,
+        "gmvPace": 15904.96,
         "commPct": "12.75%",
         "tier": "Core",
         "acctRank": 1
@@ -23290,6 +23493,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 13369.37,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -23310,6 +23514,7 @@ const allShopData = [
         "commDollars": 219.6,
         "bonus": 0,
         "gmvLM": 10885.87,
+        "gmvPace": 10115.61,
         "commPct": "11.22%",
         "tier": "Core",
         "acctRank": 1
@@ -23330,6 +23535,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 69.03,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -23493,6 +23699,7 @@ const allShopData = [
         "commDollars": 101.63,
         "bonus": 0,
         "gmvLM": 3080.76,
+        "gmvPace": 4257.44,
         "commPct": "12.33%",
         "tier": "Core",
         "acctRank": 1
@@ -23626,6 +23833,7 @@ const allShopData = [
         "commDollars": 36.48,
         "bonus": 0,
         "gmvLM": 929.85,
+        "gmvPace": 1361.16,
         "commPct": "13.85%",
         "tier": "Core",
         "acctRank": 1
@@ -23759,6 +23967,7 @@ const allShopData = [
         "commDollars": 88.98,
         "bonus": 0,
         "gmvLM": 6070.48,
+        "gmvPace": 3921.86,
         "commPct": "11.72%",
         "tier": "Core",
         "acctRank": 1
@@ -23892,6 +24101,7 @@ const allShopData = [
         "commDollars": 79.68,
         "bonus": 0,
         "gmvLM": 2056,
+        "gmvPace": 3174.3,
         "commPct": "12.97%",
         "tier": "Core",
         "acctRank": 1
@@ -24025,6 +24235,7 @@ const allShopData = [
         "commDollars": 643.75,
         "bonus": 0,
         "gmvLM": 97517.12,
+        "gmvPace": 20637.22,
         "commPct": "16.12%",
         "tier": "Core",
         "acctRank": 1
@@ -24158,6 +24369,7 @@ const allShopData = [
         "commDollars": 191.69,
         "bonus": 0,
         "gmvLM": 14626.24,
+        "gmvPace": 10844.83,
         "commPct": "9.13%",
         "tier": "Core",
         "acctRank": 1
@@ -24291,6 +24503,7 @@ const allShopData = [
         "commDollars": 7.67,
         "bonus": 0,
         "gmvLM": 572.59,
+        "gmvPace": 533.67,
         "commPct": "7.43%",
         "tier": "Core",
         "acctRank": 1
@@ -24424,6 +24637,7 @@ const allShopData = [
         "commDollars": 22.62,
         "bonus": 0,
         "gmvLM": 3293.14,
+        "gmvPace": 2215.57,
         "commPct": "5.27%",
         "tier": "Core",
         "acctRank": 1
@@ -24557,6 +24771,7 @@ const allShopData = [
         "commDollars": 173.27,
         "bonus": 0,
         "gmvLM": 9999.1,
+        "gmvPace": 7901.85,
         "commPct": "11.33%",
         "tier": "Core",
         "acctRank": 1
@@ -24690,6 +24905,7 @@ const allShopData = [
         "commDollars": 241.61,
         "bonus": 0,
         "gmvLM": 21485.85,
+        "gmvPace": 10209.64,
         "commPct": "12.23%",
         "tier": "Core",
         "acctRank": 1
@@ -24823,6 +25039,7 @@ const allShopData = [
         "commDollars": 976.1,
         "bonus": 0,
         "gmvLM": 36135.79,
+        "gmvPace": 50758.52,
         "commPct": "9.94%",
         "tier": "Core",
         "acctRank": 1
@@ -24843,6 +25060,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -25006,6 +25224,7 @@ const allShopData = [
         "commDollars": 34.85,
         "bonus": 0,
         "gmvLM": 904.66,
+        "gmvPace": 1184.05,
         "commPct": "15.21%",
         "tier": "Core",
         "acctRank": 1
@@ -25139,6 +25358,7 @@ const allShopData = [
         "commDollars": 735.5,
         "bonus": 0,
         "gmvLM": 10137.46,
+        "gmvPace": 29488.08,
         "commPct": "12.89%",
         "tier": "Core",
         "acctRank": 1
@@ -25272,6 +25492,7 @@ const allShopData = [
         "commDollars": 0.3,
         "bonus": 0,
         "gmvLM": 217.81,
+        "gmvPace": 254.2,
         "commPct": "0.61%",
         "tier": "Core",
         "acctRank": 1
@@ -25405,6 +25626,7 @@ const allShopData = [
         "commDollars": 219.21,
         "bonus": 0,
         "gmvLM": 5062.6,
+        "gmvPace": 6125.39,
         "commPct": "18.49%",
         "tier": "Core",
         "acctRank": 1
@@ -25538,6 +25760,7 @@ const allShopData = [
         "commDollars": 91.46,
         "bonus": 0,
         "gmvLM": 4525.31,
+        "gmvPace": 5065.14,
         "commPct": "9.33%",
         "tier": "VIP",
         "acctRank": 1
@@ -25671,6 +25894,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "12.05%",
         "tier": "#N/A",
         "acctRank": 1
@@ -25738,6 +25962,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 55.48,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -25871,6 +26096,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 76.4,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26004,6 +26230,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 29.91,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26137,6 +26364,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26270,6 +26498,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
@@ -26403,6 +26632,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 494.62,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26536,6 +26766,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 134.59,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26669,6 +26900,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 15.03,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -26802,6 +27034,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
@@ -26935,6 +27168,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27068,6 +27302,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 30.8,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27201,6 +27436,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 159.29,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27334,6 +27570,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 6404.17,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27401,6 +27638,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27534,6 +27772,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "VIP",
         "acctRank": 1
@@ -27667,6 +27906,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
@@ -27800,6 +28040,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 72.92,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -27933,6 +28174,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 4.56,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28066,6 +28308,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 769,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28199,6 +28442,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 99.49,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28332,6 +28576,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
@@ -28465,6 +28710,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
@@ -28598,6 +28844,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 2.07,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28731,6 +28978,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 165.36,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28864,6 +29112,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -28997,6 +29246,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -29130,6 +29380,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 0,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "Core",
         "acctRank": 1
@@ -29263,6 +29514,7 @@ const allShopData = [
         "commDollars": 0,
         "bonus": 0,
         "gmvLM": 32.62,
+        "gmvPace": 0,
         "commPct": "0%",
         "tier": "STAFF",
         "acctRank": 1
