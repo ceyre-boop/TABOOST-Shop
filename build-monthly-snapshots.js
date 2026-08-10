@@ -96,7 +96,82 @@ for (const file of files) {
         withPosts + ' with post counts)');
 }
 
+// ── monthly PRODUCT snapshots ───────────────────────────────────────────────
+// Month-End must not read the current-month product tabs — those are August data on a
+// July card. Drop a per-month export alongside the agency report:
+//   data/shop/monthly/YYYY-MM-products.csv       (same schema as top-products.csv)
+//   data/shop/monthly/YYYY-MM-sugg-products.csv  (same schema as sugg-products.csv)
+// Both optional. Absent -> Month-End shows its "pending" state rather than wrong months.
+function resolveFeedColumns(headers) {
+    const h = (headers || []).map(x => String(x || '').trim());
+    const slots = [], categories = [];
+    for (let k = 1; k <= 5; k++) {
+        const name = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*product|suggested\\s*product\\s*' + k + ')$', 'i').test(x));
+        if (name < 0) continue;
+        const gmv = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*product\\s*gmv|total\\s*gmv\\s*' + k + ')$', 'i').test(x));
+        const id = h.findIndex(x =>
+            new RegExp('^(top\\s*' + k + '\\s*)?(product\\s*_?id|sku(\\s*id)?)(\\s*' + k + ')?$', 'i').test(x));
+        slots.push({ name: name, gmv: gmv, id: id >= 0 ? id : null });
+    }
+    for (let k = 1; k <= 2; k++) {
+        const name = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category$', 'i').test(x));
+        if (name < 0) continue;
+        const gmv = h.findIndex(x => new RegExp('^top\\s*' + k + '\\s*category\\s*gmv$', 'i').test(x));
+        categories.push({ name: name, gmv: gmv });
+    }
+    return { slots: slots, categories: categories };
+}
+
+const money = v => {
+    const s = String(v == null ? '' : v).trim();
+    if (!s) return '';
+    const n = parseFloat(s.replace(/[^0-9.-]/g, ''));
+    return isNaN(n) ? s : '$' + Math.round(n).toLocaleString('en-US');
+};
+
+const productMonths = {};
+for (const file of fs.readdirSync(monthlyDir)) {
+    const m = file.match(/^(\d{4}-\d{2})-(products|sugg-products)\.csv$/);
+    if (!m) continue;
+    const month = m[1], kind = m[2] === 'products' ? 'top' : 'suggested';
+    const rows = parseCSV(fs.readFileSync(path.join(monthlyDir, file), 'utf8'));
+    if (rows.length < 2) continue;
+    const cols = resolveFeedColumns(rows[0]);
+    if (!cols.slots.length) { console.log('  ! ' + file + ': unrecognised header — skipped'); continue; }
+
+    const bucket = (productMonths[month] = productMonths[month] || {});
+    let n = 0;
+    for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        const handle = (r[0] || '').trim().toLowerCase();
+        if (!handle) continue;
+        const items = [];
+        cols.slots.forEach((s, k) => {
+            const nm = (r[s.name] || '').trim();
+            if (!nm) return;
+            items.push({ rank: k + 1, name: nm, gmv: money(r[s.gmv]),
+                         productId: s.id != null ? (r[s.id] || '').trim() : '' });
+        });
+        if (!items.length) continue;
+        const entry = (bucket[handle] = bucket[handle] || {});
+        entry[kind] = items;
+        if (kind === 'top') {
+            entry.categories = cols.categories.map(c => ({
+                name: (r[c.name] || '').trim(), gmv: money(r[c.gmv])
+            })).filter(c => c.name);
+        }
+        n++;
+    }
+    console.log('  ' + file + ': ' + n + ' creators (' + kind + ')');
+}
+
 const outPath = path.join(shopDir, 'monthly-stats.json');
-fs.writeFileSync(outPath, JSON.stringify({ months: months }));
+fs.writeFileSync(outPath, JSON.stringify({ months: months, products: productMonths }));
+const pm = Object.keys(productMonths);
+console.log(pm.length
+    ? '  product snapshots: ' + pm.join(', ')
+    : '  product snapshots: none yet — Month-End product lists will show their pending state');
 console.log('✓ monthly-stats.json written — ' + (fs.statSync(outPath).size / 1024).toFixed(1) +
     ' KB, ' + files.length + ' month(s), ' + totalRows + ' account-months');

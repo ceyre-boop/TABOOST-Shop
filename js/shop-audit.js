@@ -333,6 +333,14 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     // Closed-month figures the history CSV doesn't carry — post counts above all.
     // Returns null when that month hasn't been exported yet, so the card shows "—"
     // rather than a misleading zero.
+    // Per-month product lists, from data/shop/monthly/YYYY-MM-products.csv (+ -sugg-products).
+    // Null until that month is exported — callers fall back to the pending state.
+    function saMonthlyProducts(handle, offset) {
+        const p = saMonthlyData && saMonthlyData.products;
+        const month = p && p[saMonthKey(offset)];
+        return (month && month[(handle || '').toLowerCase()]) || null;
+    }
+
     function saMonthlyStats(handle, offset) {
         const months = saMonthlyData && saMonthlyData.months;
         const month = months && months[saMonthKey(offset)];
@@ -365,13 +373,24 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const commPct = acct.commPct ? String(acct.commPct).replace(/[^0-9.%-]/g, '') : null;
         const top = saForHandle(saTopProducts, handle);
 
+        // Mid-Month reads the live Top-Products / Sugg-Products tabs. Month-End must NOT —
+        // those hold the current month, which would put August products on a July card.
+        // It reads the monthly product snapshot instead, and shows the pending state when
+        // that month hasn't been exported yet.
+        const monthlyProd = variant === 'end' ? saMonthlyProducts(handle, -1) : null;
         const base = {
             name: name, firstName: firstName, handle: handle,
             accountTabs: saAccounts().map(a => a.handle).filter(Boolean),
             avgComm: commPct,
-            topCategories: (top && top.categories) || [],
-            topProducts: (top && top.products) || [],
-            suggested: saForHandle(saSuggested, handle) || []
+            topCategories: variant === 'end'
+                ? ((monthlyProd && monthlyProd.categories) || [])
+                : ((top && top.categories) || []),
+            topProducts: variant === 'end'
+                ? ((monthlyProd && monthlyProd.top) || [])
+                : ((top && top.products) || []),
+            suggested: variant === 'end'
+                ? ((monthlyProd && monthlyProd.suggested) || [])
+                : (saForHandle(saSuggested, handle) || [])
         };
 
         if (variant === 'end') {
@@ -425,7 +444,7 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     function saFallback(m, variant) {
         // Month-End hides Proven Winners in favour of the GMV chart, so its copy
         // must never point "below" at a list that isn't on the page.
-        const isEnd = variant === 'end';
+        const isEnd = !(m.suggested && m.suggested.length);   // no on-screen list to point at
         const winners = (m.suggested || []).slice(0, 2).map(s => s.name.split(/[|,–-]/)[0].trim());
         const winnerTitle = isEnd ? 'Line up next month’s winners' : 'Try the proven winners below';
         const winnerLine = isEnd
@@ -521,7 +540,7 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
             proven_winners_not_yet_posted: (m.suggested || []).map(s => ({ product: s.name, category_gmv: s.gmv })),
             // Month-End replaces the Proven Winners list with the GMV chart, so copy
             // must not point "below" at it.
-            proven_winners_list_visible: v !== 'end'
+            proven_winners_list_visible: !!(m.suggested && m.suggested.length)
         };
 
         saAbort = new AbortController();
@@ -644,7 +663,11 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         // Month-End swaps Proven Winners for the closed-month GMV chart.
         const isEnd = saState.variant === 'end';
         const chartEl = overlay.querySelector('#saChart');
-        overlay.querySelector('#saSuggested').style.display = isEnd ? 'none' : '';
+        // Winners follows the data, not the variant: on Month-End it appears once that
+        // month's suggested-product snapshot exists, and stays hidden until then rather
+        // than falling back to the current month's list.
+        const hasWinners = !!(m.suggested && m.suggested.length);
+        overlay.querySelector('#saSuggested').style.display = hasWinners ? '' : 'none';
         chartEl.style.display = isEnd ? '' : 'none';
         if (isEnd) saRenderChart(overlay, m);
 
