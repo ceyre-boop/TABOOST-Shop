@@ -757,3 +757,49 @@ a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
     .sa-sugg-gmv { padding-left: 0; }
     .sa-card { padding: 12px; }
 }
+
+/* ---------- Dashboard action bar (under the welcome banner) ---------- */
+/* Lives on the dark dashboard, not the cream modal, so it borrows the
+   .welcome-banner palette rather than the audit card's. */
+.sa-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: -14px 0 25px;
+}
+.sa-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,0,68,.2);
+    background: rgba(255,0,68,.07);
+    color: #f0ece6;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .18s, border-color .18s, transform .18s;
+}
+.sa-action:hover {
+    background: rgba(255,0,68,.14);
+    border-color: rgba(255,0,68,.45);
+    transform: translateY(-1px);
+}
+.sa-action:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
+.sa-action-primary {
+    background: #ff0d5e;
+    border-color: #ff0d5e;
+    color: #fff;
+}
+.sa-action-primary:hover { background: #e00b53; border-color: #e00b53; }
+.sa-action-ico { font-size: 14px; }
+
+@media (max-width: 600px) {
+    /* Full-width stack — three side-by-side buttons wrap badly on a phone. */
+    .sa-actions { flex-direction: column; gap: 8px; margin: -8px 0 20px; }
+    .sa-action { justify-content: center; width: 100%; padding: 13px 18px; }
+}

@@ -16,6 +16,10 @@
 // the built-in fallback copy (modal still works, marked "offline copy" in console).
 const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
+// TAP storefront — same destination as the welcome banner's "HERE" link
+// (window.CAMPAIGN_ANNOUNCEMENT.linkUrl in js/shop-dashboard.js).
+const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
+
 (function () {
     'use strict';
 
@@ -584,7 +588,11 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         const m = saMetrics(saState.variant);
         const ai = saState.ai || {};
 
-        overlay.querySelector('#saMidBtn').classList.toggle('active', saState.variant === 'mid');
+        // Before the 12th there is no fresh mid-month product data, so the toggle is hidden
+        // entirely rather than offering a recap built on last month's feed.
+        const midBtn = overlay.querySelector('#saMidBtn');
+        midBtn.style.display = saMidMonthAvailable() ? '' : 'none';
+        midBtn.classList.toggle('active', saState.variant === 'mid');
         overlay.querySelector('#saEndBtn').classList.toggle('active', saState.variant === 'end');
         overlay.querySelector('#saName').textContent = m.name;
         overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
@@ -872,12 +880,26 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
         saGenerate();
     }
 
-    function openShopAudit() {
+    // Mid-month product data is uploaded around the 10th and 20th, so a Mid-Month recap
+    // before then would be built on last month's product feed. Gate on the day-of-month of
+    // the DATA timestamp rather than the wall clock: that way the recap appears only once
+    // data through the 12th actually exists, instead of the day the calendar rolls over.
+    const SA_MIDMONTH_FROM_DAY = 12;
+
+    function saMidMonthAvailable() {
+        const m = String(window.SHOP_LAST_UPDATED || '').match(/^[A-Za-z]{3}\s+(\d{1,2})/);
+        return m ? parseInt(m[1], 10) >= SA_MIDMONTH_FROM_DAY : true;
+    }
+
+    function openShopAudit(variant) {
         if (!document.getElementById('shopAuditOverlay')) saBuildModal();
         if (!saState.account) {
             const first = saAccounts()[0];
             saState.account = first ? (first.handle || '').toLowerCase() : null;
         }
+        // Never land on a variant whose toggle is hidden.
+        if (variant === 'mid' || variant === 'end') saState.variant = variant;
+        if (!saMidMonthAvailable()) saState.variant = 'end';
         saState.open = true;
         saGenerate();
         saScrollToTop();
@@ -891,18 +913,33 @@ const SHOP_AUDIT_ENDPOINT = 'https://taboost-shop-audit.onrender.com';
 
     // Launcher: discreet footer link while the feature awaits approval.
     // Swap back to the pink .sa-launcher button after sign-off.
+    // Action bar under the welcome banner. Replaces the old hidden "account audit (beta)"
+    // footer link — these buttons are the launcher now.
     function saInsertLauncher() {
-        if (document.getElementById('saLauncher')) return;
-        const footer = document.querySelector('.creator-footer');
-        const wrap = document.createElement('p');
-        wrap.style.cssText = 'text-align:center; margin-top:8px;';
-        // Padded to a real tap target — the bare 11px link was ~13px tall on a phone.
-        wrap.innerHTML = '<a id="saLauncher" href="#" style="display:inline-block; ' +
-            'padding:12px 18px; font-size:12px; line-height:1; color:#555; ' +
-            'text-decoration:none; opacity:.7;">✦ account audit (beta)</a>';
-        if (footer) footer.appendChild(wrap);
-        else document.querySelector('.creator-layout, main, body').appendChild(wrap);
-        wrap.querySelector('#saLauncher').addEventListener('click', e => { e.preventDefault(); openShopAudit(); });
+        if (document.getElementById('saActions')) return;
+        const banner = document.getElementById('welcomeBanner');
+        if (!banner) return;
+
+        const bar = document.createElement('div');
+        bar.className = 'sa-actions';
+        bar.id = 'saActions';
+        bar.innerHTML =
+            '<a class="sa-action sa-action-primary" href="' + saEsc(SA_TAP_SEARCH_URL) + '">' +
+              '<span class="sa-action-ico" aria-hidden="true">🔍</span> TAP Product Search</a>' +
+            '<button class="sa-action" type="button" id="saOpenEnd">' +
+              '<span class="sa-action-ico" aria-hidden="true">📅</span> Month-End Recap</button>' +
+            '<button class="sa-action" type="button" id="saOpenMid">' +
+              '<span class="sa-action-ico" aria-hidden="true">📊</span> Mid-Month Recap</button>';
+        banner.insertAdjacentElement('afterend', bar);
+
+        bar.querySelector('#saOpenEnd').addEventListener('click', () => openShopAudit('end'));
+        const midBtn = bar.querySelector('#saOpenMid');
+        // Hidden until mid-month data exists — same rule as the toggle inside the modal.
+        if (saMidMonthAvailable()) {
+            midBtn.addEventListener('click', () => openShopAudit('mid'));
+        } else {
+            midBtn.remove();
+        }
     }
 
     if (document.readyState === 'loading') {
