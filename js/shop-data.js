@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-08-10T00:13:07.239Z
+// Generated: 2026-08-10T00:18:22.931Z
 // Total Mapped: 204 unique shop creators
 // History months detected dynamically from CSV headers
 
