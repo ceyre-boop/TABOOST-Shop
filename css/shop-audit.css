@@ -185,8 +185,8 @@
 .sa-head-right {
     text-align: right;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
     gap: 8px;
 }
 .sa-logo {

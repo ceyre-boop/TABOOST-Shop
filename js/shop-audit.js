@@ -607,21 +607,11 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const m = saMetrics(saState.variant);
         const ai = saState.ai || {};
 
-        // Only one button shows at a time: mid-month from the 12th onwards, month-end before.
+        // Modal shows both buttons for switching; the active one is highlighted
         const midBtn = overlay.querySelector('#saMidBtn');
         const endBtn = overlay.querySelector('#saEndBtn');
-        const midAvail = saMidMonthAvailable();
-        if (midAvail) {
-            midBtn.style.display = '';
-            endBtn.style.display = 'none';
-            midBtn.classList.add('active');
-            endBtn.classList.remove('active');
-        } else {
-            midBtn.style.display = 'none';
-            endBtn.style.display = '';
-            midBtn.classList.remove('active');
-            endBtn.classList.add('active');
-        }
+        midBtn.classList.toggle('active', saState.variant === 'mid');
+        endBtn.classList.toggle('active', saState.variant === 'end');
         overlay.querySelector('#saName').textContent = m.name;
         overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
         overlay.querySelector('#saPeriod').textContent = m.period;        overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
