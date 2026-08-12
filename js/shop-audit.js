@@ -985,9 +985,9 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
             '<a class="sa-action sa-action-primary" href="' + saEsc(SA_TAP_SEARCH_URL) + '">' +
               '<span class="sa-action-ico" aria-hidden="true">🔍</span> TAP Product Search</a>' +
             '<button class="sa-action" type="button" id="saOpenEnd">' +
-              'Month-End Recap</button>' +
+              '<span class="sa-action-ico" aria-hidden="true">📅</span> Month-End Recap</button>' +
             '<button class="sa-action" type="button" id="saOpenMid">' +
-              'Mid-Month Recap</button>';
+              '<span class="sa-action-ico" aria-hidden="true">📊</span> Mid-Month Recap</button>';
         banner.insertAdjacentElement('afterend', bar);
 
         const endBtn = bar.querySelector('#saOpenEnd');
