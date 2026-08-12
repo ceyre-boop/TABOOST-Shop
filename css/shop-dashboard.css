@@ -2975,54 +2975,74 @@
     margin-left: auto;
 }
 
-/* Mobile Layout: TAP Goals left | $ center | TAP Search right */
+/* Mobile Layout: TAP Goals stacked vertically */
 @media (max-width: 768px) {
     .tap-goals-header {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 5px 0 !important;
-        flex-wrap: nowrap !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: stretch !important;
+        padding: 0 !important;
         position: relative !important;
-    }
-
-    .tap-goals-center {
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 0 !important;
-        width: auto !important;
-    }
-
-    .tap-goals-right {
-        margin-left: 0 !important;
-    }
-
-    .tap-goals-title i {
-        display: inline !important; /* Show bullseye icon on mobile */
-        font-size: 16px !important;
+        justify-content: flex-start !important;
     }
 
     .tap-goals-title {
-        font-size: 16px !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
         white-space: nowrap !important;
+        order: 1 !important;
+    }
+
+    .tap-goals-title i {
+        display: inline !important;
+        font-size: 13px !important;
+        margin-right: 4px !important;
+    }
+
+    .tap-goals-center {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+        order: 2 !important;
+    }
+
+    .tap-goals-right {
+        position: relative !important;
+        margin-left: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        order: 3 !important;
     }
 
     .tap-value-badge {
-        font-size: 14px !important;
-        padding: 6px 12px !important;
+        display: block !important;
+        width: 100% !important;
+        font-size: 12px !important;
+        padding: 10px 12px !important;
         font-weight: 700 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
     }
 
     .tap-search-badge {
-        font-size: 14px !important;
-        padding: 6px 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        width: 100% !important;
+        font-size: 11px !important;
+        padding: 10px 12px !important;
         font-weight: 700 !important;
+        box-sizing: border-box !important;
     }
 
     .tap-search-badge i {
-        display: inline !important; /* Show search icon on mobile */
-        font-size: 14px !important;
+        font-size: 10px !important;
     }
 }
 /* --- Account Metrics Grid: Mobile Fix --- */

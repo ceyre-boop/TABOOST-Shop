@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Account Audit — Demo</title>
+<style>
+:root {
+    --bg: #0a0a0a;
+    --card: #141416;
+    --card-2: #1b1b1f;
+    --line: #26262a;
+    --red: #FF0055;
+    --red-soft: rgba(255,0,85,.12);
+    --success: #00ff88;
+    --warning: #ffaa00;
+    --text: #f2f2f4;
+    --muted: #9a9aa3;
+    --gold: #ffd700;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    padding: 32px 16px 80px;
+}
+.wrap { max-width: 780px; margin: 0 auto; }
+
+/* demo framing */
+.demo-note {
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+.demo-note strong { color: var(--text); }
+
+/* audit card */
+.audit-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.audit-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(135deg, rgba(255,0,85,.10) 0%, transparent 60%);
+}
+.audit-title { display:flex; align-items:center; gap:12px; }
+.ai-badge {
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+.audit-title h1 { font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.audit-meta { color: var(--muted); font-size: 13px; }
+.audit-meta b { color: var(--text); font-weight: 600; }
+
+/* KPI strip */
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+}
+.kpi { padding: 16px 20px; border-right: 1px solid var(--line); }
+.kpi:last-child { border-right: none; }
+.kpi .label { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.kpi .value { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.kpi .delta { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.up { color: var(--success); }
+.down { color: #ff4d6d; }
+.flat { color: var(--muted); }
+
+/* trend */
+.trend {
+    padding: 18px 24px 8px;
+    border-bottom: 1px solid var(--line);
+}
+.section-label {
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.bars { display: flex; align-items: flex-end; gap: 10px; height: 96px; }
+.bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.bar {
+    width: 100%;
+    max-width: 54px;
+    border-radius: 5px 5px 2px 2px;
+    background: var(--card-2);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+}
+.bar .shop-part { background: #3a3a42; }
+.bar .tap-part { background: var(--red); }
+.bar-col.current .bar { border-color: var(--red); box-shadow: 0 0 12px rgba(255,0,85,.25); }
+.bar-label { font-size: 11px; color: var(--muted); }
+.bar-col.current .bar-label { color: var(--text); font-weight: 700; }
+.trend-legend { display:flex; gap:16px; padding: 10px 0 12px; font-size: 11px; color: var(--muted); }
+.dot { display:inline-block; width:8px; height:8px; border-radius:2px; margin-right:5px; vertical-align: 1px; }
+
+/* body sections */
+.audit-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.audit-section { padding: 20px 24px; }
+.audit-section + .audit-section { border-left: 1px solid var(--line); }
+.audit-section.full { grid-column: 1 / -1; border-left: none; border-top: 1px solid var(--line); }
+.issue-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.issue-list li {
+    font-size: 13.5px;
+    padding-left: 18px;
+    position: relative;
+}
+.issue-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 7px;
+    width: 7px; height: 7px;
+    border-radius: 2px;
+}
+.issues li::before { background: var(--warning); }
+.fixes li::before { background: var(--success); }
+.issue-list li b { font-weight: 700; }
+.issue-list li .sub { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+
+/* products */
+.prod-header-row { display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.cat-line { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.cat-line b { color: var(--red); font-weight: 800; }
+.prod-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.prod-table td { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.prod-table tr:last-child td { border-bottom: none; }
+.prod-table .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.prod-table .cat { color: var(--muted); font-size: 12px; padding-left: 10px; white-space: nowrap; }
+.pending-pill {
+    font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--warning);
+    border: 1px solid rgba(255,170,0,.4);
+    background: rgba(255,170,0,.08);
+    padding: 3px 8px; border-radius: 999px;
+}
+
+/* footer */
+.audit-foot {
+    padding: 12px 24px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    color: var(--muted); font-size: 11.5px;
+    background: var(--card-2);
+}
+.refresh-tag { color: var(--muted); }
+
+@media (max-width: 640px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .kpi:nth-child(2) { border-right: none; }
+    .kpi:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .audit-body { grid-template-columns: 1fr; }
+    .audit-section + .audit-section { border-left: none; border-top: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="demo-note">
+        <strong>DEMO — Shop Account Audit module.</strong> This is the static-box version, styled to drop
+        straight into the creator dashboard below the stat cards (replacing the manual Canva).
+        Numbers below are <strong>Colleen Fusco's real June data</strong> from shop-data.js; the issues and
+        fixes text shows what the AI generation layer would produce. Top-product data is mocked —
+        see the PENDING tag and notes at the bottom.
+    </div>
+
+    <div class="audit-card">
+        <div class="audit-head">
+            <div class="audit-title">
+                <span class="ai-badge">AI Audit</span>
+                <h1>Shop Account Audit</h1>
+            </div>
+            <div class="audit-meta">June 2026 &nbsp;·&nbsp; <b>colleen_fusco</b></div>
+        </div>
+
+        <div class="kpis">
+            <div class="kpi">
+                <div class="label">Total GMV</div>
+                <div class="value">$34,788</div>
+                <div class="delta down">▼ 15.0% vs May</div>
+            </div>
+            <div class="kpi">
+                <div class="label">TAP GMV</div>
+                <div class="value">$30,016</div>
+                <div class="delta up">▲ 220% vs May</div>
+            </div>
+            <div class="kpi">
+                <div class="label">Shop Posts</div>
+                <div class="value">28</div>
+                <div class="delta flat">26 on TAP links</div>
+            </div>
+            <div class="kpi">
+                <div class="label">GMV / Post</div>
+                <div class="value">$1,242</div>
+                <div class="delta down">▼ from $1,463</div>
+            </div>
+        </div>
+
+        <div class="trend">
+            <div class="section-label">7-Month GMV Trend</div>
+            <div class="bars">
+                <div class="bar-col"><div class="bar" style="height:100%"><div class="tap-part" style="height:16%"></div><div class="shop-part" style="height:84%"></div></div><div class="bar-label">Dec</div></div>
+                <div class="bar-col"><div class="bar" style="height:73%"><div class="tap-part" style="height:66%"></div><div class="shop-part" style="height:34%"></div></div><div class="bar-label">Jan</div></div>
+                <div class="bar-col"><div class="bar" style="height:34%"><div class="tap-part" style="height:61%"></div><div class="shop-part" style="height:39%"></div></div><div class="bar-label">Feb</div></div>
+                <div class="bar-col"><div class="bar" style="height:23%"><div class="tap-part" style="height:54%"></div><div class="shop-part" style="height:46%"></div></div><div class="bar-label">Mar</div></div>
+                <div class="bar-col"><div class="bar" style="height:23%"><div class="tap-part" style="height:45%"></div><div class="shop-part" style="height:55%"></div></div><div class="bar-label">Apr</div></div>
+                <div class="bar-col"><div class="bar" style="height:55%"><div class="tap-part" style="height:23%"></div><div class="shop-part" style="height:77%"></div></div><div class="bar-label">May</div></div>
+                <div class="bar-col current"><div class="bar" style="height:47%"><div class="tap-part" style="height:86%"></div><div class="shop-part" style="height:14%"></div></div><div class="bar-label">Jun</div></div>
+            </div>
+            <div class="trend-legend">
+                <span><span class="dot" style="background:var(--red)"></span>TAP GMV</span>
+                <span><span class="dot" style="background:#3a3a42"></span>Other Shop GMV</span>
+            </div>
+        </div>
+
+        <div class="audit-body">
+            <div class="audit-section full">
+                <div class="prod-header-row">
+                    <div class="section-label" style="margin-bottom:6px">Top Selling Products</div>
+                    <span class="pending-pill">Sample data — feed pending</span>
+                </div>
+                <div class="cat-line"><b>68% in Fashion</b> · 21% in Beauty · 11% other</div>
+                <table class="prod-table">
+                    <tr><td>Billabong Overalls</td><td class="cat">Fashion</td><td class="num">$9,410</td></tr>
+                    <tr><td>Fisoew Half-Zip Hoodie</td><td class="cat">Fashion</td><td class="num">$6,205</td></tr>
+                    <tr><td>PinkyMoor Camo Pants</td><td class="cat">Fashion</td><td class="num">$4,880</td></tr>
+                    <tr><td>SandCloud Towel Set</td><td class="cat">Home</td><td class="num">$2,140</td></tr>
+                </table>
+            </div>
+
+            <div class="audit-section">
+                <div class="section-label">Core Issues</div>
+                <ul class="issue-list issues">
+                    <li><b>GMV down 15% while posting held steady</b>
+                        <span class="sub">28 posts in June vs 28 in May — each video is converting less. GMV per post fell from $1,463 to $1,242.</span></li>
+                    <li><b>Revenue mix swung hard to TAP</b>
+                        <span class="sub">TAP went from 23% of GMV to 86% in one month. Non-TAP shop sales collapsed — the products that drove May aren't being reposted.</span></li>
+                    <li><b>December's winner was never replaced</b>
+                        <span class="sub">$74.7K in Dec fell to a $17.2K floor by April. No single product has been scaled to fill that gap since.</span></li>
+                </ul>
+            </div>
+
+            <div class="audit-section">
+                <div class="section-label">Fixes</div>
+                <ul class="issue-list fixes">
+                    <li><b>Repost your winners</b>
+                        <span class="sub">1 winning product = multiple posts. Don't retire a product while it's still converting.</span></li>
+                    <li><b>Stay in one lane</b>
+                        <span class="sub">Your audience buys Fashion. Keep 80% of posts in-category; test outside it with at most 1 in 5.</span></li>
+                    <li><b>Tighten the CTA</b>
+                        <span class="sub">Add urgency in the first 3 seconds and pin the product link comment on every video.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="audit-foot">
+            <span>Generated by TABOOST AI from your last 7 months of shop data</span>
+            <span class="refresh-tag">Refreshes with each data update</span>
+        </div>
+    </div>
+
+    <div class="demo-note" style="margin-top:28px">
+        <strong>What's real vs. mocked:</strong><br>
+        ✅ KPIs, MoM deltas, GMV/post, and the 7-month trend — all computable today from shop-data.js (history arrays already exist per creator).<br>
+        ✅ Core Issues — derivable from the same data with simple rules + an AI pass to write the copy.<br>
+        ⚠️ Top products &amp; category split — <strong>no per-creator product data exists in the pipeline yet.</strong>
+        tap-products.csv is agency-wide, and the Recent_Orders feed (CID, Shop, Type, Date, Sales, Cost) has no product names.
+        Needs a per-creator product export from TikTok Shop added as an 8th CSV.
+    </div>
+
+</div>
+</body>
+</html>
