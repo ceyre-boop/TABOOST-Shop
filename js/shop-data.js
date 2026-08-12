@@ -29924,7 +29924,7 @@ const allShopData = [
   }
 ];
 
-window.SHOP_LAST_UPDATED = "Aug 10 at 11:59 PM PT";
+window.SHOP_LAST_UPDATED = "Aug 12 at 12:00 AM PT";
 if (typeof window !== "undefined") {
     window.TABOOST_SHOP_DATA = allShopData;
 }
