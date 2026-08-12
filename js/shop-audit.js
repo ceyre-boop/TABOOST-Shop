@@ -611,10 +611,17 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const midBtn = overlay.querySelector('#saMidBtn');
         const endBtn = overlay.querySelector('#saEndBtn');
         const midAvail = saMidMonthAvailable();
-        midBtn.style.display = midAvail ? '' : 'none';
-        endBtn.style.display = midAvail ? 'none' : '';
-        midBtn.classList.toggle('active', true);
-        endBtn.classList.toggle('active', true);
+        if (midAvail) {
+            midBtn.style.display = '';
+            endBtn.style.display = 'none';
+            midBtn.classList.add('active');
+            endBtn.classList.remove('active');
+        } else {
+            midBtn.style.display = 'none';
+            endBtn.style.display = '';
+            midBtn.classList.remove('active');
+            endBtn.classList.add('active');
+        }
         overlay.querySelector('#saName').textContent = m.name;
         overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
         overlay.querySelector('#saPeriod').textContent = m.period;        overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
