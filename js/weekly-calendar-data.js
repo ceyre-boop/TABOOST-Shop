@@ -114,6 +114,15 @@ function generateRollingCalendar() {
             startDate: new Date(2026, 5, 11), // June 11
             endDate: new Date(2026, 5, 11),   // June 11
             color: "#ff0050"
+        },
+        {
+            id: 10,
+            title: "Back to School Campaign",
+            type: "campaign",
+            time: "Campaign",
+            startDate: new Date(2026, 7, 20), // August 20
+            endDate: new Date(2026, 7, 30),   // August 30
+            color: "#7c3aed"
         }
     ];
     
