@@ -417,7 +417,7 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
                 tapGmv: snap ? snap.tapGmv : endTap,
                 shopPosts: snap ? snap.shopPosts : null,
                 tapPosts: snap ? snap.tapPosts : null,
-                gmvTrend: saTrend(gmv, prevGMV, 'vs prior month')
+                gmvTrend: saTrend(gmv, prevGMV, 'vs Last Month GMV Pace')
             });
         }
         const curGMV = parseFloat(acct.gmv) || 0;
@@ -434,8 +434,8 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
             shopPosts: acct.sv != null ? parseFloat(acct.sv) || 0 : null,
             tapPosts: acct.tap != null ? parseFloat(acct.tap) || 0 : null,
             gmvTrend: pace > 0
-                ? saTrend(pace, lmGMV, 'pace vs last month')
-                : saTrend(curGMV, lmGMV, 'vs last month')
+                ? saTrend(pace, lmGMV, 'vs Last Month GMV Pace')
+                : saTrend(curGMV, lmGMV, 'vs Last Month GMV Pace')
         });
     }
 
