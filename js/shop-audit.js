@@ -990,12 +990,14 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
               'Mid-Month Recap</button>';
         banner.insertAdjacentElement('afterend', bar);
 
-        bar.querySelector('#saOpenEnd').addEventListener('click', () => openShopAudit('end'));
+        const endBtn = bar.querySelector('#saOpenEnd');
         const midBtn = bar.querySelector('#saOpenMid');
-        // Hidden until mid-month data exists — same rule as the toggle inside the modal.
+        // Only one button shows at a time: mid-month from the 12th onwards, month-end before.
         if (saMidMonthAvailable()) {
             midBtn.addEventListener('click', () => openShopAudit('mid'));
+            endBtn.remove();
         } else {
+            endBtn.addEventListener('click', () => openShopAudit('end'));
             midBtn.remove();
         }
     }
