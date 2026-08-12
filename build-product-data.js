@@ -12,7 +12,10 @@ const path = require('path');
 const crypto = require('crypto');
 
 const csvDir = process.argv[2] || 'data/shop';
-const outputFile = path.join(__dirname, 'js', 'product-data.js');
+const datasetType = process.argv[3] || 'midmonth'; // 'midmonth' or 'monthend'
+const outputFile = datasetType === 'monthend'
+  ? path.join(__dirname, 'js', 'product-data-monthend.js')
+  : path.join(__dirname, 'js', 'product-data.js');
 const indexFile = path.join(__dirname, 'index.html');
 
 console.log(`Scanning CSVs in directory: ${csvDir}`);
@@ -534,17 +537,19 @@ Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]).forEach(([cat, count]
 });
 
 // -- 3. OUTPUT TO JS ----------------------------------------------------------
+const varPrefix = datasetType === 'monthend' ? '_MONTHEND' : '';
 const outputLines = [
     '// TABOOST Discovery Platform - Product & Campaign Data Pipeline',
     `// Generated: ${new Date().toISOString()}`,
+    `// Dataset: ${datasetType}`,
     `// Total Products: ${allProducts.length} | Active Campaigns: ${allCampaigns.length} | TAP Campaigns: ${tapCampaigns.length}`,
     `// Unique de-duped names: ${seenNames.size}`,
     '',
-    'window.PRODUCT_DATA = ' + jsonDumps(allProducts) + ';',
+    `window.PRODUCT_DATA${varPrefix} = ` + jsonDumps(allProducts) + ';',
     '',
-    'window.CAMPAIGN_DATA = ' + jsonDumps(allCampaigns) + ';',
+    `window.CAMPAIGN_DATA${varPrefix} = ` + jsonDumps(allCampaigns) + ';',
     '',
-    'window.TAP_CAMPAIGNS = ' + jsonDumps(tapCampaigns) + ';'
+    `window.TAP_CAMPAIGNS${varPrefix} = ` + jsonDumps(tapCampaigns) + ';'
 ];
 
 const outputBody = outputLines.join('\n');

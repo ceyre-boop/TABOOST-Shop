@@ -1052,19 +1052,42 @@
             <button id="footer-logout" type="button" style="display:none; margin-top:18px; padding:10px 22px; background:transparent; border:1px solid rgba(255,255,255,0.2); border-radius:8px; color:#ccc; font-size:14px; font-weight:600; cursor:pointer;">↪ Log out</button>
         </footer>
     </div>
-    <script src="js/product-data.js?v=a48b9889"></script>
+    <script src="js/product-data-midmonth.js?v=a48b9889"></script>
+    <script src="js/product-data-monthend.js?v=a48b9889"></script>
     <script src="js/scoring.js?v=20260625"></script>
     <script>
         // Data State
         let allItems = [];
         let campaigns = [];
+        let currentDataset = 'midmonth'; // Track which dataset is active
 
-        async function loadAllData() {
+        // Store datasets when they load
+        const datasetsCache = {
+            midmonth: { products: window.PRODUCT_DATA, campaigns: window.CAMPAIGN_DATA, tap: window.TAP_CAMPAIGNS },
+            monthend: null // Will be populated after monthend script loads
+        };
+
+        async function loadAllData(dataset = 'midmonth') {
             try {
-                // Use pre-loaded data from js/product-data.js
-                if (window.PRODUCT_DATA && window.CAMPAIGN_DATA) {
-                    allItems = window.PRODUCT_DATA;
-                    campaigns = window.CAMPAIGN_DATA;
+                currentDataset = dataset;
+
+                // Reload monthend data if needed
+                if (!datasetsCache.monthend) {
+                    // Monthend should have loaded from script tag, so grab it
+                    datasetsCache.monthend = {
+                        products: window.PRODUCT_DATA_MONTHEND || [],
+                        campaigns: window.CAMPAIGN_DATA_MONTHEND || [],
+                        tap: window.TAP_CAMPAIGNS_MONTHEND || []
+                    };
+                }
+
+                const data = datasetsCache[dataset];
+
+                // Use pre-loaded data
+                if (data && data.products && data.campaigns) {
+                    allItems = data.products;
+                    campaigns = data.campaigns;
+                    window.TAP_CAMPAIGNS = data.tap;
                 } else {
                     throw new Error("Data not pre-loaded");
                 }
