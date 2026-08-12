@@ -607,12 +607,14 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const m = saMetrics(saState.variant);
         const ai = saState.ai || {};
 
-        // Before the 12th there is no fresh mid-month product data, so the toggle is hidden
-        // entirely rather than offering a recap built on last month's feed.
+        // Only one button shows at a time: mid-month from the 12th onwards, month-end before.
         const midBtn = overlay.querySelector('#saMidBtn');
-        midBtn.style.display = saMidMonthAvailable() ? '' : 'none';
-        midBtn.classList.toggle('active', saState.variant === 'mid');
-        overlay.querySelector('#saEndBtn').classList.toggle('active', saState.variant === 'end');
+        const endBtn = overlay.querySelector('#saEndBtn');
+        const midAvail = saMidMonthAvailable();
+        midBtn.style.display = midAvail ? '' : 'none';
+        endBtn.style.display = midAvail ? 'none' : '';
+        midBtn.classList.toggle('active', true);
+        endBtn.classList.toggle('active', true);
         overlay.querySelector('#saName').textContent = m.name;
         overlay.querySelector('#saHandleChip').textContent = '@' + m.handle;
         overlay.querySelector('#saPeriod').textContent = m.period;        overlay.querySelector('#saStatsPill').textContent = m.statsPillLabel;
