@@ -2954,51 +2954,64 @@
 /* Mobile Layout: TAP Goals left | $ center | TAP Search right */
 @media (max-width: 768px) {
     .tap-goals-header {
-        flex-direction: row !important;
-        justify-content: space-between !important;
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        gap: 12px !important;
         align-items: center !important;
-        padding: 5px 0 !important;
-        flex-wrap: nowrap !important;
+        padding: 0 !important;
         position: relative !important;
     }
 
-    .tap-goals-center {
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+    .tap-goals-title {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        font-size: 16px !important;
+        white-space: nowrap !important;
         margin: 0 !important;
-        width: auto !important;
-    }
-
-    .tap-goals-right {
-        margin-left: 0 !important;
     }
 
     .tap-goals-title i {
         display: inline !important; /* Show bullseye icon on mobile */
         font-size: 16px !important;
+        margin-right: 6px !important;
     }
 
-    .tap-goals-title {
-        font-size: 16px !important;
-        white-space: nowrap !important;
+    .tap-goals-center {
+        position: static !important;
+        transform: none !important;
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        margin: 0 !important;
+        width: auto !important;
+    }
+
+    .tap-goals-right {
+        grid-column: 1 / -1 !important;
+        grid-row: 2 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
     }
 
     .tap-value-badge {
         font-size: 14px !important;
-        padding: 6px 12px !important;
+        padding: 6px 14px !important;
         font-weight: 700 !important;
+        white-space: nowrap !important;
     }
 
     .tap-search-badge {
-        font-size: 14px !important;
+        font-size: 13px !important;
         padding: 6px 12px !important;
         font-weight: 700 !important;
+        white-space: nowrap !important;
+        width: 100% !important;
+        justify-content: center !important;
     }
 
     .tap-search-badge i {
         display: inline !important; /* Show search icon on mobile */
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 }
 /* --- Account Metrics Grid: Mobile Fix --- */
