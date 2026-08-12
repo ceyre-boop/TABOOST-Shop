@@ -692,13 +692,14 @@ a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
     .sa-head-name { font-size: clamp(26px, 8vw, 34px); }
     .sa-head-period { font-size: 15px; }
     .sa-head-right {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
         width: 100%;
-        gap: 10px;
+        gap: 12px;
+        margin-top: 8px;
     }
-    .sa-logo { height: 40px; }
+    .sa-logo { height: 60px; width: 100%; object-fit: contain; }
 
     /* Stats — same three cards, less vertical bulk */
     .sa-stats { gap: 12px; margin-top: 14px; }
