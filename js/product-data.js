@@ -1,5 +1,5 @@
 // TABOOST Discovery Platform - Product & Campaign Data Pipeline
-// Generated: 2026-08-13T18:24:22.326Z
+// Generated: 2026-08-14T16:49:51.112Z
 // Dataset: midmonth
 // Total Products: 2783 | Active Campaigns: 2783 | TAP Campaigns: 103
 // Unique de-duped names: 2783
