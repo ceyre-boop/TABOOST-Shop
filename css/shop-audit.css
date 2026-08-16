@@ -713,21 +713,20 @@ a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
     .sa-verdict-text { font-size: 14.5px; }
     .sa-cols { gap: 20px; }
 
-    /* Proven winners — GMV drops to its own line so the name gets the full row */
-    .sa-sugg-row { flex-wrap: wrap; row-gap: 6px; gap: 12px; padding: 12px 14px; }
-    /* flex-basis 0 keeps the name beside the rank badge instead of wrapping below it */
-    .sa-sugg-name { flex: 1 1 0; min-width: 0; -webkit-line-clamp: 3; font-size: 13.5px; }
+    /* Proven winners — GMV stays pinned to the right of the row, like desktop */
+    .sa-sugg-row { flex-wrap: nowrap; gap: 10px; padding: 12px 14px; }
+    .sa-sugg-name { flex: 1 1 auto; min-width: 0; -webkit-line-clamp: 3; font-size: 13.5px; }
     .sa-sugg-thumb { width: 38px; height: 38px; }
     .sa-thumb-tap { font-size: 12px; }
     .sa-sugg-gmv {
-        flex: 0 0 100%;
+        flex: 0 0 auto;
         display: flex;
-        align-items: baseline;
-        gap: 6px;
-        text-align: left;
-        padding-left: 40px;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
     }
-    .sa-sugg-gmv .amount { font-size: 17px; }
+    .sa-sugg-gmv .amount { font-size: 15px; }
+    .sa-sugg-gmv .label { font-size: 8px; }
     .sa-sugg-title { font-size: 16px; }
     .sa-sugg-sub { font-size: 13px; }
 
