@@ -747,7 +747,6 @@ a.sa-row-link:focus-visible { outline: 2px solid #ff0d5e; outline-offset: 2px; }
    so the sticky bar doesn't eat a third of the screen. */
 @media (max-width: 370px) {
     .sa-seg button { font-size: 11.5px; padding: 12px 4px; letter-spacing: -.1px; }
-    .sa-sugg-gmv { padding-left: 0; }
     .sa-card { padding: 12px; }
 }
 
