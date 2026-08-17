@@ -147,54 +147,71 @@ function exportSheetAsCSV_(sheetId, gid) {
 }
 
 // ── GITHUB PUSH ─────────────────────────────────────────────────────────────
+// Retries on transient failures (429 rate-limit, 500/502/503/504 GitHub-side
+// outages) — a 503 here used to fail the whole tab with no retry, same as the
+// "Current" tab did on 2026-08-17.
 function pushToGitHub_(content, config, path, sheetName) {
   var apiUrl = 'https://api.github.com/repos/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO + '/contents/' + path;
+  var retryableCodes = [429, 500, 502, 503, 504];
+  var attempts = 0, maxAttempts = 4;
 
-  // Check if file already exists (need SHA to update)
-  var sha = null;
-  try {
-    var check = UrlFetchApp.fetch(apiUrl, {
-      method: 'GET',
+  while (true) {
+    attempts++;
+
+    // Check if file already exists (need SHA to update). Re-checked every
+    // attempt in case a prior attempt actually landed despite a lost response.
+    var sha = null;
+    try {
+      var check = UrlFetchApp.fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': 'token ' + config.GITHUB_TOKEN,
+          'Accept': 'application/vnd.github.v3+json'
+        },
+        muteHttpExceptions: true
+      });
+      if (check.getResponseCode() === 200) {
+        sha = JSON.parse(check.getContentText()).sha;
+      }
+    } catch (e) {
+      // File doesn't exist yet — that's fine
+    }
+
+    // Build payload
+    var timestamp = new Date().toISOString();
+    var payload = {
+      message: 'Auto-sync: ' + sheetName + ' @ ' + timestamp,
+      content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
+      branch: 'main'
+    };
+    if (sha) payload.sha = sha;
+
+    // Upload
+    var upload = UrlFetchApp.fetch(apiUrl, {
+      method: 'PUT',
       headers: {
         'Authorization': 'token ' + config.GITHUB_TOKEN,
-        'Accept': 'application/vnd.github.v3+json'
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
       },
+      payload: JSON.stringify(payload),
       muteHttpExceptions: true
     });
-    if (check.getResponseCode() === 200) {
-      sha = JSON.parse(check.getContentText()).sha;
+
+    var code = upload.getResponseCode();
+    if (code === 200 || code === 201) {
+      return JSON.parse(upload.getContentText());
     }
-  } catch (e) {
-    // File doesn't exist yet — that's fine
-  }
 
-  // Build payload
-  var timestamp = new Date().toISOString();
-  var payload = {
-    message: 'Auto-sync: ' + sheetName + ' @ ' + timestamp,
-    content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-    branch: 'main'
-  };
-  if (sha) payload.sha = sha;
+    if (retryableCodes.indexOf(code) !== -1 && attempts < maxAttempts) {
+      var waitMs = 3000 * attempts; // 3s, 6s, 9s
+      Logger.log('⏳ GitHub PUT ' + code + ' for ' + sheetName + ', retry ' + attempts + '/' + (maxAttempts - 1) + ' in ' + (waitMs / 1000) + 's…');
+      Utilities.sleep(waitMs);
+      continue;
+    }
 
-  // Upload
-  var upload = UrlFetchApp.fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      'Authorization': 'token ' + config.GITHUB_TOKEN,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    },
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true
-  });
-
-  var code = upload.getResponseCode();
-  if (code !== 200 && code !== 201) {
     throw new Error('GitHub PUT error ' + code + ': ' + upload.getContentText().substring(0, 300));
   }
-
-  return JSON.parse(upload.getContentText());
 }
 
 // ── REGENERATE shop-data.js ─────────────────────────────────────────────────
