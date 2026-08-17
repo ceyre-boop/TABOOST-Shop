@@ -332,6 +332,43 @@ console.log(`✓ Processed ${histLoaded} history rows`);
 // ── BUILD OUTPUT ─────────────────────────────────────────────────────────────
 const allCreators = Object.values(creatorsMap).sort((a, b) => (b.points || 0) - (a.points || 0));
 
+// ── GMV RECONCILIATION GATE ──────────────────────────────────────────────────
+// The dashboard's "This Month's Total GMV" reads totalGMV (Totals sheet) while the
+// audit modal reads per-account gmv (Current sheet). Two independent exports feeding
+// two creator-facing numbers: if they ever drift, the site shows contradictory GMV
+// with nothing to catch it. Publishing wrong earnings figures is worse than a failed
+// build, so a mismatch aborts here rather than shipping.
+//
+// Tolerance is a cent per account to absorb sheet rounding, never a real gap.
+const gmvMismatches = [];
+for (const c of allCreators) {
+    const accounts = c.accounts || [];
+    if (!accounts.length) continue;              // no per-account rows to reconcile against
+    if (!(c.totalGMV > 0)) continue;             // creator absent from Totals; nothing to compare
+
+    const summed = accounts.reduce((s, a) => s + (Number(a.gmv) || 0), 0);
+    const tolerance = Math.max(0.01 * accounts.length, 0.01);
+
+    if (Math.abs(c.totalGMV - summed) > tolerance) {
+        gmvMismatches.push({ name: c.name || c.username, total: c.totalGMV, summed, accounts: accounts.length });
+    }
+}
+
+if (gmvMismatches.length) {
+    console.error(`\n❌ GMV MISMATCH — ${gmvMismatches.length} creator(s): Totals sheet disagrees with Current sheet\n`);
+    for (const m of gmvMismatches.slice(0, 15)) {
+        console.error(`   ${m.name}  (${m.accounts} account${m.accounts === 1 ? '' : 's'})`);
+        console.error(`      Totals sheet : $${m.total.toFixed(2)}`);
+        console.error(`      Sum of accts : $${m.summed.toFixed(2)}`);
+        console.error(`      Difference   : $${(m.total - m.summed).toFixed(2)}`);
+    }
+    if (gmvMismatches.length > 15) console.error(`   …and ${gmvMismatches.length - 15} more`);
+    console.error('\nBuild aborted — the dashboard and audit modal would show contradictory GMV.');
+    console.error('Fix the Totals/Current sheets so per-account GMV sums to Total GMV, then re-run.\n');
+    process.exit(1);
+}
+console.log(`✓ GMV reconciled: totalGMV matches per-account sum for all ${allCreators.length} creators`);
+
 // Current date label: in Apps Script this reads from Current sheet C1 directly.
 // Locally, the CSV header exports "TikTok" (the column name), not the date value.
 // So for local builds, fall back to today's date formatted to match the sheet style.

@@ -35,6 +35,13 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
 
     function saFmt(n) { return '$' + Math.round(n || 0).toLocaleString('en-US'); }
 
+    // The combined-total subnote must render byte-identical to the dashboard's
+    // "This Month's Total GMV" card, or the two figures differ by a dollar on
+    // rounding alone and look broken — the exact confusion the subnote exists to
+    // resolve. The dashboard floors (js/shop-dashboard.js, renderMyStats), so this
+    // floors too. Keep in step if that card's formatting ever changes.
+    function saFmtDashboardTotal(n) { return '$' + Math.floor(n || 0).toLocaleString('en-US'); }
+
     // Every figure we show is an estimate off a lagging export, so cents imply a
     // precision the data doesn't have. Feed cells arrive as "$175,316.52" — round
     // on ingest so display AND the AI payload are covered in one place.
@@ -378,8 +385,28 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         // It reads the monthly product snapshot instead, and shows the pending state when
         // that month hasn't been exported yet.
         const monthlyProd = variant === 'end' ? saMonthlyProducts(handle, -1) : null;
+
+        // This card is scoped to ONE account, but the dashboard's "This Month's Total GMV"
+        // covers every account, so a multi-account creator sees two different figures and
+        // reasonably assumes something is broken. Carry the combined total so the card can
+        // show what the per-account number is a share OF.
+        //
+        // Summed from the same per-account field the card renders (rather than read from
+        // myData.totalGMV, which comes off a different sheet) so the two lines can never
+        // disagree on screen. build-shop-data.js enforces that those two sources match.
+        const allAccounts = saAccounts();
+        const accountCount = allAccounts.length;
+        const combinedGmv = allAccounts.reduce((sum, a) => {
+            const v = variant === 'end'
+                ? (function () { const s = saMonthlyStats(a.handle, -1); return s ? s.gmv : parseFloat(a.gmvLM); })()
+                : parseFloat(a.gmv);
+            return sum + (isFinite(v) ? v : 0);
+        }, 0);
+
         const base = {
             name: name, firstName: firstName, handle: handle,
+            accountCount: accountCount,
+            combinedGmv: combinedGmv,
             accountTabs: saAccounts().map(a => a.handle).filter(Boolean),
             avgComm: commPct,
             topCategories: variant === 'end'
@@ -618,6 +645,17 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         overlay.querySelector('#saTapGmv').textContent = m.tapGmv != null ? saFmt(m.tapGmv) : '—';
         overlay.querySelector('#saTapPosts').textContent = m.tapPosts != null ? m.tapPosts : '—';
         overlay.querySelector('#saAcctGmv').textContent = m.accountGmv != null ? saFmt(m.accountGmv) : '—';
+
+        // Single-account creators would just see "of $X · 1 account" restating the number
+        // directly above it, so this only appears when there is actually a total to explain.
+        const gmvOfEl = overlay.querySelector('#saAcctGmvOf');
+        if (m.accountCount > 1 && m.combinedGmv > 0) {
+            gmvOfEl.textContent = 'of ' + saFmtDashboardTotal(m.combinedGmv) + ' · ' + m.accountCount + ' accounts';
+            gmvOfEl.style.display = '';
+        } else {
+            gmvOfEl.textContent = '';
+            gmvOfEl.style.display = 'none';
+        }
         overlay.querySelector('#saShopPosts').textContent = m.shopPosts != null ? m.shopPosts : '—';
         overlay.querySelector('#saAvgComm').textContent = m.avgComm || '—';
         overlay.querySelector('#saTrendNote').textContent = m.gmvTrend || '';
@@ -809,6 +847,8 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
                 '<div class="sa-pill-outline" id="saStatsPill"></div>' +
                 '<div class="sa-big-num" id="saAcctGmv"></div>' +
                 '<div class="sa-num-label">Account GMV</div>' +
+                // Only rendered for multi-account creators — see saRender.
+                '<div class="sa-num-subnote" id="saAcctGmvOf"></div>' +
                 '<div class="sa-mid-num" id="saShopPosts"></div>' +
                 '<div class="sa-mid-label">Shop Posts</div>' +
               '</div>' +

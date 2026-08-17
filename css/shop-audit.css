@@ -237,6 +237,9 @@
     line-height: 1;
 }
 .sa-num-label { color: #4a4844; font-size: 16px; margin-top: 4px; font-weight: 500; }
+/* "of $79,466 · 2 accounts" — reconciles this per-account card with the dashboard's
+   all-accounts total. Deliberately quiet: context, not a competing headline figure. */
+.sa-num-subnote { color: #8a8478; font-size: 12px; margin-top: 3px; font-weight: 500; }
 .sa-mid-num { font-family: 'Anton', sans-serif; font-size: 34px; color: #ff0d5e; margin-top: 16px; line-height: 1; }
 .sa-mid-label { color: #ff0d5e; font-size: 14px; font-weight: 600; }
 .sa-handles { display: flex; align-items: flex-end; justify-content: center; gap: 6px; margin-top: 22px; }
