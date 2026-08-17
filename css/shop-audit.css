@@ -501,6 +501,7 @@
 .sa-sugg-title .star { color: #ff0d5e; font-size: 18px; }
 .sa-sugg-soon { color: #8a8478; font-size: 12px; font-style: italic; }
 .sa-sugg-sub { color: #6b665d; font-size: 13.5px; margin-bottom: 16px; }
+.sa-sugg-cta { color: #ff0d5e; font-weight: 800; }
 .sa-sugg-list { display: flex; flex-direction: column; gap: 8px; }
 .sa-sugg-row {
     display: flex;
