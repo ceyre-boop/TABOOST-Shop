@@ -43,6 +43,11 @@ function syncShopSheetsToGitHub() {
 
   Logger.log('🚀 Starting Shop sync at ' + startTime.toISOString());
 
+  // ── PHASE 1: export every tab before writing anything ────────────────────
+  // Nothing is pushed until all exports succeed, so a mid-run Google failure
+  // can't leave GitHub holding a half-updated set of CSVs.
+  var files = [];   // [{ path, content, tabName }]
+
   for (var s = 0; s < SHEET_CONFIG.length; s++) {
     var sheet = SHEET_CONFIG[s];
     try {
@@ -65,21 +70,12 @@ function syncShopSheetsToGitHub() {
 
       // Cache it in memory (keyed by tab name)
       csvCache[sheet.tabName] = csvContent;
+      files.push({ path: sheet.outputPath, content: csvContent, tabName: sheet.tabName });
 
       Utilities.sleep(1500); // pace exports so Google doesn't rate-limit the later tabs
 
-      // Push to GitHub
-      var result = pushToGitHub_(csvContent, config, sheet.outputPath, sheet.tabName);
-
-      results.push({
-        sheet: sheet.tabName,
-        path: sheet.outputPath,
-        status: 'success',
-        commit: result.commit.sha.substring(0, 7)
-      });
-
     } catch (error) {
-      Logger.log('❌ Failed ' + sheet.tabName + ': ' + error.message);
+      Logger.log('❌ Export failed ' + sheet.tabName + ': ' + error.message);
       results.push({
         sheet: sheet.tabName,
         path: sheet.outputPath,
@@ -89,15 +85,62 @@ function syncShopSheetsToGitHub() {
     }
   }
 
+  // ── PHASE 2: one atomic commit, then verify it actually landed ───────────
+  // Previously each tab was its own PUT (7 separate ref updates). During the
+  // 2026-08-17 GitHub incident those returned success codes while nothing was
+  // committed, and the script cheerfully logged "7/7" on data that did not
+  // exist. One commit means one ref update, and the verify step below reads
+  // the ref back so a phantom success can never be reported again.
+  var commitSha = null;
+  var pushError = null;
+
+  if (files.length > 0) {
+    try {
+      commitSha = commitFilesToGitHub_(files, config);
+      Logger.log('📦 Commit created: ' + commitSha.substring(0, 7));
+
+      verifyCommitLanded_(commitSha, config);
+      Logger.log('🔍 Verified: main now points at ' + commitSha.substring(0, 7));
+
+      for (var f = 0; f < files.length; f++) {
+        results.push({
+          sheet: files[f].tabName,
+          path: files[f].path,
+          status: 'success',
+          commit: commitSha.substring(0, 7)
+        });
+      }
+    } catch (error) {
+      pushError = error.message;
+      Logger.log('❌ Push failed: ' + error.message);
+      for (var f = 0; f < files.length; f++) {
+        results.push({
+          sheet: files[f].tabName,
+          path: files[f].path,
+          status: 'error',
+          error: error.message
+        });
+      }
+    }
+  }
+
   var duration = (new Date() - startTime) / 1000;
-  var successCount = 0, skippedCount = 0;
+  var successCount = 0, skippedCount = 0, errorCount = 0;
   for (var r = 0; r < results.length; r++) {
     if (results[r].status === 'success') successCount++;
     if (results[r].status === 'skipped') skippedCount++;
+    if (results[r].status === 'error') errorCount++;
   }
 
-  Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets in ' + duration + 's' +
-             (skippedCount ? ' (' + skippedCount + ' optional skipped)' : ''));
+  // Say plainly whether the data is live. A green "Done" line on a run that
+  // wrote nothing is what caused an announcement on stale figures.
+  if (errorCount > 0) {
+    Logger.log('❌ SYNC FAILED — ' + errorCount + ' tab(s) did NOT reach GitHub. ' +
+               'The site is still serving OLD data.' + (pushError ? ' Reason: ' + pushError : ''));
+  } else {
+    Logger.log('✅ Done: ' + successCount + '/' + SHEET_CONFIG.length + ' sheets LIVE on GitHub in ' + duration + 's' +
+               (skippedCount ? ' (' + skippedCount + ' optional skipped)' : ''));
+  }
   logResults_(results, duration);
 
   // shop-data.js is now rebuilt by GitHub Actions (rebuild-shop-data.yml) whenever
@@ -107,7 +150,8 @@ function syncShopSheetsToGitHub() {
   Logger.log('ℹ️ shop-data.js regeneration skipped — handled by GitHub Actions');
 
   return {
-    success: successCount + skippedCount === SHEET_CONFIG.length,
+    success: errorCount === 0 && successCount + skippedCount === SHEET_CONFIG.length,
+    commit: commitSha,
     timestamp: new Date().toISOString(),
     duration: duration,
     results: results
@@ -146,71 +190,150 @@ function exportSheetAsCSV_(sheetId, gid) {
   }
 }
 
-// ── GITHUB PUSH ─────────────────────────────────────────────────────────────
-// Retries on transient failures (429 rate-limit, 500/502/503/504 GitHub-side
-// outages) — a 503 here used to fail the whole tab with no retry, same as the
-// "Current" tab did on 2026-08-17.
-function pushToGitHub_(content, config, path, sheetName) {
-  var apiUrl = 'https://api.github.com/repos/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO + '/contents/' + path;
+// ── GITHUB API HELPER ───────────────────────────────────────────────────────
+// Single place for auth + retry. Retries transient failures (429 rate-limit and
+// 5xx GitHub-side outages) with backoff; anything else throws immediately.
+function githubApi_(config, method, url, bodyObj, label) {
   var retryableCodes = [429, 500, 502, 503, 504];
-  var attempts = 0, maxAttempts = 4;
+  var attempts = 0, maxAttempts = 5;
 
   while (true) {
     attempts++;
 
-    // Check if file already exists (need SHA to update). Re-checked every
-    // attempt in case a prior attempt actually landed despite a lost response.
-    var sha = null;
-    try {
-      var check = UrlFetchApp.fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': 'token ' + config.GITHUB_TOKEN,
-          'Accept': 'application/vnd.github.v3+json'
-        },
-        muteHttpExceptions: true
-      });
-      if (check.getResponseCode() === 200) {
-        sha = JSON.parse(check.getContentText()).sha;
-      }
-    } catch (e) {
-      // File doesn't exist yet — that's fine
-    }
-
-    // Build payload
-    var timestamp = new Date().toISOString();
-    var payload = {
-      message: 'Auto-sync: ' + sheetName + ' @ ' + timestamp,
-      content: Utilities.base64Encode(content, Utilities.Charset.UTF_8),
-      branch: 'main'
-    };
-    if (sha) payload.sha = sha;
-
-    // Upload
-    var upload = UrlFetchApp.fetch(apiUrl, {
-      method: 'PUT',
+    var opts = {
+      method: method,
       headers: {
         'Authorization': 'token ' + config.GITHUB_TOKEN,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
+        'Accept': 'application/vnd.github.v3+json'
       },
-      payload: JSON.stringify(payload),
       muteHttpExceptions: true
-    });
+    };
+    if (bodyObj) {
+      opts.contentType = 'application/json';
+      opts.payload = JSON.stringify(bodyObj);
+    }
 
-    var code = upload.getResponseCode();
-    if (code === 200 || code === 201) {
-      return JSON.parse(upload.getContentText());
+    var res = UrlFetchApp.fetch(url, opts);
+    var code = res.getResponseCode();
+
+    if (code >= 200 && code < 300) {
+      return JSON.parse(res.getContentText());
     }
 
     if (retryableCodes.indexOf(code) !== -1 && attempts < maxAttempts) {
-      var waitMs = 3000 * attempts; // 3s, 6s, 9s
-      Logger.log('⏳ GitHub PUT ' + code + ' for ' + sheetName + ', retry ' + attempts + '/' + (maxAttempts - 1) + ' in ' + (waitMs / 1000) + 's…');
+      var waitMs = 3000 * attempts; // 3s, 6s, 9s, 12s
+      Logger.log('⏳ ' + label + ' got ' + code + ', retry ' + attempts + '/' + (maxAttempts - 1) + ' in ' + (waitMs / 1000) + 's…');
       Utilities.sleep(waitMs);
       continue;
     }
 
-    throw new Error('GitHub PUT error ' + code + ': ' + upload.getContentText().substring(0, 300));
+    throw new Error(label + ' failed (HTTP ' + code + '): ' + res.getContentText().substring(0, 300));
+  }
+}
+
+// ── ATOMIC COMMIT (Git Data API) ────────────────────────────────────────────
+// Writes all CSVs in ONE commit: blobs -> tree -> commit -> single ref update.
+//
+// The old approach used the Contents API once per file — 7 independent ref
+// updates per run. That multiplied the chance of hitting a degraded GitHub and
+// could leave the repo with some tabs updated and others stale (build-shop-data
+// would then rebuild from a mismatched CSV set). One ref update also means one
+// Pages deploy instead of seven.
+function commitFilesToGitHub_(files, config) {
+  var base = 'https://api.github.com/repos/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO;
+
+  // 1. Current tip of main
+  var ref = githubApi_(config, 'GET', base + '/git/ref/heads/main', null, 'Read main ref');
+  var baseCommitSha = ref.object.sha;
+
+  var baseCommit = githubApi_(config, 'GET', base + '/git/commits/' + baseCommitSha, null, 'Read base commit');
+  var baseTreeSha = baseCommit.tree.sha;
+
+  // 2. One blob per file. Base64 keeps UTF-8 (accented product names) intact.
+  var treeEntries = [];
+  for (var i = 0; i < files.length; i++) {
+    var blob = githubApi_(config, 'POST', base + '/git/blobs', {
+      content: Utilities.base64Encode(files[i].content, Utilities.Charset.UTF_8),
+      encoding: 'base64'
+    }, 'Create blob for ' + files[i].tabName);
+
+    treeEntries.push({
+      path: files[i].path,
+      mode: '100644',
+      type: 'blob',
+      sha: blob.sha
+    });
+  }
+
+  // 3. Tree layered on the current one, so untouched files are preserved
+  var tree = githubApi_(config, 'POST', base + '/git/trees', {
+    base_tree: baseTreeSha,
+    tree: treeEntries
+  }, 'Create tree');
+
+  // Identical content produces an identical tree — nothing to commit.
+  if (tree.sha === baseTreeSha) {
+    Logger.log('ℹ️ No changes detected — sheets match what is already on GitHub.');
+    return baseCommitSha;
+  }
+
+  // 4. Commit
+  var names = [];
+  for (var n = 0; n < files.length; n++) names.push(files[n].tabName);
+  var commit = githubApi_(config, 'POST', base + '/git/commits', {
+    message: 'Auto-sync: ' + names.join(', ') + ' @ ' + new Date().toISOString(),
+    tree: tree.sha,
+    parents: [baseCommitSha]
+  }, 'Create commit');
+
+  // 5. Move main. Non-fast-forward means something else pushed mid-run; surface
+  // it rather than force-updating over another commit.
+  githubApi_(config, 'PATCH', base + '/git/refs/heads/main', {
+    sha: commit.sha,
+    force: false
+  }, 'Update main ref');
+
+  return commit.sha;
+}
+
+// ── VERIFY ──────────────────────────────────────────────────────────────────
+// Reads the ref back and confirms main actually points at our commit.
+//
+// This is the guard against the 2026-08-17 failure: GitHub returned success
+// codes for writes that never landed, and the script reported "Done: 7/7" on
+// data that did not exist — which is what led to announcing stale figures.
+// Never report success without confirming from a fresh read.
+function verifyCommitLanded_(expectedSha, config) {
+  var base = 'https://api.github.com/repos/' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO;
+  var attempts = 0, maxAttempts = 4;
+
+  while (true) {
+    attempts++;
+    Utilities.sleep(2000); // let the ref settle before reading it back
+
+    try {
+      var ref = githubApi_(config, 'GET', base + '/git/ref/heads/main', null, 'Verify main ref');
+      if (ref.object.sha === expectedSha) return true;
+
+      // Someone else may have pushed on top of ours; that still means our
+      // commit landed. Walk back a few commits to check before failing.
+      var cursor = ref.object.sha;
+      for (var hop = 0; hop < 5; hop++) {
+        var c = githubApi_(config, 'GET', base + '/git/commits/' + cursor, null, 'Walk history');
+        if (c.sha === expectedSha) return true;
+        if (!c.parents || c.parents.length === 0) break;
+        cursor = c.parents[0].sha;
+      }
+    } catch (e) {
+      if (attempts >= maxAttempts) throw e;
+    }
+
+    if (attempts >= maxAttempts) {
+      throw new Error('VERIFICATION FAILED — commit ' + expectedSha.substring(0, 7) +
+                      ' is not on main. GitHub reported success but nothing landed. ' +
+                      'The site is still serving OLD data.');
+    }
+    Logger.log('⏳ Commit not visible on main yet, re-checking (' + attempts + '/' + (maxAttempts - 1) + ')…');
   }
 }
 
@@ -551,8 +674,14 @@ function regenerateShopDataJS_(config, csvMap, currentDateLabel) {
   jsContent += '    module.exports = allShopData;\n';
   jsContent += '}\n';
   
-  // Push shop-data.js to GitHub
-  pushToGitHub_(jsContent, config, 'js/shop-data.js', 'shop-data.js');
+  // Push shop-data.js to GitHub. Routed through the atomic-commit helper since
+  // the old per-file pushToGitHub_ was removed. This function stays disabled
+  // (see the note in syncShopSheetsToGitHub) — GitHub Actions owns this rebuild.
+  var sha = commitFilesToGitHub_(
+    [{ path: 'js/shop-data.js', content: jsContent, tabName: 'shop-data.js' }],
+    config
+  );
+  verifyCommitLanded_(sha, config);
 }
 
 // ── HELPERS ─────────────────────────────────────────────────────────────────
