@@ -27,6 +27,13 @@ function syncShopSheetsToGitHub() {
   var results = [];
   var csvCache = {}; // ← Store CSV content in memory to avoid re-fetching
 
+  // Fail before doing any work if this project is aimed at the wrong repo.
+  // On 2026-08-17 the GITHUB_REPO script property pointed at TABOOST-TALENT_ROSTER,
+  // so every run wrote 7 CSVs successfully — into the wrong repository — while the
+  // Shop site served stale data. The logs said "7/7 success" and were technically
+  // telling the truth. Never let the destination be silent again.
+  assertCorrectRepo_(config);
+
   // Read current date label directly from Current sheet cell C1
   // e.g. "April 7" — no code change needed when month rolls over
   var currentDateLabel = '';
@@ -188,6 +195,32 @@ function exportSheetAsCSV_(sheetId, gid) {
 
     throw new Error('Export failed (HTTP ' + code + '): ' + response.getContentText().substring(0, 200));
   }
+}
+
+// ── DESTINATION GUARD ───────────────────────────────────────────────────────
+// This script feeds shop.taboost.me and nothing else. loadConfig_ lets script
+// properties override the repo, which is how a stale GITHUB_REPO value silently
+// redirected an entire day of syncs to TABOOST-TALENT_ROSTER. Refuse to run
+// against anything but the Shop repo, and self-heal the property.
+var EXPECTED_OWNER = 'ceyre-boop';
+var EXPECTED_REPO  = 'TABOOST-Shop';
+
+function assertCorrectRepo_(config) {
+  Logger.log('🎯 Target repo: ' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO);
+
+  if (config.GITHUB_OWNER === EXPECTED_OWNER && config.GITHUB_REPO === EXPECTED_REPO) return;
+
+  // Repair the stored properties so the next run is correct without hunting
+  // through the Apps Script settings UI.
+  var props = PropertiesService.getScriptProperties();
+  props.setProperty('GITHUB_OWNER', EXPECTED_OWNER);
+  props.setProperty('GITHUB_REPO', EXPECTED_REPO);
+
+  throw new Error(
+    'WRONG REPO — this run was aimed at ' + config.GITHUB_OWNER + '/' + config.GITHUB_REPO +
+    ' instead of ' + EXPECTED_OWNER + '/' + EXPECTED_REPO + '. Nothing was written. ' +
+    'The script properties have been corrected; run the sync again.'
+  );
 }
 
 // ── GITHUB API HELPER ───────────────────────────────────────────────────────
