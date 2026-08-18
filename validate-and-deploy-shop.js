@@ -71,14 +71,22 @@ function updateCacheVersions() {
     const htmlPath = path.join(__dirname, 'shop-dashboard.html');
     if (fs.existsSync(htmlPath)) {
         let htmlContent = fs.readFileSync(htmlPath, 'utf8');
+        // Two rules here, both learned the hard way:
+        //
+        // 1. Match [A-Za-z0-9]+, not \d+. shop-data.js carries a hex content hash,
+        //    and \d+ matched only its leading digit — rewriting "?v=0a05174c" into
+        //    "?v=202608172326a05174c" by splicing the timestamp onto the hash's tail.
+        // 2. Skip shop-data.js entirely. Its stamp is owned by stamp-shop-data-cache.js
+        //    (run in CI off a content hash) so unchanged data doesn't churn. Stamping it
+        //    with a timestamp here would fight that and rewrite it on every deploy.
         htmlContent = htmlContent.replace(
-            /\.js\?v=\d+/g,
+            /(?<!shop-data)\.js\?v=[A-Za-z0-9]+/g,
             `.js?v=${now}`
         );
         // Stylesheets need busting too — a CSS-only deploy used to ship new JS
         // against a cached stylesheet.
         htmlContent = htmlContent.replace(
-            /\.css\?v=\d+/g,
+            /\.css\?v=[A-Za-z0-9]+/g,
             `.css?v=${now}`
         );
         fs.writeFileSync(htmlPath, htmlContent);
