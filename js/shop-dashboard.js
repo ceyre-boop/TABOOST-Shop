@@ -30,9 +30,9 @@ const TAP_BONUS_TIERS = [
 // PASTE the deployed Apps Script web app URL here (Extensions > Apps Script > Deploy >
 // New deployment > Web app). Until this is set, claims still record in Firestore but no
 // email is sent.
-const TAP_BONUS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyNH_uApaRxVyOd4oq_ExLL5U2g-gZ68sIX6DwB5cTXeyapgxtne6OAsbPiFAwZEqID-Q/exec';
+const TAP_BONUS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwmcuLE2pyonP82i-8arVkxdFN8TadTviIOokJwlyU49x_V1rzH1yh8-sEPP1xWErWv7g/exec';
 // Must match the secret set in the Apps Script's Script Properties (see the .gs file).
-const TAP_BONUS_WEBHOOK_SECRET = 'fa043c7c-25a2-474c-ba57-875b4554fc76';
+const TAP_BONUS_WEBHOOK_SECRET = 'd8f0c2b2-f1ed-44b6-ba3c-520a8578dc21';
 
 let myData = null;
 let allCreators = [];
