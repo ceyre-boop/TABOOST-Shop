@@ -20,7 +20,7 @@ window.CAMPAIGN_ANNOUNCEMENT = {
 // Goal 3: $1M TAP GMV -> $1,500 more (cumulative $3,000)
 // Claiming a tier writes a Firestore record (no dollar amount stored client-side —
 // the amount always comes from this table) and POSTs a notification to the Apps
-// Script web app below, which emails marco@taboost.me. See scripts/tap-bonus-email.gs.
+// Script web app below, which emails info@taboost.me. See scripts/tap-bonus-email.gs.
 // ==========================================
 const TAP_BONUS_TIERS = [
     { key: 'tier1', threshold: 100000, amount: 500, goal: 'GOAL 1' },

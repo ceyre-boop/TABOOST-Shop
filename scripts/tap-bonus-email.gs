@@ -1,5 +1,5 @@
 /**
- * tap-bonus-email.gs — Apps Script web app that emails marco@taboost.me when a
+ * tap-bonus-email.gs — Apps Script web app that emails info@taboost.me when a
  * creator claims a TAP bonus milestone on the Shop dashboard.
  *
  * This exists because the Shop Platform is intentionally a static site with no
@@ -21,7 +21,7 @@
  * tier but can't fabricate a dollar amount.
  */
 
-var RECIPIENT = 'marco@taboost.me';
+var RECIPIENT = 'info@taboost.me';
 
 var TIER_AMOUNTS = {
   tier1: { amount: 500, label: 'Goal 1 ($100K TAP GMV)' },
