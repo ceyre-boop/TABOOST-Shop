@@ -4,7 +4,12 @@ import base64
 import urllib.request
 from urllib.error import HTTPError
 
-token = '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'
+# Never hardcode the token here — this repo is public, so anything committed on this
+# line is world-readable and grants write access to the deployed site. Export it in
+# your shell instead:  export GITHUB_TOKEN=...
+token = os.environ.get('GITHUB_TOKEN')
+if not token:
+    raise SystemExit('GITHUB_TOKEN is not set. Export it before running this script.')
 owner = 'ceyre-boop'
 repo = 'TABOOST-Shop'
 branch = 'main'

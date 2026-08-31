@@ -1,3 +1,9 @@
+// ############################################################################
+// DO NOT DEPLOY THIS FILE.
+// It grants any signed-in user read/write across collections including payouts,
+// admins and analytics. It exists only as a record of a one-off migration.
+// The deployable ruleset is firestore-production.rules, pinned in firebase.json.
+// ############################################################################
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
