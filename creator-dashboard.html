@@ -32,7 +32,7 @@
         onAuthStateChanged(auth, async (user) => {
             if (!user) {
                 // Not logged in - redirect to Firebase login
-                window.location.href = 'firebase-login.html';
+                window.location.href = 'shop-login.html';
                 return;
             }
             
@@ -80,7 +80,7 @@
         // Expose for logout
         window.logout = async () => {
             await auth.signOut();
-            window.location.href = 'firebase-login.html';
+            window.location.href = 'shop-login.html';
         };
     </script>
     <link rel="stylesheet" href="css/styles.css?v=202503092112">
@@ -760,7 +760,7 @@
         
         onAuthStateChanged(auth, async (firebaseUser) => {
             if (!firebaseUser) {
-                window.location.href = 'firebase-login.html';
+                window.location.href = 'shop-login.html';
                 return;
             }
             
@@ -824,7 +824,7 @@
         
         window.logout = async () => {
             await auth.signOut();
-            window.location.href = 'firebase-login.html';
+            window.location.href = 'shop-login.html';
         };
         
         function exportData(format) {

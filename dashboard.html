@@ -665,7 +665,7 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
         console.error('Γ¥î ADMIN ACCESS DENIED: Not logged in');
-        window.location.href = 'firebase-login.html';
+        window.location.href = 'shop-login.html';
         return;
     }
     
@@ -701,7 +701,7 @@ onAuthStateChanged(auth, async (user) => {
             console.log('Γ£à Admin authenticated (by email)');
             window.currentUser = { uid: user.uid, email: user.email, role: 'admin', name: 'Marco' };
         } else {
-            window.location.href = 'firebase-login.html';
+            window.location.href = 'shop-login.html';
         }
     }
 });
@@ -709,7 +709,7 @@ onAuthStateChanged(auth, async (user) => {
 // Logout function
 window.logout = async () => {
     await auth.signOut();
-    window.location.href = 'firebase-login.html';
+    window.location.href = 'shop-login.html';
 };
 
 // ΓöÇΓöÇ DATA ΓöÇΓöÇ
@@ -1203,7 +1203,7 @@ async function logout() {
     // Clear legacy storage
     localStorage.removeItem('taboost_user');
     localStorage.removeItem('taboost_current_user');
-    window.location.href = 'firebase-login.html';
+    window.location.href = 'shop-login.html';
 }
 </script>
 
@@ -1280,7 +1280,7 @@ document.addEventListener('DOMContentLoaded', loadDashboardData);
   auth.onAuthStateChanged(async (user) => {
     if (!user) {
       console.log('Not logged in, redirecting to login...');
-      window.location.href = 'firebase-login.html';
+      window.location.href = 'shop-login.html';
       return;
     }
     
