@@ -169,10 +169,25 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    function unlock() {
+    // The password is NOT stored here — only its SHA-256 hash, so this public file
+    // no longer leaks a usable credential (the old one was plaintext in the source).
+    // Note this is still a client-side gate: it stops casual access, not a determined
+    // attacker who can edit JS in devtools. The real protection for anything this page
+    // writes is the Firestore rules, not this check.
+    const GATE_USER = 'marco';
+    const GATE_PASS_SHA256 = 'bc9066d24da61e1794c5abdae0e380068843b01f0099764130bc0d7fc8741cf1';
+
+    async function sha256Hex(text) {
+        const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(digest))
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    async function unlock() {
         const u = document.getElementById('gUser').value.trim();
         const p = document.getElementById('gPass').value;
-        if (u === 'marco' && p === 'shopupdate:)') {
+        if (u === GATE_USER && (await sha256Hex(p)) === GATE_PASS_SHA256) {
             document.getElementById('gate').classList.add('hidden');
             document.getElementById('mainApp').classList.remove('hidden');
         } else {

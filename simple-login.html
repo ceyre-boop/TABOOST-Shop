@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taboost - Login</title>
+    <!-- RETIRED 2026-08-31. This page held a hardcoded admin credential in public
+         source and stored creator passwords unhashed in localStorage. Superseded by
+         shop-login.html (Firebase Auth). Redirects immediately. -->
+    <script>window.location.replace('shop-login.html');</script>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -281,18 +285,9 @@
             
             console.log('🔐 Login attempt:', username);
             
-            // Admin login
-            if (username.toLowerCase() === 'marco@taboost.me' && password === 'Taboost2026!Admin') {
-                setCurrentUser({ 
-                    username: 'marco@taboost.me', 
-                    role: 'admin', 
-                    name: 'Marco',
-                    loginTime: Date.now()
-                });
-                window.location.href = 'dashboard.html';
-                return;
-            }
-            
+            // Admin login removed 2026-08-31 — the password was hardcoded here in
+            // public source. Admin sign-in is Firebase Auth via shop-login.html.
+
             // Check if exists
             if (!userExists(username)) {
                 showError('Account not found. Please create an account first.');

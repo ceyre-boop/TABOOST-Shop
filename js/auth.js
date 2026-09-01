@@ -3,45 +3,26 @@
  * Handles shared password login and session persistence.
  */
 
+// RETIRED 2026-08-31: this file used to hold a single shared password that logged
+// anyone in as any creator in shop-data.js. It is public source, so the password was
+// public too. Sign-in now happens only in shop-login.html via Firebase Auth.
+// What remains here is session *reading* for the legacy profile.html view; there is
+// deliberately no login() any more.
 const AUTH_CONFIG = {
-    sharedPassword: 'taboost2025',
     sessionKey: 'shop_user',
-    loginPage: 'login.html',
+    loginPage: 'shop-login.html',
     defaultProfilePage: 'profile.html'
 };
 
 const authService = {
     /**
-     * Attempts to log in a user by matching their name/email in the dataset.
-     * @param {string} identifier - Name or Email from the CSV
-     * @param {string} password - The shared password
-     * @returns {Object|null} - The creator object if successful, null otherwise
+     * Removed. Sign-in is Firebase Auth via shop-login.html only.
+     * Kept as a hard failure so any forgotten caller breaks loudly at the login
+     * step rather than silently re-enabling shared-password access.
      */
-    login: function(identifier, password) {
-        if (password !== AUTH_CONFIG.sharedPassword) {
-            console.error('Auth: Invalid password');
-            return null;
-        }
-
-        if (typeof allShopData === 'undefined') {
-            console.error('Auth: allShopData not loaded. Ensure shop-data.js is included.');
-            return null;
-        }
-
-        // Search for the user in the compiled dataset
-        // Match by username (User column) or Name
-        const idClean = identifier.toLowerCase().trim();
-        const creator = allShopData.find(c => 
-            (c.username && c.username.toLowerCase().trim() === idClean) || 
-            (c.name && c.name.toLowerCase().trim() === idClean)
-        );
-
-        if (creator) {
-            localStorage.setItem(AUTH_CONFIG.sessionKey, JSON.stringify(creator));
-            return creator;
-        }
-
-        console.warn('Auth: User not found in database:', identifier);
+    login: function() {
+        console.error('authService.login() is retired. Use shop-login.html (Firebase Auth).');
+        window.location.replace(AUTH_CONFIG.loginPage);
         return null;
     },
 

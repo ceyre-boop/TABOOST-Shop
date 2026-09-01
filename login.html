@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | TABOOST Shop</title>
+    <!-- RETIRED 2026-08-31. This page authenticated every creator against one shared
+         password held in js/auth.js, which is public. Anyone could sign in as any
+         creator by typing their name. Superseded by shop-login.html (Firebase Auth,
+         real per-user passwords). Redirects immediately; the old form is left below
+         only so the change is easy to revert if something unexpected depended on it. -->
+    <script>window.location.replace('shop-login.html');</script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/shop-dashboard.css">
     <style>
