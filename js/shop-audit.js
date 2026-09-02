@@ -644,9 +644,14 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const m = saMetrics(saState.variant);
         const ai = saState.ai || {};
 
-        // Modal shows both buttons for switching; the active one is highlighted
+        // Modal switcher. The Mid-Month tab is hidden whenever a mid-month recap isn't
+        // available yet — days 1-11, and the month-closing day itself — because the data
+        // behind it is still last month's. Same gate as the launcher button, so the modal
+        // can't offer a recap the dashboard deliberately withheld.
         const midBtn = overlay.querySelector('#saMidBtn');
         const endBtn = overlay.querySelector('#saEndBtn');
+        const midAvailable = saMidMonthAvailable();
+        midBtn.style.display = midAvailable ? '' : 'none';
         midBtn.classList.toggle('active', saState.variant === 'mid');
         endBtn.classList.toggle('active', saState.variant === 'end');
         overlay.querySelector('#saName').textContent = m.name;
