@@ -1,6 +1,9 @@
 name: Rebuild shop-data.js on CSV change
 
 on:
+  # Manual trigger, so a rebuild can be forced (and the workflow tested) without
+  # waiting for the next Sheets sync: gh workflow run rebuild-shop-data.yml
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
