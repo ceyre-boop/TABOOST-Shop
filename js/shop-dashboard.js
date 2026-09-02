@@ -422,10 +422,15 @@ function updateRank() {
 //   1. Not opted in        -> "OPT-IN FOR BONUS" CTA, milestone bar greyed out
 //   2. Opted in, nothing    -> hidden entirely (YTD figure already shows in the
 //      reached/claimed yet     summary box below)
-//   3. Opted in, tier       -> "GOAL N: CLAIM $X BONUS" CTA for the lowest
-//      reached & unclaimed     unclaimed reached tier
-//   4. Opted in, tier just  -> "$X CLAIMED" confirmation for the highest
-//      claimed, no newer       claimed tier, until a newer tier is reached
+//   3. Opted in, tier       -> "CLAIM BONUS" CTA. One click claims EVERY earned
+//      reached & unclaimed     but unclaimed goal at once, not just the lowest.
+//                              Goals are incremental ($500 / +$1,000 / +$1,500), so
+//                              a creator who crossed $1M without ever claiming is
+//                              owed all three; claiming only the top one would cost
+//                              them $1,500. No dollar figure on the button — it read
+//                              as the whole payment rather than that goal's increment.
+//   4. Opted in, tier just  -> "BONUS CLAIMED" confirmation, until a newer goal
+//      claimed, no newer       is reached
 //      tier reached yet
 async function renderTapGoalsSection(tapYTD) {
     const tapYTDDisplay = document.getElementById('tapYTDDisplay');
@@ -475,18 +480,21 @@ async function renderTapGoalsSection(tapYTD) {
 
     if (lockedWrap) lockedWrap.classList.remove('tap-goals-greyed');
 
-    const nextClaim = TAP_BONUS_TIERS.find(function (t) { return tapYTD >= t.threshold && !claimedTiers.has(t.key); });
+    // Every goal reached but not yet claimed — not just the lowest. Claiming is a
+    // single action over the whole set so the creator never walks the ladder one
+    // click at a time, and never loses a lower goal's increment.
+    const claimable = TAP_BONUS_TIERS.filter(function (t) { return tapYTD >= t.threshold && !claimedTiers.has(t.key); });
     const lastClaimed = TAP_BONUS_TIERS.slice().reverse().find(function (t) { return claimedTiers.has(t.key); });
-    if (nextClaim) {
+    if (claimable.length) {
         tapYTDDisplay.style.display = '';
-        tapYTDDisplay.textContent = nextClaim.goal + ': CLAIM $' + nextClaim.amount.toLocaleString() + ' BONUS';
+        tapYTDDisplay.textContent = 'CLAIM BONUS';
         tapYTDDisplay.className = 'level-badge tap-value-badge tap-claim-cta';
-        tapYTDDisplay.onclick = function () { handleTapBonusClaim(nextClaim); };
+        tapYTDDisplay.onclick = function () { handleTapBonusClaim(claimable); };
     } else if (lastClaimed) {
         // Just claimed (or claimed previously) with no newer tier reached yet —
         // confirm the claim instead of silently disappearing.
         tapYTDDisplay.style.display = '';
-        tapYTDDisplay.textContent = '$' + lastClaimed.amount.toLocaleString() + ' CLAIMED';
+        tapYTDDisplay.textContent = 'BONUS CLAIMED';
         tapYTDDisplay.className = 'level-badge tap-value-badge';
         tapYTDDisplay.onclick = null;
     } else {
@@ -578,34 +586,42 @@ async function handleTapBonusOptIn() {
     renderTapGoalsSection(myData.tapYTD || 0);
 }
 
-async function handleTapBonusClaim(tier) {
+// Takes the full list of earned-but-unclaimed goals and settles all of them in one
+// action. One record and one notification email per goal, exactly as before — the
+// creator just no longer has to click three times to get what they already earned.
+async function handleTapBonusClaim(tiers) {
     const fs = window.__tapFirestore;
     if (!fs || !fs.uid) return;
+    if (!tiers || !tiers.length) return;
     const btn = document.getElementById('tapYTDDisplay');
     const creatorName = (myData && (myData.name || myData.username)) || 'Unknown creator';
     if (btn) { btn.disabled = true; btn.textContent = 'Claiming...'; }
     try {
-        const claimId = fs.uid + '_' + tier.key;
-        await fs.setDoc(fs.doc(fs.db, 'tapBonusClaims', claimId), {
-            uid: fs.uid,
-            tier: tier.key,
-            creatorName: creatorName,
-            claimedAt: fs.serverTimestamp()
-        });
-        if (TAP_BONUS_WEBHOOK_URL) {
-            // Content-Type must be 'text/plain' here, NOT 'application/json' — Apps Script
-            // web apps don't handle CORS preflight (OPTIONS) requests, and 'application/json'
-            // triggers one, silently failing the fetch with no email ever sent. Apps Script's
-            // doPost still JSON.parses the body fine regardless of the declared Content-Type.
-            fetch(TAP_BONUS_WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify({ secret: TAP_BONUS_WEBHOOK_SECRET, creatorName: creatorName, tier: tier.key })
-            }).catch(function (e) { console.warn('TAP bonus email notification failed (claim was still recorded in Firestore):', e); });
-        } else {
-            console.warn('TAP_BONUS_WEBHOOK_URL not configured yet — claim recorded in Firestore, but no email was sent.');
+        for (const tier of tiers) {
+            const claimId = fs.uid + '_' + tier.key;
+            await fs.setDoc(fs.doc(fs.db, 'tapBonusClaims', claimId), {
+                uid: fs.uid,
+                tier: tier.key,
+                creatorName: creatorName,
+                claimedAt: fs.serverTimestamp()
+            });
+            if (TAP_BONUS_WEBHOOK_URL) {
+                // Content-Type must be 'text/plain' here, NOT 'application/json' — Apps Script
+                // web apps don't handle CORS preflight (OPTIONS) requests, and 'application/json'
+                // triggers one, silently failing the fetch with no email ever sent. Apps Script's
+                // doPost still JSON.parses the body fine regardless of the declared Content-Type.
+                fetch(TAP_BONUS_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ secret: TAP_BONUS_WEBHOOK_SECRET, creatorName: creatorName, tier: tier.key })
+                }).catch(function (e) { console.warn('TAP bonus email notification failed (claim was still recorded in Firestore):', e); });
+            } else {
+                console.warn('TAP_BONUS_WEBHOOK_URL not configured yet — claim recorded in Firestore, but no email was sent.');
+            }
         }
     } catch (e) {
+        // A mid-batch failure leaves the earlier goals recorded, which is correct —
+        // re-rendering below re-offers only whatever is still unclaimed.
         console.error('TAP bonus claim failed:', e);
         alert('Could not record your claim right now. Please try again, or contact your manager if this keeps happening.');
     }
