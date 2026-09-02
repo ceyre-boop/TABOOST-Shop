@@ -44,12 +44,15 @@ if (fs.existsSync(suggMonthend) && fs.existsSync(topMonthend)) {
     fs.renameSync(suggCurrent + '.bak', suggCurrent);
     fs.renameSync(topCurrent + '.bak', topCurrent);
 
-    // Rename to monthend
-    const monthendFile = 'js/product-data-monthend.js';
-    if (fs.existsSync(productFile)) {
-        fs.copyFileSync(productFile, monthendFile);
-        console.log(`✓ Saved monthend version to ${monthendFile}\n`);
-    }
+    // NOTE: do NOT copy js/product-data.js over js/product-data-monthend.js here.
+    // build-product-data.js already writes js/product-data-monthend.js directly when
+    // given the 'monthend' argument (see its outputFile switch), and only that path
+    // emits the window.*_MONTHEND variable names index.html reads. js/product-data.js
+    // still holds the MIDMONTH build from the step above, so copying it over the
+    // month-end bundle silently replaced month-end data with mid-month data and
+    // dropped the _MONTHEND suffix — leaving window.PRODUCT_DATA_MONTHEND undefined
+    // and the storefront's month-end view empty.
+    console.log('✓ Saved monthend version to js/product-data-monthend.js\n');
 } else {
     console.warn('⚠ Monthend product files not found. Skipping monthend build.');
 }
