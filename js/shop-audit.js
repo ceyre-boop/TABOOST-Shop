@@ -421,10 +421,20 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         };
 
         if (variant === 'end') {
-            const endGMV = saAcctHist(handle, 1);
-            const prevGMV = saAcctHist(handle, 2);
-            const endTap = saAcctHist(handle, 1, 'tap');
-            const endComm = saAcctHist(handle, 1, 'comm');
+            // Which month is "the closed month" depends on where the data timestamp sits.
+            // Mid-month data (e.g. "Sep 15"): the newest history entry is the partial
+            // current month, so the closed month is one back — offset -1, history idx 1.
+            // End-of-month data (e.g. "Aug 31"): the newest entry IS the closed month, so
+            // offset 0 and idx 0. Without this shift an Aug 31 refresh showed July.
+            const closed = saIsMonthClosed();
+            const monthOffset = closed ? 0 : -1;
+            const endIdx = closed ? 0 : 1;
+            const prevIdx = endIdx + 1;
+
+            const endGMV = saAcctHist(handle, endIdx);
+            const prevGMV = saAcctHist(handle, prevIdx);
+            const endTap = saAcctHist(handle, endIdx, 'tap');
+            const endComm = saAcctHist(handle, endIdx, 'comm');
             // base.avgComm is the *live* month's rate, which would be wrong on a
             // closed-month card. Recompute from that month's own comm / GMV.
             const endCommPct = (endComm != null && endGMV)
@@ -435,10 +445,10 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
             // source of post counts (history.csv keeps GMV/TAP/COMM/BONUS and nothing else).
             // history.csv is the fallback for months not yet exported; post counts stay null
             // (not 0) there so the card shows "—" rather than a false zero.
-            const snap = saMonthlyStats(handle, -1);
+            const snap = saMonthlyStats(handle, monthOffset);
             const gmv = snap ? snap.gmv : endGMV;
             return Object.assign(base, {
-                period: saMonthLabel(-1), statsPillLabel: 'Month-End Stats',
+                period: saMonthLabel(monthOffset), statsPillLabel: 'Month-End Stats',
                 accountGmv: gmv,
                 avgComm: snap && snap.commPct ? snap.commPct : endCommPct,
                 tapGmv: snap ? snap.tapGmv : endTap,
@@ -956,9 +966,33 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         return m ? parseInt(m[1], 10) : null;
     }
 
+    const SA_MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+
+    // True when the data timestamp lands on the FINAL day of its own month — e.g.
+    // "Aug 31", "Sep 30", "Feb 28". That date means the month has closed, so the
+    // month-end recap is the correct one even though the day number is high.
+    // Without this, "Aug 31" scored 31 >= 12 and served a Mid-Month recap for a month
+    // that had already finished.
+    function saIsMonthClosed() {
+        const s = String(window.SHOP_LAST_UPDATED || '');
+        const m = s.match(/^([A-Za-z]{3})\s+(\d{1,2})/);
+        if (!m) return false;
+        const monthIdx = SA_MONTHS.indexOf(m[1].toLowerCase());
+        if (monthIdx < 0) return false;
+        const day = parseInt(m[2], 10);
+        // Year is absent from the label. Use the year that makes this month the most
+        // recent one — only matters for February, and this picks the right leap year.
+        const now = new Date();
+        const year = monthIdx > now.getMonth() ? now.getFullYear() - 1 : now.getFullYear();
+        const lastDay = new Date(year, monthIdx + 1, 0).getDate(); // day 0 of next month
+        return day === lastDay;
+    }
+
     function saMidMonthAvailable() {
         const day = saDataDay();
-        return day == null ? true : day >= SA_MIDMONTH_FROM_DAY;
+        if (day == null) return true;
+        if (saIsMonthClosed()) return false;   // month just closed -> month-end recap
+        return day >= SA_MIDMONTH_FROM_DAY;
     }
 
     // Welcome-banner subline. Every message points "below" at the action bar, so the line
@@ -966,8 +1000,12 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     function saWelcomeLine() {
         const day = saDataDay();
         if (day == null) return 'Search for new TAP links below';
-        if (day <= 2) return 'Start the month off right, search for new TAP links below';
-        if (day < SA_MIDMONTH_FROM_DAY) return 'Month-End Recap is ready, click below';
+        // Ask the same function the buttons use, so a month-closing timestamp like
+        // "Aug 31" can't say "Mid-Month Recap is ready" next to a Month-End button.
+        if (!saMidMonthAvailable()) {
+            if (day <= 2) return 'Start the month off right, search for new TAP links below';
+            return 'Month-End Recap is ready, click below';
+        }
         return 'Mid-Month Recap is ready, click below';
     }
 
