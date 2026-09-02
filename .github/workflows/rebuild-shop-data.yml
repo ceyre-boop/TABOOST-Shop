@@ -11,6 +11,13 @@ on:
       - 'data/shop/tap-products.csv'
       - 'data/shop/shop-current.csv'
       - 'data/shop/sugg-products.csv'
+      # top-products.csv was missing here: the Sheets sync pushes Top-Products every
+      # run, but a commit touching only that file never triggered a rebuild.
+      - 'data/shop/top-products.csv'
+      # The month-end pair is promoted by hand at month close (the sync writes the
+      # plain filenames), so it needs its own trigger to get picked up.
+      - 'data/shop/sugg-products-monthend.csv'
+      - 'data/shop/top-products-monthend.csv'
       - 'data/shop/monthly/**.csv'
 
 # Only one rebuild at a time. When App Scripts push 5 CSVs in rapid succession,
@@ -54,12 +61,24 @@ jobs:
       - name: Stamp shop-data.js cache-bust tag
         run: node stamp-shop-data-cache.js
 
-      # TAP storefront pipeline (index.html renders js/product-data.js dynamically).
-      # Ported from update_discovery_data.py — reads the committed product-images.json
-      # cache only (image scraping stays a manual/local step, never in CI). Also stamps
-      # the ?v= cache-bust on the product-data.js tag in index.html from a data hash.
-      - name: Rebuild product-data.js (TAP storefront)
-        run: node build-product-data.js data/shop
+      # TAP storefront pipeline. Builds BOTH bundles index.html actually loads:
+      # js/product-data-midmonth.js and js/product-data-monthend.js (plus
+      # js/product-data.js, which product-review.html and product-template.html use).
+      # Reads the committed product-images.json cache only — image scraping stays a
+      # manual/local step, never in CI — and stamps the ?v= cache-bust on both
+      # index.html script tags from a hash of the bundles.
+      #
+      # Was `node build-product-data.js data/shop`, which only ever wrote the
+      # mid-month bundle. The two files the storefront reads were last rebuilt
+      # 2026-08-12 and drifted for three weeks.
+      #
+      # The month-end half is skipped with a warning unless
+      # data/shop/{sugg,top}-products-monthend.csv exist. That is deliberate: the
+      # Sheets sync writes the plain filenames, so promoting an export into the
+      # -monthend slot stays a manual month-close step. Auto-promoting here would
+      # overwrite month-end data with mid-month data on every sync.
+      - name: Rebuild product bundles (TAP storefront, mid-month + month-end)
+        run: node build-dual-products.js
 
       # Product image + brand TAP campaign lookup behind the audit modal's Proven Winners
       # popup. Same feeds as the storefront, but scoped to products actually suggested to
@@ -75,4 +94,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Auto-rebuild: shop-data.js + product-data.js from CSV'
-          file_pattern: 'js/shop-data.js js/product-data.js index.html shop-dashboard.html shop-creator-dashboard.html data/shop/audit-products.json data/shop/monthly-stats.json'
+          file_pattern: 'js/shop-data.js js/product-data.js js/product-data-midmonth.js js/product-data-monthend.js index.html shop-dashboard.html shop-creator-dashboard.html data/shop/audit-products.json data/shop/monthly-stats.json'
