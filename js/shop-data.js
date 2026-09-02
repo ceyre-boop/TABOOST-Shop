@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-09-02T02:31:25.234Z
+// Generated: 2026-09-02T22:32:28.012Z
 // Total Mapped: 207 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -5538,8 +5538,8 @@ const allShopData = [
         "acctRank": 1
       },
       {
-        "handle": "hanasfaves",
-        "tiktokLink": "https://www.tiktok.com/@hanasfaves",
+        "handle": "glassofperhaps",
+        "tiktokLink": "https://www.tiktok.com/@glassofperhaps",
         "sv": 0,
         "tap": 0,
         "tapGMV": 0,
@@ -5588,6 +5588,36 @@ const allShopData = [
           7981.36,
           6418.36,
           7680.42
+        ]
+      },
+      {
+        "handle": "glassofperhaps",
+        "gmv": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ]
       }
     ],
