@@ -380,11 +380,21 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
         const commPct = acct.commPct ? String(acct.commPct).replace(/[^0-9.%-]/g, '') : null;
         const top = saForHandle(saTopProducts, handle);
 
+        // Which month the month-end card describes. Mid-month data ("Sep 15") means the
+        // closed month is one back; end-of-month data ("Aug 31") means the newest data IS
+        // the closed month. Shared with the metrics block below so the products panel and
+        // the GMV figures can never describe different months.
+        const closedMonthOffset = saIsMonthClosed() ? 0 : -1;
+
         // Mid-Month reads the live Top-Products / Sugg-Products tabs. Month-End must NOT —
         // those hold the current month, which would put August products on a July card.
         // It reads the monthly product snapshot instead, and shows the pending state when
         // that month hasn't been exported yet.
-        const monthlyProd = variant === 'end' ? saMonthlyProducts(handle, -1) : null;
+        //
+        // This was hardcoded to -1, which on an "Aug 31" refresh asked for JULY's snapshot,
+        // found nothing, and left the Top Categories / Top 5 Products panel stuck on
+        // "connects in the next data update" even though August's data was present.
+        const monthlyProd = variant === 'end' ? saMonthlyProducts(handle, closedMonthOffset) : null;
 
         // This card is scoped to ONE account, but the dashboard's "This Month's Total GMV"
         // covers every account, so a multi-account creator sees two different figures and
@@ -427,7 +437,7 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
             // End-of-month data (e.g. "Aug 31"): the newest entry IS the closed month, so
             // offset 0 and idx 0. Without this shift an Aug 31 refresh showed July.
             const closed = saIsMonthClosed();
-            const monthOffset = closed ? 0 : -1;
+            const monthOffset = closedMonthOffset;   // same source as the products panel
             const endIdx = closed ? 0 : 1;
             const prevIdx = endIdx + 1;
 

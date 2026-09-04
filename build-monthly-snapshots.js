@@ -61,10 +61,18 @@ for (const file of files) {
     // Resolve by header name, not position — the export has a blank column D and the
     // column order has drifted before.
     const headers = rows[0].map(h => h.trim());
-    const col = name => headers.findIndex(h => h.toLowerCase() === name.toLowerCase());
+    // Accept any of several spellings per column — the sheet renames these between
+    // exports (Jul used "Est Comm", Aug used "Comm $"), and a silent -1 here writes
+    // zeroes into the snapshot rather than failing loudly.
+    const col = (...names) => headers.findIndex(h =>
+        names.some(n => h.toLowerCase() === n.toLowerCase()));
     const cHandle = col('TikTok'), cSV = col('SV'), cTaP = col('TaP'),
-          cTapGmv = col('TaP GMV'), cGmv = col('GMV ($)'), cComm = col('Est Comm'),
+          cTapGmv = col('TaP GMV'), cGmv = col('GMV ($)', 'GMV'),
+          cComm = col('Est Comm', 'Comm $', 'Est Comm $', 'Commission'),
           cCommPct = col('Comm %'), cSold = col('# Sold'), cViews = col('Views');
+    for (const [label, idx] of [['TaP GMV', cTapGmv], ['GMV ($)', cGmv], ['Est Comm', cComm], ['Comm %', cCommPct]]) {
+        if (idx < 0) console.log(`  ~ ${file}: no "${label}" column — that field will be 0`);
+    }
 
     if (cHandle < 0 || cSV < 0 || cTaP < 0) {
         console.log('  ! ' + file + ': missing TikTok/SV/TaP columns — skipped');
