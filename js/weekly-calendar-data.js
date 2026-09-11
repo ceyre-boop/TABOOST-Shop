@@ -123,6 +123,15 @@ function generateRollingCalendar() {
             startDate: new Date(2026, 7, 20), // August 20
             endDate: new Date(2026, 7, 30),   // August 30
             color: "#7c3aed"
+        },
+        {
+            id: 11,
+            title: "September Stock Up",
+            type: "campaign",
+            time: "Campaign",
+            startDate: new Date(2026, 8, 16), // September 16
+            endDate: new Date(2026, 8, 27),   // September 27
+            color: "#14b8a6"
         }
     ];
     
