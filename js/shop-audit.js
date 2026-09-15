@@ -971,8 +971,14 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     // Mid-month product data is uploaded around the 10th and 20th, so a Mid-Month recap
     // before then would be built on last month's product feed. Gate on the day-of-month of
     // the DATA timestamp rather than the wall clock: that way the recap appears only once
-    // data through the 12th actually exists, instead of the day the calendar rolls over.
-    const SA_MIDMONTH_FROM_DAY = 12;
+    // data through this day actually exists, instead of the day the calendar rolls over.
+    //
+    // Moved 12 -> 15 on 2026-09-15. This is the single switch: days 1..14 of the data
+    // timestamp show Month-End, 15..31 show Mid-Month, and the month-closing day itself
+    // forces Month-End regardless (see saIsMonthClosed). saWelcomeLine and both the
+    // launcher and the in-modal tab all read saMidMonthAvailable(), so they follow this
+    // constant and cannot disagree with each other.
+    const SA_MIDMONTH_FROM_DAY = 15;
 
     // Day-of-month from the DATA timestamp, so the welcome line and the buttons can never
     // disagree — e.g. "Mid-Month Recap is ready" while that button is still hidden.
