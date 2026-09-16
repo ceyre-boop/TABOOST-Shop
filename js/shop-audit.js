@@ -973,12 +973,17 @@ const SA_TAP_SEARCH_URL = 'https://shop.taboost.me';
     // the DATA timestamp rather than the wall clock: that way the recap appears only once
     // data through this day actually exists, instead of the day the calendar rolls over.
     //
-    // Moved 12 -> 15 on 2026-09-15. This is the single switch: days 1..14 of the data
-    // timestamp show Month-End, 15..31 show Mid-Month, and the month-closing day itself
-    // forces Month-End regardless (see saIsMonthClosed). saWelcomeLine and both the
-    // launcher and the in-modal tab all read saMidMonthAvailable(), so they follow this
-    // constant and cannot disagree with each other.
-    const SA_MIDMONTH_FROM_DAY = 15;
+    // Moved 12 -> 15 -> 14 on 2026-09-15. The sheet publishes the first half of the month
+    // as a 1st-14th period and stamps it "Sep 14", so a threshold of 15 meant that period
+    // could never trigger the Mid-Month recap — it would sit behind last month's card
+    // until a later sync happened to stamp the 15th. 14 is the day the data actually
+    // arrives, which is what this gate is really about.
+    //
+    // This is the single switch: days 1..13 of the data timestamp show Month-End, 14..31
+    // show Mid-Month, and the month-closing day itself forces Month-End regardless (see
+    // saIsMonthClosed). saWelcomeLine and both the launcher and the in-modal tab all read
+    // saMidMonthAvailable(), so they follow this constant and cannot disagree.
+    const SA_MIDMONTH_FROM_DAY = 14;
 
     // Day-of-month from the DATA timestamp, so the welcome line and the buttons can never
     // disagree — e.g. "Mid-Month Recap is ready" while that button is still hidden.
