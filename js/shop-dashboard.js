@@ -60,11 +60,12 @@ async function initCreatorDashboard(user) {
     
     // If still not found, create minimal data object
     if (!myData) {
-        const uName = (user && user.displayName) ? user.displayName : ((user && user.email) ? user.email.split('@')[0] : 'Unknown User');
-        console.warn('⚠️ CREATOR NOT FOUND in CSV:', uName);
+        // Don't show the Auth displayName / email prefix as the name: accounts created by hand
+        // can carry junk there (e.g. "PUTEMAILHERE"). The banner below asks them to link the right email.
+        console.warn('⚠️ CREATOR NOT FOUND in CSV:', user && user.email, user && user.displayName);
         myData = {
-            username: uName,
-            name: uName,
+            username: (user && user.email) || 'creator',
+            name: 'Creator',
             email: user ? user.email : '',
             points: 0,
             totalGMV: 0,
@@ -106,6 +107,8 @@ async function initCreatorDashboard(user) {
         console.warn("Welcome rendering issue:", e);
     }
     
+    if (myData._isNewUser) showUnmatchedAccountNotice(user && user.email);
+
     console.log('DEBUG - Dashboard initialized for:', myData.name, 'Rank:', myData.productRank);
     
     try {
@@ -1425,122 +1428,158 @@ function closeSettings() {
     modal.classList.remove('active');
 }
 
-function loadSettings() {
-    const settings = JSON.parse(localStorage.getItem('creator_settings') || '{}');
-    const user = JSON.parse(localStorage.getItem('taboost_user') || '{}');
-    
-    // Show admin section for admins
-    if (user.role === 'admin') {
-        const adminSection = document.getElementById('adminSection');
-        if (adminSection) adminSection.style.display = 'block';
-    }
-    
-    // Data Source
-    const savedUrl = localStorage.getItem('taboost_sheet_url') || '';
-    const sheetUrlInput = document.getElementById('settingSheetUrl');
-    if (sheetUrlInput) sheetUrlInput.value = savedUrl;
-    
-    // Profile
-    document.getElementById('settingDisplayName').value = settings.displayName || myData.username || '';
-    document.getElementById('settingEmail').value = settings.email || '';
-    
-    // Notifications
-    document.getElementById('toggleEmail').checked = settings.emailNotifications !== false;
-    document.getElementById('togglePush').checked = settings.pushNotifications === true;
-    document.getElementById('toggleWeekly').checked = settings.weeklyReports !== false;
-    document.getElementById('toggleSounds').checked = settings.alertSounds !== false;
-    
-    // Appearance
-    document.getElementById('settingTheme').value = settings.theme || 'dark';
-    document.getElementById('settingLayout').value = settings.layout || 'grid';
-    document.getElementById('settingItemsPerPage').value = settings.itemsPerPage || '50';
-    
-    // Security
-    document.getElementById('toggle2FA').checked = settings.twoFAEnabled === true;
-    document.getElementById('setup2FA').style.display = settings.twoFAEnabled ? 'none' : 'none';
+function showUnmatchedAccountNotice(authEmail) {
+    const banner = document.getElementById('welcomeBanner');
+    if (!banner || document.getElementById('unmatchedAccountNotice')) return;
+    const note = document.createElement('div');
+    note.id = 'unmatchedAccountNotice';
+    note.className = 'welcome-banner';
+    note.style.cssText = 'border-color:#ffd700; margin-top:12px;';
+    const text = document.createElement('p');
+    text.style.cssText = 'margin:0 0 10px; color:#fff;';
+    text.textContent = `We couldn't find your shop stats for ${authEmail || 'this account'}. Is your TABOOST email different?`;
+    const btn = document.createElement('button');
+    btn.className = 'settings-save-btn';
+    btn.textContent = 'Update my email';
+    btn.onclick = () => {
+        openSettings();
+        const input = document.getElementById('settingEmail');
+        if (input) { input.focus(); input.select(); }
+    };
+    note.append(text, btn);
+    banner.insertAdjacentElement('afterend', note);
 }
 
-function saveSheetUrl() {
-    const url = document.getElementById('settingSheetUrl').value.trim();
-    if (!url) {
-        alert('Please enter a valid Google Sheets CSV URL');
+function isTestPreview() {
+    return new URLSearchParams(window.location.search).has('test_email');
+}
+
+function loadSettings() {
+    const currentUser = window.__tapAuth && window.__tapAuth.auth.currentUser;
+    const nameInput = document.getElementById('settingDisplayName');
+    const emailInput = document.getElementById('settingEmail');
+    // Name comes from the shop sheet, not Firebase: it's display-only here. Writing the Auth
+    // displayName would let anyone match another creator via the name fallback in initCreatorDashboard.
+    if (nameInput) {
+        nameInput.value = (myData && !myData._isNewUser && myData.name) || '';
+        nameInput.readOnly = true;
+        nameInput.placeholder = 'Set by your TABOOST manager';
+    }
+    if (emailInput) emailInput.value = isTestPreview() ? (myData && myData.email) || '' : (currentUser && currentUser.email) || '';
+    setEmailNotice(isTestPreview() ? 'Preview mode (?test_email): settings are read-only.' : '');
+}
+
+function setEmailNotice(msg) {
+    const el = document.getElementById('settingEmailNotice');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+}
+
+// Firebase requires a recent sign-in for email/password changes. Prompt for the password once and retry.
+async function withRecentLogin(action) {
+    const A = window.__tapAuth;
+    try {
+        return await action();
+    } catch (err) {
+        if (err.code !== 'auth/requires-recent-login') throw err;
+        const pass = prompt('For your security, enter your current password to continue:');
+        if (!pass) throw err;
+        const cred = A.EmailAuthProvider.credential(A.auth.currentUser.email, pass);
+        await A.reauthenticateWithCredential(A.auth.currentUser, cred);
+        return await action();
+    }
+}
+
+async function saveProfileSettings() {
+    if (isTestPreview()) {
+        alert('Settings are read-only in preview mode.');
         return;
     }
-    
-    localStorage.setItem('taboost_sheet_url', url);
-    
-    // Update the data service
-    if (typeof taboostData !== 'undefined') {
-        taboostData.setSheetUrl(url);
+    const A = window.__tapAuth;
+    const currentUser = A && A.auth.currentUser;
+    if (!currentUser) {
+        alert('Please sign in again to change your settings.');
+        return;
     }
-    
-    alert('Data source updated! Refresh the page to load from the new source.');
+
+    const newEmail = document.getElementById('settingEmail').value.trim().toLowerCase();
+    const emailChanged = newEmail && newEmail !== (currentUser.email || '').toLowerCase();
+
+    if (newEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    try {
+        if (emailChanged) {
+            await withRecentLogin(() => A.verifyBeforeUpdateEmail(currentUser, newEmail));
+            setEmailNotice(`Check ${newEmail} for a verification link. After you click it, sign in again with ${newEmail} and your stats will load.`);
+            return;
+        }
+
+        alert('No changes to save.');
+    } catch (err) {
+        console.error('Settings save failed:', err);
+        if (err.code === 'auth/email-already-in-use') {
+            setEmailNotice(`${newEmail} already has its own account. Sign out and sign in with ${newEmail} instead. If you don't know that password, use "Forgot password" on the login page.`);
+        } else if (err.code === 'auth/invalid-email') {
+            alert('That email address is not valid.');
+        } else if (err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+            alert('That password is incorrect.');
+        } else {
+            alert('Could not save settings: ' + (err.message || err));
+        }
+    }
 }
 
-function saveProfileSettings() {
-    const settings = JSON.parse(localStorage.getItem('creator_settings') || '{}');
-    settings.displayName = document.getElementById('settingDisplayName').value;
-    settings.email = document.getElementById('settingEmail').value;
-    
-    localStorage.setItem('creator_settings', JSON.stringify(settings));
-    alert('Profile settings saved!');
-}
-
-function updatePassword() {
+async function updatePassword() {
     const currentPass = document.getElementById('settingCurrentPassword').value;
     const newPass = document.getElementById('settingNewPassword').value;
     const confirmPass = document.getElementById('settingConfirmPassword').value;
-    
+
     if (!currentPass || !newPass || !confirmPass) {
         alert('Please fill in all password fields');
         return;
     }
-    
     if (newPass !== confirmPass) {
         alert('New passwords do not match');
         return;
     }
-    
     if (newPass.length < 8) {
         alert('Password must be at least 8 characters');
         return;
     }
-    
-    // Get current user
-    const user = JSON.parse(localStorage.getItem('taboost_user') || '{}');
-    const username = user.username?.toLowerCase();
-    
-    console.log('DEBUG UPDATE PASSWORD - User:', username, 'from myData:', myData?.username);
-    
-    if (!username) {
-        alert('Error: User not found');
+
+    if (isTestPreview()) {
+        alert('Settings are read-only in preview mode.');
         return;
     }
-    
-    // Get stored passwords
-    const storedPasswords = JSON.parse(localStorage.getItem('creator_passwords') || '{}');
-    console.log('DEBUG UPDATE PASSWORD - Current stored passwords:', Object.keys(storedPasswords));
-    
-    const currentStoredPass = storedPasswords[username] || 'creator';
-    
-    // Verify current password
-    if (currentPass !== currentStoredPass) {
-        console.log('DEBUG UPDATE PASSWORD - Current pass mismatch. Entered:', currentPass, 'Expected:', currentStoredPass === 'creator' ? 'creator' : '***');
-        alert('Current password is incorrect');
+    const A = window.__tapAuth;
+    const currentUser = A && A.auth.currentUser;
+    if (!currentUser) {
+        alert('Please sign in again to change your password.');
         return;
     }
-    
-    // Save new password for this specific creator
-    storedPasswords[username] = newPass;
-    localStorage.setItem('creator_passwords', JSON.stringify(storedPasswords));
-    console.log('DEBUG UPDATE PASSWORD - Saved new password for:', username);
-    
-    alert('Password updated successfully! You will now use your new password to log in.');
-    
-    // Clear fields
-    document.getElementById('settingCurrentPassword').value = '';
-    document.getElementById('settingNewPassword').value = '';
-    document.getElementById('settingConfirmPassword').value = '';
+
+    try {
+        const cred = A.EmailAuthProvider.credential(currentUser.email, currentPass);
+        await A.reauthenticateWithCredential(currentUser, cred);
+        await A.updatePassword(currentUser, newPass);
+        alert('Password updated.');
+        document.getElementById('settingCurrentPassword').value = '';
+        document.getElementById('settingNewPassword').value = '';
+        document.getElementById('settingConfirmPassword').value = '';
+    } catch (err) {
+        console.error('Password update failed:', err);
+        if (err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+            alert('Current password is incorrect');
+        } else if (err.code === 'auth/weak-password') {
+            alert('That password is too weak. Try a longer one.');
+        } else {
+            alert('Could not update password: ' + (err.message || err));
+        }
+    }
 }
 
 function toggle2FA() {

@@ -12,7 +12,7 @@
     <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, verifyBeforeUpdateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
         import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
@@ -27,6 +27,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
+        window.__tapAuth = { auth, verifyBeforeUpdateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider };
 
         // Expose for logout
         window.logout = async () => {
@@ -789,7 +790,7 @@
     <script src="js/weekly-calendar-data.js?v=202609111700"></script>
     <script src="js/sheets-data.js?v=1774027606323"></script>
     <script src="js/shop-data.js?v=c53b6426"></script>
-    <script src="js/shop-dashboard.js?v=202607131700"></script>
+    <script src="js/shop-dashboard.js?v=202609222346"></script>
     <!-- Dashboard initialized in main auth flow module at top -->
     <script>
         function exportData(format) {

@@ -23,12 +23,12 @@
             z-index: 10000;
         }
     </style>
-    <link rel="stylesheet" href="css/styles.css?v=202609160116">
-    <link rel="stylesheet" href="css/shop-dashboard.css?v=202609160116">
+    <link rel="stylesheet" href="css/styles.css?v=202609222346">
+    <link rel="stylesheet" href="css/shop-dashboard.css?v=202609222346">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shop-audit.css?v=202609160116">
+    <link rel="stylesheet" href="css/shop-audit.css?v=202609222346">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* FORCE REMOVE RED BAR - OVERRIDE ALL */
@@ -577,6 +577,7 @@
                         <label>Display Name</label>
                         <input type="text" id="settingDisplayName" placeholder="Your display name">
                     </div>
+                    <p id="settingEmailNotice" style="display:none; margin:0 0 12px; font-size:13px; color:#ffd700;"></p>
                     <div class="settings-field">
                         <label>Email</label>
                         <input type="email" id="settingEmail" placeholder="your@email.com">
@@ -609,13 +610,13 @@
         </div>
     </div>
 
-    <script src="js/rewards-data.js?v=202609160116"></script>
-    <script src="js/events-data.js?v=202609160116"></script>
-    <script src="js/weekly-calendar-data.js?v=202609160116"></script>
+    <script src="js/rewards-data.js?v=202609222346"></script>
+    <script src="js/events-data.js?v=202609222346"></script>
+    <script src="js/weekly-calendar-data.js?v=202609222346"></script>
     <script src="js/shop-data.js?v=c53b6426"></script>
-    <script src="js/auth.js?v=202609160116"></script>
-    <script src="js/shop-dashboard.js?v=202609160116"></script>
-    <script src="js/shop-audit.js?v=202609160116"></script>
+    <script src="js/auth.js?v=202609222346"></script>
+    <script src="js/shop-dashboard.js?v=202609222346"></script>
+    <script src="js/shop-audit.js?v=202609222346"></script>
     <script>
         function exportData(format) {
             const creatorName = document.getElementById('creatorName').textContent;
@@ -624,7 +625,7 @@
     </script>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, verifyBeforeUpdateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         const firebaseConfig = {
@@ -644,6 +645,7 @@
         // TAP bonus opt-in/claim (js/shop-dashboard.js) needs Firestore access, but it's a
         // classic script (not a module) so it can't `import` — expose what it needs here.
         window.__tapFirestore = { db, doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, getDocs };
+        window.__tapAuth = { auth, verifyBeforeUpdateEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider };
 
         const urlParams = new URLSearchParams(window.location.search);
         const testEmail = urlParams.get('test_email');
