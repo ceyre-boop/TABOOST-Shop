@@ -23,12 +23,12 @@
             z-index: 10000;
         }
     </style>
-    <link rel="stylesheet" href="css/styles.css?v=202609222346">
-    <link rel="stylesheet" href="css/shop-dashboard.css?v=202609222346">
+    <link rel="stylesheet" href="css/styles.css?v=202609230002">
+    <link rel="stylesheet" href="css/shop-dashboard.css?v=202609230002">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shop-audit.css?v=202609222346">
+    <link rel="stylesheet" href="css/shop-audit.css?v=202609230002">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* FORCE REMOVE RED BAR - OVERRIDE ALL */
@@ -610,13 +610,13 @@
         </div>
     </div>
 
-    <script src="js/rewards-data.js?v=202609222346"></script>
-    <script src="js/events-data.js?v=202609222346"></script>
-    <script src="js/weekly-calendar-data.js?v=202609222346"></script>
+    <script src="js/rewards-data.js?v=202609230002"></script>
+    <script src="js/events-data.js?v=202609230002"></script>
+    <script src="js/weekly-calendar-data.js?v=202609230002"></script>
     <script src="js/shop-data.js?v=c53b6426"></script>
-    <script src="js/auth.js?v=202609222346"></script>
-    <script src="js/shop-dashboard.js?v=202609222346"></script>
-    <script src="js/shop-audit.js?v=202609222346"></script>
+    <script src="js/auth.js?v=202609230002"></script>
+    <script src="js/shop-dashboard.js?v=202609230002"></script>
+    <script src="js/shop-audit.js?v=202609230002"></script>
     <script>
         function exportData(format) {
             const creatorName = document.getElementById('creatorName').textContent;
@@ -651,11 +651,30 @@
         const testEmail = urlParams.get('test_email');
 
         onAuthStateChanged(auth, async (user) => {
-            if (!user && !testEmail) {
+            if (!user) {
                 window.location.replace('shop-login.html');
                 return;
-            } else if (testEmail) {
-                user = { uid: 'test_user', email: testEmail, displayName: testEmail.split('@')[0], isTest: true };
+            }
+
+            // ?test_email= previews another creator's dashboard — signed-in admins only.
+            // Anyone else gets their own dashboard (a creator was once sent ?test_email=PUTEMAILHERE).
+            if (testEmail) {
+                let isAdmin = user.email?.toLowerCase() === 'marco@taboost.me';
+                if (!isAdmin) {
+                    try {
+                        const snap = await getDoc(doc(db, 'users', user.uid));
+                        isAdmin = snap.exists() && snap.data().role === 'admin';
+                    } catch (e) {
+                        console.warn('Admin check failed:', e);
+                    }
+                }
+                if (isAdmin) {
+                    user = { uid: 'test_user', email: testEmail, displayName: testEmail.split('@')[0], isTest: true };
+                } else {
+                    urlParams.delete('test_email');
+                    const qs = urlParams.toString();
+                    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+                }
             }
 
             window.__tapFirestore.uid = user.uid;
