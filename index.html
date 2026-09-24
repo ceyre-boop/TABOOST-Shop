@@ -1324,11 +1324,11 @@
             // known category counts as interest in that category this session.
             // (Category pills route their full name through here, so this one hook
             // covers both pill taps and typed category names — no double counting.)
+            if (!window._tbCatMap) {
+                window._tbCatMap = {};
+                allItems.forEach(it => { if (it.category) window._tbCatMap[it.category.toLowerCase()] = it.category; });
+            }
             if (window.CreatorScore) {
-                if (!window._tbCatMap) {
-                    window._tbCatMap = {};
-                    allItems.forEach(it => { if (it.category) window._tbCatMap[it.category.toLowerCase()] = it.category; });
-                }
                 const matchCat = window._tbCatMap[query];
                 if (matchCat) window.CreatorScore.trackCategory(matchCat);
             }
@@ -1342,38 +1342,52 @@
                     return comm >= 15;
                 }).sort((a,b) => parseFloat(String(b.commission)) - parseFloat(String(a.commission)));
                 resultsTitle.textContent = "🔥 Highest Commission Products";
+            } else if (window._tbCatMap && window._tbCatMap[query]) {
+                // Category pill (or a typed category name): exact category filter
+                results = scoreTierShuffle(allItems.filter(item => item.category.toLowerCase() === query));
+                resultsTitle.textContent = "Search Results for '" + query + "'";
             } else {
-                // Search across name, creator, AND category
-                results = allItems.filter(item => 
-                    item.name.toLowerCase().includes(query) || 
-                    item.creator.toLowerCase().includes(query) ||
-                    item.category.toLowerCase().includes(query) ||
-                    // Also match partial category words
-                    item.category.toLowerCase().split(' ').some(w => w.startsWith(query)) ||
-                    item.category.toLowerCase().split('&').some(w => w.trim().startsWith(query))
-                ).sort((a, b) => {
-                    // Prioritize: exact category match > name match > creator match
-                    const aExactCat = a.category.toLowerCase() === query ? 1 : 0;
-                    const bExactCat = b.category.toLowerCase() === query ? 1 : 0;
-                    if (aExactCat !== bExactCat) return bExactCat - aExactCat;
-                    if (a.rank !== b.rank) return a.rank - b.rank;
-                    return parseFloat(String(b.commission)) - parseFloat(String(a.commission));
+                // Word-start matching, every token required. Plain substring matching
+                // let "oys" hit "Toys & Hobbies" and "Boyshorts", burying the OYS dresses.
+                const tokens = query.split(/\s+/).filter(Boolean);
+                const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const prefixRe = tokens.map(t => new RegExp('(^|[^a-z0-9])' + esc(t)));
+                const wordRe = tokens.map(t => new RegExp('(^|[^a-z0-9])' + esc(t) + '(?![a-z0-9])'));
+                const fieldsOf = item => ({
+                    name: String(item.name || '').toLowerCase(),
+                    creator: String(item.creator || '').toLowerCase(),
+                    category: String(item.category || '').toLowerCase()
                 });
-                
-                // Fallback
+                const allIn = (res, text) => res.every(re => re.test(text));
+
+                // Relevance tiers: whole-word name > word-start name > shop/brand > category-only.
+                // Each tier is shuffled on its own so personalization never lifts a
+                // category-only hit above a name hit.
+                const tiers = [[], [], [], []];
+                allItems.forEach(item => {
+                    const f = fieldsOf(item);
+                    if (allIn(wordRe, f.name)) tiers[0].push(item);
+                    else if (allIn(prefixRe, f.name)) tiers[1].push(item);
+                    else if (allIn(prefixRe, f.creator)) tiers[2].push(item);
+                    else if (allIn(prefixRe, f.name + ' ' + f.creator + ' ' + f.category)) tiers[3].push(item);
+                });
+                results = tiers.flatMap(t => t.length ? scoreTierShuffle(t) : []);
+
+                if (results.length === 0 && tokens.length > 1) {
+                    // Fallback: any token matches (word-start) in name or shop
+                    results = scoreTierShuffle(allItems.filter(item => {
+                        const f = fieldsOf(item);
+                        return prefixRe.some(re => re.test(f.name) || re.test(f.creator));
+                    }));
+                    if (results.length) resultsTitle.textContent = "No exact matches for '" + query + "'. Closest products:";
+                }
+
                 if (results.length === 0) {
-                    results = allItems.filter(item => 
-                        item.category.toLowerCase().split(' ')[0] === query.split(' ')[0] ||
-                        item.rank <= 2
-                    ).slice(0, 48);
-                    resultsTitle.textContent = "No exact matches for '" + query + "'. Try these instead:";
-                } else {
+                    resultsTitle.textContent = "No products match '" + query + "'";
+                } else if (!resultsTitle.textContent.startsWith('No exact')) {
                     resultsTitle.textContent = "Search Results for '" + query + "'";
                 }
             }
-
-            // Score-tier shuffle so order varies each refresh (top-scored grouped on top)
-            results = scoreTierShuffle(results);
 
             // Store for Load More
             currentSearchResults = results;
@@ -1428,7 +1442,9 @@
         document.getElementById('main-search').addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
-                handleSearch();
+                // One character matches half the catalog; wait for 2+ (empty still clears)
+                const v = e.target.value.trim();
+                if (v.length === 0 || v.length >= 2) handleSearch();
             }, 300); // 300ms debounce
         });
 
