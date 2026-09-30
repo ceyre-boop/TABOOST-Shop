@@ -1,5 +1,5 @@
 // TABOOST Discovery Platform - Product & Campaign Data Pipeline
-// Generated: 2026-09-29T18:24:09.098Z
+// Generated: 2026-09-30T20:34:40.669Z
 // Dataset: midmonth
 // Total Products: 2864 | Active Campaigns: 2864 | TAP Campaigns: 99
 // Unique de-duped names: 2864
@@ -121060,16 +121060,6 @@ window.TAP_CAMPAIGNS = [
     "startDate": "2026-02-26"
   },
   {
-    "id": "7459877397434042158",
-    "name": "Crocs",
-    "priority": "Other",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJYORcnHPdAU",
-    "productCount": 7,
-    "image": "https://p16-oec-general-useast8.ttcdn-us.com/tos-useast8-i-rt0ujvrtvp-tx2/3335ce8315ee498eaea3cd711e1ca9d8~tplv-fhlh96nyum-crop-webp:1200:1200.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "featured": false,
-    "startDate": "2025-01-14"
-  },
-  {
     "id": "7515085339021494062",
     "name": "DIFF Eyewear",
     "priority": "Other",
@@ -121108,6 +121098,16 @@ window.TAP_CAMPAIGNS = [
     "image": "https://p16-oec-general-useast8.ttcdn-us.com/tos-useast8-i-rt0ujvrtvp-tx2/d9f2bdf262034d569766851a73bddc5d~tplv-fhlh96nyum-crop-webp:800:800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
     "featured": false,
     "startDate": "2025-08-07"
+  },
+  {
+    "id": "7459877397434042158",
+    "name": "Crocs",
+    "priority": "Other",
+    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJYORcnHPdAU",
+    "productCount": 7,
+    "image": "https://p16-oec-general-useast8.ttcdn-us.com/tos-useast8-i-rt0ujvrtvp-tx2/3335ce8315ee498eaea3cd711e1ca9d8~tplv-fhlh96nyum-crop-webp:1200:1200.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
+    "featured": false,
+    "startDate": "2025-01-14"
   },
   {
     "id": "7646862903217260302",
@@ -121240,16 +121240,6 @@ window.TAP_CAMPAIGNS = [
     "startDate": "2026-04-08"
   },
   {
-    "id": "7397142148176135982",
-    "name": "SKNBODY",
-    "priority": "Other",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJYOVUdTWwSf",
-    "productCount": 3,
-    "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/32c3fc98da7e4aa5b30b260fd77acab0~tplv-fhlh96nyum-crop-webp:1000:1000.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "featured": false,
-    "startDate": "2024-07-29"
-  },
-  {
     "id": "7556743577418843917",
     "name": "Sweet Mayhem",
     "priority": "Other",
@@ -121258,6 +121248,16 @@ window.TAP_CAMPAIGNS = [
     "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/2886397a7af549ed97fdb02c9b906198~tplv-fhlh96nyum-crop-webp:1800:2250.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
     "featured": false,
     "startDate": "2025-10-02"
+  },
+  {
+    "id": "7397142148176135982",
+    "name": "SKNBODY",
+    "priority": "Other",
+    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJYOVUdTWwSf",
+    "productCount": 3,
+    "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/32c3fc98da7e4aa5b30b260fd77acab0~tplv-fhlh96nyum-crop-webp:1000:1000.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
+    "featured": false,
+    "startDate": "2024-07-29"
   },
   {
     "id": "7621025156525573902",
