@@ -1,8 +1,8 @@
 // TABOOST Discovery Platform - Product & Campaign Data Pipeline
-// Generated: 2026-10-01T15:29:34.868Z
+// Generated: 2026-10-04T15:52:21.847Z
 // Dataset: monthend
-// Total Products: 3059 | Active Campaigns: 3059 | TAP Campaigns: 107
-// Unique de-duped names: 3059
+// Total Products: 3054 | Active Campaigns: 3054 | TAP Campaigns: 106
+// Unique de-duped names: 3054
 
 window.PRODUCT_DATA_MONTHEND = [
   {
@@ -31275,111 +31275,6 @@ window.PRODUCT_DATA_MONTHEND = [
     ]
   },
   {
-    "id": "1730473278396011190",
-    "name": "HAIRtamin Advanced Formula \u2013 Physician-Formulated Dietary ...",
-    "creator": "Unknown Shop",
-    "price": "$31.28-$199.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Other",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/efa62fb3ac4242718e177b158d39abe7~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "5,453",
-    "isAI": false,
-    "score": 5,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473299057808054",
-    "name": "HAIRtamin Gorgeous Growth Scalp Serum - Physician-Formu...",
-    "creator": "Unknown Shop",
-    "price": "$40.00-$120.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Beauty & Personal Care",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/082c648cbdec4e22ac1f0a784b3e68e8~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "80",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473300534923958",
-    "name": "HAIRtamin Biotin & Botanicals Deep Condition & Repair Mas...",
-    "creator": "Unknown Shop",
-    "price": "$34.00-$204.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Health",
-    "type": "campaign",
-    "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/29ff9fbf0ad44212a04f405fc917f3a3~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "609",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473302859813558",
-    "name": "HAIRtamin Gummy Stars - Physician-Formulated Dietary Sup...",
-    "creator": "Unknown Shop",
-    "price": "$32.20-$205.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Health",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/1aa61994c7cd468b9cd42e1886bf3441~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "878",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730657676262085302",
-    "name": "HAIRtamin Peptide Dry Shampoo \u2013 Lightweight Haircare Cle...",
-    "creator": "Unknown Shop",
-    "price": "$33.12-$103.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Beauty & Personal Care",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/193088d82d1e4bd6a46c67b0206b37cc~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "3,020",
-    "isAI": false,
-    "score": 5,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
     "id": "1729384266159788902",
     "name": "KimChi Chic Puff Puff Pass Set & Bake Powder with Rice Pow...",
     "creator": "KimChi Chic Beauty",
@@ -60260,7 +60155,7 @@ window.PRODUCT_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$13.70",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Fashion Accessories",
     "type": "campaign",
     "image": "",
@@ -60281,7 +60176,7 @@ window.PRODUCT_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$16.85-$17.70",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/a76ff4d22a094555842a6b3bb15c63b6~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -60302,7 +60197,7 @@ window.PRODUCT_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$8.14-$37.40",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/81d4c0b2453a42ed970f479ede6dc1f1~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -60323,7 +60218,7 @@ window.PRODUCT_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$15.45-$27.71",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/c74c327a464347108b19c071862f8aae~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -60344,7 +60239,7 @@ window.PRODUCT_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$11.64-$15.28",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Fashion Accessories",
     "type": "campaign",
     "image": "",
@@ -95517,111 +95412,6 @@ window.CAMPAIGN_DATA_MONTHEND = [
     ]
   },
   {
-    "id": "1730473278396011190",
-    "name": "HAIRtamin Advanced Formula \u2013 Physician-Formulated Dietary ...",
-    "creator": "Unknown Shop",
-    "price": "$31.28-$199.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Other",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/efa62fb3ac4242718e177b158d39abe7~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "5,453",
-    "isAI": false,
-    "score": 5,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473299057808054",
-    "name": "HAIRtamin Gorgeous Growth Scalp Serum - Physician-Formu...",
-    "creator": "Unknown Shop",
-    "price": "$40.00-$120.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Beauty & Personal Care",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/082c648cbdec4e22ac1f0a784b3e68e8~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "80",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473300534923958",
-    "name": "HAIRtamin Biotin & Botanicals Deep Condition & Repair Mas...",
-    "creator": "Unknown Shop",
-    "price": "$34.00-$204.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Health",
-    "type": "campaign",
-    "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/29ff9fbf0ad44212a04f405fc917f3a3~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "609",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730473302859813558",
-    "name": "HAIRtamin Gummy Stars - Physician-Formulated Dietary Sup...",
-    "creator": "Unknown Shop",
-    "price": "$32.20-$205.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Health",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/1aa61994c7cd468b9cd42e1886bf3441~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "878",
-    "isAI": false,
-    "score": 4,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
-    "id": "1730657676262085302",
-    "name": "HAIRtamin Peptide Dry Shampoo \u2013 Lightweight Haircare Cle...",
-    "creator": "Unknown Shop",
-    "price": "$33.12-$103.00",
-    "commission": "16%",
-    "vsText": "vs. open collab 12%",
-    "category": "Beauty & Personal Care",
-    "type": "campaign",
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/193088d82d1e4bd6a46c67b0206b37cc~tplv-fhlh96nyum-crop-webp:2048:2048.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "rank": 1,
-    "sold": "3,020",
-    "isAI": false,
-    "score": 5,
-    "campaignId": "7616092718477133599",
-    "campaignName": "HAIRtamin",
-    "campaignIds": [
-      "7616092718477133599"
-    ]
-  },
-  {
     "id": "1729384266159788902",
     "name": "KimChi Chic Puff Puff Pass Set & Bake Powder with Rice Pow...",
     "creator": "KimChi Chic Beauty",
@@ -124502,7 +124292,7 @@ window.CAMPAIGN_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$13.70",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Fashion Accessories",
     "type": "campaign",
     "image": "",
@@ -124523,7 +124313,7 @@ window.CAMPAIGN_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$16.85-$17.70",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/a76ff4d22a094555842a6b3bb15c63b6~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -124544,7 +124334,7 @@ window.CAMPAIGN_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$8.14-$37.40",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p19-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/81d4c0b2453a42ed970f479ede6dc1f1~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -124565,7 +124355,7 @@ window.CAMPAIGN_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$15.45-$27.71",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Womenswear & Underwear",
     "type": "campaign",
     "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/c74c327a464347108b19c071862f8aae~tplv-fhlh96nyum-crop-webp:1350:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
@@ -124586,7 +124376,7 @@ window.CAMPAIGN_DATA_MONTHEND = [
     "creator": "Unknown Shop",
     "price": "$11.64-$15.28",
     "commission": "11%",
-    "vsText": "",
+    "vsText": "vs. open collab 8%",
     "category": "Fashion Accessories",
     "type": "campaign",
     "image": "",
@@ -129388,16 +129178,6 @@ window.TAP_CAMPAIGNS_MONTHEND = [
     "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/ba0b9a7b99e140a3b98540e2ecafb0e0~tplv-fhlh96nyum-crop-webp:1575:2100.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
     "featured": false,
     "startDate": "2025-09-15"
-  },
-  {
-    "id": "7616092718477133599",
-    "name": "HAIRtamin",
-    "priority": "Other",
-    "link": "https://affiliate-us.tiktok.com/api/v1/share/AJP1JrQtgjKZ",
-    "productCount": 5,
-    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/efa62fb3ac4242718e177b158d39abe7~tplv-fhlh96nyum-crop-webp:1080:1080.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=8dbd94bf&amp;shcp=607f11de&amp;idc=useast5&amp;from=2378011839",
-    "featured": false,
-    "startDate": "2026-03-11"
   },
   {
     "id": "7620585725516187406",
