@@ -1,5 +1,5 @@
 // TABOOST Discovery Platform - Product & Campaign Data Pipeline
-// Generated: 2026-10-05T18:10:14.348Z
+// Generated: 2026-10-05T18:32:57.537Z
 // Dataset: midmonth
 // Total Products: 3054 | Active Campaigns: 3054 | TAP Campaigns: 106
 // Unique de-duped names: 3054
@@ -49385,7 +49385,7 @@ window.PRODUCT_DATA = [
     "vsText": "vs. open collab 15%",
     "category": "Fashion Accessories",
     "type": "campaign",
-    "image": "",
+    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/24acf1ca8d8445738532f84035dbc65c~tplv-fhlh96nyum-crop-webp:800:800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=c940a200&amp;shcp=9b759fb9&amp;idc=useast5&amp;from=3376456192",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJWoXzQtrHZJ",
     "rank": 1,
     "sold": "2,004",
@@ -58604,7 +58604,7 @@ window.PRODUCT_DATA = [
     "vsText": "vs. open collab 8%",
     "category": "Sports & Outdoor",
     "type": "campaign",
-    "image": "",
+    "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/5d94e98d6c624966acf2acd4b09c3f63~tplv-fhlh96nyum-crop-webp:1800:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=c940a200&amp;shcp=9b759fb9&amp;idc=useast5&amp;from=3376456192",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJdnRj9yfgRP",
     "rank": 1,
     "sold": "1,183",
@@ -113522,7 +113522,7 @@ window.CAMPAIGN_DATA = [
     "vsText": "vs. open collab 15%",
     "category": "Fashion Accessories",
     "type": "campaign",
-    "image": "",
+    "image": "https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/24acf1ca8d8445738532f84035dbc65c~tplv-fhlh96nyum-crop-webp:800:800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=c940a200&amp;shcp=9b759fb9&amp;idc=useast5&amp;from=3376456192",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJWoXzQtrHZJ",
     "rank": 1,
     "sold": "2,004",
@@ -122741,7 +122741,7 @@ window.CAMPAIGN_DATA = [
     "vsText": "vs. open collab 8%",
     "category": "Sports & Outdoor",
     "type": "campaign",
-    "image": "",
+    "image": "https://p16-oec-general.ttcdn-us.com/tos-maliva-i-o3syd03w52-us/5d94e98d6c624966acf2acd4b09c3f63~tplv-fhlh96nyum-crop-webp:1800:1800.webp?dr=12190&amp;t=555f072d&amp;ps=933b5bde&amp;shp=c940a200&amp;shcp=9b759fb9&amp;idc=useast5&amp;from=3376456192",
     "link": "https://affiliate-us.tiktok.com/api/v1/share/AJdnRj9yfgRP",
     "rank": 1,
     "sold": "1,183",
