@@ -195,7 +195,7 @@ const CATEGORY_KEYWORDS = {
         'shampoo', 'conditioner', 'hair oil', 'hair mask', 'derma', 'dermaplaning',
         'razor', 'wax', 'peel', 'facial', 'face mask', 'eye cream', 'body wash',
         'deodorant', 'toothpaste', 'whitening', 'self tan', 'acne', 'skin',
-        'cosmetic', 'powder', 'contour', 'highlighter', 'setting spray', 'too faced',
+        'cosmetic', 'powder', 'contour', 'hair', 'hair care', 'hair brush', 'palette', 'shadow', 'liner', 'lippie', 'pencil', 'bronzing', 'brush', 'balm', 'freckle', 'spot patch', 'pimple', 'colourpop', 'catrice', 'medicube', 'korean skincare', 'k-beauty', 'body care', 'highlighter', 'setting spray', 'too faced',
         'tarte', 'nyx', 'maybelline', 'olay', 'cerave', 'neutrogena', 'drunk elephant'
     ],
     'Health': [
@@ -217,6 +217,7 @@ const CATEGORY_KEYWORDS = {
         'audio', 'sound', 'noise cancelling', 'led', 'light strip'
     ],
     'Womenswear & Underwear': [
+        'underwear', 'thong', 'tee', 'sweatpant', 'robe',
         'dress', 'blouse', 'skirt', 'top', 'legging', 'jumpsuit', 'romper',
         'cardigan', 'sweater', 'jacket', "women's", 'bra', 'panties', 'lingerie',
         'shapewear', 'bodysuit', 'tank top', 'cami', 'maxi', 'midi', 'mini',
@@ -302,8 +303,14 @@ function inferCategory(productName, shopName = '') {
     for (const [cat, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
         let score = 0;
         for (const kw of keywords) {
-            if (text.includes(kw)) {
+            // Whole-word match: plain substrings let 'car' hit 'skincare' and filed
+            // hair brushes under Automotive.
+            if (new RegExp('\\b' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:e?s)?\\b').test(text)) {
                 score += kw.length;
+            } else if (kw.length >= 5 && text.includes(kw)) {
+                // Long keywords still count inside compound words ("sweatpants"),
+                // at half weight so a whole-word hit wins.
+                score += kw.length / 2;
             }
         }
         if (score > bestScore) {
