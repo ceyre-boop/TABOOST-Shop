@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T17:26:18.733Z",
+  "generated": "2026-10-12T17:32:06.694Z",
   "date": "2026-10-12",
   "source": "js/product-data.js",
   "formula": "commission% × sold × (TAP rate / open-collab rate) × priceFactor(10–40 = 1.0)",

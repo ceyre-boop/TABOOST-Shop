@@ -66,7 +66,7 @@ function parseOpenRate(vsText) {
   return nums.length ? Math.max(...nums.map(Number)) : 0;
 }
 function cleanName(name) {
-  return String(name ?? '').replace(/\.\.\.$/, '').replace(/^\[[^\]]*\]\s*/, '').replace(/\s+/g, ' ').trim();
+  return String(name ?? '').replace(/&amp;/g, '&').replace(/\.\.\.$/, '').replace(/^\[[^\]]*\]\s*/, '').replace(/\s+/g, ' ').trim();
 }
 function shortName(name, max = 48) {
   const n = cleanName(name);
