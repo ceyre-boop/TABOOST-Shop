@@ -66,7 +66,7 @@ function parseOpenRate(vsText) {
   return nums.length ? Math.max(...nums.map(Number)) : 0;
 }
 function cleanName(name) {
-  return String(name ?? '').replace(/&amp;/g, '&').replace(/\.\.\.$/, '').replace(/^\[[^\]]*\]\s*/, '').replace(/\s+/g, ' ').trim();
+  return String(name ?? '').replace(/&(amp;)+/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\.\.\.$/, '').replace(/^\[[^\]]*\]\s*/, '').replace(/\s+/g, ' ').trim();
 }
 function shortName(name, max = 48) {
   const n = cleanName(name);
@@ -252,7 +252,8 @@ function main() {
 
   const eligible = scored.filter(({ p }) => {
     const last = history[p.id];
-    return !last || daysBetween(DATE, last) >= COOLDOWN;
+    // same-day re-runs are idempotent: today's picks stay eligible
+    return !last || last === DATE || daysBetween(DATE, last) >= COOLDOWN;
   });
   const picks = eligible.slice(0, TOP);
 
