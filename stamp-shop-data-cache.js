@@ -32,7 +32,7 @@ const stamp = crypto.createHash('sha1').update(stableBody).digest('hex').slice(0
 
 // Every page that loads shop-data.js. shop-creator-dashboard.html was stuck on an
 // April stamp for months precisely because only shop-dashboard.html was maintained.
-const targets = ['shop-dashboard.html', 'shop-creator-dashboard.html'];
+const targets = ['shop-dashboard.html', 'shop-creator-dashboard.html', 'preview.html'];
 
 let changed = 0;
 let matched = 0;

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TABOOST — Shop Creator Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;--bg2:#0a0a0a;--bg3:#111;--red:#FF0055;--red2:#cc0044;
+  --t1:#fff;--t2:#e0e0e0;--t3:#b4b8bf;--t4:#8b9099;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.04);
+  --r:8px;--f:'Poppins',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f);background:var(--bg);color:var(--t2);min-height:100vh;
+  display:flex;align-items:flex-start;justify-content:center;padding:56px 20px;font-size:15px}
+.wrap{width:100%;max-width:440px}
+.brand{text-align:center;margin-bottom:26px}
+.brand h1{font-size:15px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--t1)}
+.brand h1 span{color:var(--red)}
+.brand p{font-size:12px;color:var(--t4);margin-top:6px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+label{display:block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--t4);margin-bottom:8px}
+input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;
+  padding:12px 13px;font-size:14px;color:var(--t2);outline:none;font-family:var(--f);
+  transition:border-color 0.2s}
+input:focus{border-color:rgba(255,0,85,0.25)}
+input::placeholder{color:var(--t4)}
+.btn{width:100%;margin-top:12px;padding:12px;border:1px solid var(--red);border-radius:6px;
+  background:var(--red);color:#fff;font-family:var(--f);font-size:12px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.15s}
+.btn:hover{background:var(--red2)}
+.error{display:none;background:rgba(255,0,85,0.10);border:1px solid var(--red);color:var(--red);
+  padding:11px 13px;border-radius:6px;font-size:13px;margin-bottom:16px}
+.error.show{display:block}
+#searchView{display:none}
+#searchView.show{display:block}
+#gateView.hide{display:none}
+.results{margin-top:14px;display:flex;flex-direction:column}
+.result{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 13px;border-bottom:1px solid var(--border2);background:transparent;
+  color:inherit;font-family:var(--f);text-align:left;width:100%;cursor:pointer;
+  transition:background 0.1s;text-decoration:none}
+.result:hover{background:rgba(255,0,85,0.05)}
+.result:last-child{border-bottom:none}
+.result .handle{font-size:14px;color:var(--t1);font-weight:500}
+.result .meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.result .sub{font-size:12px;color:var(--t4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.result .mgr{font-size:11px;color:var(--t4);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
+.status{padding:14px 2px;font-size:13px;color:var(--t4);text-align:center}
+.lock{margin-top:14px;text-align:center}
+.lock a{font-size:11px;color:var(--t4);text-decoration:none}
+.lock a:hover{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <h1>TABOOST <span>SHOP PREVIEW</span></h1>
+    <p>Open any creator's shop dashboard</p>
+  </div>
+
+  <div class="card" id="gateView">
+    <div class="error" id="gateError">Incorrect passkey.</div>
+    <label for="passkey">Team passkey</label>
+    <input type="password" id="passkey" placeholder="Enter passkey" autocomplete="off" autofocus>
+    <button class="btn" id="unlockBtn">Unlock</button>
+  </div>
+
+  <div class="card" id="searchView">
+    <label for="search">TikTok handle, name or email</label>
+    <input type="text" id="search" placeholder="Type a handle, e.g. kelliecrowther" autocomplete="off" disabled>
+    <button class="btn" id="openBtn">Open dashboard</button>
+    <div class="results" id="results"></div>
+    <div class="status" id="status">Loading creators…</div>
+    <div class="lock"><a href="#" id="lockLink">lock this page</a></div>
+  </div>
+
+</div>
+
+<script src="js/preview-config.js?v=202610132111"></script>
+<script src="js/shop-data.js?v=ec952dc5"></script>
+<script>
+(function () {
+  'use strict';
+
+  // The passkey lives in js/preview-config.js — change it there and push, and
+  // every already-unlocked session is revoked immediately.
+  var CFG = window.TB_PREVIEW;
+
+  var MAX_RESULTS = 25;
+
+  var gateView  = document.getElementById('gateView');
+  var gateError = document.getElementById('gateError');
+  var passkeyEl = document.getElementById('passkey');
+  var unlockBtn = document.getElementById('unlockBtn');
+  var searchView= document.getElementById('searchView');
+  var searchEl  = document.getElementById('search');
+  var openBtn   = document.getElementById('openBtn');
+  var resultsEl = document.getElementById('results');
+  var statusEl  = document.getElementById('status');
+  var lockLink  = document.getElementById('lockLink');
+
+  var creators = [];
+
+  // Shop creators are keyed by EMAIL (shop-data.js "username" == email), so the
+  // dashboard link carries the email even though managers search by handle.
+  function dashUrl(email) {
+    return 'shop-dashboard.html?test_email=' + encodeURIComponent(email);
+  }
+
+  function loadRoster() {
+    // js/shop-data.js is loaded as a plain <script> above — no CSV parsing.
+    var raw = window.TABOOST_SHOP_DATA || window.allShopData || [];
+    if (!raw.length) {
+      // The roster is the only way to resolve a handle to an email, so without it
+      // nothing can be opened. Fail loudly rather than offer a dead search box.
+      statusEl.textContent = 'Creator list unavailable (js/shop-data.js did not load) — reload the page.';
+      console.error('[preview] shop-data.js missing or empty');
+      return;
+    }
+    creators = raw.map(function (c) {
+      var email = String(c.email || c.username || '').trim();
+      var handles = (c.accounts || []).map(function (a) { return String(a.handle || '').trim(); })
+                     .filter(Boolean);
+      return {
+        email: email,
+        name: String(c.name || '').trim(),
+        handles: handles,
+        level: String(c.topLevel || '').trim(),
+        // One lowercase haystack: email + name + every handle. Substring search over
+        // it covers all three fields at once.
+        lc: [email].concat([c.name || ''], handles).join('\n').toLowerCase(),
+        emailLc: email.toLowerCase(),
+        handlesLc: handles.map(function (h) { return h.toLowerCase(); })
+      };
+    }).filter(function (c) { return c.email; });
+
+    searchEl.disabled = false;
+    statusEl.textContent = creators.length + ' creators — start typing.';
+    searchEl.focus();
+  }
+
+  function render(matches, query, total) {
+    resultsEl.innerHTML = '';
+    if (!query) { statusEl.textContent = creators.length + ' creators — start typing.'; return; }
+    if (!matches.length) { statusEl.textContent = 'No match for "' + query + '".'; return; }
+
+    matches.forEach(function (c) {
+      var a = document.createElement('a');
+      a.className = 'result';
+      a.href = dashUrl(c.email);
+
+      var meta = document.createElement('span');
+      meta.className = 'meta';
+      var h = document.createElement('span');
+      h.className = 'handle';
+      h.textContent = c.name || c.email;
+      meta.appendChild(h);
+      var sub = document.createElement('span');
+      sub.className = 'sub';
+      var handleStr = c.handles.map(function (x) { return '@' + x; }).join('  ');
+      sub.textContent = (handleStr ? handleStr + ' · ' : '') + c.email;
+      meta.appendChild(sub);
+      a.appendChild(meta);
+
+      if (c.level) {
+        var m = document.createElement('span');
+        m.className = 'mgr'; m.textContent = c.level;
+        a.appendChild(m);
+      }
+      resultsEl.appendChild(a);
+    });
+
+    statusEl.textContent = total > MAX_RESULTS
+      ? 'Showing ' + MAX_RESULTS + ' of ' + total + ' — keep typing to narrow.'
+      : total + (total === 1 ? ' match' : ' matches');
+  }
+
+  function normalise(v) { return v.trim().toLowerCase().replace(/^@/, ''); }
+
+  function onSearch() {
+    var q = normalise(searchEl.value);
+    if (!q) { render([], '', 0); return; }
+    var matches = [], total = 0;
+    for (var i = 0; i < creators.length; i++) {
+      if (creators[i].lc.indexOf(q) !== -1) {
+        total++;
+        if (matches.length < MAX_RESULTS) matches.push(creators[i]);
+      }
+    }
+    render(matches, q, total);
+  }
+
+  function openExact() {
+    var q = normalise(searchEl.value);
+    if (!q) { searchEl.focus(); return; }
+
+    // An email that is not in the roster does NOT fail visibly on the dashboard — it
+    // renders a zeroed "Creator" page that looks real. Refuse rather than show a
+    // plausible, entirely fictional dashboard. Exact match on email or any handle.
+    var hit = null;
+    for (var i = 0; i < creators.length; i++) {
+      var c = creators[i];
+      if (c.emailLc === q || c.handlesLc.indexOf(q) !== -1) { hit = c; break; }
+    }
+    if (!hit) {
+      statusEl.textContent = '"' + q + '" is not in the Shop roster — check the spelling, '
+        + 'or pick a creator from the list.';
+      return;
+    }
+    window.location.href = dashUrl(hit.email);
+  }
+
+  function unlock() {
+    gateView.classList.add('hide');
+    searchView.classList.add('show');
+    loadRoster();
+  }
+
+  function attempt() {
+    if (CFG.matches(passkeyEl.value)) {
+      CFG.open();
+      // If storage is blocked (Safari private mode) the unlock cannot be handed to
+      // shop-dashboard.html, so every link would bounce to a login page the user has
+      // no account for. Say so here instead of failing silently later.
+      if (!CFG.valid()) {
+        gateError.textContent = 'Your browser is blocking site storage, so dashboard links '
+          + 'will not open. Turn off Private Browsing or allow storage for this site.';
+        gateError.classList.add('show');
+        return;
+      }
+      gateError.classList.remove('show');
+      unlock();
+    } else {
+      gateError.classList.add('show');
+      passkeyEl.value = '';
+      passkeyEl.focus();
+    }
+  }
+
+  unlockBtn.addEventListener('click', attempt);
+  passkeyEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); attempt(); }
+  });
+  searchEl.addEventListener('input', onSearch);
+  searchEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); openExact(); }
+  });
+  openBtn.addEventListener('click', openExact);
+  lockLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    CFG.clear();
+    window.location.reload();
+  });
+
+  if (CFG.valid()) unlock();
+})();
+</script>
+</body>
+</html>

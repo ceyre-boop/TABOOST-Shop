@@ -92,6 +92,21 @@ function updateCacheVersions() {
         fs.writeFileSync(htmlPath, htmlContent);
         console.log('✅ Updated JS + CSS cache versions in shop-dashboard.html');
     }
+
+    // preview.html must carry the SAME preview-config.js stamp as shop-dashboard.html.
+    // If they drift, a browser can serve a cached old passkey on one page and the new
+    // one on the other, and the preview session is rejected (fails closed, but looks
+    // like "the preview stopped working"). See js/preview-config.js.
+    const previewPath = path.join(__dirname, 'preview.html');
+    if (fs.existsSync(previewPath)) {
+        let previewContent = fs.readFileSync(previewPath, 'utf8');
+        previewContent = previewContent.replace(
+            /preview-config\.js\?v=[A-Za-z0-9]+/g,
+            `preview-config.js?v=${now}`
+        );
+        fs.writeFileSync(previewPath, previewContent);
+        console.log('✅ Synced preview-config.js cache version in preview.html');
+    }
     
     return now;
 }

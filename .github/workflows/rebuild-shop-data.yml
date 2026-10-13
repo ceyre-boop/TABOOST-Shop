@@ -97,4 +97,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'Auto-rebuild: shop-data.js + product-data.js from CSV'
-          file_pattern: 'js/shop-data.js js/product-data.js js/product-data-midmonth.js js/product-data-monthend.js index.html shop-dashboard.html shop-creator-dashboard.html data/shop/audit-products.json data/shop/monthly-stats.json'
+          file_pattern: 'js/shop-data.js js/product-data.js js/product-data-midmonth.js js/product-data-monthend.js index.html shop-dashboard.html shop-creator-dashboard.html preview.html data/shop/audit-products.json data/shop/monthly-stats.json'

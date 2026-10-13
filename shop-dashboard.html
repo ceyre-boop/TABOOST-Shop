@@ -23,12 +23,12 @@
             z-index: 10000;
         }
     </style>
-    <link rel="stylesheet" href="css/styles.css?v=202610051850">
-    <link rel="stylesheet" href="css/shop-dashboard.css?v=202610051850">
+    <link rel="stylesheet" href="css/styles.css?v=202610132111">
+    <link rel="stylesheet" href="css/shop-dashboard.css?v=202610132111">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/shop-audit.css?v=202610051850">
+    <link rel="stylesheet" href="css/shop-audit.css?v=202610132111">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* FORCE REMOVE RED BAR - OVERRIDE ALL */
@@ -610,13 +610,14 @@
         </div>
     </div>
 
-    <script src="js/rewards-data.js?v=202610051850"></script>
-    <script src="js/events-data.js?v=202610051850"></script>
-    <script src="js/weekly-calendar-data.js?v=202610051850"></script>
+    <script src="js/rewards-data.js?v=202610132111"></script>
+    <script src="js/events-data.js?v=202610132111"></script>
+    <script src="js/weekly-calendar-data.js?v=202610132111"></script>
     <script src="js/shop-data.js?v=ec952dc5"></script>
-    <script src="js/auth.js?v=202610051850"></script>
-    <script src="js/shop-dashboard.js?v=202610051850"></script>
-    <script src="js/shop-audit.js?v=202610121755"></script>
+    <script src="js/preview-config.js?v=202610132111"></script>
+    <script src="js/auth.js?v=202610132111"></script>
+    <script src="js/shop-dashboard.js?v=202610132111"></script>
+    <script src="js/shop-audit.js?v=202610132111"></script>
     <script>
         function exportData(format) {
             const creatorName = document.getElementById('creatorName').textContent;
@@ -650,6 +651,60 @@
         const urlParams = new URLSearchParams(window.location.search);
         const testEmail = urlParams.get('test_email');
 
+        // Set synchronously, before any onAuthStateChanged callback can fire, so
+        // js/shop-dashboard.js (isTestPreview) and this module agree on whether a
+        // preview is in play (see preview.html).
+        window.__previewRequest = testEmail;
+
+        // An unlocked preview.html session (shared team passkey) authorises ?test_email=
+        // so an agency manager with no Firebase account can open a creator's dashboard.
+        //
+        // What it exposes: js/shop-data.js, already served unauthenticated from this
+        // same origin. What actually prevents writes: window.__tapFirestore.uid is null
+        // on EVERY preview path (this one and the signed-in-admin one below), and every
+        // Firestore write in js/shop-dashboard.js bails on a null uid. The banner and
+        // isTestPreview() drive the render only — they are not the write guard.
+        //
+        // Passkey, session shape and validation all live in js/preview-config.js; see
+        // that file to rotate. Fails closed if the config script is missing or stale.
+        window.__previewSession = !!(window.TB_PREVIEW && window.TB_PREVIEW.valid());
+
+        const _isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+        function showPreviewBanner(email) {
+            const b = document.createElement('div');
+            b.id = 'previewBanner';
+            b.style.cssText = 'position:sticky;top:0;z-index:9999;background:#ffd700;color:#000;'
+                + 'font-weight:700;font-size:13px;text-align:center;padding:8px 12px;letter-spacing:0.04em;';
+            b.textContent = '🧪 PREVIEW — ' + email + ' (read-only)';
+            document.body.prepend(b);
+        }
+
+        function startDashboard(user) {
+            // null on every preview path; a real uid only for a signed-in creator.
+            window.__tapFirestore.uid = user.isTest ? null : user.uid;
+            if (user.isTest) showPreviewBanner(user.email);
+
+            try {
+                // Initialize dashboard — welcome title & message are set inside initCreatorDashboard
+                if (typeof initCreatorDashboard === 'function') {
+                    initCreatorDashboard(user);
+                } else {
+                    console.error('initCreatorDashboard not found. Ensure shop-dashboard.js is loaded.');
+                }
+
+                // Hide loader
+                const loader = document.getElementById('authLoader');
+                if (loader) loader.style.display = 'none';
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        if (testEmail && (window.__previewSession || _isLocalHost)) {
+            // Preview session: no Firebase account involved, skip the login redirect.
+            startDashboard({ uid: null, email: testEmail, displayName: '', isTest: true });
+        } else
         onAuthStateChanged(auth, async (user) => {
             if (!user) {
                 window.location.replace('shop-login.html');
@@ -669,7 +724,9 @@
                     }
                 }
                 if (isAdmin) {
-                    user = { uid: 'test_user', email: testEmail, displayName: testEmail.split('@')[0], isTest: true };
+                    // uid null, NOT 'test_user': a truthy uid would let claimTapBonus()
+                    // write tapBonusClaims/test_user_<tier>.
+                    user = { uid: null, email: testEmail, displayName: '', isTest: true };
                 } else {
                     urlParams.delete('test_email');
                     const qs = urlParams.toString();
@@ -677,22 +734,7 @@
                 }
             }
 
-            window.__tapFirestore.uid = user.uid;
-
-            try {
-                // Initialize dashboard — welcome title & message are set inside initCreatorDashboard
-                if (typeof initCreatorDashboard === 'function') {
-                    initCreatorDashboard(user);
-                } else {
-                    console.error('initCreatorDashboard not found. Ensure shop-dashboard.js is loaded.');
-                }
-
-                // Hide loader
-                const loader = document.getElementById('authLoader');
-                if (loader) loader.style.display = 'none';
-            } catch (error) {
-                console.error('Error loading user data:', error);
-            }
+            startDashboard(user);
         });
 
         window.logout = async () => {

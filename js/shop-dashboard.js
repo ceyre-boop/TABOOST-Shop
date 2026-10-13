@@ -1451,7 +1451,11 @@ function showUnmatchedAccountNotice(authEmail) {
 }
 
 function isTestPreview() {
-    return new URLSearchParams(window.location.search).has('test_email');
+    // Either preview path: a signed-in admin using ?test_email=, or an unlocked
+    // preview.html session (window.__previewSession, set in shop-dashboard.html).
+    // Read-only render only — the Firestore write guard is the null uid, not this.
+    return !!window.__previewSession
+        || new URLSearchParams(window.location.search).has('test_email');
 }
 
 function loadSettings() {
@@ -1466,7 +1470,7 @@ function loadSettings() {
         nameInput.placeholder = 'Set by your TABOOST manager';
     }
     if (emailInput) emailInput.value = isTestPreview() ? (myData && myData.email) || '' : (currentUser && currentUser.email) || '';
-    setEmailNotice(isTestPreview() ? 'Preview mode (?test_email): settings are read-only.' : '');
+    setEmailNotice(isTestPreview() ? 'Preview mode: settings are read-only.' : '');
 }
 
 function setEmailNotice(msg) {
