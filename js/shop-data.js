@@ -1,5 +1,5 @@
 // Taboost Agency - Multi-Sheet Merged Shop Data
-// Generated: 2026-11-12T01:33:34.620Z
+// Generated: 2026-11-12T17:49:09.974Z
 // Total Mapped: 145 unique shop creators
 // History months detected dynamically from CSV headers
 
@@ -13,20 +13,20 @@ const allShopData = [
       {
         "handle": "michelledemoda",
         "tiktokLink": "https://www.tiktok.com/@michelledemoda",
-        "sv": 21,
+        "sv": 25,
         "tap": 6,
-        "tapGMV": 57416.89,
+        "tapGMV": 62582.96,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.16%",
+        "ctr": "2.14%",
         "views": 0,
-        "sold": 2014,
-        "gmv": 84204.94,
-        "commDollars": 15432.14,
+        "sold": 2179,
+        "gmv": 91433.54,
+        "commDollars": 16759.94,
         "bonus": 0,
         "gmvLM": 153073.5,
-        "gmvPace": 252614.82,
+        "gmvPace": 249364.2,
         "commPct": "18.33%",
         "tier": "Select",
         "acctRank": 1
@@ -42,7 +42,7 @@ const allShopData = [
           125721.92,
           108167.58,
           153073.5,
-          84204.94
+          91433.54
         ],
         "tap": [
           9680.3,
@@ -51,7 +51,7 @@ const allShopData = [
           87193.77,
           64322.03,
           95002.76,
-          57416.89
+          62582.96
         ],
         "comm": [
           11454.97,
@@ -60,7 +60,7 @@ const allShopData = [
           21124.27,
           17411.57,
           24883.91,
-          15432.14
+          16759.94
         ]
       }
     ],
@@ -71,11 +71,11 @@ const allShopData = [
       87193.77,
       64322.03,
       95002.76,
-      57416.89
+      62582.96
     ],
-    "points": 1116,
-    "totalGMV": 84204.94,
-    "totalComm": 15432.14,
+    "points": 1216,
+    "totalGMV": 91433.54,
+    "totalComm": 16759.94,
     "avgComm": 18.33,
     "levelLabel": "L5",
     "productRank": "1",
@@ -86,15 +86,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 287909.92,
     "tapGoalQ": 0,
-    "tapTotalTQ": 177303.56,
-    "totalSV": 21,
+    "tapTotalTQ": 182469.63,
+    "totalSV": 25,
     "totalTaP": 6,
     "totalLS": 0,
-    "totalCTR": 2.16,
-    "totalViews": 1480673,
-    "totalSold": 2014,
-    "tapGMV": 57416.89,
-    "tapYTD": 566253.46,
+    "totalCTR": 2.14,
+    "totalViews": 1617178,
+    "totalSold": 2179,
+    "tapGMV": 62582.96,
+    "tapYTD": 571419.53,
     "manager": "Hotline",
     "joined": "Feb 2024",
     "tier": "Select",
@@ -104,12 +104,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 21,
+    "agg_sv": 25,
     "agg_tap": 6,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2014,
-    "gmvPace": 252614.82,
+    "agg_sold": 2179,
+    "gmvPace": 249364.2,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -117,7 +117,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       11454.97,
@@ -126,7 +126,7 @@ const allShopData = [
       21124.27,
       17411.57,
       24883.91,
-      15432.14
+      16759.94
     ],
     "bonusHistory": [
       1800,
@@ -147,21 +147,21 @@ const allShopData = [
       {
         "handle": "kelliecrowther",
         "tiktokLink": "https://www.tiktok.com/@kelliecrowther",
-        "sv": 51,
-        "tap": 14,
-        "tapGMV": 53467.39,
+        "sv": 59,
+        "tap": 15,
+        "tapGMV": 55894.13,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "2.16%",
         "views": 0,
-        "sold": 2777,
-        "gmv": 83973,
-        "commDollars": 15670.29,
+        "sold": 2919,
+        "gmv": 88159.92,
+        "commDollars": 16409.71,
         "bonus": 0,
         "gmvLM": 191827.41,
-        "gmvPace": 251919,
-        "commPct": "18.66%",
+        "gmvPace": 240436.15,
+        "commPct": "18.61%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -174,7 +174,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "6.52%",
+        "ctr": "6.12%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -197,7 +197,7 @@ const allShopData = [
           100961.18,
           46474.95,
           191827.41,
-          83973
+          88159.92
         ],
         "tap": [
           88304.21,
@@ -206,7 +206,7 @@ const allShopData = [
           88596.37,
           35015.13,
           161843.1,
-          53467.39
+          55894.13
         ],
         "comm": [
           26399.05,
@@ -215,7 +215,7 @@ const allShopData = [
           21904.46,
           9655.42,
           38268.53,
-          15670.29
+          16409.71
         ]
       },
       {
@@ -256,12 +256,12 @@ const allShopData = [
       88596.37,
       35040.63,
       161843.1,
-      53467.39
+      55894.13
     ],
-    "points": 1074,
-    "totalGMV": 83973,
-    "totalComm": 15670.29,
-    "avgComm": 18.66,
+    "points": 1121,
+    "totalGMV": 88159.92,
+    "totalComm": 16409.71,
+    "avgComm": 18.61,
     "levelLabel": "L5",
     "productRank": "2",
     "cashBonus": 0,
@@ -271,15 +271,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 350574.18,
     "tapGoalQ": 0,
-    "tapTotalTQ": 253579.02,
-    "totalSV": 51,
-    "totalTaP": 14,
+    "tapTotalTQ": 256005.76,
+    "totalSV": 59,
+    "totalTaP": 15,
     "totalLS": 0,
-    "totalCTR": 4.34,
-    "totalViews": 3239804,
-    "totalSold": 2777,
-    "tapGMV": 53467.39,
-    "tapYTD": 1300349.32,
+    "totalCTR": 4.14,
+    "totalViews": 3411046,
+    "totalSold": 2919,
+    "tapGMV": 55894.13,
+    "tapYTD": 1302776.06,
     "manager": "Hotline",
     "joined": "Jan 2026",
     "tier": "VIP",
@@ -289,12 +289,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 51,
-    "agg_tap": 14,
+    "agg_sv": 59,
+    "agg_tap": 15,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2777,
-    "gmvPace": 251919,
+    "agg_sold": 2919,
+    "gmvPace": 240436.15,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -302,7 +302,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       26399.05,
@@ -311,7 +311,7 @@ const allShopData = [
       21904.46,
       9666.49,
       38268.53,
-      15670.29
+      16409.71
     ],
     "bonusHistory": [
       300,
@@ -332,21 +332,21 @@ const allShopData = [
       {
         "handle": "lizzmi45",
         "tiktokLink": "https://www.tiktok.com/@lizzmi45",
-        "sv": 79,
-        "tap": 2,
-        "tapGMV": 30323.09,
+        "sv": 88,
+        "tap": 3,
+        "tapGMV": 33631.07,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.45%",
+        "ctr": "3.49%",
         "views": 0,
-        "sold": 5637,
-        "gmv": 194904.1,
-        "commDollars": 22025.52,
+        "sold": 6181,
+        "gmv": 214673.62,
+        "commDollars": 24330.82,
         "bonus": 0,
         "gmvLM": 433391.44,
-        "gmvPace": 584712.3,
-        "commPct": "11.30%",
+        "gmvPace": 585473.51,
+        "commPct": "11.33%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -359,15 +359,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "7.77%",
+        "ctr": "7.85%",
         "views": 0,
-        "sold": 11,
-        "gmv": 316.06,
-        "commDollars": 57.14,
+        "sold": 12,
+        "gmv": 349.55,
+        "commDollars": 60.14,
         "bonus": 0,
         "gmvLM": 2010.38,
-        "gmvPace": 948.18,
-        "commPct": "18.08%",
+        "gmvPace": 953.32,
+        "commPct": "17.20%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -382,7 +382,7 @@ const allShopData = [
           379325.05,
           403516.66,
           433391.44,
-          194904.1
+          214673.62
         ],
         "tap": [
           37060.01,
@@ -391,7 +391,7 @@ const allShopData = [
           39025.64,
           66814.67,
           96722.98,
-          30323.09
+          33631.07
         ],
         "comm": [
           54684.03,
@@ -400,7 +400,7 @@ const allShopData = [
           41889.22,
           46357.11,
           49971.91,
-          22025.52
+          24330.82
         ]
       },
       {
@@ -412,7 +412,7 @@ const allShopData = [
           6344.67,
           2826.19,
           2010.38,
-          316.06
+          349.55
         ],
         "tap": [
           211.14,
@@ -430,7 +430,7 @@ const allShopData = [
           1130.99,
           410.6,
           290.52,
-          57.14
+          60.14
         ]
       }
     ],
@@ -441,12 +441,12 @@ const allShopData = [
       39025.64,
       66845.76,
       96722.98,
-      30323.09
+      33631.07
     ],
-    "points": 565,
-    "totalGMV": 195220.16,
-    "totalComm": 22082.66,
-    "avgComm": 11.31,
+    "points": 636,
+    "totalGMV": 215023.17,
+    "totalComm": 24390.96,
+    "avgComm": 11.34,
     "levelLabel": "L6",
     "productRank": "3",
     "cashBonus": 0,
@@ -456,15 +456,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 268883.17,
     "tapGoalQ": 0,
-    "tapTotalTQ": 177308.5,
-    "totalSV": 79,
-    "totalTaP": 2,
+    "tapTotalTQ": 180616.48,
+    "totalSV": 88,
+    "totalTaP": 3,
     "totalLS": 0,
-    "totalCTR": 5.61,
-    "totalViews": 5880633,
-    "totalSold": 5648,
-    "tapGMV": 30323.09,
-    "tapYTD": 746980.79,
+    "totalCTR": 5.67,
+    "totalViews": 6313052,
+    "totalSold": 6193,
+    "tapGMV": 33631.07,
+    "tapYTD": 750288.77,
     "manager": "EMILEE",
     "joined": "Feb 2025",
     "tier": "Talent",
@@ -474,12 +474,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 79,
-    "agg_tap": 2,
+    "agg_sv": 88,
+    "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 5648,
-    "gmvPace": 584712.3,
+    "agg_sold": 6193,
+    "gmvPace": 585473.51,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -487,7 +487,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       55091.72,
@@ -496,7 +496,7 @@ const allShopData = [
       43020.21,
       46767.71,
       50262.43,
-      22082.66
+      24390.96
     ],
     "bonusHistory": [
       0,
@@ -517,21 +517,21 @@ const allShopData = [
       {
         "handle": "pinspo.girl",
         "tiktokLink": "https://www.tiktok.com/@pinspo.girl",
-        "sv": 60,
-        "tap": 8,
-        "tapGMV": 22206.55,
+        "sv": 70,
+        "tap": 9,
+        "tapGMV": 24733.18,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.31%",
+        "ctr": "3.33%",
         "views": 0,
-        "sold": 1184,
-        "gmv": 42059.36,
-        "commDollars": 5692.8,
+        "sold": 1336,
+        "gmv": 46379.06,
+        "commDollars": 6321.29,
         "bonus": 0,
         "gmvLM": 204287.86,
-        "gmvPace": 126178.08,
-        "commPct": "13.54%",
+        "gmvPace": 126488.35,
+        "commPct": "13.63%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -546,7 +546,7 @@ const allShopData = [
           53406.11,
           61772.86,
           204287.86,
-          42059.36
+          46379.06
         ],
         "tap": [
           9133.56,
@@ -555,7 +555,7 @@ const allShopData = [
           6335.98,
           3710.04,
           106967.82,
-          22206.55
+          24733.18
         ],
         "comm": [
           11238.45,
@@ -564,7 +564,7 @@ const allShopData = [
           6858.92,
           7635.8,
           26458.32,
-          5692.8
+          6321.29
         ]
       }
     ],
@@ -575,12 +575,12 @@ const allShopData = [
       6335.98,
       3710.04,
       106967.82,
-      22206.55
+      24733.18
     ],
-    "points": 421,
-    "totalGMV": 42059.36,
-    "totalComm": 5692.8,
-    "avgComm": 13.54,
+    "points": 472,
+    "totalGMV": 46379.06,
+    "totalComm": 6321.29,
+    "avgComm": 13.63,
     "levelLabel": "L5",
     "productRank": "4",
     "cashBonus": 0,
@@ -590,15 +590,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 36404.79,
     "tapGoalQ": 0,
-    "tapTotalTQ": 155632.69,
-    "totalSV": 60,
-    "totalTaP": 8,
+    "tapTotalTQ": 158159.32,
+    "totalSV": 70,
+    "totalTaP": 9,
     "totalLS": 0,
-    "totalCTR": 3.31,
-    "totalViews": 1189689,
-    "totalSold": 1184,
-    "tapGMV": 22206.55,
-    "tapYTD": 168493,
+    "totalCTR": 3.33,
+    "totalViews": 1302601,
+    "totalSold": 1336,
+    "tapGMV": 24733.18,
+    "tapYTD": 171019.63,
     "manager": "EMILEE",
     "joined": "Apr 2025",
     "tier": "Select",
@@ -608,12 +608,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 60,
-    "agg_tap": 8,
+    "agg_sv": 70,
+    "agg_tap": 9,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1184,
-    "gmvPace": 126178.08,
+    "agg_sold": 1336,
+    "gmvPace": 126488.35,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -621,7 +621,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       11238.45,
@@ -630,11 +630,196 @@ const allShopData = [
       6858.92,
       7635.8,
       26458.32,
-      5692.8
+      6321.29
     ],
     "bonusHistory": [
       0,
       1500,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "amandapac.ugc@gmail.com",
+    "email": "amandapac.ugc@gmail.com",
+    "name": "Amanda Pacropis",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "amanda_pac",
+        "tiktokLink": "https://www.tiktok.com/@amanda_pac",
+        "sv": 149,
+        "tap": 8,
+        "tapGMV": 18142.63,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.37%",
+        "views": 0,
+        "sold": 1858,
+        "gmv": 67684.79,
+        "commDollars": 8548.35,
+        "bonus": 0,
+        "gmvLM": 188328.05,
+        "gmvPace": 184594.88,
+        "commPct": "12.63%",
+        "tier": "Core",
+        "acctRank": 1
+      },
+      {
+        "handle": "sherrysgoshopping",
+        "tiktokLink": "https://www.tiktok.com/@sherrysgoshopping",
+        "sv": 54,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "0.49%",
+        "views": 0,
+        "sold": 367,
+        "gmv": 10261.99,
+        "commDollars": 1701.82,
+        "bonus": 0,
+        "gmvLM": 25100.34,
+        "gmvPace": 27987.25,
+        "commPct": "16.58%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "amanda_pac",
+        "gmv": [
+          24878.85,
+          50674.64,
+          30870.71,
+          47268.6,
+          138995.95,
+          188328.05,
+          67684.79
+        ],
+        "tap": [
+          1124.74,
+          454.05,
+          623.38,
+          162.43,
+          7204.7,
+          24552.21,
+          18142.63
+        ],
+        "comm": [
+          3165.83,
+          8589.35,
+          3962.38,
+          6084.02,
+          18011.7,
+          23000.58,
+          8548.35
+        ]
+      },
+      {
+        "handle": "sherrysgoshopping",
+        "gmv": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          25100.34,
+          10261.99
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3886.66,
+          1701.82
+        ]
+      }
+    ],
+    "tapHistory": [
+      1124.74,
+      454.05,
+      623.38,
+      162.43,
+      7204.7,
+      24552.21,
+      18142.63
+    ],
+    "points": 357,
+    "totalGMV": 77946.78,
+    "totalComm": 10250.17,
+    "avgComm": 13.15,
+    "levelLabel": "L5",
+    "productRank": "5",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 200,
+    "tapLM": 24552.21,
+    "tapGoalM": 50000,
+    "tapLQ": 36048.61,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 69582.08,
+    "totalSV": 203,
+    "totalTaP": 8,
+    "totalLS": 0,
+    "totalCTR": 1.43,
+    "totalViews": 4399896,
+    "totalSold": 2225,
+    "tapGMV": 18142.63,
+    "tapYTD": 58561.25,
+    "manager": "Hotline",
+    "joined": "Nov 2024",
+    "tier": "Core",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 203,
+    "agg_tap": 8,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 2225,
+    "gmvPace": 184594.88,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      3165.83,
+      8589.35,
+      3962.38,
+      6084.02,
+      18011.7,
+      26887.24,
+      10250.17
+    ],
+    "bonusHistory": [
+      200,
+      0,
       0,
       0,
       0,
@@ -651,21 +836,21 @@ const allShopData = [
       {
         "handle": "bkewwwl1507",
         "tiktokLink": "https://www.tiktok.com/@bkewwwl1507",
-        "sv": 42,
+        "sv": 44,
         "tap": 3,
-        "tapGMV": 16355.87,
+        "tapGMV": 17728.13,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.43%",
+        "ctr": "2.42%",
         "views": 0,
-        "sold": 2373,
-        "gmv": 75843.31,
-        "commDollars": 9196.58,
+        "sold": 2657,
+        "gmv": 84504.39,
+        "commDollars": 10258.32,
         "bonus": 0,
         "gmvLM": 182457.11,
-        "gmvPace": 227529.93,
-        "commPct": "12.13%",
+        "gmvPace": 230466.52,
+        "commPct": "12.14%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -678,14 +863,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.52%",
+        "ctr": "4.60%",
         "views": 0,
         "sold": 1,
         "gmv": 26,
         "commDollars": 3.6,
         "bonus": 0,
         "gmvLM": 31.39,
-        "gmvPace": 78,
+        "gmvPace": 70.91,
         "commPct": "13.85%",
         "tier": "Select+",
         "acctRank": 1
@@ -701,7 +886,7 @@ const allShopData = [
           148207.25,
           151099.03,
           182457.11,
-          75843.31
+          84504.39
         ],
         "tap": [
           81789.32,
@@ -710,7 +895,7 @@ const allShopData = [
           40816.17,
           49605.69,
           46477.87,
-          16355.87
+          17728.13
         ],
         "comm": [
           27985.49,
@@ -719,7 +904,7 @@ const allShopData = [
           17453.88,
           18147.79,
           22535.09,
-          9196.58
+          10258.32
         ]
       },
       {
@@ -760,14 +945,14 @@ const allShopData = [
       40816.17,
       49605.69,
       46477.87,
-      16355.87
+      17728.13
     ],
-    "points": 294,
-    "totalGMV": 75869.31,
-    "totalComm": 9200.18,
-    "avgComm": 12.13,
+    "points": 328,
+    "totalGMV": 84530.39,
+    "totalComm": 10261.92,
+    "avgComm": 12.14,
     "levelLabel": "L5",
-    "productRank": "5",
+    "productRank": "6",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 7520,
@@ -775,15 +960,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 185946.53,
     "tapGoalQ": 0,
-    "tapTotalTQ": 85370.51,
-    "totalSV": 42,
+    "tapTotalTQ": 86742.77,
+    "totalSV": 44,
     "totalTaP": 3,
     "totalLS": 0,
-    "totalCTR": 3.48,
-    "totalViews": 1608957,
-    "totalSold": 2374,
-    "tapGMV": 16355.87,
-    "tapYTD": 391108.74,
+    "totalCTR": 3.51,
+    "totalViews": 1824985,
+    "totalSold": 2658,
+    "tapGMV": 17728.13,
+    "tapYTD": 392481,
     "manager": "EMILEE",
     "joined": "Dec 2024",
     "tier": "Select+",
@@ -793,12 +978,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 42,
+    "agg_sv": 44,
     "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2374,
-    "gmvPace": 227529.93,
+    "agg_sold": 2658,
+    "gmvPace": 230466.52,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -806,7 +991,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       27985.49,
@@ -815,7 +1000,7 @@ const allShopData = [
       17466.38,
       18147.79,
       22536.77,
-      9200.18
+      10261.92
     ],
     "bonusHistory": [
       500,
@@ -823,191 +1008,6 @@ const allShopData = [
       0,
       0,
       1000,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "amandapac.ugc@gmail.com",
-    "email": "amandapac.ugc@gmail.com",
-    "name": "Amanda Pacropis",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "amanda_pac",
-        "tiktokLink": "https://www.tiktok.com/@amanda_pac",
-        "sv": 128,
-        "tap": 4,
-        "tapGMV": 14978.08,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.36%",
-        "views": 0,
-        "sold": 1626,
-        "gmv": 60612.16,
-        "commDollars": 7584.77,
-        "bonus": 0,
-        "gmvLM": 188328.05,
-        "gmvPace": 181836.48,
-        "commPct": "12.51%",
-        "tier": "Core",
-        "acctRank": 1
-      },
-      {
-        "handle": "sherrysgoshopping",
-        "tiktokLink": "https://www.tiktok.com/@sherrysgoshopping",
-        "sv": 50,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "0.47%",
-        "views": 0,
-        "sold": 326,
-        "gmv": 9267.13,
-        "commDollars": 1533.77,
-        "bonus": 0,
-        "gmvLM": 25100.34,
-        "gmvPace": 27801.39,
-        "commPct": "16.55%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "amanda_pac",
-        "gmv": [
-          24878.85,
-          50674.64,
-          30870.71,
-          47268.6,
-          138995.95,
-          188328.05,
-          60612.16
-        ],
-        "tap": [
-          1124.74,
-          454.05,
-          623.38,
-          162.43,
-          7204.7,
-          24552.21,
-          14978.08
-        ],
-        "comm": [
-          3165.83,
-          8589.35,
-          3962.38,
-          6084.02,
-          18011.7,
-          23000.58,
-          7584.77
-        ]
-      },
-      {
-        "handle": "sherrysgoshopping",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          25100.34,
-          9267.13
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          3886.66,
-          1533.77
-        ]
-      }
-    ],
-    "tapHistory": [
-      1124.74,
-      454.05,
-      623.38,
-      162.43,
-      7204.7,
-      24552.21,
-      14978.08
-    ],
-    "points": 287,
-    "totalGMV": 69879.29,
-    "totalComm": 9118.54,
-    "avgComm": 13.05,
-    "levelLabel": "L5",
-    "productRank": "6",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 200,
-    "tapLM": 24552.21,
-    "tapGoalM": 50000,
-    "tapLQ": 36048.61,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 66417.53,
-    "totalSV": 178,
-    "totalTaP": 4,
-    "totalLS": 0,
-    "totalCTR": 1.42,
-    "totalViews": 4082352,
-    "totalSold": 1952,
-    "tapGMV": 14978.08,
-    "tapYTD": 55396.7,
-    "manager": "Hotline",
-    "joined": "Nov 2024",
-    "tier": "Core",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 178,
-    "agg_tap": 4,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 1952,
-    "gmvPace": 181836.48,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      3165.83,
-      8589.35,
-      3962.38,
-      6084.02,
-      18011.7,
-      26887.24,
-      9118.54
-    ],
-    "bonusHistory": [
-      200,
-      0,
-      0,
-      0,
-      0,
       0,
       0
     ]
@@ -1021,20 +1021,20 @@ const allShopData = [
       {
         "handle": "soyabundanciaa",
         "tiktokLink": "https://www.tiktok.com/@soyabundanciaa",
-        "sv": 165,
+        "sv": 179,
         "tap": 7,
-        "tapGMV": 13369.43,
+        "tapGMV": 14343.63,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.25%",
+        "ctr": "3.26%",
         "views": 0,
-        "sold": 3121,
-        "gmv": 76115.54,
-        "commDollars": 8967.95,
+        "sold": 3408,
+        "gmv": 83097.54,
+        "commDollars": 9792.68,
         "bonus": 0,
         "gmvLM": 313023.79,
-        "gmvPace": 228346.62,
+        "gmvPace": 226629.65,
         "commPct": "11.78%",
         "tier": "Core",
         "acctRank": 1
@@ -1050,7 +1050,7 @@ const allShopData = [
           112584.8,
           226759.35,
           313023.79,
-          76115.54
+          83097.54
         ],
         "tap": [
           0,
@@ -1059,7 +1059,7 @@ const allShopData = [
           27612.4,
           63021.41,
           69492.8,
-          13369.43
+          14343.63
         ],
         "comm": [
           0,
@@ -1068,7 +1068,7 @@ const allShopData = [
           9108.64,
           24615.87,
           34314.89,
-          8967.95
+          9792.68
         ]
       }
     ],
@@ -1079,11 +1079,11 @@ const allShopData = [
       27612.4,
       63021.41,
       69492.8,
-      13369.43
+      14343.63
     ],
-    "points": 211,
-    "totalGMV": 76115.54,
-    "totalComm": 8967.95,
+    "points": 227,
+    "totalGMV": 83097.54,
+    "totalComm": 9792.68,
     "avgComm": 11.78,
     "levelLabel": "L5",
     "productRank": "7",
@@ -1094,15 +1094,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 127519.7,
     "tapGoalQ": 0,
-    "tapTotalTQ": 117677.12,
-    "totalSV": 165,
+    "tapTotalTQ": 118651.32,
+    "totalSV": 179,
     "totalTaP": 7,
     "totalLS": 0,
-    "totalCTR": 3.25,
-    "totalViews": 3023335,
-    "totalSold": 3121,
-    "tapGMV": 13369.43,
-    "tapYTD": 173645.99,
+    "totalCTR": 3.26,
+    "totalViews": 3258406,
+    "totalSold": 3408,
+    "tapGMV": 14343.63,
+    "tapYTD": 174620.19,
     "manager": "Hotline",
     "joined": "Jul 2026",
     "tier": "Core",
@@ -1112,12 +1112,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 165,
+    "agg_sv": 179,
     "agg_tap": 7,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 3121,
-    "gmvPace": 228346.62,
+    "agg_sold": 3408,
+    "gmvPace": 226629.65,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -1125,7 +1125,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -1134,7 +1134,7 @@ const allShopData = [
       9108.64,
       24615.87,
       34314.89,
-      8967.95
+      9792.68
     ],
     "bonusHistory": [
       0,
@@ -1155,21 +1155,21 @@ const allShopData = [
       {
         "handle": "jenn_lyles",
         "tiktokLink": "https://www.tiktok.com/@jenn_lyles",
-        "sv": 38,
-        "tap": 2,
-        "tapGMV": 6185.58,
+        "sv": 43,
+        "tap": 3,
+        "tapGMV": 6394.1,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.83%",
+        "ctr": "3.75%",
         "views": 0,
-        "sold": 1548,
-        "gmv": 65032.92,
-        "commDollars": 7770.61,
+        "sold": 1719,
+        "gmv": 72518.08,
+        "commDollars": 8781.02,
         "bonus": 0,
         "gmvLM": 186501.11,
-        "gmvPace": 195098.76,
-        "commPct": "11.95%",
+        "gmvPace": 197776.58,
+        "commPct": "12.11%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -1184,7 +1184,7 @@ const allShopData = [
           232460.32,
           206992.72,
           186501.11,
-          65032.92
+          72518.08
         ],
         "tap": [
           58084.24,
@@ -1193,7 +1193,7 @@ const allShopData = [
           36379.68,
           22498.99,
           20273.66,
-          6185.58
+          6394.1
         ],
         "comm": [
           47410.9,
@@ -1202,7 +1202,7 @@ const allShopData = [
           27856.1,
           24668.58,
           22869.14,
-          7770.61
+          8781.02
         ]
       }
     ],
@@ -1213,12 +1213,12 @@ const allShopData = [
       36379.68,
       22498.99,
       20273.66,
-      6185.58
+      6394.1
     ],
-    "points": 183,
-    "totalGMV": 65032.92,
-    "totalComm": 7770.61,
-    "avgComm": 11.95,
+    "points": 190,
+    "totalGMV": 72518.08,
+    "totalComm": 8781.02,
+    "avgComm": 12.11,
     "levelLabel": "L5",
     "productRank": "8",
     "cashBonus": 0,
@@ -1228,15 +1228,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 166219.44,
     "tapGoalQ": 0,
-    "tapTotalTQ": 49328.38,
-    "totalSV": 38,
-    "totalTaP": 2,
+    "tapTotalTQ": 49536.9,
+    "totalSV": 43,
+    "totalTaP": 3,
     "totalLS": 0,
-    "totalCTR": 3.83,
-    "totalViews": 1319396,
-    "totalSold": 1548,
-    "tapGMV": 6185.58,
-    "tapYTD": 270549.95,
+    "totalCTR": 3.75,
+    "totalViews": 1509921,
+    "totalSold": 1719,
+    "tapGMV": 6394.1,
+    "tapYTD": 270758.47,
     "manager": "EMILEE",
     "joined": "Jan 2024",
     "tier": "Select+",
@@ -1246,12 +1246,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 38,
-    "agg_tap": 2,
+    "agg_sv": 43,
+    "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1548,
-    "gmvPace": 195098.76,
+    "agg_sold": 1719,
+    "gmvPace": 197776.58,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -1259,7 +1259,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       47410.9,
@@ -1268,7 +1268,7 @@ const allShopData = [
       27856.1,
       24668.58,
       22869.14,
-      7770.61
+      8781.02
     ],
     "bonusHistory": [
       500,
@@ -1289,21 +1289,21 @@ const allShopData = [
       {
         "handle": "peytonxblack",
         "tiktokLink": "https://www.tiktok.com/@peytonxblack",
-        "sv": 14,
+        "sv": 16,
         "tap": 1,
-        "tapGMV": 7753.23,
+        "tapGMV": 8309.06,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.69%",
+        "ctr": "1.71%",
         "views": 0,
-        "sold": 573,
-        "gmv": 10897.46,
-        "commDollars": 2158.48,
+        "sold": 640,
+        "gmv": 11997.23,
+        "commDollars": 2386.91,
         "bonus": 0,
         "gmvLM": 43254.88,
-        "gmvPace": 32692.38,
-        "commPct": "19.81%",
+        "gmvPace": 32719.72,
+        "commPct": "19.90%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -1339,7 +1339,7 @@ const allShopData = [
           54594.7,
           33134.2,
           43254.88,
-          10897.46
+          11997.23
         ],
         "tap": [
           43931.19,
@@ -1348,7 +1348,7 @@ const allShopData = [
           32289.04,
           18420.02,
           27423.11,
-          7753.23
+          8309.06
         ],
         "comm": [
           10427.36,
@@ -1357,7 +1357,7 @@ const allShopData = [
           9479.15,
           6002.06,
           8432.69,
-          2158.48
+          2386.91
         ]
       },
       {
@@ -1398,12 +1398,12 @@ const allShopData = [
       32289.04,
       18420.02,
       27423.11,
-      7753.23
+      8309.06
     ],
-    "points": 174,
-    "totalGMV": 10897.46,
-    "totalComm": 2158.48,
-    "avgComm": 19.81,
+    "points": 189,
+    "totalGMV": 11997.23,
+    "totalComm": 2386.91,
+    "avgComm": 19.9,
     "levelLabel": "L3",
     "productRank": "9",
     "cashBonus": 0,
@@ -1413,15 +1413,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 147087.31,
     "tapGoalQ": 0,
-    "tapTotalTQ": 43609.03,
-    "totalSV": 14,
+    "tapTotalTQ": 44164.86,
+    "totalSV": 16,
     "totalTaP": 1,
     "totalLS": 0,
-    "totalCTR": 0.85,
-    "totalViews": 653130,
-    "totalSold": 573,
-    "tapGMV": 7753.23,
-    "tapYTD": 911495.55,
+    "totalCTR": 0.86,
+    "totalViews": 693150,
+    "totalSold": 640,
+    "tapGMV": 8309.06,
+    "tapYTD": 912051.38,
     "manager": "EMILEE",
     "joined": "Mar 2024",
     "tier": "Select",
@@ -1431,12 +1431,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 14,
+    "agg_sv": 16,
     "agg_tap": 1,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 573,
-    "gmvPace": 32692.38,
+    "agg_sold": 640,
+    "gmvPace": 32719.72,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -1444,7 +1444,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       10427.36,
@@ -1453,7 +1453,7 @@ const allShopData = [
       9479.15,
       6002.06,
       8432.69,
-      2158.48
+      2386.91
     ],
     "bonusHistory": [
       500,
@@ -1474,21 +1474,21 @@ const allShopData = [
       {
         "handle": "katrinagmoore",
         "tiktokLink": "https://www.tiktok.com/@katrinagmoore",
-        "sv": 56,
+        "sv": 63,
         "tap": 3,
-        "tapGMV": 19743.03,
+        "tapGMV": 21303.43,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "6.91%",
+        "ctr": "6.93%",
         "views": 0,
-        "sold": 4672,
-        "gmv": 157314.71,
-        "commDollars": 19076.99,
+        "sold": 5086,
+        "gmv": 171475.37,
+        "commDollars": 20839.02,
         "bonus": 0,
         "gmvLM": 494419.83,
-        "gmvPace": 471944.13,
-        "commPct": "12.13%",
+        "gmvPace": 467660.1,
+        "commPct": "12.15%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -1503,7 +1503,7 @@ const allShopData = [
           378158.78,
           416156.23,
           494419.83,
-          157314.71
+          171475.37
         ],
         "tap": [
           14733.65,
@@ -1512,7 +1512,7 @@ const allShopData = [
           19181.47,
           34090.63,
           78488.44,
-          19743.03
+          21303.43
         ],
         "comm": [
           58122.46,
@@ -1521,7 +1521,7 @@ const allShopData = [
           40964.67,
           45740.79,
           59221.87,
-          19076.99
+          20839.02
         ]
       }
     ],
@@ -1532,12 +1532,12 @@ const allShopData = [
       19181.47,
       34090.63,
       78488.44,
-      19743.03
+      21303.43
     ],
-    "points": 161,
-    "totalGMV": 157314.71,
-    "totalComm": 19076.99,
-    "avgComm": 12.13,
+    "points": 170,
+    "totalGMV": 171475.37,
+    "totalComm": 20839.02,
+    "avgComm": 12.15,
     "levelLabel": "L6",
     "productRank": "10",
     "cashBonus": 0,
@@ -1547,15 +1547,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 176279.52,
     "tapGoalQ": 0,
-    "tapTotalTQ": 157453.34,
-    "totalSV": 56,
+    "tapTotalTQ": 159013.74,
+    "totalSV": 63,
     "totalTaP": 3,
     "totalLS": 0,
-    "totalCTR": 6.91,
-    "totalViews": 1265988,
-    "totalSold": 4672,
-    "tapGMV": 19743.03,
-    "tapYTD": 240750.75,
+    "totalCTR": 6.93,
+    "totalViews": 1372606,
+    "totalSold": 5086,
+    "tapGMV": 21303.43,
+    "tapYTD": 242311.15,
     "manager": "EMILEE",
     "joined": "May 2025",
     "tier": "Talent",
@@ -1565,12 +1565,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 56,
+    "agg_sv": 63,
     "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 4672,
-    "gmvPace": 471944.13,
+    "agg_sold": 5086,
+    "gmvPace": 467660.1,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -1578,7 +1578,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       58122.46,
@@ -1587,146 +1587,12 @@ const allShopData = [
       40964.67,
       45740.79,
       59221.87,
-      19076.99
+      20839.02
     ],
     "bonusHistory": [
       0,
       0,
       0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "brandie.nicole27@gmail.com",
-    "email": "brandie.nicole27@gmail.com",
-    "name": "Brandie Hayes",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "brandienicole27",
-        "tiktokLink": "https://www.tiktok.com/@brandienicole27",
-        "sv": 69,
-        "tap": 12,
-        "tapGMV": 6797.14,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.76%",
-        "views": 0,
-        "sold": 2598,
-        "gmv": 65960.76,
-        "commDollars": 10342.59,
-        "bonus": 0,
-        "gmvLM": 235147.79,
-        "gmvPace": 197882.28,
-        "commPct": "15.68%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "brandienicole27",
-        "gmv": [
-          459189.22,
-          324032.09,
-          187562.1,
-          198694.79,
-          186708.91,
-          235147.79,
-          65960.76
-        ],
-        "tap": [
-          140706.83,
-          99013.39,
-          54636.58,
-          36850.52,
-          27108.88,
-          33102.18,
-          6797.14
-        ],
-        "comm": [
-          68964.08,
-          50716.79,
-          28331.75,
-          25968.32,
-          25368.1,
-          36278.39,
-          10342.59
-        ]
-      }
-    ],
-    "tapHistory": [
-      140706.83,
-      99013.39,
-      54636.58,
-      36850.52,
-      27108.88,
-      33102.18,
-      6797.14
-    ],
-    "points": 146,
-    "totalGMV": 65960.76,
-    "totalComm": 10342.59,
-    "avgComm": 15.68,
-    "levelLabel": "L5",
-    "productRank": "11",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 3000,
-    "tapLM": 33102.18,
-    "tapGoalM": 50000,
-    "tapLQ": 199264.15,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 76177.71,
-    "totalSV": 69,
-    "totalTaP": 12,
-    "totalLS": 0,
-    "totalCTR": 2.76,
-    "totalViews": 1759046,
-    "totalSold": 2598,
-    "tapGMV": 6797.14,
-    "tapYTD": 401028.37,
-    "manager": "EMILEE",
-    "joined": "Oct 2025",
-    "tier": "Select",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 69,
-    "agg_tap": 12,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 2598,
-    "gmvPace": 197882.28,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      68964.08,
-      50716.79,
-      28331.75,
-      25968.32,
-      25368.1,
-      36278.39,
-      10342.59
-    ],
-    "bonusHistory": [
-      500,
-      1500,
-      1000,
       0,
       0,
       0,
@@ -1742,21 +1608,21 @@ const allShopData = [
       {
         "handle": "angelacallisto123",
         "tiktokLink": "https://www.tiktok.com/@angelacallisto123",
-        "sv": 40,
+        "sv": 45,
         "tap": 1,
-        "tapGMV": 8444.25,
+        "tapGMV": 9547.47,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.92%",
+        "ctr": "5.95%",
         "views": 0,
-        "sold": 1984,
-        "gmv": 83885.47,
-        "commDollars": 10988.82,
+        "sold": 2198,
+        "gmv": 93424.61,
+        "commDollars": 12314.26,
         "bonus": 0,
         "gmvLM": 329294.7,
-        "gmvPace": 251656.41,
-        "commPct": "13.10%",
+        "gmvPace": 254794.39,
+        "commPct": "13.18%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -1776,7 +1642,7 @@ const allShopData = [
         "commDollars": 35.81,
         "bonus": 0,
         "gmvLM": 0,
-        "gmvPace": 892.14,
+        "gmvPace": 811.04,
         "commPct": "12.04%",
         "tier": "Talent",
         "acctRank": 1
@@ -1792,7 +1658,7 @@ const allShopData = [
           352205.2,
           361524.07,
           329294.7,
-          83885.47
+          93424.61
         ],
         "tap": [
           15303.99,
@@ -1801,7 +1667,7 @@ const allShopData = [
           33173.93,
           32715.92,
           40597.45,
-          8444.25
+          9547.47
         ],
         "comm": [
           23657.17,
@@ -1810,7 +1676,7 @@ const allShopData = [
           41457.78,
           46716.54,
           40384.97,
-          10988.82
+          12314.26
         ]
       },
       {
@@ -1851,14 +1717,14 @@ const allShopData = [
       33173.93,
       32752.739999999998,
       40597.45,
-      8474.84
+      9578.06
     ],
-    "points": 138,
-    "totalGMV": 84182.85,
-    "totalComm": 11024.63,
-    "avgComm": 13.1,
+    "points": 155,
+    "totalGMV": 93721.99,
+    "totalComm": 12350.07,
+    "avgComm": 13.18,
     "levelLabel": "L5",
-    "productRank": "12",
+    "productRank": "11",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 1500,
@@ -1866,15 +1732,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 191883.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 89457.26,
-    "totalSV": 40,
+    "tapTotalTQ": 90560.48,
+    "totalSV": 45,
     "totalTaP": 1,
     "totalLS": 1,
-    "totalCTR": 2.96,
-    "totalViews": 744637,
-    "totalSold": 1984,
-    "tapGMV": 8474.84,
-    "tapYTD": 367790.62,
+    "totalCTR": 2.98,
+    "totalViews": 830052,
+    "totalSold": 2198,
+    "tapGMV": 9578.06,
+    "tapYTD": 368893.84,
     "manager": "EMILEE",
     "joined": "Aug 2025",
     "tier": "Talent",
@@ -1884,12 +1750,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 40,
+    "agg_sv": 45,
     "agg_tap": 1,
     "agg_ls": 1,
     "agg_views": 0,
-    "agg_sold": 1984,
-    "gmvPace": 251656.41,
+    "agg_sold": 2198,
+    "gmvPace": 254794.39,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -1897,7 +1763,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       23727.359999999997,
@@ -1906,11 +1772,145 @@ const allShopData = [
       41463.38,
       46724.200000000004,
       40384.97,
-      11024.63
+      12350.07
     ],
     "bonusHistory": [
       0,
       0,
+      1000,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "brandie.nicole27@gmail.com",
+    "email": "brandie.nicole27@gmail.com",
+    "name": "Brandie Hayes",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "brandienicole27",
+        "tiktokLink": "https://www.tiktok.com/@brandienicole27",
+        "sv": 79,
+        "tap": 15,
+        "tapGMV": 7088,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.81%",
+        "views": 0,
+        "sold": 2898,
+        "gmv": 73004.22,
+        "commDollars": 11389.6,
+        "bonus": 0,
+        "gmvLM": 235147.79,
+        "gmvPace": 199102.42,
+        "commPct": "15.60%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "brandienicole27",
+        "gmv": [
+          459189.22,
+          324032.09,
+          187562.1,
+          198694.79,
+          186708.91,
+          235147.79,
+          73004.22
+        ],
+        "tap": [
+          140706.83,
+          99013.39,
+          54636.58,
+          36850.52,
+          27108.88,
+          33102.18,
+          7088
+        ],
+        "comm": [
+          68964.08,
+          50716.79,
+          28331.75,
+          25968.32,
+          25368.1,
+          36278.39,
+          11389.6
+        ]
+      }
+    ],
+    "tapHistory": [
+      140706.83,
+      99013.39,
+      54636.58,
+      36850.52,
+      27108.88,
+      33102.18,
+      7088
+    ],
+    "points": 154,
+    "totalGMV": 73004.22,
+    "totalComm": 11389.6,
+    "avgComm": 15.6,
+    "levelLabel": "L5",
+    "productRank": "12",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 3000,
+    "tapLM": 33102.18,
+    "tapGoalM": 50000,
+    "tapLQ": 199264.15,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 76468.57,
+    "totalSV": 79,
+    "totalTaP": 15,
+    "totalLS": 0,
+    "totalCTR": 2.81,
+    "totalViews": 1933958,
+    "totalSold": 2898,
+    "tapGMV": 7088,
+    "tapYTD": 401319.23,
+    "manager": "EMILEE",
+    "joined": "Oct 2025",
+    "tier": "Select",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 79,
+    "agg_tap": 15,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 2898,
+    "gmvPace": 199102.42,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      68964.08,
+      50716.79,
+      28331.75,
+      25968.32,
+      25368.1,
+      36278.39,
+      11389.6
+    ],
+    "bonusHistory": [
+      500,
+      1500,
       1000,
       0,
       0,
@@ -1929,19 +1929,19 @@ const allShopData = [
         "tiktokLink": "https://www.tiktok.com/@lesettey",
         "sv": 25,
         "tap": 0,
-        "tapGMV": 5066.89,
+        "tapGMV": 5512.24,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.65%",
+        "ctr": "2.67%",
         "views": 0,
-        "sold": 902,
-        "gmv": 40016.72,
-        "commDollars": 5350.19,
+        "sold": 990,
+        "gmv": 43801.73,
+        "commDollars": 5842.86,
         "bonus": 0,
         "gmvLM": 133494.53,
-        "gmvPace": 120050.16,
-        "commPct": "13.37%",
+        "gmvPace": 119459.26,
+        "commPct": "13.34%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -1956,7 +1956,7 @@ const allShopData = [
           129974.15,
           138704.54,
           133494.53,
-          40016.72
+          43801.73
         ],
         "tap": [
           10365.62,
@@ -1965,7 +1965,7 @@ const allShopData = [
           12442.27,
           12304.27,
           13933.04,
-          5066.89
+          5512.24
         ],
         "comm": [
           12365.88,
@@ -1974,7 +1974,7 @@ const allShopData = [
           18648.18,
           20732.59,
           18235.81,
-          5350.19
+          5842.86
         ]
       }
     ],
@@ -1985,12 +1985,12 @@ const allShopData = [
       12442.27,
       12304.27,
       13933.04,
-      5066.89
+      5512.24
     ],
-    "points": 138,
-    "totalGMV": 40016.72,
-    "totalComm": 5350.19,
-    "avgComm": 13.37,
+    "points": 150,
+    "totalGMV": 43801.73,
+    "totalComm": 5842.86,
+    "avgComm": 13.34,
     "levelLabel": "L4",
     "productRank": "13",
     "cashBonus": 0,
@@ -2000,15 +2000,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 85459.53,
     "tapGoalQ": 0,
-    "tapTotalTQ": 38235.74,
+    "tapTotalTQ": 38681.09,
     "totalSV": 25,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.65,
-    "totalViews": 869708,
-    "totalSold": 902,
-    "tapGMV": 5066.89,
-    "tapYTD": 72248.8,
+    "totalCTR": 2.67,
+    "totalViews": 945191,
+    "totalSold": 990,
+    "tapGMV": 5512.24,
+    "tapYTD": 72694.15,
     "manager": "EMILEE",
     "joined": "Jul 2024",
     "tier": "Select",
@@ -2022,8 +2022,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 902,
-    "gmvPace": 120050.16,
+    "agg_sold": 990,
+    "gmvPace": 119459.26,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2031,7 +2031,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       12365.88,
@@ -2040,7 +2040,7 @@ const allShopData = [
       18648.18,
       20732.59,
       18235.81,
-      5350.19
+      5842.86
     ],
     "bonusHistory": [
       700,
@@ -2061,63 +2061,63 @@ const allShopData = [
       {
         "handle": "ababyandabulldog",
         "tiktokLink": "https://www.tiktok.com/@ababyandabulldog",
-        "sv": 78,
+        "sv": 86,
         "tap": 0,
-        "tapGMV": 7112.36,
+        "tapGMV": 7853.36,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.13%",
+        "ctr": "2.11%",
         "views": 0,
-        "sold": 2003,
-        "gmv": 71411.26,
-        "commDollars": 8328.82,
+        "sold": 2197,
+        "gmv": 78158.05,
+        "commDollars": 9193.19,
         "bonus": 0,
         "gmvLM": 261501.51,
-        "gmvPace": 214233.78,
-        "commPct": "11.66%",
+        "gmvPace": 213158.32,
+        "commPct": "11.76%",
         "tier": "Talent",
         "acctRank": 1
       },
       {
         "handle": "shopaholicallee",
         "tiktokLink": "https://www.tiktok.com/@shopaholicallee",
-        "sv": 42,
+        "sv": 48,
         "tap": 0,
-        "tapGMV": 860.39,
+        "tapGMV": 936.29,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.76%",
+        "ctr": "2.72%",
         "views": 0,
-        "sold": 915,
-        "gmv": 22057.75,
-        "commDollars": 2780.85,
+        "sold": 1008,
+        "gmv": 24016.76,
+        "commDollars": 3030.02,
         "bonus": 0,
         "gmvLM": 105098.17,
-        "gmvPace": 66173.25,
-        "commPct": "12.61%",
+        "gmvPace": 65500.25,
+        "commPct": "12.62%",
         "tier": "Talent",
         "acctRank": 1
       },
       {
         "handle": "shopaholicallee2",
         "tiktokLink": "https://www.tiktok.com/@shopaholicallee2",
-        "sv": 21,
+        "sv": 24,
         "tap": 0,
-        "tapGMV": 453.82,
+        "tapGMV": 486.91,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "0.94%",
+        "ctr": "0.89%",
         "views": 0,
-        "sold": 506,
-        "gmv": 12658.37,
-        "commDollars": 1515.16,
+        "sold": 616,
+        "gmv": 14673.15,
+        "commDollars": 1745.98,
         "bonus": 0,
         "gmvLM": 49693.27,
-        "gmvPace": 37975.11,
-        "commPct": "11.97%",
+        "gmvPace": 40017.68,
+        "commPct": "11.90%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -2132,7 +2132,7 @@ const allShopData = [
           295151.72,
           265863.86,
           261501.51,
-          71411.26
+          78158.05
         ],
         "tap": [
           28093.78,
@@ -2141,7 +2141,7 @@ const allShopData = [
           50954.77,
           31601.12,
           19610.03,
-          7112.36
+          7853.36
         ],
         "comm": [
           53456.25,
@@ -2150,7 +2150,7 @@ const allShopData = [
           35717.9,
           31485.8,
           33151.92,
-          8328.82
+          9193.19
         ]
       },
       {
@@ -2162,7 +2162,7 @@ const allShopData = [
           135933.56,
           123615.09,
           105098.17,
-          22057.75
+          24016.76
         ],
         "tap": [
           6428.95,
@@ -2171,7 +2171,7 @@ const allShopData = [
           6672.94,
           12164.93,
           2854.17,
-          860.39
+          936.29
         ],
         "comm": [
           29394.3,
@@ -2180,7 +2180,7 @@ const allShopData = [
           17192.06,
           15987.93,
           13442.99,
-          2780.85
+          3030.02
         ]
       },
       {
@@ -2192,7 +2192,7 @@ const allShopData = [
           57942.89,
           52875.43,
           49693.27,
-          12658.37
+          14673.15
         ],
         "tap": [
           2590.05,
@@ -2201,7 +2201,7 @@ const allShopData = [
           7488.8,
           10779.16,
           3278.05,
-          453.82
+          486.91
         ],
         "comm": [
           11875.8,
@@ -2210,7 +2210,7 @@ const allShopData = [
           6206.06,
           5974.66,
           5779.91,
-          1515.16
+          1745.98
         ]
       }
     ],
@@ -2221,12 +2221,12 @@ const allShopData = [
       65116.51,
       54545.21000000001,
       25742.249999999996,
-      8426.57
+      9276.56
     ],
-    "points": 135,
-    "totalGMV": 106127.38,
-    "totalComm": 12624.83,
-    "avgComm": 11.9,
+    "points": 149,
+    "totalGMV": 116847.96,
+    "totalComm": 13969.19,
+    "avgComm": 11.96,
     "levelLabel": "L5",
     "productRank": "14",
     "cashBonus": 0,
@@ -2236,15 +2236,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 346995.46,
     "tapGoalQ": 0,
-    "tapTotalTQ": 86543.64,
-    "totalSV": 141,
+    "tapTotalTQ": 87393.63,
+    "totalSV": 158,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.94,
-    "totalViews": 3533607,
-    "totalSold": 3424,
-    "tapGMV": 8426.57,
-    "tapYTD": 512367.54,
+    "totalCTR": 1.91,
+    "totalViews": 4011702,
+    "totalSold": 3821,
+    "tapGMV": 9276.56,
+    "tapYTD": 513217.53,
     "manager": "EMILEE",
     "joined": "Sep 2024",
     "tier": "Talent",
@@ -2254,12 +2254,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 141,
+    "agg_sv": 158,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 3424,
-    "gmvPace": 214233.78,
+    "agg_sold": 3821,
+    "gmvPace": 213158.32,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2267,7 +2267,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       94726.35,
@@ -2276,10 +2276,195 @@ const allShopData = [
       59116.020000000004,
       53448.39,
       52374.81999999999,
-      12624.83
+      13969.19
     ],
     "bonusHistory": [
       1000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "sylviavanhoeven2001@gmail.com",
+    "email": "sylviavanhoeven2001@gmail.com",
+    "name": "Sylvia Van Hoeven",
+    "topLevel": "L4",
+    "accounts": [
+      {
+        "handle": "sylviavanhoevenbeauty",
+        "tiktokLink": "https://www.tiktok.com/@sylviavanhoevenbeauty",
+        "sv": 76,
+        "tap": 12,
+        "tapGMV": 5345.76,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.82%",
+        "views": 0,
+        "sold": 2256,
+        "gmv": 34466.21,
+        "commDollars": 6139.93,
+        "bonus": 0,
+        "gmvLM": 73379.51,
+        "gmvPace": 93998.75,
+        "commPct": "17.81%",
+        "tier": "Talent",
+        "acctRank": 1
+      },
+      {
+        "handle": "sylviavanhoeven",
+        "tiktokLink": "https://www.tiktok.com/@sylviavanhoeven",
+        "sv": 18,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.10%",
+        "views": 0,
+        "sold": 60,
+        "gmv": 1769.44,
+        "commDollars": 227.41,
+        "bonus": 0,
+        "gmvLM": 7506.55,
+        "gmvPace": 4825.75,
+        "commPct": "12.85%",
+        "tier": "Talent",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "sylviavanhoevenbeauty",
+        "gmv": [
+          208730.39,
+          68775.56,
+          71287.13,
+          129851.89,
+          75650.56,
+          73379.51,
+          34466.21
+        ],
+        "tap": [
+          149682.15,
+          33829.4,
+          18819.6,
+          14133.12,
+          16888.97,
+          11581.28,
+          5345.76
+        ],
+        "comm": [
+          32605.72,
+          10298.15,
+          10997.8,
+          19443.22,
+          11884.4,
+          12272.02,
+          6139.93
+        ]
+      },
+      {
+        "handle": "sylviavanhoeven",
+        "gmv": [
+          15767.24,
+          13882.38,
+          9774.53,
+          9525.04,
+          8302.39,
+          7506.55,
+          1769.44
+        ],
+        "tap": [
+          18.48,
+          0,
+          33.97,
+          0,
+          0,
+          4.1,
+          0
+        ],
+        "comm": [
+          2009.36,
+          1821.79,
+          1258.76,
+          1209.69,
+          1011.9,
+          965.7,
+          227.41
+        ]
+      }
+    ],
+    "tapHistory": [
+      149700.63,
+      33829.4,
+      18853.57,
+      14133.12,
+      16888.97,
+      11585.380000000001,
+      5345.76
+    ],
+    "points": 136,
+    "totalGMV": 36235.65,
+    "totalComm": 6367.34,
+    "avgComm": 17.57,
+    "levelLabel": "L4",
+    "productRank": "15",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 1500,
+    "tapLM": 11585.38,
+    "tapGoalM": 50000,
+    "tapLQ": 95681.43,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 30168.86,
+    "totalSV": 94,
+    "totalTaP": 12,
+    "totalLS": 0,
+    "totalCTR": 2.96,
+    "totalViews": 1645306,
+    "totalSold": 2316,
+    "tapGMV": 5345.76,
+    "tapYTD": 590236.48,
+    "manager": "EMILEE",
+    "joined": "Jun 2024",
+    "tier": "Talent",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 94,
+    "agg_tap": 12,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 2316,
+    "gmvPace": 93998.75,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      34615.08,
+      12119.939999999999,
+      12256.56,
+      20652.91,
+      12896.3,
+      13237.720000000001,
+      6367.34
+    ],
+    "bonusHistory": [
+      0,
       0,
       0,
       0,
@@ -2297,21 +2482,21 @@ const allShopData = [
       {
         "handle": "_alanacalvs",
         "tiktokLink": "https://www.tiktok.com/@_alanacalvs",
-        "sv": 71,
+        "sv": 79,
         "tap": 0,
-        "tapGMV": 6013.45,
+        "tapGMV": 6600.42,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.22%",
+        "ctr": "3.20%",
         "views": 0,
-        "sold": 2120,
-        "gmv": 94839.89,
-        "commDollars": 11633.99,
+        "sold": 2429,
+        "gmv": 108494.18,
+        "commDollars": 13217.78,
         "bonus": 0,
         "gmvLM": 357170.83,
-        "gmvPace": 284519.67,
-        "commPct": "12.27%",
+        "gmvPace": 295893.22,
+        "commPct": "12.18%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -2326,7 +2511,7 @@ const allShopData = [
           256344.76,
           227126.44,
           357170.83,
-          94839.89
+          108494.18
         ],
         "tap": [
           48290.27,
@@ -2335,7 +2520,7 @@ const allShopData = [
           28604.24,
           19030.86,
           27664.73,
-          6013.45
+          6600.42
         ],
         "comm": [
           32678.1,
@@ -2344,7 +2529,7 @@ const allShopData = [
           26709.89,
           28944.67,
           44688.48,
-          11633.99
+          13217.78
         ]
       }
     ],
@@ -2355,14 +2540,14 @@ const allShopData = [
       28604.24,
       19030.86,
       27664.73,
-      6013.45
+      6600.42
     ],
-    "points": 120,
-    "totalGMV": 94839.89,
-    "totalComm": 11633.99,
-    "avgComm": 12.27,
+    "points": 133,
+    "totalGMV": 108494.18,
+    "totalComm": 13217.78,
+    "avgComm": 12.18,
     "levelLabel": "L5",
-    "productRank": "15",
+    "productRank": "16",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 800,
@@ -2370,15 +2555,15 @@ const allShopData = [
     "tapGoalM": 50000,
     "tapLQ": 160542.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 78366.66,
-    "totalSV": 71,
+    "tapTotalTQ": 78953.63,
+    "totalSV": 79,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.22,
-    "totalViews": 2237378,
-    "totalSold": 2120,
-    "tapGMV": 6013.45,
-    "tapYTD": 245665.63,
+    "totalCTR": 3.2,
+    "totalViews": 2794195,
+    "totalSold": 2429,
+    "tapGMV": 6600.42,
+    "tapYTD": 246252.6,
     "manager": "EMILEE",
     "joined": "Jan 2025",
     "tier": "Talent",
@@ -2388,12 +2573,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 71,
+    "agg_sv": 79,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2120,
-    "gmvPace": 284519.67,
+    "agg_sold": 2429,
+    "gmvPace": 295893.22,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2401,7 +2586,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       32678.1,
@@ -2410,7 +2595,7 @@ const allShopData = [
       26709.89,
       28944.67,
       44688.48,
-      11633.99
+      13217.78
     ],
     "bonusHistory": [
       0,
@@ -2431,21 +2616,21 @@ const allShopData = [
       {
         "handle": "candidly.betsy",
         "tiktokLink": "https://www.tiktok.com/@candidly.betsy",
-        "sv": 51,
+        "sv": 52,
         "tap": 0,
         "tapGMV": 0,
-        "ls": 11,
+        "ls": 12,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.76%",
+        "ctr": "1.80%",
         "views": 0,
-        "sold": 189,
-        "gmv": 12057.23,
-        "commDollars": 1301.06,
+        "sold": 192,
+        "gmv": 12729.49,
+        "commDollars": 1429.01,
         "bonus": 0,
         "gmvLM": 25897.59,
-        "gmvPace": 36171.69,
-        "commPct": "10.79%",
+        "gmvPace": 34716.79,
+        "commPct": "11.23%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -2481,7 +2666,7 @@ const allShopData = [
           24586.95,
           77054.13,
           25897.59,
-          12057.23
+          12729.49
         ],
         "tap": [
           0,
@@ -2499,7 +2684,7 @@ const allShopData = [
           3275.17,
           7476.27,
           2505.32,
-          1301.06
+          1429.01
         ]
       },
       {
@@ -2542,12 +2727,12 @@ const allShopData = [
       0,
       0
     ],
-    "points": 112,
-    "totalGMV": 12057.23,
-    "totalComm": 1301.06,
-    "avgComm": 10.79,
+    "points": 122,
+    "totalGMV": 12729.49,
+    "totalComm": 1429.01,
+    "avgComm": 11.23,
     "levelLabel": "L3",
-    "productRank": "16",
+    "productRank": "17",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -2556,12 +2741,12 @@ const allShopData = [
     "tapLQ": 11951.8,
     "tapGoalQ": 0,
     "tapTotalTQ": 2505.32,
-    "totalSV": 51,
+    "totalSV": 52,
     "totalTaP": 0,
-    "totalLS": 11,
-    "totalCTR": 13.38,
-    "totalViews": 207362,
-    "totalSold": 189,
+    "totalLS": 12,
+    "totalCTR": 13.4,
+    "totalViews": 218014,
+    "totalSold": 192,
     "tapGMV": 0,
     "tapYTD": 203.24,
     "manager": "Hotline",
@@ -2573,12 +2758,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 51,
+    "agg_sv": 52,
     "agg_tap": 0,
-    "agg_ls": 11,
+    "agg_ls": 12,
     "agg_views": 0,
-    "agg_sold": 189,
-    "gmvPace": 36171.69,
+    "agg_sold": 192,
+    "gmvPace": 34716.79,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2586,7 +2771,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       360.15,
@@ -2595,7 +2780,7 @@ const allShopData = [
       3275.17,
       7476.27,
       2505.32,
-      1301.06
+      1429.01
     ],
     "bonusHistory": [
       0,
@@ -2616,21 +2801,21 @@ const allShopData = [
       {
         "handle": "ashleyinfl",
         "tiktokLink": "https://www.tiktok.com/@ashleyinfl",
-        "sv": 105,
+        "sv": 110,
         "tap": 0,
         "tapGMV": 0,
         "ls": 11,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.88%",
+        "ctr": "1.87%",
         "views": 0,
-        "sold": 49,
-        "gmv": 2216.29,
-        "commDollars": 278.61,
+        "sold": 51,
+        "gmv": 2260.28,
+        "commDollars": 280.81,
         "bonus": 0,
         "gmvLM": 3678.17,
-        "gmvPace": 6648.87,
-        "commPct": "12.57%",
+        "gmvPace": 6164.4,
+        "commPct": "12.42%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -2645,7 +2830,7 @@ const allShopData = [
           1904.24,
           3907.75,
           3678.17,
-          2216.29
+          2260.28
         ],
         "tap": [
           18.99,
@@ -2663,7 +2848,7 @@ const allShopData = [
           205.95,
           369.28,
           366.95,
-          278.61
+          280.81
         ]
       }
     ],
@@ -2677,11 +2862,11 @@ const allShopData = [
       0
     ],
     "points": 111,
-    "totalGMV": 2216.29,
-    "totalComm": 278.61,
-    "avgComm": 12.57,
+    "totalGMV": 2260.28,
+    "totalComm": 280.81,
+    "avgComm": 12.42,
     "levelLabel": "L1",
-    "productRank": "17",
+    "productRank": "18",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -2690,12 +2875,12 @@ const allShopData = [
     "tapLQ": 866.3,
     "tapGoalQ": 0,
     "tapTotalTQ": 366.95,
-    "totalSV": 105,
+    "totalSV": 110,
     "totalTaP": 0,
     "totalLS": 11,
-    "totalCTR": 1.88,
-    "totalViews": 85934,
-    "totalSold": 49,
+    "totalCTR": 1.87,
+    "totalViews": 91152,
+    "totalSold": 51,
     "tapGMV": 0,
     "tapYTD": 18.99,
     "manager": "Hotline",
@@ -2707,12 +2892,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 105,
+    "agg_sv": 110,
     "agg_tap": 0,
     "agg_ls": 11,
     "agg_views": 0,
-    "agg_sold": 49,
-    "gmvPace": 6648.87,
+    "agg_sold": 51,
+    "gmvPace": 6164.4,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2720,7 +2905,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       467.69,
@@ -2729,141 +2914,7 @@ const allShopData = [
       205.95,
       369.28,
       366.95,
-      278.61
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "brehyah@icloud.com",
-    "email": "brehyah@icloud.com",
-    "name": "Breanna Nguyen",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "brehyah",
-        "tiktokLink": "https://www.tiktok.com/@brehyah",
-        "sv": 11,
-        "tap": 0,
-        "tapGMV": 3087.35,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.78%",
-        "views": 0,
-        "sold": 172,
-        "gmv": 6621.48,
-        "commDollars": 818.06,
-        "bonus": 0,
-        "gmvLM": 25491.28,
-        "gmvPace": 19864.44,
-        "commPct": "12.35%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "brehyah",
-        "gmv": [
-          21890.9,
-          18062.69,
-          15168.7,
-          19674.72,
-          22937.95,
-          25491.28,
-          6621.48
-        ],
-        "tap": [
-          12134.84,
-          9653.06,
-          7015.48,
-          12766,
-          7779.45,
-          9330.17,
-          3087.35
-        ],
-        "comm": [
-          3132.44,
-          2760.46,
-          2281.27,
-          2793.6,
-          3313.23,
-          3250.14,
-          818.06
-        ]
-      }
-    ],
-    "tapHistory": [
-      12134.84,
-      9653.06,
-      7015.48,
-      12766,
-      7779.45,
-      9330.17,
-      3087.35
-    ],
-    "points": 93,
-    "totalGMV": 6621.48,
-    "totalComm": 818.06,
-    "avgComm": 12.35,
-    "levelLabel": "L3",
-    "productRank": "18",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 9330.17,
-    "tapGoalM": 10000,
-    "tapLQ": 35949.03,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 15667.66,
-    "totalSV": 11,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 2.78,
-    "totalViews": 249182,
-    "totalSold": 172,
-    "tapGMV": 3087.35,
-    "tapYTD": 123024.76,
-    "manager": "EMILEE",
-    "joined": "Sep 2024",
-    "tier": "Select",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 11,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 172,
-    "gmvPace": 19864.44,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      3132.44,
-      2760.46,
-      2281.27,
-      2793.6,
-      3313.23,
-      3250.14,
-      818.06
+      280.81
     ],
     "bonusHistory": [
       0,
@@ -2884,21 +2935,21 @@ const allShopData = [
       {
         "handle": "justjonxx",
         "tiktokLink": "https://www.tiktok.com/@justjonxx",
-        "sv": 73,
+        "sv": 79,
         "tap": 0,
         "tapGMV": 0,
-        "ls": 9,
+        "ls": 10,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "0.98%",
         "views": 0,
-        "sold": 13,
-        "gmv": 4279.64,
-        "commDollars": 629.83,
+        "sold": 15,
+        "gmv": 4526.06,
+        "commDollars": 657,
         "bonus": 0,
         "gmvLM": 18304.54,
-        "gmvPace": 12838.92,
-        "commPct": "14.72%",
+        "gmvPace": 12343.8,
+        "commPct": "14.52%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -2913,7 +2964,7 @@ const allShopData = [
           0,
           6764.58,
           18304.54,
-          4279.64
+          4526.06
         ],
         "tap": [
           0,
@@ -2931,7 +2982,7 @@ const allShopData = [
           0,
           913.08,
           2695.56,
-          629.83
+          657
         ]
       }
     ],
@@ -2944,10 +2995,10 @@ const allShopData = [
       0,
       0
     ],
-    "points": 91,
-    "totalGMV": 4279.64,
-    "totalComm": 629.83,
-    "avgComm": 14.72,
+    "points": 101,
+    "totalGMV": 4526.06,
+    "totalComm": 657,
+    "avgComm": 14.52,
     "levelLabel": "L2",
     "productRank": "19",
     "cashBonus": 0,
@@ -2958,12 +3009,12 @@ const allShopData = [
     "tapLQ": 913.08,
     "tapGoalQ": 0,
     "tapTotalTQ": 2695.56,
-    "totalSV": 73,
+    "totalSV": 79,
     "totalTaP": 0,
-    "totalLS": 9,
+    "totalLS": 10,
     "totalCTR": 0.98,
-    "totalViews": 23708,
-    "totalSold": 13,
+    "totalViews": 26373,
+    "totalSold": 15,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -2975,12 +3026,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 73,
+    "agg_sv": 79,
     "agg_tap": 0,
-    "agg_ls": 9,
+    "agg_ls": 10,
     "agg_views": 0,
-    "agg_sold": 13,
-    "gmvPace": 12838.92,
+    "agg_sold": 15,
+    "gmvPace": 12343.8,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -2988,7 +3039,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -2997,7 +3048,7 @@ const allShopData = [
       0,
       913.08,
       2695.56,
-      629.83
+      657
     ],
     "bonusHistory": [
       0,
@@ -3010,162 +3061,111 @@ const allShopData = [
     ]
   },
   {
-    "username": "sylviavanhoeven2001@gmail.com",
-    "email": "sylviavanhoeven2001@gmail.com",
-    "name": "Sylvia Van Hoeven",
-    "topLevel": "L4",
+    "username": "brehyah@icloud.com",
+    "email": "brehyah@icloud.com",
+    "name": "Breanna Nguyen",
+    "topLevel": "L3",
     "accounts": [
       {
-        "handle": "sylviavanhoevenbeauty",
-        "tiktokLink": "https://www.tiktok.com/@sylviavanhoevenbeauty",
-        "sv": 69,
-        "tap": 11,
-        "tapGMV": 3878.12,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.95%",
-        "views": 0,
-        "sold": 2051,
-        "gmv": 31134.51,
-        "commDollars": 5529.8,
-        "bonus": 0,
-        "gmvLM": 73379.51,
-        "gmvPace": 93403.53,
-        "commPct": "17.76%",
-        "tier": "Talent",
-        "acctRank": 1
-      },
-      {
-        "handle": "sylviavanhoeven",
-        "tiktokLink": "https://www.tiktok.com/@sylviavanhoeven",
+        "handle": "brehyah",
+        "tiktokLink": "https://www.tiktok.com/@brehyah",
         "sv": 16,
         "tap": 0,
-        "tapGMV": 0,
+        "tapGMV": 3181.93,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.04%",
+        "ctr": "3.02%",
         "views": 0,
-        "sold": 56,
-        "gmv": 1677.17,
-        "commDollars": 209.54,
+        "sold": 218,
+        "gmv": 12041.36,
+        "commDollars": 1208.23,
         "bonus": 0,
-        "gmvLM": 7506.55,
-        "gmvPace": 5031.51,
-        "commPct": "12.49%",
-        "tier": "Talent",
+        "gmvLM": 25491.28,
+        "gmvPace": 32840.07,
+        "commPct": "10.03%",
+        "tier": "Select",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "sylviavanhoevenbeauty",
+        "handle": "brehyah",
         "gmv": [
-          208730.39,
-          68775.56,
-          71287.13,
-          129851.89,
-          75650.56,
-          73379.51,
-          31134.51
+          21890.9,
+          18062.69,
+          15168.7,
+          19674.72,
+          22937.95,
+          25491.28,
+          12041.36
         ],
         "tap": [
-          149682.15,
-          33829.4,
-          18819.6,
-          14133.12,
-          16888.97,
-          11581.28,
-          3878.12
+          12134.84,
+          9653.06,
+          7015.48,
+          12766,
+          7779.45,
+          9330.17,
+          3181.93
         ],
         "comm": [
-          32605.72,
-          10298.15,
-          10997.8,
-          19443.22,
-          11884.4,
-          12272.02,
-          5529.8
-        ]
-      },
-      {
-        "handle": "sylviavanhoeven",
-        "gmv": [
-          15767.24,
-          13882.38,
-          9774.53,
-          9525.04,
-          8302.39,
-          7506.55,
-          1677.17
-        ],
-        "tap": [
-          18.48,
-          0,
-          33.97,
-          0,
-          0,
-          4.1,
-          0
-        ],
-        "comm": [
-          2009.36,
-          1821.79,
-          1258.76,
-          1209.69,
-          1011.9,
-          965.7,
-          209.54
+          3132.44,
+          2760.46,
+          2281.27,
+          2793.6,
+          3313.23,
+          3250.14,
+          1208.23
         ]
       }
     ],
     "tapHistory": [
-      149700.63,
-      33829.4,
-      18853.57,
-      14133.12,
-      16888.97,
-      11585.380000000001,
-      3878.12
+      12134.84,
+      9653.06,
+      7015.48,
+      12766,
+      7779.45,
+      9330.17,
+      3181.93
     ],
-    "points": 88,
-    "totalGMV": 32811.68,
-    "totalComm": 5739.34,
-    "avgComm": 17.49,
-    "levelLabel": "L4",
+    "points": 93,
+    "totalGMV": 12041.36,
+    "totalComm": 1208.23,
+    "avgComm": 10.03,
+    "levelLabel": "L3",
     "productRank": "20",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 1500,
-    "tapLM": 11585.38,
-    "tapGoalM": 50000,
-    "tapLQ": 95681.43,
+    "bonusYTD": 0,
+    "tapLM": 9330.17,
+    "tapGoalM": 10000,
+    "tapLQ": 35949.03,
     "tapGoalQ": 0,
-    "tapTotalTQ": 28701.22,
-    "totalSV": 85,
-    "totalTaP": 11,
+    "tapTotalTQ": 15762.24,
+    "totalSV": 16,
+    "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3,
-    "totalViews": 1436782,
-    "totalSold": 2107,
-    "tapGMV": 3878.12,
-    "tapYTD": 588768.84,
+    "totalCTR": 3.02,
+    "totalViews": 302981,
+    "totalSold": 218,
+    "tapGMV": 3181.93,
+    "tapYTD": 123119.34,
     "manager": "EMILEE",
-    "joined": "Jun 2024",
-    "tier": "Talent",
-    "accts": "2",
+    "joined": "Sep 2024",
+    "tier": "Select",
+    "accts": "1",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 85,
-    "agg_tap": 11,
+    "agg_sv": 16,
+    "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2107,
-    "gmvPace": 93403.53,
+    "agg_sold": 218,
+    "gmvPace": 32840.07,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3173,16 +3173,16 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      34615.08,
-      12119.939999999999,
-      12256.56,
-      20652.91,
-      12896.3,
-      13237.720000000001,
-      5739.34
+      3132.44,
+      2760.46,
+      2281.27,
+      2793.6,
+      3313.23,
+      3250.14,
+      1208.23
     ],
     "bonusHistory": [
       0,
@@ -3191,6 +3191,140 @@ const allShopData = [
       0,
       0,
       0,
+      0
+    ]
+  },
+  {
+    "username": "vanessaanaya30collab@gmail.com",
+    "email": "vanessaanaya30collab@gmail.com",
+    "name": "Vanessa Anaya",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "vanessaanaya30",
+        "tiktokLink": "https://www.tiktok.com/@vanessaanaya30",
+        "sv": 112,
+        "tap": 3,
+        "tapGMV": 5560.32,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.71%",
+        "views": 0,
+        "sold": 3346,
+        "gmv": 116561.15,
+        "commDollars": 12807.98,
+        "bonus": 0,
+        "gmvLM": 347384.07,
+        "gmvPace": 317894.05,
+        "commPct": "10.99%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "vanessaanaya30",
+        "gmv": [
+          143068.46,
+          158094.98,
+          163794.75,
+          178966.44,
+          278135.3,
+          347384.07,
+          116561.15
+        ],
+        "tap": [
+          6546.13,
+          4715.82,
+          8389.17,
+          9661.87,
+          13648.4,
+          18284.43,
+          5560.32
+        ],
+        "comm": [
+          15714.48,
+          16885.46,
+          16224.72,
+          17836.83,
+          29514.61,
+          35215.49,
+          12807.98
+        ]
+      }
+    ],
+    "tapHistory": [
+      6546.13,
+      4715.82,
+      8389.17,
+      9661.87,
+      13648.4,
+      18284.43,
+      5560.32
+    ],
+    "points": 93,
+    "totalGMV": 116561.15,
+    "totalComm": 12807.98,
+    "avgComm": 10.99,
+    "levelLabel": "L5",
+    "productRank": "21",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 6480,
+    "tapLM": 18284.43,
+    "tapGoalM": 50000,
+    "tapLQ": 96775.6,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 60060.24,
+    "totalSV": 112,
+    "totalTaP": 3,
+    "totalLS": 0,
+    "totalCTR": 2.71,
+    "totalViews": 5864616,
+    "totalSold": 3346,
+    "tapGMV": 5560.32,
+    "tapYTD": 98709.54,
+    "manager": "Hotline",
+    "joined": "Dec 2024",
+    "tier": "Select",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 112,
+    "agg_tap": 3,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 3346,
+    "gmvPace": 317894.05,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      15714.48,
+      16885.46,
+      16224.72,
+      17836.83,
+      29514.61,
+      35215.49,
+      12807.98
+    ],
+    "bonusHistory": [
+      200,
+      2100,
+      0,
+      1500,
+      0,
+      1000,
       0
     ]
   },
@@ -3203,21 +3337,21 @@ const allShopData = [
       {
         "handle": "shopjulesm",
         "tiktokLink": "https://www.tiktok.com/@shopjulesm",
-        "sv": 23,
+        "sv": 26,
         "tap": 0,
         "tapGMV": 0,
-        "ls": 8,
+        "ls": 9,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.76%",
+        "ctr": "4.72%",
         "views": 0,
-        "sold": 16,
-        "gmv": 4287.51,
-        "commDollars": 542.25,
+        "sold": 21,
+        "gmv": 4855.69,
+        "commDollars": 588.79,
         "bonus": 0,
         "gmvLM": 11559.41,
-        "gmvPace": 12862.53,
-        "commPct": "12.65%",
+        "gmvPace": 13242.79,
+        "commPct": "12.13%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -3232,7 +3366,7 @@ const allShopData = [
           15282.02,
           18691.2,
           11559.41,
-          4287.51
+          4855.69
         ],
         "tap": [
           0,
@@ -3250,7 +3384,7 @@ const allShopData = [
           1634.18,
           2314.88,
           1431.34,
-          542.25
+          588.79
         ]
       }
     ],
@@ -3263,12 +3397,12 @@ const allShopData = [
       0,
       0
     ],
-    "points": 81,
-    "totalGMV": 4287.51,
-    "totalComm": 542.25,
-    "avgComm": 12.65,
+    "points": 91,
+    "totalGMV": 4855.69,
+    "totalComm": 588.79,
+    "avgComm": 12.13,
     "levelLabel": "L2",
-    "productRank": "21",
+    "productRank": "22",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -3277,12 +3411,12 @@ const allShopData = [
     "tapLQ": 5340.4,
     "tapGoalQ": 0,
     "tapTotalTQ": 1431.34,
-    "totalSV": 23,
+    "totalSV": 26,
     "totalTaP": 0,
-    "totalLS": 8,
-    "totalCTR": 4.76,
-    "totalViews": 26045,
-    "totalSold": 16,
+    "totalLS": 9,
+    "totalCTR": 4.72,
+    "totalViews": 28817,
+    "totalSold": 21,
     "tapGMV": 0,
     "tapYTD": 405.67,
     "manager": "Hotline",
@@ -3294,12 +3428,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 23,
+    "agg_sv": 26,
     "agg_tap": 0,
-    "agg_ls": 8,
+    "agg_ls": 9,
     "agg_views": 0,
-    "agg_sold": 16,
-    "gmvPace": 12862.53,
+    "agg_sold": 21,
+    "gmvPace": 13242.79,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3307,7 +3441,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -3316,7 +3450,7 @@ const allShopData = [
       1634.18,
       2314.88,
       1431.34,
-      542.25
+      588.79
     ],
     "bonusHistory": [
       0,
@@ -3337,21 +3471,21 @@ const allShopData = [
       {
         "handle": "jalisasahm",
         "tiktokLink": "https://www.tiktok.com/@jalisasahm",
-        "sv": 55,
+        "sv": 59,
         "tap": 0,
-        "tapGMV": 838.02,
+        "tapGMV": 958.89,
         "ls": 6,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "7.60%",
+        "ctr": "7.56%",
         "views": 0,
-        "sold": 528,
-        "gmv": 34347.14,
-        "commDollars": 4126.73,
+        "sold": 603,
+        "gmv": 39007.86,
+        "commDollars": 4679.16,
         "bonus": 0,
         "gmvLM": 114990.33,
-        "gmvPace": 103041.42,
-        "commPct": "12.01%",
+        "gmvPace": 106385.07,
+        "commPct": "12.00%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -3366,7 +3500,7 @@ const allShopData = [
           102237.91,
           95002.94,
           114990.33,
-          34347.14
+          39007.86
         ],
         "tap": [
           17155.31,
@@ -3375,7 +3509,7 @@ const allShopData = [
           4184.7,
           1788.3,
           1576.47,
-          838.02
+          958.89
         ],
         "comm": [
           14973.69,
@@ -3384,7 +3518,7 @@ const allShopData = [
           11797.28,
           11432.34,
           13572.16,
-          4126.73
+          4679.16
         ]
       }
     ],
@@ -3395,14 +3529,14 @@ const allShopData = [
       4184.7,
       1788.3,
       1576.47,
-      838.02
+      958.89
     ],
-    "points": 81,
-    "totalGMV": 34347.14,
-    "totalComm": 4126.73,
-    "avgComm": 12.01,
+    "points": 84,
+    "totalGMV": 39007.86,
+    "totalComm": 4679.16,
+    "avgComm": 12,
     "levelLabel": "L4",
-    "productRank": "22",
+    "productRank": "23",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 1050,
@@ -3410,15 +3544,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 46107.26,
     "tapGoalQ": 0,
-    "tapTotalTQ": 17036.65,
-    "totalSV": 55,
+    "tapTotalTQ": 17157.52,
+    "totalSV": 59,
     "totalTaP": 0,
     "totalLS": 6,
-    "totalCTR": 7.6,
-    "totalViews": 1599603,
-    "totalSold": 528,
-    "tapGMV": 838.02,
-    "tapYTD": 100790.99,
+    "totalCTR": 7.56,
+    "totalViews": 1759082,
+    "totalSold": 603,
+    "tapGMV": 958.89,
+    "tapYTD": 100911.86,
     "manager": "Hotline",
     "joined": "Jul 2025",
     "tier": "Core",
@@ -3428,12 +3562,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 55,
+    "agg_sv": 59,
     "agg_tap": 0,
     "agg_ls": 6,
     "agg_views": 0,
-    "agg_sold": 528,
-    "gmvPace": 103041.42,
+    "agg_sold": 603,
+    "gmvPace": 106385.07,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3441,7 +3575,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       14973.69,
@@ -3450,7 +3584,7 @@ const allShopData = [
       11797.28,
       11432.34,
       13572.16,
-      4126.73
+      4679.16
     ],
     "bonusHistory": [
       0,
@@ -3463,111 +3597,162 @@ const allShopData = [
     ]
   },
   {
-    "username": "vanessaanaya30collab@gmail.com",
-    "email": "vanessaanaya30collab@gmail.com",
-    "name": "Vanessa Anaya",
-    "topLevel": "L5",
+    "username": "keehnsasha@gmail.com",
+    "email": "keehnsasha@gmail.com",
+    "name": "Sasha Keehn",
+    "topLevel": "L4",
     "accounts": [
       {
-        "handle": "vanessaanaya30",
-        "tiktokLink": "https://www.tiktok.com/@vanessaanaya30",
-        "sv": 101,
-        "tap": 3,
-        "tapGMV": 4607.31,
+        "handle": "sashashopsalot",
+        "tiktokLink": "https://www.tiktok.com/@sashashopsalot",
+        "sv": 127,
+        "tap": 0,
+        "tapGMV": 19.29,
+        "ls": 7,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.40%",
+        "views": 0,
+        "sold": 371,
+        "gmv": 22968.5,
+        "commDollars": 2575.44,
+        "bonus": 0,
+        "gmvLM": 64016.69,
+        "gmvPace": 62641.36,
+        "commPct": "11.21%",
+        "tier": "Select+",
+        "acctRank": 1
+      },
+      {
+        "handle": "sashamarielovesshopping",
+        "tiktokLink": "https://www.tiktok.com/@sashamarielovesshopping",
+        "sv": 2,
+        "tap": 0,
+        "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.68%",
+        "ctr": "3.03%",
         "views": 0,
-        "sold": 3015,
-        "gmv": 104707.98,
-        "commDollars": 11447.76,
+        "sold": 79,
+        "gmv": 2635.88,
+        "commDollars": 307.34,
         "bonus": 0,
-        "gmvLM": 347384.07,
-        "gmvPace": 314123.94,
-        "commPct": "10.93%",
-        "tier": "Select",
+        "gmvLM": 17948.83,
+        "gmvPace": 7188.76,
+        "commPct": "11.66%",
+        "tier": "Select+",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "vanessaanaya30",
+        "handle": "sashamarielovesshopping",
         "gmv": [
-          143068.46,
-          158094.98,
-          163794.75,
-          178966.44,
-          278135.3,
-          347384.07,
-          104707.98
+          18463.31,
+          14737.14,
+          14314.37,
+          11873.97,
+          10918.45,
+          17948.83,
+          2635.88
         ],
         "tap": [
-          6546.13,
-          4715.82,
-          8389.17,
-          9661.87,
-          13648.4,
-          18284.43,
-          4607.31
+          239.94,
+          119.44,
+          47.07,
+          0,
+          0,
+          69.18,
+          0
         ],
         "comm": [
-          15714.48,
-          16885.46,
-          16224.72,
-          17836.83,
-          29514.61,
-          35215.49,
-          11447.76
+          2022.13,
+          1747.6,
+          1728.2,
+          1400.47,
+          1329.42,
+          2067.62,
+          307.34
+        ]
+      },
+      {
+        "handle": "sashashopsalot",
+        "gmv": [
+          0,
+          0,
+          0,
+          0,
+          63690.35,
+          64016.69,
+          22968.5
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          11.76,
+          11.84,
+          19.29
+        ],
+        "comm": [
+          0,
+          0,
+          0,
+          0,
+          7724.89,
+          7080.15,
+          2575.44
         ]
       }
     ],
     "tapHistory": [
-      6546.13,
-      4715.82,
-      8389.17,
-      9661.87,
-      13648.4,
-      18284.43,
-      4607.31
+      239.94,
+      119.44,
+      47.07,
+      0,
+      11.76,
+      81.02000000000001,
+      19.29
     ],
-    "points": 79,
-    "totalGMV": 104707.98,
-    "totalComm": 11447.76,
-    "avgComm": 10.93,
-    "levelLabel": "L5",
-    "productRank": "23",
+    "points": 74,
+    "totalGMV": 25604.38,
+    "totalComm": 2882.78,
+    "avgComm": 11.26,
+    "levelLabel": "L4",
+    "productRank": "24",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 6480,
-    "tapLM": 18284.43,
-    "tapGoalM": 50000,
-    "tapLQ": 96775.6,
+    "bonusYTD": 1650,
+    "tapLM": 81.02,
+    "tapGoalM": 10000,
+    "tapLQ": 12401.81,
     "tapGoalQ": 0,
-    "tapTotalTQ": 59107.23,
-    "totalSV": 101,
-    "totalTaP": 3,
-    "totalLS": 0,
-    "totalCTR": 2.68,
-    "totalViews": 5351995,
-    "totalSold": 3015,
-    "tapGMV": 4607.31,
-    "tapYTD": 97756.53,
-    "manager": "Hotline",
-    "joined": "Dec 2024",
-    "tier": "Select",
-    "accts": "1",
+    "tapTotalTQ": 9248.08,
+    "totalSV": 129,
+    "totalTaP": 0,
+    "totalLS": 7,
+    "totalCTR": 3.22,
+    "totalViews": 842902,
+    "totalSold": 450,
+    "tapGMV": 19.29,
+    "tapYTD": 2579.77,
+    "manager": "EMILEE",
+    "joined": "Aug 2024",
+    "tier": "Select+",
+    "accts": "2",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 101,
-    "agg_tap": 3,
-    "agg_ls": 0,
+    "agg_sv": 129,
+    "agg_tap": 0,
+    "agg_ls": 7,
     "agg_views": 0,
-    "agg_sold": 3015,
-    "gmvPace": 314123.94,
+    "agg_sold": 450,
+    "gmvPace": 62641.36,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3575,24 +3760,24 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      15714.48,
-      16885.46,
-      16224.72,
-      17836.83,
-      29514.61,
-      35215.49,
-      11447.76
+      2022.13,
+      1747.6,
+      1728.2,
+      1400.47,
+      9054.310000000001,
+      9147.77,
+      2882.78
     ],
     "bonusHistory": [
-      200,
-      2100,
       0,
-      1500,
+      150,
+      160,
       0,
-      1000,
+      0,
+      0,
       0
     ]
   },
@@ -3605,41 +3790,41 @@ const allShopData = [
       {
         "handle": "justjessyxo",
         "tiktokLink": "https://www.tiktok.com/@justjessyxo",
-        "sv": 130,
+        "sv": 150,
         "tap": 0,
         "tapGMV": 0,
         "ls": 6,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.97%",
+        "ctr": "3.85%",
         "views": 0,
-        "sold": 1500,
-        "gmv": 100225.43,
-        "commDollars": 14355.28,
+        "sold": 1627,
+        "gmv": 106704.96,
+        "commDollars": 15100.04,
         "bonus": 0,
         "gmvLM": 415848.22,
-        "gmvPace": 300676.29,
-        "commPct": "14.32%",
+        "gmvPace": 291013.53,
+        "commPct": "14.15%",
         "tier": "Select+",
         "acctRank": 1
       },
       {
         "handle": "petitewithjessy",
         "tiktokLink": "https://www.tiktok.com/@petitewithjessy",
-        "sv": 4,
+        "sv": 6,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.61%",
+        "ctr": "4.20%",
         "views": 0,
         "sold": 5,
         "gmv": 130.55,
         "commDollars": 13.4,
         "bonus": 0,
         "gmvLM": 522.56,
-        "gmvPace": 391.65,
+        "gmvPace": 356.05,
         "commPct": "10.26%",
         "tier": "Select+",
         "acctRank": 1
@@ -3655,7 +3840,7 @@ const allShopData = [
           237954.34,
           245238.38,
           415848.22,
-          100225.43
+          106704.96
         ],
         "tap": [
           370.55,
@@ -3673,7 +3858,7 @@ const allShopData = [
           31875.4,
           35361.19,
           58532.93,
-          14355.28
+          15100.04
         ]
       },
       {
@@ -3717,11 +3902,11 @@ const allShopData = [
       0
     ],
     "points": 72,
-    "totalGMV": 100355.98,
-    "totalComm": 14368.68,
-    "avgComm": 14.32,
+    "totalGMV": 106835.51,
+    "totalComm": 15113.44,
+    "avgComm": 14.15,
     "levelLabel": "L6",
-    "productRank": "24",
+    "productRank": "25",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -3730,12 +3915,12 @@ const allShopData = [
     "tapLQ": 102793.87,
     "tapGoalQ": 0,
     "tapTotalTQ": 58587.04,
-    "totalSV": 134,
+    "totalSV": 156,
     "totalTaP": 0,
     "totalLS": 6,
-    "totalCTR": 4.29,
-    "totalViews": 1105571,
-    "totalSold": 1505,
+    "totalCTR": 4.03,
+    "totalViews": 1220275,
+    "totalSold": 1632,
     "tapGMV": 0,
     "tapYTD": 1458.23,
     "manager": "Hotline",
@@ -3747,12 +3932,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 134,
+    "agg_sv": 156,
     "agg_tap": 0,
     "agg_ls": 6,
     "agg_views": 0,
-    "agg_sold": 1505,
-    "gmvPace": 300676.29,
+    "agg_sold": 1632,
+    "gmvPace": 291013.53,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3760,7 +3945,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       35631.92,
@@ -3769,7 +3954,7 @@ const allShopData = [
       32101.34,
       35487.57,
       58587.04,
-      14368.68
+      15113.44
     ],
     "bonusHistory": [
       0,
@@ -3782,162 +3967,111 @@ const allShopData = [
     ]
   },
   {
-    "username": "keehnsasha@gmail.com",
-    "email": "keehnsasha@gmail.com",
-    "name": "Sasha Keehn",
-    "topLevel": "L4",
+    "username": "hammer.brittanie@gmail.com",
+    "email": "hammer.brittanie@gmail.com",
+    "name": "Brittanie Hammer",
+    "topLevel": "L5",
     "accounts": [
       {
-        "handle": "sashashopsalot",
-        "tiktokLink": "https://www.tiktok.com/@sashashopsalot",
-        "sv": 94,
-        "tap": 0,
-        "tapGMV": 19.29,
-        "ls": 6,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.37%",
-        "views": 0,
-        "sold": 333,
-        "gmv": 19901.29,
-        "commDollars": 2289.87,
-        "bonus": 0,
-        "gmvLM": 64016.69,
-        "gmvPace": 59703.87,
-        "commPct": "11.51%",
-        "tier": "Select+",
-        "acctRank": 1
-      },
-      {
-        "handle": "sashamarielovesshopping",
-        "tiktokLink": "https://www.tiktok.com/@sashamarielovesshopping",
-        "sv": 0,
-        "tap": 0,
-        "tapGMV": 0,
+        "handle": "bestiebriitt",
+        "tiktokLink": "https://www.tiktok.com/@bestiebriitt",
+        "sv": 91,
+        "tap": 3,
+        "tapGMV": 5169.29,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.02%",
+        "ctr": "2.61%",
         "views": 0,
-        "sold": 71,
-        "gmv": 2435.51,
-        "commDollars": 288.82,
+        "sold": 2264,
+        "gmv": 148343.22,
+        "commDollars": 16944.71,
         "bonus": 0,
-        "gmvLM": 17948.83,
-        "gmvPace": 7306.53,
-        "commPct": "11.86%",
-        "tier": "Select+",
+        "gmvLM": 270427.89,
+        "gmvPace": 404572.42,
+        "commPct": "11.42%",
+        "tier": "Talent",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "sashamarielovesshopping",
+        "handle": "bestiebriitt",
         "gmv": [
-          18463.31,
-          14737.14,
-          14314.37,
-          11873.97,
-          10918.45,
-          17948.83,
-          2435.51
+          511074.86,
+          369047.38,
+          358499.75,
+          340496.99,
+          306682.02,
+          270427.89,
+          148343.22
         ],
         "tap": [
-          239.94,
-          119.44,
-          47.07,
-          0,
-          0,
-          69.18,
-          0
+          23331.14,
+          16592.74,
+          21950.88,
+          21961.81,
+          14821.24,
+          19011.68,
+          5169.29
         ],
         "comm": [
-          2022.13,
-          1747.6,
-          1728.2,
-          1400.47,
-          1329.42,
-          2067.62,
-          288.82
-        ]
-      },
-      {
-        "handle": "sashashopsalot",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          63690.35,
-          64016.69,
-          19901.29
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          11.76,
-          11.84,
-          19.29
-        ],
-        "comm": [
-          0,
-          0,
-          0,
-          0,
-          7724.89,
-          7080.15,
-          2289.87
+          58970.09,
+          43247.2,
+          41059.9,
+          38472.78,
+          35671.54,
+          32458.1,
+          16944.71
         ]
       }
     ],
     "tapHistory": [
-      239.94,
-      119.44,
-      47.07,
-      0,
-      11.76,
-      81.02000000000001,
-      19.29
+      23331.14,
+      16592.74,
+      21950.88,
+      21961.81,
+      14821.24,
+      19011.68,
+      5169.29
     ],
-    "points": 64,
-    "totalGMV": 22336.8,
-    "totalComm": 2578.69,
-    "avgComm": 11.54,
-    "levelLabel": "L4",
-    "productRank": "25",
+    "points": 69,
+    "totalGMV": 148343.22,
+    "totalComm": 16944.71,
+    "avgComm": 11.42,
+    "levelLabel": "L5",
+    "productRank": "26",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 1650,
-    "tapLM": 81.02,
-    "tapGoalM": 10000,
-    "tapLQ": 12401.81,
+    "bonusYTD": 500,
+    "tapLM": 19011.68,
+    "tapGoalM": 50000,
+    "tapLQ": 173938.15,
     "tapGoalQ": 0,
-    "tapTotalTQ": 9248.08,
-    "totalSV": 94,
-    "totalTaP": 0,
-    "totalLS": 6,
-    "totalCTR": 3.2,
-    "totalViews": 769298,
-    "totalSold": 404,
-    "tapGMV": 19.29,
-    "tapYTD": 2579.77,
+    "tapTotalTQ": 56639.07,
+    "totalSV": 91,
+    "totalTaP": 3,
+    "totalLS": 0,
+    "totalCTR": 2.61,
+    "totalViews": 3299068,
+    "totalSold": 2264,
+    "tapGMV": 5169.29,
+    "tapYTD": 252948.93,
     "manager": "EMILEE",
     "joined": "Aug 2024",
-    "tier": "Select+",
-    "accts": "2",
+    "tier": "Talent",
+    "accts": "1",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 94,
-    "agg_tap": 0,
-    "agg_ls": 6,
+    "agg_sv": 91,
+    "agg_tap": 3,
+    "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 404,
-    "gmvPace": 59703.87,
+    "agg_sold": 2264,
+    "gmvPace": 404572.42,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -3945,21 +4079,21 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      2022.13,
-      1747.6,
-      1728.2,
-      1400.47,
-      9054.310000000001,
-      9147.77,
-      2578.69
+      58970.09,
+      43247.2,
+      41059.9,
+      38472.78,
+      35671.54,
+      32458.1,
+      16944.71
     ],
     "bonusHistory": [
       0,
-      150,
-      160,
+      0,
+      0,
       0,
       0,
       0,
@@ -3975,41 +4109,41 @@ const allShopData = [
       {
         "handle": "nataleezyy",
         "tiktokLink": "https://www.tiktok.com/@nataleezyy",
-        "sv": 94,
+        "sv": 105,
         "tap": 5,
-        "tapGMV": 5435.22,
+        "tapGMV": 5749.35,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "1.94%",
         "views": 0,
-        "sold": 1305,
-        "gmv": 28064.41,
-        "commDollars": 3984.32,
+        "sold": 1426,
+        "gmv": 29881.02,
+        "commDollars": 4280.1,
         "bonus": 0,
         "gmvLM": 93331.02,
-        "gmvPace": 84193.23,
-        "commPct": "14.20%",
+        "gmvPace": 81493.69,
+        "commPct": "14.32%",
         "tier": "Select",
         "acctRank": 1
       },
       {
         "handle": "nataleezyyirl",
         "tiktokLink": "https://www.tiktok.com/@nataleezyyirl",
-        "sv": 0,
+        "sv": 1,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.70%",
+        "ctr": "3.73%",
         "views": 0,
         "sold": 9,
         "gmv": 84.86,
         "commDollars": 10.78,
         "bonus": 0,
         "gmvLM": 1717.4,
-        "gmvPace": 254.58,
+        "gmvPace": 231.44,
         "commPct": "12.70%",
         "tier": "Select",
         "acctRank": 1
@@ -4025,7 +4159,7 @@ const allShopData = [
           87836.23,
           66144.68,
           93331.02,
-          28064.41
+          29881.02
         ],
         "tap": [
           25965.33,
@@ -4034,7 +4168,7 @@ const allShopData = [
           851.06,
           4110.73,
           8210.3,
-          5435.22
+          5749.35
         ],
         "comm": [
           13023.03,
@@ -4043,7 +4177,7 @@ const allShopData = [
           13381.1,
           9915.71,
           12601.23,
-          3984.32
+          4280.1
         ]
       },
       {
@@ -4084,14 +4218,14 @@ const allShopData = [
       851.06,
       4110.73,
       8210.3,
-      5435.22
+      5749.35
     ],
-    "points": 63,
-    "totalGMV": 28149.27,
-    "totalComm": 3995.1,
-    "avgComm": 14.19,
+    "points": 67,
+    "totalGMV": 29965.88,
+    "totalComm": 4290.88,
+    "avgComm": 14.32,
     "levelLabel": "L4",
-    "productRank": "26",
+    "productRank": "27",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 8820,
@@ -4099,15 +4233,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 47224.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 26440.85,
-    "totalSV": 94,
+    "tapTotalTQ": 26754.98,
+    "totalSV": 106,
     "totalTaP": 5,
     "totalLS": 0,
-    "totalCTR": 2.82,
-    "totalViews": 1431040,
-    "totalSold": 1314,
-    "tapGMV": 5435.22,
-    "tapYTD": 81663.81,
+    "totalCTR": 2.84,
+    "totalViews": 1577122,
+    "totalSold": 1435,
+    "tapGMV": 5749.35,
+    "tapYTD": 81977.94,
     "manager": "EMILEE",
     "joined": "Jan 2024",
     "tier": "Select",
@@ -4117,12 +4251,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 94,
+    "agg_sv": 106,
     "agg_tap": 5,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1314,
-    "gmvPace": 84193.23,
+    "agg_sold": 1435,
+    "gmvPace": 81493.69,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -4130,7 +4264,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       13070.42,
@@ -4139,7 +4273,7 @@ const allShopData = [
       13887.92,
       10554.22,
       12795.33,
-      3995.1000000000004
+      4290.88
     ],
     "bonusHistory": [
       0,
@@ -4147,140 +4281,6 @@ const allShopData = [
       900,
       0,
       900,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "hammer.brittanie@gmail.com",
-    "email": "hammer.brittanie@gmail.com",
-    "name": "Brittanie Hammer",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "bestiebriitt",
-        "tiktokLink": "https://www.tiktok.com/@bestiebriitt",
-        "sv": 78,
-        "tap": 3,
-        "tapGMV": 4523.75,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.62%",
-        "views": 0,
-        "sold": 2033,
-        "gmv": 134125.39,
-        "commDollars": 15275,
-        "bonus": 0,
-        "gmvLM": 270427.89,
-        "gmvPace": 402376.17,
-        "commPct": "11.39%",
-        "tier": "Talent",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "bestiebriitt",
-        "gmv": [
-          511074.86,
-          369047.38,
-          358499.75,
-          340496.99,
-          306682.02,
-          270427.89,
-          134125.39
-        ],
-        "tap": [
-          23331.14,
-          16592.74,
-          21950.88,
-          21961.81,
-          14821.24,
-          19011.68,
-          4523.75
-        ],
-        "comm": [
-          58970.09,
-          43247.2,
-          41059.9,
-          38472.78,
-          35671.54,
-          32458.1,
-          15275
-        ]
-      }
-    ],
-    "tapHistory": [
-      23331.14,
-      16592.74,
-      21950.88,
-      21961.81,
-      14821.24,
-      19011.68,
-      4523.75
-    ],
-    "points": 60,
-    "totalGMV": 134125.39,
-    "totalComm": 15275,
-    "avgComm": 11.39,
-    "levelLabel": "L5",
-    "productRank": "27",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 500,
-    "tapLM": 19011.68,
-    "tapGoalM": 50000,
-    "tapLQ": 173938.15,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 55993.53,
-    "totalSV": 78,
-    "totalTaP": 3,
-    "totalLS": 0,
-    "totalCTR": 2.62,
-    "totalViews": 2968239,
-    "totalSold": 2033,
-    "tapGMV": 4523.75,
-    "tapYTD": 252303.39,
-    "manager": "EMILEE",
-    "joined": "Aug 2024",
-    "tier": "Talent",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 78,
-    "agg_tap": 3,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 2033,
-    "gmvPace": 402376.17,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      58970.09,
-      43247.2,
-      41059.9,
-      38472.78,
-      35671.54,
-      32458.1,
-      15275
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
       0,
       0
     ]
@@ -4296,19 +4296,19 @@ const allShopData = [
         "tiktokLink": "https://www.tiktok.com/@caro_manning",
         "sv": 42,
         "tap": 15,
-        "tapGMV": 2640.92,
+        "tapGMV": 2672.93,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.14%",
+        "ctr": "1.13%",
         "views": 0,
-        "sold": 749,
-        "gmv": 19708.45,
-        "commDollars": 2577.63,
+        "sold": 787,
+        "gmv": 20720.84,
+        "commDollars": 2721.79,
         "bonus": 0,
         "gmvLM": 28763.03,
-        "gmvPace": 59125.35,
-        "commPct": "13.08%",
+        "gmvPace": 56511.38,
+        "commPct": "13.14%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -4323,7 +4323,7 @@ const allShopData = [
           49390.53,
           30349.19,
           28763.03,
-          19708.45
+          20720.84
         ],
         "tap": [
           13468.17,
@@ -4332,7 +4332,7 @@ const allShopData = [
           13835.47,
           8105.28,
           9690.1,
-          2640.92
+          2672.93
         ],
         "comm": [
           5861.16,
@@ -4341,7 +4341,7 @@ const allShopData = [
           6934.12,
           4434.97,
           4408.91,
-          2577.63
+          2721.79
         ]
       }
     ],
@@ -4352,12 +4352,12 @@ const allShopData = [
       13835.47,
       8105.28,
       9690.1,
-      2640.92
+      2672.93
     ],
-    "points": 56,
-    "totalGMV": 19708.45,
-    "totalComm": 2577.63,
-    "avgComm": 13.08,
+    "points": 58,
+    "totalGMV": 20720.84,
+    "totalComm": 2721.79,
+    "avgComm": 13.14,
     "levelLabel": "L3",
     "productRank": "28",
     "cashBonus": 0,
@@ -4367,15 +4367,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 54427.5,
     "tapGoalQ": 0,
-    "tapTotalTQ": 16739.93,
+    "tapTotalTQ": 16771.94,
     "totalSV": 42,
     "totalTaP": 15,
     "totalLS": 0,
-    "totalCTR": 1.14,
-    "totalViews": 3725450,
-    "totalSold": 749,
-    "tapGMV": 2640.92,
-    "tapYTD": 269914.17,
+    "totalCTR": 1.13,
+    "totalViews": 3847126,
+    "totalSold": 787,
+    "tapGMV": 2672.93,
+    "tapYTD": 269946.18,
     "manager": "EMILEE",
     "joined": "Aug 2024",
     "tier": "VIP",
@@ -4389,8 +4389,8 @@ const allShopData = [
     "agg_tap": 15,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 749,
-    "gmvPace": 59125.35,
+    "agg_sold": 787,
+    "gmvPace": 56511.38,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -4398,7 +4398,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       5861.16,
@@ -4407,279 +4407,11 @@ const allShopData = [
       6934.12,
       4434.97,
       4408.91,
-      2577.63
+      2721.79
     ],
     "bonusHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "cassyedwards@ymail.com",
-    "email": "cassyedwards@ymail.com",
-    "name": "Cassy Edwards",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "cassymedwards_",
-        "tiktokLink": "https://www.tiktok.com/@cassymedwards_",
-        "sv": 46,
-        "tap": 0,
-        "tapGMV": 2087.21,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "1.91%",
-        "views": 0,
-        "sold": 272,
-        "gmv": 8112.25,
-        "commDollars": 1476.1,
-        "bonus": 0,
-        "gmvLM": 30597.46,
-        "gmvPace": 24336.75,
-        "commPct": "18.20%",
-        "tier": "VIP",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "cassymedwards_",
-        "gmv": [
-          53964.89,
-          38341.98,
-          19108.01,
-          20121.8,
-          34910.46,
-          30597.46,
-          8112.25
-        ],
-        "tap": [
-          8282.73,
-          4631.7,
-          4453.18,
-          7965.89,
-          6861.06,
-          3728.25,
-          2087.21
-        ],
-        "comm": [
-          8159.83,
-          5542.41,
-          3199.57,
-          3369.8,
-          5930.68,
-          5396.52,
-          1476.1
-        ]
-      }
-    ],
-    "tapHistory": [
-      8282.73,
-      4631.7,
-      4453.18,
-      7965.89,
-      6861.06,
-      3728.25,
-      2087.21
-    ],
-    "points": 45,
-    "totalGMV": 8112.25,
-    "totalComm": 1476.1,
-    "avgComm": 18.2,
-    "levelLabel": "L3",
-    "productRank": "29",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 5200,
-    "tapLM": 3728.25,
-    "tapGoalM": 10000,
-    "tapLQ": 31780.18,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 11211.98,
-    "totalSV": 46,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 1.91,
-    "totalViews": 205989,
-    "totalSold": 272,
-    "tapGMV": 2087.21,
-    "tapYTD": 73590.36,
-    "manager": "EMILEE",
-    "joined": "Jul 2024",
-    "tier": "VIP",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 46,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 272,
-    "gmvPace": 24336.75,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      8159.83,
-      5542.41,
-      3199.57,
-      3369.8,
-      5930.68,
-      5396.52,
-      1476.1
-    ],
-    "bonusHistory": [
-      2000,
-      1950,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "helloashleywill@gmail.com",
-    "email": "helloashleywill@gmail.com",
-    "name": "Ashley Will",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "theashleywill",
-        "tiktokLink": "https://www.tiktok.com/@theashleywill",
-        "sv": 101,
-        "tap": 0,
-        "tapGMV": 2058.4,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.83%",
-        "views": 0,
-        "sold": 1663,
-        "gmv": 73234.85,
-        "commDollars": 9080.51,
-        "bonus": 0,
-        "gmvLM": 240963.99,
-        "gmvPace": 219704.55,
-        "commPct": "12.40%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "theashleywill",
-        "gmv": [
-          61744.62,
-          47451.35,
-          37370.54,
-          135876.73,
-          209692.12,
-          240963.99,
-          73234.85
-        ],
-        "tap": [
-          2083.09,
-          2667.37,
-          950.32,
-          2220.38,
-          6831.45,
-          7191.51,
-          2058.4
-        ],
-        "comm": [
-          7490.09,
-          6077.11,
-          5056.29,
-          17530,
-          27336.35,
-          28509.71,
-          9080.51
-        ]
-      }
-    ],
-    "tapHistory": [
-      2083.09,
-      2667.37,
-      950.32,
-      2220.38,
-      6831.45,
-      7191.51,
-      2058.4
-    ],
-    "points": 45,
-    "totalGMV": 73234.85,
-    "totalComm": 9080.51,
-    "avgComm": 12.4,
-    "levelLabel": "L5",
-    "productRank": "30",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 3400,
-    "tapLM": 7191.51,
-    "tapGoalM": 10000,
-    "tapLQ": 59924.79,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 37759.62,
-    "totalSV": 101,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.83,
-    "totalViews": 1622221,
-    "totalSold": 1663,
-    "tapGMV": 2058.4,
-    "tapYTD": 47875.31,
-    "manager": "Hotline",
-    "joined": "Feb 2025",
-    "tier": "Select",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 101,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 1663,
-    "gmvPace": 219704.55,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      7490.09,
-      6077.11,
-      5056.29,
-      17530,
-      27336.35,
-      28509.71,
-      9080.51
-    ],
-    "bonusHistory": [
-      600,
-      1700,
       0,
       0,
       0,
@@ -4696,21 +4428,21 @@ const allShopData = [
       {
         "handle": "shilohstemple",
         "tiktokLink": "https://www.tiktok.com/@shilohstemple",
-        "sv": 33,
+        "sv": 37,
         "tap": 0,
-        "tapGMV": 2280.34,
+        "tapGMV": 2650.08,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "3.48%",
         "views": 0,
-        "sold": 1210,
-        "gmv": 27027.89,
-        "commDollars": 3488.33,
+        "sold": 1305,
+        "gmv": 29293.82,
+        "commDollars": 3811.7,
         "bonus": 0,
         "gmvLM": 99599.14,
-        "gmvPace": 81083.67,
-        "commPct": "12.91%",
+        "gmvPace": 79892.24,
+        "commPct": "13.01%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -4725,7 +4457,7 @@ const allShopData = [
           141621.64,
           90989.8,
           99599.14,
-          27027.89
+          29293.82
         ],
         "tap": [
           24777.98,
@@ -4734,7 +4466,7 @@ const allShopData = [
           15662.95,
           8071.99,
           9187.61,
-          2280.34
+          2650.08
         ],
         "comm": [
           41594.37,
@@ -4743,7 +4475,7 @@ const allShopData = [
           20270.25,
           11518.64,
           13009.64,
-          3488.33
+          3811.7
         ]
       }
     ],
@@ -4754,14 +4486,14 @@ const allShopData = [
       15662.95,
       8071.99,
       9187.61,
-      2280.34
+      2650.08
     ],
-    "points": 45,
-    "totalGMV": 27027.89,
-    "totalComm": 3488.33,
-    "avgComm": 12.91,
+    "points": 53,
+    "totalGMV": 29293.82,
+    "totalComm": 3811.7,
+    "avgComm": 13.01,
     "levelLabel": "L4",
-    "productRank": "31",
+    "productRank": "29",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 9138,
@@ -4769,15 +4501,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 90607.52,
     "tapGoalQ": 0,
-    "tapTotalTQ": 24477.59,
-    "totalSV": 33,
+    "tapTotalTQ": 24847.33,
+    "totalSV": 37,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 3.48,
-    "totalViews": 936456,
-    "totalSold": 1210,
-    "tapGMV": 2280.34,
-    "tapYTD": 165496.51,
+    "totalViews": 1020472,
+    "totalSold": 1305,
+    "tapGMV": 2650.08,
+    "tapYTD": 165866.25,
     "manager": "Hotline",
     "joined": "Mar 2025",
     "tier": "Select",
@@ -4787,12 +4519,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 33,
+    "agg_sv": 37,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1210,
-    "gmvPace": 81083.67,
+    "agg_sold": 1305,
+    "gmvPace": 79892.24,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -4800,7 +4532,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       41594.37,
@@ -4809,12 +4541,280 @@ const allShopData = [
       20270.25,
       11518.64,
       13009.64,
-      3488.33
+      3811.7
     ],
     "bonusHistory": [
       600,
       3400,
       3200,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "helloashleywill@gmail.com",
+    "email": "helloashleywill@gmail.com",
+    "name": "Ashley Will",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "theashleywill",
+        "tiktokLink": "https://www.tiktok.com/@theashleywill",
+        "sv": 111,
+        "tap": 0,
+        "tapGMV": 2219.67,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.83%",
+        "views": 0,
+        "sold": 1903,
+        "gmv": 85063.88,
+        "commDollars": 10477.7,
+        "bonus": 0,
+        "gmvLM": 240963.99,
+        "gmvPace": 231992.4,
+        "commPct": "12.32%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "theashleywill",
+        "gmv": [
+          61744.62,
+          47451.35,
+          37370.54,
+          135876.73,
+          209692.12,
+          240963.99,
+          85063.88
+        ],
+        "tap": [
+          2083.09,
+          2667.37,
+          950.32,
+          2220.38,
+          6831.45,
+          7191.51,
+          2219.67
+        ],
+        "comm": [
+          7490.09,
+          6077.11,
+          5056.29,
+          17530,
+          27336.35,
+          28509.71,
+          10477.7
+        ]
+      }
+    ],
+    "tapHistory": [
+      2083.09,
+      2667.37,
+      950.32,
+      2220.38,
+      6831.45,
+      7191.51,
+      2219.67
+    ],
+    "points": 50,
+    "totalGMV": 85063.88,
+    "totalComm": 10477.7,
+    "avgComm": 12.32,
+    "levelLabel": "L5",
+    "productRank": "30",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 3400,
+    "tapLM": 7191.51,
+    "tapGoalM": 10000,
+    "tapLQ": 59924.79,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 37920.89,
+    "totalSV": 111,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 3.83,
+    "totalViews": 1821524,
+    "totalSold": 1903,
+    "tapGMV": 2219.67,
+    "tapYTD": 48036.58,
+    "manager": "Hotline",
+    "joined": "Feb 2025",
+    "tier": "Select",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 111,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 1903,
+    "gmvPace": 231992.4,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      7490.09,
+      6077.11,
+      5056.29,
+      17530,
+      27336.35,
+      28509.71,
+      10477.7
+    ],
+    "bonusHistory": [
+      600,
+      1700,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "cassyedwards@ymail.com",
+    "email": "cassyedwards@ymail.com",
+    "name": "Cassy Edwards",
+    "topLevel": "L3",
+    "accounts": [
+      {
+        "handle": "cassymedwards_",
+        "tiktokLink": "https://www.tiktok.com/@cassymedwards_",
+        "sv": 54,
+        "tap": 0,
+        "tapGMV": 2224.37,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.94%",
+        "views": 0,
+        "sold": 288,
+        "gmv": 8559.57,
+        "commDollars": 1566.17,
+        "bonus": 0,
+        "gmvLM": 30597.46,
+        "gmvPace": 23344.28,
+        "commPct": "18.30%",
+        "tier": "VIP",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "cassymedwards_",
+        "gmv": [
+          53964.89,
+          38341.98,
+          19108.01,
+          20121.8,
+          34910.46,
+          30597.46,
+          8559.57
+        ],
+        "tap": [
+          8282.73,
+          4631.7,
+          4453.18,
+          7965.89,
+          6861.06,
+          3728.25,
+          2224.37
+        ],
+        "comm": [
+          8159.83,
+          5542.41,
+          3199.57,
+          3369.8,
+          5930.68,
+          5396.52,
+          1566.17
+        ]
+      }
+    ],
+    "tapHistory": [
+      8282.73,
+      4631.7,
+      4453.18,
+      7965.89,
+      6861.06,
+      3728.25,
+      2224.37
+    ],
+    "points": 48,
+    "totalGMV": 8559.57,
+    "totalComm": 1566.17,
+    "avgComm": 18.3,
+    "levelLabel": "L3",
+    "productRank": "31",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 5200,
+    "tapLM": 3728.25,
+    "tapGoalM": 10000,
+    "tapLQ": 31780.18,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 11349.14,
+    "totalSV": 54,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 1.94,
+    "totalViews": 219394,
+    "totalSold": 288,
+    "tapGMV": 2224.37,
+    "tapYTD": 73727.52,
+    "manager": "EMILEE",
+    "joined": "Jul 2024",
+    "tier": "VIP",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 54,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 288,
+    "gmvPace": 23344.28,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      8159.83,
+      5542.41,
+      3199.57,
+      3369.8,
+      5930.68,
+      5396.52,
+      1566.17
+    ],
+    "bonusHistory": [
+      2000,
+      1950,
+      0,
       0,
       0,
       0,
@@ -4830,42 +4830,42 @@ const allShopData = [
       {
         "handle": "cassycass00",
         "tiktokLink": "https://www.tiktok.com/@cassycass00",
-        "sv": 40,
+        "sv": 43,
         "tap": 4,
-        "tapGMV": 2350.36,
+        "tapGMV": 2683.1,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.79%",
+        "ctr": "1.71%",
         "views": 0,
-        "sold": 370,
-        "gmv": 14746.59,
-        "commDollars": 2025.51,
+        "sold": 414,
+        "gmv": 16472.33,
+        "commDollars": 2295.55,
         "bonus": 0,
         "gmvLM": 39226.48,
-        "gmvPace": 44239.77,
-        "commPct": "13.74%",
+        "gmvPace": 44924.54,
+        "commPct": "13.94%",
         "tier": "Core",
         "acctRank": 1
       },
       {
         "handle": "actinglikeimputtogether",
         "tiktokLink": "https://www.tiktok.com/@actinglikeimputtogether",
-        "sv": 5,
+        "sv": 6,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.65%",
+        "ctr": "1.96%",
         "views": 0,
-        "sold": 9,
-        "gmv": 331.81,
-        "commDollars": 51.2,
+        "sold": 14,
+        "gmv": 467.08,
+        "commDollars": 67.63,
         "bonus": 0,
         "gmvLM": 1047.94,
-        "gmvPace": 995.43,
-        "commPct": "15.43%",
+        "gmvPace": 1273.85,
+        "commPct": "14.48%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -4880,7 +4880,7 @@ const allShopData = [
           72471.62,
           61942.18,
           39226.48,
-          14746.59
+          16472.33
         ],
         "tap": [
           255.43,
@@ -4889,7 +4889,7 @@ const allShopData = [
           26617.3,
           24342.66,
           1094.6,
-          2350.36
+          2683.1
         ],
         "comm": [
           10499.55,
@@ -4898,7 +4898,7 @@ const allShopData = [
           11724.02,
           10019.48,
           4637.84,
-          2025.51
+          2295.55
         ]
       },
       {
@@ -4910,7 +4910,7 @@ const allShopData = [
           0,
           3505.13,
           1047.94,
-          331.81
+          467.08
         ],
         "tap": [
           0,
@@ -4928,7 +4928,7 @@ const allShopData = [
           0,
           476.89,
           171.06,
-          51.2
+          67.63
         ]
       }
     ],
@@ -4939,12 +4939,12 @@ const allShopData = [
       26617.3,
       24342.66,
       1094.6,
-      2350.36
+      2683.1
     ],
-    "points": 39,
-    "totalGMV": 15078.4,
-    "totalComm": 2076.71,
-    "avgComm": 13.77,
+    "points": 46,
+    "totalGMV": 16939.41,
+    "totalComm": 2363.18,
+    "avgComm": 13.95,
     "levelLabel": "L3",
     "productRank": "32",
     "cashBonus": 0,
@@ -4954,15 +4954,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 79411.38,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8253.86,
-    "totalSV": 45,
+    "tapTotalTQ": 8586.6,
+    "totalSV": 49,
     "totalTaP": 4,
     "totalLS": 0,
-    "totalCTR": 1.72,
-    "totalViews": 721722,
-    "totalSold": 379,
-    "tapGMV": 2350.36,
-    "tapYTD": 100919.75,
+    "totalCTR": 1.84,
+    "totalViews": 829408,
+    "totalSold": 428,
+    "tapGMV": 2683.1,
+    "tapYTD": 101252.49,
     "manager": "Hotline",
     "joined": "May 2025",
     "tier": "Core",
@@ -4972,12 +4972,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 45,
+    "agg_sv": 49,
     "agg_tap": 4,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 379,
-    "gmvPace": 44239.77,
+    "agg_sold": 428,
+    "gmvPace": 44924.54,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -4985,7 +4985,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       10499.55,
@@ -4994,7 +4994,7 @@ const allShopData = [
       11724.02,
       10496.369999999999,
       4808.900000000001,
-      2076.71
+      2363.1800000000003
     ],
     "bonusHistory": [
       0,
@@ -5015,21 +5015,21 @@ const allShopData = [
       {
         "handle": "honeyquiche",
         "tiktokLink": "https://www.tiktok.com/@honeyquiche",
-        "sv": 26,
+        "sv": 29,
         "tap": 0,
-        "tapGMV": 63.13,
+        "tapGMV": 86.43,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "2.25%",
         "views": 0,
-        "sold": 8521,
-        "gmv": 244877.75,
-        "commDollars": 39064.11,
+        "sold": 9581,
+        "gmv": 276436.31,
+        "commDollars": 44287.79,
         "bonus": 0,
         "gmvLM": 986864.27,
-        "gmvPace": 734633.25,
-        "commPct": "15.95%",
+        "gmvPace": 753917.21,
+        "commPct": "16.02%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -5038,19 +5038,19 @@ const allShopData = [
         "tiktokLink": "https://www.tiktok.com/@hkapproved",
         "sv": 0,
         "tap": 0,
-        "tapGMV": 371.69,
+        "tapGMV": 393.67,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "4.15%",
         "views": 0,
-        "sold": 433,
-        "gmv": 11779.78,
-        "commDollars": 2025.18,
+        "sold": 489,
+        "gmv": 13107.55,
+        "commDollars": 2281.25,
         "bonus": 0,
         "gmvLM": 45616.84,
-        "gmvPace": 35339.34,
-        "commPct": "17.19%",
+        "gmvPace": 35747.86,
+        "commPct": "17.40%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -5065,7 +5065,7 @@ const allShopData = [
           84824.54,
           59972.25,
           45616.84,
-          11779.78
+          13107.55
         ],
         "tap": [
           799.47,
@@ -5074,7 +5074,7 @@ const allShopData = [
           244.46,
           814.74,
           1486.6,
-          371.69
+          393.67
         ],
         "comm": [
           48355.43,
@@ -5083,7 +5083,7 @@ const allShopData = [
           13225.39,
           8806.45,
           7133.23,
-          2025.18
+          2281.25
         ]
       },
       {
@@ -5095,7 +5095,7 @@ const allShopData = [
           842744.63,
           979660.92,
           986864.27,
-          244877.75
+          276436.31
         ],
         "tap": [
           0,
@@ -5104,7 +5104,7 @@ const allShopData = [
           0,
           0,
           134.51,
-          63.13
+          86.43
         ],
         "comm": [
           106640.83,
@@ -5113,7 +5113,7 @@ const allShopData = [
           122980.7,
           154406.23,
           154422.27,
-          39064.11
+          44287.79
         ]
       }
     ],
@@ -5124,12 +5124,12 @@ const allShopData = [
       244.46,
       814.74,
       1621.11,
-      434.82
+      480.1
     ],
-    "points": 35,
-    "totalGMV": 256657.53,
-    "totalComm": 41089.29,
-    "avgComm": 16.01,
+    "points": 40,
+    "totalGMV": 289543.86,
+    "totalComm": 46569.04,
+    "avgComm": 16.08,
     "levelLabel": "L6",
     "productRank": "33",
     "cashBonus": 0,
@@ -5139,15 +5139,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 438747.31,
     "tapGoalQ": 0,
-    "tapTotalTQ": 165211.43,
-    "totalSV": 26,
+    "tapTotalTQ": 165256.71,
+    "totalSV": 29,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 3.2,
-    "totalViews": 10147284,
-    "totalSold": 8954,
-    "tapGMV": 434.82,
-    "tapYTD": 41328.9,
+    "totalViews": 11529693,
+    "totalSold": 10070,
+    "tapGMV": 480.1,
+    "tapYTD": 41374.18,
     "manager": "Hotline",
     "joined": "Aug 2025",
     "tier": "Select",
@@ -5157,12 +5157,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 26,
+    "agg_sv": 29,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 8954,
-    "gmvPace": 734633.25,
+    "agg_sold": 10070,
+    "gmvPace": 753917.21,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -5170,7 +5170,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       154996.26,
@@ -5179,7 +5179,7 @@ const allShopData = [
       136206.09,
       163212.68000000002,
       161555.5,
-      41089.29
+      46569.04
     ],
     "bonusHistory": [
       0,
@@ -5200,21 +5200,21 @@ const allShopData = [
       {
         "handle": "jaxandbrynco",
         "tiktokLink": "https://www.tiktok.com/@jaxandbrynco",
-        "sv": 41,
+        "sv": 48,
         "tap": 0,
-        "tapGMV": 1013.33,
+        "tapGMV": 1035.32,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.22%",
+        "ctr": "1.26%",
         "views": 0,
-        "sold": 1476,
-        "gmv": 43968.34,
-        "commDollars": 9044.5,
+        "sold": 1675,
+        "gmv": 49141.85,
+        "commDollars": 10121.77,
         "bonus": 0,
         "gmvLM": 119051.67,
-        "gmvPace": 131905.02,
-        "commPct": "20.57%",
+        "gmvPace": 134023.23,
+        "commPct": "20.60%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -5229,7 +5229,7 @@ const allShopData = [
           79723.05,
           133025.75,
           119051.67,
-          43968.34
+          49141.85
         ],
         "tap": [
           3678.2,
@@ -5238,7 +5238,7 @@ const allShopData = [
           5610.84,
           4758.28,
           3321.57,
-          1013.33
+          1035.32
         ],
         "comm": [
           14520.44,
@@ -5247,7 +5247,7 @@ const allShopData = [
           14104.41,
           24686.08,
           23002.27,
-          9044.5
+          10121.77
         ]
       }
     ],
@@ -5258,12 +5258,12 @@ const allShopData = [
       5610.84,
       4758.28,
       3321.57,
-      1013.33
+      1035.32
     ],
-    "points": 30,
-    "totalGMV": 43968.34,
-    "totalComm": 9044.5,
-    "avgComm": 20.57,
+    "points": 31,
+    "totalGMV": 49141.85,
+    "totalComm": 10121.77,
+    "avgComm": 20.6,
     "levelLabel": "L4",
     "productRank": "34",
     "cashBonus": 0,
@@ -5273,15 +5273,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 61085.29,
     "tapGoalQ": 0,
-    "tapTotalTQ": 28937.17,
-    "totalSV": 41,
+    "tapTotalTQ": 28959.16,
+    "totalSV": 48,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.22,
-    "totalViews": 8822872,
-    "totalSold": 1476,
-    "tapGMV": 1013.33,
-    "tapYTD": 36952.4,
+    "totalCTR": 1.26,
+    "totalViews": 9197325,
+    "totalSold": 1675,
+    "tapGMV": 1035.32,
+    "tapYTD": 36974.39,
     "manager": "Hotline",
     "joined": "Jun 2025",
     "tier": "Core",
@@ -5291,12 +5291,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 41,
+    "agg_sv": 48,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1476,
-    "gmvPace": 131905.02,
+    "agg_sold": 1675,
+    "gmvPace": 134023.23,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -5304,7 +5304,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       14520.44,
@@ -5313,7 +5313,7 @@ const allShopData = [
       14104.41,
       24686.08,
       23002.27,
-      9044.5
+      10121.77
     ],
     "bonusHistory": [
       250,
@@ -5334,21 +5334,21 @@ const allShopData = [
       {
         "handle": "whatlololikes",
         "tiktokLink": "https://www.tiktok.com/@whatlololikes",
-        "sv": 79,
+        "sv": 87,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.24%",
+        "ctr": "3.25%",
         "views": 0,
-        "sold": 7040,
-        "gmv": 267903.53,
-        "commDollars": 29744.06,
+        "sold": 7776,
+        "gmv": 294749.21,
+        "commDollars": 32547.23,
         "bonus": 0,
         "gmvLM": 703797.88,
-        "gmvPace": 803710.59,
-        "commPct": "11.10%",
+        "gmvPace": 803861.48,
+        "commPct": "11.04%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -5363,7 +5363,7 @@ const allShopData = [
           572204.19,
           657639.29,
           703797.88,
-          267903.53
+          294749.21
         ],
         "tap": [
           0,
@@ -5381,7 +5381,7 @@ const allShopData = [
           59744.65,
           69407.74,
           75086.17,
-          29744.06
+          32547.23
         ]
       }
     ],
@@ -5394,10 +5394,10 @@ const allShopData = [
       0,
       0
     ],
-    "points": 27,
-    "totalGMV": 267903.53,
-    "totalComm": 29744.06,
-    "avgComm": 11.1,
+    "points": 30,
+    "totalGMV": 294749.21,
+    "totalComm": 32547.23,
+    "avgComm": 11.04,
     "levelLabel": "L6",
     "productRank": "35",
     "cashBonus": 0,
@@ -5408,12 +5408,12 @@ const allShopData = [
     "tapLQ": 129152.39,
     "tapGoalQ": 0,
     "tapTotalTQ": 75086.17,
-    "totalSV": 79,
+    "totalSV": 87,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.24,
-    "totalViews": 3998428,
-    "totalSold": 7040,
+    "totalCTR": 3.25,
+    "totalViews": 4307057,
+    "totalSold": 7776,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -5425,12 +5425,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 79,
+    "agg_sv": 87,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 7040,
-    "gmvPace": 803710.59,
+    "agg_sold": 7776,
+    "gmvPace": 803861.48,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -5438,7 +5438,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -5447,7 +5447,7 @@ const allShopData = [
       59744.65,
       69407.74,
       75086.17,
-      29744.06
+      32547.23
     ],
     "bonusHistory": [
       0,
@@ -5468,21 +5468,21 @@ const allShopData = [
       {
         "handle": "sam_joness_",
         "tiktokLink": "https://www.tiktok.com/@sam_joness_",
-        "sv": 37,
+        "sv": 42,
         "tap": 0,
-        "tapGMV": 1002.98,
+        "tapGMV": 1069.38,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.77%",
+        "ctr": "3.64%",
         "views": 0,
-        "sold": 1602,
-        "gmv": 44922.04,
-        "commDollars": 6840.51,
+        "sold": 1990,
+        "gmv": 52590.09,
+        "commDollars": 8239.04,
         "bonus": 0,
         "gmvLM": 99202.37,
-        "gmvPace": 134766.12,
-        "commPct": "15.23%",
+        "gmvPace": 143427.52,
+        "commPct": "15.67%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -5495,14 +5495,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.21%",
+        "ctr": "3.39%",
         "views": 0,
         "sold": 2,
         "gmv": 90.48,
         "commDollars": 6.55,
         "bonus": 0,
         "gmvLM": 484.43,
-        "gmvPace": 271.44,
+        "gmvPace": 246.76,
         "commPct": "7.24%",
         "tier": "Talent",
         "acctRank": 1
@@ -5518,7 +5518,7 @@ const allShopData = [
           116151.33,
           80642.59,
           99202.37,
-          44922.04
+          52590.09
         ],
         "tap": [
           4401.25,
@@ -5527,7 +5527,7 @@ const allShopData = [
           2223.5,
           2232.46,
           1726.73,
-          1002.98
+          1069.38
         ],
         "comm": [
           26055.6,
@@ -5536,7 +5536,7 @@ const allShopData = [
           12770.58,
           9963.43,
           10283.92,
-          6840.51
+          8239.04
         ]
       },
       {
@@ -5577,12 +5577,12 @@ const allShopData = [
       2265.3,
       2238.46,
       1726.73,
-      1002.98
+      1069.38
     ],
-    "points": 27,
-    "totalGMV": 45012.52,
-    "totalComm": 6847.06,
-    "avgComm": 15.21,
+    "points": 29,
+    "totalGMV": 52680.57,
+    "totalComm": 8245.59,
+    "avgComm": 15.65,
     "levelLabel": "L4",
     "productRank": "36",
     "cashBonus": 0,
@@ -5592,15 +5592,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 41416.72,
     "tapGoalQ": 0,
-    "tapTotalTQ": 13082,
-    "totalSV": 38,
+    "tapTotalTQ": 13148.4,
+    "totalSV": 43,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.49,
-    "totalViews": 1304205,
-    "totalSold": 1604,
-    "tapGMV": 1002.98,
-    "tapYTD": 80127.2,
+    "totalCTR": 3.52,
+    "totalViews": 1540930,
+    "totalSold": 1992,
+    "tapGMV": 1069.38,
+    "tapYTD": 80193.6,
     "manager": "EMILEE",
     "joined": "Aug 2024",
     "tier": "Talent",
@@ -5610,12 +5610,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 38,
+    "agg_sv": 43,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1604,
-    "gmvPace": 134766.12,
+    "agg_sold": 1992,
+    "gmvPace": 143427.52,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -5623,7 +5623,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       26344.14,
@@ -5632,195 +5632,10 @@ const allShopData = [
       12959.93,
       10039.36,
       10352.29,
-      6847.06
+      8245.59
     ],
     "bonusHistory": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "michaelashaescott@gmail.com",
-    "email": "michaelashaescott@gmail.com",
-    "name": "Michaela Scott",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "michaelascott20",
-        "tiktokLink": "https://www.tiktok.com/@michaelascott20",
-        "sv": 7,
-        "tap": 0,
-        "tapGMV": 1513.99,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.28%",
-        "views": 0,
-        "sold": 711,
-        "gmv": 13626.18,
-        "commDollars": 2077.23,
-        "bonus": 0,
-        "gmvLM": 40941.49,
-        "gmvPace": 40878.54,
-        "commPct": "15.24%",
-        "tier": "Select",
-        "acctRank": 1
-      },
-      {
-        "handle": "michaelashops",
-        "tiktokLink": "https://www.tiktok.com/@michaelashops",
-        "sv": 1,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.55%",
-        "views": 0,
-        "sold": 205,
-        "gmv": 3517.29,
-        "commDollars": 425.58,
-        "bonus": 0,
-        "gmvLM": 4048.47,
-        "gmvPace": 10551.87,
-        "commPct": "12.10%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "michaelascott20",
-        "gmv": [
-          58095.8,
-          53520.77,
-          82040.03,
-          78863.88,
-          42925.06,
-          40941.49,
-          13626.18
-        ],
-        "tap": [
-          14535.9,
-          6750.78,
-          17779.09,
-          18378.39,
-          7570.38,
-          4742.66,
-          1513.99
-        ],
-        "comm": [
-          8657.01,
-          8549.32,
-          13072.22,
-          11326.65,
-          6061.9,
-          6284.22,
-          2077.23
-        ]
-      },
-      {
-        "handle": "michaelashops",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          2762.75,
-          4048.47,
-          3517.29
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          0,
-          0,
-          0,
-          0,
-          371.36,
-          473.9,
-          425.58
-        ]
-      }
-    ],
-    "tapHistory": [
-      14535.9,
-      6750.78,
-      17779.09,
-      18378.39,
-      7570.38,
-      4742.66,
-      1513.99
-    ],
-    "points": 26,
-    "totalGMV": 17143.47,
-    "totalComm": 2502.81,
-    "avgComm": 14.6,
-    "levelLabel": "L3",
-    "productRank": "37",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 2000,
-    "tapLM": 4742.66,
-    "tapGoalM": 10000,
-    "tapLQ": 74559.99,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 13014.77,
-    "totalSV": 8,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 2.42,
-    "totalViews": 994395,
-    "totalSold": 916,
-    "tapGMV": 1513.99,
-    "tapYTD": 156964.16,
-    "manager": "EMILEE",
-    "joined": "Nov 2024",
-    "tier": "Select",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 8,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 916,
-    "gmvPace": 40878.54,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      8657.01,
-      8549.32,
-      13072.22,
-      11326.65,
-      6433.259999999999,
-      6758.12,
-      2502.81
-    ],
-    "bonusHistory": [
-      1000,
       0,
       0,
       0,
@@ -5840,19 +5655,19 @@ const allShopData = [
         "tiktokLink": "https://www.tiktok.com/@chelsleebmoney",
         "sv": 109,
         "tap": 9,
-        "tapGMV": 1132.87,
+        "tapGMV": 1207.73,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.74%",
+        "ctr": "1.71%",
         "views": 0,
-        "sold": 203,
-        "gmv": 12468.15,
-        "commDollars": 1790.52,
+        "sold": 232,
+        "gmv": 14206.07,
+        "commDollars": 1980.86,
         "bonus": 0,
         "gmvLM": 46174.41,
-        "gmvPace": 37404.45,
-        "commPct": "14.36%",
+        "gmvPace": 38743.83,
+        "commPct": "13.94%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -5865,7 +5680,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.25%",
+        "ctr": "1.27%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -5888,7 +5703,7 @@ const allShopData = [
           52612.59,
           55139.83,
           46174.41,
-          12468.15
+          14206.07
         ],
         "tap": [
           10352.26,
@@ -5897,7 +5712,7 @@ const allShopData = [
           5573.09,
           9086.43,
           7366.35,
-          1132.87
+          1207.73
         ],
         "comm": [
           14935.61,
@@ -5906,7 +5721,7 @@ const allShopData = [
           6142.06,
           7028.76,
           6069.28,
-          1790.52
+          1980.86
         ]
       },
       {
@@ -5947,14 +5762,14 @@ const allShopData = [
       5573.09,
       9086.43,
       7366.35,
-      1132.87
+      1207.73
     ],
-    "points": 25,
-    "totalGMV": 12468.15,
-    "totalComm": 1790.52,
-    "avgComm": 14.36,
+    "points": 27,
+    "totalGMV": 14206.07,
+    "totalComm": 1980.86,
+    "avgComm": 13.94,
     "levelLabel": "L3",
-    "productRank": "38",
+    "productRank": "37",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 4450,
@@ -5962,15 +5777,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 40984.17,
     "tapGoalQ": 0,
-    "tapTotalTQ": 14568.5,
+    "tapTotalTQ": 14643.36,
     "totalSV": 120,
     "totalTaP": 9,
     "totalLS": 0,
-    "totalCTR": 1.5,
-    "totalViews": 432208,
-    "totalSold": 203,
-    "tapGMV": 1132.87,
-    "tapYTD": 132800.55,
+    "totalCTR": 1.49,
+    "totalViews": 500044,
+    "totalSold": 232,
+    "tapGMV": 1207.73,
+    "tapYTD": 132875.41,
     "manager": "EMILEE",
     "joined": "Sep 2025",
     "tier": "Select",
@@ -5984,8 +5799,8 @@ const allShopData = [
     "agg_tap": 9,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 203,
-    "gmvPace": 37404.45,
+    "agg_sold": 232,
+    "gmvPace": 38743.83,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -5993,7 +5808,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       14935.61,
@@ -6002,7 +5817,7 @@ const allShopData = [
       6142.06,
       7028.76,
       6069.28,
-      1790.52
+      1980.86
     ],
     "bonusHistory": [
       2250,
@@ -6015,95 +5830,95 @@ const allShopData = [
     ]
   },
   {
-    "username": "christysocials17@gmail.com",
-    "email": "christysocials17@gmail.com",
-    "name": "Christy Long",
+    "username": "michaelashaescott@gmail.com",
+    "email": "michaelashaescott@gmail.com",
+    "name": "Michaela Scott",
     "topLevel": "L3",
     "accounts": [
       {
-        "handle": "christylong40",
-        "tiktokLink": "https://www.tiktok.com/@christylong40",
-        "sv": 76,
+        "handle": "michaelascott20",
+        "tiktokLink": "https://www.tiktok.com/@michaelascott20",
+        "sv": 7,
         "tap": 0,
-        "tapGMV": 28,
-        "ls": 2,
+        "tapGMV": 1525.02,
+        "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.54%",
+        "ctr": "2.33%",
         "views": 0,
-        "sold": 310,
-        "gmv": 12373.47,
-        "commDollars": 1778.89,
+        "sold": 784,
+        "gmv": 15433.35,
+        "commDollars": 2420.92,
         "bonus": 0,
-        "gmvLM": 28331.83,
-        "gmvPace": 37120.41,
-        "commPct": "14.38%",
-        "tier": "Core",
+        "gmvLM": 40941.49,
+        "gmvPace": 42090.95,
+        "commPct": "15.69%",
+        "tier": "Select",
         "acctRank": 1
       },
       {
-        "handle": "aricandchristy",
-        "tiktokLink": "https://www.tiktok.com/@aricandchristy",
-        "sv": 16,
+        "handle": "michaelashops",
+        "tiktokLink": "https://www.tiktok.com/@michaelashops",
+        "sv": 1,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.15%",
+        "ctr": "2.57%",
         "views": 0,
-        "sold": 33,
-        "gmv": 2578.67,
-        "commDollars": 288.09,
+        "sold": 218,
+        "gmv": 3719.56,
+        "commDollars": 453.91,
         "bonus": 0,
-        "gmvLM": 8490.55,
-        "gmvPace": 7736.01,
-        "commPct": "11.17%",
-        "tier": "Core",
+        "gmvLM": 4048.47,
+        "gmvPace": 10144.25,
+        "commPct": "12.20%",
+        "tier": "Select",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "christylong40",
+        "handle": "michaelascott20",
         "gmv": [
-          40025.63,
-          57027.19,
-          52251.18,
-          39364.85,
-          35755.43,
-          28331.83,
-          12373.47
+          58095.8,
+          53520.77,
+          82040.03,
+          78863.88,
+          42925.06,
+          40941.49,
+          15433.35
         ],
         "tap": [
-          0,
-          0,
-          0,
-          0,
-          239.04,
-          217.18,
-          28
+          14535.9,
+          6750.78,
+          17779.09,
+          18378.39,
+          7570.38,
+          4742.66,
+          1525.02
         ],
         "comm": [
-          6991.25,
-          10074.06,
-          8567.37,
-          6775.8,
-          5404.07,
-          4415.78,
-          1778.89
+          8657.01,
+          8549.32,
+          13072.22,
+          11326.65,
+          6061.9,
+          6284.22,
+          2420.92
         ]
       },
       {
-        "handle": "aricandchristy",
+        "handle": "michaelashops",
         "gmv": [
-          8623.31,
-          2570.04,
-          3631.85,
-          6005.67,
-          4586.2,
-          8490.55,
-          2578.67
+          0,
+          0,
+          0,
+          0,
+          2762.75,
+          4048.47,
+          3719.56
         ],
         "tap": [
           0,
@@ -6115,62 +5930,62 @@ const allShopData = [
           0
         ],
         "comm": [
-          745.97,
-          160.7,
-          211.9,
-          532.48,
-          658.48,
-          1032.39,
-          288.09
+          0,
+          0,
+          0,
+          0,
+          371.36,
+          473.9,
+          453.91
         ]
       }
     ],
     "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      239.04,
-      217.18,
-      28
+      14535.9,
+      6750.78,
+      17779.09,
+      18378.39,
+      7570.38,
+      4742.66,
+      1525.02
     ],
-    "points": 23,
-    "totalGMV": 14952.14,
-    "totalComm": 2066.98,
-    "avgComm": 13.82,
+    "points": 27,
+    "totalGMV": 19152.91,
+    "totalComm": 2874.83,
+    "avgComm": 15.01,
     "levelLabel": "L3",
-    "productRank": "39",
+    "productRank": "38",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 1075,
-    "tapLM": 217.18,
+    "bonusYTD": 2000,
+    "tapLM": 4742.66,
     "tapGoalM": 10000,
-    "tapLQ": 22389.14,
+    "tapLQ": 74559.99,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5693.35,
-    "totalSV": 92,
+    "tapTotalTQ": 13025.8,
+    "totalSV": 8,
     "totalTaP": 0,
-    "totalLS": 2,
-    "totalCTR": 2.35,
-    "totalViews": 1054810,
-    "totalSold": 343,
-    "tapGMV": 28,
-    "tapYTD": 1677.68,
-    "manager": "Hotline",
-    "joined": "Mar 2025",
-    "tier": "Core",
+    "totalLS": 0,
+    "totalCTR": 2.45,
+    "totalViews": 1076460,
+    "totalSold": 1002,
+    "tapGMV": 1525.02,
+    "tapYTD": 156975.19,
+    "manager": "EMILEE",
+    "joined": "Nov 2024",
+    "tier": "Select",
     "accts": "2",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 92,
+    "agg_sv": 8,
     "agg_tap": 0,
-    "agg_ls": 2,
+    "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 343,
-    "gmvPace": 37120.41,
+    "agg_sold": 1002,
+    "gmvPace": 42090.95,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -6178,20 +5993,20 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      7737.22,
-      10234.76,
-      8779.27,
-      7308.280000000001,
-      6062.549999999999,
-      5448.17,
-      2066.98
+      8657.01,
+      8549.32,
+      13072.22,
+      11326.65,
+      6433.259999999999,
+      6758.12,
+      2874.83
     ],
     "bonusHistory": [
+      1000,
       0,
-      375,
       0,
       0,
       0,
@@ -6208,21 +6023,21 @@ const allShopData = [
       {
         "handle": "_karina.michelle",
         "tiktokLink": "https://www.tiktok.com/@_karina.michelle",
-        "sv": 106,
+        "sv": 111,
         "tap": 5,
-        "tapGMV": 669.98,
+        "tapGMV": 741.32,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.37%",
+        "ctr": "3.56%",
         "views": 0,
-        "sold": 1544,
-        "gmv": 69216.1,
-        "commDollars": 9298.87,
+        "sold": 1744,
+        "gmv": 79252.2,
+        "commDollars": 10744.12,
         "bonus": 0,
         "gmvLM": 184531.25,
-        "gmvPace": 207648.3,
-        "commPct": "13.43%",
+        "gmvPace": 216142.36,
+        "commPct": "13.56%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -6237,7 +6052,7 @@ const allShopData = [
           123151.89,
           123928.52,
           184531.25,
-          69216.1
+          79252.2
         ],
         "tap": [
           3247.42,
@@ -6246,7 +6061,7 @@ const allShopData = [
           4440.09,
           2463.94,
           3267.9,
-          669.98
+          741.32
         ],
         "comm": [
           8847.23,
@@ -6255,7 +6070,7 @@ const allShopData = [
           17826.9,
           20000.54,
           27604.86,
-          9298.87
+          10744.12
         ]
       }
     ],
@@ -6266,14 +6081,14 @@ const allShopData = [
       4440.09,
       2463.94,
       3267.9,
-      669.98
+      741.32
     ],
-    "points": 23,
-    "totalGMV": 69216.1,
-    "totalComm": 9298.87,
-    "avgComm": 13.43,
+    "points": 26,
+    "totalGMV": 79252.2,
+    "totalComm": 10744.12,
+    "avgComm": 13.56,
     "levelLabel": "L5",
-    "productRank": "40",
+    "productRank": "39",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 2375,
@@ -6281,15 +6096,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 59958.46,
     "tapGoalQ": 0,
-    "tapTotalTQ": 31542.74,
-    "totalSV": 106,
+    "tapTotalTQ": 31614.08,
+    "totalSV": 111,
     "totalTaP": 5,
     "totalLS": 0,
-    "totalCTR": 3.37,
-    "totalViews": 3056188,
-    "totalSold": 1544,
-    "tapGMV": 669.98,
-    "tapYTD": 22990.41,
+    "totalCTR": 3.56,
+    "totalViews": 3345618,
+    "totalSold": 1744,
+    "tapGMV": 741.32,
+    "tapYTD": 23061.75,
     "manager": "Hotline",
     "joined": "Jun 2025",
     "tier": "Select",
@@ -6299,12 +6114,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 106,
+    "agg_sv": 111,
     "agg_tap": 5,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1544,
-    "gmvPace": 207648.3,
+    "agg_sold": 1744,
+    "gmvPace": 216142.36,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -6312,7 +6127,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       8847.23,
@@ -6321,7 +6136,7 @@ const allShopData = [
       17826.9,
       20000.54,
       27604.86,
-      9298.87
+      10744.12
     ],
     "bonusHistory": [
       0,
@@ -6342,21 +6157,21 @@ const allShopData = [
       {
         "handle": "baileyyoliverr",
         "tiktokLink": "https://www.tiktok.com/@baileyyoliverr",
-        "sv": 94,
+        "sv": 104,
         "tap": 0,
-        "tapGMV": 1088.56,
+        "tapGMV": 1215.29,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.76%",
+        "ctr": "2.86%",
         "views": 0,
-        "sold": 1149,
-        "gmv": 39651.38,
-        "commDollars": 5074.85,
+        "sold": 1309,
+        "gmv": 43941.42,
+        "commDollars": 5723.29,
         "bonus": 0,
         "gmvLM": 126937.53,
-        "gmvPace": 118954.14,
-        "commPct": "12.80%",
+        "gmvPace": 119840.24,
+        "commPct": "13.02%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -6371,7 +6186,7 @@ const allShopData = [
           88650.47,
           99174.69,
           126937.53,
-          39651.38
+          43941.42
         ],
         "tap": [
           1013.23,
@@ -6380,7 +6195,7 @@ const allShopData = [
           6130.02,
           3479.57,
           3554.12,
-          1088.56
+          1215.29
         ],
         "comm": [
           6573.57,
@@ -6389,7 +6204,7 @@ const allShopData = [
           10734.52,
           11918.18,
           15986.39,
-          5074.85
+          5723.29
         ]
       }
     ],
@@ -6400,14 +6215,14 @@ const allShopData = [
       6130.02,
       3479.57,
       3554.12,
-      1088.56
+      1215.29
     ],
-    "points": 22,
-    "totalGMV": 39651.38,
-    "totalComm": 5074.85,
-    "avgComm": 12.8,
+    "points": 25,
+    "totalGMV": 43941.42,
+    "totalComm": 5723.29,
+    "avgComm": 13.02,
     "levelLabel": "L4",
-    "productRank": "41",
+    "productRank": "40",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 500,
@@ -6415,15 +6230,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 45846.99,
     "tapGoalQ": 0,
-    "tapTotalTQ": 20629.07,
-    "totalSV": 94,
+    "tapTotalTQ": 20755.8,
+    "totalSV": 104,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.76,
-    "totalViews": 1039335,
-    "totalSold": 1149,
-    "tapGMV": 1088.56,
-    "tapYTD": 30980.33,
+    "totalCTR": 2.86,
+    "totalViews": 1151346,
+    "totalSold": 1309,
+    "tapGMV": 1215.29,
+    "tapYTD": 31107.06,
     "manager": "EMILEE",
     "joined": "Oct 2025",
     "tier": "VIP",
@@ -6433,12 +6248,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 94,
+    "agg_sv": 104,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1149,
-    "gmvPace": 118954.14,
+    "agg_sold": 1309,
+    "gmvPace": 119840.24,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -6446,7 +6261,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       6573.57,
@@ -6455,11 +6270,330 @@ const allShopData = [
       10734.52,
       11918.18,
       15986.39,
-      5074.85
+      5723.29
     ],
     "bonusHistory": [
       0,
       0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "colleen@elementalsocials.com",
+    "email": "colleen@elementalsocials.com",
+    "name": "Colleen Fusco",
+    "topLevel": "L2",
+    "accounts": [
+      {
+        "handle": "colleen_fusco",
+        "tiktokLink": "https://www.tiktok.com/@colleen_fusco",
+        "sv": 17,
+        "tap": 0,
+        "tapGMV": 970.44,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.29%",
+        "views": 0,
+        "sold": 335,
+        "gmv": 7608.8,
+        "commDollars": 1433.55,
+        "bonus": 0,
+        "gmvLM": 14700.93,
+        "gmvPace": 20751.27,
+        "commPct": "18.84%",
+        "tier": "Talent",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "colleen_fusco",
+        "gmv": [
+          40949.17,
+          69999.12,
+          40589.11,
+          20337.9,
+          11551.74,
+          14700.93,
+          7608.8
+        ],
+        "tap": [
+          9373.97,
+          40955.74,
+          5016.92,
+          4193.58,
+          2501.03,
+          2541.21,
+          970.44
+        ],
+        "comm": [
+          8583.85,
+          16350.16,
+          7545.56,
+          3254.27,
+          2033.55,
+          2893.75,
+          1433.55
+        ]
+      }
+    ],
+    "tapHistory": [
+      9373.97,
+      40955.74,
+      5016.92,
+      4193.58,
+      2501.03,
+      2541.21,
+      970.44
+    ],
+    "points": 25,
+    "totalGMV": 7608.8,
+    "totalComm": 1433.55,
+    "avgComm": 18.84,
+    "levelLabel": "L2",
+    "productRank": "41",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 500,
+    "tapLM": 2541.21,
+    "tapGoalM": 10000,
+    "tapLQ": 24544.91,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 6405.4,
+    "totalSV": 17,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 3.29,
+    "totalViews": 326105,
+    "totalSold": 335,
+    "tapGMV": 970.44,
+    "tapYTD": 134617.96,
+    "manager": "EMILEE",
+    "joined": "Jan 2024",
+    "tier": "Talent",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 17,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 335,
+    "gmvPace": 20751.27,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      8583.85,
+      16350.16,
+      7545.56,
+      3254.27,
+      2033.55,
+      2893.75,
+      1433.55
+    ],
+    "bonusHistory": [
+      0,
+      500,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "christysocials17@gmail.com",
+    "email": "christysocials17@gmail.com",
+    "name": "Christy Long",
+    "topLevel": "L3",
+    "accounts": [
+      {
+        "handle": "christylong40",
+        "tiktokLink": "https://www.tiktok.com/@christylong40",
+        "sv": 86,
+        "tap": 0,
+        "tapGMV": 28,
+        "ls": 2,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.52%",
+        "views": 0,
+        "sold": 344,
+        "gmv": 13689.07,
+        "commDollars": 1983.22,
+        "bonus": 0,
+        "gmvLM": 28331.83,
+        "gmvPace": 37333.83,
+        "commPct": "14.49%",
+        "tier": "Core",
+        "acctRank": 1
+      },
+      {
+        "handle": "aricandchristy",
+        "tiktokLink": "https://www.tiktok.com/@aricandchristy",
+        "sv": 18,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.16%",
+        "views": 0,
+        "sold": 38,
+        "gmv": 2819.44,
+        "commDollars": 315.43,
+        "bonus": 0,
+        "gmvLM": 8490.55,
+        "gmvPace": 7689.38,
+        "commPct": "11.19%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "christylong40",
+        "gmv": [
+          40025.63,
+          57027.19,
+          52251.18,
+          39364.85,
+          35755.43,
+          28331.83,
+          13689.07
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          239.04,
+          217.18,
+          28
+        ],
+        "comm": [
+          6991.25,
+          10074.06,
+          8567.37,
+          6775.8,
+          5404.07,
+          4415.78,
+          1983.22
+        ]
+      },
+      {
+        "handle": "aricandchristy",
+        "gmv": [
+          8623.31,
+          2570.04,
+          3631.85,
+          6005.67,
+          4586.2,
+          8490.55,
+          2819.44
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          745.97,
+          160.7,
+          211.9,
+          532.48,
+          658.48,
+          1032.39,
+          315.43
+        ]
+      }
+    ],
+    "tapHistory": [
+      0,
+      0,
+      0,
+      0,
+      239.04,
+      217.18,
+      28
+    ],
+    "points": 23,
+    "totalGMV": 16508.51,
+    "totalComm": 2298.65,
+    "avgComm": 13.92,
+    "levelLabel": "L3",
+    "productRank": "42",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 1075,
+    "tapLM": 217.18,
+    "tapGoalM": 10000,
+    "tapLQ": 22389.14,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 5693.35,
+    "totalSV": 104,
+    "totalTaP": 0,
+    "totalLS": 2,
+    "totalCTR": 2.34,
+    "totalViews": 1183116,
+    "totalSold": 382,
+    "tapGMV": 28,
+    "tapYTD": 1677.68,
+    "manager": "Hotline",
+    "joined": "Mar 2025",
+    "tier": "Core",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 104,
+    "agg_tap": 0,
+    "agg_ls": 2,
+    "agg_views": 0,
+    "agg_sold": 382,
+    "gmvPace": 37333.83,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      7737.22,
+      10234.76,
+      8779.27,
+      7308.280000000001,
+      6062.549999999999,
+      5448.17,
+      2298.65
+    ],
+    "bonusHistory": [
+      0,
+      375,
       0,
       0,
       0,
@@ -6476,42 +6610,42 @@ const allShopData = [
       {
         "handle": "ashleyorganic",
         "tiktokLink": "https://www.tiktok.com/@ashleyorganic",
-        "sv": 84,
+        "sv": 94,
         "tap": 0,
         "tapGMV": 159.99,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.05%",
+        "ctr": "4.03%",
         "views": 0,
-        "sold": 288,
-        "gmv": 24548.3,
-        "commDollars": 2591.05,
+        "sold": 318,
+        "gmv": 26375.72,
+        "commDollars": 2810.36,
         "bonus": 0,
         "gmvLM": 86535.43,
-        "gmvPace": 73644.9,
-        "commPct": "10.55%",
+        "gmvPace": 71933.78,
+        "commPct": "10.66%",
         "tier": "Select",
         "acctRank": 1
       },
       {
         "handle": "ashleyorganicedits",
         "tiktokLink": "https://www.tiktok.com/@ashleyorganicedits",
-        "sv": 40,
+        "sv": 46,
         "tap": 0,
         "tapGMV": 565.93,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.87%",
+        "ctr": "2.92%",
         "views": 0,
-        "sold": 352,
-        "gmv": 11472.19,
-        "commDollars": 1779.41,
+        "sold": 457,
+        "gmv": 12482.77,
+        "commDollars": 1890.99,
         "bonus": 0,
         "gmvLM": 39537.5,
-        "gmvPace": 34416.57,
-        "commPct": "15.51%",
+        "gmvPace": 34043.92,
+        "commPct": "15.15%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -6526,7 +6660,7 @@ const allShopData = [
           115014.73,
           104440.58,
           86535.43,
-          24548.3
+          26375.72
         ],
         "tap": [
           2146.78,
@@ -6544,7 +6678,7 @@ const allShopData = [
           12363.6,
           11970.37,
           9662.93,
-          2591.05
+          2810.36
         ]
       },
       {
@@ -6556,7 +6690,7 @@ const allShopData = [
           41137.67,
           35160.25,
           39537.5,
-          11472.19
+          12482.77
         ],
         "tap": [
           1114.35,
@@ -6574,7 +6708,7 @@ const allShopData = [
           5993.97,
           5194.92,
           6363.2,
-          1779.41
+          1890.99
         ]
       }
     ],
@@ -6588,11 +6722,11 @@ const allShopData = [
       725.92
     ],
     "points": 20,
-    "totalGMV": 36020.49,
-    "totalComm": 4370.46,
-    "avgComm": 12.13,
+    "totalGMV": 38858.49,
+    "totalComm": 4701.35,
+    "avgComm": 12.1,
     "levelLabel": "L4",
-    "productRank": "42",
+    "productRank": "43",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 5150,
@@ -6601,12 +6735,12 @@ const allShopData = [
     "tapLQ": 66864.84,
     "tapGoalQ": 0,
     "tapTotalTQ": 20243.55,
-    "totalSV": 124,
+    "totalSV": 140,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.46,
-    "totalViews": 606676,
-    "totalSold": 640,
+    "totalCTR": 3.48,
+    "totalViews": 691590,
+    "totalSold": 775,
     "tapGMV": 725.92,
     "tapYTD": 42646.82,
     "manager": "EMILEE",
@@ -6618,12 +6752,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 124,
+    "agg_sv": 140,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 640,
-    "gmvPace": 73644.9,
+    "agg_sold": 775,
+    "gmvPace": 71933.78,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -6631,7 +6765,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       15448.34,
@@ -6640,7 +6774,7 @@ const allShopData = [
       18357.57,
       17165.29,
       16026.130000000001,
-      4370.46
+      4701.35
     ],
     "bonusHistory": [
       0,
@@ -6653,140 +6787,6 @@ const allShopData = [
     ]
   },
   {
-    "username": "colleen@elementalsocials.com",
-    "email": "colleen@elementalsocials.com",
-    "name": "Colleen Fusco",
-    "topLevel": "L2",
-    "accounts": [
-      {
-        "handle": "colleen_fusco",
-        "tiktokLink": "https://www.tiktok.com/@colleen_fusco",
-        "sv": 15,
-        "tap": 0,
-        "tapGMV": 791.62,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.23%",
-        "views": 0,
-        "sold": 307,
-        "gmv": 7097.25,
-        "commDollars": 1336.8,
-        "bonus": 0,
-        "gmvLM": 14700.93,
-        "gmvPace": 21291.75,
-        "commPct": "18.84%",
-        "tier": "Talent",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "colleen_fusco",
-        "gmv": [
-          40949.17,
-          69999.12,
-          40589.11,
-          20337.9,
-          11551.74,
-          14700.93,
-          7097.25
-        ],
-        "tap": [
-          9373.97,
-          40955.74,
-          5016.92,
-          4193.58,
-          2501.03,
-          2541.21,
-          791.62
-        ],
-        "comm": [
-          8583.85,
-          16350.16,
-          7545.56,
-          3254.27,
-          2033.55,
-          2893.75,
-          1336.8
-        ]
-      }
-    ],
-    "tapHistory": [
-      9373.97,
-      40955.74,
-      5016.92,
-      4193.58,
-      2501.03,
-      2541.21,
-      791.62
-    ],
-    "points": 20,
-    "totalGMV": 7097.25,
-    "totalComm": 1336.8,
-    "avgComm": 18.84,
-    "levelLabel": "L2",
-    "productRank": "43",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 500,
-    "tapLM": 2541.21,
-    "tapGoalM": 10000,
-    "tapLQ": 24544.91,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 6226.58,
-    "totalSV": 15,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.23,
-    "totalViews": 300885,
-    "totalSold": 307,
-    "tapGMV": 791.62,
-    "tapYTD": 134439.14,
-    "manager": "EMILEE",
-    "joined": "Jan 2024",
-    "tier": "Talent",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 15,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 307,
-    "gmvPace": 21291.75,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      8583.85,
-      16350.16,
-      7545.56,
-      3254.27,
-      2033.55,
-      2893.75,
-      1336.8
-    ],
-    "bonusHistory": [
-      0,
-      500,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
     "username": "ugcbyanastasiya@gmail.com",
     "email": "ugcbyanastasiya@gmail.com",
     "name": "Anastasiya Raylyanu",
@@ -6795,21 +6795,21 @@ const allShopData = [
       {
         "handle": "anastasiya_ray",
         "tiktokLink": "https://www.tiktok.com/@anastasiya_ray",
-        "sv": 228,
+        "sv": 258,
         "tap": 0,
-        "tapGMV": 697.67,
+        "tapGMV": 754.66,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.53%",
+        "ctr": "2.54%",
         "views": 0,
-        "sold": 3837,
-        "gmv": 140522.18,
-        "commDollars": 17459.38,
+        "sold": 4208,
+        "gmv": 153456.88,
+        "commDollars": 19112.82,
         "bonus": 0,
         "gmvLM": 309306.35,
-        "gmvPace": 421566.54,
-        "commPct": "12.42%",
+        "gmvPace": 418518.76,
+        "commPct": "12.45%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -6822,15 +6822,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.04%",
+        "ctr": "2.10%",
         "views": 0,
-        "sold": 66,
-        "gmv": 3700.24,
-        "commDollars": 346.3,
+        "sold": 69,
+        "gmv": 4002.87,
+        "commDollars": 372.9,
         "bonus": 0,
         "gmvLM": 8404.07,
-        "gmvPace": 11100.72,
-        "commPct": "9.36%",
+        "gmvPace": 10916.92,
+        "commPct": "9.32%",
         "tier": "Select+",
         "acctRank": 1
       },
@@ -6843,14 +6843,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.73%",
+        "ctr": "1.98%",
         "views": 0,
         "sold": 21,
         "gmv": 552.76,
         "commDollars": 108.27,
         "bonus": 0,
         "gmvLM": 2490.92,
-        "gmvPace": 1658.28,
+        "gmvPace": 1507.53,
         "commPct": "19.59%",
         "tier": "Select+",
         "acctRank": 1
@@ -6866,7 +6866,7 @@ const allShopData = [
           61603.03,
           202976.81,
           309306.35,
-          140522.18
+          153456.88
         ],
         "tap": [
           3932.34,
@@ -6875,7 +6875,7 @@ const allShopData = [
           2246.97,
           1510.81,
           1767.8,
-          697.67
+          754.66
         ],
         "comm": [
           4170.28,
@@ -6884,7 +6884,7 @@ const allShopData = [
           7147.16,
           24364.69,
           36403.81,
-          17459.38
+          19112.82
         ]
       },
       {
@@ -6926,7 +6926,7 @@ const allShopData = [
           13756.36,
           10106.82,
           8404.07,
-          3700.24
+          4002.87
         ],
         "tap": [
           0,
@@ -6944,7 +6944,7 @@ const allShopData = [
           1065.1,
           860.27,
           717.04,
-          346.3
+          372.9
         ]
       }
     ],
@@ -6955,12 +6955,12 @@ const allShopData = [
       2737.6899999999996,
       1510.81,
       1899.22,
-      791.67
+      848.66
     ],
-    "points": 18,
-    "totalGMV": 144775.18,
-    "totalComm": 17913.95,
-    "avgComm": 12.37,
+    "points": 19,
+    "totalGMV": 158012.51,
+    "totalComm": 19593.99,
+    "avgComm": 12.4,
     "levelLabel": "L5",
     "productRank": "44",
     "cashBonus": 0,
@@ -6970,15 +6970,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 48247.11,
     "tapGoalQ": 0,
-    "tapTotalTQ": 40234.58,
-    "totalSV": 228,
+    "tapTotalTQ": 40291.57,
+    "totalSV": 258,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.1,
-    "totalViews": 4416763,
-    "totalSold": 3924,
-    "tapGMV": 791.67,
-    "tapYTD": 37913.96,
+    "totalCTR": 2.21,
+    "totalViews": 4814652,
+    "totalSold": 4298,
+    "tapGMV": 848.66,
+    "tapYTD": 37970.95,
     "manager": "Hotline",
     "joined": "Oct 2024",
     "tier": "Select+",
@@ -6988,12 +6988,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 228,
+    "agg_sv": 258,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 3924,
-    "gmvPace": 421566.54,
+    "agg_sold": 4298,
+    "gmvPace": 418518.76,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -7001,7 +7001,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       6128.589999999999,
@@ -7010,326 +7010,7 @@ const allShopData = [
       8864.28,
       25736.37,
       37543.689999999995,
-      17913.95
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "southernlakemom@gmail.com",
-    "email": "southernlakemom@gmail.com",
-    "name": "Melannie Jantzen",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "southernlakemom",
-        "tiktokLink": "https://www.tiktok.com/@southernlakemom",
-        "sv": 63,
-        "tap": 0,
-        "tapGMV": 530.06,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "4.02%",
-        "views": 0,
-        "sold": 1401,
-        "gmv": 46575.98,
-        "commDollars": 5530.06,
-        "bonus": 0,
-        "gmvLM": 181398.78,
-        "gmvPace": 139727.94,
-        "commPct": "11.87%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "southernlakemom",
-        "gmv": [
-          244270.86,
-          163035.6,
-          166256.86,
-          160610.35,
-          171242.47,
-          181398.78,
-          46575.98
-        ],
-        "tap": [
-          51.79,
-          0,
-          54.95,
-          0,
-          518.46,
-          764.43,
-          530.06
-        ],
-        "comm": [
-          31269.48,
-          19836.3,
-          20675.13,
-          19685.7,
-          20274.88,
-          21976.47,
-          5530.06
-        ]
-      }
-    ],
-    "tapHistory": [
-      51.79,
-      0,
-      54.95,
-      0,
-      518.46,
-      764.43,
-      530.06
-    ],
-    "points": 16,
-    "totalGMV": 46575.98,
-    "totalComm": 5530.06,
-    "avgComm": 11.87,
-    "levelLabel": "L5",
-    "productRank": "45",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 625,
-    "tapLM": 764.43,
-    "tapGoalM": 10000,
-    "tapLQ": 61609.12,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 23270.96,
-    "totalSV": 63,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 4.02,
-    "totalViews": 693059,
-    "totalSold": 1401,
-    "tapGMV": 530.06,
-    "tapYTD": 3182.2,
-    "manager": "Hotline",
-    "joined": "Sep 2025",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 63,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 1401,
-    "gmvPace": 139727.94,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      31269.48,
-      19836.3,
-      20675.13,
-      19685.7,
-      20274.88,
-      21976.47,
-      5530.06
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      400,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "kristinadunn711@gmail.com",
-    "email": "kristinadunn711@gmail.com",
-    "name": "Kristina Dunn",
-    "topLevel": "L5",
-    "accounts": [
-      {
-        "handle": "kristinadunnn",
-        "tiktokLink": "https://www.tiktok.com/@kristinadunnn",
-        "sv": 61,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "1.94%",
-        "views": 0,
-        "sold": 1063,
-        "gmv": 35927.66,
-        "commDollars": 4993.36,
-        "bonus": 0,
-        "gmvLM": 178197.47,
-        "gmvPace": 107782.98,
-        "commPct": "13.90%",
-        "tier": "Select",
-        "acctRank": 1
-      },
-      {
-        "handle": "kristinanicoletall",
-        "tiktokLink": "https://www.tiktok.com/@kristinanicoletall",
-        "sv": 67,
-        "tap": 0,
-        "tapGMV": 211.77,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.34%",
-        "views": 0,
-        "sold": 1683,
-        "gmv": 57918.61,
-        "commDollars": 9138.39,
-        "bonus": 0,
-        "gmvLM": 173376.86,
-        "gmvPace": 173755.83,
-        "commPct": "15.78%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "kristinadunnn",
-        "gmv": [
-          130425.38,
-          149069.75,
-          133398.34,
-          129247.42,
-          142757.23,
-          178197.47,
-          35927.66
-        ],
-        "tap": [
-          208.44,
-          370.41,
-          384.67,
-          133.99,
-          0,
-          65.27,
-          0
-        ],
-        "comm": [
-          16522.45,
-          23277.17,
-          20508.65,
-          17601.15,
-          19291.36,
-          26680.35,
-          4993.36
-        ]
-      },
-      {
-        "handle": "kristinanicoletall",
-        "gmv": [
-          233583.08,
-          313015.17,
-          178578.56,
-          163590.48,
-          163377.8,
-          173376.86,
-          57918.61
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          229.94,
-          503.06,
-          211.77
-        ],
-        "comm": [
-          32742.87,
-          48923.7,
-          27693.77,
-          24214.98,
-          23631.68,
-          27314.2,
-          9138.39
-        ]
-      }
-    ],
-    "tapHistory": [
-      208.44,
-      370.41,
-      384.67,
-      133.99,
-      229.94,
-      568.33,
-      211.77
-    ],
-    "points": 15,
-    "totalGMV": 93846.27,
-    "totalComm": 14131.75,
-    "avgComm": 15.06,
-    "levelLabel": "L5",
-    "productRank": "46",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 300,
-    "tapLM": 568.33,
-    "tapGoalM": 10000,
-    "tapLQ": 133690.19,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 54774.65,
-    "totalSV": 128,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 2.14,
-    "totalViews": 3954689,
-    "totalSold": 2746,
-    "tapGMV": 211.77,
-    "tapYTD": 7535.88,
-    "manager": "Hotline",
-    "joined": "May 2024",
-    "tier": "Select",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 128,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 2746,
-    "gmvPace": 107782.98,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      49265.32,
-      72200.87,
-      48202.42,
-      41816.130000000005,
-      42923.04,
-      53994.55,
-      14131.75
+      19593.99
     ],
     "bonusHistory": [
       0,
@@ -7350,21 +7031,21 @@ const allShopData = [
       {
         "handle": "hanaisfinechina",
         "tiktokLink": "https://www.tiktok.com/@hanaisfinechina",
-        "sv": 8,
+        "sv": 11,
         "tap": 0,
-        "tapGMV": 546.83,
+        "tapGMV": 686.77,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.08%",
+        "ctr": "3.12%",
         "views": 0,
-        "sold": 402,
-        "gmv": 11677.64,
-        "commDollars": 1530.66,
+        "sold": 460,
+        "gmv": 13059.63,
+        "commDollars": 1715.66,
         "bonus": 0,
         "gmvLM": 57808.23,
-        "gmvPace": 35032.92,
-        "commPct": "13.11%",
+        "gmvPace": 35617.17,
+        "commPct": "13.14%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -7400,7 +7081,7 @@ const allShopData = [
           64936.71,
           61876.05,
           57808.23,
-          11677.64
+          13059.63
         ],
         "tap": [
           7005.76,
@@ -7409,7 +7090,7 @@ const allShopData = [
           3393.25,
           1802.17,
           3642.77,
-          546.83
+          686.77
         ],
         "comm": [
           4972.86,
@@ -7418,7 +7099,7 @@ const allShopData = [
           7680.42,
           7871.91,
           7596.17,
-          1530.66
+          1715.66
         ]
       },
       {
@@ -7459,14 +7140,14 @@ const allShopData = [
       3393.25,
       1802.17,
       3642.77,
-      546.83
+      686.77
     ],
-    "points": 13,
-    "totalGMV": 11677.64,
-    "totalComm": 1530.66,
-    "avgComm": 13.11,
+    "points": 16,
+    "totalGMV": 13059.63,
+    "totalComm": 1715.66,
+    "avgComm": 13.14,
     "levelLabel": "L3",
-    "productRank": "47",
+    "productRank": "45",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 825,
@@ -7474,15 +7155,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 32175.67,
     "tapGoalQ": 0,
-    "tapTotalTQ": 11785.77,
-    "totalSV": 8,
+    "tapTotalTQ": 11925.71,
+    "totalSV": 11,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.54,
-    "totalViews": 280737,
-    "totalSold": 402,
-    "tapGMV": 546.83,
-    "tapYTD": 85697.81,
+    "totalCTR": 1.56,
+    "totalViews": 305403,
+    "totalSold": 460,
+    "tapGMV": 686.77,
+    "tapYTD": 85837.75,
     "manager": "EMILEE",
     "joined": "Nov 2024",
     "tier": "Talent",
@@ -7492,12 +7173,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 8,
+    "agg_sv": 11,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 402,
-    "gmvPace": 35032.92,
+    "agg_sold": 460,
+    "gmvPace": 35617.17,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -7505,7 +7186,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       4972.86,
@@ -7514,10 +7195,329 @@ const allShopData = [
       7680.42,
       7871.91,
       7596.17,
-      1530.66
+      1715.66
     ],
     "bonusHistory": [
       825,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "southernlakemom@gmail.com",
+    "email": "southernlakemom@gmail.com",
+    "name": "Melannie Jantzen",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "southernlakemom",
+        "tiktokLink": "https://www.tiktok.com/@southernlakemom",
+        "sv": 72,
+        "tap": 0,
+        "tapGMV": 530.06,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "4.01%",
+        "views": 0,
+        "sold": 1579,
+        "gmv": 53031.66,
+        "commDollars": 6301.92,
+        "bonus": 0,
+        "gmvLM": 181398.78,
+        "gmvPace": 144631.8,
+        "commPct": "11.88%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "southernlakemom",
+        "gmv": [
+          244270.86,
+          163035.6,
+          166256.86,
+          160610.35,
+          171242.47,
+          181398.78,
+          53031.66
+        ],
+        "tap": [
+          51.79,
+          0,
+          54.95,
+          0,
+          518.46,
+          764.43,
+          530.06
+        ],
+        "comm": [
+          31269.48,
+          19836.3,
+          20675.13,
+          19685.7,
+          20274.88,
+          21976.47,
+          6301.92
+        ]
+      }
+    ],
+    "tapHistory": [
+      51.79,
+      0,
+      54.95,
+      0,
+      518.46,
+      764.43,
+      530.06
+    ],
+    "points": 16,
+    "totalGMV": 53031.66,
+    "totalComm": 6301.92,
+    "avgComm": 11.88,
+    "levelLabel": "L5",
+    "productRank": "46",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 625,
+    "tapLM": 764.43,
+    "tapGoalM": 10000,
+    "tapLQ": 61609.12,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 23270.96,
+    "totalSV": 72,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 4.01,
+    "totalViews": 788334,
+    "totalSold": 1579,
+    "tapGMV": 530.06,
+    "tapYTD": 3182.2,
+    "manager": "Hotline",
+    "joined": "Sep 2025",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 72,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 1579,
+    "gmvPace": 144631.8,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      31269.48,
+      19836.3,
+      20675.13,
+      19685.7,
+      20274.88,
+      21976.47,
+      6301.92
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      400,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "kristinadunn711@gmail.com",
+    "email": "kristinadunn711@gmail.com",
+    "name": "Kristina Dunn",
+    "topLevel": "L5",
+    "accounts": [
+      {
+        "handle": "kristinadunnn",
+        "tiktokLink": "https://www.tiktok.com/@kristinadunnn",
+        "sv": 69,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.95%",
+        "views": 0,
+        "sold": 1167,
+        "gmv": 39583.83,
+        "commDollars": 5514.66,
+        "bonus": 0,
+        "gmvLM": 178197.47,
+        "gmvPace": 107955.9,
+        "commPct": "13.93%",
+        "tier": "Select",
+        "acctRank": 1
+      },
+      {
+        "handle": "kristinanicoletall",
+        "tiktokLink": "https://www.tiktok.com/@kristinanicoletall",
+        "sv": 77,
+        "tap": 0,
+        "tapGMV": 222.76,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.35%",
+        "views": 0,
+        "sold": 1844,
+        "gmv": 63149.36,
+        "commDollars": 10035.63,
+        "bonus": 0,
+        "gmvLM": 173376.86,
+        "gmvPace": 172225.53,
+        "commPct": "15.89%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "kristinadunnn",
+        "gmv": [
+          130425.38,
+          149069.75,
+          133398.34,
+          129247.42,
+          142757.23,
+          178197.47,
+          39583.83
+        ],
+        "tap": [
+          208.44,
+          370.41,
+          384.67,
+          133.99,
+          0,
+          65.27,
+          0
+        ],
+        "comm": [
+          16522.45,
+          23277.17,
+          20508.65,
+          17601.15,
+          19291.36,
+          26680.35,
+          5514.66
+        ]
+      },
+      {
+        "handle": "kristinanicoletall",
+        "gmv": [
+          233583.08,
+          313015.17,
+          178578.56,
+          163590.48,
+          163377.8,
+          173376.86,
+          63149.36
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          229.94,
+          503.06,
+          222.76
+        ],
+        "comm": [
+          32742.87,
+          48923.7,
+          27693.77,
+          24214.98,
+          23631.68,
+          27314.2,
+          10035.63
+        ]
+      }
+    ],
+    "tapHistory": [
+      208.44,
+      370.41,
+      384.67,
+      133.99,
+      229.94,
+      568.33,
+      222.76
+    ],
+    "points": 15,
+    "totalGMV": 102733.19,
+    "totalComm": 15550.29,
+    "avgComm": 15.14,
+    "levelLabel": "L5",
+    "productRank": "47",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 300,
+    "tapLM": 568.33,
+    "tapGoalM": 10000,
+    "tapLQ": 133690.19,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 54785.64,
+    "totalSV": 146,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 2.15,
+    "totalViews": 4252951,
+    "totalSold": 3011,
+    "tapGMV": 222.76,
+    "tapYTD": 7546.87,
+    "manager": "Hotline",
+    "joined": "May 2024",
+    "tier": "Select",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 146,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 3011,
+    "gmvPace": 107955.9,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      49265.32,
+      72200.87,
+      48202.42,
+      41816.130000000005,
+      42923.04,
+      53994.55,
+      15550.289999999999
+    ],
+    "bonusHistory": [
+      0,
       0,
       0,
       0,
@@ -7535,41 +7535,41 @@ const allShopData = [
       {
         "handle": "kylikamiller44",
         "tiktokLink": "https://www.tiktok.com/@kylikamiller44",
-        "sv": 47,
-        "tap": 13,
-        "tapGMV": 483.27,
+        "sv": 56,
+        "tap": 15,
+        "tapGMV": 507.82,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.00%",
+        "ctr": "4.97%",
         "views": 0,
-        "sold": 698,
-        "gmv": 34390.58,
-        "commDollars": 5390.27,
+        "sold": 766,
+        "gmv": 37388.26,
+        "commDollars": 5805.58,
         "bonus": 0,
         "gmvLM": 77014.23,
-        "gmvPace": 103171.74,
-        "commPct": "15.67%",
+        "gmvPace": 101967.98,
+        "commPct": "15.53%",
         "tier": "Select+",
         "acctRank": 1
       },
       {
         "handle": "kindafitky",
         "tiktokLink": "https://www.tiktok.com/@kindafitky",
-        "sv": 3,
+        "sv": 4,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.29%",
+        "ctr": "2.18%",
         "views": 0,
         "sold": 0,
         "gmv": 17.33,
         "commDollars": 2.61,
         "bonus": 0,
         "gmvLM": 727.81,
-        "gmvPace": 51.99,
+        "gmvPace": 47.26,
         "commPct": "15.06%",
         "tier": "Select+",
         "acctRank": 1
@@ -7585,7 +7585,7 @@ const allShopData = [
           62968.49,
           81855.91,
           77014.23,
-          34390.58
+          37388.26
         ],
         "tap": [
           33980.81,
@@ -7594,7 +7594,7 @@ const allShopData = [
           5010.44,
           2214.65,
           1777.7,
-          483.27
+          507.82
         ],
         "comm": [
           9908.88,
@@ -7603,7 +7603,7 @@ const allShopData = [
           5909,
           8020.11,
           7732.7,
-          5390.27
+          5805.58
         ]
       },
       {
@@ -7644,12 +7644,12 @@ const allShopData = [
       5010.44,
       2214.65,
       1777.7,
-      483.27
+      507.82
     ],
-    "points": 13,
-    "totalGMV": 34407.91,
-    "totalComm": 5392.88,
-    "avgComm": 15.67,
+    "points": 14,
+    "totalGMV": 37405.59,
+    "totalComm": 5808.19,
+    "avgComm": 15.53,
     "levelLabel": "L4",
     "productRank": "48",
     "cashBonus": 0,
@@ -7659,15 +7659,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 44130.12,
     "tapGoalQ": 0,
-    "tapTotalTQ": 10045.18,
-    "totalSV": 50,
-    "totalTaP": 13,
+    "tapTotalTQ": 10069.73,
+    "totalSV": 60,
+    "totalTaP": 15,
     "totalLS": 0,
-    "totalCTR": 3.65,
-    "totalViews": 934295,
-    "totalSold": 698,
-    "tapGMV": 483.27,
-    "tapYTD": 230295.23,
+    "totalCTR": 3.58,
+    "totalViews": 1011070,
+    "totalSold": 766,
+    "tapGMV": 507.82,
+    "tapYTD": 230319.78,
     "manager": "EMILEE",
     "joined": "Aug 2024",
     "tier": "Select+",
@@ -7677,12 +7677,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 50,
-    "agg_tap": 13,
+    "agg_sv": 60,
+    "agg_tap": 15,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 698,
-    "gmvPace": 103171.74,
+    "agg_sold": 766,
+    "gmvPace": 101967.98,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -7690,7 +7690,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       10006.98,
@@ -7699,7 +7699,7 @@ const allShopData = [
       5953.5,
       8062.61,
       7784.21,
-      5392.88
+      5808.19
     ],
     "bonusHistory": [
       0,
@@ -7720,21 +7720,21 @@ const allShopData = [
       {
         "handle": "kseniasenn",
         "tiktokLink": "https://www.tiktok.com/@kseniasenn",
-        "sv": 64,
+        "sv": 65,
         "tap": 0,
         "tapGMV": 246.62,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.75%",
+        "ctr": "2.72%",
         "views": 0,
-        "sold": 121,
-        "gmv": 2805.98,
-        "commDollars": 426.91,
+        "sold": 142,
+        "gmv": 3200.01,
+        "commDollars": 480.2,
         "bonus": 0,
         "gmvLM": 8110.32,
-        "gmvPace": 8417.94,
-        "commPct": "15.21%",
+        "gmvPace": 8727.3,
+        "commPct": "15.01%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -7749,7 +7749,7 @@ const allShopData = [
           11095.17,
           6529.06,
           8110.32,
-          2805.98
+          3200.01
         ],
         "tap": [
           1003.94,
@@ -7767,7 +7767,7 @@ const allShopData = [
           1773.67,
           1046.17,
           1331.81,
-          426.91
+          480.2
         ]
       }
     ],
@@ -7781,9 +7781,9 @@ const allShopData = [
       246.62
     ],
     "points": 12,
-    "totalGMV": 2805.98,
-    "totalComm": 426.91,
-    "avgComm": 15.21,
+    "totalGMV": 3200.01,
+    "totalComm": 480.2,
+    "avgComm": 15.01,
     "levelLabel": "L2",
     "productRank": "49",
     "cashBonus": 0,
@@ -7794,12 +7794,12 @@ const allShopData = [
     "tapLQ": 6987.72,
     "tapGoalQ": 0,
     "tapTotalTQ": 2084.45,
-    "totalSV": 64,
+    "totalSV": 65,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.75,
-    "totalViews": 146140,
-    "totalSold": 121,
+    "totalCTR": 2.72,
+    "totalViews": 166387,
+    "totalSold": 142,
     "tapGMV": 246.62,
     "tapYTD": 8923.2,
     "manager": "Hotline",
@@ -7811,12 +7811,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 64,
+    "agg_sv": 65,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 121,
-    "gmvPace": 8417.94,
+    "agg_sold": 142,
+    "gmvPace": 8727.3,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -7824,7 +7824,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       3543.85,
@@ -7833,11 +7833,145 @@ const allShopData = [
       1773.67,
       1046.17,
       1331.81,
-      426.91
+      480.2
     ],
     "bonusHistory": [
       1250,
       500,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "kelsic.ugc@gmail.com",
+    "email": "kelsic.ugc@gmail.com",
+    "name": "Kelsi Campbell",
+    "topLevel": "L2",
+    "accounts": [
+      {
+        "handle": "kelsi.campbell",
+        "tiktokLink": "https://www.tiktok.com/@kelsi.campbell",
+        "sv": 84,
+        "tap": 0,
+        "tapGMV": 222,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.36%",
+        "views": 0,
+        "sold": 79,
+        "gmv": 2114.96,
+        "commDollars": 385.2,
+        "bonus": 0,
+        "gmvLM": 6208.22,
+        "gmvPace": 5768.07,
+        "commPct": "18.21%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "kelsi.campbell",
+        "gmv": [
+          15763.84,
+          31528.76,
+          16807.38,
+          14678.39,
+          17484.07,
+          6208.22,
+          2114.96
+        ],
+        "tap": [
+          1625.56,
+          2952.26,
+          1534.56,
+          3969.85,
+          4578.68,
+          1185.44,
+          222
+        ],
+        "comm": [
+          2470.06,
+          6351.97,
+          3008.52,
+          2929.14,
+          3784.19,
+          1359.07,
+          385.2
+        ]
+      }
+    ],
+    "tapHistory": [
+      1625.56,
+      2952.26,
+      1534.56,
+      3969.85,
+      4578.68,
+      1185.44,
+      222
+    ],
+    "points": 11,
+    "totalGMV": 2114.96,
+    "totalComm": 385.2,
+    "avgComm": 18.21,
+    "levelLabel": "L2",
+    "productRank": "50",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 1185.44,
+    "tapGoalM": 10000,
+    "tapLQ": 19804.94,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 2766.51,
+    "totalSV": 84,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 3.36,
+    "totalViews": 92167,
+    "totalSold": 79,
+    "tapGMV": 222,
+    "tapYTD": 40404.98,
+    "manager": "Hotline",
+    "joined": "Dec 2024",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 84,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 79,
+    "gmvPace": 5768.07,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      2470.06,
+      6351.97,
+      3008.52,
+      2929.14,
+      3784.19,
+      1359.07,
+      385.2
+    ],
+    "bonusHistory": [
+      0,
+      0,
       0,
       0,
       0,
@@ -7854,42 +7988,42 @@ const allShopData = [
       {
         "handle": "livingwith.lindsay",
         "tiktokLink": "https://www.tiktok.com/@livingwith.lindsay",
-        "sv": 62,
+        "sv": 72,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.17%",
+        "ctr": "3.16%",
         "views": 0,
-        "sold": 1818,
-        "gmv": 72442.67,
-        "commDollars": 7536.34,
+        "sold": 2065,
+        "gmv": 81412.66,
+        "commDollars": 8528.1,
         "bonus": 0,
         "gmvLM": 258052.84,
-        "gmvPace": 217328.01,
-        "commPct": "10.40%",
+        "gmvPace": 222034.53,
+        "commPct": "10.48%",
         "tier": "Talent",
         "acctRank": 1
       },
       {
         "handle": "lindsayreisert",
         "tiktokLink": "https://www.tiktok.com/@lindsayreisert",
-        "sv": 9,
+        "sv": 11,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.24%",
+        "ctr": "3.25%",
         "views": 0,
-        "sold": 248,
-        "gmv": 6620.55,
-        "commDollars": 769.68,
+        "sold": 281,
+        "gmv": 7435.01,
+        "commDollars": 869.25,
         "bonus": 0,
         "gmvLM": 37262.46,
-        "gmvPace": 19861.65,
-        "commPct": "11.63%",
+        "gmvPace": 20277.3,
+        "commPct": "11.69%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -7902,14 +8036,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.93%",
+        "ctr": "1.87%",
         "views": 0,
         "sold": 10,
         "gmv": 403.75,
         "commDollars": 29.25,
         "bonus": 0,
         "gmvLM": 1570.86,
-        "gmvPace": 1211.25,
+        "gmvPace": 1101.14,
         "commPct": "7.24%",
         "tier": "Talent",
         "acctRank": 1
@@ -7925,7 +8059,7 @@ const allShopData = [
           176763.36,
           220960.06,
           258052.84,
-          72442.67
+          81412.66
         ],
         "tap": [
           0,
@@ -7943,7 +8077,7 @@ const allShopData = [
           18680.87,
           23487.28,
           26826.61,
-          7536.34
+          8528.1
         ]
       },
       {
@@ -7955,7 +8089,7 @@ const allShopData = [
           0,
           17325.89,
           37262.46,
-          6620.55
+          7435.01
         ],
         "tap": [
           0,
@@ -7973,7 +8107,7 @@ const allShopData = [
           0,
           2030.75,
           4292.64,
-          769.68
+          869.25
         ]
       },
       {
@@ -8016,12 +8150,12 @@ const allShopData = [
       0,
       0
     ],
-    "points": 10,
-    "totalGMV": 79466.97,
-    "totalComm": 8335.27,
-    "avgComm": 10.49,
+    "points": 11,
+    "totalGMV": 89251.42,
+    "totalComm": 9426.6,
+    "avgComm": 10.56,
     "levelLabel": "L5",
-    "productRank": "50",
+    "productRank": "51",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -8030,12 +8164,12 @@ const allShopData = [
     "tapLQ": 44497.06,
     "tapGoalQ": 0,
     "tapTotalTQ": 31260.25,
-    "totalSV": 71,
+    "totalSV": 83,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.78,
-    "totalViews": 1534860,
-    "totalSold": 2076,
+    "totalCTR": 2.76,
+    "totalViews": 1782935,
+    "totalSold": 2356,
     "tapGMV": 0,
     "tapYTD": 96.58,
     "manager": "EMILEE",
@@ -8047,12 +8181,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 71,
+    "agg_sv": 83,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2076,
-    "gmvPace": 217328.01,
+    "agg_sold": 2356,
+    "gmvPace": 222034.53,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -8060,7 +8194,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -8069,7 +8203,192 @@ const allShopData = [
       18680.87,
       25719.61,
       31260.25,
-      8335.27
+      9426.6
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "sahmnataliecollab@gmail.com",
+    "email": "sahmnataliecollab@gmail.com",
+    "name": "Natalie Tucker",
+    "topLevel": "L4",
+    "accounts": [
+      {
+        "handle": "natalietucc",
+        "tiktokLink": "https://www.tiktok.com/@natalietucc",
+        "sv": 51,
+        "tap": 3,
+        "tapGMV": 75.48,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.39%",
+        "views": 0,
+        "sold": 2098,
+        "gmv": 80290.49,
+        "commDollars": 12094.46,
+        "bonus": 0,
+        "gmvLM": 121350,
+        "gmvPace": 218974.06,
+        "commPct": "15.06%",
+        "tier": "Select",
+        "acctRank": 1
+      },
+      {
+        "handle": "beautybestiefaves",
+        "tiktokLink": "https://www.tiktok.com/@beautybestiefaves",
+        "sv": 0,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.57%",
+        "views": 0,
+        "sold": 7,
+        "gmv": 445.65,
+        "commDollars": 68.4,
+        "bonus": 0,
+        "gmvLM": 366.98,
+        "gmvPace": 1215.41,
+        "commPct": "15.35%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "natalietucc",
+        "gmv": [
+          0,
+          0,
+          85098.52,
+          56489.14,
+          117829.06,
+          121350,
+          80290.49
+        ],
+        "tap": [
+          0,
+          0,
+          249.38,
+          168.78,
+          172.97,
+          175.9,
+          75.48
+        ],
+        "comm": [
+          0,
+          0,
+          8813.6,
+          7743.72,
+          18828.88,
+          17903.48,
+          12094.46
+        ]
+      },
+      {
+        "handle": "beautybestiefaves",
+        "gmv": [
+          0,
+          0,
+          0,
+          0,
+          409.88,
+          366.98,
+          445.65
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          0,
+          0,
+          0,
+          0,
+          50.09,
+          44.18,
+          68.4
+        ]
+      }
+    ],
+    "tapHistory": [
+      0,
+      0,
+      249.38,
+      168.78,
+      172.97,
+      175.9,
+      75.48
+    ],
+    "points": 11,
+    "totalGMV": 80736.14,
+    "totalComm": 12162.86,
+    "avgComm": 15.06,
+    "levelLabel": "L4",
+    "productRank": "52",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 175.9,
+    "tapGoalM": 10000,
+    "tapLQ": 36027.42,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 18199.04,
+    "totalSV": 51,
+    "totalTaP": 3,
+    "totalLS": 0,
+    "totalCTR": 3.48,
+    "totalViews": 4152974,
+    "totalSold": 2105,
+    "tapGMV": 75.48,
+    "tapYTD": 842.51,
+    "manager": "Hotline",
+    "joined": "Jul 2026",
+    "tier": "Select",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 51,
+    "agg_tap": 3,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 2105,
+    "gmvPace": 218974.06,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      0,
+      0,
+      8813.6,
+      7743.72,
+      18878.97,
+      17947.66,
+      12162.859999999999
     ],
     "bonusHistory": [
       0,
@@ -8090,21 +8409,21 @@ const allShopData = [
       {
         "handle": "ragdollmanor",
         "tiktokLink": "https://www.tiktok.com/@ragdollmanor",
-        "sv": 156,
+        "sv": 169,
         "tap": 8,
         "tapGMV": 339.38,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.23%",
+        "ctr": "3.19%",
         "views": 0,
-        "sold": 869,
-        "gmv": 20430.8,
-        "commDollars": 3128.94,
+        "sold": 953,
+        "gmv": 22405.37,
+        "commDollars": 3450.52,
         "bonus": 0,
         "gmvLM": 87062.37,
-        "gmvPace": 61292.4,
-        "commPct": "15.31%",
+        "gmvPace": 61105.55,
+        "commPct": "15.40%",
         "tier": "Select",
         "acctRank": 1
       },
@@ -8140,7 +8459,7 @@ const allShopData = [
           129346.13,
           109205.23,
           87062.37,
-          20430.8
+          22405.37
         ],
         "tap": [
           8636.59,
@@ -8158,7 +8477,7 @@ const allShopData = [
           18048.53,
           15902.94,
           13162.14,
-          3128.94
+          3450.52
         ]
       },
       {
@@ -8202,11 +8521,11 @@ const allShopData = [
       339.38
     ],
     "points": 10,
-    "totalGMV": 20430.8,
-    "totalComm": 3128.94,
-    "avgComm": 15.31,
+    "totalGMV": 22405.37,
+    "totalComm": 3450.52,
+    "avgComm": 15.4,
     "levelLabel": "L4",
-    "productRank": "51",
+    "productRank": "53",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -8215,12 +8534,12 @@ const allShopData = [
     "tapLQ": 56093.36,
     "tapGoalQ": 0,
     "tapTotalTQ": 14697.13,
-    "totalSV": 156,
+    "totalSV": 169,
     "totalTaP": 8,
     "totalLS": 0,
-    "totalCTR": 1.62,
-    "totalViews": 560576,
-    "totalSold": 869,
+    "totalCTR": 1.6,
+    "totalViews": 618877,
+    "totalSold": 953,
     "tapGMV": 339.38,
     "tapYTD": 25582.15,
     "manager": "Hotline",
@@ -8232,12 +8551,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 156,
+    "agg_sv": 169,
     "agg_tap": 8,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 869,
-    "gmvPace": 61292.4,
+    "agg_sold": 953,
+    "gmvPace": 61105.55,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -8245,7 +8564,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       18004.22,
@@ -8254,377 +8573,7 @@ const allShopData = [
       18048.53,
       15902.94,
       13162.14,
-      3128.94
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "sahmnataliecollab@gmail.com",
-    "email": "sahmnataliecollab@gmail.com",
-    "name": "Natalie Tucker",
-    "topLevel": "L4",
-    "accounts": [
-      {
-        "handle": "natalietucc",
-        "tiktokLink": "https://www.tiktok.com/@natalietucc",
-        "sv": 40,
-        "tap": 2,
-        "tapGMV": 75.48,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.35%",
-        "views": 0,
-        "sold": 1810,
-        "gmv": 62345.96,
-        "commDollars": 9579.18,
-        "bonus": 0,
-        "gmvLM": 121350,
-        "gmvPace": 187037.88,
-        "commPct": "15.36%",
-        "tier": "Select",
-        "acctRank": 1
-      },
-      {
-        "handle": "beautybestiefaves",
-        "tiktokLink": "https://www.tiktok.com/@beautybestiefaves",
-        "sv": 0,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.75%",
-        "views": 0,
-        "sold": 5,
-        "gmv": 112.7,
-        "commDollars": 18.9,
-        "bonus": 0,
-        "gmvLM": 366.98,
-        "gmvPace": 338.1,
-        "commPct": "16.77%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "natalietucc",
-        "gmv": [
-          0,
-          0,
-          85098.52,
-          56489.14,
-          117829.06,
-          121350,
-          62345.96
-        ],
-        "tap": [
-          0,
-          0,
-          249.38,
-          168.78,
-          172.97,
-          175.9,
-          75.48
-        ],
-        "comm": [
-          0,
-          0,
-          8813.6,
-          7743.72,
-          18828.88,
-          17903.48,
-          9579.18
-        ]
-      },
-      {
-        "handle": "beautybestiefaves",
-        "gmv": [
-          0,
-          0,
-          0,
-          0,
-          409.88,
-          366.98,
-          112.7
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          0,
-          0,
-          0,
-          0,
-          50.09,
-          44.18,
-          18.9
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      249.38,
-      168.78,
-      172.97,
-      175.9,
-      75.48
-    ],
-    "points": 10,
-    "totalGMV": 62458.66,
-    "totalComm": 9598.08,
-    "avgComm": 15.37,
-    "levelLabel": "L4",
-    "productRank": "52",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 175.9,
-    "tapGoalM": 10000,
-    "tapLQ": 36027.42,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 18199.04,
-    "totalSV": 40,
-    "totalTaP": 2,
-    "totalLS": 0,
-    "totalCTR": 3.55,
-    "totalViews": 3217814,
-    "totalSold": 1815,
-    "tapGMV": 75.48,
-    "tapYTD": 842.51,
-    "manager": "Hotline",
-    "joined": "Jul 2026",
-    "tier": "Select",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 40,
-    "agg_tap": 2,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 1815,
-    "gmvPace": 187037.88,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      0,
-      0,
-      8813.6,
-      7743.72,
-      18878.97,
-      17947.66,
-      9598.08
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "thebanksedit@gmail.com",
-    "email": "thebanksedit@gmail.com",
-    "name": "Audur Banks",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "thatnordicblonde",
-        "tiktokLink": "https://www.tiktok.com/@thatnordicblonde",
-        "sv": 6,
-        "tap": 0,
-        "tapGMV": 453.58,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "1.05%",
-        "views": 0,
-        "sold": 203,
-        "gmv": 4338.97,
-        "commDollars": 981.53,
-        "bonus": 0,
-        "gmvLM": 28027.42,
-        "gmvPace": 13016.91,
-        "commPct": "22.62%",
-        "tier": "Select",
-        "acctRank": 1
-      },
-      {
-        "handle": "everydayaudur",
-        "tiktokLink": "https://www.tiktok.com/@everydayaudur",
-        "sv": 0,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "4.03%",
-        "views": 0,
-        "sold": 19,
-        "gmv": 464.06,
-        "commDollars": 41.21,
-        "bonus": 0,
-        "gmvLM": 504.62,
-        "gmvPace": 1392.18,
-        "commPct": "8.88%",
-        "tier": "Select",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "thatnordicblonde",
-        "gmv": [
-          36137.72,
-          12434.63,
-          9308.4,
-          6702.32,
-          51095.73,
-          28027.42,
-          4338.97
-        ],
-        "tap": [
-          18174.45,
-          7104.28,
-          4162.65,
-          3594.57,
-          2052.82,
-          1275.75,
-          453.58
-        ],
-        "comm": [
-          7789.3,
-          2765.17,
-          2003.99,
-          1586.85,
-          12782.36,
-          6268.48,
-          981.53
-        ]
-      },
-      {
-        "handle": "everydayaudur",
-        "gmv": [
-          2168.15,
-          1585.81,
-          1256.11,
-          1604.94,
-          1293.38,
-          504.62,
-          464.06
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          63.2,
-          0,
-          0
-        ],
-        "comm": [
-          210.35,
-          137.84,
-          122.01,
-          145.38,
-          123.32,
-          50.02,
-          41.21
-        ]
-      }
-    ],
-    "tapHistory": [
-      18174.45,
-      7104.28,
-      4162.65,
-      3594.57,
-      2116.02,
-      1275.75,
-      453.58
-    ],
-    "points": 9,
-    "totalGMV": 4803.03,
-    "totalComm": 1022.74,
-    "avgComm": 21.29,
-    "levelLabel": "L3",
-    "productRank": "53",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 1850,
-    "tapLM": 1275.75,
-    "tapGoalM": 10000,
-    "tapLQ": 26637.15,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 8047.83,
-    "totalSV": 6,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 2.54,
-    "totalViews": 635231,
-    "totalSold": 222,
-    "tapGMV": 453.58,
-    "tapYTD": 161534.03,
-    "manager": "EMILEE",
-    "joined": "Jul 2024",
-    "tier": "Select",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 6,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 222,
-    "gmvPace": 13016.91,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      7999.650000000001,
-      2903.01,
-      2126,
-      1732.23,
-      12905.68,
-      6318.5,
-      1022.74
+      3450.52
     ],
     "bonusHistory": [
       0,
@@ -8645,42 +8594,42 @@ const allShopData = [
       {
         "handle": "itsmekaycee77",
         "tiktokLink": "https://www.tiktok.com/@itsmekaycee77",
-        "sv": 72,
+        "sv": 79,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.81%",
+        "ctr": "3.77%",
         "views": 0,
-        "sold": 536,
-        "gmv": 29771.24,
-        "commDollars": 3642.67,
+        "sold": 585,
+        "gmv": 32655.68,
+        "commDollars": 3962.76,
         "bonus": 0,
         "gmvLM": 99127.83,
-        "gmvPace": 89313.72,
-        "commPct": "12.24%",
+        "gmvPace": 89060.95,
+        "commPct": "12.13%",
         "tier": "VIP",
         "acctRank": 1
       },
       {
         "handle": "yourpassportpal",
         "tiktokLink": "https://www.tiktok.com/@yourpassportpal",
-        "sv": 74,
+        "sv": 81,
         "tap": 0,
         "tapGMV": 124.8,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.14%",
+        "ctr": "4.10%",
         "views": 0,
-        "sold": 605,
-        "gmv": 23735.26,
-        "commDollars": 2968.11,
+        "sold": 673,
+        "gmv": 26184.3,
+        "commDollars": 3277.78,
         "bonus": 0,
         "gmvLM": 89708.66,
-        "gmvPace": 71205.78,
-        "commPct": "12.51%",
+        "gmvPace": 71411.73,
+        "commPct": "12.52%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -8695,7 +8644,7 @@ const allShopData = [
           116348.52,
           107046.03,
           89708.66,
-          23735.26
+          26184.3
         ],
         "tap": [
           2130.01,
@@ -8713,7 +8662,7 @@ const allShopData = [
           15249.39,
           13607.09,
           11258.7,
-          2968.11
+          3277.78
         ]
       },
       {
@@ -8725,7 +8674,7 @@ const allShopData = [
           111141.34,
           108735.93,
           99127.83,
-          29771.24
+          32655.68
         ],
         "tap": [
           0,
@@ -8743,7 +8692,7 @@ const allShopData = [
           14200.39,
           13758.44,
           12252.91,
-          3642.67
+          3962.76
         ]
       }
     ],
@@ -8756,10 +8705,10 @@ const allShopData = [
       325.19,
       124.8
     ],
-    "points": 9,
-    "totalGMV": 53506.5,
-    "totalComm": 6610.78,
-    "avgComm": 12.36,
+    "points": 10,
+    "totalGMV": 58839.98,
+    "totalComm": 7240.54,
+    "avgComm": 12.31,
     "levelLabel": "L4",
     "productRank": "54",
     "cashBonus": 0,
@@ -8770,12 +8719,12 @@ const allShopData = [
     "tapLQ": 72221.72,
     "tapGoalQ": 0,
     "tapTotalTQ": 23961.6,
-    "totalSV": 146,
+    "totalSV": 160,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.98,
-    "totalViews": 1067889,
-    "totalSold": 1141,
+    "totalCTR": 3.94,
+    "totalViews": 1215174,
+    "totalSold": 1258,
     "tapGMV": 124.8,
     "tapYTD": 16641.44,
     "manager": "EMILEE",
@@ -8787,12 +8736,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 146,
+    "agg_sv": 160,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1141,
-    "gmvPace": 89313.72,
+    "agg_sold": 1258,
+    "gmvPace": 89060.95,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -8800,7 +8749,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       16717.73,
@@ -8809,11 +8758,196 @@ const allShopData = [
       29449.78,
       27365.53,
       23511.61,
-      6610.780000000001
+      7240.540000000001
     ],
     "bonusHistory": [
       0,
       150,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "thebanksedit@gmail.com",
+    "email": "thebanksedit@gmail.com",
+    "name": "Audur Banks",
+    "topLevel": "L3",
+    "accounts": [
+      {
+        "handle": "thatnordicblonde",
+        "tiktokLink": "https://www.tiktok.com/@thatnordicblonde",
+        "sv": 9,
+        "tap": 0,
+        "tapGMV": 453.58,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.06%",
+        "views": 0,
+        "sold": 234,
+        "gmv": 5015.05,
+        "commDollars": 1134.73,
+        "bonus": 0,
+        "gmvLM": 28027.42,
+        "gmvPace": 13677.41,
+        "commPct": "22.63%",
+        "tier": "Select",
+        "acctRank": 1
+      },
+      {
+        "handle": "everydayaudur",
+        "tiktokLink": "https://www.tiktok.com/@everydayaudur",
+        "sv": 0,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "16.00%",
+        "views": 0,
+        "sold": 22,
+        "gmv": 529.47,
+        "commDollars": 47.85,
+        "bonus": 0,
+        "gmvLM": 504.62,
+        "gmvPace": 1444.01,
+        "commPct": "9.04%",
+        "tier": "Select",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "thatnordicblonde",
+        "gmv": [
+          36137.72,
+          12434.63,
+          9308.4,
+          6702.32,
+          51095.73,
+          28027.42,
+          5015.05
+        ],
+        "tap": [
+          18174.45,
+          7104.28,
+          4162.65,
+          3594.57,
+          2052.82,
+          1275.75,
+          453.58
+        ],
+        "comm": [
+          7789.3,
+          2765.17,
+          2003.99,
+          1586.85,
+          12782.36,
+          6268.48,
+          1134.73
+        ]
+      },
+      {
+        "handle": "everydayaudur",
+        "gmv": [
+          2168.15,
+          1585.81,
+          1256.11,
+          1604.94,
+          1293.38,
+          504.62,
+          529.47
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          63.2,
+          0,
+          0
+        ],
+        "comm": [
+          210.35,
+          137.84,
+          122.01,
+          145.38,
+          123.32,
+          50.02,
+          47.85
+        ]
+      }
+    ],
+    "tapHistory": [
+      18174.45,
+      7104.28,
+      4162.65,
+      3594.57,
+      2116.02,
+      1275.75,
+      453.58
+    ],
+    "points": 9,
+    "totalGMV": 5544.52,
+    "totalComm": 1182.58,
+    "avgComm": 21.33,
+    "levelLabel": "L3",
+    "productRank": "55",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 1850,
+    "tapLM": 1275.75,
+    "tapGoalM": 10000,
+    "tapLQ": 26637.15,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 8047.83,
+    "totalSV": 9,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 8.53,
+    "totalViews": 701979,
+    "totalSold": 256,
+    "tapGMV": 453.58,
+    "tapYTD": 161534.03,
+    "manager": "EMILEE",
+    "joined": "Jul 2024",
+    "tier": "Select",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 9,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 256,
+    "gmvPace": 13677.41,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      7999.650000000001,
+      2903.01,
+      2126,
+      1732.23,
+      12905.68,
+      6318.5,
+      1182.58
+    ],
+    "bonusHistory": [
+      0,
+      0,
       0,
       0,
       0,
@@ -8830,21 +8964,21 @@ const allShopData = [
       {
         "handle": "stephanie_stimson",
         "tiktokLink": "https://www.tiktok.com/@stephanie_stimson",
-        "sv": 51,
+        "sv": 55,
         "tap": 0,
-        "tapGMV": 99.62,
+        "tapGMV": 160.97,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.50%",
+        "ctr": "3.54%",
         "views": 0,
-        "sold": 940,
-        "gmv": 33772.12,
-        "commDollars": 5293.66,
+        "sold": 1044,
+        "gmv": 37575.61,
+        "commDollars": 5913.99,
         "bonus": 0,
         "gmvLM": 117837.19,
-        "gmvPace": 101316.36,
-        "commPct": "15.67%",
+        "gmvPace": 102478.94,
+        "commPct": "15.74%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -8859,7 +8993,7 @@ const allShopData = [
           112201.24,
           133193.41,
           117837.19,
-          33772.12
+          37575.61
         ],
         "tap": [
           964.76,
@@ -8868,7 +9002,7 @@ const allShopData = [
           422.29,
           528.69,
           507.42,
-          99.62
+          160.97
         ],
         "comm": [
           23574.67,
@@ -8877,7 +9011,7 @@ const allShopData = [
           16867.76,
           20152.89,
           18425.84,
-          5293.66
+          5913.99
         ]
       }
     ],
@@ -8888,14 +9022,14 @@ const allShopData = [
       422.29,
       528.69,
       507.42,
-      99.62
+      160.97
     ],
-    "points": 7,
-    "totalGMV": 33772.12,
-    "totalComm": 5293.66,
-    "avgComm": 15.67,
+    "points": 8,
+    "totalGMV": 37575.61,
+    "totalComm": 5913.99,
+    "avgComm": 15.74,
     "levelLabel": "L4",
-    "productRank": "55",
+    "productRank": "56",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 2550,
@@ -8903,15 +9037,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 53821.88,
     "tapGoalQ": 0,
-    "tapTotalTQ": 19032.88,
-    "totalSV": 51,
+    "tapTotalTQ": 19094.23,
+    "totalSV": 55,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.5,
-    "totalViews": 649330,
-    "totalSold": 940,
-    "tapGMV": 99.62,
-    "tapYTD": 13596.41,
+    "totalCTR": 3.54,
+    "totalViews": 716576,
+    "totalSold": 1044,
+    "tapGMV": 160.97,
+    "tapYTD": 13657.76,
     "manager": "EMILEE",
     "joined": "Jan 2025",
     "tier": "Talent",
@@ -8921,12 +9055,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 51,
+    "agg_sv": 55,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 940,
-    "gmvPace": 101316.36,
+    "agg_sold": 1044,
+    "gmvPace": 102478.94,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -8934,7 +9068,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       23574.67,
@@ -8943,7 +9077,7 @@ const allShopData = [
       16867.76,
       20152.89,
       18425.84,
-      5293.66
+      5913.99
     ],
     "bonusHistory": [
       0,
@@ -8964,21 +9098,21 @@ const allShopData = [
       {
         "handle": "deniece0110",
         "tiktokLink": "https://www.tiktok.com/@deniece0110",
-        "sv": 152,
+        "sv": 173,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.22%",
+        "ctr": "4.14%",
         "views": 0,
-        "sold": 2189,
-        "gmv": 69103.37,
-        "commDollars": 7239.27,
+        "sold": 2414,
+        "gmv": 76433.18,
+        "commDollars": 8060.37,
         "bonus": 0,
         "gmvLM": 236923.93,
-        "gmvPace": 207310.11,
-        "commPct": "10.48%",
+        "gmvPace": 208454.13,
+        "commPct": "10.55%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -8993,7 +9127,7 @@ const allShopData = [
           256103.55,
           300337.13,
           236923.93,
-          69103.37
+          76433.18
         ],
         "tap": [
           0,
@@ -9011,7 +9145,7 @@ const allShopData = [
           27815.94,
           33119.37,
           25219.97,
-          7239.27
+          8060.37
         ]
       }
     ],
@@ -9024,12 +9158,12 @@ const allShopData = [
       44.39,
       0
     ],
-    "points": 7,
-    "totalGMV": 69103.37,
-    "totalComm": 7239.27,
-    "avgComm": 10.48,
+    "points": 8,
+    "totalGMV": 76433.18,
+    "totalComm": 8060.37,
+    "avgComm": 10.55,
     "levelLabel": "L5",
-    "productRank": "56",
+    "productRank": "57",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -9038,12 +9172,12 @@ const allShopData = [
     "tapLQ": 82553.44,
     "tapGoalQ": 0,
     "tapTotalTQ": 25264.36,
-    "totalSV": 152,
+    "totalSV": 173,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.22,
-    "totalViews": 2455777,
-    "totalSold": 2189,
+    "totalCTR": 4.14,
+    "totalViews": 2704707,
+    "totalSold": 2414,
     "tapGMV": 0,
     "tapYTD": 5185.85,
     "manager": "Hotline",
@@ -9055,12 +9189,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 152,
+    "agg_sv": 173,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2189,
-    "gmvPace": 207310.11,
+    "agg_sold": 2414,
+    "gmvPace": 208454.13,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9068,7 +9202,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -9077,7 +9211,141 @@ const allShopData = [
       27815.94,
       33119.37,
       25219.97,
-      7239.27
+      8060.37
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "wesleybarkerbookings@gmail.com",
+    "email": "wesleybarkerbookings@gmail.com",
+    "name": "Wesley Barker",
+    "topLevel": "L4",
+    "accounts": [
+      {
+        "handle": "wesleyrbarker",
+        "tiktokLink": "https://www.tiktok.com/@wesleyrbarker",
+        "sv": 11,
+        "tap": 0,
+        "tapGMV": 271.95,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "7.16%",
+        "views": 0,
+        "sold": 371,
+        "gmv": 9477.86,
+        "commDollars": 1245.5,
+        "bonus": 0,
+        "gmvLM": 77680.41,
+        "gmvPace": 25848.71,
+        "commPct": "13.14%",
+        "tier": "Talent",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "wesleyrbarker",
+        "gmv": [
+          90832.22,
+          71496.92,
+          58063.9,
+          49487.24,
+          50972.97,
+          77680.41,
+          9477.86
+        ],
+        "tap": [
+          991.7,
+          1364.48,
+          912.49,
+          498.6,
+          362.84,
+          520.04,
+          271.95
+        ],
+        "comm": [
+          11952.3,
+          9303.92,
+          7351.92,
+          6451.06,
+          6641.02,
+          9967.01,
+          1245.5
+        ]
+      }
+    ],
+    "tapHistory": [
+      991.7,
+      1364.48,
+      912.49,
+      498.6,
+      362.84,
+      520.04,
+      271.95
+    ],
+    "points": 8,
+    "totalGMV": 9477.86,
+    "totalComm": 1245.5,
+    "avgComm": 13.14,
+    "levelLabel": "L4",
+    "productRank": "58",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 1180,
+    "tapLM": 520.04,
+    "tapGoalM": 10000,
+    "tapLQ": 22217.93,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 10759,
+    "totalSV": 11,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 7.16,
+    "totalViews": 568844,
+    "totalSold": 371,
+    "tapGMV": 271.95,
+    "tapYTD": 15399.58,
+    "manager": "EMILEE",
+    "joined": "Jul 2024",
+    "tier": "Talent",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 11,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 371,
+    "gmvPace": 25848.71,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      11952.3,
+      9303.92,
+      7351.92,
+      6451.06,
+      6641.02,
+      9967.01,
+      1245.5
     ],
     "bonusHistory": [
       0,
@@ -9098,21 +9366,21 @@ const allShopData = [
       {
         "handle": "amanda_hadzimichalis",
         "tiktokLink": "https://www.tiktok.com/@amanda_hadzimichalis",
-        "sv": 26,
+        "sv": 32,
         "tap": 2,
-        "tapGMV": 257.16,
+        "tapGMV": 294.08,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.89%",
+        "ctr": "3.93%",
         "views": 0,
-        "sold": 342,
-        "gmv": 8754.45,
-        "commDollars": 1099.44,
+        "sold": 365,
+        "gmv": 9330.3,
+        "commDollars": 1166.74,
         "bonus": 0,
         "gmvLM": 26084.34,
-        "gmvPace": 26263.35,
-        "commPct": "12.56%",
+        "gmvPace": 25446.27,
+        "commPct": "12.50%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9127,7 +9395,7 @@ const allShopData = [
           20042.63,
           19927.31,
           26084.34,
-          8754.45
+          9330.3
         ],
         "tap": [
           0,
@@ -9136,7 +9404,7 @@ const allShopData = [
           0,
           1053.05,
           1472.53,
-          257.16
+          294.08
         ],
         "comm": [
           4692.71,
@@ -9145,7 +9413,7 @@ const allShopData = [
           2353.87,
           2392.02,
           3402.24,
-          1099.44
+          1166.74
         ]
       }
     ],
@@ -9156,14 +9424,14 @@ const allShopData = [
       0,
       1053.05,
       1472.53,
-      257.16
+      294.08
     ],
-    "points": 6,
-    "totalGMV": 8754.45,
-    "totalComm": 1099.44,
-    "avgComm": 12.56,
+    "points": 7,
+    "totalGMV": 9330.3,
+    "totalComm": 1166.74,
+    "avgComm": 12.5,
     "levelLabel": "L3",
-    "productRank": "57",
+    "productRank": "59",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -9171,15 +9439,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 8360.94,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5131.93,
-    "totalSV": 26,
+    "tapTotalTQ": 5168.85,
+    "totalSV": 32,
     "totalTaP": 2,
     "totalLS": 0,
-    "totalCTR": 3.89,
-    "totalViews": 234195,
-    "totalSold": 342,
-    "tapGMV": 257.16,
-    "tapYTD": 2930.7,
+    "totalCTR": 3.93,
+    "totalViews": 257541,
+    "totalSold": 365,
+    "tapGMV": 294.08,
+    "tapYTD": 2967.62,
     "manager": "Hotline",
     "joined": "Jul 2024",
     "tier": "Core",
@@ -9189,12 +9457,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 26,
+    "agg_sv": 32,
     "agg_tap": 2,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 342,
-    "gmvPace": 26263.35,
+    "agg_sold": 365,
+    "gmvPace": 25446.27,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9202,7 +9470,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       4692.71,
@@ -9211,7 +9479,7 @@ const allShopData = [
       2353.87,
       2392.02,
       3402.24,
-      1099.44
+      1166.74
     ],
     "bonusHistory": [
       0,
@@ -9232,7 +9500,7 @@ const allShopData = [
       {
         "handle": "grayson.finks",
         "tiktokLink": "https://www.tiktok.com/@grayson.finks",
-        "sv": 28,
+        "sv": 36,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
@@ -9240,13 +9508,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "1.76%",
         "views": 0,
-        "sold": 2421,
-        "gmv": 56584.98,
-        "commDollars": 4456.89,
+        "sold": 2578,
+        "gmv": 61154.69,
+        "commDollars": 4872.9,
         "bonus": 0,
         "gmvLM": 124344.17,
-        "gmvPace": 169754.94,
-        "commPct": "7.88%",
+        "gmvPace": 166785.52,
+        "commPct": "7.97%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -9261,7 +9529,7 @@ const allShopData = [
           85557.19,
           78652.3,
           124344.17,
-          56584.98
+          61154.69
         ],
         "tap": [
           55.47,
@@ -9279,7 +9547,7 @@ const allShopData = [
           8554.65,
           6705.74,
           10478.36,
-          4456.89
+          4872.9
         ]
       }
     ],
@@ -9292,12 +9560,12 @@ const allShopData = [
       98.55,
       0
     ],
-    "points": 6,
-    "totalGMV": 56584.98,
-    "totalComm": 4456.89,
-    "avgComm": 7.88,
+    "points": 7,
+    "totalGMV": 61154.69,
+    "totalComm": 4872.9,
+    "avgComm": 7.97,
     "levelLabel": "L4",
-    "productRank": "58",
+    "productRank": "60",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -9306,12 +9574,12 @@ const allShopData = [
     "tapLQ": 36803.46,
     "tapGoalQ": 0,
     "tapTotalTQ": 10576.91,
-    "totalSV": 28,
+    "totalSV": 36,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 1.76,
-    "totalViews": 4223597,
-    "totalSold": 2421,
+    "totalViews": 4513766,
+    "totalSold": 2578,
     "tapGMV": 0,
     "tapYTD": 1242.25,
     "manager": "Hotline",
@@ -9323,12 +9591,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 28,
+    "agg_sv": 36,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2421,
-    "gmvPace": 169754.94,
+    "agg_sold": 2578,
+    "gmvPace": 166785.52,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9336,7 +9604,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       3721.03,
@@ -9345,7 +9613,7 @@ const allShopData = [
       8554.65,
       6705.74,
       10478.36,
-      4456.89
+      4872.9
     ],
     "bonusHistory": [
       0,
@@ -9366,21 +9634,21 @@ const allShopData = [
       {
         "handle": "ohsoitsjocelyn",
         "tiktokLink": "https://www.tiktok.com/@ohsoitsjocelyn",
-        "sv": 25,
+        "sv": 29,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.10%",
+        "ctr": "5.11%",
         "views": 0,
-        "sold": 1879,
-        "gmv": 57715.1,
-        "commDollars": 5869.01,
+        "sold": 2071,
+        "gmv": 63566.51,
+        "commDollars": 6470.22,
         "bonus": 0,
         "gmvLM": 173719.99,
-        "gmvPace": 173145.3,
-        "commPct": "10.17%",
+        "gmvPace": 173363.21,
+        "commPct": "10.18%",
         "tier": "Talent",
         "acctRank": 1
       },
@@ -9416,7 +9684,7 @@ const allShopData = [
           121285.3,
           147244.78,
           173719.99,
-          57715.1
+          63566.51
         ],
         "tap": [
           0,
@@ -9434,7 +9702,7 @@ const allShopData = [
           11588.36,
           14932.96,
           18138.43,
-          5869.01
+          6470.22
         ]
       },
       {
@@ -9477,12 +9745,12 @@ const allShopData = [
       0,
       0
     ],
-    "points": 6,
-    "totalGMV": 57715.1,
-    "totalComm": 5869.01,
-    "avgComm": 10.17,
+    "points": 7,
+    "totalGMV": 63566.51,
+    "totalComm": 6470.22,
+    "avgComm": 10.18,
     "levelLabel": "L5",
-    "productRank": "59",
+    "productRank": "61",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -9491,12 +9759,12 @@ const allShopData = [
     "tapLQ": 40928.19,
     "tapGoalQ": 0,
     "tapTotalTQ": 18138.43,
-    "totalSV": 25,
+    "totalSV": 29,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.55,
-    "totalViews": 1262442,
-    "totalSold": 1879,
+    "totalCTR": 2.56,
+    "totalViews": 1380317,
+    "totalSold": 2071,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "EMILEE",
@@ -9508,12 +9776,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 25,
+    "agg_sv": 29,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1879,
-    "gmvPace": 173145.3,
+    "agg_sold": 2071,
+    "gmvPace": 173363.21,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9521,7 +9789,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -9530,7 +9798,7 @@ const allShopData = [
       11588.36,
       14932.96,
       18138.43,
-      5869.01
+      6470.22
     ],
     "bonusHistory": [
       0,
@@ -9551,21 +9819,21 @@ const allShopData = [
       {
         "handle": "lifewithangiemae",
         "tiktokLink": "https://www.tiktok.com/@lifewithangiemae",
-        "sv": 73,
+        "sv": 84,
         "tap": 0,
-        "tapGMV": 222.41,
+        "tapGMV": 257.29,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
         "ctr": "3.36%",
         "views": 0,
-        "sold": 399,
-        "gmv": 12318.61,
-        "commDollars": 1406.24,
+        "sold": 446,
+        "gmv": 13573.81,
+        "commDollars": 1556.21,
         "bonus": 0,
         "gmvLM": 33904.25,
-        "gmvPace": 36955.83,
-        "commPct": "11.42%",
+        "gmvPace": 37019.48,
+        "commPct": "11.46%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9580,7 +9848,7 @@ const allShopData = [
           26674.91,
           29724.91,
           33904.25,
-          12318.61
+          13573.81
         ],
         "tap": [
           4374.19,
@@ -9589,7 +9857,7 @@ const allShopData = [
           2159.91,
           1597.35,
           1130.04,
-          222.41
+          257.29
         ],
         "comm": [
           4397.35,
@@ -9598,7 +9866,7 @@ const allShopData = [
           2932.3,
           3252.48,
           3810.51,
-          1406.24
+          1556.21
         ]
       }
     ],
@@ -9609,14 +9877,14 @@ const allShopData = [
       2159.91,
       1597.35,
       1130.04,
-      222.41
+      257.29
     ],
-    "points": 6,
-    "totalGMV": 12318.61,
-    "totalComm": 1406.24,
-    "avgComm": 11.42,
+    "points": 7,
+    "totalGMV": 13573.81,
+    "totalComm": 1556.21,
+    "avgComm": 11.46,
     "levelLabel": "L3",
-    "productRank": "60",
+    "productRank": "62",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 950,
@@ -9624,15 +9892,15 @@ const allShopData = [
     "tapGoalM": 10000,
     "tapLQ": 15027.34,
     "tapGoalQ": 0,
-    "tapTotalTQ": 5162.96,
-    "totalSV": 73,
+    "tapTotalTQ": 5197.84,
+    "totalSV": 84,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 3.36,
-    "totalViews": 303182,
-    "totalSold": 399,
-    "tapGMV": 222.41,
-    "tapYTD": 32292.56,
+    "totalViews": 332147,
+    "totalSold": 446,
+    "tapGMV": 257.29,
+    "tapYTD": 32327.44,
     "manager": "Hotline",
     "joined": "Aug 2025",
     "tier": "Core",
@@ -9642,12 +9910,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 73,
+    "agg_sv": 84,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 399,
-    "gmvPace": 36955.83,
+    "agg_sold": 446,
+    "gmvPace": 37019.48,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9655,7 +9923,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       4397.35,
@@ -9664,7 +9932,7 @@ const allShopData = [
       2932.3,
       3252.48,
       3810.51,
-      1406.24
+      1556.21
     ],
     "bonusHistory": [
       0,
@@ -9677,111 +9945,162 @@ const allShopData = [
     ]
   },
   {
-    "username": "theseasonaldiariess@gmail.com",
-    "email": "theseasonaldiariess@gmail.com",
-    "name": "Alyssa Sarzyniak",
-    "topLevel": "L4",
+    "username": "therestadfamcontent@gmail.com",
+    "email": "therestadfamcontent@gmail.com",
+    "name": "Kristen Restad",
+    "topLevel": "L3",
     "accounts": [
       {
-        "handle": "seasonaldiariess",
-        "tiktokLink": "https://www.tiktok.com/@seasonaldiariess",
-        "sv": 82,
-        "tap": 2,
-        "tapGMV": 189.89,
+        "handle": "therestadfam",
+        "tiktokLink": "https://www.tiktok.com/@therestadfam",
+        "sv": 63,
+        "tap": 1,
+        "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.54%",
+        "ctr": "2.62%",
         "views": 0,
-        "sold": 426,
-        "gmv": 18968.98,
-        "commDollars": 2952.27,
+        "sold": 371,
+        "gmv": 10213.09,
+        "commDollars": 1251.44,
         "bonus": 0,
-        "gmvLM": 62821.15,
-        "gmvPace": 56906.94,
-        "commPct": "15.56%",
-        "tier": "Core",
+        "gmvLM": 43000.26,
+        "gmvPace": 27853.88,
+        "commPct": "12.25%",
+        "tier": "VIP",
+        "acctRank": 1
+      },
+      {
+        "handle": "mobilemerchant",
+        "tiktokLink": "https://www.tiktok.com/@mobilemerchant",
+        "sv": 63,
+        "tap": 1,
+        "tapGMV": 136.94,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.79%",
+        "views": 0,
+        "sold": 560,
+        "gmv": 12780.28,
+        "commDollars": 2615.03,
+        "bonus": 0,
+        "gmvLM": 26349.45,
+        "gmvPace": 34855.31,
+        "commPct": "20.46%",
+        "tier": "VIP",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "seasonaldiariess",
+        "handle": "therestadfam",
         "gmv": [
-          61399.62,
-          68527.85,
-          63338.19,
-          70037.12,
-          46374.02,
-          62821.15,
-          18968.98
+          38089.35,
+          27235.96,
+          28078.09,
+          25727.27,
+          23172.77,
+          43000.26,
+          10213.09
         ],
         "tap": [
-          1063.28,
-          1547,
-          1390.93,
-          836.28,
-          1182.53,
-          909.04,
-          189.89
+          53.9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
         ],
         "comm": [
-          6394.8,
-          7402.93,
-          7492.68,
-          9100.52,
-          6057.43,
-          8854.86,
-          2952.27
+          5643.43,
+          3840.98,
+          3915.76,
+          3329.42,
+          3102.33,
+          5689.54,
+          1251.44
+        ]
+      },
+      {
+        "handle": "mobilemerchant",
+        "gmv": [
+          33974.42,
+          43343.13,
+          31139.21,
+          20665.83,
+          30009.96,
+          26349.45,
+          12780.28
+        ],
+        "tap": [
+          2675.73,
+          1295.85,
+          1002.41,
+          367.25,
+          360.17,
+          201.76,
+          136.94
+        ],
+        "comm": [
+          4955.74,
+          7370.18,
+          4932.4,
+          3402.09,
+          4321.59,
+          4584.12,
+          2615.03
         ]
       }
     ],
     "tapHistory": [
-      1063.28,
-      1547,
-      1390.93,
-      836.28,
-      1182.53,
-      909.04,
-      189.89
+      2729.63,
+      1295.85,
+      1002.41,
+      367.25,
+      360.17,
+      201.76,
+      136.94
     ],
-    "points": 6,
-    "totalGMV": 18968.98,
-    "totalComm": 2952.27,
-    "avgComm": 15.56,
-    "levelLabel": "L4",
-    "productRank": "61",
+    "points": 7,
+    "totalGMV": 22993.37,
+    "totalComm": 3866.47,
+    "avgComm": 16.82,
+    "levelLabel": "L3",
+    "productRank": "63",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 1050,
-    "tapLM": 909.04,
+    "bonusYTD": 2300,
+    "tapLM": 201.76,
     "tapGoalM": 10000,
-    "tapLQ": 26060.37,
+    "tapLQ": 24733.42,
     "tapGoalQ": 0,
-    "tapTotalTQ": 9953.79,
-    "totalSV": 82,
+    "tapTotalTQ": 10612.36,
+    "totalSV": 126,
     "totalTaP": 2,
     "totalLS": 0,
-    "totalCTR": 1.54,
-    "totalViews": 1045672,
-    "totalSold": 426,
-    "tapGMV": 189.89,
-    "tapYTD": 22114.04,
+    "totalCTR": 2.21,
+    "totalViews": 1043749,
+    "totalSold": 931,
+    "tapGMV": 136.94,
+    "tapYTD": 15846.43,
     "manager": "Hotline",
-    "joined": "May 2025",
-    "tier": "Core",
-    "accts": "1",
+    "joined": "Aug 2024",
+    "tier": "VIP",
+    "accts": "2",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 82,
+    "agg_sv": 126,
     "agg_tap": 2,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 426,
-    "gmvPace": 56906.94,
+    "agg_sold": 931,
+    "gmvPace": 27853.88,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9789,16 +10108,150 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      6394.8,
-      7402.93,
-      7492.68,
-      9100.52,
-      6057.43,
-      8854.86,
-      2952.27
+      10599.17,
+      11211.16,
+      8848.16,
+      6731.51,
+      7423.92,
+      10273.66,
+      3866.4700000000003
+    ],
+    "bonusHistory": [
+      0,
+      2100,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "amandaburbank131@gmail.com",
+    "email": "amandaburbank131@gmail.com",
+    "name": "Amanda Burbank",
+    "topLevel": "L1",
+    "accounts": [
+      {
+        "handle": "amandaburbank131",
+        "tiktokLink": "https://www.tiktok.com/@amandaburbank131",
+        "sv": 45,
+        "tap": 1,
+        "tapGMV": 155.36,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.23%",
+        "views": 0,
+        "sold": 84,
+        "gmv": 1628.69,
+        "commDollars": 201.26,
+        "bonus": 0,
+        "gmvLM": 3553.34,
+        "gmvPace": 4441.88,
+        "commPct": "12.36%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "amandaburbank131",
+        "gmv": [
+          0,
+          28.22,
+          3831.5,
+          2794.07,
+          1686.68,
+          3553.34,
+          1628.69
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          82.31,
+          87.9,
+          155.36
+        ],
+        "comm": [
+          0,
+          2.64,
+          439.8,
+          298.34,
+          238.55,
+          441.93,
+          201.26
+        ]
+      }
+    ],
+    "tapHistory": [
+      0,
+      0,
+      0,
+      0,
+      82.31,
+      87.9,
+      155.36
+    ],
+    "points": 6,
+    "totalGMV": 1628.69,
+    "totalComm": 201.26,
+    "avgComm": 12.36,
+    "levelLabel": "L1",
+    "productRank": "64",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 87.9,
+    "tapGoalM": 10000,
+    "tapLQ": 1059,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 685.19,
+    "totalSV": 45,
+    "totalTaP": 1,
+    "totalLS": 0,
+    "totalCTR": 2.23,
+    "totalViews": 104075,
+    "totalSold": 84,
+    "tapGMV": 155.36,
+    "tapYTD": 325.57,
+    "manager": "Hotline",
+    "joined": "Jun 2026",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 45,
+    "agg_tap": 1,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 84,
+    "gmvPace": 4441.88,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      0,
+      2.64,
+      439.8,
+      298.34,
+      238.55,
+      441.93,
+      201.26
     ],
     "bonusHistory": [
       0,
@@ -9819,21 +10272,21 @@ const allShopData = [
       {
         "handle": "errrcat",
         "tiktokLink": "https://www.tiktok.com/@errrcat",
-        "sv": 72,
+        "sv": 73,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.86%",
+        "ctr": "2.89%",
         "views": 0,
-        "sold": 1832,
-        "gmv": 46988.23,
-        "commDollars": 5064.33,
+        "sold": 2030,
+        "gmv": 51550.48,
+        "commDollars": 5585.3,
         "bonus": 0,
         "gmvLM": 122610.51,
-        "gmvPace": 140964.69,
-        "commPct": "10.78%",
+        "gmvPace": 140592.22,
+        "commPct": "10.83%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -9848,7 +10301,7 @@ const allShopData = [
           138319.41,
           109713.32,
           122610.51,
-          46988.23
+          51550.48
         ],
         "tap": [
           0,
@@ -9866,7 +10319,7 @@ const allShopData = [
           15635.66,
           13269.19,
           13133.65,
-          5064.33
+          5585.3
         ]
       }
     ],
@@ -9879,12 +10332,12 @@ const allShopData = [
       0,
       0
     ],
-    "points": 5,
-    "totalGMV": 46988.23,
-    "totalComm": 5064.33,
-    "avgComm": 10.78,
+    "points": 6,
+    "totalGMV": 51550.48,
+    "totalComm": 5585.3,
+    "avgComm": 10.83,
     "levelLabel": "L4",
-    "productRank": "62",
+    "productRank": "65",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -9893,12 +10346,12 @@ const allShopData = [
     "tapLQ": 44517.23,
     "tapGoalQ": 0,
     "tapTotalTQ": 13133.65,
-    "totalSV": 72,
+    "totalSV": 73,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.86,
-    "totalViews": 1733908,
-    "totalSold": 1832,
+    "totalCTR": 2.89,
+    "totalViews": 1848461,
+    "totalSold": 2030,
     "tapGMV": 0,
     "tapYTD": 3531.47,
     "manager": "Hotline",
@@ -9910,12 +10363,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 72,
+    "agg_sv": 73,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 1832,
-    "gmvPace": 140964.69,
+    "agg_sold": 2030,
+    "gmvPace": 140592.22,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -9923,7 +10376,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       12744.2,
@@ -9932,7 +10385,7 @@ const allShopData = [
       15635.66,
       13269.19,
       13133.65,
-      5064.33
+      5585.3
     ],
     "bonusHistory": [
       0,
@@ -9945,430 +10398,111 @@ const allShopData = [
     ]
   },
   {
-    "username": "kelsic.ugc@gmail.com",
-    "email": "kelsic.ugc@gmail.com",
-    "name": "Kelsi Campbell",
-    "topLevel": "L2",
-    "accounts": [
-      {
-        "handle": "kelsi.campbell",
-        "tiktokLink": "https://www.tiktok.com/@kelsi.campbell",
-        "sv": 72,
-        "tap": 0,
-        "tapGMV": 110.4,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.37%",
-        "views": 0,
-        "sold": 67,
-        "gmv": 1852.33,
-        "commDollars": 327.74,
-        "bonus": 0,
-        "gmvLM": 6208.22,
-        "gmvPace": 5556.99,
-        "commPct": "17.69%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "kelsi.campbell",
-        "gmv": [
-          15763.84,
-          31528.76,
-          16807.38,
-          14678.39,
-          17484.07,
-          6208.22,
-          1852.33
-        ],
-        "tap": [
-          1625.56,
-          2952.26,
-          1534.56,
-          3969.85,
-          4578.68,
-          1185.44,
-          110.4
-        ],
-        "comm": [
-          2470.06,
-          6351.97,
-          3008.52,
-          2929.14,
-          3784.19,
-          1359.07,
-          327.74
-        ]
-      }
-    ],
-    "tapHistory": [
-      1625.56,
-      2952.26,
-      1534.56,
-      3969.85,
-      4578.68,
-      1185.44,
-      110.4
-    ],
-    "points": 5,
-    "totalGMV": 1852.33,
-    "totalComm": 327.74,
-    "avgComm": 17.69,
-    "levelLabel": "L2",
-    "productRank": "63",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 1185.44,
-    "tapGoalM": 10000,
-    "tapLQ": 19804.94,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 2654.91,
-    "totalSV": 72,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.37,
-    "totalViews": 84854,
-    "totalSold": 67,
-    "tapGMV": 110.4,
-    "tapYTD": 40293.38,
-    "manager": "Hotline",
-    "joined": "Dec 2024",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 72,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 67,
-    "gmvPace": 5556.99,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      2470.06,
-      6351.97,
-      3008.52,
-      2929.14,
-      3784.19,
-      1359.07,
-      327.74
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "therestadfamcontent@gmail.com",
-    "email": "therestadfamcontent@gmail.com",
-    "name": "Kristen Restad",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "therestadfam",
-        "tiktokLink": "https://www.tiktok.com/@therestadfam",
-        "sv": 55,
-        "tap": 1,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.67%",
-        "views": 0,
-        "sold": 317,
-        "gmv": 8911.65,
-        "commDollars": 1088.57,
-        "bonus": 0,
-        "gmvLM": 43000.26,
-        "gmvPace": 26734.95,
-        "commPct": "12.22%",
-        "tier": "VIP",
-        "acctRank": 1
-      },
-      {
-        "handle": "mobilemerchant",
-        "tiktokLink": "https://www.tiktok.com/@mobilemerchant",
-        "sv": 55,
-        "tap": 1,
-        "tapGMV": 136.94,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "1.75%",
-        "views": 0,
-        "sold": 473,
-        "gmv": 11174.57,
-        "commDollars": 2236.16,
-        "bonus": 0,
-        "gmvLM": 26349.45,
-        "gmvPace": 33523.71,
-        "commPct": "20.01%",
-        "tier": "VIP",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "therestadfam",
-        "gmv": [
-          38089.35,
-          27235.96,
-          28078.09,
-          25727.27,
-          23172.77,
-          43000.26,
-          8911.65
-        ],
-        "tap": [
-          53.9,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          5643.43,
-          3840.98,
-          3915.76,
-          3329.42,
-          3102.33,
-          5689.54,
-          1088.57
-        ]
-      },
-      {
-        "handle": "mobilemerchant",
-        "gmv": [
-          33974.42,
-          43343.13,
-          31139.21,
-          20665.83,
-          30009.96,
-          26349.45,
-          11174.57
-        ],
-        "tap": [
-          2675.73,
-          1295.85,
-          1002.41,
-          367.25,
-          360.17,
-          201.76,
-          136.94
-        ],
-        "comm": [
-          4955.74,
-          7370.18,
-          4932.4,
-          3402.09,
-          4321.59,
-          4584.12,
-          2236.16
-        ]
-      }
-    ],
-    "tapHistory": [
-      2729.63,
-      1295.85,
-      1002.41,
-      367.25,
-      360.17,
-      201.76,
-      136.94
-    ],
-    "points": 5,
-    "totalGMV": 20086.22,
-    "totalComm": 3324.73,
-    "avgComm": 16.55,
-    "levelLabel": "L3",
-    "productRank": "64",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 2300,
-    "tapLM": 201.76,
-    "tapGoalM": 10000,
-    "tapLQ": 24733.42,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 10612.36,
-    "totalSV": 110,
-    "totalTaP": 2,
-    "totalLS": 0,
-    "totalCTR": 2.21,
-    "totalViews": 904289,
-    "totalSold": 790,
-    "tapGMV": 136.94,
-    "tapYTD": 15846.43,
-    "manager": "Hotline",
-    "joined": "Aug 2024",
-    "tier": "VIP",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 110,
-    "agg_tap": 2,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 790,
-    "gmvPace": 26734.95,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      10599.17,
-      11211.16,
-      8848.16,
-      6731.51,
-      7423.92,
-      10273.66,
-      3324.7299999999996
-    ],
-    "bonusHistory": [
-      0,
-      2100,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "wesleybarkerbookings@gmail.com",
-    "email": "wesleybarkerbookings@gmail.com",
-    "name": "Wesley Barker",
+    "username": "theseasonaldiariess@gmail.com",
+    "email": "theseasonaldiariess@gmail.com",
+    "name": "Alyssa Sarzyniak",
     "topLevel": "L4",
     "accounts": [
       {
-        "handle": "wesleyrbarker",
-        "tiktokLink": "https://www.tiktok.com/@wesleyrbarker",
-        "sv": 11,
-        "tap": 0,
-        "tapGMV": 161.53,
+        "handle": "seasonaldiariess",
+        "tiktokLink": "https://www.tiktok.com/@seasonaldiariess",
+        "sv": 92,
+        "tap": 2,
+        "tapGMV": 189.89,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "7.05%",
+        "ctr": "1.54%",
         "views": 0,
-        "sold": 311,
-        "gmv": 8022.87,
-        "commDollars": 1046.7,
+        "sold": 464,
+        "gmv": 20186.82,
+        "commDollars": 3149.21,
         "bonus": 0,
-        "gmvLM": 77680.41,
-        "gmvPace": 24068.61,
-        "commPct": "13.05%",
-        "tier": "Talent",
+        "gmvLM": 62821.15,
+        "gmvPace": 55054.96,
+        "commPct": "15.60%",
+        "tier": "Core",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "wesleyrbarker",
+        "handle": "seasonaldiariess",
         "gmv": [
-          90832.22,
-          71496.92,
-          58063.9,
-          49487.24,
-          50972.97,
-          77680.41,
-          8022.87
+          61399.62,
+          68527.85,
+          63338.19,
+          70037.12,
+          46374.02,
+          62821.15,
+          20186.82
         ],
         "tap": [
-          991.7,
-          1364.48,
-          912.49,
-          498.6,
-          362.84,
-          520.04,
-          161.53
+          1063.28,
+          1547,
+          1390.93,
+          836.28,
+          1182.53,
+          909.04,
+          189.89
         ],
         "comm": [
-          11952.3,
-          9303.92,
-          7351.92,
-          6451.06,
-          6641.02,
-          9967.01,
-          1046.7
+          6394.8,
+          7402.93,
+          7492.68,
+          9100.52,
+          6057.43,
+          8854.86,
+          3149.21
         ]
       }
     ],
     "tapHistory": [
-      991.7,
-      1364.48,
-      912.49,
-      498.6,
-      362.84,
-      520.04,
-      161.53
+      1063.28,
+      1547,
+      1390.93,
+      836.28,
+      1182.53,
+      909.04,
+      189.89
     ],
-    "points": 5,
-    "totalGMV": 8022.87,
-    "totalComm": 1046.7,
-    "avgComm": 13.05,
+    "points": 6,
+    "totalGMV": 20186.82,
+    "totalComm": 3149.21,
+    "avgComm": 15.6,
     "levelLabel": "L4",
-    "productRank": "65",
+    "productRank": "66",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 1180,
-    "tapLM": 520.04,
+    "bonusYTD": 1050,
+    "tapLM": 909.04,
     "tapGoalM": 10000,
-    "tapLQ": 22217.93,
+    "tapLQ": 26060.37,
     "tapGoalQ": 0,
-    "tapTotalTQ": 10648.58,
-    "totalSV": 11,
-    "totalTaP": 0,
+    "tapTotalTQ": 9953.79,
+    "totalSV": 92,
+    "totalTaP": 2,
     "totalLS": 0,
-    "totalCTR": 7.05,
-    "totalViews": 487595,
-    "totalSold": 311,
-    "tapGMV": 161.53,
-    "tapYTD": 15289.16,
-    "manager": "EMILEE",
-    "joined": "Jul 2024",
-    "tier": "Talent",
+    "totalCTR": 1.54,
+    "totalViews": 1114157,
+    "totalSold": 464,
+    "tapGMV": 189.89,
+    "tapYTD": 22114.04,
+    "manager": "Hotline",
+    "joined": "May 2025",
+    "tier": "Core",
     "accts": "1",
     "score": 0,
     "detailsLabel": "",
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 11,
-    "agg_tap": 0,
+    "agg_sv": 92,
+    "agg_tap": 2,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 311,
-    "gmvPace": 24068.61,
+    "agg_sold": 464,
+    "gmvPace": 55054.96,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -10376,16 +10510,16 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      11952.3,
-      9303.92,
-      7351.92,
-      6451.06,
-      6641.02,
-      9967.01,
-      1046.7
+      6394.8,
+      7402.93,
+      7492.68,
+      9100.52,
+      6057.43,
+      8854.86,
+      3149.21
     ],
     "bonusHistory": [
       0,
@@ -10398,62 +10532,62 @@ const allShopData = [
     ]
   },
   {
-    "username": "amandaburbank131@gmail.com",
-    "email": "amandaburbank131@gmail.com",
-    "name": "Amanda Burbank",
-    "topLevel": "L1",
+    "username": "rondadaly@comcast.net",
+    "email": "rondadaly@comcast.net",
+    "name": "Ronda Daly",
+    "topLevel": "L2",
     "accounts": [
       {
-        "handle": "amandaburbank131",
-        "tiktokLink": "https://www.tiktok.com/@amandaburbank131",
-        "sv": 42,
-        "tap": 1,
-        "tapGMV": 101.8,
+        "handle": "rondadaly",
+        "tiktokLink": "https://www.tiktok.com/@rondadaly",
+        "sv": 55,
+        "tap": 0,
+        "tapGMV": 176.36,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.90%",
+        "ctr": "2.45%",
         "views": 0,
-        "sold": 63,
-        "gmv": 1363.5,
-        "commDollars": 163.96,
+        "sold": 178,
+        "gmv": 6048.47,
+        "commDollars": 701.88,
         "bonus": 0,
-        "gmvLM": 3553.34,
-        "gmvPace": 4090.5,
-        "commPct": "12.02%",
+        "gmvLM": 12808.51,
+        "gmvPace": 16495.83,
+        "commPct": "11.60%",
         "tier": "Core",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "amandaburbank131",
+        "handle": "rondadaly",
         "gmv": [
-          0,
-          28.22,
-          3831.5,
-          2794.07,
-          1686.68,
-          3553.34,
-          1363.5
+          21366.61,
+          12598.72,
+          14626.24,
+          13595.92,
+          12908.32,
+          12808.51,
+          6048.47
         ],
         "tap": [
           0,
           0,
           0,
           0,
-          82.31,
-          87.9,
-          101.8
+          1113.62,
+          1079.07,
+          176.36
         ],
         "comm": [
-          0,
-          2.64,
-          439.8,
-          298.34,
-          238.55,
-          441.93,
-          163.96
+          2307.03,
+          1409.61,
+          1561.96,
+          1360.94,
+          1320.13,
+          1296.63,
+          701.88
         ]
       }
     ],
@@ -10462,34 +10596,34 @@ const allShopData = [
       0,
       0,
       0,
-      82.31,
-      87.9,
-      101.8
+      1113.62,
+      1079.07,
+      176.36
     ],
-    "points": 4,
-    "totalGMV": 1363.5,
-    "totalComm": 163.96,
-    "avgComm": 12.02,
-    "levelLabel": "L1",
-    "productRank": "66",
+    "points": 5,
+    "totalGMV": 6048.47,
+    "totalComm": 701.88,
+    "avgComm": 11.6,
+    "levelLabel": "L2",
+    "productRank": "67",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
-    "tapLM": 87.9,
+    "tapLM": 1079.07,
     "tapGoalM": 10000,
-    "tapLQ": 1059,
+    "tapLQ": 5356.65,
     "tapGoalQ": 0,
-    "tapTotalTQ": 631.63,
-    "totalSV": 42,
-    "totalTaP": 1,
+    "tapTotalTQ": 2552.06,
+    "totalSV": 55,
+    "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.9,
-    "totalViews": 88041,
-    "totalSold": 63,
-    "tapGMV": 101.8,
-    "tapYTD": 272.01,
+    "totalCTR": 2.45,
+    "totalViews": 177807,
+    "totalSold": 178,
+    "tapGMV": 176.36,
+    "tapYTD": 2369.05,
     "manager": "Hotline",
-    "joined": "Jun 2026",
+    "joined": "Feb 2026",
     "tier": "Core",
     "accts": "1",
     "score": 0,
@@ -10497,12 +10631,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 42,
-    "agg_tap": 1,
+    "agg_sv": 55,
+    "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 63,
-    "gmvPace": 4090.5,
+    "agg_sold": 178,
+    "gmvPace": 16495.83,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -10510,16 +10644,16 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      0,
-      2.64,
-      439.8,
-      298.34,
-      238.55,
-      441.93,
-      163.96
+      2307.03,
+      1409.61,
+      1561.96,
+      1360.94,
+      1320.13,
+      1296.63,
+      701.88
     ],
     "bonusHistory": [
       0,
@@ -10546,15 +10680,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "11.39%",
+        "ctr": "11.26%",
         "views": 0,
-        "sold": 97,
-        "gmv": 2401,
-        "commDollars": 445.11,
+        "sold": 109,
+        "gmv": 2588.23,
+        "commDollars": 472.45,
         "bonus": 0,
         "gmvLM": 9660.52,
-        "gmvPace": 7203,
-        "commPct": "18.54%",
+        "gmvPace": 7058.81,
+        "commPct": "18.25%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -10567,14 +10701,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.39%",
+        "ctr": "4.56%",
         "views": 0,
         "sold": 2,
         "gmv": 101.14,
         "commDollars": 22.43,
         "bonus": 0,
         "gmvLM": 438.1,
-        "gmvPace": 303.42,
+        "gmvPace": 275.84,
         "commPct": "22.18%",
         "tier": "VIP",
         "acctRank": 1
@@ -10588,15 +10722,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.61%",
+        "ctr": "3.68%",
         "views": 0,
-        "sold": 8,
-        "gmv": 157.53,
-        "commDollars": 19.6,
+        "sold": 10,
+        "gmv": 180.07,
+        "commDollars": 21.85,
         "bonus": 0,
         "gmvLM": 429.38,
-        "gmvPace": 472.59,
-        "commPct": "12.44%",
+        "gmvPace": 491.1,
+        "commPct": "12.13%",
         "tier": "VIP",
         "acctRank": 1
       },
@@ -10609,14 +10743,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.51%",
+        "ctr": "1.56%",
         "views": 0,
         "sold": 1,
         "gmv": 58.38,
         "commDollars": 12.98,
         "bonus": 0,
         "gmvLM": 366.74,
-        "gmvPace": 175.14,
+        "gmvPace": 159.22,
         "commPct": "22.23%",
         "tier": "VIP",
         "acctRank": 1
@@ -10632,7 +10766,7 @@ const allShopData = [
           10148.77,
           10557.57,
           9660.52,
-          2401
+          2588.23
         ],
         "tap": [
           191.6,
@@ -10650,7 +10784,7 @@ const allShopData = [
           1617.69,
           1885.74,
           1521.75,
-          445.11
+          472.45
         ]
       },
       {
@@ -10722,7 +10856,7 @@ const allShopData = [
           0,
           106.78,
           429.38,
-          157.53
+          180.07
         ],
         "tap": [
           0,
@@ -10740,7 +10874,7 @@ const allShopData = [
           0,
           24.8,
           96.55,
-          19.6
+          21.85
         ]
       }
     ],
@@ -10754,11 +10888,11 @@ const allShopData = [
       0
     ],
     "points": 4,
-    "totalGMV": 2718.05,
-    "totalComm": 500.12,
-    "avgComm": 18.4,
+    "totalGMV": 2927.82,
+    "totalComm": 529.71,
+    "avgComm": 18.09,
     "levelLabel": "L2",
-    "productRank": "67",
+    "productRank": "68",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 100,
@@ -10770,9 +10904,9 @@ const allShopData = [
     "totalSV": 35,
     "totalTaP": 1,
     "totalLS": 0,
-    "totalCTR": 5.23,
-    "totalViews": 58076,
-    "totalSold": 108,
+    "totalCTR": 5.27,
+    "totalViews": 63188,
+    "totalSold": 122,
     "tapGMV": 0,
     "tapYTD": 1648.27,
     "manager": "EMILEE",
@@ -10788,8 +10922,8 @@ const allShopData = [
     "agg_tap": 1,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 108,
-    "gmvPace": 7203,
+    "agg_sold": 122,
+    "gmvPace": 7058.81,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -10797,7 +10931,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       4772.469999999999,
@@ -10806,7 +10940,7 @@ const allShopData = [
       1684.43,
       2040.6699999999998,
       1734.61,
-      500.12000000000006
+      529.71
     ],
     "bonusHistory": [
       0,
@@ -10827,21 +10961,21 @@ const allShopData = [
       {
         "handle": "kathryn_scoco",
         "tiktokLink": "https://www.tiktok.com/@kathryn_scoco",
-        "sv": 43,
+        "sv": 49,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.48%",
+        "ctr": "2.39%",
         "views": 0,
-        "sold": 988,
-        "gmv": 33732.85,
-        "commDollars": 3723.51,
+        "sold": 1120,
+        "gmv": 38303.81,
+        "commDollars": 4245.66,
         "bonus": 0,
         "gmvLM": 97221.88,
-        "gmvPace": 101198.55,
-        "commPct": "11.04%",
+        "gmvPace": 104464.94,
+        "commPct": "11.08%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -10856,7 +10990,7 @@ const allShopData = [
           159612.13,
           124047.35,
           97221.88,
-          33732.85
+          38303.81
         ],
         "tap": [
           0,
@@ -10874,7 +11008,7 @@ const allShopData = [
           14382.36,
           12791.15,
           10345.21,
-          3723.51
+          4245.66
         ]
       }
     ],
@@ -10888,11 +11022,11 @@ const allShopData = [
       0
     ],
     "points": 4,
-    "totalGMV": 33732.85,
-    "totalComm": 3723.51,
-    "avgComm": 11.04,
+    "totalGMV": 38303.81,
+    "totalComm": 4245.66,
+    "avgComm": 11.08,
     "levelLabel": "L4",
-    "productRank": "68",
+    "productRank": "69",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -10901,12 +11035,12 @@ const allShopData = [
     "tapLQ": 42292.35,
     "tapGoalQ": 0,
     "tapTotalTQ": 10345.21,
-    "totalSV": 43,
+    "totalSV": 49,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.48,
-    "totalViews": 1178583,
-    "totalSold": 988,
+    "totalCTR": 2.39,
+    "totalViews": 1348485,
+    "totalSold": 1120,
     "tapGMV": 0,
     "tapYTD": 2643.86,
     "manager": "Hotline",
@@ -10918,12 +11052,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 43,
+    "agg_sv": 49,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 988,
-    "gmvPace": 101198.55,
+    "agg_sold": 1120,
+    "gmvPace": 104464.94,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -10931,7 +11065,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       14023.2,
@@ -10940,7 +11074,7 @@ const allShopData = [
       14382.36,
       12791.15,
       10345.21,
-      3723.51
+      4245.66
     ],
     "bonusHistory": [
       0,
@@ -10953,98 +11087,98 @@ const allShopData = [
     ]
   },
   {
-    "username": "rondadaly@comcast.net",
-    "email": "rondadaly@comcast.net",
-    "name": "Ronda Daly",
-    "topLevel": "L2",
+    "username": "riannapepe428@gmail.com",
+    "email": "riannapepe428@gmail.com",
+    "name": "Rianna Pepe",
+    "topLevel": "L4",
     "accounts": [
       {
-        "handle": "rondadaly",
-        "tiktokLink": "https://www.tiktok.com/@rondadaly",
-        "sv": 50,
+        "handle": "riannapepe",
+        "tiktokLink": "https://www.tiktok.com/@riannapepe",
+        "sv": 35,
         "tap": 0,
-        "tapGMV": 148.15,
+        "tapGMV": 143.94,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.46%",
+        "ctr": "3.12%",
         "views": 0,
-        "sold": 168,
-        "gmv": 5668.81,
-        "commDollars": 662.95,
+        "sold": 278,
+        "gmv": 12851.85,
+        "commDollars": 2108.95,
         "bonus": 0,
-        "gmvLM": 12808.51,
-        "gmvPace": 17006.43,
-        "commPct": "11.69%",
+        "gmvLM": 70287.44,
+        "gmvPace": 35050.5,
+        "commPct": "16.41%",
         "tier": "Core",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "rondadaly",
+        "handle": "riannapepe",
         "gmv": [
-          21366.61,
-          12598.72,
-          14626.24,
-          13595.92,
-          12908.32,
-          12808.51,
-          5668.81
+          40910.14,
+          38691.1,
+          97517.12,
+          22571.16,
+          34198.19,
+          70287.44,
+          12851.85
         ],
         "tap": [
-          0,
-          0,
-          0,
-          0,
-          1113.62,
-          1079.07,
-          148.15
+          664.07,
+          630.12,
+          287.23,
+          844.81,
+          652.71,
+          1058.36,
+          143.94
         ],
         "comm": [
-          2307.03,
-          1409.61,
-          1561.96,
-          1360.94,
-          1320.13,
-          1296.63,
-          662.95
+          6418.94,
+          6278.24,
+          14526.1,
+          3726.47,
+          6017.73,
+          11489.69,
+          2108.95
         ]
       }
     ],
     "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      1113.62,
-      1079.07,
-      148.15
+      664.07,
+      630.12,
+      287.23,
+      844.81,
+      652.71,
+      1058.36,
+      143.94
     ],
     "points": 4,
-    "totalGMV": 5668.81,
-    "totalComm": 662.95,
-    "avgComm": 11.69,
-    "levelLabel": "L2",
-    "productRank": "69",
+    "totalGMV": 12851.85,
+    "totalComm": 2108.95,
+    "avgComm": 16.41,
+    "levelLabel": "L4",
+    "productRank": "70",
     "cashBonus": 0,
     "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 1079.07,
+    "bonusYTD": 4250,
+    "tapLM": 1058.36,
     "tapGoalM": 10000,
-    "tapLQ": 5356.65,
+    "tapLQ": 26055.05,
     "tapGoalQ": 0,
-    "tapTotalTQ": 2523.85,
-    "totalSV": 50,
+    "tapTotalTQ": 12691.99,
+    "totalSV": 35,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.46,
-    "totalViews": 167062,
-    "totalSold": 168,
-    "tapGMV": 148.15,
-    "tapYTD": 2340.84,
+    "totalCTR": 3.12,
+    "totalViews": 491313,
+    "totalSold": 278,
+    "tapGMV": 143.94,
+    "tapYTD": 9237.79,
     "manager": "Hotline",
-    "joined": "Feb 2026",
+    "joined": "May 2025",
     "tier": "Core",
     "accts": "1",
     "score": 0,
@@ -11052,12 +11186,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 50,
+    "agg_sv": 35,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 168,
-    "gmvPace": 17006.43,
+    "agg_sold": 278,
+    "gmvPace": 35050.5,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11065,20 +11199,20 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      2307.03,
-      1409.61,
-      1561.96,
-      1360.94,
-      1320.13,
-      1296.63,
-      662.95
+      6418.94,
+      6278.24,
+      14526.1,
+      3726.47,
+      6017.73,
+      11489.69,
+      2108.95
     ],
     "bonusHistory": [
-      0,
-      0,
+      400,
+      900,
       0,
       0,
       0,
@@ -11095,21 +11229,21 @@ const allShopData = [
       {
         "handle": "stephsharesitall",
         "tiktokLink": "https://www.tiktok.com/@stephsharesitall",
-        "sv": 82,
+        "sv": 89,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.92%",
+        "ctr": "2.89%",
         "views": 0,
-        "sold": 2069,
-        "gmv": 30483.74,
-        "commDollars": 5130.31,
+        "sold": 2316,
+        "gmv": 33787.77,
+        "commDollars": 5714.87,
         "bonus": 0,
         "gmvLM": 78358.3,
-        "gmvPace": 91451.22,
-        "commPct": "16.83%",
+        "gmvPace": 92148.46,
+        "commPct": "16.91%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -11122,7 +11256,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.69%",
+        "ctr": "4.48%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -11145,7 +11279,7 @@ const allShopData = [
           59455.56,
           63406.19,
           78358.3,
-          30483.74
+          33787.77
         ],
         "tap": [
           922.49,
@@ -11163,7 +11297,7 @@ const allShopData = [
           6593.4,
           9112.26,
           12070.09,
-          5130.31
+          5714.87
         ]
       },
       {
@@ -11207,11 +11341,11 @@ const allShopData = [
       0
     ],
     "points": 4,
-    "totalGMV": 30483.74,
-    "totalComm": 5130.31,
-    "avgComm": 16.83,
+    "totalGMV": 33787.77,
+    "totalComm": 5714.87,
+    "avgComm": 16.91,
     "levelLabel": "L4",
-    "productRank": "70",
+    "productRank": "71",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -11220,12 +11354,12 @@ const allShopData = [
     "tapLQ": 19683.34,
     "tapGoalQ": 0,
     "tapTotalTQ": 12070.09,
-    "totalSV": 82,
+    "totalSV": 89,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.81,
-    "totalViews": 1448308,
-    "totalSold": 2069,
+    "totalCTR": 3.69,
+    "totalViews": 1611325,
+    "totalSold": 2316,
     "tapGMV": 0,
     "tapYTD": 3353.03,
     "manager": "Hotline",
@@ -11237,12 +11371,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 82,
+    "agg_sv": 89,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 2069,
-    "gmvPace": 91451.22,
+    "agg_sold": 2316,
+    "gmvPace": 92148.46,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11250,7 +11384,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       7570.68,
@@ -11259,7 +11393,409 @@ const allShopData = [
       6593.4,
       9112.26,
       12070.09,
-      5130.31
+      5714.87
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "tayloradis@icloud.com",
+    "email": "tayloradis@icloud.com",
+    "name": "Taylor Adis",
+    "topLevel": "L4",
+    "accounts": [
+      {
+        "handle": "tayloradis",
+        "tiktokLink": "https://www.tiktok.com/@tayloradis",
+        "sv": 74,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.33%",
+        "views": 0,
+        "sold": 468,
+        "gmv": 30522.88,
+        "commDollars": 3608.85,
+        "bonus": 0,
+        "gmvLM": 71178.13,
+        "gmvPace": 83244.22,
+        "commPct": "11.82%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "tayloradis",
+        "gmv": [
+          46283.24,
+          52790.15,
+          83765.65,
+          121746.28,
+          98192.9,
+          71178.13,
+          30522.88
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          86,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          4799.69,
+          6044.2,
+          9231.62,
+          13176.83,
+          10980.45,
+          8010.33,
+          3608.85
+        ]
+      }
+    ],
+    "tapHistory": [
+      0,
+      0,
+      0,
+      86,
+      0,
+      0,
+      0
+    ],
+    "points": 4,
+    "totalGMV": 30522.88,
+    "totalComm": 3608.85,
+    "avgComm": 11.82,
+    "levelLabel": "L4",
+    "productRank": "72",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 0,
+    "tapGoalM": 10000,
+    "tapLQ": 33474.9,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 8010.33,
+    "totalSV": 74,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 2.33,
+    "totalViews": 974360,
+    "totalSold": 468,
+    "tapGMV": 0,
+    "tapYTD": 86,
+    "manager": "Hotline",
+    "joined": "Nov 2024",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 74,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 468,
+    "gmvPace": 83244.22,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      4799.69,
+      6044.2,
+      9231.62,
+      13176.83,
+      10980.45,
+      8010.33,
+      3608.85
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "ugcwithbrii@gmail.com",
+    "email": "ugcwithbrii@gmail.com",
+    "name": "Briana Pichardo",
+    "topLevel": "L4",
+    "accounts": [
+      {
+        "handle": "ugcwithbrii",
+        "tiktokLink": "https://www.tiktok.com/@ugcwithbrii",
+        "sv": 26,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "1.84%",
+        "views": 0,
+        "sold": 758,
+        "gmv": 32405.67,
+        "commDollars": 4309.23,
+        "bonus": 0,
+        "gmvLM": 92167.96,
+        "gmvPace": 88379.1,
+        "commPct": "13.30%",
+        "tier": "VIP",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "ugcwithbrii",
+        "gmv": [
+          250754.58,
+          211382.27,
+          155268.09,
+          134097.86,
+          132377.85,
+          92167.96,
+          32405.67
+        ],
+        "tap": [
+          186.18,
+          97.29,
+          17.99,
+          32.49,
+          50.99,
+          210.6,
+          0
+        ],
+        "comm": [
+          34844.87,
+          27264.38,
+          19896.72,
+          17506.26,
+          18562.75,
+          13193.7,
+          4309.23
+        ]
+      }
+    ],
+    "tapHistory": [
+      186.18,
+      97.29,
+      17.99,
+      32.49,
+      50.99,
+      210.6,
+      0
+    ],
+    "points": 4,
+    "totalGMV": 32405.67,
+    "totalComm": 4309.23,
+    "avgComm": 13.3,
+    "levelLabel": "L4",
+    "productRank": "73",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 210.6,
+    "tapGoalM": 10000,
+    "tapLQ": 56067.2,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 13404.3,
+    "totalSV": 26,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 1.84,
+    "totalViews": 1373418,
+    "totalSold": 758,
+    "tapGMV": 0,
+    "tapYTD": 1561.4,
+    "manager": "EMILEE",
+    "joined": "Jan 2025",
+    "tier": "VIP",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 26,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 758,
+    "gmvPace": 88379.1,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      34844.87,
+      27264.38,
+      19896.72,
+      17506.26,
+      18562.75,
+      13193.7,
+      4309.23
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "affiliategenise@gmail.com",
+    "email": "affiliategenise@gmail.com",
+    "name": "Genise She",
+    "topLevel": "L3",
+    "accounts": [
+      {
+        "handle": "itsgenise",
+        "tiktokLink": "https://www.tiktok.com/@itsgenise",
+        "sv": 52,
+        "tap": 1,
+        "tapGMV": 30.36,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "5.59%",
+        "views": 0,
+        "sold": 316,
+        "gmv": 14157.64,
+        "commDollars": 1094.89,
+        "bonus": 0,
+        "gmvLM": 38613.06,
+        "gmvPace": 38611.75,
+        "commPct": "7.73%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "itsgenise",
+        "gmv": [
+          36367.73,
+          123506.91,
+          48876.79,
+          34346.01,
+          39953.19,
+          38613.06,
+          14157.64
+        ],
+        "tap": [
+          85.66,
+          282.36,
+          184.03,
+          106.68,
+          0,
+          184.67,
+          30.36
+        ],
+        "comm": [
+          4412.5,
+          5752.13,
+          6012.65,
+          3037.65,
+          3466.29,
+          4319.01,
+          1094.89
+        ]
+      }
+    ],
+    "tapHistory": [
+      85.66,
+      282.36,
+      184.03,
+      106.68,
+      0,
+      184.67,
+      30.36
+    ],
+    "points": 3,
+    "totalGMV": 14157.64,
+    "totalComm": 1094.89,
+    "avgComm": 7.73,
+    "levelLabel": "L3",
+    "productRank": "74",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 184.67,
+    "tapGoalM": 10000,
+    "tapLQ": 12807.3,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 4534.04,
+    "totalSV": 52,
+    "totalTaP": 1,
+    "totalLS": 0,
+    "totalCTR": 5.59,
+    "totalViews": 390703,
+    "totalSold": 316,
+    "tapGMV": 30.36,
+    "tapYTD": 2162.32,
+    "manager": "Hotline",
+    "joined": "Jan 2026",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 52,
+    "agg_tap": 1,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 316,
+    "gmvPace": 38611.75,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      4412.5,
+      5752.13,
+      6012.65,
+      3037.65,
+      3466.29,
+      4319.01,
+      1094.89
     ],
     "bonusHistory": [
       0,
@@ -11280,21 +11816,21 @@ const allShopData = [
       {
         "handle": "mariefloree",
         "tiktokLink": "https://www.tiktok.com/@mariefloree",
-        "sv": 16,
+        "sv": 17,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "9.51%",
+        "ctr": "9.46%",
         "views": 0,
-        "sold": 468,
-        "gmv": 22823.72,
-        "commDollars": 2257.72,
+        "sold": 525,
+        "gmv": 25951.66,
+        "commDollars": 2607.3,
         "bonus": 0,
         "gmvLM": 60482.02,
-        "gmvPace": 68471.16,
-        "commPct": "9.89%",
+        "gmvPace": 70777.25,
+        "commPct": "10.05%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11309,7 +11845,7 @@ const allShopData = [
           35579.55,
           28058.85,
           60482.02,
-          22823.72
+          25951.66
         ],
         "tap": [
           0,
@@ -11327,7 +11863,7 @@ const allShopData = [
           4516.34,
           3447.59,
           6168.42,
-          2257.72
+          2607.3
         ]
       }
     ],
@@ -11341,11 +11877,11 @@ const allShopData = [
       0
     ],
     "points": 3,
-    "totalGMV": 22823.72,
-    "totalComm": 2257.72,
-    "avgComm": 9.89,
+    "totalGMV": 25951.66,
+    "totalComm": 2607.3,
+    "avgComm": 10.05,
     "levelLabel": "L4",
-    "productRank": "71",
+    "productRank": "75",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 280,
@@ -11354,12 +11890,12 @@ const allShopData = [
     "tapLQ": 11357.06,
     "tapGoalQ": 0,
     "tapTotalTQ": 6168.42,
-    "totalSV": 16,
+    "totalSV": 17,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 9.51,
-    "totalViews": 1101132,
-    "totalSold": 468,
+    "totalCTR": 9.46,
+    "totalViews": 1186660,
+    "totalSold": 525,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -11371,12 +11907,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 16,
+    "agg_sv": 17,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 468,
-    "gmvPace": 68471.16,
+    "agg_sold": 525,
+    "gmvPace": 70777.25,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11384,7 +11920,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       738.54,
@@ -11393,7 +11929,7 @@ const allShopData = [
       4516.34,
       3447.59,
       6168.42,
-      2257.72
+      2607.3
     ],
     "bonusHistory": [
       0,
@@ -11414,7 +11950,7 @@ const allShopData = [
       {
         "handle": "little__j",
         "tiktokLink": "https://www.tiktok.com/@little__j",
-        "sv": 67,
+        "sv": 74,
         "tap": 5,
         "tapGMV": 27.87,
         "ls": 0,
@@ -11422,13 +11958,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "2.65%",
         "views": 0,
-        "sold": 212,
-        "gmv": 13233.57,
-        "commDollars": 1549.03,
+        "sold": 228,
+        "gmv": 14134,
+        "commDollars": 1709.24,
         "bonus": 0,
         "gmvLM": 37692.1,
-        "gmvPace": 39700.71,
-        "commPct": "11.71%",
+        "gmvPace": 38547.27,
+        "commPct": "12.09%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -11441,7 +11977,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.22%",
+        "ctr": "1.10%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -11494,7 +12030,7 @@ const allShopData = [
           60757.11,
           46012.92,
           37692.1,
-          13233.57
+          14134
         ],
         "tap": [
           87.99,
@@ -11512,7 +12048,7 @@ const allShopData = [
           6759.44,
           5102.36,
           4128.7,
-          1549.03
+          1709.24
         ]
       }
     ],
@@ -11526,11 +12062,11 @@ const allShopData = [
       27.87
     ],
     "points": 3,
-    "totalGMV": 13233.57,
-    "totalComm": 1549.03,
-    "avgComm": 11.71,
+    "totalGMV": 14134,
+    "totalComm": 1709.24,
+    "avgComm": 12.09,
     "levelLabel": "L3",
-    "productRank": "72",
+    "productRank": "76",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -11539,12 +12075,12 @@ const allShopData = [
     "tapLQ": 17427.5,
     "tapGoalQ": 0,
     "tapTotalTQ": 5012.35,
-    "totalSV": 67,
+    "totalSV": 74,
     "totalTaP": 5,
     "totalLS": 0,
-    "totalCTR": 1.94,
-    "totalViews": 295691,
-    "totalSold": 212,
+    "totalCTR": 1.88,
+    "totalViews": 323127,
+    "totalSold": 228,
     "tapGMV": 27.87,
     "tapYTD": 2227.7,
     "manager": "Hotline",
@@ -11556,12 +12092,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 67,
+    "agg_sv": 74,
     "agg_tap": 5,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 212,
-    "gmvPace": 39700.71,
+    "agg_sold": 228,
+    "gmvPace": 38547.27,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11569,7 +12105,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       6011.4,
@@ -11578,7 +12114,7 @@ const allShopData = [
       6784.2,
       5102.36,
       4128.7,
-      1549.03
+      1709.24
     ],
     "bonusHistory": [
       0,
@@ -11599,21 +12135,21 @@ const allShopData = [
       {
         "handle": "andthatsthelipton",
         "tiktokLink": "https://www.tiktok.com/@andthatsthelipton",
-        "sv": 90,
+        "sv": 99,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.36%",
+        "ctr": "3.40%",
         "views": 0,
-        "sold": 684,
-        "gmv": 21988.6,
-        "commDollars": 2236.87,
+        "sold": 755,
+        "gmv": 24001.54,
+        "commDollars": 2447.93,
         "bonus": 0,
         "gmvLM": 108897.24,
-        "gmvPace": 65965.8,
-        "commPct": "10.17%",
+        "gmvPace": 65458.75,
+        "commPct": "10.20%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11628,7 +12164,7 @@ const allShopData = [
           58346.53,
           68018.03,
           108897.24,
-          21988.6
+          24001.54
         ],
         "tap": [
           0,
@@ -11646,7 +12182,7 @@ const allShopData = [
           6321.59,
           7276.5,
           10781.8,
-          2236.87
+          2447.93
         ]
       }
     ],
@@ -11660,11 +12196,11 @@ const allShopData = [
       0
     ],
     "points": 3,
-    "totalGMV": 21988.6,
-    "totalComm": 2236.87,
-    "avgComm": 10.17,
+    "totalGMV": 24001.54,
+    "totalComm": 2447.93,
+    "avgComm": 10.2,
     "levelLabel": "L4",
-    "productRank": "73",
+    "productRank": "77",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -11673,12 +12209,12 @@ const allShopData = [
     "tapLQ": 20301.82,
     "tapGoalQ": 0,
     "tapTotalTQ": 10781.8,
-    "totalSV": 90,
+    "totalSV": 99,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.36,
-    "totalViews": 1779443,
-    "totalSold": 684,
+    "totalCTR": 3.4,
+    "totalViews": 1946402,
+    "totalSold": 755,
     "tapGMV": 0,
     "tapYTD": 40.01,
     "manager": "Hotline",
@@ -11690,12 +12226,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 90,
+    "agg_sv": 99,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 684,
-    "gmvPace": 65965.8,
+    "agg_sold": 755,
+    "gmvPace": 65458.75,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11703,7 +12239,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       5169.91,
@@ -11712,7 +12248,7 @@ const allShopData = [
       6321.59,
       7276.5,
       10781.8,
-      2236.87
+      2447.93
     ],
     "bonusHistory": [
       0,
@@ -11759,7 +12295,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L5",
-    "productRank": "74",
+    "productRank": "78",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 400,
@@ -11801,21 +12337,21 @@ const allShopData = [
       {
         "handle": "honestamandafinds",
         "tiktokLink": "https://www.tiktok.com/@honestamandafinds",
-        "sv": 59,
+        "sv": 65,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.61%",
+        "ctr": "1.62%",
         "views": 0,
-        "sold": 502,
-        "gmv": 26737.43,
-        "commDollars": 2695.17,
+        "sold": 542,
+        "gmv": 29473.54,
+        "commDollars": 2935.91,
         "bonus": 0,
         "gmvLM": 86877.02,
-        "gmvPace": 80212.29,
-        "commPct": "10.08%",
+        "gmvPace": 80382.38,
+        "commPct": "9.96%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11830,7 +12366,7 @@ const allShopData = [
           64888.54,
           94321.39,
           86877.02,
-          26737.43
+          29473.54
         ],
         "tap": [
           0,
@@ -11848,7 +12384,7 @@ const allShopData = [
           6061.62,
           9570.68,
           8650.55,
-          2695.17
+          2935.91
         ]
       }
     ],
@@ -11862,11 +12398,11 @@ const allShopData = [
       0
     ],
     "points": 3,
-    "totalGMV": 26737.43,
-    "totalComm": 2695.17,
-    "avgComm": 10.08,
+    "totalGMV": 29473.54,
+    "totalComm": 2935.91,
+    "avgComm": 9.96,
     "levelLabel": "L4",
-    "productRank": "75",
+    "productRank": "79",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -11875,12 +12411,12 @@ const allShopData = [
     "tapLQ": 19777.85,
     "tapGoalQ": 0,
     "tapTotalTQ": 8650.55,
-    "totalSV": 59,
+    "totalSV": 65,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.61,
-    "totalViews": 974287,
-    "totalSold": 502,
+    "totalCTR": 1.62,
+    "totalViews": 1059092,
+    "totalSold": 542,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -11892,12 +12428,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 59,
+    "agg_sv": 65,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 502,
-    "gmvPace": 80212.29,
+    "agg_sold": 542,
+    "gmvPace": 80382.38,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -11905,7 +12441,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       9797.78,
@@ -11914,7 +12450,7 @@ const allShopData = [
       6061.62,
       9570.68,
       8650.55,
-      2695.17
+      2935.91
     ],
     "bonusHistory": [
       0,
@@ -11935,21 +12471,21 @@ const allShopData = [
       {
         "handle": "jaimehillathome",
         "tiktokLink": "https://www.tiktok.com/@jaimehillathome",
-        "sv": 68,
+        "sv": 78,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.00%",
+        "ctr": "3.25%",
         "views": 0,
-        "sold": 301,
-        "gmv": 14233.74,
-        "commDollars": 1643.43,
+        "sold": 334,
+        "gmv": 18126.73,
+        "commDollars": 2173.31,
         "bonus": 0,
         "gmvLM": 55444.62,
-        "gmvPace": 42701.22,
-        "commPct": "11.55%",
+        "gmvPace": 49436.54,
+        "commPct": "11.99%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -11962,15 +12498,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.79%",
+        "ctr": "2.85%",
         "views": 0,
-        "sold": 184,
-        "gmv": 7309.79,
-        "commDollars": 631.93,
+        "sold": 195,
+        "gmv": 7808.69,
+        "commDollars": 675.39,
         "bonus": 0,
         "gmvLM": 28391.45,
-        "gmvPace": 21929.37,
-        "commPct": "8.64%",
+        "gmvPace": 21296.43,
+        "commPct": "8.65%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -11985,7 +12521,7 @@ const allShopData = [
           50536.38,
           63475.98,
           55444.62,
-          14233.74
+          18126.73
         ],
         "tap": [
           44.42,
@@ -12003,7 +12539,7 @@ const allShopData = [
           4862.75,
           6949.66,
           5834.56,
-          1643.43
+          2173.31
         ]
       },
       {
@@ -12015,7 +12551,7 @@ const allShopData = [
           46973.99,
           34297.9,
           28391.45,
-          7309.79
+          7808.69
         ],
         "tap": [
           0,
@@ -12033,7 +12569,7 @@ const allShopData = [
           5370.86,
           3573.7,
           2691.19,
-          631.93
+          675.39
         ]
       }
     ],
@@ -12047,11 +12583,11 @@ const allShopData = [
       0
     ],
     "points": 3,
-    "totalGMV": 21543.53,
-    "totalComm": 2275.36,
-    "avgComm": 10.56,
+    "totalGMV": 25935.42,
+    "totalComm": 2848.7,
+    "avgComm": 10.98,
     "levelLabel": "L3",
-    "productRank": "76",
+    "productRank": "80",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 200,
@@ -12060,12 +12596,12 @@ const allShopData = [
     "tapLQ": 34690.93,
     "tapGoalQ": 0,
     "tapTotalTQ": 8525.75,
-    "totalSV": 105,
+    "totalSV": 115,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.9,
-    "totalViews": 619231,
-    "totalSold": 485,
+    "totalCTR": 3.05,
+    "totalViews": 686826,
+    "totalSold": 529,
     "tapGMV": 0,
     "tapYTD": 269.99,
     "manager": "Hotline",
@@ -12077,12 +12613,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 105,
+    "agg_sv": 115,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 485,
-    "gmvPace": 42701.22,
+    "agg_sold": 529,
+    "gmvPace": 49436.54,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12090,7 +12626,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       6118.28,
@@ -12099,7 +12635,7 @@ const allShopData = [
       10233.61,
       10523.36,
       8525.75,
-      2275.36
+      2848.7
     ],
     "bonusHistory": [
       0,
@@ -12120,42 +12656,42 @@ const allShopData = [
       {
         "handle": "kaseys0920",
         "tiktokLink": "https://www.tiktok.com/@kaseys0920",
-        "sv": 80,
+        "sv": 91,
         "tap": 6,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.69%",
+        "ctr": "3.68%",
         "views": 0,
-        "sold": 120,
-        "gmv": 3295.85,
-        "commDollars": 346.33,
+        "sold": 134,
+        "gmv": 3685.84,
+        "commDollars": 382.24,
         "bonus": 0,
         "gmvLM": 16732.61,
-        "gmvPace": 9887.55,
-        "commPct": "10.51%",
+        "gmvPace": 10052.29,
+        "commPct": "10.37%",
         "tier": "Core",
         "acctRank": 1
       },
       {
         "handle": "kaseyas0920",
         "tiktokLink": "https://www.tiktok.com/@kaseyas0920",
-        "sv": 44,
+        "sv": 52,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.57%",
+        "ctr": "2.52%",
         "views": 0,
-        "sold": 98,
-        "gmv": 1788.75,
-        "commDollars": 160.59,
+        "sold": 106,
+        "gmv": 1923.33,
+        "commDollars": 169.33,
         "bonus": 0,
         "gmvLM": 8847.03,
-        "gmvPace": 5366.25,
-        "commPct": "8.98%",
+        "gmvPace": 5245.45,
+        "commPct": "8.80%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -12168,14 +12704,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.44%",
+        "ctr": "2.47%",
         "views": 0,
         "sold": 1,
         "gmv": 38,
         "commDollars": 6.08,
         "bonus": 0,
         "gmvLM": 125.51,
-        "gmvPace": 114,
+        "gmvPace": 103.64,
         "commPct": "16.00%",
         "tier": "Core",
         "acctRank": 1
@@ -12191,7 +12727,7 @@ const allShopData = [
           6175.06,
           8283.23,
           16732.61,
-          3295.85
+          3685.84
         ],
         "tap": [
           0,
@@ -12209,7 +12745,7 @@ const allShopData = [
           628.83,
           957.54,
           1709.03,
-          346.33
+          382.24
         ]
       },
       {
@@ -12221,7 +12757,7 @@ const allShopData = [
           5698.75,
           5222.46,
           8847.03,
-          1788.75
+          1923.33
         ],
         "tap": [
           0,
@@ -12239,7 +12775,7 @@ const allShopData = [
           615.35,
           441.35,
           763.5,
-          160.59
+          169.33
         ]
       },
       {
@@ -12283,11 +12819,11 @@ const allShopData = [
       38
     ],
     "points": 3,
-    "totalGMV": 5122.6,
-    "totalComm": 513,
-    "avgComm": 10.01,
+    "totalGMV": 5647.17,
+    "totalComm": 557.65,
+    "avgComm": 9.87,
     "levelLabel": "L2",
-    "productRank": "77",
+    "productRank": "81",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -12296,12 +12832,12 @@ const allShopData = [
     "tapLQ": 4151.77,
     "tapGoalQ": 0,
     "tapTotalTQ": 2576.93,
-    "totalSV": 126,
+    "totalSV": 145,
     "totalTaP": 6,
     "totalLS": 0,
-    "totalCTR": 2.9,
-    "totalViews": 453908,
-    "totalSold": 219,
+    "totalCTR": 2.89,
+    "totalViews": 498393,
+    "totalSold": 241,
     "tapGMV": 38,
     "tapYTD": 807.57,
     "manager": "Hotline",
@@ -12313,12 +12849,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 126,
+    "agg_sv": 145,
     "agg_tap": 6,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 219,
-    "gmvPace": 9887.55,
+    "agg_sold": 241,
+    "gmvPace": 10052.29,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12326,7 +12862,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2080.2900000000004,
@@ -12335,7 +12871,7 @@ const allShopData = [
       1244.18,
       1403.57,
       2491.22,
-      513
+      557.6500000000001
     ],
     "bonusHistory": [
       0,
@@ -12356,7 +12892,7 @@ const allShopData = [
       {
         "handle": "kategrauss",
         "tiktokLink": "https://www.tiktok.com/@kategrauss",
-        "sv": 15,
+        "sv": 17,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
@@ -12364,13 +12900,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "2.59%",
         "views": 0,
-        "sold": 295,
-        "gmv": 11442.25,
-        "commDollars": 1906.38,
+        "sold": 309,
+        "gmv": 11937.65,
+        "commDollars": 1991.67,
         "bonus": 0,
         "gmvLM": 19430.36,
-        "gmvPace": 34326.75,
-        "commPct": "16.66%",
+        "gmvPace": 32557.23,
+        "commPct": "16.68%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -12383,14 +12919,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "7.26%",
+        "ctr": "7.22%",
         "views": 0,
         "sold": 2,
         "gmv": 116.32,
         "commDollars": 8.83,
         "bonus": 0,
         "gmvLM": 0,
-        "gmvPace": 348.96,
+        "gmvPace": 317.24,
         "commPct": "7.59%",
         "tier": "Core",
         "acctRank": 1
@@ -12406,7 +12942,7 @@ const allShopData = [
           46246.68,
           20530.06,
           19430.36,
-          11442.25
+          11937.65
         ],
         "tap": [
           550.37,
@@ -12424,7 +12960,7 @@ const allShopData = [
           7477.82,
           3401.82,
           3282.39,
-          1906.38
+          1991.67
         ]
       }
     ],
@@ -12438,11 +12974,11 @@ const allShopData = [
       0
     ],
     "points": 3,
-    "totalGMV": 11558.57,
-    "totalComm": 1915.21,
-    "avgComm": 16.57,
+    "totalGMV": 12053.97,
+    "totalComm": 2000.5,
+    "avgComm": 16.6,
     "levelLabel": "L2",
-    "productRank": "78",
+    "productRank": "82",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 800,
@@ -12451,12 +12987,12 @@ const allShopData = [
     "tapLQ": 32047.26,
     "tapGoalQ": 0,
     "tapTotalTQ": 3337.83,
-    "totalSV": 16,
+    "totalSV": 18,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.93,
-    "totalViews": 352056,
-    "totalSold": 297,
+    "totalCTR": 4.91,
+    "totalViews": 376787,
+    "totalSold": 311,
     "tapGMV": 0,
     "tapYTD": 16592.83,
     "manager": "Hotline",
@@ -12468,12 +13004,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 16,
+    "agg_sv": 18,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 297,
-    "gmvPace": 34326.75,
+    "agg_sold": 311,
+    "gmvPace": 32557.23,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12481,7 +13017,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       24865.13,
@@ -12490,10 +13026,195 @@ const allShopData = [
       7477.82,
       3401.82,
       3282.39,
-      1906.38
+      1991.67
     ],
     "bonusHistory": [
       200,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "kay.cap123@gmail.com",
+    "email": "kay.cap123@gmail.com",
+    "name": "Kayla Caputo",
+    "topLevel": "L2",
+    "accounts": [
+      {
+        "handle": "kay_caputo",
+        "tiktokLink": "https://www.tiktok.com/@kay_caputo",
+        "sv": 8,
+        "tap": 0,
+        "tapGMV": 30,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "3.36%",
+        "views": 0,
+        "sold": 104,
+        "gmv": 4474.58,
+        "commDollars": 583.24,
+        "bonus": 0,
+        "gmvLM": 14616.23,
+        "gmvPace": 12203.4,
+        "commPct": "13.03%",
+        "tier": "VIP",
+        "acctRank": 1
+      },
+      {
+        "handle": "lil.bbykay",
+        "tiktokLink": "https://www.tiktok.com/@lil.bbykay",
+        "sv": 3,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "2.71%",
+        "views": 0,
+        "sold": 36,
+        "gmv": 842.54,
+        "commDollars": 109.76,
+        "bonus": 0,
+        "gmvLM": 3164.87,
+        "gmvPace": 2297.84,
+        "commPct": "13.03%",
+        "tier": "VIP",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "kay_caputo",
+        "gmv": [
+          17214.33,
+          17831.16,
+          15368.92,
+          18038.78,
+          14879.06,
+          14616.23,
+          4474.58
+        ],
+        "tap": [
+          733.86,
+          640.65,
+          794.7,
+          925.66,
+          488.38,
+          120.73,
+          30
+        ],
+        "comm": [
+          2429.46,
+          2176.87,
+          1872.82,
+          2187.81,
+          2154.29,
+          1901.24,
+          583.24
+        ]
+      },
+      {
+        "handle": "lil.bbykay",
+        "gmv": [
+          6148.62,
+          4314.56,
+          13351.1,
+          14623.77,
+          6459.47,
+          3164.87,
+          842.54
+        ],
+        "tap": [
+          57,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          880.96,
+          624.51,
+          1474.6,
+          1977.22,
+          778.46,
+          391.08,
+          109.76
+        ]
+      }
+    ],
+    "tapHistory": [
+      790.86,
+      640.65,
+      794.7,
+      925.66,
+      488.38,
+      120.73,
+      30
+    ],
+    "points": 3,
+    "totalGMV": 5317.12,
+    "totalComm": 693,
+    "avgComm": 13.03,
+    "levelLabel": "L2",
+    "productRank": "83",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 120.73,
+    "tapGoalM": 10000,
+    "tapLQ": 12653.94,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 2443.05,
+    "totalSV": 11,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 3.04,
+    "totalViews": 201875,
+    "totalSold": 140,
+    "tapGMV": 30,
+    "tapYTD": 12694.62,
+    "manager": "EMILEE",
+    "joined": "May 2024",
+    "tier": "VIP",
+    "accts": "2",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 11,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 140,
+    "gmvPace": 12203.4,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      3310.42,
+      2801.38,
+      3347.42,
+      4165.03,
+      2932.75,
+      2292.32,
+      693
+    ],
+    "bonusHistory": [
+      0,
       0,
       0,
       0,
@@ -12511,21 +13232,21 @@ const allShopData = [
       {
         "handle": "kristiscustomcreations",
         "tiktokLink": "https://www.tiktok.com/@kristiscustomcreations",
-        "sv": 31,
+        "sv": 43,
         "tap": 0,
         "tapGMV": 44.78,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.93%",
+        "ctr": "2.95%",
         "views": 0,
-        "sold": 638,
-        "gmv": 15654.51,
-        "commDollars": 1986.69,
+        "sold": 705,
+        "gmv": 17060.43,
+        "commDollars": 2160.04,
         "bonus": 0,
         "gmvLM": 46378.05,
-        "gmvPace": 46963.53,
-        "commPct": "12.69%",
+        "gmvPace": 46528.45,
+        "commPct": "12.66%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12540,7 +13261,7 @@ const allShopData = [
           65703.96,
           50961.48,
           46378.05,
-          15654.51
+          17060.43
         ],
         "tap": [
           0,
@@ -12558,7 +13279,7 @@ const allShopData = [
           7108.15,
           5373.09,
           4960.06,
-          1986.69
+          2160.04
         ]
       }
     ],
@@ -12572,11 +13293,11 @@ const allShopData = [
       44.78
     ],
     "points": 3,
-    "totalGMV": 15654.51,
-    "totalComm": 1986.69,
-    "avgComm": 12.69,
+    "totalGMV": 17060.43,
+    "totalComm": 2160.04,
+    "avgComm": 12.66,
     "levelLabel": "L3",
-    "productRank": "79",
+    "productRank": "84",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -12585,12 +13306,12 @@ const allShopData = [
     "tapLQ": 20539.86,
     "tapGoalQ": 0,
     "tapTotalTQ": 5309.11,
-    "totalSV": 31,
+    "totalSV": 43,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.93,
-    "totalViews": 571691,
-    "totalSold": 638,
+    "totalCTR": 2.95,
+    "totalViews": 628845,
+    "totalSold": 705,
     "tapGMV": 44.78,
     "tapYTD": 689.13,
     "manager": "Hotline",
@@ -12602,12 +13323,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 31,
+    "agg_sv": 43,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 638,
-    "gmvPace": 46963.53,
+    "agg_sold": 705,
+    "gmvPace": 46528.45,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12615,7 +13336,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       6856.93,
@@ -12624,7 +13345,7 @@ const allShopData = [
       7108.15,
       5373.09,
       4960.06,
-      1986.69
+      2160.04
     ],
     "bonusHistory": [
       0,
@@ -12658,7 +13379,7 @@ const allShopData = [
         "commDollars": 554.9,
         "bonus": 0,
         "gmvLM": 115965.57,
-        "gmvPace": 17314.62,
+        "gmvPace": 15740.56,
         "commPct": "9.61%",
         "tier": "Core",
         "acctRank": 1
@@ -12710,7 +13431,7 @@ const allShopData = [
     "totalComm": 554.9,
     "avgComm": 9.61,
     "levelLabel": "L4",
-    "productRank": "80",
+    "productRank": "85",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 1875,
@@ -12741,7 +13462,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 93,
-    "gmvPace": 17314.62,
+    "gmvPace": 15740.56,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12749,7 +13470,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       13188.02,
@@ -12771,98 +13492,98 @@ const allShopData = [
     ]
   },
   {
-    "username": "tayloradis@icloud.com",
-    "email": "tayloradis@icloud.com",
-    "name": "Taylor Adis",
-    "topLevel": "L4",
+    "username": "mlondon8@yahoo.com",
+    "email": "mlondon8@yahoo.com",
+    "name": "April Mitchell",
+    "topLevel": "L2",
     "accounts": [
       {
-        "handle": "tayloradis",
-        "tiktokLink": "https://www.tiktok.com/@tayloradis",
-        "sv": 74,
+        "handle": "london_bridges_the_gap",
+        "tiktokLink": "https://www.tiktok.com/@london_bridges_the_gap",
+        "sv": 28,
         "tap": 0,
-        "tapGMV": 0,
+        "tapGMV": 50.05,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.32%",
+        "ctr": "3.46%",
         "views": 0,
-        "sold": 439,
-        "gmv": 28129.03,
-        "commDollars": 3309.42,
+        "sold": 273,
+        "gmv": 10941.29,
+        "commDollars": 1249.28,
         "bonus": 0,
-        "gmvLM": 71178.13,
-        "gmvPace": 84387.09,
-        "commPct": "11.77%",
+        "gmvLM": 18966.88,
+        "gmvPace": 29839.88,
+        "commPct": "11.42%",
         "tier": "Core",
         "acctRank": 1
       }
     ],
     "accountsHistory": [
       {
-        "handle": "tayloradis",
+        "handle": "london_bridges_the_gap",
         "gmv": [
-          46283.24,
-          52790.15,
-          83765.65,
-          121746.28,
-          98192.9,
-          71178.13,
-          28129.03
+          24859.33,
+          20574.44,
+          17230.7,
+          54962.06,
+          26092.7,
+          18966.88,
+          10941.29
         ],
         "tap": [
+          45.94,
           0,
+          52.19,
           0,
-          0,
-          86,
-          0,
-          0,
-          0
+          417.4,
+          273.44,
+          50.05
         ],
         "comm": [
-          4799.69,
-          6044.2,
-          9231.62,
-          13176.83,
-          10980.45,
-          8010.33,
-          3309.42
+          2400.91,
+          2103.02,
+          2196.13,
+          5981.15,
+          3159.46,
+          2200.13,
+          1249.28
         ]
       }
     ],
     "tapHistory": [
+      45.94,
       0,
+      52.19,
       0,
-      0,
-      86,
-      0,
-      0,
-      0
+      417.4,
+      273.44,
+      50.05
     ],
     "points": 3,
-    "totalGMV": 28129.03,
-    "totalComm": 3309.42,
-    "avgComm": 11.77,
-    "levelLabel": "L4",
-    "productRank": "81",
+    "totalGMV": 10941.29,
+    "totalComm": 1249.28,
+    "avgComm": 11.42,
+    "levelLabel": "L2",
+    "productRank": "86",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
-    "tapLM": 0,
+    "tapLM": 273.44,
     "tapGoalM": 10000,
-    "tapLQ": 33474.9,
+    "tapLQ": 11806.33,
     "tapGoalQ": 0,
-    "tapTotalTQ": 8010.33,
-    "totalSV": 74,
+    "tapTotalTQ": 2523.62,
+    "totalSV": 28,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.32,
-    "totalViews": 908385,
-    "totalSold": 439,
-    "tapGMV": 0,
-    "tapYTD": 86,
+    "totalCTR": 3.46,
+    "totalViews": 236314,
+    "totalSold": 273,
+    "tapGMV": 50.05,
+    "tapYTD": 1117.82,
     "manager": "Hotline",
-    "joined": "Nov 2024",
+    "joined": "Nov 2025",
     "tier": "Core",
     "accts": "1",
     "score": 0,
@@ -12870,12 +13591,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 74,
+    "agg_sv": 28,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 439,
-    "gmvPace": 84387.09,
+    "agg_sold": 273,
+    "gmvPace": 29839.88,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -12883,16 +13604,16 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
-      4799.69,
-      6044.2,
-      9231.62,
-      13176.83,
-      10980.45,
-      8010.33,
-      3309.42
+      2400.91,
+      2103.02,
+      2196.13,
+      5981.15,
+      3159.46,
+      2200.13,
+      1249.28
     ],
     "bonusHistory": [
       0,
@@ -12913,21 +13634,21 @@ const allShopData = [
       {
         "handle": "torineu04",
         "tiktokLink": "https://www.tiktok.com/@torineu04",
-        "sv": 9,
-        "tap": 1,
+        "sv": 13,
+        "tap": 2,
         "tapGMV": 135.41,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.68%",
+        "ctr": "2.73%",
         "views": 0,
-        "sold": 90,
-        "gmv": 2489.65,
-        "commDollars": 359.84,
+        "sold": 96,
+        "gmv": 2593.79,
+        "commDollars": 389.96,
         "bonus": 0,
         "gmvLM": 6837.43,
-        "gmvPace": 7468.95,
-        "commPct": "14.45%",
+        "gmvPace": 7073.97,
+        "commPct": "15.03%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -12942,7 +13663,7 @@ const allShopData = [
           9253.83,
           8799.91,
           6837.43,
-          2489.65
+          2593.79
         ],
         "tap": [
           4449.95,
@@ -12960,7 +13681,7 @@ const allShopData = [
           1047.26,
           1152.64,
           852.37,
-          359.84
+          389.96
         ]
       }
     ],
@@ -12974,11 +13695,11 @@ const allShopData = [
       135.41
     ],
     "points": 3,
-    "totalGMV": 2489.65,
-    "totalComm": 359.84,
-    "avgComm": 14.45,
+    "totalGMV": 2593.79,
+    "totalComm": 389.96,
+    "avgComm": 15.03,
     "levelLabel": "L2",
-    "productRank": "82",
+    "productRank": "87",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 450,
@@ -12987,12 +13708,12 @@ const allShopData = [
     "tapLQ": 4584.84,
     "tapGoalQ": 0,
     "tapTotalTQ": 1484.78,
-    "totalSV": 9,
-    "totalTaP": 1,
+    "totalSV": 13,
+    "totalTaP": 2,
     "totalLS": 0,
-    "totalCTR": 2.68,
-    "totalViews": 120330,
-    "totalSold": 90,
+    "totalCTR": 2.73,
+    "totalViews": 125391,
+    "totalSold": 96,
     "tapGMV": 135.41,
     "tapYTD": 21566.74,
     "manager": "Hotline",
@@ -13004,12 +13725,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 9,
-    "agg_tap": 1,
+    "agg_sv": 13,
+    "agg_tap": 2,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 90,
-    "gmvPace": 7468.95,
+    "agg_sold": 96,
+    "gmvPace": 7073.97,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -13017,7 +13738,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2116.33,
@@ -13026,275 +13747,7 @@ const allShopData = [
       1047.26,
       1152.64,
       852.37,
-      359.84
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "ugcwithbrii@gmail.com",
-    "email": "ugcwithbrii@gmail.com",
-    "name": "Briana Pichardo",
-    "topLevel": "L4",
-    "accounts": [
-      {
-        "handle": "ugcwithbrii",
-        "tiktokLink": "https://www.tiktok.com/@ugcwithbrii",
-        "sv": 19,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "1.83%",
-        "views": 0,
-        "sold": 687,
-        "gmv": 29123.59,
-        "commDollars": 3855,
-        "bonus": 0,
-        "gmvLM": 92167.96,
-        "gmvPace": 87370.77,
-        "commPct": "13.24%",
-        "tier": "VIP",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "ugcwithbrii",
-        "gmv": [
-          250754.58,
-          211382.27,
-          155268.09,
-          134097.86,
-          132377.85,
-          92167.96,
-          29123.59
-        ],
-        "tap": [
-          186.18,
-          97.29,
-          17.99,
-          32.49,
-          50.99,
-          210.6,
-          0
-        ],
-        "comm": [
-          34844.87,
-          27264.38,
-          19896.72,
-          17506.26,
-          18562.75,
-          13193.7,
-          3855
-        ]
-      }
-    ],
-    "tapHistory": [
-      186.18,
-      97.29,
-      17.99,
-      32.49,
-      50.99,
-      210.6,
-      0
-    ],
-    "points": 3,
-    "totalGMV": 29123.59,
-    "totalComm": 3855,
-    "avgComm": 13.24,
-    "levelLabel": "L4",
-    "productRank": "83",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 210.6,
-    "tapGoalM": 10000,
-    "tapLQ": 56067.2,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 13404.3,
-    "totalSV": 19,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 1.83,
-    "totalViews": 1236419,
-    "totalSold": 687,
-    "tapGMV": 0,
-    "tapYTD": 1561.4,
-    "manager": "EMILEE",
-    "joined": "Jan 2025",
-    "tier": "VIP",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 19,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 687,
-    "gmvPace": 87370.77,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      34844.87,
-      27264.38,
-      19896.72,
-      17506.26,
-      18562.75,
-      13193.7,
-      3855
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "affiliategenise@gmail.com",
-    "email": "affiliategenise@gmail.com",
-    "name": "Genise She",
-    "topLevel": "L3",
-    "accounts": [
-      {
-        "handle": "itsgenise",
-        "tiktokLink": "https://www.tiktok.com/@itsgenise",
-        "sv": 46,
-        "tap": 1,
-        "tapGMV": 30.36,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "5.33%",
-        "views": 0,
-        "sold": 259,
-        "gmv": 10974.93,
-        "commDollars": 943.64,
-        "bonus": 0,
-        "gmvLM": 38613.06,
-        "gmvPace": 32924.79,
-        "commPct": "8.60%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "itsgenise",
-        "gmv": [
-          36367.73,
-          123506.91,
-          48876.79,
-          34346.01,
-          39953.19,
-          38613.06,
-          10974.93
-        ],
-        "tap": [
-          85.66,
-          282.36,
-          184.03,
-          106.68,
-          0,
-          184.67,
-          30.36
-        ],
-        "comm": [
-          4412.5,
-          5752.13,
-          6012.65,
-          3037.65,
-          3466.29,
-          4319.01,
-          943.64
-        ]
-      }
-    ],
-    "tapHistory": [
-      85.66,
-      282.36,
-      184.03,
-      106.68,
-      0,
-      184.67,
-      30.36
-    ],
-    "points": 2,
-    "totalGMV": 10974.93,
-    "totalComm": 943.64,
-    "avgComm": 8.6,
-    "levelLabel": "L3",
-    "productRank": "84",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 184.67,
-    "tapGoalM": 10000,
-    "tapLQ": 12807.3,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 4534.04,
-    "totalSV": 46,
-    "totalTaP": 1,
-    "totalLS": 0,
-    "totalCTR": 5.33,
-    "totalViews": 312939,
-    "totalSold": 259,
-    "tapGMV": 30.36,
-    "tapYTD": 2162.32,
-    "manager": "Hotline",
-    "joined": "Jan 2026",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 46,
-    "agg_tap": 1,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 259,
-    "gmvPace": 32924.79,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      4412.5,
-      5752.13,
-      6012.65,
-      3037.65,
-      3466.29,
-      4319.01,
-      943.64
+      389.96
     ],
     "bonusHistory": [
       0,
@@ -13315,21 +13768,21 @@ const allShopData = [
       {
         "handle": "mama.of.boys7",
         "tiktokLink": "https://www.tiktok.com/@mama.of.boys7",
-        "sv": 69,
+        "sv": 73,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.16%",
+        "ctr": "3.22%",
         "views": 0,
-        "sold": 139,
-        "gmv": 4315.2,
-        "commDollars": 542.41,
+        "sold": 154,
+        "gmv": 4787.17,
+        "commDollars": 593.96,
         "bonus": 0,
         "gmvLM": 13403.29,
-        "gmvPace": 12945.6,
-        "commPct": "12.57%",
+        "gmvPace": 13055.92,
+        "commPct": "12.41%",
         "tier": "Core",
         "acctRank": 1
       },
@@ -13342,15 +13795,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.24%",
+        "ctr": "4.21%",
         "views": 0,
-        "sold": 5,
-        "gmv": 190.68,
-        "commDollars": 21.14,
+        "sold": 6,
+        "gmv": 204.17,
+        "commDollars": 22.49,
         "bonus": 0,
         "gmvLM": 443.49,
-        "gmvPace": 572.04,
-        "commPct": "11.09%",
+        "gmvPace": 556.83,
+        "commPct": "11.02%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13365,7 +13818,7 @@ const allShopData = [
           11633,
           14090.07,
           13403.29,
-          4315.2
+          4787.17
         ],
         "tap": [
           0,
@@ -13383,7 +13836,7 @@ const allShopData = [
           1442.86,
           1852.47,
           1708.37,
-          542.41
+          593.96
         ]
       },
       {
@@ -13395,7 +13848,7 @@ const allShopData = [
           1141.42,
           756.52,
           443.49,
-          190.68
+          204.17
         ],
         "tap": [
           0,
@@ -13413,7 +13866,7 @@ const allShopData = [
           111.49,
           92.64,
           48.06,
-          21.14
+          22.49
         ]
       }
     ],
@@ -13427,11 +13880,11 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 4505.88,
-    "totalComm": 563.55,
-    "avgComm": 12.51,
+    "totalGMV": 4991.34,
+    "totalComm": 616.45,
+    "avgComm": 12.35,
     "levelLabel": "L2",
-    "productRank": "85",
+    "productRank": "88",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -13440,12 +13893,12 @@ const allShopData = [
     "tapLQ": 5627.11,
     "tapGoalQ": 0,
     "tapTotalTQ": 1756.43,
-    "totalSV": 69,
+    "totalSV": 73,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.7,
-    "totalViews": 168174,
-    "totalSold": 144,
+    "totalCTR": 3.72,
+    "totalViews": 187529,
+    "totalSold": 160,
     "tapGMV": 0,
     "tapYTD": 137.99,
     "manager": "Hotline",
@@ -13457,12 +13910,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 69,
+    "agg_sv": 73,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 144,
-    "gmvPace": 12945.6,
+    "agg_sold": 160,
+    "gmvPace": 13055.92,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -13470,7 +13923,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2914.73,
@@ -13479,7 +13932,7 @@ const allShopData = [
       1554.35,
       1945.1100000000001,
       1756.4299999999998,
-      563.55
+      616.45
     ],
     "bonusHistory": [
       0,
@@ -13500,21 +13953,21 @@ const allShopData = [
       {
         "handle": "brandie1234",
         "tiktokLink": "https://www.tiktok.com/@brandie1234",
-        "sv": 49,
+        "sv": 54,
         "tap": 0,
         "tapGMV": 27.87,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.83%",
+        "ctr": "2.87%",
         "views": 0,
-        "sold": 168,
-        "gmv": 9625.92,
-        "commDollars": 1284.52,
+        "sold": 189,
+        "gmv": 10871.24,
+        "commDollars": 1427.43,
         "bonus": 0,
         "gmvLM": 43586.6,
-        "gmvPace": 28877.76,
-        "commPct": "13.34%",
+        "gmvPace": 29648.84,
+        "commPct": "13.13%",
         "tier": "Select",
         "acctRank": 1
       }
@@ -13529,7 +13982,7 @@ const allShopData = [
           47984.37,
           60777,
           43586.6,
-          9625.92
+          10871.24
         ],
         "tap": [
           176.87,
@@ -13547,7 +14000,7 @@ const allShopData = [
           5537.84,
           7361.59,
           5451.54,
-          1284.52
+          1427.43
         ]
       }
     ],
@@ -13561,11 +14014,11 @@ const allShopData = [
       27.87
     ],
     "points": 2,
-    "totalGMV": 9625.92,
-    "totalComm": 1284.52,
-    "avgComm": 13.34,
+    "totalGMV": 10871.24,
+    "totalComm": 1427.43,
+    "avgComm": 13.13,
     "levelLabel": "L3",
-    "productRank": "86",
+    "productRank": "89",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 2150,
@@ -13574,12 +14027,12 @@ const allShopData = [
     "tapLQ": 23533.39,
     "tapGoalQ": 0,
     "tapTotalTQ": 6494.03,
-    "totalSV": 49,
+    "totalSV": 54,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.83,
-    "totalViews": 229870,
-    "totalSold": 168,
+    "totalCTR": 2.87,
+    "totalViews": 259175,
+    "totalSold": 189,
     "tapGMV": 27.87,
     "tapYTD": 7171.63,
     "manager": "Hotline",
@@ -13591,12 +14044,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 49,
+    "agg_sv": 54,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 168,
-    "gmvPace": 28877.76,
+    "agg_sold": 189,
+    "gmvPace": 29648.84,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -13604,7 +14057,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       9595.12,
@@ -13613,7 +14066,7 @@ const allShopData = [
       5537.84,
       7361.59,
       5451.54,
-      1284.52
+      1427.43
     ],
     "bonusHistory": [
       0,
@@ -13642,13 +14095,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "0.71%",
         "views": 0,
-        "sold": 564,
-        "gmv": 12831.43,
-        "commDollars": 1880.2,
+        "sold": 604,
+        "gmv": 13601.44,
+        "commDollars": 1986.72,
         "bonus": 0,
         "gmvLM": 1126.56,
-        "gmvPace": 38494.29,
-        "commPct": "14.65%",
+        "gmvPace": 37094.84,
+        "commPct": "14.61%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -13663,7 +14116,7 @@ const allShopData = [
           642.05,
           542.86,
           1126.56,
-          12831.43
+          13601.44
         ],
         "tap": [
           10011.58,
@@ -13681,7 +14134,7 @@ const allShopData = [
           133.28,
           124.86,
           209.09,
-          1880.2
+          1986.72
         ]
       }
     ],
@@ -13695,11 +14148,11 @@ const allShopData = [
       119.19
     ],
     "points": 2,
-    "totalGMV": 12831.43,
-    "totalComm": 1880.2,
-    "avgComm": 14.65,
+    "totalGMV": 13601.44,
+    "totalComm": 1986.72,
+    "avgComm": 14.61,
     "levelLabel": "L2",
-    "productRank": "87",
+    "productRank": "90",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -13712,8 +14165,8 @@ const allShopData = [
     "totalTaP": 3,
     "totalLS": 0,
     "totalCTR": 0.71,
-    "totalViews": 2210897,
-    "totalSold": 564,
+    "totalViews": 2263561,
+    "totalSold": 604,
     "tapGMV": 119.19,
     "tapYTD": 97546.85,
     "manager": "Hotline",
@@ -13729,8 +14182,8 @@ const allShopData = [
     "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 564,
-    "gmvPace": 38494.29,
+    "agg_sold": 604,
+    "gmvPace": 37094.84,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -13738,7 +14191,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2041.31,
@@ -13747,7 +14200,7 @@ const allShopData = [
       133.28,
       124.86,
       209.09,
-      1880.2
+      1986.72
     ],
     "bonusHistory": [
       0,
@@ -13774,14 +14227,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.66%",
+        "ctr": "3.81%",
         "views": 0,
         "sold": 2,
         "gmv": 74.97,
         "commDollars": 30.32,
         "bonus": 0,
         "gmvLM": 281.4,
-        "gmvPace": 224.91,
+        "gmvPace": 204.46,
         "commPct": "40.44%",
         "tier": "STAFF",
         "acctRank": 1
@@ -13833,7 +14286,7 @@ const allShopData = [
     "totalComm": 30.32,
     "avgComm": 40.44,
     "levelLabel": "L1",
-    "productRank": "88",
+    "productRank": "91",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -13845,8 +14298,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.66,
-    "totalViews": 7111,
+    "totalCTR": 3.81,
+    "totalViews": 7740,
     "totalSold": 2,
     "tapGMV": 57.99,
     "tapYTD": 610.53,
@@ -13864,7 +14317,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 2,
-    "gmvPace": 224.91,
+    "gmvPace": 204.46,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -13872,7 +14325,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       73.73,
@@ -13908,15 +14361,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.53%",
+        "ctr": "3.61%",
         "views": 0,
-        "sold": 22,
-        "gmv": 646.7,
-        "commDollars": 74.4,
+        "sold": 23,
+        "gmv": 691.43,
+        "commDollars": 78.68,
         "bonus": 0,
         "gmvLM": 2463.72,
-        "gmvPace": 1940.1,
-        "commPct": "11.50%",
+        "gmvPace": 1885.72,
+        "commPct": "11.38%",
         "tier": "Select+",
         "acctRank": 1
       }
@@ -13931,7 +14384,7 @@ const allShopData = [
           2474.91,
           5757.35,
           2463.72,
-          646.7
+          691.43
         ],
         "tap": [
           344.62,
@@ -13949,7 +14402,7 @@ const allShopData = [
           319.75,
           618.99,
           281.4,
-          74.4
+          78.68
         ]
       }
     ],
@@ -13963,11 +14416,11 @@ const allShopData = [
       62
     ],
     "points": 2,
-    "totalGMV": 646.7,
-    "totalComm": 74.4,
-    "avgComm": 11.5,
+    "totalGMV": 691.43,
+    "totalComm": 78.68,
+    "avgComm": 11.38,
     "levelLabel": "L1",
-    "productRank": "89",
+    "productRank": "92",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -13979,9 +14432,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.53,
-    "totalViews": 83596,
-    "totalSold": 22,
+    "totalCTR": 3.61,
+    "totalViews": 93213,
+    "totalSold": 23,
     "tapGMV": 62,
     "tapYTD": 6491.7,
     "manager": "EMILEE",
@@ -13997,8 +14450,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 22,
-    "gmvPace": 1940.1,
+    "agg_sold": 23,
+    "gmvPace": 1885.72,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -14006,7 +14459,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       873.66,
@@ -14015,7 +14468,7 @@ const allShopData = [
       319.75,
       618.99,
       281.4,
-      74.4
+      78.68
     ],
     "bonusHistory": [
       0,
@@ -14036,7 +14489,7 @@ const allShopData = [
       {
         "handle": "dinakxoxo",
         "tiktokLink": "https://www.tiktok.com/@dinakxoxo",
-        "sv": 133,
+        "sv": 159,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
@@ -14044,13 +14497,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "2.21%",
         "views": 0,
-        "sold": 330,
-        "gmv": 13686.57,
-        "commDollars": 1610.69,
+        "sold": 367,
+        "gmv": 15070.12,
+        "commDollars": 1778.1,
         "bonus": 0,
         "gmvLM": 69848.92,
-        "gmvPace": 41059.71,
-        "commPct": "11.77%",
+        "gmvPace": 41100.33,
+        "commPct": "11.80%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14065,7 +14518,7 @@ const allShopData = [
           82768.14,
           70077.34,
           69848.92,
-          13686.57
+          15070.12
         ],
         "tap": [
           0,
@@ -14083,7 +14536,7 @@ const allShopData = [
           8905.26,
           8144.53,
           8344.37,
-          1610.69
+          1778.1
         ]
       }
     ],
@@ -14097,11 +14550,11 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 13686.57,
-    "totalComm": 1610.69,
-    "avgComm": 11.77,
+    "totalGMV": 15070.12,
+    "totalComm": 1778.1,
+    "avgComm": 11.8,
     "levelLabel": "L4",
-    "productRank": "90",
+    "productRank": "93",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 1050,
@@ -14110,12 +14563,12 @@ const allShopData = [
     "tapLQ": 18803.3,
     "tapGoalQ": 0,
     "tapTotalTQ": 8344.37,
-    "totalSV": 133,
+    "totalSV": 159,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 2.21,
-    "totalViews": 567339,
-    "totalSold": 330,
+    "totalViews": 618786,
+    "totalSold": 367,
     "tapGMV": 0,
     "tapYTD": 185.4,
     "manager": "Hotline",
@@ -14127,12 +14580,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 133,
+    "agg_sv": 159,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 330,
-    "gmvPace": 41059.71,
+    "agg_sold": 367,
+    "gmvPace": 41100.33,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -14140,7 +14593,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       3157.17,
@@ -14149,7 +14602,7 @@ const allShopData = [
       8905.26,
       8144.53,
       8344.37,
-      1610.69
+      1778.1
     ],
     "bonusHistory": [
       0,
@@ -14170,21 +14623,21 @@ const allShopData = [
       {
         "handle": "keyajames",
         "tiktokLink": "https://www.tiktok.com/@keyajames",
-        "sv": 6,
+        "sv": 8,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.51%",
+        "ctr": "5.50%",
         "views": 0,
-        "sold": 269,
-        "gmv": 10194.41,
-        "commDollars": 1305.01,
+        "sold": 301,
+        "gmv": 11594.03,
+        "commDollars": 1516.86,
         "bonus": 0,
         "gmvLM": 31893.15,
-        "gmvPace": 30583.23,
-        "commPct": "12.80%",
+        "gmvPace": 31620.08,
+        "commPct": "13.08%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14199,7 +14652,7 @@ const allShopData = [
           38783.86,
           35300.33,
           31893.15,
-          10194.41
+          11594.03
         ],
         "tap": [
           95.01,
@@ -14217,7 +14670,7 @@ const allShopData = [
           4201.7,
           4339.76,
           4026.81,
-          1305.01
+          1516.86
         ]
       }
     ],
@@ -14231,11 +14684,11 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 10194.41,
-    "totalComm": 1305.01,
-    "avgComm": 12.8,
+    "totalGMV": 11594.03,
+    "totalComm": 1516.86,
+    "avgComm": 13.08,
     "levelLabel": "L3",
-    "productRank": "91",
+    "productRank": "94",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -14244,12 +14697,12 @@ const allShopData = [
     "tapLQ": 13205.21,
     "tapGoalQ": 0,
     "tapTotalTQ": 4026.81,
-    "totalSV": 6,
+    "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 5.51,
-    "totalViews": 366428,
-    "totalSold": 269,
+    "totalCTR": 5.5,
+    "totalViews": 404127,
+    "totalSold": 301,
     "tapGMV": 0,
     "tapYTD": 1293.12,
     "manager": "Hotline",
@@ -14261,12 +14714,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 6,
+    "agg_sv": 8,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 269,
-    "gmvPace": 30583.23,
+    "agg_sold": 301,
+    "gmvPace": 31620.08,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -14274,7 +14727,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       8310.42,
@@ -14283,7 +14736,7 @@ const allShopData = [
       4201.7,
       4339.76,
       4026.81,
-      1305.01
+      1516.86
     ],
     "bonusHistory": [
       0,
@@ -14304,21 +14757,21 @@ const allShopData = [
       {
         "handle": "savaii.j",
         "tiktokLink": "https://www.tiktok.com/@savaii.j",
-        "sv": 77,
+        "sv": 88,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.17%",
+        "ctr": "2.10%",
         "views": 0,
-        "sold": 687,
-        "gmv": 12504.48,
-        "commDollars": 1433.45,
+        "sold": 777,
+        "gmv": 14276.94,
+        "commDollars": 1664.93,
         "bonus": 0,
         "gmvLM": 5736.34,
-        "gmvPace": 37513.44,
-        "commPct": "11.46%",
+        "gmvPace": 38937.11,
+        "commPct": "11.66%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14333,7 +14786,7 @@ const allShopData = [
           0,
           4538.63,
           5736.34,
-          12504.48
+          14276.94
         ],
         "tap": [
           0,
@@ -14351,7 +14804,7 @@ const allShopData = [
           0,
           531.64,
           671.12,
-          1433.45
+          1664.93
         ]
       }
     ],
@@ -14365,11 +14818,11 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 12504.48,
-    "totalComm": 1433.45,
-    "avgComm": 11.46,
+    "totalGMV": 14276.94,
+    "totalComm": 1664.93,
+    "avgComm": 11.66,
     "levelLabel": "L2",
-    "productRank": "92",
+    "productRank": "95",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -14378,12 +14831,12 @@ const allShopData = [
     "tapLQ": 625.33,
     "tapGoalQ": 0,
     "tapTotalTQ": 741.46,
-    "totalSV": 77,
+    "totalSV": 88,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.17,
-    "totalViews": 1050831,
-    "totalSold": 687,
+    "totalCTR": 2.1,
+    "totalViews": 1187144,
+    "totalSold": 777,
     "tapGMV": 0,
     "tapYTD": 164.03,
     "manager": "Hotline",
@@ -14395,12 +14848,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 77,
+    "agg_sv": 88,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 687,
-    "gmvPace": 37513.44,
+    "agg_sold": 777,
+    "gmvPace": 38937.11,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -14408,7 +14861,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -14417,192 +14870,7 @@ const allShopData = [
       0,
       531.64,
       671.12,
-      1433.45
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "kay.cap123@gmail.com",
-    "email": "kay.cap123@gmail.com",
-    "name": "Kayla Caputo",
-    "topLevel": "L2",
-    "accounts": [
-      {
-        "handle": "kay_caputo",
-        "tiktokLink": "https://www.tiktok.com/@kay_caputo",
-        "sv": 6,
-        "tap": 0,
-        "tapGMV": 30,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.39%",
-        "views": 0,
-        "sold": 91,
-        "gmv": 3919.01,
-        "commDollars": 510.33,
-        "bonus": 0,
-        "gmvLM": 14616.23,
-        "gmvPace": 11757.03,
-        "commPct": "13.02%",
-        "tier": "VIP",
-        "acctRank": 1
-      },
-      {
-        "handle": "lil.bbykay",
-        "tiktokLink": "https://www.tiktok.com/@lil.bbykay",
-        "sv": 0,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "2.67%",
-        "views": 0,
-        "sold": 34,
-        "gmv": 800.93,
-        "commDollars": 103.37,
-        "bonus": 0,
-        "gmvLM": 3164.87,
-        "gmvPace": 2402.79,
-        "commPct": "12.91%",
-        "tier": "VIP",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "kay_caputo",
-        "gmv": [
-          17214.33,
-          17831.16,
-          15368.92,
-          18038.78,
-          14879.06,
-          14616.23,
-          3919.01
-        ],
-        "tap": [
-          733.86,
-          640.65,
-          794.7,
-          925.66,
-          488.38,
-          120.73,
-          30
-        ],
-        "comm": [
-          2429.46,
-          2176.87,
-          1872.82,
-          2187.81,
-          2154.29,
-          1901.24,
-          510.33
-        ]
-      },
-      {
-        "handle": "lil.bbykay",
-        "gmv": [
-          6148.62,
-          4314.56,
-          13351.1,
-          14623.77,
-          6459.47,
-          3164.87,
-          800.93
-        ],
-        "tap": [
-          57,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          880.96,
-          624.51,
-          1474.6,
-          1977.22,
-          778.46,
-          391.08,
-          103.37
-        ]
-      }
-    ],
-    "tapHistory": [
-      790.86,
-      640.65,
-      794.7,
-      925.66,
-      488.38,
-      120.73,
-      30
-    ],
-    "points": 2,
-    "totalGMV": 4719.94,
-    "totalComm": 613.7,
-    "avgComm": 13,
-    "levelLabel": "L2",
-    "productRank": "93",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 120.73,
-    "tapGoalM": 10000,
-    "tapLQ": 12653.94,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 2443.05,
-    "totalSV": 6,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.03,
-    "totalViews": 178905,
-    "totalSold": 125,
-    "tapGMV": 30,
-    "tapYTD": 12694.62,
-    "manager": "EMILEE",
-    "joined": "May 2024",
-    "tier": "VIP",
-    "accts": "2",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 6,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 125,
-    "gmvPace": 11757.03,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      3310.42,
-      2801.38,
-      3347.42,
-      4165.03,
-      2932.75,
-      2292.32,
-      613.7
+      1664.93
     ],
     "bonusHistory": [
       0,
@@ -14623,21 +14891,21 @@ const allShopData = [
       {
         "handle": "marladaye",
         "tiktokLink": "https://www.tiktok.com/@marladaye",
-        "sv": 93,
-        "tap": 0,
+        "sv": 101,
+        "tap": 1,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.09%",
+        "ctr": "1.11%",
         "views": 0,
-        "sold": 681,
-        "gmv": 16742.75,
-        "commDollars": 2759.95,
+        "sold": 720,
+        "gmv": 17704.17,
+        "commDollars": 2906.44,
         "bonus": 0,
         "gmvLM": 69873.5,
-        "gmvPace": 50228.25,
-        "commPct": "16.48%",
+        "gmvPace": 48284.1,
+        "commPct": "16.42%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -14652,7 +14920,7 @@ const allShopData = [
           0,
           3678.18,
           69873.5,
-          16742.75
+          17704.17
         ],
         "tap": [
           0,
@@ -14670,7 +14938,7 @@ const allShopData = [
           0,
           538.54,
           9961.52,
-          2759.95
+          2906.44
         ]
       }
     ],
@@ -14684,11 +14952,11 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 16742.75,
-    "totalComm": 2759.95,
-    "avgComm": 16.48,
+    "totalGMV": 17704.17,
+    "totalComm": 2906.44,
+    "avgComm": 16.42,
     "levelLabel": "L4",
-    "productRank": "94",
+    "productRank": "96",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -14697,12 +14965,12 @@ const allShopData = [
     "tapLQ": 538.54,
     "tapGoalQ": 0,
     "tapTotalTQ": 9990.47,
-    "totalSV": 93,
-    "totalTaP": 0,
+    "totalSV": 101,
+    "totalTaP": 1,
     "totalLS": 0,
-    "totalCTR": 1.09,
-    "totalViews": 806070,
-    "totalSold": 681,
+    "totalCTR": 1.11,
+    "totalViews": 855591,
+    "totalSold": 720,
     "tapGMV": 0,
     "tapYTD": 28.95,
     "manager": "Hotline",
@@ -14714,12 +14982,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 93,
-    "agg_tap": 0,
+    "agg_sv": 101,
+    "agg_tap": 1,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 681,
-    "gmvPace": 50228.25,
+    "agg_sold": 720,
+    "gmvPace": 48284.1,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -14727,7 +14995,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -14736,279 +15004,11 @@ const allShopData = [
       0,
       538.54,
       9961.52,
-      2759.95
+      2906.44
     ],
     "bonusHistory": [
       0,
       0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "mlondon8@yahoo.com",
-    "email": "mlondon8@yahoo.com",
-    "name": "April Mitchell",
-    "topLevel": "L2",
-    "accounts": [
-      {
-        "handle": "london_bridges_the_gap",
-        "tiktokLink": "https://www.tiktok.com/@london_bridges_the_gap",
-        "sv": 25,
-        "tap": 0,
-        "tapGMV": 50.05,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.46%",
-        "views": 0,
-        "sold": 250,
-        "gmv": 9735.88,
-        "commDollars": 1105.31,
-        "bonus": 0,
-        "gmvLM": 18966.88,
-        "gmvPace": 29207.64,
-        "commPct": "11.35%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "london_bridges_the_gap",
-        "gmv": [
-          24859.33,
-          20574.44,
-          17230.7,
-          54962.06,
-          26092.7,
-          18966.88,
-          9735.88
-        ],
-        "tap": [
-          45.94,
-          0,
-          52.19,
-          0,
-          417.4,
-          273.44,
-          50.05
-        ],
-        "comm": [
-          2400.91,
-          2103.02,
-          2196.13,
-          5981.15,
-          3159.46,
-          2200.13,
-          1105.31
-        ]
-      }
-    ],
-    "tapHistory": [
-      45.94,
-      0,
-      52.19,
-      0,
-      417.4,
-      273.44,
-      50.05
-    ],
-    "points": 2,
-    "totalGMV": 9735.88,
-    "totalComm": 1105.31,
-    "avgComm": 11.35,
-    "levelLabel": "L2",
-    "productRank": "95",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 273.44,
-    "tapGoalM": 10000,
-    "tapLQ": 11806.33,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 2523.62,
-    "totalSV": 25,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.46,
-    "totalViews": 217413,
-    "totalSold": 250,
-    "tapGMV": 50.05,
-    "tapYTD": 1117.82,
-    "manager": "Hotline",
-    "joined": "Nov 2025",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 25,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 250,
-    "gmvPace": 29207.64,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      2400.91,
-      2103.02,
-      2196.13,
-      5981.15,
-      3159.46,
-      2200.13,
-      1105.31
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "riannapepe428@gmail.com",
-    "email": "riannapepe428@gmail.com",
-    "name": "Rianna Pepe",
-    "topLevel": "L4",
-    "accounts": [
-      {
-        "handle": "riannapepe",
-        "tiktokLink": "https://www.tiktok.com/@riannapepe",
-        "sv": 25,
-        "tap": 0,
-        "tapGMV": 69.96,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "3.03%",
-        "views": 0,
-        "sold": 249,
-        "gmv": 11710.77,
-        "commDollars": 1919.81,
-        "bonus": 0,
-        "gmvLM": 70287.44,
-        "gmvPace": 35132.31,
-        "commPct": "16.39%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "riannapepe",
-        "gmv": [
-          40910.14,
-          38691.1,
-          97517.12,
-          22571.16,
-          34198.19,
-          70287.44,
-          11710.77
-        ],
-        "tap": [
-          664.07,
-          630.12,
-          287.23,
-          844.81,
-          652.71,
-          1058.36,
-          69.96
-        ],
-        "comm": [
-          6418.94,
-          6278.24,
-          14526.1,
-          3726.47,
-          6017.73,
-          11489.69,
-          1919.81
-        ]
-      }
-    ],
-    "tapHistory": [
-      664.07,
-      630.12,
-      287.23,
-      844.81,
-      652.71,
-      1058.36,
-      69.96
-    ],
-    "points": 2,
-    "totalGMV": 11710.77,
-    "totalComm": 1919.81,
-    "avgComm": 16.39,
-    "levelLabel": "L4",
-    "productRank": "96",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 4250,
-    "tapLM": 1058.36,
-    "tapGoalM": 10000,
-    "tapLQ": 26055.05,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 12618.01,
-    "totalSV": 25,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 3.03,
-    "totalViews": 436625,
-    "totalSold": 249,
-    "tapGMV": 69.96,
-    "tapYTD": 9163.81,
-    "manager": "Hotline",
-    "joined": "May 2025",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 25,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 249,
-    "gmvPace": 35132.31,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      6418.94,
-      6278.24,
-      14526.1,
-      3726.47,
-      6017.73,
-      11489.69,
-      1919.81
-    ],
-    "bonusHistory": [
-      400,
-      900,
       0,
       0,
       0,
@@ -15025,21 +15025,21 @@ const allShopData = [
       {
         "handle": "thatgirlkaty2",
         "tiktokLink": "https://www.tiktok.com/@thatgirlkaty2",
-        "sv": 63,
+        "sv": 72,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.87%",
+        "ctr": "2.98%",
         "views": 0,
-        "sold": 580,
-        "gmv": 14454.3,
-        "commDollars": 2008.82,
+        "sold": 649,
+        "gmv": 16295.88,
+        "commDollars": 2258.1,
         "bonus": 0,
         "gmvLM": 39835.93,
-        "gmvPace": 43362.9,
-        "commPct": "13.90%",
+        "gmvPace": 44443.31,
+        "commPct": "13.86%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15054,7 +15054,7 @@ const allShopData = [
           39934.85,
           31421.94,
           39835.93,
-          14454.3
+          16295.88
         ],
         "tap": [
           232.19,
@@ -15072,7 +15072,7 @@ const allShopData = [
           5482.53,
           4698.19,
           5212.57,
-          2008.82
+          2258.1
         ]
       }
     ],
@@ -15086,9 +15086,9 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 14454.3,
-    "totalComm": 2008.82,
-    "avgComm": 13.9,
+    "totalGMV": 16295.88,
+    "totalComm": 2258.1,
+    "avgComm": 13.86,
     "levelLabel": "L3",
     "productRank": "97",
     "cashBonus": 0,
@@ -15099,12 +15099,12 @@ const allShopData = [
     "tapLQ": 14640.5,
     "tapGoalQ": 0,
     "tapTotalTQ": 5311.05,
-    "totalSV": 63,
+    "totalSV": 72,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.87,
-    "totalViews": 251079,
-    "totalSold": 580,
+    "totalCTR": 2.98,
+    "totalViews": 279729,
+    "totalSold": 649,
     "tapGMV": 0,
     "tapYTD": 1445.35,
     "manager": "Hotline",
@@ -15116,12 +15116,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 63,
+    "agg_sv": 72,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 580,
-    "gmvPace": 43362.9,
+    "agg_sold": 649,
+    "gmvPace": 44443.31,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15129,7 +15129,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       3723.17,
@@ -15138,7 +15138,7 @@ const allShopData = [
       5482.53,
       4698.19,
       5212.57,
-      2008.82
+      2258.1
     ],
     "bonusHistory": [
       0,
@@ -15159,21 +15159,21 @@ const allShopData = [
       {
         "handle": "thetonilacross",
         "tiktokLink": "https://www.tiktok.com/@thetonilacross",
-        "sv": 91,
+        "sv": 101,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.29%",
+        "ctr": "5.57%",
         "views": 0,
-        "sold": 149,
-        "gmv": 12928.93,
-        "commDollars": 1849.11,
+        "sold": 173,
+        "gmv": 15946.87,
+        "commDollars": 2266.06,
         "bonus": 0,
         "gmvLM": 39496.19,
-        "gmvPace": 38786.79,
-        "commPct": "14.30%",
+        "gmvPace": 43491.46,
+        "commPct": "14.21%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15188,7 +15188,7 @@ const allShopData = [
           31564.43,
           50600.11,
           39496.19,
-          12928.93
+          15946.87
         ],
         "tap": [
           0,
@@ -15206,7 +15206,7 @@ const allShopData = [
           4730.88,
           8026.59,
           6254.73,
-          1849.11
+          2266.06
         ]
       }
     ],
@@ -15220,9 +15220,9 @@ const allShopData = [
       0
     ],
     "points": 2,
-    "totalGMV": 12928.93,
-    "totalComm": 1849.11,
-    "avgComm": 14.3,
+    "totalGMV": 15946.87,
+    "totalComm": 2266.06,
+    "avgComm": 14.21,
     "levelLabel": "L3",
     "productRank": "98",
     "cashBonus": 0,
@@ -15233,12 +15233,12 @@ const allShopData = [
     "tapLQ": 12757.47,
     "tapGoalQ": 0,
     "tapTotalTQ": 6254.73,
-    "totalSV": 91,
+    "totalSV": 101,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 5.29,
-    "totalViews": 175913,
-    "totalSold": 149,
+    "totalCTR": 5.57,
+    "totalViews": 262377,
+    "totalSold": 173,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -15250,12 +15250,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 91,
+    "agg_sv": 101,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 149,
-    "gmvPace": 38786.79,
+    "agg_sold": 173,
+    "gmvPace": 43491.46,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15263,7 +15263,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -15272,7 +15272,7 @@ const allShopData = [
       4730.88,
       8026.59,
       6254.73,
-      1849.11
+      2266.06
     ],
     "bonusHistory": [
       0,
@@ -15299,15 +15299,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.59%",
+        "ctr": "3.54%",
         "views": 0,
-        "sold": 24,
-        "gmv": 526.06,
-        "commDollars": 60.94,
+        "sold": 25,
+        "gmv": 607.75,
+        "commDollars": 70.74,
         "bonus": 0,
         "gmvLM": 856.06,
-        "gmvPace": 1578.18,
-        "commPct": "11.58%",
+        "gmvPace": 1657.5,
+        "commPct": "11.64%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15322,7 +15322,7 @@ const allShopData = [
           2992.09,
           2031.22,
           856.06,
-          526.06
+          607.75
         ],
         "tap": [
           43.18,
@@ -15340,7 +15340,7 @@ const allShopData = [
           279.18,
           186.48,
           105.47,
-          60.94
+          70.74
         ]
       }
     ],
@@ -15354,9 +15354,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 526.06,
-    "totalComm": 60.94,
-    "avgComm": 11.58,
+    "totalGMV": 607.75,
+    "totalComm": 70.74,
+    "avgComm": 11.64,
     "levelLabel": "L1",
     "productRank": "99",
     "cashBonus": 0,
@@ -15370,9 +15370,9 @@ const allShopData = [
     "totalSV": 14,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.59,
-    "totalViews": 138342,
-    "totalSold": 24,
+    "totalCTR": 3.54,
+    "totalViews": 146772,
+    "totalSold": 25,
     "tapGMV": 0,
     "tapYTD": 881.64,
     "manager": "Hotline",
@@ -15388,8 +15388,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 24,
-    "gmvPace": 1578.18,
+    "agg_sold": 25,
+    "gmvPace": 1657.5,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15397,7 +15397,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       1895.71,
@@ -15406,7 +15406,7 @@ const allShopData = [
       279.18,
       186.48,
       105.47,
-      60.94
+      70.74
     ],
     "bonusHistory": [
       0,
@@ -15427,20 +15427,20 @@ const allShopData = [
       {
         "handle": "annaamaxx",
         "tiktokLink": "https://www.tiktok.com/@annaamaxx",
-        "sv": 2,
+        "sv": 3,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.90%",
+        "ctr": "3.88%",
         "views": 0,
         "sold": 6,
         "gmv": 699,
         "commDollars": 48.97,
         "bonus": 0,
         "gmvLM": 9495.65,
-        "gmvPace": 2097,
+        "gmvPace": 1906.36,
         "commPct": "7.01%",
         "tier": "Core",
         "acctRank": 1
@@ -15501,11 +15501,11 @@ const allShopData = [
     "tapLQ": 0,
     "tapGoalQ": 0,
     "tapTotalTQ": 535.2,
-    "totalSV": 2,
+    "totalSV": 3,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.9,
-    "totalViews": 32757,
+    "totalCTR": 3.88,
+    "totalViews": 36022,
     "totalSold": 6,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -15518,12 +15518,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 2,
+    "agg_sv": 3,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 6,
-    "gmvPace": 2097,
+    "gmvPace": 1906.36,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15531,7 +15531,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -15567,14 +15567,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.02%",
+        "ctr": "2.77%",
         "views": 0,
         "sold": 5,
         "gmv": 155.7,
         "commDollars": 12.86,
         "bonus": 0,
         "gmvLM": 270.94,
-        "gmvPace": 467.1,
+        "gmvPace": 424.64,
         "commPct": "8.26%",
         "tier": "Core",
         "acctRank": 1
@@ -15638,8 +15638,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.02,
-    "totalViews": 2384,
+    "totalCTR": 2.77,
+    "totalViews": 2674,
     "totalSold": 5,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -15657,7 +15657,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 5,
-    "gmvPace": 467.1,
+    "gmvPace": 424.64,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15665,7 +15665,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       37.5,
@@ -15695,21 +15695,21 @@ const allShopData = [
       {
         "handle": "btbeautyx",
         "tiktokLink": "https://www.tiktok.com/@btbeautyx",
-        "sv": 21,
+        "sv": 27,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.85%",
+        "ctr": "3.99%",
         "views": 0,
-        "sold": 25,
-        "gmv": 1166.72,
-        "commDollars": 124.94,
+        "sold": 31,
+        "gmv": 1382.2,
+        "commDollars": 149.51,
         "bonus": 0,
         "gmvLM": 4120.46,
-        "gmvPace": 3500.16,
-        "commPct": "10.71%",
+        "gmvPace": 3769.64,
+        "commPct": "10.82%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15724,7 +15724,7 @@ const allShopData = [
           5449.98,
           5476.76,
           4120.46,
-          1166.72
+          1382.2
         ],
         "tap": [
           0,
@@ -15742,7 +15742,7 @@ const allShopData = [
           504.7,
           536.76,
           438.34,
-          124.94
+          149.51
         ]
       }
     ],
@@ -15756,9 +15756,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 1166.72,
-    "totalComm": 124.94,
-    "avgComm": 10.71,
+    "totalGMV": 1382.2,
+    "totalComm": 149.51,
+    "avgComm": 10.82,
     "levelLabel": "L1",
     "productRank": "102",
     "cashBonus": 0,
@@ -15769,12 +15769,12 @@ const allShopData = [
     "tapLQ": 1491.59,
     "tapGoalQ": 0,
     "tapTotalTQ": 542.56,
-    "totalSV": 21,
+    "totalSV": 27,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.85,
-    "totalViews": 34762,
-    "totalSold": 25,
+    "totalCTR": 3.99,
+    "totalViews": 38998,
+    "totalSold": 31,
     "tapGMV": 0,
     "tapYTD": 214.29,
     "manager": "Hotline",
@@ -15786,12 +15786,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 21,
+    "agg_sv": 27,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 25,
-    "gmvPace": 3500.16,
+    "agg_sold": 31,
+    "gmvPace": 3769.64,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15799,7 +15799,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       467.95,
@@ -15808,7 +15808,7 @@ const allShopData = [
       504.7,
       536.76,
       438.34,
-      124.94
+      149.51
     ],
     "bonusHistory": [
       0,
@@ -15835,15 +15835,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.98%",
+        "ctr": "3.84%",
         "views": 0,
-        "sold": 3,
-        "gmv": 703.15,
-        "commDollars": 105.96,
+        "sold": 4,
+        "gmv": 724.19,
+        "commDollars": 108.97,
         "bonus": 0,
         "gmvLM": 737.34,
-        "gmvPace": 2109.45,
-        "commPct": "15.07%",
+        "gmvPace": 1975.06,
+        "commPct": "15.05%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15858,7 +15858,7 @@ const allShopData = [
           1945.72,
           2330.13,
           737.34,
-          703.15
+          724.19
         ],
         "tap": [
           82.87,
@@ -15876,7 +15876,7 @@ const allShopData = [
           198.04,
           317.3,
           96.95,
-          105.96
+          108.97
         ]
       }
     ],
@@ -15890,9 +15890,9 @@ const allShopData = [
       19.59
     ],
     "points": 1,
-    "totalGMV": 703.15,
-    "totalComm": 105.96,
-    "avgComm": 15.07,
+    "totalGMV": 724.19,
+    "totalComm": 108.97,
+    "avgComm": 15.05,
     "levelLabel": "L1",
     "productRank": "103",
     "cashBonus": 0,
@@ -15906,9 +15906,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.98,
-    "totalViews": 2736,
-    "totalSold": 3,
+    "totalCTR": 3.84,
+    "totalViews": 3021,
+    "totalSold": 4,
     "tapGMV": 19.59,
     "tapYTD": 361.71,
     "manager": "Hotline",
@@ -15924,8 +15924,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 3,
-    "gmvPace": 2109.45,
+    "agg_sold": 4,
+    "gmvPace": 1975.06,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -15933,7 +15933,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       713.1,
@@ -15942,7 +15942,7 @@ const allShopData = [
       198.04,
       317.3,
       96.95,
-      105.96
+      108.97
     ],
     "bonusHistory": [
       0,
@@ -15963,21 +15963,21 @@ const allShopData = [
       {
         "handle": "calebrichhh",
         "tiktokLink": "https://www.tiktok.com/@calebrichhh",
-        "sv": 5,
+        "sv": 8,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.92%",
+        "ctr": "4.78%",
         "views": 0,
-        "sold": 78,
-        "gmv": 1432.64,
-        "commDollars": 232.99,
+        "sold": 85,
+        "gmv": 1707.01,
+        "commDollars": 281.69,
         "bonus": 0,
         "gmvLM": 7604.79,
-        "gmvPace": 4297.92,
-        "commPct": "16.26%",
+        "gmvPace": 4655.48,
+        "commPct": "16.50%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -15992,7 +15992,7 @@ const allShopData = [
           9468.33,
           4790.71,
           7604.79,
-          1432.64
+          1707.01
         ],
         "tap": [
           49.32,
@@ -16010,7 +16010,7 @@ const allShopData = [
           1911.93,
           628.35,
           1179.28,
-          232.99
+          281.69
         ]
       }
     ],
@@ -16024,9 +16024,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 1432.64,
-    "totalComm": 232.99,
-    "avgComm": 16.26,
+    "totalGMV": 1707.01,
+    "totalComm": 281.69,
+    "avgComm": 16.5,
     "levelLabel": "L2",
     "productRank": "104",
     "cashBonus": 0,
@@ -16037,12 +16037,12 @@ const allShopData = [
     "tapLQ": 3573.97,
     "tapGoalQ": 0,
     "tapTotalTQ": 1193.68,
-    "totalSV": 5,
+    "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.92,
-    "totalViews": 67086,
-    "totalSold": 78,
+    "totalCTR": 4.78,
+    "totalViews": 76317,
+    "totalSold": 85,
     "tapGMV": 0,
     "tapYTD": 146.12,
     "manager": "Hotline",
@@ -16054,12 +16054,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 5,
+    "agg_sv": 8,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 78,
-    "gmvPace": 4297.92,
+    "agg_sold": 85,
+    "gmvPace": 4655.48,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16067,7 +16067,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       1737.99,
@@ -16076,7 +16076,7 @@ const allShopData = [
       1911.93,
       628.35,
       1179.28,
-      232.99
+      281.69
     ],
     "bonusHistory": [
       0,
@@ -16097,21 +16097,21 @@ const allShopData = [
       {
         "handle": "ellencherry_",
         "tiktokLink": "https://www.tiktok.com/@ellencherry_",
-        "sv": 65,
+        "sv": 72,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.29%",
+        "ctr": "3.38%",
         "views": 0,
-        "sold": 180,
-        "gmv": 7180.93,
-        "commDollars": 858.98,
+        "sold": 192,
+        "gmv": 7908.49,
+        "commDollars": 942.52,
         "bonus": 0,
         "gmvLM": 16928.79,
-        "gmvPace": 21542.79,
-        "commPct": "11.96%",
+        "gmvPace": 21568.61,
+        "commPct": "11.92%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16126,7 +16126,7 @@ const allShopData = [
           10849.51,
           31839.74,
           16928.79,
-          7180.93
+          7908.49
         ],
         "tap": [
           0,
@@ -16144,7 +16144,7 @@ const allShopData = [
           1059.95,
           3432.17,
           1863.13,
-          858.98
+          942.52
         ]
       }
     ],
@@ -16158,9 +16158,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 7180.93,
-    "totalComm": 858.98,
-    "avgComm": 11.96,
+    "totalGMV": 7908.49,
+    "totalComm": 942.52,
+    "avgComm": 11.92,
     "levelLabel": "L2",
     "productRank": "105",
     "cashBonus": 0,
@@ -16171,12 +16171,12 @@ const allShopData = [
     "tapLQ": 5324.15,
     "tapGoalQ": 0,
     "tapTotalTQ": 1863.13,
-    "totalSV": 65,
+    "totalSV": 72,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.29,
-    "totalViews": 128077,
-    "totalSold": 180,
+    "totalCTR": 3.38,
+    "totalViews": 141115,
+    "totalSold": 192,
     "tapGMV": 0,
     "tapYTD": 74.75,
     "manager": "Hotline",
@@ -16188,12 +16188,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 65,
+    "agg_sv": 72,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 180,
-    "gmvPace": 21542.79,
+    "agg_sold": 192,
+    "gmvPace": 21568.61,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16201,7 +16201,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -16210,7 +16210,7 @@ const allShopData = [
       1059.95,
       3432.17,
       1863.13,
-      858.98
+      942.52
     ],
     "bonusHistory": [
       0,
@@ -16237,14 +16237,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "6.45%",
+        "ctr": "6.40%",
         "views": 0,
         "sold": 20,
         "gmv": 1064.57,
         "commDollars": 124.54,
         "bonus": 0,
         "gmvLM": 2728.12,
-        "gmvPace": 3193.71,
+        "gmvPace": 2903.37,
         "commPct": "11.70%",
         "tier": "Core",
         "acctRank": 1
@@ -16308,8 +16308,8 @@ const allShopData = [
     "totalSV": 4,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 6.45,
-    "totalViews": 30582,
+    "totalCTR": 6.4,
+    "totalViews": 35519,
     "totalSold": 20,
     "tapGMV": 0,
     "tapYTD": 213.79,
@@ -16327,7 +16327,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 20,
-    "gmvPace": 3193.71,
+    "gmvPace": 2903.37,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16335,7 +16335,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       617.1,
@@ -16365,21 +16365,21 @@ const allShopData = [
       {
         "handle": "christinaliddo",
         "tiktokLink": "https://www.tiktok.com/@christinaliddo",
-        "sv": 25,
-        "tap": 0,
+        "sv": 31,
+        "tap": 1,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.46%",
+        "ctr": "2.43%",
         "views": 0,
-        "sold": 108,
-        "gmv": 4625.5,
-        "commDollars": 619.59,
+        "sold": 116,
+        "gmv": 5065.17,
+        "commDollars": 684.33,
         "bonus": 0,
         "gmvLM": 6931.56,
-        "gmvPace": 13876.5,
-        "commPct": "13.40%",
+        "gmvPace": 13814.1,
+        "commPct": "13.51%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16394,7 +16394,7 @@ const allShopData = [
           1351.66,
           2280.81,
           6931.56,
-          4625.5
+          5065.17
         ],
         "tap": [
           32.95,
@@ -16412,7 +16412,7 @@ const allShopData = [
           150.45,
           230.32,
           801.01,
-          619.59
+          684.33
         ]
       }
     ],
@@ -16426,9 +16426,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 4625.5,
-    "totalComm": 619.59,
-    "avgComm": 13.4,
+    "totalGMV": 5065.17,
+    "totalComm": 684.33,
+    "avgComm": 13.51,
     "levelLabel": "L2",
     "productRank": "107",
     "cashBonus": 0,
@@ -16439,12 +16439,12 @@ const allShopData = [
     "tapLQ": 536.58,
     "tapGoalQ": 0,
     "tapTotalTQ": 801.01,
-    "totalSV": 25,
-    "totalTaP": 0,
+    "totalSV": 31,
+    "totalTaP": 1,
     "totalLS": 0,
-    "totalCTR": 2.46,
-    "totalViews": 154202,
-    "totalSold": 108,
+    "totalCTR": 2.43,
+    "totalViews": 170791,
+    "totalSold": 116,
     "tapGMV": 0,
     "tapYTD": 138.84,
     "manager": "Hotline",
@@ -16456,12 +16456,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 25,
-    "agg_tap": 0,
+    "agg_sv": 31,
+    "agg_tap": 1,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 108,
-    "gmvPace": 13876.5,
+    "agg_sold": 116,
+    "gmvPace": 13814.1,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16469,7 +16469,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       79.83,
@@ -16478,7 +16478,7 @@ const allShopData = [
       150.45,
       230.32,
       801.01,
-      619.59
+      684.33
     ],
     "bonusHistory": [
       0,
@@ -16505,14 +16505,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "9.90%",
+        "ctr": "10.09%",
         "views": 0,
         "sold": 5,
         "gmv": 122.7,
         "commDollars": 15.66,
         "bonus": 0,
         "gmvLM": 13372.32,
-        "gmvPace": 368.1,
+        "gmvPace": 334.64,
         "commPct": "12.76%",
         "tier": "Core",
         "acctRank": 1
@@ -16576,8 +16576,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 9.9,
-    "totalViews": 34264,
+    "totalCTR": 10.09,
+    "totalViews": 37727,
     "totalSold": 5,
     "tapGMV": 0,
     "tapYTD": 26.85,
@@ -16595,7 +16595,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 5,
-    "gmvPace": 368.1,
+    "gmvPace": 334.64,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16603,7 +16603,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       36.88,
@@ -16639,15 +16639,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.47%",
+        "ctr": "4.45%",
         "views": 0,
-        "sold": 10,
-        "gmv": 243.1,
-        "commDollars": 44.2,
+        "sold": 12,
+        "gmv": 279.34,
+        "commDollars": 50,
         "bonus": 0,
         "gmvLM": 199.84,
-        "gmvPace": 729.3,
-        "commPct": "18.18%",
+        "gmvPace": 761.84,
+        "commPct": "17.90%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16662,7 +16662,7 @@ const allShopData = [
           26.97,
           35.11,
           199.84,
-          243.1
+          279.34
         ],
         "tap": [
           0,
@@ -16680,7 +16680,7 @@ const allShopData = [
           2.97,
           3.93,
           28.08,
-          44.2
+          50
         ]
       }
     ],
@@ -16694,9 +16694,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 243.1,
-    "totalComm": 44.2,
-    "avgComm": 18.18,
+    "totalGMV": 279.34,
+    "totalComm": 50,
+    "avgComm": 17.9,
     "levelLabel": "L1",
     "productRank": "109",
     "cashBonus": 0,
@@ -16710,9 +16710,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.47,
-    "totalViews": 5749,
-    "totalSold": 10,
+    "totalCTR": 4.45,
+    "totalViews": 6387,
+    "totalSold": 12,
     "tapGMV": 0,
     "tapYTD": 45.99,
     "manager": "Hotline",
@@ -16728,8 +16728,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 10,
-    "gmvPace": 729.3,
+    "agg_sold": 12,
+    "gmvPace": 761.84,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16737,7 +16737,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       162.34,
@@ -16746,7 +16746,7 @@ const allShopData = [
       2.97,
       3.93,
       28.08,
-      44.2
+      50
     ],
     "bonusHistory": [
       0,
@@ -16767,7 +16767,7 @@ const allShopData = [
       {
         "handle": "gabbrieluh",
         "tiktokLink": "https://www.tiktok.com/@gabbrieluh",
-        "sv": 54,
+        "sv": 62,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
@@ -16775,13 +16775,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "2.71%",
         "views": 0,
-        "sold": 48,
-        "gmv": 917.18,
-        "commDollars": 114.62,
+        "sold": 54,
+        "gmv": 1041.44,
+        "commDollars": 130.42,
         "bonus": 0,
         "gmvLM": 4161.22,
-        "gmvPace": 2751.54,
-        "commPct": "12.50%",
+        "gmvPace": 2840.29,
+        "commPct": "12.52%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16796,7 +16796,7 @@ const allShopData = [
           8100.65,
           7195.09,
           4161.22,
-          917.18
+          1041.44
         ],
         "tap": [
           0,
@@ -16814,7 +16814,7 @@ const allShopData = [
           871.71,
           772.94,
           480.88,
-          114.62
+          130.42
         ]
       }
     ],
@@ -16828,9 +16828,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 917.18,
-    "totalComm": 114.62,
-    "avgComm": 12.5,
+    "totalGMV": 1041.44,
+    "totalComm": 130.42,
+    "avgComm": 12.52,
     "levelLabel": "L1",
     "productRank": "110",
     "cashBonus": 0,
@@ -16841,12 +16841,12 @@ const allShopData = [
     "tapLQ": 2099.82,
     "tapGoalQ": 0,
     "tapTotalTQ": 480.88,
-    "totalSV": 54,
+    "totalSV": 62,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 2.71,
-    "totalViews": 64062,
-    "totalSold": 48,
+    "totalViews": 71840,
+    "totalSold": 54,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -16858,12 +16858,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 54,
+    "agg_sv": 62,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 48,
-    "gmvPace": 2751.54,
+    "agg_sold": 54,
+    "gmvPace": 2840.29,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -16871,7 +16871,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       653.65,
@@ -16880,7 +16880,7 @@ const allShopData = [
       871.71,
       772.94,
       480.88,
-      114.62
+      130.42
     ],
     "bonusHistory": [
       0,
@@ -16907,15 +16907,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "6.36%",
+        "ctr": "6.42%",
         "views": 0,
-        "sold": 9,
-        "gmv": 196.34,
-        "commDollars": 18.26,
+        "sold": 10,
+        "gmv": 234.27,
+        "commDollars": 21.67,
         "bonus": 0,
         "gmvLM": 891.65,
-        "gmvPace": 589.02,
-        "commPct": "9.30%",
+        "gmvPace": 638.92,
+        "commPct": "9.25%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -16930,7 +16930,7 @@ const allShopData = [
           0,
           620.21,
           891.65,
-          196.34
+          234.27
         ],
         "tap": [
           0,
@@ -16948,7 +16948,7 @@ const allShopData = [
           0,
           52.4,
           72.69,
-          18.26
+          21.67
         ]
       }
     ],
@@ -16962,9 +16962,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 196.34,
-    "totalComm": 18.26,
-    "avgComm": 9.3,
+    "totalGMV": 234.27,
+    "totalComm": 21.67,
+    "avgComm": 9.25,
     "levelLabel": "L1",
     "productRank": "111",
     "cashBonus": 0,
@@ -16978,9 +16978,9 @@ const allShopData = [
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 6.36,
-    "totalViews": 10443,
-    "totalSold": 9,
+    "totalCTR": 6.42,
+    "totalViews": 10786,
+    "totalSold": 10,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -16996,8 +16996,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 9,
-    "gmvPace": 589.02,
+    "agg_sold": 10,
+    "gmvPace": 638.92,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17005,7 +17005,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       1.43,
@@ -17014,7 +17014,7 @@ const allShopData = [
       0,
       52.4,
       72.69,
-      18.26
+      21.67
     ],
     "bonusHistory": [
       0,
@@ -17041,14 +17041,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.18%",
+        "ctr": "4.99%",
         "views": 0,
         "sold": 1,
         "gmv": 12.96,
         "commDollars": 2.16,
         "bonus": 0,
         "gmvLM": 540.65,
-        "gmvPace": 38.88,
+        "gmvPace": 35.35,
         "commPct": "16.67%",
         "tier": "Core",
         "acctRank": 1
@@ -17112,8 +17112,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 5.18,
-    "totalViews": 1700,
+    "totalCTR": 4.99,
+    "totalViews": 1863,
     "totalSold": 1,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -17131,7 +17131,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 1,
-    "gmvPace": 38.88,
+    "gmvPace": 35.35,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17139,7 +17139,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       10.48,
@@ -17175,15 +17175,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.42%",
+        "ctr": "3.45%",
         "views": 0,
-        "sold": 64,
-        "gmv": 3031.91,
-        "commDollars": 303.6,
+        "sold": 72,
+        "gmv": 3307.7,
+        "commDollars": 338.82,
         "bonus": 0,
         "gmvLM": 17193.48,
-        "gmvPace": 9095.73,
-        "commPct": "10.01%",
+        "gmvPace": 9021,
+        "commPct": "10.24%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17198,7 +17198,7 @@ const allShopData = [
           16409.34,
           15980.76,
           17193.48,
-          3031.91
+          3307.7
         ],
         "tap": [
           0,
@@ -17216,7 +17216,7 @@ const allShopData = [
           2099.83,
           1758.32,
           2067.06,
-          303.6
+          338.82
         ]
       }
     ],
@@ -17230,9 +17230,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 3031.91,
-    "totalComm": 303.6,
-    "avgComm": 10.01,
+    "totalGMV": 3307.7,
+    "totalComm": 338.82,
+    "avgComm": 10.24,
     "levelLabel": "L2",
     "productRank": "113",
     "cashBonus": 0,
@@ -17246,9 +17246,9 @@ const allShopData = [
     "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.42,
-    "totalViews": 47074,
-    "totalSold": 64,
+    "totalCTR": 3.45,
+    "totalViews": 52001,
+    "totalSold": 72,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -17264,8 +17264,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 64,
-    "gmvPace": 9095.73,
+    "agg_sold": 72,
+    "gmvPace": 9021,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17273,7 +17273,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -17282,7 +17282,7 @@ const allShopData = [
       2099.83,
       1758.32,
       2067.06,
-      303.6
+      338.82
     ],
     "bonusHistory": [
       0,
@@ -17303,21 +17303,21 @@ const allShopData = [
       {
         "handle": "jasmineashley22",
         "tiktokLink": "https://www.tiktok.com/@jasmineashley22",
-        "sv": 48,
+        "sv": 57,
         "tap": 3,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "8.61%",
+        "ctr": "8.60%",
         "views": 0,
-        "sold": 59,
-        "gmv": 4784.33,
-        "commDollars": 631.59,
+        "sold": 67,
+        "gmv": 5239.17,
+        "commDollars": 705.67,
         "bonus": 0,
         "gmvLM": 30092.64,
-        "gmvPace": 14352.99,
-        "commPct": "13.20%",
+        "gmvPace": 14288.65,
+        "commPct": "13.47%",
         "tier": "VIP",
         "acctRank": 1
       }
@@ -17332,7 +17332,7 @@ const allShopData = [
           49847.18,
           50727.13,
           30092.64,
-          4784.33
+          5239.17
         ],
         "tap": [
           564.26,
@@ -17350,7 +17350,7 @@ const allShopData = [
           6973.82,
           7702.95,
           4481.69,
-          631.59
+          705.67
         ]
       }
     ],
@@ -17364,9 +17364,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 4784.33,
-    "totalComm": 631.59,
-    "avgComm": 13.2,
+    "totalGMV": 5239.17,
+    "totalComm": 705.67,
+    "avgComm": 13.47,
     "levelLabel": "L3",
     "productRank": "114",
     "cashBonus": 0,
@@ -17377,12 +17377,12 @@ const allShopData = [
     "tapLQ": 27043.73,
     "tapGoalQ": 0,
     "tapTotalTQ": 4525.16,
-    "totalSV": 48,
+    "totalSV": 57,
     "totalTaP": 3,
     "totalLS": 0,
-    "totalCTR": 8.61,
-    "totalViews": 116355,
-    "totalSold": 59,
+    "totalCTR": 8.6,
+    "totalViews": 125975,
+    "totalSold": 67,
     "tapGMV": 0,
     "tapYTD": 4407.94,
     "manager": "EMILEE",
@@ -17394,12 +17394,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 48,
+    "agg_sv": 57,
     "agg_tap": 3,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 59,
-    "gmvPace": 14352.99,
+    "agg_sold": 67,
+    "gmvPace": 14288.65,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17407,7 +17407,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2480.68,
@@ -17416,7 +17416,7 @@ const allShopData = [
       6973.82,
       7702.95,
       4481.69,
-      631.59
+      705.67
     ],
     "bonusHistory": [
       0,
@@ -17437,20 +17437,20 @@ const allShopData = [
       {
         "handle": "thejaydonwalker",
         "tiktokLink": "https://www.tiktok.com/@thejaydonwalker",
-        "sv": 1,
+        "sv": 2,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.13%",
+        "ctr": "1.23%",
         "views": 0,
         "sold": 1,
         "gmv": 13.29,
         "commDollars": 1.5,
         "bonus": 0,
         "gmvLM": 148.65,
-        "gmvPace": 39.87,
+        "gmvPace": 36.25,
         "commPct": "11.29%",
         "tier": "Core",
         "acctRank": 1
@@ -17511,11 +17511,11 @@ const allShopData = [
     "tapLQ": 188,
     "tapGoalQ": 0,
     "tapTotalTQ": 17.03,
-    "totalSV": 1,
+    "totalSV": 2,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.13,
-    "totalViews": 3197,
+    "totalCTR": 1.23,
+    "totalViews": 3566,
     "totalSold": 1,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -17528,12 +17528,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 1,
+    "agg_sv": 2,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 1,
-    "gmvPace": 39.87,
+    "gmvPace": 36.25,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17541,7 +17541,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       30.68,
@@ -17577,14 +17577,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.23%",
+        "ctr": "1.18%",
         "views": 0,
         "sold": 1,
         "gmv": 9.99,
         "commDollars": 0.75,
         "bonus": 0,
         "gmvLM": 191.31,
-        "gmvPace": 29.97,
+        "gmvPace": 27.25,
         "commPct": "7.51%",
         "tier": "Core",
         "acctRank": 1
@@ -17648,8 +17648,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.23,
-    "totalViews": 1551,
+    "totalCTR": 1.18,
+    "totalViews": 1693,
     "totalSold": 1,
     "tapGMV": 0,
     "tapYTD": 138.49,
@@ -17667,7 +17667,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 1,
-    "gmvPace": 29.97,
+    "gmvPace": 27.25,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17675,7 +17675,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       100.21,
@@ -17705,21 +17705,21 @@ const allShopData = [
       {
         "handle": "laurenluto",
         "tiktokLink": "https://www.tiktok.com/@laurenluto",
-        "sv": 15,
+        "sv": 18,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.51%",
+        "ctr": "3.48%",
         "views": 0,
-        "sold": 13,
-        "gmv": 1417.83,
-        "commDollars": 127.04,
+        "sold": 14,
+        "gmv": 1552.4,
+        "commDollars": 141.61,
         "bonus": 0,
         "gmvLM": 5979.19,
-        "gmvPace": 4253.49,
-        "commPct": "8.96%",
+        "gmvPace": 4233.82,
+        "commPct": "9.12%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17734,7 +17734,7 @@ const allShopData = [
           4762.15,
           5477.4,
           5979.19,
-          1417.83
+          1552.4
         ],
         "tap": [
           0,
@@ -17752,7 +17752,7 @@ const allShopData = [
           386.76,
           554.17,
           571.51,
-          127.04
+          141.61
         ]
       }
     ],
@@ -17766,9 +17766,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 1417.83,
-    "totalComm": 127.04,
-    "avgComm": 8.96,
+    "totalGMV": 1552.4,
+    "totalComm": 141.61,
+    "avgComm": 9.12,
     "levelLabel": "L2",
     "productRank": "117",
     "cashBonus": 0,
@@ -17779,12 +17779,12 @@ const allShopData = [
     "tapLQ": 1477.91,
     "tapGoalQ": 0,
     "tapTotalTQ": 571.51,
-    "totalSV": 15,
+    "totalSV": 18,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.51,
-    "totalViews": 89597,
-    "totalSold": 13,
+    "totalCTR": 3.48,
+    "totalViews": 97643,
+    "totalSold": 14,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -17796,12 +17796,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 15,
+    "agg_sv": 18,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 13,
-    "gmvPace": 4253.49,
+    "agg_sold": 14,
+    "gmvPace": 4233.82,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17809,7 +17809,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       201.53,
@@ -17818,7 +17818,7 @@ const allShopData = [
       386.76,
       554.17,
       571.51,
-      127.04
+      141.61
     ],
     "bonusHistory": [
       0,
@@ -17845,15 +17845,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.77%",
+        "ctr": "2.76%",
         "views": 0,
-        "sold": 75,
-        "gmv": 2707.38,
-        "commDollars": 311.57,
+        "sold": 85,
+        "gmv": 3090.64,
+        "commDollars": 354.79,
         "bonus": 0,
         "gmvLM": 45676.22,
-        "gmvPace": 8122.14,
-        "commPct": "11.51%",
+        "gmvPace": 8429.02,
+        "commPct": "11.48%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -17868,7 +17868,7 @@ const allShopData = [
           10922.69,
           14994.5,
           45676.22,
-          2707.38
+          3090.64
         ],
         "tap": [
           0,
@@ -17886,7 +17886,7 @@ const allShopData = [
           1232.19,
           1776.67,
           5728.95,
-          311.57
+          354.79
         ]
       }
     ],
@@ -17900,9 +17900,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 2707.38,
-    "totalComm": 311.57,
-    "avgComm": 11.51,
+    "totalGMV": 3090.64,
+    "totalComm": 354.79,
+    "avgComm": 11.48,
     "levelLabel": "L3",
     "productRank": "118",
     "cashBonus": 0,
@@ -17916,9 +17916,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.77,
-    "totalViews": 109818,
-    "totalSold": 75,
+    "totalCTR": 2.76,
+    "totalViews": 124714,
+    "totalSold": 85,
     "tapGMV": 0,
     "tapYTD": 161.07,
     "manager": "Hotline",
@@ -17934,8 +17934,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 75,
-    "gmvPace": 8122.14,
+    "agg_sold": 85,
+    "gmvPace": 8429.02,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -17943,7 +17943,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       864.52,
@@ -17952,7 +17952,7 @@ const allShopData = [
       1232.19,
       1776.67,
       5728.95,
-      311.57
+      354.79
     ],
     "bonusHistory": [
       0,
@@ -17973,21 +17973,21 @@ const allShopData = [
       {
         "handle": "linzbuzzard",
         "tiktokLink": "https://www.tiktok.com/@linzbuzzard",
-        "sv": 13,
+        "sv": 19,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.24%",
+        "ctr": "2.26%",
         "views": 0,
-        "sold": 128,
-        "gmv": 7893.2,
-        "commDollars": 738.68,
+        "sold": 141,
+        "gmv": 8739.57,
+        "commDollars": 828.31,
         "bonus": 0,
         "gmvLM": 30832.41,
-        "gmvPace": 23679.6,
-        "commPct": "9.36%",
+        "gmvPace": 23835.19,
+        "commPct": "9.48%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18002,7 +18002,7 @@ const allShopData = [
           39208.16,
           27875.51,
           30832.41,
-          7893.2
+          8739.57
         ],
         "tap": [
           0,
@@ -18020,7 +18020,7 @@ const allShopData = [
           3661.68,
           2692.58,
           3026.6,
-          738.68
+          828.31
         ]
       }
     ],
@@ -18034,9 +18034,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 7893.2,
-    "totalComm": 738.68,
-    "avgComm": 9.36,
+    "totalGMV": 8739.57,
+    "totalComm": 828.31,
+    "avgComm": 9.48,
     "levelLabel": "L3",
     "productRank": "119",
     "cashBonus": 0,
@@ -18047,12 +18047,12 @@ const allShopData = [
     "tapLQ": 11541.05,
     "tapGoalQ": 0,
     "tapTotalTQ": 3026.6,
-    "totalSV": 13,
+    "totalSV": 19,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.24,
-    "totalViews": 217365,
-    "totalSold": 128,
+    "totalCTR": 2.26,
+    "totalViews": 239676,
+    "totalSold": 141,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -18064,12 +18064,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 13,
+    "agg_sv": 19,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 128,
-    "gmvPace": 23679.6,
+    "agg_sold": 141,
+    "gmvPace": 23835.19,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18077,7 +18077,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       8018.77,
@@ -18086,7 +18086,7 @@ const allShopData = [
       3661.68,
       2692.58,
       3026.6,
-      738.68
+      828.31
     ],
     "bonusHistory": [
       0,
@@ -18107,21 +18107,21 @@ const allShopData = [
       {
         "handle": "diaryofamaterialgurl",
         "tiktokLink": "https://www.tiktok.com/@diaryofamaterialgurl",
-        "sv": 4,
+        "sv": 6,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "5.11%",
+        "ctr": "5.34%",
         "views": 0,
-        "sold": 21,
-        "gmv": 471.02,
-        "commDollars": 68.43,
+        "sold": 22,
+        "gmv": 477.65,
+        "commDollars": 68.69,
         "bonus": 0,
         "gmvLM": 1754.14,
-        "gmvPace": 1413.06,
-        "commPct": "14.53%",
+        "gmvPace": 1302.68,
+        "commPct": "14.38%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18136,7 +18136,7 @@ const allShopData = [
           4662.36,
           702.47,
           1754.14,
-          471.02
+          477.65
         ],
         "tap": [
           0,
@@ -18154,7 +18154,7 @@ const allShopData = [
           702.77,
           86.4,
           260.62,
-          68.43
+          68.69
         ]
       }
     ],
@@ -18168,9 +18168,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 471.02,
-    "totalComm": 68.43,
-    "avgComm": 14.53,
+    "totalGMV": 477.65,
+    "totalComm": 68.69,
+    "avgComm": 14.38,
     "levelLabel": "L1",
     "productRank": "120",
     "cashBonus": 0,
@@ -18181,12 +18181,12 @@ const allShopData = [
     "tapLQ": 1140.99,
     "tapGoalQ": 0,
     "tapTotalTQ": 260.62,
-    "totalSV": 4,
+    "totalSV": 6,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 5.11,
-    "totalViews": 27610,
-    "totalSold": 21,
+    "totalCTR": 5.34,
+    "totalViews": 30501,
+    "totalSold": 22,
     "tapGMV": 0,
     "tapYTD": 31.45,
     "manager": "Hotline",
@@ -18198,12 +18198,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 4,
+    "agg_sv": 6,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 21,
-    "gmvPace": 1413.06,
+    "agg_sold": 22,
+    "gmvPace": 1302.68,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18211,7 +18211,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       277.82,
@@ -18220,7 +18220,7 @@ const allShopData = [
       702.77,
       86.4,
       260.62,
-      68.43
+      68.69
     ],
     "bonusHistory": [
       0,
@@ -18241,7 +18241,7 @@ const allShopData = [
       {
         "handle": "lizshops",
         "tiktokLink": "https://www.tiktok.com/@lizshops",
-        "sv": 45,
+        "sv": 54,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
@@ -18249,13 +18249,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "3.10%",
         "views": 0,
-        "sold": 111,
-        "gmv": 3359.59,
-        "commDollars": 364.18,
+        "sold": 119,
+        "gmv": 3651.02,
+        "commDollars": 396.01,
         "bonus": 0,
         "gmvLM": 11971.88,
-        "gmvPace": 10078.77,
-        "commPct": "10.84%",
+        "gmvPace": 9957.33,
+        "commPct": "10.85%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18270,7 +18270,7 @@ const allShopData = [
           5878.66,
           7675.65,
           11971.88,
-          3359.59
+          3651.02
         ],
         "tap": [
           122.1,
@@ -18288,7 +18288,7 @@ const allShopData = [
           531.37,
           701.8,
           1213.06,
-          364.18
+          396.01
         ]
       }
     ],
@@ -18302,9 +18302,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 3359.59,
-    "totalComm": 364.18,
-    "avgComm": 10.84,
+    "totalGMV": 3651.02,
+    "totalComm": 396.01,
+    "avgComm": 10.85,
     "levelLabel": "L2",
     "productRank": "121",
     "cashBonus": 0,
@@ -18315,12 +18315,12 @@ const allShopData = [
     "tapLQ": 1833.95,
     "tapGoalQ": 0,
     "tapTotalTQ": 1245.38,
-    "totalSV": 45,
+    "totalSV": 54,
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 3.1,
-    "totalViews": 128956,
-    "totalSold": 111,
+    "totalViews": 138945,
+    "totalSold": 119,
     "tapGMV": 0,
     "tapYTD": 1031.34,
     "manager": "Hotline",
@@ -18332,12 +18332,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 45,
+    "agg_sv": 54,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 111,
-    "gmvPace": 10078.77,
+    "agg_sold": 119,
+    "gmvPace": 9957.33,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18345,7 +18345,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       1107.08,
@@ -18354,7 +18354,7 @@ const allShopData = [
       531.37,
       701.8,
       1213.06,
-      364.18
+      396.01
     ],
     "bonusHistory": [
       0,
@@ -18375,21 +18375,21 @@ const allShopData = [
       {
         "handle": "leahmstapleton",
         "tiktokLink": "https://www.tiktok.com/@leahmstapleton",
-        "sv": 4,
+        "sv": 5,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.42%",
+        "ctr": "2.35%",
         "views": 0,
-        "sold": 38,
-        "gmv": 2028.21,
-        "commDollars": 270.69,
+        "sold": 44,
+        "gmv": 2267.36,
+        "commDollars": 300.08,
         "bonus": 0,
         "gmvLM": 10802.38,
-        "gmvPace": 6084.63,
-        "commPct": "13.35%",
+        "gmvPace": 6183.71,
+        "commPct": "13.23%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18404,7 +18404,7 @@ const allShopData = [
           4519.43,
           5943.67,
           10802.38,
-          2028.21
+          2267.36
         ],
         "tap": [
           0,
@@ -18422,7 +18422,7 @@ const allShopData = [
           572.6,
           778.54,
           1295.33,
-          270.69
+          300.08
         ]
       }
     ],
@@ -18436,9 +18436,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 2028.21,
-    "totalComm": 270.69,
-    "avgComm": 13.35,
+    "totalGMV": 2267.36,
+    "totalComm": 300.08,
+    "avgComm": 13.23,
     "levelLabel": "L2",
     "productRank": "122",
     "cashBonus": 0,
@@ -18449,12 +18449,12 @@ const allShopData = [
     "tapLQ": 2049.5,
     "tapGoalQ": 0,
     "tapTotalTQ": 1295.33,
-    "totalSV": 4,
+    "totalSV": 5,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.42,
-    "totalViews": 114147,
-    "totalSold": 38,
+    "totalCTR": 2.35,
+    "totalViews": 131552,
+    "totalSold": 44,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -18466,12 +18466,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 4,
+    "agg_sv": 5,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 38,
-    "gmvPace": 6084.63,
+    "agg_sold": 44,
+    "gmvPace": 6183.71,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18479,7 +18479,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       2358.61,
@@ -18488,7 +18488,7 @@ const allShopData = [
       572.6,
       778.54,
       1295.33,
-      270.69
+      300.08
     ],
     "bonusHistory": [
       0,
@@ -18515,15 +18515,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.36%",
+        "ctr": "1.35%",
         "views": 0,
-        "sold": 18,
-        "gmv": 505.1,
-        "commDollars": 70.83,
+        "sold": 21,
+        "gmv": 547.06,
+        "commDollars": 75.5,
         "bonus": 0,
         "gmvLM": 1939.64,
-        "gmvPace": 1515.3,
-        "commPct": "14.02%",
+        "gmvPace": 1491.98,
+        "commPct": "13.80%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18538,7 +18538,7 @@ const allShopData = [
           975.58,
           1661.73,
           1939.64,
-          505.1
+          547.06
         ],
         "tap": [
           0,
@@ -18556,7 +18556,7 @@ const allShopData = [
           154.62,
           274.66,
           259.63,
-          70.83
+          75.5
         ]
       }
     ],
@@ -18570,9 +18570,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 505.1,
-    "totalComm": 70.83,
-    "avgComm": 14.02,
+    "totalGMV": 547.06,
+    "totalComm": 75.5,
+    "avgComm": 13.8,
     "levelLabel": "L1",
     "productRank": "123",
     "cashBonus": 0,
@@ -18586,9 +18586,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.36,
-    "totalViews": 37534,
-    "totalSold": 18,
+    "totalCTR": 1.35,
+    "totalViews": 40931,
+    "totalSold": 21,
     "tapGMV": 0,
     "tapYTD": 16,
     "manager": "Hotline",
@@ -18604,8 +18604,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 18,
-    "gmvPace": 1515.3,
+    "agg_sold": 21,
+    "gmvPace": 1491.98,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18613,7 +18613,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       522.55,
@@ -18622,7 +18622,7 @@ const allShopData = [
       154.62,
       274.66,
       259.63,
-      70.83
+      75.5
     ],
     "bonusHistory": [
       0,
@@ -18651,13 +18651,13 @@ const allShopData = [
         "liveMinutes": 0,
         "ctr": "3.16%",
         "views": 0,
-        "sold": 236,
-        "gmv": 7043.18,
-        "commDollars": 850.18,
+        "sold": 286,
+        "gmv": 8403.54,
+        "commDollars": 990.42,
         "bonus": 0,
         "gmvLM": 23859.45,
-        "gmvPace": 21129.54,
-        "commPct": "12.07%",
+        "gmvPace": 22918.75,
+        "commPct": "11.79%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18672,7 +18672,7 @@ const allShopData = [
           44353.25,
           42230.25,
           23859.45,
-          7043.18
+          8403.54
         ],
         "tap": [
           0,
@@ -18690,7 +18690,7 @@ const allShopData = [
           5071.03,
           5348.1,
           3022.01,
-          850.18
+          990.42
         ]
       }
     ],
@@ -18704,9 +18704,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 7043.18,
-    "totalComm": 850.18,
-    "avgComm": 12.07,
+    "totalGMV": 8403.54,
+    "totalComm": 990.42,
+    "avgComm": 11.79,
     "levelLabel": "L2",
     "productRank": "124",
     "cashBonus": 0,
@@ -18721,8 +18721,8 @@ const allShopData = [
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 3.16,
-    "totalViews": 425146,
-    "totalSold": 236,
+    "totalViews": 465634,
+    "totalSold": 286,
     "tapGMV": 0,
     "tapYTD": 236.4,
     "manager": "Hotline",
@@ -18738,8 +18738,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 236,
-    "gmvPace": 21129.54,
+    "agg_sold": 286,
+    "gmvPace": 22918.75,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18747,7 +18747,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       4651.66,
@@ -18756,7 +18756,7 @@ const allShopData = [
       5071.03,
       5348.1,
       3022.01,
-      850.18
+      990.42
     ],
     "bonusHistory": [
       0,
@@ -18777,21 +18777,21 @@ const allShopData = [
       {
         "handle": "natalieporretta",
         "tiktokLink": "https://www.tiktok.com/@natalieporretta",
-        "sv": 0,
+        "sv": 1,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.67%",
+        "ctr": "4.33%",
         "views": 0,
-        "sold": 72,
-        "gmv": 2984.13,
-        "commDollars": 343.78,
+        "sold": 87,
+        "gmv": 3482.46,
+        "commDollars": 397.64,
         "bonus": 0,
         "gmvLM": 6628.46,
-        "gmvPace": 8952.39,
-        "commPct": "11.52%",
+        "gmvPace": 9497.62,
+        "commPct": "11.42%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18806,7 +18806,7 @@ const allShopData = [
           4939.15,
           4964.81,
           6628.46,
-          2984.13
+          3482.46
         ],
         "tap": [
           0,
@@ -18824,7 +18824,7 @@ const allShopData = [
           600.21,
           534.85,
           707.23,
-          343.78
+          397.64
         ]
       }
     ],
@@ -18838,9 +18838,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 2984.13,
-    "totalComm": 343.78,
-    "avgComm": 11.52,
+    "totalGMV": 3482.46,
+    "totalComm": 397.64,
+    "avgComm": 11.42,
     "levelLabel": "L2",
     "productRank": "125",
     "cashBonus": 0,
@@ -18851,12 +18851,12 @@ const allShopData = [
     "tapLQ": 1491.17,
     "tapGoalQ": 0,
     "tapTotalTQ": 707.23,
-    "totalSV": 0,
+    "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.67,
-    "totalViews": 81622,
-    "totalSold": 72,
+    "totalCTR": 4.33,
+    "totalViews": 102387,
+    "totalSold": 87,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -18868,12 +18868,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 0,
+    "agg_sv": 1,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 72,
-    "gmvPace": 8952.39,
+    "agg_sold": 87,
+    "gmvPace": 9497.62,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -18881,7 +18881,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       155.76,
@@ -18890,7 +18890,7 @@ const allShopData = [
       600.21,
       534.85,
       707.23,
-      343.78
+      397.64
     ],
     "bonusHistory": [
       0,
@@ -18917,15 +18917,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "2.10%",
+        "ctr": "2.14%",
         "views": 0,
-        "sold": 135,
-        "gmv": 3040.36,
-        "commDollars": 337.38,
+        "sold": 142,
+        "gmv": 3212.95,
+        "commDollars": 358.04,
         "bonus": 0,
         "gmvLM": 7065.79,
-        "gmvPace": 9121.08,
-        "commPct": "11.10%",
+        "gmvPace": 8762.59,
+        "commPct": "11.14%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -18940,7 +18940,7 @@ const allShopData = [
           5316.64,
           5760.16,
           7065.79,
-          3040.36
+          3212.95
         ],
         "tap": [
           0,
@@ -18958,7 +18958,7 @@ const allShopData = [
           542.39,
           583.38,
           762.35,
-          337.38
+          358.04
         ]
       }
     ],
@@ -18972,9 +18972,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 3040.36,
-    "totalComm": 337.38,
-    "avgComm": 11.1,
+    "totalGMV": 3212.95,
+    "totalComm": 358.04,
+    "avgComm": 11.14,
     "levelLabel": "L2",
     "productRank": "126",
     "cashBonus": 0,
@@ -18988,9 +18988,9 @@ const allShopData = [
     "totalSV": 8,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 2.1,
-    "totalViews": 127042,
-    "totalSold": 135,
+    "totalCTR": 2.14,
+    "totalViews": 139167,
+    "totalSold": 142,
     "tapGMV": 0,
     "tapYTD": 79.24,
     "manager": "Hotline",
@@ -19006,8 +19006,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 135,
-    "gmvPace": 9121.08,
+    "agg_sold": 142,
+    "gmvPace": 8762.59,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19015,7 +19015,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       807.24,
@@ -19024,7 +19024,7 @@ const allShopData = [
       542.39,
       583.38,
       762.35,
-      337.38
+      358.04
     ],
     "bonusHistory": [
       0,
@@ -19051,15 +19051,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.16%",
+        "ctr": "4.14%",
         "views": 0,
-        "sold": 9,
-        "gmv": 62.51,
-        "commDollars": 4.34,
+        "sold": 10,
+        "gmv": 74.86,
+        "commDollars": 4.69,
         "bonus": 0,
         "gmvLM": 374.52,
-        "gmvPace": 187.53,
-        "commPct": "6.94%",
+        "gmvPace": 204.16,
+        "commPct": "6.27%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19074,7 +19074,7 @@ const allShopData = [
           292.57,
           734.57,
           374.52,
-          62.51
+          74.86
         ],
         "tap": [
           0,
@@ -19092,7 +19092,7 @@ const allShopData = [
           22.82,
           51.48,
           24.55,
-          4.34
+          4.69
         ]
       }
     ],
@@ -19106,9 +19106,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 62.51,
-    "totalComm": 4.34,
-    "avgComm": 6.94,
+    "totalGMV": 74.86,
+    "totalComm": 4.69,
+    "avgComm": 6.27,
     "levelLabel": "L1",
     "productRank": "127",
     "cashBonus": 0,
@@ -19122,9 +19122,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.16,
-    "totalViews": 8777,
-    "totalSold": 9,
+    "totalCTR": 4.14,
+    "totalViews": 9543,
+    "totalSold": 10,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -19140,8 +19140,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 9,
-    "gmvPace": 187.53,
+    "agg_sold": 10,
+    "gmvPace": 204.16,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19149,7 +19149,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       124.21,
@@ -19158,7 +19158,7 @@ const allShopData = [
       22.82,
       51.48,
       24.55,
-      4.34
+      4.69
     ],
     "bonusHistory": [
       0,
@@ -19185,15 +19185,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.48%",
+        "ctr": "4.46%",
         "views": 0,
-        "sold": 6,
-        "gmv": 228.09,
-        "commDollars": 25.93,
+        "sold": 7,
+        "gmv": 338.78,
+        "commDollars": 31.21,
         "bonus": 0,
         "gmvLM": 1618.54,
-        "gmvPace": 684.27,
-        "commPct": "11.37%",
+        "gmvPace": 923.95,
+        "commPct": "9.21%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19208,7 +19208,7 @@ const allShopData = [
           2612.41,
           1750.77,
           1618.54,
-          228.09
+          338.78
         ],
         "tap": [
           0,
@@ -19226,7 +19226,7 @@ const allShopData = [
           140.84,
           115.06,
           82.22,
-          25.93
+          31.21
         ]
       }
     ],
@@ -19240,9 +19240,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 228.09,
-    "totalComm": 25.93,
-    "avgComm": 11.37,
+    "totalGMV": 338.78,
+    "totalComm": 31.21,
+    "avgComm": 9.21,
     "levelLabel": "L1",
     "productRank": "128",
     "cashBonus": 0,
@@ -19256,9 +19256,9 @@ const allShopData = [
     "totalSV": 7,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.48,
-    "totalViews": 21183,
-    "totalSold": 6,
+    "totalCTR": 4.46,
+    "totalViews": 24572,
+    "totalSold": 7,
     "tapGMV": 0,
     "tapYTD": 43.88,
     "manager": "Hotline",
@@ -19274,8 +19274,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 6,
-    "gmvPace": 684.27,
+    "agg_sold": 7,
+    "gmvPace": 923.95,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19283,7 +19283,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       184.01,
@@ -19292,7 +19292,7 @@ const allShopData = [
       140.84,
       115.06,
       82.22,
-      25.93
+      31.21
     ],
     "bonusHistory": [
       0,
@@ -19319,15 +19319,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "4.49%",
+        "ctr": "4.53%",
         "views": 0,
-        "sold": 82,
-        "gmv": 2927.28,
-        "commDollars": 361.89,
+        "sold": 87,
+        "gmv": 3071.14,
+        "commDollars": 387.81,
         "bonus": 0,
         "gmvLM": 13631.58,
-        "gmvPace": 8781.84,
-        "commPct": "12.36%",
+        "gmvPace": 8375.84,
+        "commPct": "12.63%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19342,7 +19342,7 @@ const allShopData = [
           13503.88,
           19175.17,
           13631.58,
-          2927.28
+          3071.14
         ],
         "tap": [
           0,
@@ -19360,7 +19360,7 @@ const allShopData = [
           1521.27,
           2154.41,
           1591.36,
-          361.89
+          387.81
         ]
       }
     ],
@@ -19374,9 +19374,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 2927.28,
-    "totalComm": 361.89,
-    "avgComm": 12.36,
+    "totalGMV": 3071.14,
+    "totalComm": 387.81,
+    "avgComm": 12.63,
     "levelLabel": "L2",
     "productRank": "129",
     "cashBonus": 0,
@@ -19390,9 +19390,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 4.49,
-    "totalViews": 53858,
-    "totalSold": 82,
+    "totalCTR": 4.53,
+    "totalViews": 56906,
+    "totalSold": 87,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -19408,8 +19408,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 82,
-    "gmvPace": 8781.84,
+    "agg_sold": 87,
+    "gmvPace": 8375.84,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19417,7 +19417,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       3524.47,
@@ -19426,7 +19426,7 @@ const allShopData = [
       1521.27,
       2154.41,
       1591.36,
-      361.89
+      387.81
     ],
     "bonusHistory": [
       0,
@@ -19447,21 +19447,21 @@ const allShopData = [
       {
         "handle": "tarynupmyheart__",
         "tiktokLink": "https://www.tiktok.com/@tarynupmyheart__",
-        "sv": 0,
+        "sv": 1,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "0.96%",
+        "ctr": "1.02%",
         "views": 0,
-        "sold": 6,
-        "gmv": 66.04,
-        "commDollars": 10.39,
+        "sold": 7,
+        "gmv": 172.41,
+        "commDollars": 30.55,
         "bonus": 0,
         "gmvLM": 538.05,
-        "gmvPace": 198.12,
-        "commPct": "15.73%",
+        "gmvPace": 470.21,
+        "commPct": "17.72%",
         "tier": "Core",
         "acctRank": 1
       }
@@ -19476,7 +19476,7 @@ const allShopData = [
           858.7,
           932.59,
           538.05,
-          66.04
+          172.41
         ],
         "tap": [
           0,
@@ -19494,7 +19494,7 @@ const allShopData = [
           144.16,
           166.87,
           96.49,
-          10.39
+          30.55
         ]
       }
     ],
@@ -19508,9 +19508,9 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 66.04,
-    "totalComm": 10.39,
-    "avgComm": 15.73,
+    "totalGMV": 172.41,
+    "totalComm": 30.55,
+    "avgComm": 17.72,
     "levelLabel": "L1",
     "productRank": "130",
     "cashBonus": 0,
@@ -19521,12 +19521,12 @@ const allShopData = [
     "tapLQ": 480.04,
     "tapGoalQ": 0,
     "tapTotalTQ": 96.49,
-    "totalSV": 0,
+    "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 0.96,
-    "totalViews": 8042,
-    "totalSold": 6,
+    "totalCTR": 1.02,
+    "totalViews": 8924,
+    "totalSold": 7,
     "tapGMV": 0,
     "tapYTD": 0,
     "manager": "Hotline",
@@ -19538,12 +19538,12 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 0,
+    "agg_sv": 1,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 6,
-    "gmvPace": 198.12,
+    "agg_sold": 7,
+    "gmvPace": 470.21,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19551,7 +19551,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       422.18,
@@ -19560,7 +19560,141 @@ const allShopData = [
       144.16,
       166.87,
       96.49,
-      10.39
+      30.55
+    ],
+    "bonusHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "username": "torivild@gmail.com",
+    "email": "torivild@gmail.com",
+    "name": "Tori Vild",
+    "topLevel": "L1",
+    "accounts": [
+      {
+        "handle": "torivofficial",
+        "tiktokLink": "https://www.tiktok.com/@torivofficial",
+        "sv": 0,
+        "tap": 0,
+        "tapGMV": 0,
+        "ls": 0,
+        "liveHours": 0,
+        "liveMinutes": 0,
+        "ctr": "0.00%",
+        "views": 0,
+        "sold": 0,
+        "gmv": 73.99,
+        "commDollars": 0.6,
+        "bonus": 0,
+        "gmvLM": 0,
+        "gmvPace": 201.79,
+        "commPct": "0.81%",
+        "tier": "Core",
+        "acctRank": 1
+      }
+    ],
+    "accountsHistory": [
+      {
+        "handle": "torivofficial",
+        "gmv": [
+          0,
+          0,
+          217.81,
+          158.18,
+          115.98,
+          0,
+          73.99
+        ],
+        "tap": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "comm": [
+          0,
+          0,
+          1.86,
+          1.21,
+          1,
+          0,
+          0.6
+        ]
+      }
+    ],
+    "tapHistory": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "points": 1,
+    "totalGMV": 73.99,
+    "totalComm": 0.6,
+    "avgComm": 0.81,
+    "levelLabel": "L1",
+    "productRank": "131",
+    "cashBonus": 0,
+    "bonusMTD": 0,
+    "bonusYTD": 0,
+    "tapLM": 0,
+    "tapGoalM": 10000,
+    "tapLQ": 4.07,
+    "tapGoalQ": 0,
+    "tapTotalTQ": 0,
+    "totalSV": 0,
+    "totalTaP": 0,
+    "totalLS": 0,
+    "totalCTR": 0,
+    "totalViews": 142,
+    "totalSold": 0,
+    "tapGMV": 0,
+    "tapYTD": 0,
+    "manager": "Hotline",
+    "joined": "Sep 2024",
+    "tier": "Core",
+    "accts": "1",
+    "score": 0,
+    "detailsLabel": "",
+    "tapMLabel": "",
+    "tapLLabel": "",
+    "livesLabel": "",
+    "agg_sv": 0,
+    "agg_tap": 0,
+    "agg_ls": 0,
+    "agg_views": 0,
+    "agg_sold": 0,
+    "gmvPace": 201.79,
+    "historyMonths": [
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 11"
+    ],
+    "commHistory": [
+      0,
+      0,
+      1.86,
+      1.21,
+      1,
+      0,
+      0.6
     ],
     "bonusHistory": [
       0,
@@ -19587,15 +19721,15 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.58%",
+        "ctr": "3.54%",
         "views": 0,
-        "sold": 116,
-        "gmv": 2582.47,
-        "commDollars": 357.45,
+        "sold": 128,
+        "gmv": 2821.62,
+        "commDollars": 385.7,
         "bonus": 0,
         "gmvLM": 5756.18,
-        "gmvPace": 7747.41,
-        "commPct": "13.84%",
+        "gmvPace": 7695.33,
+        "commPct": "13.67%",
         "tier": "Talent",
         "acctRank": 1
       }
@@ -19610,7 +19744,7 @@ const allShopData = [
           9519.33,
           8883.38,
           5756.18,
-          2582.47
+          2821.62
         ],
         "tap": [
           114.18,
@@ -19628,7 +19762,7 @@ const allShopData = [
           1152.57,
           1205.56,
           751.87,
-          357.45
+          385.7
         ]
       }
     ],
@@ -19642,11 +19776,11 @@ const allShopData = [
       0
     ],
     "points": 1,
-    "totalGMV": 2582.47,
-    "totalComm": 357.45,
-    "avgComm": 13.84,
+    "totalGMV": 2821.62,
+    "totalComm": 385.7,
+    "avgComm": 13.67,
     "levelLabel": "L2",
-    "productRank": "131",
+    "productRank": "132",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -19658,9 +19792,9 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.58,
-    "totalViews": 525205,
-    "totalSold": 116,
+    "totalCTR": 3.54,
+    "totalViews": 568309,
+    "totalSold": 128,
     "tapGMV": 0,
     "tapYTD": 1420.95,
     "manager": "EMILEE",
@@ -19676,8 +19810,8 @@ const allShopData = [
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
-    "agg_sold": 116,
-    "gmvPace": 7747.41,
+    "agg_sold": 128,
+    "gmvPace": 7695.33,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19685,7 +19819,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       1062.29,
@@ -19694,7 +19828,7 @@ const allShopData = [
       1152.57,
       1205.56,
       751.87,
-      357.45
+      385.7
     ],
     "bonusHistory": [
       0,
@@ -19721,14 +19855,14 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.44%",
+        "ctr": "1.36%",
         "views": 0,
         "sold": 1,
         "gmv": 49.76,
         "commDollars": 9.75,
         "bonus": 0,
         "gmvLM": 197.69,
-        "gmvPace": 149.28,
+        "gmvPace": 135.71,
         "commPct": "19.59%",
         "tier": "STAFF",
         "acctRank": 1
@@ -19780,7 +19914,7 @@ const allShopData = [
     "totalComm": 9.75,
     "avgComm": 19.59,
     "levelLabel": "L1",
-    "productRank": "132",
+    "productRank": "133",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -19792,8 +19926,8 @@ const allShopData = [
     "totalSV": 2,
     "totalTaP": 1,
     "totalLS": 0,
-    "totalCTR": 1.44,
-    "totalViews": 2016,
+    "totalCTR": 1.36,
+    "totalViews": 2205,
     "totalSold": 1,
     "tapGMV": 0,
     "tapYTD": 104.5,
@@ -19811,7 +19945,7 @@ const allShopData = [
     "agg_ls": 0,
     "agg_views": 0,
     "agg_sold": 1,
-    "gmvPace": 149.28,
+    "gmvPace": 135.71,
     "historyMonths": [
       "May 2026",
       "Jun 2026",
@@ -19819,7 +19953,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       9.06,
@@ -19855,7 +19989,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.15%",
+        "ctr": "3.21%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -19914,7 +20048,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "133",
+    "productRank": "134",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -19926,8 +20060,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.15,
-    "totalViews": 572,
+    "totalCTR": 3.21,
+    "totalViews": 624,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -19953,7 +20087,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       8.38,
@@ -19989,7 +20123,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.03%",
+        "ctr": "3.08%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -20048,7 +20182,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "134",
+    "productRank": "135",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20060,8 +20194,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.03,
-    "totalViews": 2576,
+    "totalCTR": 3.08,
+    "totalViews": 2826,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -20087,7 +20221,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20123,7 +20257,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.33%",
+        "ctr": "3.12%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -20182,7 +20316,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "135",
+    "productRank": "136",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20194,8 +20328,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.33,
-    "totalViews": 30,
+    "totalCTR": 3.12,
+    "totalViews": 32,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -20221,7 +20355,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20316,7 +20450,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "136",
+    "productRank": "137",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20355,7 +20489,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       5.25,
@@ -20391,7 +20525,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "3.66%",
+        "ctr": "3.75%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -20450,7 +20584,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "137",
+    "productRank": "138",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20462,8 +20596,8 @@ const allShopData = [
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 3.66,
-    "totalViews": 792,
+    "totalCTR": 3.75,
+    "totalViews": 853,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -20489,7 +20623,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20584,7 +20718,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "138",
+    "productRank": "139",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20623,7 +20757,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20659,7 +20793,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "0.95%",
+        "ctr": "0.86%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -20718,7 +20852,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "139",
+    "productRank": "140",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20730,8 +20864,8 @@ const allShopData = [
     "totalSV": 0,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 0.95,
-    "totalViews": 105,
+    "totalCTR": 0.86,
+    "totalViews": 116,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -20757,7 +20891,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20852,7 +20986,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "140",
+    "productRank": "141",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20891,7 +21025,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -20927,7 +21061,7 @@ const allShopData = [
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "0.30%",
+        "ctr": "0.28%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -20986,7 +21120,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "141",
+    "productRank": "142",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -20998,8 +21132,8 @@ const allShopData = [
     "totalSV": 1,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 0.3,
-    "totalViews": 4302,
+    "totalCTR": 0.28,
+    "totalViews": 4660,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -21025,7 +21159,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0.19,
@@ -21120,7 +21254,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "142",
+    "productRank": "143",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -21133,7 +21267,7 @@ const allShopData = [
     "totalTaP": 0,
     "totalLS": 0,
     "totalCTR": 2.62,
-    "totalViews": 267,
+    "totalViews": 305,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 0,
@@ -21159,7 +21293,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       14.72,
@@ -21189,13 +21323,13 @@ const allShopData = [
       {
         "handle": "ollie999",
         "tiktokLink": "https://www.tiktok.com/@ollie999",
-        "sv": 49,
+        "sv": 62,
         "tap": 0,
         "tapGMV": 0,
         "ls": 0,
         "liveHours": 0,
         "liveMinutes": 0,
-        "ctr": "1.02%",
+        "ctr": "1.15%",
         "views": 0,
         "sold": 0,
         "gmv": 0,
@@ -21254,7 +21388,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "143",
+    "productRank": "144",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -21263,11 +21397,11 @@ const allShopData = [
     "tapLQ": 43.98,
     "tapGoalQ": 0,
     "tapTotalTQ": 25.32,
-    "totalSV": 49,
+    "totalSV": 62,
     "totalTaP": 0,
     "totalLS": 0,
-    "totalCTR": 1.02,
-    "totalViews": 15695,
+    "totalCTR": 1.15,
+    "totalViews": 19238,
     "totalSold": 0,
     "tapGMV": 0,
     "tapYTD": 240.59,
@@ -21280,7 +21414,7 @@ const allShopData = [
     "tapMLabel": "",
     "tapLLabel": "",
     "livesLabel": "",
-    "agg_sv": 49,
+    "agg_sv": 62,
     "agg_tap": 0,
     "agg_ls": 0,
     "agg_views": 0,
@@ -21293,7 +21427,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       65.34,
@@ -21388,7 +21522,7 @@ const allShopData = [
     "totalComm": 0,
     "avgComm": 0,
     "levelLabel": "L1",
-    "productRank": "144",
+    "productRank": "145",
     "cashBonus": 0,
     "bonusMTD": 0,
     "bonusYTD": 0,
@@ -21427,7 +21561,7 @@ const allShopData = [
       "Aug 2026",
       "Sep 2026",
       "Oct 2026",
-      "Nov 10"
+      "Nov 11"
     ],
     "commHistory": [
       0,
@@ -21435,140 +21569,6 @@ const allShopData = [
       0,
       0,
       0,
-      0,
-      0
-    ],
-    "bonusHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ]
-  },
-  {
-    "username": "torivild@gmail.com",
-    "email": "torivild@gmail.com",
-    "name": "Tori Vild",
-    "topLevel": "L1",
-    "accounts": [
-      {
-        "handle": "torivofficial",
-        "tiktokLink": "https://www.tiktok.com/@torivofficial",
-        "sv": 0,
-        "tap": 0,
-        "tapGMV": 0,
-        "ls": 0,
-        "liveHours": 0,
-        "liveMinutes": 0,
-        "ctr": "0.00%",
-        "views": 0,
-        "sold": 0,
-        "gmv": 0,
-        "commDollars": 0,
-        "bonus": 0,
-        "gmvLM": 0,
-        "gmvPace": 0,
-        "commPct": "0%",
-        "tier": "Core",
-        "acctRank": 1
-      }
-    ],
-    "accountsHistory": [
-      {
-        "handle": "torivofficial",
-        "gmv": [
-          0,
-          0,
-          217.81,
-          158.18,
-          115.98,
-          0,
-          0
-        ],
-        "tap": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "comm": [
-          0,
-          0,
-          1.86,
-          1.21,
-          1,
-          0,
-          0
-        ]
-      }
-    ],
-    "tapHistory": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "points": 0,
-    "totalGMV": 0,
-    "totalComm": 0,
-    "avgComm": 0,
-    "levelLabel": "L1",
-    "productRank": "145",
-    "cashBonus": 0,
-    "bonusMTD": 0,
-    "bonusYTD": 0,
-    "tapLM": 0,
-    "tapGoalM": 10000,
-    "tapLQ": 4.07,
-    "tapGoalQ": 0,
-    "tapTotalTQ": 0,
-    "totalSV": 0,
-    "totalTaP": 0,
-    "totalLS": 0,
-    "totalCTR": 0,
-    "totalViews": 113,
-    "totalSold": 0,
-    "tapGMV": 0,
-    "tapYTD": 0,
-    "manager": "Hotline",
-    "joined": "Sep 2024",
-    "tier": "Core",
-    "accts": "1",
-    "score": 0,
-    "detailsLabel": "",
-    "tapMLabel": "",
-    "tapLLabel": "",
-    "livesLabel": "",
-    "agg_sv": 0,
-    "agg_tap": 0,
-    "agg_ls": 0,
-    "agg_views": 0,
-    "agg_sold": 0,
-    "gmvPace": 0,
-    "historyMonths": [
-      "May 2026",
-      "Jun 2026",
-      "Jul 2026",
-      "Aug 2026",
-      "Sep 2026",
-      "Oct 2026",
-      "Nov 10"
-    ],
-    "commHistory": [
-      0,
-      0,
-      1.86,
-      1.21,
-      1,
       0,
       0
     ],
@@ -21584,7 +21584,7 @@ const allShopData = [
   }
 ];
 
-window.SHOP_LAST_UPDATED = "Nov 10 at 11:59 PM PT";
+window.SHOP_LAST_UPDATED = "Nov 11 at 11:59 PM PT";
 if (typeof window !== "undefined") {
     window.TABOOST_SHOP_DATA = allShopData;
 }
